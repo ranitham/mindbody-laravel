@@ -1,0 +1,97 @@
+<?php
+
+
+ function autoload_ee1d82c8232df9aa989e1f850c66c055($class)
+{
+    $classes = array(
+        'Nlocascio\Mindbody\MBOSoap\Staff_Service' => __DIR__ .'/Staff_Service.php',
+        'Nlocascio\Mindbody\MBOSoap\GetStaff' => __DIR__ .'/GetStaff.php',
+        'Nlocascio\Mindbody\MBOSoap\GetStaffRequest' => __DIR__ .'/GetStaffRequest.php',
+        'Nlocascio\Mindbody\MBOSoap\MBRequest' => __DIR__ .'/MBRequest.php',
+        'Nlocascio\Mindbody\MBOSoap\SourceCredentials' => __DIR__ .'/SourceCredentials.php',
+        'Nlocascio\Mindbody\MBOSoap\ArrayOfInt' => __DIR__ .'/ArrayOfInt.php',
+        'Nlocascio\Mindbody\MBOSoap\UserCredentials' => __DIR__ .'/UserCredentials.php',
+        'Nlocascio\Mindbody\MBOSoap\XMLDetailLevel' => __DIR__ .'/XMLDetailLevel.php',
+        'Nlocascio\Mindbody\MBOSoap\ArrayOfString' => __DIR__ .'/ArrayOfString.php',
+        'Nlocascio\Mindbody\MBOSoap\ArrayOfLong' => __DIR__ .'/ArrayOfLong.php',
+        'Nlocascio\Mindbody\MBOSoap\StaffCredentials' => __DIR__ .'/StaffCredentials.php',
+        'Nlocascio\Mindbody\MBOSoap\ArrayOfStaffFilter' => __DIR__ .'/ArrayOfStaffFilter.php',
+        'Nlocascio\Mindbody\MBOSoap\StaffFilter' => __DIR__ .'/StaffFilter.php',
+        'Nlocascio\Mindbody\MBOSoap\GetStaffResponse' => __DIR__ .'/GetStaffResponse.php',
+        'Nlocascio\Mindbody\MBOSoap\GetStaffResult' => __DIR__ .'/GetStaffResult.php',
+        'Nlocascio\Mindbody\MBOSoap\MBResult' => __DIR__ .'/MBResult.php',
+        'Nlocascio\Mindbody\MBOSoap\StatusCode' => __DIR__ .'/StatusCode.php',
+        'Nlocascio\Mindbody\MBOSoap\ArrayOfStaff' => __DIR__ .'/ArrayOfStaff.php',
+        'Nlocascio\Mindbody\MBOSoap\Staff' => __DIR__ .'/Staff.php',
+        'Nlocascio\Mindbody\MBOSoap\MBObject' => __DIR__ .'/MBObject.php',
+        'Nlocascio\Mindbody\MBOSoap\Site' => __DIR__ .'/Site.php',
+        'Nlocascio\Mindbody\MBOSoap\Resource' => __DIR__ .'/Resource.php',
+        'Nlocascio\Mindbody\MBOSoap\ActionCode' => __DIR__ .'/ActionCode.php',
+        'Nlocascio\Mindbody\MBOSoap\ClientService' => __DIR__ .'/ClientService.php',
+        'Nlocascio\Mindbody\MBOSoap\Program' => __DIR__ .'/Program.php',
+        'Nlocascio\Mindbody\MBOSoap\ScheduleType' => __DIR__ .'/ScheduleType.php',
+        'Nlocascio\Mindbody\MBOSoap\SalesRep' => __DIR__ .'/SalesRep.php',
+        'Nlocascio\Mindbody\MBOSoap\Rep' => __DIR__ .'/Rep.php',
+        'Nlocascio\Mindbody\MBOSoap\ClientRelationship' => __DIR__ .'/ClientRelationship.php',
+        'Nlocascio\Mindbody\MBOSoap\Client' => __DIR__ .'/Client.php',
+        'Nlocascio\Mindbody\MBOSoap\ArrayOfClientIndex' => __DIR__ .'/ArrayOfClientIndex.php',
+        'Nlocascio\Mindbody\MBOSoap\ClientIndex' => __DIR__ .'/ClientIndex.php',
+        'Nlocascio\Mindbody\MBOSoap\ArrayOfClientIndexValue' => __DIR__ .'/ArrayOfClientIndexValue.php',
+        'Nlocascio\Mindbody\MBOSoap\ClientIndexValue' => __DIR__ .'/ClientIndexValue.php',
+        'Nlocascio\Mindbody\MBOSoap\ClientCreditCard' => __DIR__ .'/ClientCreditCard.php',
+        'Nlocascio\Mindbody\MBOSoap\ArrayOfClientRelationship' => __DIR__ .'/ArrayOfClientRelationship.php',
+        'Nlocascio\Mindbody\MBOSoap\ArrayOfRep' => __DIR__ .'/ArrayOfRep.php',
+        'Nlocascio\Mindbody\MBOSoap\ArrayOfSalesRep' => __DIR__ .'/ArrayOfSalesRep.php',
+        'Nlocascio\Mindbody\MBOSoap\ArrayOfCustomClientField' => __DIR__ .'/ArrayOfCustomClientField.php',
+        'Nlocascio\Mindbody\MBOSoap\CustomClientField' => __DIR__ .'/CustomClientField.php',
+        'Nlocascio\Mindbody\MBOSoap\Liability' => __DIR__ .'/Liability.php',
+        'Nlocascio\Mindbody\MBOSoap\ProspectStage' => __DIR__ .'/ProspectStage.php',
+        'Nlocascio\Mindbody\MBOSoap\Location' => __DIR__ .'/Location.php',
+        'Nlocascio\Mindbody\MBOSoap\Relationship' => __DIR__ .'/Relationship.php',
+        'Nlocascio\Mindbody\MBOSoap\SessionType' => __DIR__ .'/SessionType.php',
+        'Nlocascio\Mindbody\MBOSoap\ScheduleItem' => __DIR__ .'/ScheduleItem.php',
+        'Nlocascio\Mindbody\MBOSoap\Appointment' => __DIR__ .'/Appointment.php',
+        'Nlocascio\Mindbody\MBOSoap\AppointmentStatus' => __DIR__ .'/AppointmentStatus.php',
+        'Nlocascio\Mindbody\MBOSoap\ArrayOfResource' => __DIR__ .'/ArrayOfResource.php',
+        'Nlocascio\Mindbody\MBOSoap\Unavailability' => __DIR__ .'/Unavailability.php',
+        'Nlocascio\Mindbody\MBOSoap\Availability' => __DIR__ .'/Availability.php',
+        'Nlocascio\Mindbody\MBOSoap\ArrayOfProgram' => __DIR__ .'/ArrayOfProgram.php',
+        'Nlocascio\Mindbody\MBOSoap\ArrayOfAppointment' => __DIR__ .'/ArrayOfAppointment.php',
+        'Nlocascio\Mindbody\MBOSoap\ArrayOfUnavailability' => __DIR__ .'/ArrayOfUnavailability.php',
+        'Nlocascio\Mindbody\MBOSoap\ArrayOfAvailability' => __DIR__ .'/ArrayOfAvailability.php',
+        'Nlocascio\Mindbody\MBOSoap\ArrayOfLocation' => __DIR__ .'/ArrayOfLocation.php',
+        'Nlocascio\Mindbody\MBOSoap\ArrayOfProviderIDUpdate' => __DIR__ .'/ArrayOfProviderIDUpdate.php',
+        'Nlocascio\Mindbody\MBOSoap\ProviderIDUpdate' => __DIR__ .'/ProviderIDUpdate.php',
+        'Nlocascio\Mindbody\MBOSoap\GetStaffPermissions' => __DIR__ .'/GetStaffPermissions.php',
+        'Nlocascio\Mindbody\MBOSoap\GetStaffPermissionsRequest' => __DIR__ .'/GetStaffPermissionsRequest.php',
+        'Nlocascio\Mindbody\MBOSoap\GetStaffPermissionsResponse' => __DIR__ .'/GetStaffPermissionsResponse.php',
+        'Nlocascio\Mindbody\MBOSoap\GetStaffPermissionsResult' => __DIR__ .'/GetStaffPermissionsResult.php',
+        'Nlocascio\Mindbody\MBOSoap\ArrayOfPermission' => __DIR__ .'/ArrayOfPermission.php',
+        'Nlocascio\Mindbody\MBOSoap\Permission' => __DIR__ .'/Permission.php',
+        'Nlocascio\Mindbody\MBOSoap\AddOrUpdateStaff' => __DIR__ .'/AddOrUpdateStaff.php',
+        'Nlocascio\Mindbody\MBOSoap\AddOrUpdateStaffRequest' => __DIR__ .'/AddOrUpdateStaffRequest.php',
+        'Nlocascio\Mindbody\MBOSoap\AddOrUpdateStaffResponse' => __DIR__ .'/AddOrUpdateStaffResponse.php',
+        'Nlocascio\Mindbody\MBOSoap\AddOrUpdateStaffResult' => __DIR__ .'/AddOrUpdateStaffResult.php',
+        'Nlocascio\Mindbody\MBOSoap\GetStaffImgURL' => __DIR__ .'/GetStaffImgURL.php',
+        'Nlocascio\Mindbody\MBOSoap\GetStaffImgURLRequest' => __DIR__ .'/GetStaffImgURLRequest.php',
+        'Nlocascio\Mindbody\MBOSoap\GetStaffImgURLResponse' => __DIR__ .'/GetStaffImgURLResponse.php',
+        'Nlocascio\Mindbody\MBOSoap\GetStaffImgURLResult' => __DIR__ .'/GetStaffImgURLResult.php',
+        'Nlocascio\Mindbody\MBOSoap\ValidateStaffLogin' => __DIR__ .'/ValidateStaffLogin.php',
+        'Nlocascio\Mindbody\MBOSoap\ValidateLoginRequest' => __DIR__ .'/ValidateLoginRequest.php',
+        'Nlocascio\Mindbody\MBOSoap\ValidateStaffLoginResponse' => __DIR__ .'/ValidateStaffLoginResponse.php',
+        'Nlocascio\Mindbody\MBOSoap\ValidateLoginResult' => __DIR__ .'/ValidateLoginResult.php',
+        'Nlocascio\Mindbody\MBOSoap\GetSalesReps' => __DIR__ .'/GetSalesReps.php',
+        'Nlocascio\Mindbody\MBOSoap\GetSalesRepsRequest' => __DIR__ .'/GetSalesRepsRequest.php',
+        'Nlocascio\Mindbody\MBOSoap\GetSalesRepsResponse' => __DIR__ .'/GetSalesRepsResponse.php',
+        'Nlocascio\Mindbody\MBOSoap\GetSalesRepsResult' => __DIR__ .'/GetSalesRepsResult.php'
+    );
+    if (!empty($classes[$class])) {
+        include $classes[$class];
+    };
+}
+
+spl_autoload_register('autoload_ee1d82c8232df9aa989e1f850c66c055');
+
+// Do nothing. The rest is just leftovers from the code generation.
+{
+}

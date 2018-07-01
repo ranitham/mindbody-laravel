@@ -2,9 +2,11 @@
 
 namespace Nlocascio\Mindbody;
 
+use Nlocascio\Mindbody\Exceptions\MindbodyErrorException;
 use Nlocascio\Mindbody\Traits\ProvidesMindbodyCredentials;
 use Nlocascio\Mindbody\Traits\ProvidesSoapClient;
 use Nlocascio\Mindbody\Traits\ValidatesApiResponses;
+
 
 class Mindbody
 {
@@ -40,6 +42,7 @@ class Mindbody
      * @param $method
      * @param array $parameters
      * @return mixed
+     * @throws MindbodyErrorException
      */
     public function __call($method, array $parameters)
     {
@@ -56,37 +59,21 @@ class Mindbody
 
     /**
      * @param $methodName
-     * @param $request
-     * @return mixed
+     * @param array|\Nlocascio\Mindbody\MBOSoap\MBRequest $request
+     * @return \Nlocascio\Mindbody\MBOSoap\MBResult
+     * @throws MindbodyErrorException
      */
     private function callMindbodyApi($methodName, $request)
     {
         $client = $this->getSoapClientForMethod($methodName);
 
         $reflector = new \ReflectionObject($client);
-        $argClass = $reflector->getNamespaceName() . "\\". $methodName;
-        $reqClass = $argClass . "Request";
-
-
-        $creds = $this->getSourceCredentials();
-
-        $credClass = $reflector->getNamespaceName()."\\"."SourceCredentials";
-
-        $sourceCreds = new $credClass();
-        $sourceCreds->setSourceName($creds['SourceName']);
-        $sourceCreds->setPassword($creds['Password']);
-        $sourceCreds->setSiteIDs($creds['SiteIDs']);
-
-        $creds = $this->getUserCredentials();
-        $credClass = $reflector->getNamespaceName()."\\"."UserCredentials";
-        $userCreds = new $credClass();
-        $userCreds->setUserName($creds['Username']);
-        $userCreds->setPassword($creds['Password']);
-        $userCreds->setSiteIDs($creds['SiteIDs']);
+        $requestWrapper = $reflector->getNamespaceName() . "\\". $methodName;
 
 
         if(is_array($request))
         {
+            $reqClass = $requestWrapper . "Request";
             $req = new $reqClass;
             foreach ($request as $key => $value)
             {
@@ -95,18 +82,14 @@ class Mindbody
             }
 
 
-            $arg = new $argClass($req);
-            $request = $arg;
+            $request = $req;
         }
 
-        $request->getRequest()->setSourceCredentials($sourceCreds)->setUserCredentials($userCreds);
+        $request->setSourceCredentials($this->getSourceCredentials())->setUserCredentials($this->getUserCredentials());
+        $wrappedRequest = new $requestWrapper($request);
 
-        $response = $client->$methodName($request);
+        $response = $client->$methodName($wrappedRequest);
 
-/*        $response = $client->$methodName([
-            'Request' => array_merge($this->getCredentials(), $request)
-        ])->{$methodName . 'Result'};
-*/
         $resultname = 'get'. $methodName . 'Result';
         return $response->$resultname();
     }

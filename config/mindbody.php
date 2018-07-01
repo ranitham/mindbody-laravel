@@ -1,14 +1,5 @@
 <?php
 
-$context = stream_context_create([
-    'ssl' => [
-        // set some SSL/TLS specific options
-        'verify_peer' => false,
-        'verify_peer_name' => false,
-        'allow_self_signed' => true
-    ]
-]);
-
 return [
     'default' => 'mindbody',
 
@@ -32,37 +23,20 @@ return [
             'endpoints' => [
                 'AppointmentService' => "https://api.mindbodyonline.com/0_5_1/AppointmentService.asmx?WSDL",
                 'ClassService'       => "https://api.mindbodyonline.com/0_5_1/ClassService.asmx?WSDL",
-                'ClassService'      => "https://api.mindbodyonline.com/0_5_1/ClassService.asmx?WSDL",
+                'ClientService'      => "https://api.mindbodyonline.com/0_5_1/ClientService.asmx?WSDL",
                 'SaleService'        => "https://api.mindbodyonline.com/0_5_1/SaleService.asmx?WSDL",
                 'SiteService'        => "https://api.mindbodyonline.com/0_5_1/SiteService.asmx?WSDL",
                 'StaffService'       => "https://api.mindbodyonline.com/0_5_1/StaffService.asmx?WSDL",
             ],
 
             'services' => [
-                'AppointmentService'    => \Nlocascio\Mindbody\MBOSoap\AppointmentService\Appointment_Service::class,
-                'ClassService'          => \Nlocascio\Mindbody\MBOSoap\ClassService\Class_Service::class,
-                'ClassService'         => \Nlocascio\Mindbody\MBOSoap\ClientService\Client_Service::class,
-                'SaleService'           => \Nlocascio\Mindbody\MBOSoap\SaleService\Sale_Service::class,
-                'SiteService'           => \Nlocascio\Mindbody\MBOSoap\SiteService\Site_Service::class,
-                'StaffService'          => Nlocascio\Mindbody\MBOSoap\StaffService\Staff_Service::class,
+                'AppointmentService'    => \Nlocascio\Mindbody\MBOSoap\Appointment_Service::class,
+                'ClassService'          => \Nlocascio\Mindbody\MBOSoap\Class_Service::class,
+                'ClientService'         => \Nlocascio\Mindbody\MBOSoap\Client_Service::class,
+                'SaleService'           => \Nlocascio\Mindbody\MBOSoap\Sale_Service::class,
+                'SiteService'           => \Nlocascio\Mindbody\MBOSoap\Site_Service::class,
+                'StaffService'          => Nlocascio\Mindbody\MBOSoap\Staff_Service::class,
             ],
         ]
     ],
-
-
-
-
-    'soap_options' => [
-        'soap_version' => SOAP_1_1,
-        'features'     => SOAP_USE_XSI_ARRAY_TYPE,
-        'exceptions'   => true,
-        'keep_alive'   => true,
-        'trace'        => true,
-        'compression' => SOAP_COMPRESSION_ACCEPT | SOAP_COMPRESSION_GZIP,
-        'encoding'     => 'UTF-8',
-        'proxy_host'    => 'localhost',
-        'proxy_port'    => 8888,
-        'cache_wsdl'    => WSDL_CACHE_BOTH,
-        'stream_context' => $context
-    ]
 ];

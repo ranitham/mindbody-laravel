@@ -3,11 +3,12 @@
 namespace Nlocascio\Mindbody\Traits;
 
 use Nlocascio\Mindbody\Exceptions\MindbodyErrorException;
+use Nlocascio\Mindbody\MBOSoap\MBResult;
 
 trait ValidatesApiResponses
 {
     /**
-     * @param $response
+     * @param MBResult $response
      * @throws MindbodyErrorException
      */
     private function validateResponse($response)

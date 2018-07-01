@@ -2,6 +2,9 @@
 
 namespace Nlocascio\Mindbody\Traits;
 
+use Nlocascio\Mindbody\MBOSoap\SourceCredentials;
+use Nlocascio\Mindbody\MBOSoap\UserCredentials;
+
 trait ProvidesMindbodyCredentials
 {
     /**
@@ -21,26 +24,28 @@ trait ProvidesMindbodyCredentials
     }
 
     /**
-     * @return array
+     * @return SourceCredentials
      */
     protected function getSourceCredentials()
     {
-        return [
-            'SourceName' => $this->settings[$this->connection]['source_credentials']['username'],
-            'Password' => $this->settings[$this->connection]['source_credentials']['password'],
-            'SiteIDs'  => $this->settings[$this->connection]['site_ids']
-        ];
+        $creds = new SourceCredentials();
+        $creds->setSourceName($this->settings[$this->connection]['source_credentials']['username'])
+            ->setPassword($this->settings[$this->connection]['source_credentials']['password'])
+            ->setSiteIDs($this->settings[$this->connection]['site_ids']);
+
+        return $creds;
     }
 
     /**
-     * @return array|null
+     * @return UserCredentials
      */
     protected function getUserCredentials()
     {
-        return [
-            'Username' => $this->settings[$this->connection]['user_credentials']['username'],
-            'Password' => $this->settings[$this->connection]['user_credentials']['password'],
-            'SiteIDs'  => $this->settings[$this->connection]['site_ids']
-        ];
+        $creds = new UserCredentials();
+        $creds->setUsername($this->settings[$this->connection]['user_credentials']['username'])
+            ->setPassword($this->settings[$this->connection]['user_credentials']['password'])
+            ->setSiteIDs($this->settings[$this->connection]['site_ids']);
+
+        return $creds;
     }
 }

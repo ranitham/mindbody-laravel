@@ -4,6 +4,9 @@ namespace Nlocascio\Mindbody\Tests;
 
 use InvalidArgumentException;
 use Nlocascio\Mindbody\Exceptions\MindbodyErrorException;
+use Nlocascio\Mindbody\MBOSoap\ArrayOfString;
+use Nlocascio\Mindbody\MBOSoap\GetClientsRequest;
+use Nlocascio\Mindbody\MBOSoap\XMLDetailLevel;
 use Nlocascio\Mindbody\Mindbody;
 use Nlocascio\Mindbody\Tests\TestCase as BaseTestCase;
 
@@ -99,7 +102,7 @@ class MindbodyTest extends BaseTestCase
         $response = $mindbody->GetClients([
             'XMLDetail' => 'Bare',
             'PageSize' => 500,
-            'Fields'            => [
+            'Fields' => [
                 'Clients.FirstName',
                 'Clients.LastName'
             ],
@@ -108,4 +111,29 @@ class MindbodyTest extends BaseTestCase
 
         $this->assertCount(500, $response->Clients->Client);
     }
+
+    /** @test */
+    public function it_retrieves_all_clients_using_classmap()
+    {
+        $mindbody = $this->app->make(Mindbody::class);
+
+        $fields = new ArrayOfString();
+        $fields->setString([
+            'Clients.FirstName',
+            'Clients.LastName'
+        ]);
+
+        $req = (new GetClientsRequest())
+            ->setSearchText('')
+            ->setFields($fields)
+            ->setXMLDetail(XMLDetailLevel::Full)
+            ->setPageSize(500);
+
+        $response = $mindbody->GetClients($req);
+
+
+        $this->assertCount(500, $response->Clients->Client);
+    }
+
+
 }
