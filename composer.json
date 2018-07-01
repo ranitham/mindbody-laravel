@@ -19,7 +19,8 @@
     "require-dev": {
         "vlucas/phpdotenv": "^2.4",
         "orchestra/testbench": "~3.0",
-        "phpunit/phpunit": "^5.4"
+        "phpunit/phpunit": "^5.4",
+        "wsdl2phpgenerator/wsdl2phpgenerator": "^3.4"
     },
     "autoload": {
         "psr-4": {

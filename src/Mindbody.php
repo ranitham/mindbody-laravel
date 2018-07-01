@@ -59,15 +59,56 @@ class Mindbody
      * @param $request
      * @return mixed
      */
-    private function callMindbodyApi($methodName, array $request = [])
+    private function callMindbodyApi($methodName, $request)
     {
         $client = $this->getSoapClientForMethod($methodName);
 
-        $response = $client->$methodName([
+        $reflector = new \ReflectionObject($client);
+        $argClass = $reflector->getNamespaceName() . "\\". $methodName;
+        $reqClass = $argClass . "Request";
+
+
+        $creds = $this->getSourceCredentials();
+
+        $credClass = $reflector->getNamespaceName()."\\"."SourceCredentials";
+
+        $sourceCreds = new $credClass();
+        $sourceCreds->setSourceName($creds['SourceName']);
+        $sourceCreds->setPassword($creds['Password']);
+        $sourceCreds->setSiteIDs($creds['SiteIDs']);
+
+        $creds = $this->getUserCredentials();
+        $credClass = $reflector->getNamespaceName()."\\"."UserCredentials";
+        $userCreds = new $credClass();
+        $userCreds->setUserName($creds['Username']);
+        $userCreds->setPassword($creds['Password']);
+        $userCreds->setSiteIDs($creds['SiteIDs']);
+
+
+        if(is_array($request))
+        {
+            $req = new $reqClass;
+            foreach ($request as $key => $value)
+            {
+                $setter = "set".$key;
+                $req->$setter($value);
+            }
+
+
+            $arg = new $argClass($req);
+            $request = $arg;
+        }
+
+        $request->getRequest()->setSourceCredentials($sourceCreds)->setUserCredentials($userCreds);
+
+        $response = $client->$methodName($request);
+
+/*        $response = $client->$methodName([
             'Request' => array_merge($this->getCredentials(), $request)
         ])->{$methodName . 'Result'};
-
-        return $response;
+*/
+        $resultname = 'get'. $methodName . 'Result';
+        return $response->$resultname();
     }
 
     /**

@@ -12,8 +12,10 @@ trait ValidatesApiResponses
      */
     private function validateResponse($response)
     {
-        if ($response->ErrorCode != 200) {
-            throw new MindbodyErrorException("API Error $response->ErrorCode: $response->Message", $response->ErrorCode);
+        if ($response->getErrorCode() != 200) {
+            $ec = $response->getErrorCode();
+            $msg = $response->getMessage();
+            throw new MindbodyErrorException("API Error $ec: $msg", $ec);
         }
     }
 }
