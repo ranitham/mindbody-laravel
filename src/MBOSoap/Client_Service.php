@@ -127,7 +127,7 @@ class Client_Service extends \SoapClient
   'AddClientFormulaNoteResponse' => 'Nlocascio\\Mindbody\\MBOSoap\\AddClientFormulaNoteResponse',
   'AddClientFormulaNoteResult' => 'Nlocascio\\Mindbody\\MBOSoap\\AddClientFormulaNoteResult',
   'DeleteClientFormulaNote' => 'Nlocascio\\Mindbody\\MBOSoap\\DeleteClientFormulaNote',
-  'DeleteCientFormulaNoteRequest' => 'Nlocascio\\Mindbody\\MBOSoap\\DeleteCientFormulaNoteRequest',
+  'DeleteCientFormulaNoteRequest' => 'Nlocascio\\Mindbody\\MBOSoap\\DeleteClientFormulaNoteRequest',
   'DeleteClientFormulaNoteResponse' => 'Nlocascio\\Mindbody\\MBOSoap\\DeleteClientFormulaNoteResponse',
   'DeleteClientFormulaNoteResult' => 'Nlocascio\\Mindbody\\MBOSoap\\DeleteClientFormulaNoteResult',
   'GetClientReferralTypes' => 'Nlocascio\\Mindbody\\MBOSoap\\GetClientReferralTypes',
@@ -194,7 +194,7 @@ class Client_Service extends \SoapClient
   'UpdateClientServicesResponse' => 'Nlocascio\\Mindbody\\MBOSoap\\UpdateClientServicesResponse',
   'UpdateClientServicesResult' => 'Nlocascio\\Mindbody\\MBOSoap\\UpdateClientServicesResult',
   'SendUserNewPassword' => 'Nlocascio\\Mindbody\\MBOSoap\\SendUserNewPassword',
-  'ClientSendUserNewPasswordRequest' => 'Nlocascio\\Mindbody\\MBOSoap\\ClientSendUserNewPasswordRequest',
+  'ClientSendUserNewPasswordRequest' => 'Nlocascio\\Mindbody\\MBOSoap\\SendUserNewPasswordRequest',
   'SendUserNewPasswordResponse' => 'Nlocascio\\Mindbody\\MBOSoap\\SendUserNewPasswordResponse',
   'ClientSendUserNewPasswordResult' => 'Nlocascio\\Mindbody\\MBOSoap\\ClientSendUserNewPasswordResult',
 );

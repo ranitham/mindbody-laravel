@@ -14,7 +14,8 @@
     ],
     "require": {
         "php": "^7.0",
-        "illuminate/support": ">=5.1"
+        "illuminate/support": ">=5.1",
+        "phpdocumentor/reflection": "^3.0"
     },
     "require-dev": {
         "vlucas/phpdotenv": "^2.4",
@@ -31,5 +32,8 @@
         "psr-4": {
             "Nlocascio\\Mindbody\\Tests\\": "tests"
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+
 }

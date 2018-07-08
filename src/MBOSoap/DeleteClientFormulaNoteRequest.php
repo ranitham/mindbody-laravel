@@ -2,7 +2,7 @@
 
 namespace Nlocascio\Mindbody\MBOSoap;
 
-class DeleteCientFormulaNoteRequest extends MBRequest
+class DeleteClientFormulaNoteRequest extends MBRequest
 {
 
     /**
@@ -34,7 +34,7 @@ class DeleteCientFormulaNoteRequest extends MBRequest
 
     /**
      * @param int $FormulaNoteID
-     * @return \Nlocascio\Mindbody\MBOSoap\DeleteCientFormulaNoteRequest
+     * @return \Nlocascio\Mindbody\MBOSoap\DeleteClientFormulaNoteRequest
      */
     public function setFormulaNoteID($FormulaNoteID)
     {
@@ -52,7 +52,7 @@ class DeleteCientFormulaNoteRequest extends MBRequest
 
     /**
      * @param string $ClientID
-     * @return \Nlocascio\Mindbody\MBOSoap\DeleteCientFormulaNoteRequest
+     * @return \Nlocascio\Mindbody\MBOSoap\DeleteClientFormulaNoteRequest
      */
     public function setClientID($ClientID)
     {
