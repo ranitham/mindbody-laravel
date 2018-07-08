@@ -36,3 +36,6 @@ sed -i 's/\@var dateTime\[\]/\@var \\Carbon\\Carbon\[\]/g' ArrayOfDateTime.php
 files=$(grep -l Carbon *.php) && echo $files | xargs sed -i 's/return false/return null/g'
 
 popd
+
+#Create method signatures
+grep --no-filename "public function" MBOSoap/*_Service.php | grep -v __construct | sed 's/public function\s*\([a-zA-Z]*\)(/* @method \1Result \1(/g' > methods
