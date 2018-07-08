@@ -4,7 +4,7 @@
  * https://github.com/famoser/mindbodyonline-api-php-wrapper
  */
 
-include_once "../../vendor/autoload.php";
+include_once "../vendor/autoload.php";
 
 $appointmentServiceWSDL = "https://api.mindbodyonline.com/0_5_1/AppointmentService.asmx?WSDL";
 $classServiceWSDL = "https://api.mindbodyonline.com/0_5_1/ClassService.asmx?WSDL";
@@ -28,7 +28,7 @@ foreach ($services as $service) {
     @$generator->generate(
         new \Wsdl2PhpGenerator\Config(array(
             'inputFile' => $service,
-            'outputDir' => __DIR__,
+            'outputDir' => __DIR__ . '/MBOSoap',
             'namespaceName' => "Nlocascio\\Mindbody\\MBOSoap",
             'sharedTypes' => true
         ))

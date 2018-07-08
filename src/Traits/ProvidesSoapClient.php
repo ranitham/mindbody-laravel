@@ -14,11 +14,14 @@ trait ProvidesSoapClient
      */
     private function getSoapClientForMethod($methodName)
     {
+        $debug = config('app.debug');
+
+
         foreach ($this->settings[$this->connection]['services'] as $service) {
             try {
                 $reflector = new \ReflectionClass($service);
                 if ($reflector->hasMethod($methodName)) {
-                    return $reflector->newInstance();
+                    return $reflector->newInstance([ 'trace' => ($debug ? 1 : 0)]);
                 }
 
             } catch (\ReflectionException $e) {

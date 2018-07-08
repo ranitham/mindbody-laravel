@@ -1,6 +1,10 @@
 #!/bin/bash
 
+mv MBOSoap MBOSoap.old
+
 php update.php
+
+pushd MBOSoap
 
 # Rename service php files
 for file in *_x0020_*.php; do mv "$file" "${file/_x0020_/_}"; done
@@ -30,3 +34,5 @@ sed -i 's/\@return dateTime/\@return \\Carbon\\Carbon/g' ArrayOfDateTime.php
 sed -i 's/\@param dateTime/\@param \\Carbon\\Carbon/g' ArrayOfDateTime.php
 sed -i 's/\@var dateTime\[\]/\@var \\Carbon\\Carbon\[\]/g' ArrayOfDateTime.php
 files=$(grep -l Carbon *.php) && echo $files | xargs sed -i 's/return false/return null/g'
+
+popd

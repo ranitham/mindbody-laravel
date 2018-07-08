@@ -13,7 +13,7 @@ class ArrayOfClass implements \ArrayAccess, \Iterator, \Countable
     
     public function __construct()
     {
-
+    
     }
 
     /**
