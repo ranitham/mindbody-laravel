@@ -176,10 +176,9 @@ class Mindbody
         $response = $client->$methodName($wrappedRequest);
 
 
-        if (config('app.debug')) {
+        if (config('mindbody.debug')) {
             $dom = new DOMDocument('1.0', 'iso-8859-1');
             $dom->preserveWhiteSpace = false;
-            $dom->formatOutput = true;
 
             $dom->loadXML($client->__getLastRequest());
 

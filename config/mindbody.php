@@ -2,6 +2,7 @@
 
 return [
     'default' => 'mindbody',
+    'debug' => env('MINDBODY_DEBUG', false),
 
     'connections' => [
         'mindbody' => [

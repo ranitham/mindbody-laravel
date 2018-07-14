@@ -14,14 +14,31 @@ trait ProvidesSoapClient
      */
     private function getSoapClientForMethod($methodName)
     {
-        $debug = config('app.debug');
+        $debug = config('mindbody.debug');
+
+        $scOptions = [
+            'ssl' => [
+                'crypto_method' => STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT,
+                'ciphers' => 'SHA256',
+                'verify_peer' => false,
+                'verify_peer_name' => false,
+                'allow_self_signed' => true
+            ],
+        ];
+
+        $sc = stream_context_create($scOptions);
+
 
 
         foreach ($this->settings[$this->connection]['services'] as $service) {
             try {
                 $reflector = new \ReflectionClass($service);
                 if ($reflector->hasMethod($methodName)) {
-                    return $reflector->newInstance([ 'trace' => ($debug ? 1 : 0)]);
+                    return $reflector->newInstance([
+                        'trace' => $debug,
+                        'stream_context' => $sc,
+
+                    ]);
                 }
 
             } catch (\ReflectionException $e) {
