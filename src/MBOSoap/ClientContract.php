@@ -61,9 +61,9 @@ class ClientContract extends MBObject
     {
       parent::__construct();
       $this->SiteID = $SiteID;
-      $this->AgreementDate = $AgreementDate->format(\Carbon\Carbon::ATOM);
-      $this->StartDate = $StartDate->format(\Carbon\Carbon::ATOM);
-      $this->EndDate = $EndDate->format(\Carbon\Carbon::ATOM);
+      $this->AgreementDate = $AgreementDate->format("Y-m-d\TH:i:s");
+      $this->StartDate = $StartDate->format("Y-m-d\TH:i:s");
+      $this->EndDate = $EndDate->format("Y-m-d\TH:i:s");
       $this->AutopayStatus = $AutopayStatus;
     }
 
@@ -143,7 +143,7 @@ class ClientContract extends MBObject
      */
     public function setAgreementDate(\Carbon\Carbon $AgreementDate)
     {
-      $this->AgreementDate = $AgreementDate->format(\Carbon\Carbon::ATOM);
+      $this->AgreementDate = $AgreementDate->format("Y-m-d\TH:i:s");
       return $this;
     }
 
@@ -187,7 +187,7 @@ class ClientContract extends MBObject
      */
     public function setStartDate(\Carbon\Carbon $StartDate)
     {
-      $this->StartDate = $StartDate->format(\Carbon\Carbon::ATOM);
+      $this->StartDate = $StartDate->format("Y-m-d\TH:i:s");
       return $this;
     }
 
@@ -213,7 +213,7 @@ class ClientContract extends MBObject
      */
     public function setEndDate(\Carbon\Carbon $EndDate)
     {
-      $this->EndDate = $EndDate->format(\Carbon\Carbon::ATOM);
+      $this->EndDate = $EndDate->format("Y-m-d\TH:i:s");
       return $this;
     }
 

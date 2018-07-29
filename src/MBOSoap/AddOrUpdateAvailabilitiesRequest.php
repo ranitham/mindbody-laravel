@@ -212,7 +212,7 @@ class AddOrUpdateAvailabilitiesRequest extends MBRequest
       if ($StartDateTime == null) {
        $this->StartDateTime = null;
       } else {
-        $this->StartDateTime = $StartDateTime->format(\Carbon\Carbon::ATOM);
+        $this->StartDateTime = $StartDateTime->format("Y-m-d\TH:i:s");
       }
       return $this;
     }
@@ -242,7 +242,7 @@ class AddOrUpdateAvailabilitiesRequest extends MBRequest
       if ($EndDateTime == null) {
        $this->EndDateTime = null;
       } else {
-        $this->EndDateTime = $EndDateTime->format(\Carbon\Carbon::ATOM);
+        $this->EndDateTime = $EndDateTime->format("Y-m-d\TH:i:s");
       }
       return $this;
     }

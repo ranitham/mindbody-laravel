@@ -138,7 +138,7 @@ class GetStaffRequest extends MBRequest
       if ($StartDateTime == null) {
        $this->StartDateTime = null;
       } else {
-        $this->StartDateTime = $StartDateTime->format(\Carbon\Carbon::ATOM);
+        $this->StartDateTime = $StartDateTime->format("Y-m-d\TH:i:s");
       }
       return $this;
     }

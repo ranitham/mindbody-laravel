@@ -50,10 +50,10 @@ class Semester
     public function __construct($ID, \Carbon\Carbon $StartDate, \Carbon\Carbon $EndDate, $MultiRegistrationDiscount, \Carbon\Carbon $MultiRegistrationDeadline)
     {
       $this->ID = $ID;
-      $this->StartDate = $StartDate->format(\Carbon\Carbon::ATOM);
-      $this->EndDate = $EndDate->format(\Carbon\Carbon::ATOM);
+      $this->StartDate = $StartDate->format("Y-m-d\TH:i:s");
+      $this->EndDate = $EndDate->format("Y-m-d\TH:i:s");
       $this->MultiRegistrationDiscount = $MultiRegistrationDiscount;
-      $this->MultiRegistrationDeadline = $MultiRegistrationDeadline->format(\Carbon\Carbon::ATOM);
+      $this->MultiRegistrationDeadline = $MultiRegistrationDeadline->format("Y-m-d\TH:i:s");
     }
 
     /**
@@ -132,7 +132,7 @@ class Semester
      */
     public function setStartDate(\Carbon\Carbon $StartDate)
     {
-      $this->StartDate = $StartDate->format(\Carbon\Carbon::ATOM);
+      $this->StartDate = $StartDate->format("Y-m-d\TH:i:s");
       return $this;
     }
 
@@ -158,7 +158,7 @@ class Semester
      */
     public function setEndDate(\Carbon\Carbon $EndDate)
     {
-      $this->EndDate = $EndDate->format(\Carbon\Carbon::ATOM);
+      $this->EndDate = $EndDate->format("Y-m-d\TH:i:s");
       return $this;
     }
 
@@ -202,7 +202,7 @@ class Semester
      */
     public function setMultiRegistrationDeadline(\Carbon\Carbon $MultiRegistrationDeadline)
     {
-      $this->MultiRegistrationDeadline = $MultiRegistrationDeadline->format(\Carbon\Carbon::ATOM);
+      $this->MultiRegistrationDeadline = $MultiRegistrationDeadline->format("Y-m-d\TH:i:s");
       return $this;
     }
 

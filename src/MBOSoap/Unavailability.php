@@ -34,8 +34,8 @@ class Unavailability extends ScheduleItem
     {
       parent::__construct();
       $this->ID = $ID;
-      $this->StartDateTime = $StartDateTime->format(\Carbon\Carbon::ATOM);
-      $this->EndDateTime = $EndDateTime->format(\Carbon\Carbon::ATOM);
+      $this->StartDateTime = $StartDateTime->format("Y-m-d\TH:i:s");
+      $this->EndDateTime = $EndDateTime->format("Y-m-d\TH:i:s");
     }
 
     /**
@@ -78,7 +78,7 @@ class Unavailability extends ScheduleItem
      */
     public function setStartDateTime(\Carbon\Carbon $StartDateTime)
     {
-      $this->StartDateTime = $StartDateTime->format(\Carbon\Carbon::ATOM);
+      $this->StartDateTime = $StartDateTime->format("Y-m-d\TH:i:s");
       return $this;
     }
 
@@ -104,7 +104,7 @@ class Unavailability extends ScheduleItem
      */
     public function setEndDateTime(\Carbon\Carbon $EndDateTime)
     {
-      $this->EndDateTime = $EndDateTime->format(\Carbon\Carbon::ATOM);
+      $this->EndDateTime = $EndDateTime->format("Y-m-d\TH:i:s");
       return $this;
     }
 

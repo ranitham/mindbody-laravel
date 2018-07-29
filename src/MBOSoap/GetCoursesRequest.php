@@ -143,7 +143,7 @@ class GetCoursesRequest extends MBRequest
       if ($StartDate == null) {
        $this->StartDate = null;
       } else {
-        $this->StartDate = $StartDate->format(\Carbon\Carbon::ATOM);
+        $this->StartDate = $StartDate->format("Y-m-d\TH:i:s");
       }
       return $this;
     }
@@ -173,7 +173,7 @@ class GetCoursesRequest extends MBRequest
       if ($EndDate == null) {
        $this->EndDate = null;
       } else {
-        $this->EndDate = $EndDate->format(\Carbon\Carbon::ATOM);
+        $this->EndDate = $EndDate->format("Y-m-d\TH:i:s");
       }
       return $this;
     }

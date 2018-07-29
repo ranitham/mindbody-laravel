@@ -206,7 +206,7 @@ class ClientService extends MBObject
       if ($PaymentDate == null) {
        $this->PaymentDate = null;
       } else {
-        $this->PaymentDate = $PaymentDate->format(\Carbon\Carbon::ATOM);
+        $this->PaymentDate = $PaymentDate->format("Y-m-d\TH:i:s");
       }
       return $this;
     }
@@ -236,7 +236,7 @@ class ClientService extends MBObject
       if ($ActiveDate == null) {
        $this->ActiveDate = null;
       } else {
-        $this->ActiveDate = $ActiveDate->format(\Carbon\Carbon::ATOM);
+        $this->ActiveDate = $ActiveDate->format("Y-m-d\TH:i:s");
       }
       return $this;
     }
@@ -266,7 +266,7 @@ class ClientService extends MBObject
       if ($ExpirationDate == null) {
        $this->ExpirationDate = null;
       } else {
-        $this->ExpirationDate = $ExpirationDate->format(\Carbon\Carbon::ATOM);
+        $this->ExpirationDate = $ExpirationDate->format("Y-m-d\TH:i:s");
       }
       return $this;
     }

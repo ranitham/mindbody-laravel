@@ -53,7 +53,7 @@ class UpcomingAutopayEvent
       if ($ScheduleDate == null) {
        $this->ScheduleDate = null;
       } else {
-        $this->ScheduleDate = $ScheduleDate->format(\Carbon\Carbon::ATOM);
+        $this->ScheduleDate = $ScheduleDate->format("Y-m-d\TH:i:s");
       }
       return $this;
     }

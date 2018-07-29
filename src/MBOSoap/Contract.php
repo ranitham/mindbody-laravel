@@ -470,7 +470,7 @@ class Contract extends MBObject
       if ($ClientsChargedOnSpecificDate == null) {
        $this->ClientsChargedOnSpecificDate = null;
       } else {
-        $this->ClientsChargedOnSpecificDate = $ClientsChargedOnSpecificDate->format(\Carbon\Carbon::ATOM);
+        $this->ClientsChargedOnSpecificDate = $ClientsChargedOnSpecificDate->format("Y-m-d\TH:i:s");
       }
       return $this;
     }

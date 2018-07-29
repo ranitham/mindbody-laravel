@@ -71,7 +71,7 @@ class Liability
       if ($AgreementDate == null) {
        $this->AgreementDate = null;
       } else {
-        $this->AgreementDate = $AgreementDate->format(\Carbon\Carbon::ATOM);
+        $this->AgreementDate = $AgreementDate->format("Y-m-d\TH:i:s");
       }
       return $this;
     }

@@ -69,7 +69,7 @@ class GetClientAccountBalancesRequest extends MBRequest
       if ($BalanceDate == null) {
        $this->BalanceDate = null;
       } else {
-        $this->BalanceDate = $BalanceDate->format(\Carbon\Carbon::ATOM);
+        $this->BalanceDate = $BalanceDate->format("Y-m-d\TH:i:s");
       }
       return $this;
     }

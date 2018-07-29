@@ -36,7 +36,7 @@ class FormulaNote extends MBObject
     public function __construct(\Carbon\Carbon $EntryDateTime)
     {
       parent::__construct();
-      $this->EntryDateTime = $EntryDateTime->format(\Carbon\Carbon::ATOM);
+      $this->EntryDateTime = $EntryDateTime->format("Y-m-d\TH:i:s");
     }
 
     /**
@@ -115,7 +115,7 @@ class FormulaNote extends MBObject
      */
     public function setEntryDateTime(\Carbon\Carbon $EntryDateTime)
     {
-      $this->EntryDateTime = $EntryDateTime->format(\Carbon\Carbon::ATOM);
+      $this->EntryDateTime = $EntryDateTime->format("Y-m-d\TH:i:s");
       return $this;
     }
 

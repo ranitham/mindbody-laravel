@@ -60,8 +60,8 @@ class ReserveResourceRequest extends MBRequest
       $this->ResourceID = $ResourceID;
       $this->ClientID = $ClientID;
       $this->StaffID = $StaffID;
-      $this->StartDateTime = $StartDateTime->format(\Carbon\Carbon::ATOM);
-      $this->EndDateTime = $EndDateTime->format(\Carbon\Carbon::ATOM);
+      $this->StartDateTime = $StartDateTime->format("Y-m-d\TH:i:s");
+      $this->EndDateTime = $EndDateTime->format("Y-m-d\TH:i:s");
       $this->LocationID = $LocationID;
       $this->ProgramID = $ProgramID;
     }
@@ -142,7 +142,7 @@ class ReserveResourceRequest extends MBRequest
      */
     public function setStartDateTime(\Carbon\Carbon $StartDateTime)
     {
-      $this->StartDateTime = $StartDateTime->format(\Carbon\Carbon::ATOM);
+      $this->StartDateTime = $StartDateTime->format("Y-m-d\TH:i:s");
       return $this;
     }
 
@@ -168,7 +168,7 @@ class ReserveResourceRequest extends MBRequest
      */
     public function setEndDateTime(\Carbon\Carbon $EndDateTime)
     {
-      $this->EndDateTime = $EndDateTime->format(\Carbon\Carbon::ATOM);
+      $this->EndDateTime = $EndDateTime->format("Y-m-d\TH:i:s");
       return $this;
     }
 

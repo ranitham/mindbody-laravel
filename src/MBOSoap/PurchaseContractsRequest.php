@@ -165,7 +165,7 @@ class PurchaseContractsRequest extends MBRequest
       if ($StartDate == null) {
        $this->StartDate = null;
       } else {
-        $this->StartDate = $StartDate->format(\Carbon\Carbon::ATOM);
+        $this->StartDate = $StartDate->format("Y-m-d\TH:i:s");
       }
       return $this;
     }

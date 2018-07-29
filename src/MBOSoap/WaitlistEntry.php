@@ -62,8 +62,8 @@ class WaitlistEntry
     {
       $this->ID = $ID;
       $this->ClassID = $ClassID;
-      $this->EnrollmentDateForward = $EnrollmentDateForward->format(\Carbon\Carbon::ATOM);
-      $this->RequestDateTime = $RequestDateTime->format(\Carbon\Carbon::ATOM);
+      $this->EnrollmentDateForward = $EnrollmentDateForward->format("Y-m-d\TH:i:s");
+      $this->RequestDateTime = $RequestDateTime->format("Y-m-d\TH:i:s");
       $this->Web = $Web;
       $this->VisitRefNo = $VisitRefNo;
     }
@@ -129,7 +129,7 @@ class WaitlistEntry
       if ($ClassDate == null) {
        $this->ClassDate = null;
       } else {
-        $this->ClassDate = $ClassDate->format(\Carbon\Carbon::ATOM);
+        $this->ClassDate = $ClassDate->format("Y-m-d\TH:i:s");
       }
       return $this;
     }
@@ -192,7 +192,7 @@ class WaitlistEntry
      */
     public function setEnrollmentDateForward(\Carbon\Carbon $EnrollmentDateForward)
     {
-      $this->EnrollmentDateForward = $EnrollmentDateForward->format(\Carbon\Carbon::ATOM);
+      $this->EnrollmentDateForward = $EnrollmentDateForward->format("Y-m-d\TH:i:s");
       return $this;
     }
 
@@ -218,7 +218,7 @@ class WaitlistEntry
      */
     public function setRequestDateTime(\Carbon\Carbon $RequestDateTime)
     {
-      $this->RequestDateTime = $RequestDateTime->format(\Carbon\Carbon::ATOM);
+      $this->RequestDateTime = $RequestDateTime->format("Y-m-d\TH:i:s");
       return $this;
     }
 

@@ -735,7 +735,7 @@ class Client extends MBObject
       if ($CreationDate == null) {
        $this->CreationDate = null;
       } else {
-        $this->CreationDate = $CreationDate->format(\Carbon\Carbon::ATOM);
+        $this->CreationDate = $CreationDate->format("Y-m-d\TH:i:s");
       }
       return $this;
     }
@@ -1161,7 +1161,7 @@ class Client extends MBObject
       if ($BirthDate == null) {
        $this->BirthDate = null;
       } else {
-        $this->BirthDate = $BirthDate->format(\Carbon\Carbon::ATOM);
+        $this->BirthDate = $BirthDate->format("Y-m-d\TH:i:s");
       }
       return $this;
     }
@@ -1191,7 +1191,7 @@ class Client extends MBObject
       if ($FirstAppointmentDate == null) {
        $this->FirstAppointmentDate = null;
       } else {
-        $this->FirstAppointmentDate = $FirstAppointmentDate->format(\Carbon\Carbon::ATOM);
+        $this->FirstAppointmentDate = $FirstAppointmentDate->format("Y-m-d\TH:i:s");
       }
       return $this;
     }
@@ -1329,7 +1329,7 @@ class Client extends MBObject
       if ($LastModifiedDateTime == null) {
        $this->LastModifiedDateTime = null;
       } else {
-        $this->LastModifiedDateTime = $LastModifiedDateTime->format(\Carbon\Carbon::ATOM);
+        $this->LastModifiedDateTime = $LastModifiedDateTime->format("Y-m-d\TH:i:s");
       }
       return $this;
     }

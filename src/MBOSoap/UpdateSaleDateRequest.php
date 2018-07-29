@@ -64,7 +64,7 @@ class UpdateSaleDateRequest extends MBRequest
       if ($SaleDate == null) {
        $this->SaleDate = null;
       } else {
-        $this->SaleDate = $SaleDate->format(\Carbon\Carbon::ATOM);
+        $this->SaleDate = $SaleDate->format("Y-m-d\TH:i:s");
       }
       return $this;
     }

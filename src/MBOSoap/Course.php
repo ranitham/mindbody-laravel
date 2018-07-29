@@ -63,8 +63,8 @@ class Course
     public function __construct($ID, \Carbon\Carbon $StartDate, \Carbon\Carbon $EndDate)
     {
       $this->ID = $ID;
-      $this->StartDate = $StartDate->format(\Carbon\Carbon::ATOM);
-      $this->EndDate = $EndDate->format(\Carbon\Carbon::ATOM);
+      $this->StartDate = $StartDate->format("Y-m-d\TH:i:s");
+      $this->EndDate = $EndDate->format("Y-m-d\TH:i:s");
     }
 
     /**
@@ -161,7 +161,7 @@ class Course
      */
     public function setStartDate(\Carbon\Carbon $StartDate)
     {
-      $this->StartDate = $StartDate->format(\Carbon\Carbon::ATOM);
+      $this->StartDate = $StartDate->format("Y-m-d\TH:i:s");
       return $this;
     }
 
@@ -187,7 +187,7 @@ class Course
      */
     public function setEndDate(\Carbon\Carbon $EndDate)
     {
-      $this->EndDate = $EndDate->format(\Carbon\Carbon::ATOM);
+      $this->EndDate = $EndDate->format("Y-m-d\TH:i:s");
       return $this;
     }
 

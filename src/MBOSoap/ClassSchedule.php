@@ -457,7 +457,7 @@ class ClassSchedule extends MBObject
       if ($StartTime == null) {
        $this->StartTime = null;
       } else {
-        $this->StartTime = $StartTime->format(\Carbon\Carbon::ATOM);
+        $this->StartTime = $StartTime->format("Y-m-d\TH:i:s");
       }
       return $this;
     }
@@ -487,7 +487,7 @@ class ClassSchedule extends MBObject
       if ($EndTime == null) {
        $this->EndTime = null;
       } else {
-        $this->EndTime = $EndTime->format(\Carbon\Carbon::ATOM);
+        $this->EndTime = $EndTime->format("Y-m-d\TH:i:s");
       }
       return $this;
     }
@@ -517,7 +517,7 @@ class ClassSchedule extends MBObject
       if ($StartDate == null) {
        $this->StartDate = null;
       } else {
-        $this->StartDate = $StartDate->format(\Carbon\Carbon::ATOM);
+        $this->StartDate = $StartDate->format("Y-m-d\TH:i:s");
       }
       return $this;
     }
@@ -547,7 +547,7 @@ class ClassSchedule extends MBObject
       if ($EndDate == null) {
        $this->EndDate = null;
       } else {
-        $this->EndDate = $EndDate->format(\Carbon\Carbon::ATOM);
+        $this->EndDate = $EndDate->format("Y-m-d\TH:i:s");
       }
       return $this;
     }

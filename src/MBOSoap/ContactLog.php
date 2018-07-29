@@ -155,7 +155,7 @@ class ContactLog extends MBObject
       if ($CreatedDateTime == null) {
        $this->CreatedDateTime = null;
       } else {
-        $this->CreatedDateTime = $CreatedDateTime->format(\Carbon\Carbon::ATOM);
+        $this->CreatedDateTime = $CreatedDateTime->format("Y-m-d\TH:i:s");
       }
       return $this;
     }
@@ -185,7 +185,7 @@ class ContactLog extends MBObject
       if ($FollowupByDate == null) {
        $this->FollowupByDate = null;
       } else {
-        $this->FollowupByDate = $FollowupByDate->format(\Carbon\Carbon::ATOM);
+        $this->FollowupByDate = $FollowupByDate->format("Y-m-d\TH:i:s");
       }
       return $this;
     }

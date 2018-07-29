@@ -92,7 +92,7 @@ class GetActiveSessionTimesRequest extends MBRequest
       if ($StartTime == null) {
        $this->StartTime = null;
       } else {
-        $this->StartTime = $StartTime->format(\Carbon\Carbon::ATOM);
+        $this->StartTime = $StartTime->format("Y-m-d\TH:i:s");
       }
       return $this;
     }
@@ -122,7 +122,7 @@ class GetActiveSessionTimesRequest extends MBRequest
       if ($EndTime == null) {
        $this->EndTime = null;
       } else {
-        $this->EndTime = $EndTime->format(\Carbon\Carbon::ATOM);
+        $this->EndTime = $EndTime->format("Y-m-d\TH:i:s");
       }
       return $this;
     }

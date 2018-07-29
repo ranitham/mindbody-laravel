@@ -240,7 +240,7 @@ class ClassDescription extends MBObject
       if ($LastUpdated == null) {
        $this->LastUpdated = null;
       } else {
-        $this->LastUpdated = $LastUpdated->format(\Carbon\Carbon::ATOM);
+        $this->LastUpdated = $LastUpdated->format("Y-m-d\TH:i:s");
       }
       return $this;
     }

@@ -30,6 +30,8 @@ files=$(grep -l anyType *.php) && echo $files | xargs sed -i 's/anyType/mixed/g'
 
 # upgrade DateTime to Carbon
 for file in *.php; do sed -i 's/\\DateTime/\\Carbon\\Carbon/g' $file; done
+# Don't use ATOM format as Mindbody doesn't send correct Datetime info
+files=$(grep -l '\\Carbon\\Carbon::ATOM' *.php) && echo $files | xargs sed -i 's/\\Carbon\\Carbon::ATOM/"Y-m-d\\TH:i:s"/g'
 sed -i 's/\@return dateTime/\@return \\Carbon\\Carbon/g' ArrayOfDateTime.php
 sed -i 's/\@param dateTime/\@param \\Carbon\\Carbon/g' ArrayOfDateTime.php
 sed -i 's/\@var dateTime\[\]/\@var \\Carbon\\Carbon\[\]/g' ArrayOfDateTime.php

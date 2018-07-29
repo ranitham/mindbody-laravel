@@ -110,7 +110,7 @@ class ContactLogComment extends MBObject
       if ($CreatedDateTime == null) {
        $this->CreatedDateTime = null;
       } else {
-        $this->CreatedDateTime = $CreatedDateTime->format(\Carbon\Carbon::ATOM);
+        $this->CreatedDateTime = $CreatedDateTime->format("Y-m-d\TH:i:s");
       }
       return $this;
     }

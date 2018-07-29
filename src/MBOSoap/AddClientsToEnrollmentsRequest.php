@@ -135,7 +135,7 @@ class AddClientsToEnrollmentsRequest extends MBRequest
       if ($EnrollDateForward == null) {
        $this->EnrollDateForward = null;
       } else {
-        $this->EnrollDateForward = $EnrollDateForward->format(\Carbon\Carbon::ATOM);
+        $this->EnrollDateForward = $EnrollDateForward->format("Y-m-d\TH:i:s");
       }
       return $this;
     }

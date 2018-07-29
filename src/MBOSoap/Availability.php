@@ -54,8 +54,8 @@ class Availability extends ScheduleItem
     {
       parent::__construct();
       $this->ID = $ID;
-      $this->StartDateTime = $StartDateTime->format(\Carbon\Carbon::ATOM);
-      $this->EndDateTime = $EndDateTime->format(\Carbon\Carbon::ATOM);
+      $this->StartDateTime = $StartDateTime->format("Y-m-d\TH:i:s");
+      $this->EndDateTime = $EndDateTime->format("Y-m-d\TH:i:s");
     }
 
     /**
@@ -152,7 +152,7 @@ class Availability extends ScheduleItem
      */
     public function setStartDateTime(\Carbon\Carbon $StartDateTime)
     {
-      $this->StartDateTime = $StartDateTime->format(\Carbon\Carbon::ATOM);
+      $this->StartDateTime = $StartDateTime->format("Y-m-d\TH:i:s");
       return $this;
     }
 
@@ -178,7 +178,7 @@ class Availability extends ScheduleItem
      */
     public function setEndDateTime(\Carbon\Carbon $EndDateTime)
     {
-      $this->EndDateTime = $EndDateTime->format(\Carbon\Carbon::ATOM);
+      $this->EndDateTime = $EndDateTime->format("Y-m-d\TH:i:s");
       return $this;
     }
 
@@ -207,7 +207,7 @@ class Availability extends ScheduleItem
       if ($BookableEndDateTime == null) {
        $this->BookableEndDateTime = null;
       } else {
-        $this->BookableEndDateTime = $BookableEndDateTime->format(\Carbon\Carbon::ATOM);
+        $this->BookableEndDateTime = $BookableEndDateTime->format("Y-m-d\TH:i:s");
       }
       return $this;
     }

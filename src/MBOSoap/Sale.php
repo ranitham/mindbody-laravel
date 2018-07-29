@@ -54,9 +54,9 @@ class Sale
     public function __construct($ID, \Carbon\Carbon $SaleTime, \Carbon\Carbon $SaleDate, \Carbon\Carbon $SaleDateTime)
     {
       $this->ID = $ID;
-      $this->SaleTime = $SaleTime->format(\Carbon\Carbon::ATOM);
-      $this->SaleDate = $SaleDate->format(\Carbon\Carbon::ATOM);
-      $this->SaleDateTime = $SaleDateTime->format(\Carbon\Carbon::ATOM);
+      $this->SaleTime = $SaleTime->format("Y-m-d\TH:i:s");
+      $this->SaleDate = $SaleDate->format("Y-m-d\TH:i:s");
+      $this->SaleDateTime = $SaleDateTime->format("Y-m-d\TH:i:s");
     }
 
     /**
@@ -99,7 +99,7 @@ class Sale
      */
     public function setSaleTime(\Carbon\Carbon $SaleTime)
     {
-      $this->SaleTime = $SaleTime->format(\Carbon\Carbon::ATOM);
+      $this->SaleTime = $SaleTime->format("Y-m-d\TH:i:s");
       return $this;
     }
 
@@ -125,7 +125,7 @@ class Sale
      */
     public function setSaleDate(\Carbon\Carbon $SaleDate)
     {
-      $this->SaleDate = $SaleDate->format(\Carbon\Carbon::ATOM);
+      $this->SaleDate = $SaleDate->format("Y-m-d\TH:i:s");
       return $this;
     }
 
@@ -151,7 +151,7 @@ class Sale
      */
     public function setSaleDateTime(\Carbon\Carbon $SaleDateTime)
     {
-      $this->SaleDateTime = $SaleDateTime->format(\Carbon\Carbon::ATOM);
+      $this->SaleDateTime = $SaleDateTime->format("Y-m-d\TH:i:s");
       return $this;
     }
 

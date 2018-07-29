@@ -34,8 +34,8 @@ class GetResourcesRequest extends MBRequest
     {
       parent::__construct();
       $this->LocationID = $LocationID;
-      $this->StartDateTime = $StartDateTime->format(\Carbon\Carbon::ATOM);
-      $this->EndDateTime = $EndDateTime->format(\Carbon\Carbon::ATOM);
+      $this->StartDateTime = $StartDateTime->format("Y-m-d\TH:i:s");
+      $this->EndDateTime = $EndDateTime->format("Y-m-d\TH:i:s");
     }
 
     /**
@@ -96,7 +96,7 @@ class GetResourcesRequest extends MBRequest
      */
     public function setStartDateTime(\Carbon\Carbon $StartDateTime)
     {
-      $this->StartDateTime = $StartDateTime->format(\Carbon\Carbon::ATOM);
+      $this->StartDateTime = $StartDateTime->format("Y-m-d\TH:i:s");
       return $this;
     }
 
@@ -122,7 +122,7 @@ class GetResourcesRequest extends MBRequest
      */
     public function setEndDateTime(\Carbon\Carbon $EndDateTime)
     {
-      $this->EndDateTime = $EndDateTime->format(\Carbon\Carbon::ATOM);
+      $this->EndDateTime = $EndDateTime->format("Y-m-d\TH:i:s");
       return $this;
     }
 

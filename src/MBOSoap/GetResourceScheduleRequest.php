@@ -41,7 +41,7 @@ class GetResourceScheduleRequest extends MBRequest
       if ($Date == null) {
        $this->Date = null;
       } else {
-        $this->Date = $Date->format(\Carbon\Carbon::ATOM);
+        $this->Date = $Date->format("Y-m-d\TH:i:s");
       }
       return $this;
     }

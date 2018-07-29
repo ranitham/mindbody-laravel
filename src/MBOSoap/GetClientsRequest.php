@@ -110,7 +110,7 @@ class GetClientsRequest extends MBRequest
       if ($LastModifiedDate == null) {
        $this->LastModifiedDate = null;
       } else {
-        $this->LastModifiedDate = $LastModifiedDate->format(\Carbon\Carbon::ATOM);
+        $this->LastModifiedDate = $LastModifiedDate->format("Y-m-d\TH:i:s");
       }
       return $this;
     }

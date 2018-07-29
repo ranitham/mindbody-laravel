@@ -138,7 +138,7 @@ class GetClassDescriptionsRequest extends MBRequest
       if ($StartClassDateTime == null) {
        $this->StartClassDateTime = null;
       } else {
-        $this->StartClassDateTime = $StartClassDateTime->format(\Carbon\Carbon::ATOM);
+        $this->StartClassDateTime = $StartClassDateTime->format("Y-m-d\TH:i:s");
       }
       return $this;
     }
@@ -168,7 +168,7 @@ class GetClassDescriptionsRequest extends MBRequest
       if ($EndClassDateTime == null) {
        $this->EndClassDateTime = null;
       } else {
-        $this->EndClassDateTime = $EndClassDateTime->format(\Carbon\Carbon::ATOM);
+        $this->EndClassDateTime = $EndClassDateTime->format("Y-m-d\TH:i:s");
       }
       return $this;
     }

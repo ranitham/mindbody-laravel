@@ -74,7 +74,7 @@ class GetSalesRequest extends MBRequest
       if ($StartSaleDateTime == null) {
        $this->StartSaleDateTime = null;
       } else {
-        $this->StartSaleDateTime = $StartSaleDateTime->format(\Carbon\Carbon::ATOM);
+        $this->StartSaleDateTime = $StartSaleDateTime->format("Y-m-d\TH:i:s");
       }
       return $this;
     }
@@ -104,7 +104,7 @@ class GetSalesRequest extends MBRequest
       if ($EndSaleDateTime == null) {
        $this->EndSaleDateTime = null;
       } else {
-        $this->EndSaleDateTime = $EndSaleDateTime->format(\Carbon\Carbon::ATOM);
+        $this->EndSaleDateTime = $EndSaleDateTime->format("Y-m-d\TH:i:s");
       }
       return $this;
     }
