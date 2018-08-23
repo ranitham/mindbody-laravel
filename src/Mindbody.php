@@ -155,7 +155,7 @@ class Mindbody
         $client = $this->getSoapClientForMethod($methodName);
 
         $reflector = new \ReflectionObject($client);
-        $requestWrapper = $reflector->getNamespaceName() . "\\" . $methodName;
+        $requestWrapper = $reflector->getNamespaceName() . "\\" . ucfirst($methodName);
 
 
         if (is_array($request)) {
