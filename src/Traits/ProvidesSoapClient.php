@@ -35,6 +35,10 @@ trait ProvidesSoapClient
                 $reflector = new \ReflectionClass($service);
                 if ($reflector->hasMethod($methodName)) {
                     return $reflector->newInstance([
+                        'exceptions'   => true,
+                        'connection_timeout' => 120,
+                        'keep_alive'   => true,
+                        'cache_wsdl' => WSDL_CACHE_BOTH,
                         'trace' => $debug,
                         'stream_context' => $sc,
 
