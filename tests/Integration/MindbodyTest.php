@@ -4,6 +4,7 @@ namespace Nlocascio\Mindbody\Tests;
 
 use InvalidArgumentException;
 use Nlocascio\Mindbody\Exceptions\MindbodyErrorException;
+use Nlocascio\Mindbody\MBO;
 use Nlocascio\Mindbody\MBOSoap\ArrayOfString;
 use Nlocascio\Mindbody\MBOSoap\GetClientsRequest;
 use Nlocascio\Mindbody\MBOSoap\XMLDetailLevel;
@@ -30,7 +31,7 @@ class MindbodyTest extends BaseTestCase
     public function it_calls_mindbody_static()
     {
 
-        $response = Mindbody::GetSites();
+        $response = MBO::GetSites();
 
         $this->assertEquals($response->Status, 'Success');
     }
@@ -57,11 +58,11 @@ class MindbodyTest extends BaseTestCase
     /** @test */
     public function it_calls_mindbody_static_with_arguments()
     {
-        $response = Mindbody::GetSites([
+        $response = MBO::GetSites([
             'XMLDetail' => 'Full'
         ]);
 
-        $response2 = Mindbody::GetSites([
+        $response2 = MBO::GetSites([
             'XMLDetail' => 'Bare'
         ]);
 
@@ -178,7 +179,7 @@ class MindbodyTest extends BaseTestCase
             ->setXMLDetail(XMLDetailLevel::Full)
             ->setPageSize(500);
 
-        $response = Mindbody::GetClients($req);
+        $response = MBO::GetClients($req);
 
 
         $this->assertCount(500, $response->Clients->Client);

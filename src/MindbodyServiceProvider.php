@@ -31,7 +31,7 @@ class MindbodyServiceProvider extends ServiceProvider {
             $connection = config('mindbody.default');
             $settings = config('mindbody.connections');
 
-            return new MindbodyClient($connection, $settings);
+            return new Mindbody($connection, $settings);
         });
     }
 
