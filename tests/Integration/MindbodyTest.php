@@ -27,6 +27,15 @@ class MindbodyTest extends BaseTestCase
     }
 
     /** @test */
+    public function it_calls_mindbody_static()
+    {
+
+        $response = Mindbody::GetSites();
+
+        $this->assertEquals($response->Status, 'Success');
+    }
+
+    /** @test */
     public function it_calls_mindbody_with_arguments()
     {
         $mindbody = $this->app->make(Mindbody::class);
@@ -44,6 +53,25 @@ class MindbodyTest extends BaseTestCase
         $this->assertEquals($response2->Status, 'Success');
         $this->assertEquals($response2->XMLDetail, 'Bare');
     }
+
+    /** @test */
+    public function it_calls_mindbody_static_with_arguments()
+    {
+        $response = Mindbody::GetSites([
+            'XMLDetail' => 'Full'
+        ]);
+
+        $response2 = Mindbody::GetSites([
+            'XMLDetail' => 'Bare'
+        ]);
+
+        $this->assertEquals($response->Status, 'Success');
+        $this->assertEquals($response->XMLDetail, 'Full');
+        $this->assertEquals($response2->Status, 'Success');
+        $this->assertEquals($response2->XMLDetail, 'Bare');
+    }
+
+
 
     /** @test */
     public function it_throws_an_exception_if_environment_variables_are_not_set()
@@ -135,5 +163,25 @@ class MindbodyTest extends BaseTestCase
         $this->assertCount(500, $response->Clients->Client);
     }
 
+    /** @test */
+    public function it_retrieves_all_clients_using_static_classmap()
+    {
+        $fields = new ArrayOfString();
+        $fields->setString([
+            'Clients.FirstName',
+            'Clients.LastName'
+        ]);
+
+        $req = (new GetClientsRequest())
+            ->setSearchText('')
+            ->setFields($fields)
+            ->setXMLDetail(XMLDetailLevel::Full)
+            ->setPageSize(500);
+
+        $response = Mindbody::GetClients($req);
+
+
+        $this->assertCount(500, $response->Clients->Client);
+    }
 
 }
