@@ -16,7 +16,7 @@ trait ValidatesApiResponses
         if ($response->getErrorCode() != 200) {
             $ec = $response->getErrorCode();
             $msg = $response->getMessage();
-            throw new MindbodyErrorException("API Error $ec: $msg", $ec);
+            throw new MindbodyErrorException($msg, $ec);
         }
     }
 }
