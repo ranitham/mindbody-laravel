@@ -6,12 +6,12 @@ class DeleteClientFormulaNote
 {
 
     /**
-     * @var DeleteClientFormulaNoteRequest $Request
+     * @var DeleteCientFormulaNoteRequest $Request
      */
     public $Request = null;
 
     /**
-     * @param DeleteClientFormulaNoteRequest $Request
+     * @param DeleteCientFormulaNoteRequest $Request
      */
     public function __construct($Request)
     {
@@ -19,7 +19,7 @@ class DeleteClientFormulaNote
     }
 
     /**
-     * @return DeleteClientFormulaNoteRequest
+     * @return DeleteCientFormulaNoteRequest
      */
     public function getRequest()
     {
@@ -27,7 +27,7 @@ class DeleteClientFormulaNote
     }
 
     /**
-     * @param DeleteClientFormulaNoteRequest $Request
+     * @param DeleteCientFormulaNoteRequest $Request
      * @return \Nlocascio\Mindbody\MBOSoap\DeleteClientFormulaNote
      */
     public function setRequest($Request)

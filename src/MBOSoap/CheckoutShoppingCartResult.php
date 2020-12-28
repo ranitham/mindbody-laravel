@@ -11,6 +11,11 @@ class CheckoutShoppingCartResult extends MBResult
     public $ShoppingCart = null;
 
     /**
+     * @var ArrayOfTransactionResponse $Transactions
+     */
+    public $Transactions = null;
+
+    /**
      * @var ArrayOfClass $Classes
      */
     public $Classes = null;
@@ -53,6 +58,24 @@ class CheckoutShoppingCartResult extends MBResult
     public function setShoppingCart($ShoppingCart)
     {
       $this->ShoppingCart = $ShoppingCart;
+      return $this;
+    }
+
+    /**
+     * @return ArrayOfTransactionResponse
+     */
+    public function getTransactions()
+    {
+      return $this->Transactions;
+    }
+
+    /**
+     * @param ArrayOfTransactionResponse $Transactions
+     * @return \Nlocascio\Mindbody\MBOSoap\CheckoutShoppingCartResult
+     */
+    public function setTransactions($Transactions)
+    {
+      $this->Transactions = $Transactions;
       return $this;
     }
 

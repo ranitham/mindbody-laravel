@@ -2,7 +2,7 @@
 
 namespace Nlocascio\Mindbody\MBOSoap;
 
-class SendUserNewPasswordRequest extends MBRequest
+class ClientSendUserNewPasswordRequest extends MBRequest
 {
 
     /**
@@ -36,7 +36,7 @@ class SendUserNewPasswordRequest extends MBRequest
 
     /**
      * @param string $UserEmail
-     * @return \Nlocascio\Mindbody\MBOSoap\SendUserNewPasswordRequest
+     * @return \Nlocascio\Mindbody\MBOSoap\ClientSendUserNewPasswordRequest
      */
     public function setUserEmail($UserEmail)
     {
@@ -54,7 +54,7 @@ class SendUserNewPasswordRequest extends MBRequest
 
     /**
      * @param string $UserFirstName
-     * @return \Nlocascio\Mindbody\MBOSoap\SendUserNewPasswordRequest
+     * @return \Nlocascio\Mindbody\MBOSoap\ClientSendUserNewPasswordRequest
      */
     public function setUserFirstName($UserFirstName)
     {
@@ -72,7 +72,7 @@ class SendUserNewPasswordRequest extends MBRequest
 
     /**
      * @param string $UserLastName
-     * @return \Nlocascio\Mindbody\MBOSoap\SendUserNewPasswordRequest
+     * @return \Nlocascio\Mindbody\MBOSoap\ClientSendUserNewPasswordRequest
      */
     public function setUserLastName($UserLastName)
     {

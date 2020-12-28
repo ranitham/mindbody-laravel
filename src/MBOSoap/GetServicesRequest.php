@@ -51,6 +51,11 @@ class GetServicesRequest extends MBRequest
     public $StaffID = null;
 
     /**
+     * @var boolean $UseOnlineStoreTaxRate
+     */
+    public $UseOnlineStoreTaxRate = null;
+
+    /**
      * @param int $LocationID
      * @param boolean $HideRelatedPrograms
      */
@@ -220,6 +225,24 @@ class GetServicesRequest extends MBRequest
     public function setStaffID($StaffID)
     {
       $this->StaffID = $StaffID;
+      return $this;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getUseOnlineStoreTaxRate()
+    {
+      return $this->UseOnlineStoreTaxRate;
+    }
+
+    /**
+     * @param boolean $UseOnlineStoreTaxRate
+     * @return \Nlocascio\Mindbody\MBOSoap\GetServicesRequest
+     */
+    public function setUseOnlineStoreTaxRate($UseOnlineStoreTaxRate)
+    {
+      $this->UseOnlineStoreTaxRate = $UseOnlineStoreTaxRate;
       return $this;
     }
 

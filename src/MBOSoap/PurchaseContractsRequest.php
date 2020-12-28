@@ -56,16 +56,33 @@ class PurchaseContractsRequest extends MBRequest
     public $SendNotifications = null;
 
     /**
+     * @var int $SalesRepId
+     */
+    public $SalesRepId = null;
+
+    /**
+     * @var boolean $ConsumerPresent
+     */
+    public $ConsumerPresent = null;
+
+    /**
+     * @var string $PaymentAuthenticationCallbackUrl
+     */
+    public $PaymentAuthenticationCallbackUrl = null;
+
+    /**
      * @param int $LocationID
      * @param int $ContractID
      * @param boolean $SendNotifications
+     * @param boolean $ConsumerPresent
      */
-    public function __construct($LocationID, $ContractID, $SendNotifications)
+    public function __construct($LocationID, $ContractID, $SendNotifications, $ConsumerPresent)
     {
       parent::__construct();
       $this->LocationID = $LocationID;
       $this->ContractID = $ContractID;
       $this->SendNotifications = $SendNotifications;
+      $this->ConsumerPresent = $ConsumerPresent;
     }
 
     /**
@@ -257,6 +274,60 @@ class PurchaseContractsRequest extends MBRequest
     public function setSendNotifications($SendNotifications)
     {
       $this->SendNotifications = $SendNotifications;
+      return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSalesRepId()
+    {
+      return $this->SalesRepId;
+    }
+
+    /**
+     * @param int $SalesRepId
+     * @return \Nlocascio\Mindbody\MBOSoap\PurchaseContractsRequest
+     */
+    public function setSalesRepId($SalesRepId)
+    {
+      $this->SalesRepId = $SalesRepId;
+      return $this;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getConsumerPresent()
+    {
+      return $this->ConsumerPresent;
+    }
+
+    /**
+     * @param boolean $ConsumerPresent
+     * @return \Nlocascio\Mindbody\MBOSoap\PurchaseContractsRequest
+     */
+    public function setConsumerPresent($ConsumerPresent)
+    {
+      $this->ConsumerPresent = $ConsumerPresent;
+      return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPaymentAuthenticationCallbackUrl()
+    {
+      return $this->PaymentAuthenticationCallbackUrl;
+    }
+
+    /**
+     * @param string $PaymentAuthenticationCallbackUrl
+     * @return \Nlocascio\Mindbody\MBOSoap\PurchaseContractsRequest
+     */
+    public function setPaymentAuthenticationCallbackUrl($PaymentAuthenticationCallbackUrl)
+    {
+      $this->PaymentAuthenticationCallbackUrl = $PaymentAuthenticationCallbackUrl;
       return $this;
     }
 
