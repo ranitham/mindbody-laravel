@@ -25,6 +25,11 @@ class GetClientPurchasesRequest extends MBRequest
      */
     public $SaleID = null;
 
+    /**
+     * @var boolean $SortDescending
+     */
+    public $SortDescending = null;
+
     
     public function __construct()
     {
@@ -124,6 +129,24 @@ class GetClientPurchasesRequest extends MBRequest
     public function setSaleID($SaleID)
     {
       $this->SaleID = $SaleID;
+      return $this;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getSortDescending()
+    {
+      return $this->SortDescending;
+    }
+
+    /**
+     * @param boolean $SortDescending
+     * @return \Nlocascio\Mindbody\MBOSoap\GetClientPurchasesRequest
+     */
+    public function setSortDescending($SortDescending)
+    {
+      $this->SortDescending = $SortDescending;
       return $this;
     }
 

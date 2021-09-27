@@ -6,12 +6,12 @@ class SendUserNewPassword
 {
 
     /**
-     * @var SendUserNewPasswordRequest $Request
+     * @var ClientSendUserNewPasswordRequest $Request
      */
     public $Request = null;
 
     /**
-     * @param SendUserNewPasswordRequest $Request
+     * @param ClientSendUserNewPasswordRequest $Request
      */
     public function __construct($Request)
     {
@@ -19,7 +19,7 @@ class SendUserNewPassword
     }
 
     /**
-     * @return SendUserNewPasswordRequest
+     * @return ClientSendUserNewPasswordRequest
      */
     public function getRequest()
     {
@@ -27,7 +27,7 @@ class SendUserNewPassword
     }
 
     /**
-     * @param SendUserNewPasswordRequest $Request
+     * @param ClientSendUserNewPasswordRequest $Request
      * @return \Nlocascio\Mindbody\MBOSoap\SendUserNewPassword
      */
     public function setRequest($Request)

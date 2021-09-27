@@ -21,6 +21,11 @@ class PurchaseContractsResult extends MBResult
     public $ContractID = null;
 
     /**
+     * @var ArrayOfPaymentProcessingFailure $PaymentProcessingFailures
+     */
+    public $PaymentProcessingFailures = null;
+
+    /**
      * @param StatusCode $Status
      * @param int $ErrorCode
      * @param XMLDetailLevel $XMLDetail
@@ -88,6 +93,24 @@ class PurchaseContractsResult extends MBResult
     public function setContractID($ContractID)
     {
       $this->ContractID = $ContractID;
+      return $this;
+    }
+
+    /**
+     * @return ArrayOfPaymentProcessingFailure
+     */
+    public function getPaymentProcessingFailures()
+    {
+      return $this->PaymentProcessingFailures;
+    }
+
+    /**
+     * @param ArrayOfPaymentProcessingFailure $PaymentProcessingFailures
+     * @return \Nlocascio\Mindbody\MBOSoap\PurchaseContractsResult
+     */
+    public function setPaymentProcessingFailures($PaymentProcessingFailures)
+    {
+      $this->PaymentProcessingFailures = $PaymentProcessingFailures;
       return $this;
     }
 

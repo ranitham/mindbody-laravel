@@ -60,6 +60,21 @@ class CheckoutShoppingCartRequest extends MBRequest
      */
     public $ImageFileName = null;
 
+    /**
+     * @var boolean $ConsumerPresent
+     */
+    public $ConsumerPresent = null;
+
+    /**
+     * @var string $PaymentAuthenticationCallbackUrl
+     */
+    public $PaymentAuthenticationCallbackUrl = null;
+
+    /**
+     * @var ArrayOfInt $TransactionIDs
+     */
+    public $TransactionIDs = null;
+
     
     public function __construct()
     {
@@ -261,6 +276,60 @@ class CheckoutShoppingCartRequest extends MBRequest
     public function setImageFileName($ImageFileName)
     {
       $this->ImageFileName = $ImageFileName;
+      return $this;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getConsumerPresent()
+    {
+      return $this->ConsumerPresent;
+    }
+
+    /**
+     * @param boolean $ConsumerPresent
+     * @return \Nlocascio\Mindbody\MBOSoap\CheckoutShoppingCartRequest
+     */
+    public function setConsumerPresent($ConsumerPresent)
+    {
+      $this->ConsumerPresent = $ConsumerPresent;
+      return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPaymentAuthenticationCallbackUrl()
+    {
+      return $this->PaymentAuthenticationCallbackUrl;
+    }
+
+    /**
+     * @param string $PaymentAuthenticationCallbackUrl
+     * @return \Nlocascio\Mindbody\MBOSoap\CheckoutShoppingCartRequest
+     */
+    public function setPaymentAuthenticationCallbackUrl($PaymentAuthenticationCallbackUrl)
+    {
+      $this->PaymentAuthenticationCallbackUrl = $PaymentAuthenticationCallbackUrl;
+      return $this;
+    }
+
+    /**
+     * @return ArrayOfInt
+     */
+    public function getTransactionIDs()
+    {
+      return $this->TransactionIDs;
+    }
+
+    /**
+     * @param ArrayOfInt $TransactionIDs
+     * @return \Nlocascio\Mindbody\MBOSoap\CheckoutShoppingCartRequest
+     */
+    public function setTransactionIDs($TransactionIDs)
+    {
+      $this->TransactionIDs = $TransactionIDs;
       return $this;
     }
 

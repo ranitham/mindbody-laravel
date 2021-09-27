@@ -11,6 +11,9 @@ class StatusCode
     const InternalException = 'InternalException';
     const Unknown = 'Unknown';
     const FailedAction = 'FailedAction';
+    const TooManyRequests = 'TooManyRequests';
+    const AccessDenied = 'AccessDenied';
+    const SuccessSCAChallenged = 'SuccessSCAChallenged';
 
 
 }

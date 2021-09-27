@@ -10,6 +10,11 @@ class GetCrossRegionalClientAssociationsRequest extends MBRequest
      */
     public $ClientID = null;
 
+    /**
+     * @var string $Email
+     */
+    public $Email = null;
+
     
     public function __construct()
     {
@@ -31,6 +36,24 @@ class GetCrossRegionalClientAssociationsRequest extends MBRequest
     public function setClientID($ClientID)
     {
       $this->ClientID = $ClientID;
+      return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmail()
+    {
+      return $this->Email;
+    }
+
+    /**
+     * @param string $Email
+     * @return \Nlocascio\Mindbody\MBOSoap\GetCrossRegionalClientAssociationsRequest
+     */
+    public function setEmail($Email)
+    {
+      $this->Email = $Email;
       return $this;
     }
 
