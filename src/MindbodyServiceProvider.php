@@ -6,7 +6,7 @@ use Illuminate\Support\ServiceProvider;
 
 class MindbodyServiceProvider extends ServiceProvider {
 
-    protected $defer = true;
+    public $defer = true;
 
     /**
      * Boot ServiceProvider

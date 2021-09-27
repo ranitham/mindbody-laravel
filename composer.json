@@ -13,13 +13,13 @@
         }
     ],
     "require": {
-        "php": "^7.0",
+        "php": ">7",
         "ext-dom" : "*",
         "illuminate/support": ">=5.1",
         "phpdocumentor/reflection": "~4.0"
     },
     "require-dev": {
-        "php": "^7.1",
+        "php": ">7.1",
         "vlucas/phpdotenv": "^2.4",
         "orchestra/testbench": "~3.0",
         "phpunit/phpunit": "^7.0",

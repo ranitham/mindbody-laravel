@@ -90,7 +90,7 @@ use Illuminate\Support\Facades\Facade;
  */
 class MBO extends Facade
 {
-    protected static function getFacadeAccessor()
+    public static function getFacadeAccessor()
     {
         return Mindbody::class;
     }
