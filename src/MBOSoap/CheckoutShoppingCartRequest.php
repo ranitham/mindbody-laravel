@@ -31,6 +31,11 @@ class CheckoutShoppingCartRequest extends MBRequest
     public $InStore = null;
 
     /**
+     * @var boolean $CalculateTax
+     */
+    public $CalculateTax = null;
+
+    /**
      * @var string $PromotionCode
      */
     public $PromotionCode = null;
@@ -168,6 +173,24 @@ class CheckoutShoppingCartRequest extends MBRequest
     public function setInStore($InStore)
     {
       $this->InStore = $InStore;
+      return $this;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getCalculateTax()
+    {
+      return $this->CalculateTax;
+    }
+
+    /**
+     * @param boolean $CalculateTax
+     * @return \Nlocascio\Mindbody\MBOSoap\CheckoutShoppingCartRequest
+     */
+    public function setCalculateTax($CalculateTax)
+    {
+      $this->CalculateTax = $CalculateTax;
       return $this;
     }
 

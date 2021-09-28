@@ -26,6 +26,11 @@ class Sale
     public $SaleDateTime = null;
 
     /**
+     * @var \Carbon\Carbon $OriginalSaleDateTime
+     */
+    public $OriginalSaleDateTime = null;
+
+    /**
      * @var string $ClientID
      */
     public $ClientID = null;
@@ -50,13 +55,15 @@ class Sale
      * @param \Carbon\Carbon $SaleTime
      * @param \Carbon\Carbon $SaleDate
      * @param \Carbon\Carbon $SaleDateTime
+     * @param \Carbon\Carbon $OriginalSaleDateTime
      */
-    public function __construct($ID, \Carbon\Carbon $SaleTime, \Carbon\Carbon $SaleDate, \Carbon\Carbon $SaleDateTime)
+    public function __construct($ID, \Carbon\Carbon $SaleTime, \Carbon\Carbon $SaleDate, \Carbon\Carbon $SaleDateTime, \Carbon\Carbon $OriginalSaleDateTime)
     {
       $this->ID = $ID;
       $this->SaleTime = $SaleTime->format("Y-m-d\TH:i:s");
       $this->SaleDate = $SaleDate->format("Y-m-d\TH:i:s");
       $this->SaleDateTime = $SaleDateTime->format("Y-m-d\TH:i:s");
+      $this->OriginalSaleDateTime = $OriginalSaleDateTime->format("Y-m-d\TH:i:s");
     }
 
     /**
@@ -152,6 +159,32 @@ class Sale
     public function setSaleDateTime(\Carbon\Carbon $SaleDateTime)
     {
       $this->SaleDateTime = $SaleDateTime->format("Y-m-d\TH:i:s");
+      return $this;
+    }
+
+    /**
+     * @return \Carbon\Carbon
+     */
+    public function getOriginalSaleDateTime()
+    {
+      if ($this->OriginalSaleDateTime == null) {
+        return null;
+      } else {
+        try {
+          return new \Carbon\Carbon($this->OriginalSaleDateTime);
+        } catch (\Exception $e) {
+          return null;
+        }
+      }
+    }
+
+    /**
+     * @param \Carbon\Carbon $OriginalSaleDateTime
+     * @return \Nlocascio\Mindbody\MBOSoap\Sale
+     */
+    public function setOriginalSaleDateTime(\Carbon\Carbon $OriginalSaleDateTime)
+    {
+      $this->OriginalSaleDateTime = $OriginalSaleDateTime->format("Y-m-d\TH:i:s");
       return $this;
     }
 

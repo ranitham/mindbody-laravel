@@ -91,8 +91,8 @@ class Site_Service extends \SoapClient
     );
 
     /**
-     * @param array $options A array of config values
      * @param string $wsdl The wsdl file to use
+     * @param array $options A array of config values
      */
     public function __construct(array $options = array(), $wsdl = null)
     {

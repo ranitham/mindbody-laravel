@@ -95,6 +95,31 @@ class Visit extends MBObject
      */
     public $LastModifiedDateTime = null;
 
+    /**
+     * @var \Carbon\Carbon $ClassDate
+     */
+    public $ClassDate = null;
+
+    /**
+     * @var boolean $Missed
+     */
+    public $Missed = null;
+
+    /**
+     * @var int $VisitType
+     */
+    public $VisitType = null;
+
+    /**
+     * @var int $TypeGroup
+     */
+    public $TypeGroup = null;
+
+    /**
+     * @var string $TypeTaken
+     */
+    public $TypeTaken = null;
+
     
     public function __construct()
     {
@@ -458,6 +483,108 @@ class Visit extends MBObject
       } else {
         $this->LastModifiedDateTime = $LastModifiedDateTime->format("Y-m-d\TH:i:s");
       }
+      return $this;
+    }
+
+    /**
+     * @return \Carbon\Carbon
+     */
+    public function getClassDate()
+    {
+      if ($this->ClassDate == null) {
+        return null;
+      } else {
+        try {
+          return new \Carbon\Carbon($this->ClassDate);
+        } catch (\Exception $e) {
+          return null;
+        }
+      }
+    }
+
+    /**
+     * @param \Carbon\Carbon $ClassDate
+     * @return \Nlocascio\Mindbody\MBOSoap\Visit
+     */
+    public function setClassDate(\Carbon\Carbon $ClassDate = null)
+    {
+      if ($ClassDate == null) {
+       $this->ClassDate = null;
+      } else {
+        $this->ClassDate = $ClassDate->format("Y-m-d\TH:i:s");
+      }
+      return $this;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getMissed()
+    {
+      return $this->Missed;
+    }
+
+    /**
+     * @param boolean $Missed
+     * @return \Nlocascio\Mindbody\MBOSoap\Visit
+     */
+    public function setMissed($Missed)
+    {
+      $this->Missed = $Missed;
+      return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getVisitType()
+    {
+      return $this->VisitType;
+    }
+
+    /**
+     * @param int $VisitType
+     * @return \Nlocascio\Mindbody\MBOSoap\Visit
+     */
+    public function setVisitType($VisitType)
+    {
+      $this->VisitType = $VisitType;
+      return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTypeGroup()
+    {
+      return $this->TypeGroup;
+    }
+
+    /**
+     * @param int $TypeGroup
+     * @return \Nlocascio\Mindbody\MBOSoap\Visit
+     */
+    public function setTypeGroup($TypeGroup)
+    {
+      $this->TypeGroup = $TypeGroup;
+      return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTypeTaken()
+    {
+      return $this->TypeTaken;
+    }
+
+    /**
+     * @param string $TypeTaken
+     * @return \Nlocascio\Mindbody\MBOSoap\Visit
+     */
+    public function setTypeTaken($TypeTaken)
+    {
+      $this->TypeTaken = $TypeTaken;
       return $this;
     }
 

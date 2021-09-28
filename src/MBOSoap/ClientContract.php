@@ -51,6 +51,11 @@ class ClientContract extends MBObject
     public $UpcomingAutopayEvents = null;
 
     /**
+     * @var int $ContractID
+     */
+    public $ContractID = null;
+
+    /**
      * @param int $SiteID
      * @param \Carbon\Carbon $AgreementDate
      * @param \Carbon\Carbon $StartDate
@@ -250,6 +255,24 @@ class ClientContract extends MBObject
     public function setUpcomingAutopayEvents($UpcomingAutopayEvents)
     {
       $this->UpcomingAutopayEvents = $UpcomingAutopayEvents;
+      return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getContractID()
+    {
+      return $this->ContractID;
+    }
+
+    /**
+     * @param int $ContractID
+     * @return \Nlocascio\Mindbody\MBOSoap\ClientContract
+     */
+    public function setContractID($ContractID)
+    {
+      $this->ContractID = $ContractID;
       return $this;
     }
 

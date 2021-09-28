@@ -14,7 +14,7 @@ files=$(grep -l _x0020_ *.php) && echo $files | xargs sed -i 's/_x0020_/_/g'
 for file in *.php; do sed -i 's/protected/public/g' $file; done
 
 # fix type hinting
-for file in *.php; do sed -i 's/\\Nlocascio\\Mindbody\\MBOSoap\\Class/\\Nlocascio\\Mindbody\\MBOSoap\\ClassCustom/g' $file; done
+for file in *.php; do sed -i 's/\\Nlocascio\\Mindbody\\MBOSoap\\Class /\\Nlocascio\\Mindbody\\MBOSoap\\ClassCustom /g' $file; done
 sed -i 's/\@return Class/\@return ClassCustom/g' ArrayOfClass.php
 sed -i 's/\@param Class/\@param ClassCustom/g' ArrayOfClass.php
 sed -i 's/\@var Class\[\]/\@var ClassCustom\[\]/g' ArrayOfClass.php
