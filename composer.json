@@ -1,41 +1,40 @@
 {
-    "name": "nlocascio/mindbody-laravel",
-    "description": "Laravel wrapper for MINDBODY API",
-    "keywords": [
-        "laravel",
-        "mindbody"
-    ],
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Nick LoCascio",
-            "email": "nlocascio@gmail.com"
-        }
-    ],
-    "require": {
-        "php": ">7",
-        "ext-dom" : "*",
-        "illuminate/support": ">=5.1",
-        "phpdocumentor/reflection": "~4.0"
-    },
-    "require-dev": {
-        "php": ">7.1",
-        "orchestra/testbench": ">6.0",
-        "phpunit/phpunit": "^8.0",
-        "wsdl2phpgenerator/wsdl2phpgenerator": "dev-master",
-        "roave/security-advisories": "dev-master"
-    },
-    "autoload": {
-        "psr-4": {
-            "Nlocascio\\Mindbody\\": "src"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Nlocascio\\Mindbody\\Tests\\": "tests"
-        }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
-
+  "name": "nlocascio/mindbody-laravel",
+  "description": "Laravel wrapper for MINDBODY API",
+  "keywords": [
+    "laravel",
+    "mindbody"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Nick LoCascio",
+      "email": "nlocascio@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">7",
+    "ext-dom": "*",
+    "illuminate/support": ">=5.1",
+    "phpdocumentor/reflection": "~4.0",
+    "guzzlehttp/guzzle": "^6.2"
+  },
+  "require-dev": {
+    "php": ">7.1",
+    "orchestra/testbench": ">6.0",
+    "phpunit/phpunit": "^8.0",
+    "roave/security-advisories": "dev-master",
+  },
+  "autoload": {
+    "psr-4": {
+      "Nlocascio\\Mindbody\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Nlocascio\\Mindbody\\Tests\\": "tests"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
 }

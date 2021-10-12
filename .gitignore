@@ -6,3 +6,5 @@ composer.lock
 coverage/
 /src/methods
 src/MBOSoap.old
+mindbody.json
+*.jar
