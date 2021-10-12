@@ -146,7 +146,6 @@ function fetchSwaggerCodegen(bool $overwrite = false)
   }
 }
 
-fetchSwaggerCodegen();
 
 writeAPI(
   processAPI(fetchAPI("https://api.mindbodyonline.com/public/v6/swagger/doc")),

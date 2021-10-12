@@ -1,6 +1,7 @@
 {
     "invokerPackage" : "Nlocascio\\Mindbody",
-    "packagePath" : "src/Client",
+    "packagePath" : "src",
+    "srcBasePath" : ".",
     "variableNamingConvention": "CamelCase",
     "gitUserId": "ranitham",
     "gitRepoId" : "mindbody-laravel"
