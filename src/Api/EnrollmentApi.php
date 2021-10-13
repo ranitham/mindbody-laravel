@@ -48,7 +48,7 @@ use Nlocascio\Mindbody\ObjectSerializer;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class EnrollmentApi
+class EnrollmentApi implements ApiInterface
 {
     /**
      * @var ClientInterface
@@ -83,7 +83,7 @@ class EnrollmentApi
     /**
      * @return Configuration
      */
-    public function getConfig()
+    public function getConfig(): Configuration
     {
         return $this->config;
     }
@@ -99,7 +99,7 @@ class EnrollmentApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\ClassSchedule
      */
-    public function enrollmentAddClientToEnrollment($Request)
+    public function enrollmentAddClientToEnrollment($Request): \Nlocascio\Mindbody\Model\ClassSchedule
     {
         list($response) = $this->enrollmentAddClientToEnrollmentWithHttpInfo($Request);
         return $response;
@@ -116,7 +116,7 @@ class EnrollmentApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\ClassSchedule, HTTP status code, HTTP response headers (array of strings)
      */
-    public function enrollmentAddClientToEnrollmentWithHttpInfo($Request)
+    public function enrollmentAddClientToEnrollmentWithHttpInfo($Request): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\ClassSchedule';
         $request = $this->enrollmentAddClientToEnrollmentRequest($Request);
@@ -190,7 +190,7 @@ class EnrollmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function enrollmentAddClientToEnrollmentAsync($Request)
+    public function enrollmentAddClientToEnrollmentAsync($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->enrollmentAddClientToEnrollmentAsyncWithHttpInfo($Request)
             ->then(
@@ -210,7 +210,7 @@ class EnrollmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function enrollmentAddClientToEnrollmentAsyncWithHttpInfo($Request)
+    public function enrollmentAddClientToEnrollmentAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\ClassSchedule';
         $request = $this->enrollmentAddClientToEnrollmentRequest($Request);
@@ -260,7 +260,7 @@ class EnrollmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function enrollmentAddClientToEnrollmentRequest($Request)
+    protected function enrollmentAddClientToEnrollmentRequest($Request): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'Request' is set
         if ($Request === null || (is_array($Request) && count($Request) === 0)) {
@@ -386,7 +386,7 @@ class EnrollmentApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetEnrollmentsResponse
      */
-    public function enrollmentGetEnrollments($RequestClassScheduleIds = null, $RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDate = null)
+    public function enrollmentGetEnrollments($RequestClassScheduleIds = null, $RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDate = null): \Nlocascio\Mindbody\Model\GetEnrollmentsResponse
     {
         list($response) = $this->enrollmentGetEnrollmentsWithHttpInfo($RequestClassScheduleIds, $RequestEndDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSessionTypeIds, $RequestStaffIds, $RequestStartDate);
         return $response;
@@ -411,7 +411,7 @@ class EnrollmentApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetEnrollmentsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function enrollmentGetEnrollmentsWithHttpInfo($RequestClassScheduleIds = null, $RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDate = null)
+    public function enrollmentGetEnrollmentsWithHttpInfo($RequestClassScheduleIds = null, $RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDate = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetEnrollmentsResponse';
         $request = $this->enrollmentGetEnrollmentsRequest($RequestClassScheduleIds, $RequestEndDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSessionTypeIds, $RequestStaffIds, $RequestStartDate);
@@ -493,7 +493,7 @@ class EnrollmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function enrollmentGetEnrollmentsAsync($RequestClassScheduleIds = null, $RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDate = null)
+    public function enrollmentGetEnrollmentsAsync($RequestClassScheduleIds = null, $RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDate = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->enrollmentGetEnrollmentsAsyncWithHttpInfo($RequestClassScheduleIds, $RequestEndDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSessionTypeIds, $RequestStaffIds, $RequestStartDate)
             ->then(
@@ -521,7 +521,7 @@ class EnrollmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function enrollmentGetEnrollmentsAsyncWithHttpInfo($RequestClassScheduleIds = null, $RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDate = null)
+    public function enrollmentGetEnrollmentsAsyncWithHttpInfo($RequestClassScheduleIds = null, $RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDate = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetEnrollmentsResponse';
         $request = $this->enrollmentGetEnrollmentsRequest($RequestClassScheduleIds, $RequestEndDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSessionTypeIds, $RequestStaffIds, $RequestStartDate);
@@ -579,7 +579,7 @@ class EnrollmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function enrollmentGetEnrollmentsRequest($RequestClassScheduleIds = null, $RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDate = null)
+    protected function enrollmentGetEnrollmentsRequest($RequestClassScheduleIds = null, $RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDate = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/enrollment/enrollments';
@@ -734,7 +734,7 @@ class EnrollmentApi
      * @throws \RuntimeException on file opening failure
      * @return array of http client options
      */
-    protected function createHttpClientOption()
+    protected function createHttpClientOption(): array
     {
         $options = [];
         if ($this->config->getDebug()) {

@@ -48,7 +48,7 @@ use Nlocascio\Mindbody\ObjectSerializer;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SaleApi
+class SaleApi implements ApiInterface
 {
     /**
      * @var ClientInterface
@@ -83,7 +83,7 @@ class SaleApi
     /**
      * @return Configuration
      */
-    public function getConfig()
+    public function getConfig(): Configuration
     {
         return $this->config;
     }
@@ -99,7 +99,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function saleCheckoutShoppingCart($Request)
+    public function saleCheckoutShoppingCart($Request): object
     {
         list($response) = $this->saleCheckoutShoppingCartWithHttpInfo($Request);
         return $response;
@@ -116,7 +116,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function saleCheckoutShoppingCartWithHttpInfo($Request)
+    public function saleCheckoutShoppingCartWithHttpInfo($Request): array
     {
         $returnType = 'object';
         $request = $this->saleCheckoutShoppingCartRequest($Request);
@@ -190,7 +190,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function saleCheckoutShoppingCartAsync($Request)
+    public function saleCheckoutShoppingCartAsync($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->saleCheckoutShoppingCartAsyncWithHttpInfo($Request)
             ->then(
@@ -210,7 +210,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function saleCheckoutShoppingCartAsyncWithHttpInfo($Request)
+    public function saleCheckoutShoppingCartAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = 'object';
         $request = $this->saleCheckoutShoppingCartRequest($Request);
@@ -260,7 +260,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function saleCheckoutShoppingCartRequest($Request)
+    protected function saleCheckoutShoppingCartRequest($Request): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'Request' is set
         if ($Request === null || (is_array($Request) && count($Request) === 0)) {
@@ -377,7 +377,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return string[]
      */
-    public function saleGetAcceptedCardTypes()
+    public function saleGetAcceptedCardTypes(): array
     {
         list($response) = $this->saleGetAcceptedCardTypesWithHttpInfo();
         return $response;
@@ -393,7 +393,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return array of string[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function saleGetAcceptedCardTypesWithHttpInfo()
+    public function saleGetAcceptedCardTypesWithHttpInfo(): array
     {
         $returnType = 'string[]';
         $request = $this->saleGetAcceptedCardTypesRequest();
@@ -466,7 +466,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function saleGetAcceptedCardTypesAsync()
+    public function saleGetAcceptedCardTypesAsync(): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->saleGetAcceptedCardTypesAsyncWithHttpInfo()
             ->then(
@@ -485,7 +485,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function saleGetAcceptedCardTypesAsyncWithHttpInfo()
+    public function saleGetAcceptedCardTypesAsyncWithHttpInfo(): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = 'string[]';
         $request = $this->saleGetAcceptedCardTypesRequest();
@@ -534,7 +534,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function saleGetAcceptedCardTypesRequest()
+    protected function saleGetAcceptedCardTypesRequest(): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/sale/acceptedcardtypes';
@@ -648,7 +648,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetContractsResponse
      */
-    public function saleGetContracts($RequestLocationId, $RequestConsumerId = null, $RequestContractIds = null, $RequestLimit = null, $RequestOffset = null, $RequestSoldOnline = null)
+    public function saleGetContracts($RequestLocationId, $RequestConsumerId = null, $RequestContractIds = null, $RequestLimit = null, $RequestOffset = null, $RequestSoldOnline = null): \Nlocascio\Mindbody\Model\GetContractsResponse
     {
         list($response) = $this->saleGetContractsWithHttpInfo($RequestLocationId, $RequestConsumerId, $RequestContractIds, $RequestLimit, $RequestOffset, $RequestSoldOnline);
         return $response;
@@ -670,7 +670,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetContractsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function saleGetContractsWithHttpInfo($RequestLocationId, $RequestConsumerId = null, $RequestContractIds = null, $RequestLimit = null, $RequestOffset = null, $RequestSoldOnline = null)
+    public function saleGetContractsWithHttpInfo($RequestLocationId, $RequestConsumerId = null, $RequestContractIds = null, $RequestLimit = null, $RequestOffset = null, $RequestSoldOnline = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetContractsResponse';
         $request = $this->saleGetContractsRequest($RequestLocationId, $RequestConsumerId, $RequestContractIds, $RequestLimit, $RequestOffset, $RequestSoldOnline);
@@ -749,7 +749,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function saleGetContractsAsync($RequestLocationId, $RequestConsumerId = null, $RequestContractIds = null, $RequestLimit = null, $RequestOffset = null, $RequestSoldOnline = null)
+    public function saleGetContractsAsync($RequestLocationId, $RequestConsumerId = null, $RequestContractIds = null, $RequestLimit = null, $RequestOffset = null, $RequestSoldOnline = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->saleGetContractsAsyncWithHttpInfo($RequestLocationId, $RequestConsumerId, $RequestContractIds, $RequestLimit, $RequestOffset, $RequestSoldOnline)
             ->then(
@@ -774,7 +774,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function saleGetContractsAsyncWithHttpInfo($RequestLocationId, $RequestConsumerId = null, $RequestContractIds = null, $RequestLimit = null, $RequestOffset = null, $RequestSoldOnline = null)
+    public function saleGetContractsAsyncWithHttpInfo($RequestLocationId, $RequestConsumerId = null, $RequestContractIds = null, $RequestLimit = null, $RequestOffset = null, $RequestSoldOnline = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetContractsResponse';
         $request = $this->saleGetContractsRequest($RequestLocationId, $RequestConsumerId, $RequestContractIds, $RequestLimit, $RequestOffset, $RequestSoldOnline);
@@ -829,7 +829,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function saleGetContractsRequest($RequestLocationId, $RequestConsumerId = null, $RequestContractIds = null, $RequestLimit = null, $RequestOffset = null, $RequestSoldOnline = null)
+    protected function saleGetContractsRequest($RequestLocationId, $RequestConsumerId = null, $RequestContractIds = null, $RequestLimit = null, $RequestOffset = null, $RequestSoldOnline = null): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'RequestLocationId' is set
         if ($RequestLocationId === null || (is_array($RequestLocationId) && count($RequestLocationId) === 0)) {
@@ -972,7 +972,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetCustomPaymentMethodsResponse
      */
-    public function saleGetCustomPaymentMethods($RequestLimit = null, $RequestOffset = null)
+    public function saleGetCustomPaymentMethods($RequestLimit = null, $RequestOffset = null): \Nlocascio\Mindbody\Model\GetCustomPaymentMethodsResponse
     {
         list($response) = $this->saleGetCustomPaymentMethodsWithHttpInfo($RequestLimit, $RequestOffset);
         return $response;
@@ -990,7 +990,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetCustomPaymentMethodsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function saleGetCustomPaymentMethodsWithHttpInfo($RequestLimit = null, $RequestOffset = null)
+    public function saleGetCustomPaymentMethodsWithHttpInfo($RequestLimit = null, $RequestOffset = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetCustomPaymentMethodsResponse';
         $request = $this->saleGetCustomPaymentMethodsRequest($RequestLimit, $RequestOffset);
@@ -1065,7 +1065,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function saleGetCustomPaymentMethodsAsync($RequestLimit = null, $RequestOffset = null)
+    public function saleGetCustomPaymentMethodsAsync($RequestLimit = null, $RequestOffset = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->saleGetCustomPaymentMethodsAsyncWithHttpInfo($RequestLimit, $RequestOffset)
             ->then(
@@ -1086,7 +1086,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function saleGetCustomPaymentMethodsAsyncWithHttpInfo($RequestLimit = null, $RequestOffset = null)
+    public function saleGetCustomPaymentMethodsAsyncWithHttpInfo($RequestLimit = null, $RequestOffset = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetCustomPaymentMethodsResponse';
         $request = $this->saleGetCustomPaymentMethodsRequest($RequestLimit, $RequestOffset);
@@ -1137,7 +1137,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function saleGetCustomPaymentMethodsRequest($RequestLimit = null, $RequestOffset = null)
+    protected function saleGetCustomPaymentMethodsRequest($RequestLimit = null, $RequestOffset = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/sale/custompaymentmethods';
@@ -1254,7 +1254,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetGiftCardBalanceResponse
      */
-    public function saleGetGiftCardBalance($BarcodeId = null)
+    public function saleGetGiftCardBalance($BarcodeId = null): \Nlocascio\Mindbody\Model\GetGiftCardBalanceResponse
     {
         list($response) = $this->saleGetGiftCardBalanceWithHttpInfo($BarcodeId);
         return $response;
@@ -1271,7 +1271,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetGiftCardBalanceResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function saleGetGiftCardBalanceWithHttpInfo($BarcodeId = null)
+    public function saleGetGiftCardBalanceWithHttpInfo($BarcodeId = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetGiftCardBalanceResponse';
         $request = $this->saleGetGiftCardBalanceRequest($BarcodeId);
@@ -1345,7 +1345,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function saleGetGiftCardBalanceAsync($BarcodeId = null)
+    public function saleGetGiftCardBalanceAsync($BarcodeId = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->saleGetGiftCardBalanceAsyncWithHttpInfo($BarcodeId)
             ->then(
@@ -1365,7 +1365,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function saleGetGiftCardBalanceAsyncWithHttpInfo($BarcodeId = null)
+    public function saleGetGiftCardBalanceAsyncWithHttpInfo($BarcodeId = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetGiftCardBalanceResponse';
         $request = $this->saleGetGiftCardBalanceRequest($BarcodeId);
@@ -1415,7 +1415,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function saleGetGiftCardBalanceRequest($BarcodeId = null)
+    protected function saleGetGiftCardBalanceRequest($BarcodeId = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/sale/giftcardbalance';
@@ -1532,7 +1532,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetGiftCardResponse
      */
-    public function saleGetGiftCards($RequestIds = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSoldOnline = null)
+    public function saleGetGiftCards($RequestIds = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSoldOnline = null): \Nlocascio\Mindbody\Model\GetGiftCardResponse
     {
         list($response) = $this->saleGetGiftCardsWithHttpInfo($RequestIds, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestSoldOnline);
         return $response;
@@ -1553,7 +1553,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetGiftCardResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function saleGetGiftCardsWithHttpInfo($RequestIds = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSoldOnline = null)
+    public function saleGetGiftCardsWithHttpInfo($RequestIds = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSoldOnline = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetGiftCardResponse';
         $request = $this->saleGetGiftCardsRequest($RequestIds, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestSoldOnline);
@@ -1631,7 +1631,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function saleGetGiftCardsAsync($RequestIds = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSoldOnline = null)
+    public function saleGetGiftCardsAsync($RequestIds = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSoldOnline = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->saleGetGiftCardsAsyncWithHttpInfo($RequestIds, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestSoldOnline)
             ->then(
@@ -1655,7 +1655,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function saleGetGiftCardsAsyncWithHttpInfo($RequestIds = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSoldOnline = null)
+    public function saleGetGiftCardsAsyncWithHttpInfo($RequestIds = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSoldOnline = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetGiftCardResponse';
         $request = $this->saleGetGiftCardsRequest($RequestIds, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestSoldOnline);
@@ -1709,7 +1709,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function saleGetGiftCardsRequest($RequestIds = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSoldOnline = null)
+    protected function saleGetGiftCardsRequest($RequestIds = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSoldOnline = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/sale/giftcards';
@@ -1844,7 +1844,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetPackagesResponse
      */
-    public function saleGetPackages($RequestLimit = null, $RequestOffset = null, $RequestPackageIds = null, $RequestSellOnline = null)
+    public function saleGetPackages($RequestLimit = null, $RequestOffset = null, $RequestPackageIds = null, $RequestSellOnline = null): \Nlocascio\Mindbody\Model\GetPackagesResponse
     {
         list($response) = $this->saleGetPackagesWithHttpInfo($RequestLimit, $RequestOffset, $RequestPackageIds, $RequestSellOnline);
         return $response;
@@ -1864,7 +1864,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetPackagesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function saleGetPackagesWithHttpInfo($RequestLimit = null, $RequestOffset = null, $RequestPackageIds = null, $RequestSellOnline = null)
+    public function saleGetPackagesWithHttpInfo($RequestLimit = null, $RequestOffset = null, $RequestPackageIds = null, $RequestSellOnline = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetPackagesResponse';
         $request = $this->saleGetPackagesRequest($RequestLimit, $RequestOffset, $RequestPackageIds, $RequestSellOnline);
@@ -1941,7 +1941,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function saleGetPackagesAsync($RequestLimit = null, $RequestOffset = null, $RequestPackageIds = null, $RequestSellOnline = null)
+    public function saleGetPackagesAsync($RequestLimit = null, $RequestOffset = null, $RequestPackageIds = null, $RequestSellOnline = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->saleGetPackagesAsyncWithHttpInfo($RequestLimit, $RequestOffset, $RequestPackageIds, $RequestSellOnline)
             ->then(
@@ -1964,7 +1964,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function saleGetPackagesAsyncWithHttpInfo($RequestLimit = null, $RequestOffset = null, $RequestPackageIds = null, $RequestSellOnline = null)
+    public function saleGetPackagesAsyncWithHttpInfo($RequestLimit = null, $RequestOffset = null, $RequestPackageIds = null, $RequestSellOnline = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetPackagesResponse';
         $request = $this->saleGetPackagesRequest($RequestLimit, $RequestOffset, $RequestPackageIds, $RequestSellOnline);
@@ -2017,7 +2017,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function saleGetPackagesRequest($RequestLimit = null, $RequestOffset = null, $RequestPackageIds = null, $RequestSellOnline = null)
+    protected function saleGetPackagesRequest($RequestLimit = null, $RequestOffset = null, $RequestPackageIds = null, $RequestSellOnline = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/sale/packages';
@@ -2152,7 +2152,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetProductsResponse
      */
-    public function saleGetProducts($RequestCategoryIds = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProductIds = null, $RequestSearchText = null, $RequestSellOnline = null, $RequestSubCategoryIds = null)
+    public function saleGetProducts($RequestCategoryIds = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProductIds = null, $RequestSearchText = null, $RequestSellOnline = null, $RequestSubCategoryIds = null): \Nlocascio\Mindbody\Model\GetProductsResponse
     {
         list($response) = $this->saleGetProductsWithHttpInfo($RequestCategoryIds, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestProductIds, $RequestSearchText, $RequestSellOnline, $RequestSubCategoryIds);
         return $response;
@@ -2176,7 +2176,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetProductsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function saleGetProductsWithHttpInfo($RequestCategoryIds = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProductIds = null, $RequestSearchText = null, $RequestSellOnline = null, $RequestSubCategoryIds = null)
+    public function saleGetProductsWithHttpInfo($RequestCategoryIds = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProductIds = null, $RequestSearchText = null, $RequestSellOnline = null, $RequestSubCategoryIds = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetProductsResponse';
         $request = $this->saleGetProductsRequest($RequestCategoryIds, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestProductIds, $RequestSearchText, $RequestSellOnline, $RequestSubCategoryIds);
@@ -2257,7 +2257,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function saleGetProductsAsync($RequestCategoryIds = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProductIds = null, $RequestSearchText = null, $RequestSellOnline = null, $RequestSubCategoryIds = null)
+    public function saleGetProductsAsync($RequestCategoryIds = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProductIds = null, $RequestSearchText = null, $RequestSellOnline = null, $RequestSubCategoryIds = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->saleGetProductsAsyncWithHttpInfo($RequestCategoryIds, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestProductIds, $RequestSearchText, $RequestSellOnline, $RequestSubCategoryIds)
             ->then(
@@ -2284,7 +2284,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function saleGetProductsAsyncWithHttpInfo($RequestCategoryIds = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProductIds = null, $RequestSearchText = null, $RequestSellOnline = null, $RequestSubCategoryIds = null)
+    public function saleGetProductsAsyncWithHttpInfo($RequestCategoryIds = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProductIds = null, $RequestSearchText = null, $RequestSellOnline = null, $RequestSubCategoryIds = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetProductsResponse';
         $request = $this->saleGetProductsRequest($RequestCategoryIds, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestProductIds, $RequestSearchText, $RequestSellOnline, $RequestSubCategoryIds);
@@ -2341,7 +2341,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function saleGetProductsRequest($RequestCategoryIds = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProductIds = null, $RequestSearchText = null, $RequestSellOnline = null, $RequestSubCategoryIds = null)
+    protected function saleGetProductsRequest($RequestCategoryIds = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProductIds = null, $RequestSearchText = null, $RequestSellOnline = null, $RequestSubCategoryIds = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/sale/products';
@@ -2495,7 +2495,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetProductsInventoryResponse
      */
-    public function saleGetProductsInventory($RequestBarcodeIds = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProductIds = null)
+    public function saleGetProductsInventory($RequestBarcodeIds = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProductIds = null): \Nlocascio\Mindbody\Model\GetProductsInventoryResponse
     {
         list($response) = $this->saleGetProductsInventoryWithHttpInfo($RequestBarcodeIds, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProductIds);
         return $response;
@@ -2516,7 +2516,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetProductsInventoryResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function saleGetProductsInventoryWithHttpInfo($RequestBarcodeIds = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProductIds = null)
+    public function saleGetProductsInventoryWithHttpInfo($RequestBarcodeIds = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProductIds = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetProductsInventoryResponse';
         $request = $this->saleGetProductsInventoryRequest($RequestBarcodeIds, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProductIds);
@@ -2594,7 +2594,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function saleGetProductsInventoryAsync($RequestBarcodeIds = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProductIds = null)
+    public function saleGetProductsInventoryAsync($RequestBarcodeIds = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProductIds = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->saleGetProductsInventoryAsyncWithHttpInfo($RequestBarcodeIds, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProductIds)
             ->then(
@@ -2618,7 +2618,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function saleGetProductsInventoryAsyncWithHttpInfo($RequestBarcodeIds = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProductIds = null)
+    public function saleGetProductsInventoryAsyncWithHttpInfo($RequestBarcodeIds = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProductIds = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetProductsInventoryResponse';
         $request = $this->saleGetProductsInventoryRequest($RequestBarcodeIds, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProductIds);
@@ -2672,7 +2672,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function saleGetProductsInventoryRequest($RequestBarcodeIds = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProductIds = null)
+    protected function saleGetProductsInventoryRequest($RequestBarcodeIds = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProductIds = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/sale/productsinventory';
@@ -2815,7 +2815,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetSalesResponse
      */
-    public function saleGetSales($RequestEndSaleDateTime = null, $RequestLimit = null, $RequestOffset = null, $RequestPaymentMethodId = null, $RequestSaleId = null, $RequestStartSaleDateTime = null)
+    public function saleGetSales($RequestEndSaleDateTime = null, $RequestLimit = null, $RequestOffset = null, $RequestPaymentMethodId = null, $RequestSaleId = null, $RequestStartSaleDateTime = null): \Nlocascio\Mindbody\Model\GetSalesResponse
     {
         list($response) = $this->saleGetSalesWithHttpInfo($RequestEndSaleDateTime, $RequestLimit, $RequestOffset, $RequestPaymentMethodId, $RequestSaleId, $RequestStartSaleDateTime);
         return $response;
@@ -2837,7 +2837,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetSalesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function saleGetSalesWithHttpInfo($RequestEndSaleDateTime = null, $RequestLimit = null, $RequestOffset = null, $RequestPaymentMethodId = null, $RequestSaleId = null, $RequestStartSaleDateTime = null)
+    public function saleGetSalesWithHttpInfo($RequestEndSaleDateTime = null, $RequestLimit = null, $RequestOffset = null, $RequestPaymentMethodId = null, $RequestSaleId = null, $RequestStartSaleDateTime = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetSalesResponse';
         $request = $this->saleGetSalesRequest($RequestEndSaleDateTime, $RequestLimit, $RequestOffset, $RequestPaymentMethodId, $RequestSaleId, $RequestStartSaleDateTime);
@@ -2916,7 +2916,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function saleGetSalesAsync($RequestEndSaleDateTime = null, $RequestLimit = null, $RequestOffset = null, $RequestPaymentMethodId = null, $RequestSaleId = null, $RequestStartSaleDateTime = null)
+    public function saleGetSalesAsync($RequestEndSaleDateTime = null, $RequestLimit = null, $RequestOffset = null, $RequestPaymentMethodId = null, $RequestSaleId = null, $RequestStartSaleDateTime = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->saleGetSalesAsyncWithHttpInfo($RequestEndSaleDateTime, $RequestLimit, $RequestOffset, $RequestPaymentMethodId, $RequestSaleId, $RequestStartSaleDateTime)
             ->then(
@@ -2941,7 +2941,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function saleGetSalesAsyncWithHttpInfo($RequestEndSaleDateTime = null, $RequestLimit = null, $RequestOffset = null, $RequestPaymentMethodId = null, $RequestSaleId = null, $RequestStartSaleDateTime = null)
+    public function saleGetSalesAsyncWithHttpInfo($RequestEndSaleDateTime = null, $RequestLimit = null, $RequestOffset = null, $RequestPaymentMethodId = null, $RequestSaleId = null, $RequestStartSaleDateTime = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetSalesResponse';
         $request = $this->saleGetSalesRequest($RequestEndSaleDateTime, $RequestLimit, $RequestOffset, $RequestPaymentMethodId, $RequestSaleId, $RequestStartSaleDateTime);
@@ -2996,7 +2996,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function saleGetSalesRequest($RequestEndSaleDateTime = null, $RequestLimit = null, $RequestOffset = null, $RequestPaymentMethodId = null, $RequestSaleId = null, $RequestStartSaleDateTime = null)
+    protected function saleGetSalesRequest($RequestEndSaleDateTime = null, $RequestLimit = null, $RequestOffset = null, $RequestPaymentMethodId = null, $RequestSaleId = null, $RequestStartSaleDateTime = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/sale/sales';
@@ -3140,7 +3140,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetServicesResponse
      */
-    public function saleGetServices($RequestClassId = null, $RequestClassScheduleId = null, $RequestHideRelatedPrograms = null, $RequestIncludeDiscontinued = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSellOnline = null, $RequestServiceIds = null, $RequestSessionTypeIds = null, $RequestStaffId = null)
+    public function saleGetServices($RequestClassId = null, $RequestClassScheduleId = null, $RequestHideRelatedPrograms = null, $RequestIncludeDiscontinued = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSellOnline = null, $RequestServiceIds = null, $RequestSessionTypeIds = null, $RequestStaffId = null): \Nlocascio\Mindbody\Model\GetServicesResponse
     {
         list($response) = $this->saleGetServicesWithHttpInfo($RequestClassId, $RequestClassScheduleId, $RequestHideRelatedPrograms, $RequestIncludeDiscontinued, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestProgramIds, $RequestSellOnline, $RequestServiceIds, $RequestSessionTypeIds, $RequestStaffId);
         return $response;
@@ -3168,7 +3168,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetServicesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function saleGetServicesWithHttpInfo($RequestClassId = null, $RequestClassScheduleId = null, $RequestHideRelatedPrograms = null, $RequestIncludeDiscontinued = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSellOnline = null, $RequestServiceIds = null, $RequestSessionTypeIds = null, $RequestStaffId = null)
+    public function saleGetServicesWithHttpInfo($RequestClassId = null, $RequestClassScheduleId = null, $RequestHideRelatedPrograms = null, $RequestIncludeDiscontinued = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSellOnline = null, $RequestServiceIds = null, $RequestSessionTypeIds = null, $RequestStaffId = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetServicesResponse';
         $request = $this->saleGetServicesRequest($RequestClassId, $RequestClassScheduleId, $RequestHideRelatedPrograms, $RequestIncludeDiscontinued, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestProgramIds, $RequestSellOnline, $RequestServiceIds, $RequestSessionTypeIds, $RequestStaffId);
@@ -3253,7 +3253,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function saleGetServicesAsync($RequestClassId = null, $RequestClassScheduleId = null, $RequestHideRelatedPrograms = null, $RequestIncludeDiscontinued = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSellOnline = null, $RequestServiceIds = null, $RequestSessionTypeIds = null, $RequestStaffId = null)
+    public function saleGetServicesAsync($RequestClassId = null, $RequestClassScheduleId = null, $RequestHideRelatedPrograms = null, $RequestIncludeDiscontinued = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSellOnline = null, $RequestServiceIds = null, $RequestSessionTypeIds = null, $RequestStaffId = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->saleGetServicesAsyncWithHttpInfo($RequestClassId, $RequestClassScheduleId, $RequestHideRelatedPrograms, $RequestIncludeDiscontinued, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestProgramIds, $RequestSellOnline, $RequestServiceIds, $RequestSessionTypeIds, $RequestStaffId)
             ->then(
@@ -3284,7 +3284,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function saleGetServicesAsyncWithHttpInfo($RequestClassId = null, $RequestClassScheduleId = null, $RequestHideRelatedPrograms = null, $RequestIncludeDiscontinued = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSellOnline = null, $RequestServiceIds = null, $RequestSessionTypeIds = null, $RequestStaffId = null)
+    public function saleGetServicesAsyncWithHttpInfo($RequestClassId = null, $RequestClassScheduleId = null, $RequestHideRelatedPrograms = null, $RequestIncludeDiscontinued = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSellOnline = null, $RequestServiceIds = null, $RequestSessionTypeIds = null, $RequestStaffId = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetServicesResponse';
         $request = $this->saleGetServicesRequest($RequestClassId, $RequestClassScheduleId, $RequestHideRelatedPrograms, $RequestIncludeDiscontinued, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestProgramIds, $RequestSellOnline, $RequestServiceIds, $RequestSessionTypeIds, $RequestStaffId);
@@ -3345,7 +3345,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function saleGetServicesRequest($RequestClassId = null, $RequestClassScheduleId = null, $RequestHideRelatedPrograms = null, $RequestIncludeDiscontinued = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSellOnline = null, $RequestServiceIds = null, $RequestSessionTypeIds = null, $RequestStaffId = null)
+    protected function saleGetServicesRequest($RequestClassId = null, $RequestClassScheduleId = null, $RequestHideRelatedPrograms = null, $RequestIncludeDiscontinued = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSellOnline = null, $RequestServiceIds = null, $RequestSessionTypeIds = null, $RequestStaffId = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/sale/services';
@@ -3519,7 +3519,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetTransactionsResponse
      */
-    public function saleGetTransactions($RequestClientId = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSaleId = null, $RequestStatus = null, $RequestTransactionEndDateTime = null, $RequestTransactionId = null, $RequestTransactionStartDateTime = null)
+    public function saleGetTransactions($RequestClientId = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSaleId = null, $RequestStatus = null, $RequestTransactionEndDateTime = null, $RequestTransactionId = null, $RequestTransactionStartDateTime = null): \Nlocascio\Mindbody\Model\GetTransactionsResponse
     {
         list($response) = $this->saleGetTransactionsWithHttpInfo($RequestClientId, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestSaleId, $RequestStatus, $RequestTransactionEndDateTime, $RequestTransactionId, $RequestTransactionStartDateTime);
         return $response;
@@ -3544,7 +3544,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetTransactionsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function saleGetTransactionsWithHttpInfo($RequestClientId = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSaleId = null, $RequestStatus = null, $RequestTransactionEndDateTime = null, $RequestTransactionId = null, $RequestTransactionStartDateTime = null)
+    public function saleGetTransactionsWithHttpInfo($RequestClientId = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSaleId = null, $RequestStatus = null, $RequestTransactionEndDateTime = null, $RequestTransactionId = null, $RequestTransactionStartDateTime = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetTransactionsResponse';
         $request = $this->saleGetTransactionsRequest($RequestClientId, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestSaleId, $RequestStatus, $RequestTransactionEndDateTime, $RequestTransactionId, $RequestTransactionStartDateTime);
@@ -3626,7 +3626,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function saleGetTransactionsAsync($RequestClientId = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSaleId = null, $RequestStatus = null, $RequestTransactionEndDateTime = null, $RequestTransactionId = null, $RequestTransactionStartDateTime = null)
+    public function saleGetTransactionsAsync($RequestClientId = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSaleId = null, $RequestStatus = null, $RequestTransactionEndDateTime = null, $RequestTransactionId = null, $RequestTransactionStartDateTime = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->saleGetTransactionsAsyncWithHttpInfo($RequestClientId, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestSaleId, $RequestStatus, $RequestTransactionEndDateTime, $RequestTransactionId, $RequestTransactionStartDateTime)
             ->then(
@@ -3654,7 +3654,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function saleGetTransactionsAsyncWithHttpInfo($RequestClientId = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSaleId = null, $RequestStatus = null, $RequestTransactionEndDateTime = null, $RequestTransactionId = null, $RequestTransactionStartDateTime = null)
+    public function saleGetTransactionsAsyncWithHttpInfo($RequestClientId = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSaleId = null, $RequestStatus = null, $RequestTransactionEndDateTime = null, $RequestTransactionId = null, $RequestTransactionStartDateTime = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetTransactionsResponse';
         $request = $this->saleGetTransactionsRequest($RequestClientId, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestSaleId, $RequestStatus, $RequestTransactionEndDateTime, $RequestTransactionId, $RequestTransactionStartDateTime);
@@ -3712,7 +3712,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function saleGetTransactionsRequest($RequestClientId = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSaleId = null, $RequestStatus = null, $RequestTransactionEndDateTime = null, $RequestTransactionId = null, $RequestTransactionStartDateTime = null)
+    protected function saleGetTransactionsRequest($RequestClientId = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSaleId = null, $RequestStatus = null, $RequestTransactionEndDateTime = null, $RequestTransactionId = null, $RequestTransactionStartDateTime = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/sale/transactions';
@@ -3857,7 +3857,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\PurchaseAccountCreditResponse
      */
-    public function salePurchaseAccountCredit($Request)
+    public function salePurchaseAccountCredit($Request): \Nlocascio\Mindbody\Model\PurchaseAccountCreditResponse
     {
         list($response) = $this->salePurchaseAccountCreditWithHttpInfo($Request);
         return $response;
@@ -3874,7 +3874,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\PurchaseAccountCreditResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function salePurchaseAccountCreditWithHttpInfo($Request)
+    public function salePurchaseAccountCreditWithHttpInfo($Request): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\PurchaseAccountCreditResponse';
         $request = $this->salePurchaseAccountCreditRequest($Request);
@@ -3948,7 +3948,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function salePurchaseAccountCreditAsync($Request)
+    public function salePurchaseAccountCreditAsync($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->salePurchaseAccountCreditAsyncWithHttpInfo($Request)
             ->then(
@@ -3968,7 +3968,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function salePurchaseAccountCreditAsyncWithHttpInfo($Request)
+    public function salePurchaseAccountCreditAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\PurchaseAccountCreditResponse';
         $request = $this->salePurchaseAccountCreditRequest($Request);
@@ -4018,7 +4018,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function salePurchaseAccountCreditRequest($Request)
+    protected function salePurchaseAccountCreditRequest($Request): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'Request' is set
         if ($Request === null || (is_array($Request) && count($Request) === 0)) {
@@ -4136,7 +4136,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\PurchaseContractResponse
      */
-    public function salePurchaseContract($Request)
+    public function salePurchaseContract($Request): \Nlocascio\Mindbody\Model\PurchaseContractResponse
     {
         list($response) = $this->salePurchaseContractWithHttpInfo($Request);
         return $response;
@@ -4153,7 +4153,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\PurchaseContractResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function salePurchaseContractWithHttpInfo($Request)
+    public function salePurchaseContractWithHttpInfo($Request): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\PurchaseContractResponse';
         $request = $this->salePurchaseContractRequest($Request);
@@ -4227,7 +4227,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function salePurchaseContractAsync($Request)
+    public function salePurchaseContractAsync($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->salePurchaseContractAsyncWithHttpInfo($Request)
             ->then(
@@ -4247,7 +4247,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function salePurchaseContractAsyncWithHttpInfo($Request)
+    public function salePurchaseContractAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\PurchaseContractResponse';
         $request = $this->salePurchaseContractRequest($Request);
@@ -4297,7 +4297,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function salePurchaseContractRequest($Request)
+    protected function salePurchaseContractRequest($Request): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'Request' is set
         if ($Request === null || (is_array($Request) && count($Request) === 0)) {
@@ -4415,7 +4415,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\PurchaseGiftCardResponse
      */
-    public function salePurchaseGiftCard($Request)
+    public function salePurchaseGiftCard($Request): \Nlocascio\Mindbody\Model\PurchaseGiftCardResponse
     {
         list($response) = $this->salePurchaseGiftCardWithHttpInfo($Request);
         return $response;
@@ -4432,7 +4432,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\PurchaseGiftCardResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function salePurchaseGiftCardWithHttpInfo($Request)
+    public function salePurchaseGiftCardWithHttpInfo($Request): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\PurchaseGiftCardResponse';
         $request = $this->salePurchaseGiftCardRequest($Request);
@@ -4506,7 +4506,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function salePurchaseGiftCardAsync($Request)
+    public function salePurchaseGiftCardAsync($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->salePurchaseGiftCardAsyncWithHttpInfo($Request)
             ->then(
@@ -4526,7 +4526,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function salePurchaseGiftCardAsyncWithHttpInfo($Request)
+    public function salePurchaseGiftCardAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\PurchaseGiftCardResponse';
         $request = $this->salePurchaseGiftCardRequest($Request);
@@ -4576,7 +4576,7 @@ class SaleApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function salePurchaseGiftCardRequest($Request)
+    protected function salePurchaseGiftCardRequest($Request): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'Request' is set
         if ($Request === null || (is_array($Request) && count($Request) === 0)) {
@@ -4689,7 +4689,7 @@ class SaleApi
      * @throws \RuntimeException on file opening failure
      * @return array of http client options
      */
-    protected function createHttpClientOption()
+    protected function createHttpClientOption(): array
     {
         $options = [];
         if ($this->config->getDebug()) {

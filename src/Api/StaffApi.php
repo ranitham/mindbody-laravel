@@ -48,7 +48,7 @@ use Nlocascio\Mindbody\ObjectSerializer;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class StaffApi
+class StaffApi implements ApiInterface
 {
     /**
      * @var ClientInterface
@@ -83,7 +83,7 @@ class StaffApi
     /**
      * @return Configuration
      */
-    public function getConfig()
+    public function getConfig(): Configuration
     {
         return $this->config;
     }
@@ -97,7 +97,7 @@ class StaffApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\AddStaffResponse
      */
-    public function staffAddStaff($Request)
+    public function staffAddStaff($Request): \Nlocascio\Mindbody\Model\AddStaffResponse
     {
         list($response) = $this->staffAddStaffWithHttpInfo($Request);
         return $response;
@@ -112,7 +112,7 @@ class StaffApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\AddStaffResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function staffAddStaffWithHttpInfo($Request)
+    public function staffAddStaffWithHttpInfo($Request): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\AddStaffResponse';
         $request = $this->staffAddStaffRequest($Request);
@@ -186,7 +186,7 @@ class StaffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function staffAddStaffAsync($Request)
+    public function staffAddStaffAsync($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->staffAddStaffAsyncWithHttpInfo($Request)
             ->then(
@@ -206,7 +206,7 @@ class StaffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function staffAddStaffAsyncWithHttpInfo($Request)
+    public function staffAddStaffAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\AddStaffResponse';
         $request = $this->staffAddStaffRequest($Request);
@@ -256,7 +256,7 @@ class StaffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function staffAddStaffRequest($Request)
+    protected function staffAddStaffRequest($Request): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'Request' is set
         if ($Request === null || (is_array($Request) && count($Request) === 0)) {
@@ -372,7 +372,7 @@ class StaffApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function staffAddStaffAvailability($Request)
+    public function staffAddStaffAvailability($Request): void
     {
         $this->staffAddStaffAvailabilityWithHttpInfo($Request);
     }
@@ -386,7 +386,7 @@ class StaffApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function staffAddStaffAvailabilityWithHttpInfo($Request)
+    public function staffAddStaffAvailabilityWithHttpInfo($Request): array
     {
         $returnType = '';
         $request = $this->staffAddStaffAvailabilityRequest($Request);
@@ -438,7 +438,7 @@ class StaffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function staffAddStaffAvailabilityAsync($Request)
+    public function staffAddStaffAvailabilityAsync($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->staffAddStaffAvailabilityAsyncWithHttpInfo($Request)
             ->then(
@@ -458,7 +458,7 @@ class StaffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function staffAddStaffAvailabilityAsyncWithHttpInfo($Request)
+    public function staffAddStaffAvailabilityAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '';
         $request = $this->staffAddStaffAvailabilityRequest($Request);
@@ -494,7 +494,7 @@ class StaffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function staffAddStaffAvailabilityRequest($Request)
+    protected function staffAddStaffAvailabilityRequest($Request): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'Request' is set
         if ($Request === null || (is_array($Request) && count($Request) === 0)) {
@@ -610,7 +610,7 @@ class StaffApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\AssignStaffSessionTypeResponse
      */
-    public function staffAssignStaffSessionType($Request)
+    public function staffAssignStaffSessionType($Request): \Nlocascio\Mindbody\Model\AssignStaffSessionTypeResponse
     {
         list($response) = $this->staffAssignStaffSessionTypeWithHttpInfo($Request);
         return $response;
@@ -625,7 +625,7 @@ class StaffApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\AssignStaffSessionTypeResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function staffAssignStaffSessionTypeWithHttpInfo($Request)
+    public function staffAssignStaffSessionTypeWithHttpInfo($Request): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\AssignStaffSessionTypeResponse';
         $request = $this->staffAssignStaffSessionTypeRequest($Request);
@@ -699,7 +699,7 @@ class StaffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function staffAssignStaffSessionTypeAsync($Request)
+    public function staffAssignStaffSessionTypeAsync($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->staffAssignStaffSessionTypeAsyncWithHttpInfo($Request)
             ->then(
@@ -719,7 +719,7 @@ class StaffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function staffAssignStaffSessionTypeAsyncWithHttpInfo($Request)
+    public function staffAssignStaffSessionTypeAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\AssignStaffSessionTypeResponse';
         $request = $this->staffAssignStaffSessionTypeRequest($Request);
@@ -769,7 +769,7 @@ class StaffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function staffAssignStaffSessionTypeRequest($Request)
+    protected function staffAssignStaffSessionTypeRequest($Request): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'Request' is set
         if ($Request === null || (is_array($Request) && count($Request) === 0)) {
@@ -893,7 +893,7 @@ class StaffApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetStaffResponse
      */
-    public function staffGetStaff($RequestFilters = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSessionTypeId = null, $RequestStaffIds = null, $RequestStartDateTime = null)
+    public function staffGetStaff($RequestFilters = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSessionTypeId = null, $RequestStaffIds = null, $RequestStartDateTime = null): \Nlocascio\Mindbody\Model\GetStaffResponse
     {
         list($response) = $this->staffGetStaffWithHttpInfo($RequestFilters, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestSessionTypeId, $RequestStaffIds, $RequestStartDateTime);
         return $response;
@@ -916,7 +916,7 @@ class StaffApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetStaffResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function staffGetStaffWithHttpInfo($RequestFilters = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSessionTypeId = null, $RequestStaffIds = null, $RequestStartDateTime = null)
+    public function staffGetStaffWithHttpInfo($RequestFilters = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSessionTypeId = null, $RequestStaffIds = null, $RequestStartDateTime = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetStaffResponse';
         $request = $this->staffGetStaffRequest($RequestFilters, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestSessionTypeId, $RequestStaffIds, $RequestStartDateTime);
@@ -996,7 +996,7 @@ class StaffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function staffGetStaffAsync($RequestFilters = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSessionTypeId = null, $RequestStaffIds = null, $RequestStartDateTime = null)
+    public function staffGetStaffAsync($RequestFilters = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSessionTypeId = null, $RequestStaffIds = null, $RequestStartDateTime = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->staffGetStaffAsyncWithHttpInfo($RequestFilters, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestSessionTypeId, $RequestStaffIds, $RequestStartDateTime)
             ->then(
@@ -1022,7 +1022,7 @@ class StaffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function staffGetStaffAsyncWithHttpInfo($RequestFilters = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSessionTypeId = null, $RequestStaffIds = null, $RequestStartDateTime = null)
+    public function staffGetStaffAsyncWithHttpInfo($RequestFilters = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSessionTypeId = null, $RequestStaffIds = null, $RequestStartDateTime = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetStaffResponse';
         $request = $this->staffGetStaffRequest($RequestFilters, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestSessionTypeId, $RequestStaffIds, $RequestStartDateTime);
@@ -1078,7 +1078,7 @@ class StaffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function staffGetStaffRequest($RequestFilters = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSessionTypeId = null, $RequestStaffIds = null, $RequestStartDateTime = null)
+    protected function staffGetStaffRequest($RequestFilters = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSessionTypeId = null, $RequestStaffIds = null, $RequestStartDateTime = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/staff/staff';
@@ -1221,7 +1221,7 @@ class StaffApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetStaffPermissionsResponse
      */
-    public function staffGetStaffPermissions($RequestStaffId)
+    public function staffGetStaffPermissions($RequestStaffId): \Nlocascio\Mindbody\Model\GetStaffPermissionsResponse
     {
         list($response) = $this->staffGetStaffPermissionsWithHttpInfo($RequestStaffId);
         return $response;
@@ -1238,7 +1238,7 @@ class StaffApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetStaffPermissionsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function staffGetStaffPermissionsWithHttpInfo($RequestStaffId)
+    public function staffGetStaffPermissionsWithHttpInfo($RequestStaffId): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetStaffPermissionsResponse';
         $request = $this->staffGetStaffPermissionsRequest($RequestStaffId);
@@ -1312,7 +1312,7 @@ class StaffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function staffGetStaffPermissionsAsync($RequestStaffId)
+    public function staffGetStaffPermissionsAsync($RequestStaffId): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->staffGetStaffPermissionsAsyncWithHttpInfo($RequestStaffId)
             ->then(
@@ -1332,7 +1332,7 @@ class StaffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function staffGetStaffPermissionsAsyncWithHttpInfo($RequestStaffId)
+    public function staffGetStaffPermissionsAsyncWithHttpInfo($RequestStaffId): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetStaffPermissionsResponse';
         $request = $this->staffGetStaffPermissionsRequest($RequestStaffId);
@@ -1382,7 +1382,7 @@ class StaffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function staffGetStaffPermissionsRequest($RequestStaffId)
+    protected function staffGetStaffPermissionsRequest($RequestStaffId): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'RequestStaffId' is set
         if ($RequestStaffId === null || (is_array($RequestStaffId) && count($RequestStaffId) === 0)) {
@@ -1505,7 +1505,7 @@ class StaffApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetStaffSessionTypesResponse
      */
-    public function staffGetStaffSessionTypes($RequestStaffId, $RequestLimit = null, $RequestOffset = null, $RequestOnlineOnly = null, $RequestProgramIds = null)
+    public function staffGetStaffSessionTypes($RequestStaffId, $RequestLimit = null, $RequestOffset = null, $RequestOnlineOnly = null, $RequestProgramIds = null): \Nlocascio\Mindbody\Model\GetStaffSessionTypesResponse
     {
         list($response) = $this->staffGetStaffSessionTypesWithHttpInfo($RequestStaffId, $RequestLimit, $RequestOffset, $RequestOnlineOnly, $RequestProgramIds);
         return $response;
@@ -1526,7 +1526,7 @@ class StaffApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetStaffSessionTypesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function staffGetStaffSessionTypesWithHttpInfo($RequestStaffId, $RequestLimit = null, $RequestOffset = null, $RequestOnlineOnly = null, $RequestProgramIds = null)
+    public function staffGetStaffSessionTypesWithHttpInfo($RequestStaffId, $RequestLimit = null, $RequestOffset = null, $RequestOnlineOnly = null, $RequestProgramIds = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetStaffSessionTypesResponse';
         $request = $this->staffGetStaffSessionTypesRequest($RequestStaffId, $RequestLimit, $RequestOffset, $RequestOnlineOnly, $RequestProgramIds);
@@ -1604,7 +1604,7 @@ class StaffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function staffGetStaffSessionTypesAsync($RequestStaffId, $RequestLimit = null, $RequestOffset = null, $RequestOnlineOnly = null, $RequestProgramIds = null)
+    public function staffGetStaffSessionTypesAsync($RequestStaffId, $RequestLimit = null, $RequestOffset = null, $RequestOnlineOnly = null, $RequestProgramIds = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->staffGetStaffSessionTypesAsyncWithHttpInfo($RequestStaffId, $RequestLimit, $RequestOffset, $RequestOnlineOnly, $RequestProgramIds)
             ->then(
@@ -1628,7 +1628,7 @@ class StaffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function staffGetStaffSessionTypesAsyncWithHttpInfo($RequestStaffId, $RequestLimit = null, $RequestOffset = null, $RequestOnlineOnly = null, $RequestProgramIds = null)
+    public function staffGetStaffSessionTypesAsyncWithHttpInfo($RequestStaffId, $RequestLimit = null, $RequestOffset = null, $RequestOnlineOnly = null, $RequestProgramIds = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetStaffSessionTypesResponse';
         $request = $this->staffGetStaffSessionTypesRequest($RequestStaffId, $RequestLimit, $RequestOffset, $RequestOnlineOnly, $RequestProgramIds);
@@ -1682,7 +1682,7 @@ class StaffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function staffGetStaffSessionTypesRequest($RequestStaffId, $RequestLimit = null, $RequestOffset = null, $RequestOnlineOnly = null, $RequestProgramIds = null)
+    protected function staffGetStaffSessionTypesRequest($RequestStaffId, $RequestLimit = null, $RequestOffset = null, $RequestOnlineOnly = null, $RequestProgramIds = null): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'RequestStaffId' is set
         if ($RequestStaffId === null || (is_array($RequestStaffId) && count($RequestStaffId) === 0)) {
@@ -1818,7 +1818,7 @@ class StaffApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\UpdateStaffResponse
      */
-    public function staffUpdateStaff($Request)
+    public function staffUpdateStaff($Request): \Nlocascio\Mindbody\Model\UpdateStaffResponse
     {
         list($response) = $this->staffUpdateStaffWithHttpInfo($Request);
         return $response;
@@ -1833,7 +1833,7 @@ class StaffApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\UpdateStaffResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function staffUpdateStaffWithHttpInfo($Request)
+    public function staffUpdateStaffWithHttpInfo($Request): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\UpdateStaffResponse';
         $request = $this->staffUpdateStaffRequest($Request);
@@ -1907,7 +1907,7 @@ class StaffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function staffUpdateStaffAsync($Request)
+    public function staffUpdateStaffAsync($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->staffUpdateStaffAsyncWithHttpInfo($Request)
             ->then(
@@ -1927,7 +1927,7 @@ class StaffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function staffUpdateStaffAsyncWithHttpInfo($Request)
+    public function staffUpdateStaffAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\UpdateStaffResponse';
         $request = $this->staffUpdateStaffRequest($Request);
@@ -1977,7 +1977,7 @@ class StaffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function staffUpdateStaffRequest($Request)
+    protected function staffUpdateStaffRequest($Request): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'Request' is set
         if ($Request === null || (is_array($Request) && count($Request) === 0)) {
@@ -2093,7 +2093,7 @@ class StaffApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\UpdateStaffPermissionsResponse
      */
-    public function staffUpdateStaffPermissions($Request)
+    public function staffUpdateStaffPermissions($Request): \Nlocascio\Mindbody\Model\UpdateStaffPermissionsResponse
     {
         list($response) = $this->staffUpdateStaffPermissionsWithHttpInfo($Request);
         return $response;
@@ -2108,7 +2108,7 @@ class StaffApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\UpdateStaffPermissionsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function staffUpdateStaffPermissionsWithHttpInfo($Request)
+    public function staffUpdateStaffPermissionsWithHttpInfo($Request): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\UpdateStaffPermissionsResponse';
         $request = $this->staffUpdateStaffPermissionsRequest($Request);
@@ -2182,7 +2182,7 @@ class StaffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function staffUpdateStaffPermissionsAsync($Request)
+    public function staffUpdateStaffPermissionsAsync($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->staffUpdateStaffPermissionsAsyncWithHttpInfo($Request)
             ->then(
@@ -2202,7 +2202,7 @@ class StaffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function staffUpdateStaffPermissionsAsyncWithHttpInfo($Request)
+    public function staffUpdateStaffPermissionsAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\UpdateStaffPermissionsResponse';
         $request = $this->staffUpdateStaffPermissionsRequest($Request);
@@ -2252,7 +2252,7 @@ class StaffApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function staffUpdateStaffPermissionsRequest($Request)
+    protected function staffUpdateStaffPermissionsRequest($Request): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'Request' is set
         if ($Request === null || (is_array($Request) && count($Request) === 0)) {
@@ -2365,7 +2365,7 @@ class StaffApi
      * @throws \RuntimeException on file opening failure
      * @return array of http client options
      */
-    protected function createHttpClientOption()
+    protected function createHttpClientOption(): array
     {
         $options = [];
         if ($this->config->getDebug()) {

@@ -48,7 +48,7 @@ use Nlocascio\Mindbody\ObjectSerializer;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ClientApi
+class ClientApi implements ApiInterface
 {
     /**
      * @var ClientInterface
@@ -83,7 +83,7 @@ class ClientApi
     /**
      * @return Configuration
      */
-    public function getConfig()
+    public function getConfig(): Configuration
     {
         return $this->config;
     }
@@ -99,7 +99,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\AddArrivalResponse
      */
-    public function clientAddArrival($Request)
+    public function clientAddArrival($Request): \Nlocascio\Mindbody\Model\AddArrivalResponse
     {
         list($response) = $this->clientAddArrivalWithHttpInfo($Request);
         return $response;
@@ -116,7 +116,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\AddArrivalResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientAddArrivalWithHttpInfo($Request)
+    public function clientAddArrivalWithHttpInfo($Request): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\AddArrivalResponse';
         $request = $this->clientAddArrivalRequest($Request);
@@ -190,7 +190,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientAddArrivalAsync($Request)
+    public function clientAddArrivalAsync($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->clientAddArrivalAsyncWithHttpInfo($Request)
             ->then(
@@ -210,7 +210,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientAddArrivalAsyncWithHttpInfo($Request)
+    public function clientAddArrivalAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\AddArrivalResponse';
         $request = $this->clientAddArrivalRequest($Request);
@@ -260,7 +260,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientAddArrivalRequest($Request)
+    protected function clientAddArrivalRequest($Request): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'Request' is set
         if ($Request === null || (is_array($Request) && count($Request) === 0)) {
@@ -378,7 +378,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\AddClientResponse
      */
-    public function clientAddClient($Request)
+    public function clientAddClient($Request): \Nlocascio\Mindbody\Model\AddClientResponse
     {
         list($response) = $this->clientAddClientWithHttpInfo($Request);
         return $response;
@@ -395,7 +395,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\AddClientResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientAddClientWithHttpInfo($Request)
+    public function clientAddClientWithHttpInfo($Request): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\AddClientResponse';
         $request = $this->clientAddClientRequest($Request);
@@ -469,7 +469,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientAddClientAsync($Request)
+    public function clientAddClientAsync($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->clientAddClientAsyncWithHttpInfo($Request)
             ->then(
@@ -489,7 +489,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientAddClientAsyncWithHttpInfo($Request)
+    public function clientAddClientAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\AddClientResponse';
         $request = $this->clientAddClientRequest($Request);
@@ -539,7 +539,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientAddClientRequest($Request)
+    protected function clientAddClientRequest($Request): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'Request' is set
         if ($Request === null || (is_array($Request) && count($Request) === 0)) {
@@ -655,7 +655,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\AddClientDirectDebitInfoResponse
      */
-    public function clientAddClientDirectDebitInfo($Request)
+    public function clientAddClientDirectDebitInfo($Request): \Nlocascio\Mindbody\Model\AddClientDirectDebitInfoResponse
     {
         list($response) = $this->clientAddClientDirectDebitInfoWithHttpInfo($Request);
         return $response;
@@ -670,7 +670,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\AddClientDirectDebitInfoResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientAddClientDirectDebitInfoWithHttpInfo($Request)
+    public function clientAddClientDirectDebitInfoWithHttpInfo($Request): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\AddClientDirectDebitInfoResponse';
         $request = $this->clientAddClientDirectDebitInfoRequest($Request);
@@ -744,7 +744,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientAddClientDirectDebitInfoAsync($Request)
+    public function clientAddClientDirectDebitInfoAsync($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->clientAddClientDirectDebitInfoAsyncWithHttpInfo($Request)
             ->then(
@@ -764,7 +764,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientAddClientDirectDebitInfoAsyncWithHttpInfo($Request)
+    public function clientAddClientDirectDebitInfoAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\AddClientDirectDebitInfoResponse';
         $request = $this->clientAddClientDirectDebitInfoRequest($Request);
@@ -814,7 +814,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientAddClientDirectDebitInfoRequest($Request)
+    protected function clientAddClientDirectDebitInfoRequest($Request): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'Request' is set
         if ($Request === null || (is_array($Request) && count($Request) === 0)) {
@@ -932,7 +932,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\ContactLog
      */
-    public function clientAddContactLog($Request)
+    public function clientAddContactLog($Request): \Nlocascio\Mindbody\Model\ContactLog
     {
         list($response) = $this->clientAddContactLogWithHttpInfo($Request);
         return $response;
@@ -949,7 +949,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\ContactLog, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientAddContactLogWithHttpInfo($Request)
+    public function clientAddContactLogWithHttpInfo($Request): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\ContactLog';
         $request = $this->clientAddContactLogRequest($Request);
@@ -1023,7 +1023,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientAddContactLogAsync($Request)
+    public function clientAddContactLogAsync($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->clientAddContactLogAsyncWithHttpInfo($Request)
             ->then(
@@ -1043,7 +1043,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientAddContactLogAsyncWithHttpInfo($Request)
+    public function clientAddContactLogAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\ContactLog';
         $request = $this->clientAddContactLogRequest($Request);
@@ -1093,7 +1093,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientAddContactLogRequest($Request)
+    protected function clientAddContactLogRequest($Request): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'Request' is set
         if ($Request === null || (is_array($Request) && count($Request) === 0)) {
@@ -1209,7 +1209,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\FormulaNoteResponse
      */
-    public function clientAddFormulaNote($Request)
+    public function clientAddFormulaNote($Request): \Nlocascio\Mindbody\Model\FormulaNoteResponse
     {
         list($response) = $this->clientAddFormulaNoteWithHttpInfo($Request);
         return $response;
@@ -1224,7 +1224,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\FormulaNoteResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientAddFormulaNoteWithHttpInfo($Request)
+    public function clientAddFormulaNoteWithHttpInfo($Request): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\FormulaNoteResponse';
         $request = $this->clientAddFormulaNoteRequest($Request);
@@ -1298,7 +1298,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientAddFormulaNoteAsync($Request)
+    public function clientAddFormulaNoteAsync($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->clientAddFormulaNoteAsyncWithHttpInfo($Request)
             ->then(
@@ -1318,7 +1318,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientAddFormulaNoteAsyncWithHttpInfo($Request)
+    public function clientAddFormulaNoteAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\FormulaNoteResponse';
         $request = $this->clientAddFormulaNoteRequest($Request);
@@ -1368,7 +1368,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientAddFormulaNoteRequest($Request)
+    protected function clientAddFormulaNoteRequest($Request): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'Request' is set
         if ($Request === null || (is_array($Request) && count($Request) === 0)) {
@@ -1489,7 +1489,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function clientDeleteClientFormulaNote($RequestClientId, $RequestFormulaNoteId, $RequestLimit = null, $RequestOffset = null)
+    public function clientDeleteClientFormulaNote($RequestClientId, $RequestFormulaNoteId, $RequestLimit = null, $RequestOffset = null): void
     {
         $this->clientDeleteClientFormulaNoteWithHttpInfo($RequestClientId, $RequestFormulaNoteId, $RequestLimit, $RequestOffset);
     }
@@ -1508,7 +1508,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientDeleteClientFormulaNoteWithHttpInfo($RequestClientId, $RequestFormulaNoteId, $RequestLimit = null, $RequestOffset = null)
+    public function clientDeleteClientFormulaNoteWithHttpInfo($RequestClientId, $RequestFormulaNoteId, $RequestLimit = null, $RequestOffset = null): array
     {
         $returnType = '';
         $request = $this->clientDeleteClientFormulaNoteRequest($RequestClientId, $RequestFormulaNoteId, $RequestLimit, $RequestOffset);
@@ -1563,7 +1563,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientDeleteClientFormulaNoteAsync($RequestClientId, $RequestFormulaNoteId, $RequestLimit = null, $RequestOffset = null)
+    public function clientDeleteClientFormulaNoteAsync($RequestClientId, $RequestFormulaNoteId, $RequestLimit = null, $RequestOffset = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->clientDeleteClientFormulaNoteAsyncWithHttpInfo($RequestClientId, $RequestFormulaNoteId, $RequestLimit, $RequestOffset)
             ->then(
@@ -1586,7 +1586,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientDeleteClientFormulaNoteAsyncWithHttpInfo($RequestClientId, $RequestFormulaNoteId, $RequestLimit = null, $RequestOffset = null)
+    public function clientDeleteClientFormulaNoteAsyncWithHttpInfo($RequestClientId, $RequestFormulaNoteId, $RequestLimit = null, $RequestOffset = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '';
         $request = $this->clientDeleteClientFormulaNoteRequest($RequestClientId, $RequestFormulaNoteId, $RequestLimit, $RequestOffset);
@@ -1625,7 +1625,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientDeleteClientFormulaNoteRequest($RequestClientId, $RequestFormulaNoteId, $RequestLimit = null, $RequestOffset = null)
+    protected function clientDeleteClientFormulaNoteRequest($RequestClientId, $RequestFormulaNoteId, $RequestLimit = null, $RequestOffset = null): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'RequestClientId' is set
         if ($RequestClientId === null || (is_array($RequestClientId) && count($RequestClientId) === 0)) {
@@ -1764,7 +1764,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function clientDeleteContactLog($RequestClientId, $RequestContactLogId, $RequestTest = null)
+    public function clientDeleteContactLog($RequestClientId, $RequestContactLogId, $RequestTest = null): object
     {
         list($response) = $this->clientDeleteContactLogWithHttpInfo($RequestClientId, $RequestContactLogId, $RequestTest);
         return $response;
@@ -1783,7 +1783,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientDeleteContactLogWithHttpInfo($RequestClientId, $RequestContactLogId, $RequestTest = null)
+    public function clientDeleteContactLogWithHttpInfo($RequestClientId, $RequestContactLogId, $RequestTest = null): array
     {
         $returnType = 'object';
         $request = $this->clientDeleteContactLogRequest($RequestClientId, $RequestContactLogId, $RequestTest);
@@ -1859,7 +1859,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientDeleteContactLogAsync($RequestClientId, $RequestContactLogId, $RequestTest = null)
+    public function clientDeleteContactLogAsync($RequestClientId, $RequestContactLogId, $RequestTest = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->clientDeleteContactLogAsyncWithHttpInfo($RequestClientId, $RequestContactLogId, $RequestTest)
             ->then(
@@ -1881,7 +1881,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientDeleteContactLogAsyncWithHttpInfo($RequestClientId, $RequestContactLogId, $RequestTest = null)
+    public function clientDeleteContactLogAsyncWithHttpInfo($RequestClientId, $RequestContactLogId, $RequestTest = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = 'object';
         $request = $this->clientDeleteContactLogRequest($RequestClientId, $RequestContactLogId, $RequestTest);
@@ -1933,7 +1933,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientDeleteContactLogRequest($RequestClientId, $RequestContactLogId, $RequestTest = null)
+    protected function clientDeleteContactLogRequest($RequestClientId, $RequestContactLogId, $RequestTest = null): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'RequestClientId' is set
         if ($RequestClientId === null || (is_array($RequestClientId) && count($RequestClientId) === 0)) {
@@ -2066,7 +2066,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function clientDeleteDirectDebitInfo($ClientId = null)
+    public function clientDeleteDirectDebitInfo($ClientId = null): object
     {
         list($response) = $this->clientDeleteDirectDebitInfoWithHttpInfo($ClientId);
         return $response;
@@ -2083,7 +2083,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientDeleteDirectDebitInfoWithHttpInfo($ClientId = null)
+    public function clientDeleteDirectDebitInfoWithHttpInfo($ClientId = null): array
     {
         $returnType = 'object';
         $request = $this->clientDeleteDirectDebitInfoRequest($ClientId);
@@ -2157,7 +2157,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientDeleteDirectDebitInfoAsync($ClientId = null)
+    public function clientDeleteDirectDebitInfoAsync($ClientId = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->clientDeleteDirectDebitInfoAsyncWithHttpInfo($ClientId)
             ->then(
@@ -2177,7 +2177,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientDeleteDirectDebitInfoAsyncWithHttpInfo($ClientId = null)
+    public function clientDeleteDirectDebitInfoAsyncWithHttpInfo($ClientId = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = 'object';
         $request = $this->clientDeleteDirectDebitInfoRequest($ClientId);
@@ -2227,7 +2227,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientDeleteDirectDebitInfoRequest($ClientId = null)
+    protected function clientDeleteDirectDebitInfoRequest($ClientId = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/client/clientdirectdebitinfo';
@@ -2345,7 +2345,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetActiveClientMembershipsResponse
      */
-    public function clientGetActiveClientMemberships($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null)
+    public function clientGetActiveClientMemberships($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null): \Nlocascio\Mindbody\Model\GetActiveClientMembershipsResponse
     {
         list($response) = $this->clientGetActiveClientMembershipsWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestLimit, $RequestLocationId, $RequestOffset);
         return $response;
@@ -2367,7 +2367,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetActiveClientMembershipsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientGetActiveClientMembershipsWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null)
+    public function clientGetActiveClientMembershipsWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetActiveClientMembershipsResponse';
         $request = $this->clientGetActiveClientMembershipsRequest($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestLimit, $RequestLocationId, $RequestOffset);
@@ -2446,7 +2446,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetActiveClientMembershipsAsync($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null)
+    public function clientGetActiveClientMembershipsAsync($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->clientGetActiveClientMembershipsAsyncWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestLimit, $RequestLocationId, $RequestOffset)
             ->then(
@@ -2471,7 +2471,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetActiveClientMembershipsAsyncWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null)
+    public function clientGetActiveClientMembershipsAsyncWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetActiveClientMembershipsResponse';
         $request = $this->clientGetActiveClientMembershipsRequest($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestLimit, $RequestLocationId, $RequestOffset);
@@ -2526,7 +2526,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientGetActiveClientMembershipsRequest($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null)
+    protected function clientGetActiveClientMembershipsRequest($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'RequestClientId' is set
         if ($RequestClientId === null || (is_array($RequestClientId) && count($RequestClientId) === 0)) {
@@ -2670,7 +2670,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetActiveClientsMembershipsResponse
      */
-    public function clientGetActiveClientsMemberships($RequestClientIds, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null)
+    public function clientGetActiveClientsMemberships($RequestClientIds, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null): \Nlocascio\Mindbody\Model\GetActiveClientsMembershipsResponse
     {
         list($response) = $this->clientGetActiveClientsMembershipsWithHttpInfo($RequestClientIds, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestLimit, $RequestLocationId, $RequestOffset);
         return $response;
@@ -2692,7 +2692,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetActiveClientsMembershipsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientGetActiveClientsMembershipsWithHttpInfo($RequestClientIds, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null)
+    public function clientGetActiveClientsMembershipsWithHttpInfo($RequestClientIds, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetActiveClientsMembershipsResponse';
         $request = $this->clientGetActiveClientsMembershipsRequest($RequestClientIds, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestLimit, $RequestLocationId, $RequestOffset);
@@ -2771,7 +2771,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetActiveClientsMembershipsAsync($RequestClientIds, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null)
+    public function clientGetActiveClientsMembershipsAsync($RequestClientIds, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->clientGetActiveClientsMembershipsAsyncWithHttpInfo($RequestClientIds, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestLimit, $RequestLocationId, $RequestOffset)
             ->then(
@@ -2796,7 +2796,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetActiveClientsMembershipsAsyncWithHttpInfo($RequestClientIds, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null)
+    public function clientGetActiveClientsMembershipsAsyncWithHttpInfo($RequestClientIds, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetActiveClientsMembershipsResponse';
         $request = $this->clientGetActiveClientsMembershipsRequest($RequestClientIds, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestLimit, $RequestLocationId, $RequestOffset);
@@ -2851,7 +2851,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientGetActiveClientsMembershipsRequest($RequestClientIds, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null)
+    protected function clientGetActiveClientsMembershipsRequest($RequestClientIds, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'RequestClientIds' is set
         if ($RequestClientIds === null || (is_array($RequestClientIds) && count($RequestClientIds) === 0)) {
@@ -2997,7 +2997,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetClientAccountBalancesResponse
      */
-    public function clientGetClientAccountBalances($RequestClientIds, $RequestBalanceDate = null, $RequestClassId = null, $RequestLimit = null, $RequestOffset = null)
+    public function clientGetClientAccountBalances($RequestClientIds, $RequestBalanceDate = null, $RequestClassId = null, $RequestLimit = null, $RequestOffset = null): \Nlocascio\Mindbody\Model\GetClientAccountBalancesResponse
     {
         list($response) = $this->clientGetClientAccountBalancesWithHttpInfo($RequestClientIds, $RequestBalanceDate, $RequestClassId, $RequestLimit, $RequestOffset);
         return $response;
@@ -3018,7 +3018,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetClientAccountBalancesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientGetClientAccountBalancesWithHttpInfo($RequestClientIds, $RequestBalanceDate = null, $RequestClassId = null, $RequestLimit = null, $RequestOffset = null)
+    public function clientGetClientAccountBalancesWithHttpInfo($RequestClientIds, $RequestBalanceDate = null, $RequestClassId = null, $RequestLimit = null, $RequestOffset = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClientAccountBalancesResponse';
         $request = $this->clientGetClientAccountBalancesRequest($RequestClientIds, $RequestBalanceDate, $RequestClassId, $RequestLimit, $RequestOffset);
@@ -3096,7 +3096,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetClientAccountBalancesAsync($RequestClientIds, $RequestBalanceDate = null, $RequestClassId = null, $RequestLimit = null, $RequestOffset = null)
+    public function clientGetClientAccountBalancesAsync($RequestClientIds, $RequestBalanceDate = null, $RequestClassId = null, $RequestLimit = null, $RequestOffset = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->clientGetClientAccountBalancesAsyncWithHttpInfo($RequestClientIds, $RequestBalanceDate, $RequestClassId, $RequestLimit, $RequestOffset)
             ->then(
@@ -3120,7 +3120,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetClientAccountBalancesAsyncWithHttpInfo($RequestClientIds, $RequestBalanceDate = null, $RequestClassId = null, $RequestLimit = null, $RequestOffset = null)
+    public function clientGetClientAccountBalancesAsyncWithHttpInfo($RequestClientIds, $RequestBalanceDate = null, $RequestClassId = null, $RequestLimit = null, $RequestOffset = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClientAccountBalancesResponse';
         $request = $this->clientGetClientAccountBalancesRequest($RequestClientIds, $RequestBalanceDate, $RequestClassId, $RequestLimit, $RequestOffset);
@@ -3174,7 +3174,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientGetClientAccountBalancesRequest($RequestClientIds, $RequestBalanceDate = null, $RequestClassId = null, $RequestLimit = null, $RequestOffset = null)
+    protected function clientGetClientAccountBalancesRequest($RequestClientIds, $RequestBalanceDate = null, $RequestClassId = null, $RequestLimit = null, $RequestOffset = null): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'RequestClientIds' is set
         if ($RequestClientIds === null || (is_array($RequestClientIds) && count($RequestClientIds) === 0)) {
@@ -3317,7 +3317,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetClientCompleteInfoResponse
      */
-    public function clientGetClientCompleteInfo($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestRequiredClientData = null, $RequestStartDate = null)
+    public function clientGetClientCompleteInfo($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestRequiredClientData = null, $RequestStartDate = null): \Nlocascio\Mindbody\Model\GetClientCompleteInfoResponse
     {
         list($response) = $this->clientGetClientCompleteInfoWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestEndDate, $RequestRequiredClientData, $RequestStartDate);
         return $response;
@@ -3339,7 +3339,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetClientCompleteInfoResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientGetClientCompleteInfoWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestRequiredClientData = null, $RequestStartDate = null)
+    public function clientGetClientCompleteInfoWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestRequiredClientData = null, $RequestStartDate = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClientCompleteInfoResponse';
         $request = $this->clientGetClientCompleteInfoRequest($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestEndDate, $RequestRequiredClientData, $RequestStartDate);
@@ -3418,7 +3418,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetClientCompleteInfoAsync($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestRequiredClientData = null, $RequestStartDate = null)
+    public function clientGetClientCompleteInfoAsync($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestRequiredClientData = null, $RequestStartDate = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->clientGetClientCompleteInfoAsyncWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestEndDate, $RequestRequiredClientData, $RequestStartDate)
             ->then(
@@ -3443,7 +3443,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetClientCompleteInfoAsyncWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestRequiredClientData = null, $RequestStartDate = null)
+    public function clientGetClientCompleteInfoAsyncWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestRequiredClientData = null, $RequestStartDate = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClientCompleteInfoResponse';
         $request = $this->clientGetClientCompleteInfoRequest($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestEndDate, $RequestRequiredClientData, $RequestStartDate);
@@ -3498,7 +3498,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientGetClientCompleteInfoRequest($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestRequiredClientData = null, $RequestStartDate = null)
+    protected function clientGetClientCompleteInfoRequest($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestRequiredClientData = null, $RequestStartDate = null): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'RequestClientId' is set
         if ($RequestClientId === null || (is_array($RequestClientId) && count($RequestClientId) === 0)) {
@@ -3644,7 +3644,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetClientContractsResponse
      */
-    public function clientGetClientContracts($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestOffset = null)
+    public function clientGetClientContracts($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestOffset = null): \Nlocascio\Mindbody\Model\GetClientContractsResponse
     {
         list($response) = $this->clientGetClientContractsWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestLimit, $RequestOffset);
         return $response;
@@ -3665,7 +3665,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetClientContractsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientGetClientContractsWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestOffset = null)
+    public function clientGetClientContractsWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestOffset = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClientContractsResponse';
         $request = $this->clientGetClientContractsRequest($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestLimit, $RequestOffset);
@@ -3743,7 +3743,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetClientContractsAsync($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestOffset = null)
+    public function clientGetClientContractsAsync($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestOffset = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->clientGetClientContractsAsyncWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestLimit, $RequestOffset)
             ->then(
@@ -3767,7 +3767,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetClientContractsAsyncWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestOffset = null)
+    public function clientGetClientContractsAsyncWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestOffset = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClientContractsResponse';
         $request = $this->clientGetClientContractsRequest($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestLimit, $RequestOffset);
@@ -3821,7 +3821,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientGetClientContractsRequest($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestOffset = null)
+    protected function clientGetClientContractsRequest($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestOffset = null): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'RequestClientId' is set
         if ($RequestClientId === null || (is_array($RequestClientId) && count($RequestClientId) === 0)) {
@@ -3960,7 +3960,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetClientDuplicatesResponse
      */
-    public function clientGetClientDuplicates($RequestEmail = null, $RequestFirstName = null, $RequestLastName = null, $RequestLimit = null, $RequestOffset = null)
+    public function clientGetClientDuplicates($RequestEmail = null, $RequestFirstName = null, $RequestLastName = null, $RequestLimit = null, $RequestOffset = null): \Nlocascio\Mindbody\Model\GetClientDuplicatesResponse
     {
         list($response) = $this->clientGetClientDuplicatesWithHttpInfo($RequestEmail, $RequestFirstName, $RequestLastName, $RequestLimit, $RequestOffset);
         return $response;
@@ -3981,7 +3981,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetClientDuplicatesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientGetClientDuplicatesWithHttpInfo($RequestEmail = null, $RequestFirstName = null, $RequestLastName = null, $RequestLimit = null, $RequestOffset = null)
+    public function clientGetClientDuplicatesWithHttpInfo($RequestEmail = null, $RequestFirstName = null, $RequestLastName = null, $RequestLimit = null, $RequestOffset = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClientDuplicatesResponse';
         $request = $this->clientGetClientDuplicatesRequest($RequestEmail, $RequestFirstName, $RequestLastName, $RequestLimit, $RequestOffset);
@@ -4059,7 +4059,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetClientDuplicatesAsync($RequestEmail = null, $RequestFirstName = null, $RequestLastName = null, $RequestLimit = null, $RequestOffset = null)
+    public function clientGetClientDuplicatesAsync($RequestEmail = null, $RequestFirstName = null, $RequestLastName = null, $RequestLimit = null, $RequestOffset = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->clientGetClientDuplicatesAsyncWithHttpInfo($RequestEmail, $RequestFirstName, $RequestLastName, $RequestLimit, $RequestOffset)
             ->then(
@@ -4083,7 +4083,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetClientDuplicatesAsyncWithHttpInfo($RequestEmail = null, $RequestFirstName = null, $RequestLastName = null, $RequestLimit = null, $RequestOffset = null)
+    public function clientGetClientDuplicatesAsyncWithHttpInfo($RequestEmail = null, $RequestFirstName = null, $RequestLastName = null, $RequestLimit = null, $RequestOffset = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClientDuplicatesResponse';
         $request = $this->clientGetClientDuplicatesRequest($RequestEmail, $RequestFirstName, $RequestLastName, $RequestLimit, $RequestOffset);
@@ -4137,7 +4137,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientGetClientDuplicatesRequest($RequestEmail = null, $RequestFirstName = null, $RequestLastName = null, $RequestLimit = null, $RequestOffset = null)
+    protected function clientGetClientDuplicatesRequest($RequestEmail = null, $RequestFirstName = null, $RequestLastName = null, $RequestLimit = null, $RequestOffset = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/client/clientduplicates';
@@ -4269,7 +4269,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetClientFormulaNotesResponse
      */
-    public function clientGetClientFormulaNotes($RequestAppointmentId = null, $RequestClientId = null, $RequestLimit = null, $RequestOffset = null)
+    public function clientGetClientFormulaNotes($RequestAppointmentId = null, $RequestClientId = null, $RequestLimit = null, $RequestOffset = null): \Nlocascio\Mindbody\Model\GetClientFormulaNotesResponse
     {
         list($response) = $this->clientGetClientFormulaNotesWithHttpInfo($RequestAppointmentId, $RequestClientId, $RequestLimit, $RequestOffset);
         return $response;
@@ -4289,7 +4289,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetClientFormulaNotesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientGetClientFormulaNotesWithHttpInfo($RequestAppointmentId = null, $RequestClientId = null, $RequestLimit = null, $RequestOffset = null)
+    public function clientGetClientFormulaNotesWithHttpInfo($RequestAppointmentId = null, $RequestClientId = null, $RequestLimit = null, $RequestOffset = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClientFormulaNotesResponse';
         $request = $this->clientGetClientFormulaNotesRequest($RequestAppointmentId, $RequestClientId, $RequestLimit, $RequestOffset);
@@ -4366,7 +4366,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetClientFormulaNotesAsync($RequestAppointmentId = null, $RequestClientId = null, $RequestLimit = null, $RequestOffset = null)
+    public function clientGetClientFormulaNotesAsync($RequestAppointmentId = null, $RequestClientId = null, $RequestLimit = null, $RequestOffset = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->clientGetClientFormulaNotesAsyncWithHttpInfo($RequestAppointmentId, $RequestClientId, $RequestLimit, $RequestOffset)
             ->then(
@@ -4389,7 +4389,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetClientFormulaNotesAsyncWithHttpInfo($RequestAppointmentId = null, $RequestClientId = null, $RequestLimit = null, $RequestOffset = null)
+    public function clientGetClientFormulaNotesAsyncWithHttpInfo($RequestAppointmentId = null, $RequestClientId = null, $RequestLimit = null, $RequestOffset = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClientFormulaNotesResponse';
         $request = $this->clientGetClientFormulaNotesRequest($RequestAppointmentId, $RequestClientId, $RequestLimit, $RequestOffset);
@@ -4442,7 +4442,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientGetClientFormulaNotesRequest($RequestAppointmentId = null, $RequestClientId = null, $RequestLimit = null, $RequestOffset = null)
+    protected function clientGetClientFormulaNotesRequest($RequestAppointmentId = null, $RequestClientId = null, $RequestLimit = null, $RequestOffset = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/client/clientformulanotes';
@@ -4567,7 +4567,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetClientIndexesResponse
      */
-    public function clientGetClientIndexes($RequestRequiredOnly = null)
+    public function clientGetClientIndexes($RequestRequiredOnly = null): \Nlocascio\Mindbody\Model\GetClientIndexesResponse
     {
         list($response) = $this->clientGetClientIndexesWithHttpInfo($RequestRequiredOnly);
         return $response;
@@ -4584,7 +4584,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetClientIndexesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientGetClientIndexesWithHttpInfo($RequestRequiredOnly = null)
+    public function clientGetClientIndexesWithHttpInfo($RequestRequiredOnly = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClientIndexesResponse';
         $request = $this->clientGetClientIndexesRequest($RequestRequiredOnly);
@@ -4658,7 +4658,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetClientIndexesAsync($RequestRequiredOnly = null)
+    public function clientGetClientIndexesAsync($RequestRequiredOnly = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->clientGetClientIndexesAsyncWithHttpInfo($RequestRequiredOnly)
             ->then(
@@ -4678,7 +4678,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetClientIndexesAsyncWithHttpInfo($RequestRequiredOnly = null)
+    public function clientGetClientIndexesAsyncWithHttpInfo($RequestRequiredOnly = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClientIndexesResponse';
         $request = $this->clientGetClientIndexesRequest($RequestRequiredOnly);
@@ -4728,7 +4728,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientGetClientIndexesRequest($RequestRequiredOnly = null)
+    protected function clientGetClientIndexesRequest($RequestRequiredOnly = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/client/clientindexes';
@@ -4846,7 +4846,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetClientPurchasesResponse
      */
-    public function clientGetClientPurchases($RequestClientId, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestSaleId = null, $RequestStartDate = null)
+    public function clientGetClientPurchases($RequestClientId, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestSaleId = null, $RequestStartDate = null): \Nlocascio\Mindbody\Model\GetClientPurchasesResponse
     {
         list($response) = $this->clientGetClientPurchasesWithHttpInfo($RequestClientId, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestSaleId, $RequestStartDate);
         return $response;
@@ -4868,7 +4868,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetClientPurchasesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientGetClientPurchasesWithHttpInfo($RequestClientId, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestSaleId = null, $RequestStartDate = null)
+    public function clientGetClientPurchasesWithHttpInfo($RequestClientId, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestSaleId = null, $RequestStartDate = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClientPurchasesResponse';
         $request = $this->clientGetClientPurchasesRequest($RequestClientId, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestSaleId, $RequestStartDate);
@@ -4947,7 +4947,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetClientPurchasesAsync($RequestClientId, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestSaleId = null, $RequestStartDate = null)
+    public function clientGetClientPurchasesAsync($RequestClientId, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestSaleId = null, $RequestStartDate = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->clientGetClientPurchasesAsyncWithHttpInfo($RequestClientId, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestSaleId, $RequestStartDate)
             ->then(
@@ -4972,7 +4972,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetClientPurchasesAsyncWithHttpInfo($RequestClientId, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestSaleId = null, $RequestStartDate = null)
+    public function clientGetClientPurchasesAsyncWithHttpInfo($RequestClientId, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestSaleId = null, $RequestStartDate = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClientPurchasesResponse';
         $request = $this->clientGetClientPurchasesRequest($RequestClientId, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestSaleId, $RequestStartDate);
@@ -5027,7 +5027,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientGetClientPurchasesRequest($RequestClientId, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestSaleId = null, $RequestStartDate = null)
+    protected function clientGetClientPurchasesRequest($RequestClientId, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestSaleId = null, $RequestStartDate = null): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'RequestClientId' is set
         if ($RequestClientId === null || (is_array($RequestClientId) && count($RequestClientId) === 0)) {
@@ -5166,7 +5166,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetClientReferralTypesResponse
      */
-    public function clientGetClientReferralTypes($RequestIncludeInactive = null)
+    public function clientGetClientReferralTypes($RequestIncludeInactive = null): \Nlocascio\Mindbody\Model\GetClientReferralTypesResponse
     {
         list($response) = $this->clientGetClientReferralTypesWithHttpInfo($RequestIncludeInactive);
         return $response;
@@ -5183,7 +5183,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetClientReferralTypesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientGetClientReferralTypesWithHttpInfo($RequestIncludeInactive = null)
+    public function clientGetClientReferralTypesWithHttpInfo($RequestIncludeInactive = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClientReferralTypesResponse';
         $request = $this->clientGetClientReferralTypesRequest($RequestIncludeInactive);
@@ -5257,7 +5257,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetClientReferralTypesAsync($RequestIncludeInactive = null)
+    public function clientGetClientReferralTypesAsync($RequestIncludeInactive = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->clientGetClientReferralTypesAsyncWithHttpInfo($RequestIncludeInactive)
             ->then(
@@ -5277,7 +5277,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetClientReferralTypesAsyncWithHttpInfo($RequestIncludeInactive = null)
+    public function clientGetClientReferralTypesAsyncWithHttpInfo($RequestIncludeInactive = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClientReferralTypesResponse';
         $request = $this->clientGetClientReferralTypesRequest($RequestIncludeInactive);
@@ -5327,7 +5327,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientGetClientReferralTypesRequest($RequestIncludeInactive = null)
+    protected function clientGetClientReferralTypesRequest($RequestIncludeInactive = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/client/clientreferraltypes';
@@ -5442,7 +5442,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetClientRewardsResponse
      */
-    public function clientGetClientRewards($RequestClientId, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestStartDate = null)
+    public function clientGetClientRewards($RequestClientId, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestStartDate = null): \Nlocascio\Mindbody\Model\GetClientRewardsResponse
     {
         list($response) = $this->clientGetClientRewardsWithHttpInfo($RequestClientId, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestStartDate);
         return $response;
@@ -5461,7 +5461,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetClientRewardsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientGetClientRewardsWithHttpInfo($RequestClientId, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestStartDate = null)
+    public function clientGetClientRewardsWithHttpInfo($RequestClientId, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestStartDate = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClientRewardsResponse';
         $request = $this->clientGetClientRewardsRequest($RequestClientId, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestStartDate);
@@ -5539,7 +5539,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetClientRewardsAsync($RequestClientId, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestStartDate = null)
+    public function clientGetClientRewardsAsync($RequestClientId, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestStartDate = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->clientGetClientRewardsAsyncWithHttpInfo($RequestClientId, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestStartDate)
             ->then(
@@ -5563,7 +5563,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetClientRewardsAsyncWithHttpInfo($RequestClientId, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestStartDate = null)
+    public function clientGetClientRewardsAsyncWithHttpInfo($RequestClientId, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestStartDate = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClientRewardsResponse';
         $request = $this->clientGetClientRewardsRequest($RequestClientId, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestStartDate);
@@ -5617,7 +5617,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientGetClientRewardsRequest($RequestClientId, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestStartDate = null)
+    protected function clientGetClientRewardsRequest($RequestClientId, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestStartDate = null): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'RequestClientId' is set
         if ($RequestClientId === null || (is_array($RequestClientId) && count($RequestClientId) === 0)) {
@@ -5765,7 +5765,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetClientServicesResponse
      */
-    public function clientGetClientServices($RequestClientId, $RequestClassId = null, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestIgnoreCrossRegionalSiteLimit = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSessionTypeId = null, $RequestShowActiveOnly = null, $RequestStartDate = null, $RequestVisitCount = null)
+    public function clientGetClientServices($RequestClientId, $RequestClassId = null, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestIgnoreCrossRegionalSiteLimit = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSessionTypeId = null, $RequestShowActiveOnly = null, $RequestStartDate = null, $RequestVisitCount = null): \Nlocascio\Mindbody\Model\GetClientServicesResponse
     {
         list($response) = $this->clientGetClientServicesWithHttpInfo($RequestClientId, $RequestClassId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestEndDate, $RequestIgnoreCrossRegionalSiteLimit, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSessionTypeId, $RequestShowActiveOnly, $RequestStartDate, $RequestVisitCount);
         return $response;
@@ -5795,7 +5795,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetClientServicesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientGetClientServicesWithHttpInfo($RequestClientId, $RequestClassId = null, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestIgnoreCrossRegionalSiteLimit = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSessionTypeId = null, $RequestShowActiveOnly = null, $RequestStartDate = null, $RequestVisitCount = null)
+    public function clientGetClientServicesWithHttpInfo($RequestClientId, $RequestClassId = null, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestIgnoreCrossRegionalSiteLimit = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSessionTypeId = null, $RequestShowActiveOnly = null, $RequestStartDate = null, $RequestVisitCount = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClientServicesResponse';
         $request = $this->clientGetClientServicesRequest($RequestClientId, $RequestClassId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestEndDate, $RequestIgnoreCrossRegionalSiteLimit, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSessionTypeId, $RequestShowActiveOnly, $RequestStartDate, $RequestVisitCount);
@@ -5882,7 +5882,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetClientServicesAsync($RequestClientId, $RequestClassId = null, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestIgnoreCrossRegionalSiteLimit = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSessionTypeId = null, $RequestShowActiveOnly = null, $RequestStartDate = null, $RequestVisitCount = null)
+    public function clientGetClientServicesAsync($RequestClientId, $RequestClassId = null, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestIgnoreCrossRegionalSiteLimit = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSessionTypeId = null, $RequestShowActiveOnly = null, $RequestStartDate = null, $RequestVisitCount = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->clientGetClientServicesAsyncWithHttpInfo($RequestClientId, $RequestClassId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestEndDate, $RequestIgnoreCrossRegionalSiteLimit, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSessionTypeId, $RequestShowActiveOnly, $RequestStartDate, $RequestVisitCount)
             ->then(
@@ -5915,7 +5915,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetClientServicesAsyncWithHttpInfo($RequestClientId, $RequestClassId = null, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestIgnoreCrossRegionalSiteLimit = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSessionTypeId = null, $RequestShowActiveOnly = null, $RequestStartDate = null, $RequestVisitCount = null)
+    public function clientGetClientServicesAsyncWithHttpInfo($RequestClientId, $RequestClassId = null, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestIgnoreCrossRegionalSiteLimit = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSessionTypeId = null, $RequestShowActiveOnly = null, $RequestStartDate = null, $RequestVisitCount = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClientServicesResponse';
         $request = $this->clientGetClientServicesRequest($RequestClientId, $RequestClassId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestEndDate, $RequestIgnoreCrossRegionalSiteLimit, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSessionTypeId, $RequestShowActiveOnly, $RequestStartDate, $RequestVisitCount);
@@ -5978,7 +5978,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientGetClientServicesRequest($RequestClientId, $RequestClassId = null, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestIgnoreCrossRegionalSiteLimit = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSessionTypeId = null, $RequestShowActiveOnly = null, $RequestStartDate = null, $RequestVisitCount = null)
+    protected function clientGetClientServicesRequest($RequestClientId, $RequestClassId = null, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestIgnoreCrossRegionalSiteLimit = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSessionTypeId = null, $RequestShowActiveOnly = null, $RequestStartDate = null, $RequestVisitCount = null): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'RequestClientId' is set
         if ($RequestClientId === null || (is_array($RequestClientId) && count($RequestClientId) === 0)) {
@@ -6162,7 +6162,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetClientVisitsResponse
      */
-    public function clientGetClientVisits($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestStartDate = null, $RequestUnpaidsOnly = null)
+    public function clientGetClientVisits($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestStartDate = null, $RequestUnpaidsOnly = null): \Nlocascio\Mindbody\Model\GetClientVisitsResponse
     {
         list($response) = $this->clientGetClientVisitsWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestStartDate, $RequestUnpaidsOnly);
         return $response;
@@ -6186,7 +6186,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetClientVisitsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientGetClientVisitsWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestStartDate = null, $RequestUnpaidsOnly = null)
+    public function clientGetClientVisitsWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestStartDate = null, $RequestUnpaidsOnly = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClientVisitsResponse';
         $request = $this->clientGetClientVisitsRequest($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestStartDate, $RequestUnpaidsOnly);
@@ -6267,7 +6267,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetClientVisitsAsync($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestStartDate = null, $RequestUnpaidsOnly = null)
+    public function clientGetClientVisitsAsync($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestStartDate = null, $RequestUnpaidsOnly = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->clientGetClientVisitsAsyncWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestStartDate, $RequestUnpaidsOnly)
             ->then(
@@ -6294,7 +6294,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetClientVisitsAsyncWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestStartDate = null, $RequestUnpaidsOnly = null)
+    public function clientGetClientVisitsAsyncWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestStartDate = null, $RequestUnpaidsOnly = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClientVisitsResponse';
         $request = $this->clientGetClientVisitsRequest($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestStartDate, $RequestUnpaidsOnly);
@@ -6351,7 +6351,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientGetClientVisitsRequest($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestStartDate = null, $RequestUnpaidsOnly = null)
+    protected function clientGetClientVisitsRequest($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestStartDate = null, $RequestUnpaidsOnly = null): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'RequestClientId' is set
         if ($RequestClientId === null || (is_array($RequestClientId) && count($RequestClientId) === 0)) {
@@ -6505,7 +6505,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetClientsResponse
      */
-    public function clientGetClients($RequestClientIDs = null, $RequestIncludeInactive = null, $RequestIsProspect = null, $RequestLastModifiedDate = null, $RequestLimit = null, $RequestOffset = null, $RequestSearchText = null, $RequestUniqueIds = null)
+    public function clientGetClients($RequestClientIDs = null, $RequestIncludeInactive = null, $RequestIsProspect = null, $RequestLastModifiedDate = null, $RequestLimit = null, $RequestOffset = null, $RequestSearchText = null, $RequestUniqueIds = null): \Nlocascio\Mindbody\Model\GetClientsResponse
     {
         list($response) = $this->clientGetClientsWithHttpInfo($RequestClientIDs, $RequestIncludeInactive, $RequestIsProspect, $RequestLastModifiedDate, $RequestLimit, $RequestOffset, $RequestSearchText, $RequestUniqueIds);
         return $response;
@@ -6529,7 +6529,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetClientsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientGetClientsWithHttpInfo($RequestClientIDs = null, $RequestIncludeInactive = null, $RequestIsProspect = null, $RequestLastModifiedDate = null, $RequestLimit = null, $RequestOffset = null, $RequestSearchText = null, $RequestUniqueIds = null)
+    public function clientGetClientsWithHttpInfo($RequestClientIDs = null, $RequestIncludeInactive = null, $RequestIsProspect = null, $RequestLastModifiedDate = null, $RequestLimit = null, $RequestOffset = null, $RequestSearchText = null, $RequestUniqueIds = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClientsResponse';
         $request = $this->clientGetClientsRequest($RequestClientIDs, $RequestIncludeInactive, $RequestIsProspect, $RequestLastModifiedDate, $RequestLimit, $RequestOffset, $RequestSearchText, $RequestUniqueIds);
@@ -6610,7 +6610,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetClientsAsync($RequestClientIDs = null, $RequestIncludeInactive = null, $RequestIsProspect = null, $RequestLastModifiedDate = null, $RequestLimit = null, $RequestOffset = null, $RequestSearchText = null, $RequestUniqueIds = null)
+    public function clientGetClientsAsync($RequestClientIDs = null, $RequestIncludeInactive = null, $RequestIsProspect = null, $RequestLastModifiedDate = null, $RequestLimit = null, $RequestOffset = null, $RequestSearchText = null, $RequestUniqueIds = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->clientGetClientsAsyncWithHttpInfo($RequestClientIDs, $RequestIncludeInactive, $RequestIsProspect, $RequestLastModifiedDate, $RequestLimit, $RequestOffset, $RequestSearchText, $RequestUniqueIds)
             ->then(
@@ -6637,7 +6637,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetClientsAsyncWithHttpInfo($RequestClientIDs = null, $RequestIncludeInactive = null, $RequestIsProspect = null, $RequestLastModifiedDate = null, $RequestLimit = null, $RequestOffset = null, $RequestSearchText = null, $RequestUniqueIds = null)
+    public function clientGetClientsAsyncWithHttpInfo($RequestClientIDs = null, $RequestIncludeInactive = null, $RequestIsProspect = null, $RequestLastModifiedDate = null, $RequestLimit = null, $RequestOffset = null, $RequestSearchText = null, $RequestUniqueIds = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClientsResponse';
         $request = $this->clientGetClientsRequest($RequestClientIDs, $RequestIncludeInactive, $RequestIsProspect, $RequestLastModifiedDate, $RequestLimit, $RequestOffset, $RequestSearchText, $RequestUniqueIds);
@@ -6694,7 +6694,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientGetClientsRequest($RequestClientIDs = null, $RequestIncludeInactive = null, $RequestIsProspect = null, $RequestLastModifiedDate = null, $RequestLimit = null, $RequestOffset = null, $RequestSearchText = null, $RequestUniqueIds = null)
+    protected function clientGetClientsRequest($RequestClientIDs = null, $RequestIncludeInactive = null, $RequestIsProspect = null, $RequestLastModifiedDate = null, $RequestLimit = null, $RequestOffset = null, $RequestSearchText = null, $RequestUniqueIds = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/client/clients';
@@ -6843,7 +6843,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetContactLogTypesResponse
      */
-    public function clientGetContactLogTypes($RequestContactLogTypeId = null, $RequestLimit = null, $RequestOffset = null)
+    public function clientGetContactLogTypes($RequestContactLogTypeId = null, $RequestLimit = null, $RequestOffset = null): \Nlocascio\Mindbody\Model\GetContactLogTypesResponse
     {
         list($response) = $this->clientGetContactLogTypesWithHttpInfo($RequestContactLogTypeId, $RequestLimit, $RequestOffset);
         return $response;
@@ -6862,7 +6862,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetContactLogTypesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientGetContactLogTypesWithHttpInfo($RequestContactLogTypeId = null, $RequestLimit = null, $RequestOffset = null)
+    public function clientGetContactLogTypesWithHttpInfo($RequestContactLogTypeId = null, $RequestLimit = null, $RequestOffset = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetContactLogTypesResponse';
         $request = $this->clientGetContactLogTypesRequest($RequestContactLogTypeId, $RequestLimit, $RequestOffset);
@@ -6938,7 +6938,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetContactLogTypesAsync($RequestContactLogTypeId = null, $RequestLimit = null, $RequestOffset = null)
+    public function clientGetContactLogTypesAsync($RequestContactLogTypeId = null, $RequestLimit = null, $RequestOffset = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->clientGetContactLogTypesAsyncWithHttpInfo($RequestContactLogTypeId, $RequestLimit, $RequestOffset)
             ->then(
@@ -6960,7 +6960,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetContactLogTypesAsyncWithHttpInfo($RequestContactLogTypeId = null, $RequestLimit = null, $RequestOffset = null)
+    public function clientGetContactLogTypesAsyncWithHttpInfo($RequestContactLogTypeId = null, $RequestLimit = null, $RequestOffset = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetContactLogTypesResponse';
         $request = $this->clientGetContactLogTypesRequest($RequestContactLogTypeId, $RequestLimit, $RequestOffset);
@@ -7012,7 +7012,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientGetContactLogTypesRequest($RequestContactLogTypeId = null, $RequestLimit = null, $RequestOffset = null)
+    protected function clientGetContactLogTypesRequest($RequestContactLogTypeId = null, $RequestLimit = null, $RequestOffset = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/client/contactlogtypes';
@@ -7141,7 +7141,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetContactLogsResponse
      */
-    public function clientGetContactLogs($RequestClientId, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestShowSystemGenerated = null, $RequestStaffIds = null, $RequestStartDate = null, $RequestSubtypeIds = null, $RequestTypeIds = null)
+    public function clientGetContactLogs($RequestClientId, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestShowSystemGenerated = null, $RequestStaffIds = null, $RequestStartDate = null, $RequestSubtypeIds = null, $RequestTypeIds = null): \Nlocascio\Mindbody\Model\GetContactLogsResponse
     {
         list($response) = $this->clientGetContactLogsWithHttpInfo($RequestClientId, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestShowSystemGenerated, $RequestStaffIds, $RequestStartDate, $RequestSubtypeIds, $RequestTypeIds);
         return $response;
@@ -7166,7 +7166,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetContactLogsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientGetContactLogsWithHttpInfo($RequestClientId, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestShowSystemGenerated = null, $RequestStaffIds = null, $RequestStartDate = null, $RequestSubtypeIds = null, $RequestTypeIds = null)
+    public function clientGetContactLogsWithHttpInfo($RequestClientId, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestShowSystemGenerated = null, $RequestStaffIds = null, $RequestStartDate = null, $RequestSubtypeIds = null, $RequestTypeIds = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetContactLogsResponse';
         $request = $this->clientGetContactLogsRequest($RequestClientId, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestShowSystemGenerated, $RequestStaffIds, $RequestStartDate, $RequestSubtypeIds, $RequestTypeIds);
@@ -7248,7 +7248,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetContactLogsAsync($RequestClientId, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestShowSystemGenerated = null, $RequestStaffIds = null, $RequestStartDate = null, $RequestSubtypeIds = null, $RequestTypeIds = null)
+    public function clientGetContactLogsAsync($RequestClientId, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestShowSystemGenerated = null, $RequestStaffIds = null, $RequestStartDate = null, $RequestSubtypeIds = null, $RequestTypeIds = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->clientGetContactLogsAsyncWithHttpInfo($RequestClientId, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestShowSystemGenerated, $RequestStaffIds, $RequestStartDate, $RequestSubtypeIds, $RequestTypeIds)
             ->then(
@@ -7276,7 +7276,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetContactLogsAsyncWithHttpInfo($RequestClientId, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestShowSystemGenerated = null, $RequestStaffIds = null, $RequestStartDate = null, $RequestSubtypeIds = null, $RequestTypeIds = null)
+    public function clientGetContactLogsAsyncWithHttpInfo($RequestClientId, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestShowSystemGenerated = null, $RequestStaffIds = null, $RequestStartDate = null, $RequestSubtypeIds = null, $RequestTypeIds = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetContactLogsResponse';
         $request = $this->clientGetContactLogsRequest($RequestClientId, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestShowSystemGenerated, $RequestStaffIds, $RequestStartDate, $RequestSubtypeIds, $RequestTypeIds);
@@ -7334,7 +7334,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientGetContactLogsRequest($RequestClientId, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestShowSystemGenerated = null, $RequestStaffIds = null, $RequestStartDate = null, $RequestSubtypeIds = null, $RequestTypeIds = null)
+    protected function clientGetContactLogsRequest($RequestClientId, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestShowSystemGenerated = null, $RequestStaffIds = null, $RequestStartDate = null, $RequestSubtypeIds = null, $RequestTypeIds = null): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'RequestClientId' is set
         if ($RequestClientId === null || (is_array($RequestClientId) && count($RequestClientId) === 0)) {
@@ -7497,7 +7497,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetCrossRegionalClientAssociationsResponse
      */
-    public function clientGetCrossRegionalClientAssociations($RequestClientId = null, $RequestEmail = null, $RequestLimit = null, $RequestOffset = null)
+    public function clientGetCrossRegionalClientAssociations($RequestClientId = null, $RequestEmail = null, $RequestLimit = null, $RequestOffset = null): \Nlocascio\Mindbody\Model\GetCrossRegionalClientAssociationsResponse
     {
         list($response) = $this->clientGetCrossRegionalClientAssociationsWithHttpInfo($RequestClientId, $RequestEmail, $RequestLimit, $RequestOffset);
         return $response;
@@ -7517,7 +7517,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetCrossRegionalClientAssociationsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientGetCrossRegionalClientAssociationsWithHttpInfo($RequestClientId = null, $RequestEmail = null, $RequestLimit = null, $RequestOffset = null)
+    public function clientGetCrossRegionalClientAssociationsWithHttpInfo($RequestClientId = null, $RequestEmail = null, $RequestLimit = null, $RequestOffset = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetCrossRegionalClientAssociationsResponse';
         $request = $this->clientGetCrossRegionalClientAssociationsRequest($RequestClientId, $RequestEmail, $RequestLimit, $RequestOffset);
@@ -7594,7 +7594,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetCrossRegionalClientAssociationsAsync($RequestClientId = null, $RequestEmail = null, $RequestLimit = null, $RequestOffset = null)
+    public function clientGetCrossRegionalClientAssociationsAsync($RequestClientId = null, $RequestEmail = null, $RequestLimit = null, $RequestOffset = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->clientGetCrossRegionalClientAssociationsAsyncWithHttpInfo($RequestClientId, $RequestEmail, $RequestLimit, $RequestOffset)
             ->then(
@@ -7617,7 +7617,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetCrossRegionalClientAssociationsAsyncWithHttpInfo($RequestClientId = null, $RequestEmail = null, $RequestLimit = null, $RequestOffset = null)
+    public function clientGetCrossRegionalClientAssociationsAsyncWithHttpInfo($RequestClientId = null, $RequestEmail = null, $RequestLimit = null, $RequestOffset = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetCrossRegionalClientAssociationsResponse';
         $request = $this->clientGetCrossRegionalClientAssociationsRequest($RequestClientId, $RequestEmail, $RequestLimit, $RequestOffset);
@@ -7670,7 +7670,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientGetCrossRegionalClientAssociationsRequest($RequestClientId = null, $RequestEmail = null, $RequestLimit = null, $RequestOffset = null)
+    protected function clientGetCrossRegionalClientAssociationsRequest($RequestClientId = null, $RequestEmail = null, $RequestLimit = null, $RequestOffset = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/client/crossregionalclientassociations';
@@ -7796,7 +7796,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetCustomClientFieldsResponse
      */
-    public function clientGetCustomClientFields($RequestLimit = null, $RequestOffset = null)
+    public function clientGetCustomClientFields($RequestLimit = null, $RequestOffset = null): \Nlocascio\Mindbody\Model\GetCustomClientFieldsResponse
     {
         list($response) = $this->clientGetCustomClientFieldsWithHttpInfo($RequestLimit, $RequestOffset);
         return $response;
@@ -7814,7 +7814,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetCustomClientFieldsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientGetCustomClientFieldsWithHttpInfo($RequestLimit = null, $RequestOffset = null)
+    public function clientGetCustomClientFieldsWithHttpInfo($RequestLimit = null, $RequestOffset = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetCustomClientFieldsResponse';
         $request = $this->clientGetCustomClientFieldsRequest($RequestLimit, $RequestOffset);
@@ -7889,7 +7889,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetCustomClientFieldsAsync($RequestLimit = null, $RequestOffset = null)
+    public function clientGetCustomClientFieldsAsync($RequestLimit = null, $RequestOffset = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->clientGetCustomClientFieldsAsyncWithHttpInfo($RequestLimit, $RequestOffset)
             ->then(
@@ -7910,7 +7910,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetCustomClientFieldsAsyncWithHttpInfo($RequestLimit = null, $RequestOffset = null)
+    public function clientGetCustomClientFieldsAsyncWithHttpInfo($RequestLimit = null, $RequestOffset = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetCustomClientFieldsResponse';
         $request = $this->clientGetCustomClientFieldsRequest($RequestLimit, $RequestOffset);
@@ -7961,7 +7961,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientGetCustomClientFieldsRequest($RequestLimit = null, $RequestOffset = null)
+    protected function clientGetCustomClientFieldsRequest($RequestLimit = null, $RequestOffset = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/client/customclientfields';
@@ -8078,7 +8078,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\DirectDebitInfo
      */
-    public function clientGetDirectDebitInfo($ClientId = null)
+    public function clientGetDirectDebitInfo($ClientId = null): \Nlocascio\Mindbody\Model\DirectDebitInfo
     {
         list($response) = $this->clientGetDirectDebitInfoWithHttpInfo($ClientId);
         return $response;
@@ -8095,7 +8095,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\DirectDebitInfo, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientGetDirectDebitInfoWithHttpInfo($ClientId = null)
+    public function clientGetDirectDebitInfoWithHttpInfo($ClientId = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\DirectDebitInfo';
         $request = $this->clientGetDirectDebitInfoRequest($ClientId);
@@ -8169,7 +8169,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetDirectDebitInfoAsync($ClientId = null)
+    public function clientGetDirectDebitInfoAsync($ClientId = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->clientGetDirectDebitInfoAsyncWithHttpInfo($ClientId)
             ->then(
@@ -8189,7 +8189,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetDirectDebitInfoAsyncWithHttpInfo($ClientId = null)
+    public function clientGetDirectDebitInfoAsyncWithHttpInfo($ClientId = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\DirectDebitInfo';
         $request = $this->clientGetDirectDebitInfoRequest($ClientId);
@@ -8239,7 +8239,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientGetDirectDebitInfoRequest($ClientId = null)
+    protected function clientGetDirectDebitInfoRequest($ClientId = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/client/clientdirectdebitinfo';
@@ -8351,7 +8351,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetRequiredClientFieldsResponse
      */
-    public function clientGetRequiredClientFields()
+    public function clientGetRequiredClientFields(): \Nlocascio\Mindbody\Model\GetRequiredClientFieldsResponse
     {
         list($response) = $this->clientGetRequiredClientFieldsWithHttpInfo();
         return $response;
@@ -8367,7 +8367,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetRequiredClientFieldsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientGetRequiredClientFieldsWithHttpInfo()
+    public function clientGetRequiredClientFieldsWithHttpInfo(): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetRequiredClientFieldsResponse';
         $request = $this->clientGetRequiredClientFieldsRequest();
@@ -8440,7 +8440,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetRequiredClientFieldsAsync()
+    public function clientGetRequiredClientFieldsAsync(): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->clientGetRequiredClientFieldsAsyncWithHttpInfo()
             ->then(
@@ -8459,7 +8459,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetRequiredClientFieldsAsyncWithHttpInfo()
+    public function clientGetRequiredClientFieldsAsyncWithHttpInfo(): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetRequiredClientFieldsResponse';
         $request = $this->clientGetRequiredClientFieldsRequest();
@@ -8508,7 +8508,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientGetRequiredClientFieldsRequest()
+    protected function clientGetRequiredClientFieldsRequest(): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/client/requiredclientfields';
@@ -8617,7 +8617,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function clientSendAutoEmail($Request)
+    public function clientSendAutoEmail($Request): object
     {
         list($response) = $this->clientSendAutoEmailWithHttpInfo($Request);
         return $response;
@@ -8634,7 +8634,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientSendAutoEmailWithHttpInfo($Request)
+    public function clientSendAutoEmailWithHttpInfo($Request): array
     {
         $returnType = 'object';
         $request = $this->clientSendAutoEmailRequest($Request);
@@ -8708,7 +8708,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientSendAutoEmailAsync($Request)
+    public function clientSendAutoEmailAsync($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->clientSendAutoEmailAsyncWithHttpInfo($Request)
             ->then(
@@ -8728,7 +8728,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientSendAutoEmailAsyncWithHttpInfo($Request)
+    public function clientSendAutoEmailAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = 'object';
         $request = $this->clientSendAutoEmailRequest($Request);
@@ -8778,7 +8778,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientSendAutoEmailRequest($Request)
+    protected function clientSendAutoEmailRequest($Request): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'Request' is set
         if ($Request === null || (is_array($Request) && count($Request) === 0)) {
@@ -8896,7 +8896,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function clientSendPasswordResetEmail($Request)
+    public function clientSendPasswordResetEmail($Request): object
     {
         list($response) = $this->clientSendPasswordResetEmailWithHttpInfo($Request);
         return $response;
@@ -8913,7 +8913,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientSendPasswordResetEmailWithHttpInfo($Request)
+    public function clientSendPasswordResetEmailWithHttpInfo($Request): array
     {
         $returnType = 'object';
         $request = $this->clientSendPasswordResetEmailRequest($Request);
@@ -8987,7 +8987,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientSendPasswordResetEmailAsync($Request)
+    public function clientSendPasswordResetEmailAsync($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->clientSendPasswordResetEmailAsyncWithHttpInfo($Request)
             ->then(
@@ -9007,7 +9007,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientSendPasswordResetEmailAsyncWithHttpInfo($Request)
+    public function clientSendPasswordResetEmailAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = 'object';
         $request = $this->clientSendPasswordResetEmailRequest($Request);
@@ -9057,7 +9057,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientSendPasswordResetEmailRequest($Request)
+    protected function clientSendPasswordResetEmailRequest($Request): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'Request' is set
         if ($Request === null || (is_array($Request) && count($Request) === 0)) {
@@ -9175,7 +9175,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\UpdateClientResponse
      */
-    public function clientUpdateClient($Request)
+    public function clientUpdateClient($Request): \Nlocascio\Mindbody\Model\UpdateClientResponse
     {
         list($response) = $this->clientUpdateClientWithHttpInfo($Request);
         return $response;
@@ -9192,7 +9192,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\UpdateClientResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientUpdateClientWithHttpInfo($Request)
+    public function clientUpdateClientWithHttpInfo($Request): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\UpdateClientResponse';
         $request = $this->clientUpdateClientRequest($Request);
@@ -9266,7 +9266,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientUpdateClientAsync($Request)
+    public function clientUpdateClientAsync($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->clientUpdateClientAsyncWithHttpInfo($Request)
             ->then(
@@ -9286,7 +9286,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientUpdateClientAsyncWithHttpInfo($Request)
+    public function clientUpdateClientAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\UpdateClientResponse';
         $request = $this->clientUpdateClientRequest($Request);
@@ -9336,7 +9336,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientUpdateClientRequest($Request)
+    protected function clientUpdateClientRequest($Request): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'Request' is set
         if ($Request === null || (is_array($Request) && count($Request) === 0)) {
@@ -9452,7 +9452,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetClientRewardsResponse
      */
-    public function clientUpdateClientRewards($Request)
+    public function clientUpdateClientRewards($Request): \Nlocascio\Mindbody\Model\GetClientRewardsResponse
     {
         list($response) = $this->clientUpdateClientRewardsWithHttpInfo($Request);
         return $response;
@@ -9467,7 +9467,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetClientRewardsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientUpdateClientRewardsWithHttpInfo($Request)
+    public function clientUpdateClientRewardsWithHttpInfo($Request): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClientRewardsResponse';
         $request = $this->clientUpdateClientRewardsRequest($Request);
@@ -9541,7 +9541,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientUpdateClientRewardsAsync($Request)
+    public function clientUpdateClientRewardsAsync($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->clientUpdateClientRewardsAsyncWithHttpInfo($Request)
             ->then(
@@ -9561,7 +9561,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientUpdateClientRewardsAsyncWithHttpInfo($Request)
+    public function clientUpdateClientRewardsAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClientRewardsResponse';
         $request = $this->clientUpdateClientRewardsRequest($Request);
@@ -9611,7 +9611,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientUpdateClientRewardsRequest($Request)
+    protected function clientUpdateClientRewardsRequest($Request): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'Request' is set
         if ($Request === null || (is_array($Request) && count($Request) === 0)) {
@@ -9729,7 +9729,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\UpdateClientServiceResponse
      */
-    public function clientUpdateClientService($Request)
+    public function clientUpdateClientService($Request): \Nlocascio\Mindbody\Model\UpdateClientServiceResponse
     {
         list($response) = $this->clientUpdateClientServiceWithHttpInfo($Request);
         return $response;
@@ -9746,7 +9746,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\UpdateClientServiceResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientUpdateClientServiceWithHttpInfo($Request)
+    public function clientUpdateClientServiceWithHttpInfo($Request): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\UpdateClientServiceResponse';
         $request = $this->clientUpdateClientServiceRequest($Request);
@@ -9820,7 +9820,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientUpdateClientServiceAsync($Request)
+    public function clientUpdateClientServiceAsync($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->clientUpdateClientServiceAsyncWithHttpInfo($Request)
             ->then(
@@ -9840,7 +9840,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientUpdateClientServiceAsyncWithHttpInfo($Request)
+    public function clientUpdateClientServiceAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\UpdateClientServiceResponse';
         $request = $this->clientUpdateClientServiceRequest($Request);
@@ -9890,7 +9890,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientUpdateClientServiceRequest($Request)
+    protected function clientUpdateClientServiceRequest($Request): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'Request' is set
         if ($Request === null || (is_array($Request) && count($Request) === 0)) {
@@ -10008,7 +10008,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\UpdateClientVisitResponse
      */
-    public function clientUpdateClientVisit($Request)
+    public function clientUpdateClientVisit($Request): \Nlocascio\Mindbody\Model\UpdateClientVisitResponse
     {
         list($response) = $this->clientUpdateClientVisitWithHttpInfo($Request);
         return $response;
@@ -10025,7 +10025,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\UpdateClientVisitResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientUpdateClientVisitWithHttpInfo($Request)
+    public function clientUpdateClientVisitWithHttpInfo($Request): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\UpdateClientVisitResponse';
         $request = $this->clientUpdateClientVisitRequest($Request);
@@ -10099,7 +10099,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientUpdateClientVisitAsync($Request)
+    public function clientUpdateClientVisitAsync($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->clientUpdateClientVisitAsyncWithHttpInfo($Request)
             ->then(
@@ -10119,7 +10119,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientUpdateClientVisitAsyncWithHttpInfo($Request)
+    public function clientUpdateClientVisitAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\UpdateClientVisitResponse';
         $request = $this->clientUpdateClientVisitRequest($Request);
@@ -10169,7 +10169,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientUpdateClientVisitRequest($Request)
+    protected function clientUpdateClientVisitRequest($Request): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'Request' is set
         if ($Request === null || (is_array($Request) && count($Request) === 0)) {
@@ -10287,7 +10287,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\ContactLog
      */
-    public function clientUpdateContactLog($Request)
+    public function clientUpdateContactLog($Request): \Nlocascio\Mindbody\Model\ContactLog
     {
         list($response) = $this->clientUpdateContactLogWithHttpInfo($Request);
         return $response;
@@ -10304,7 +10304,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\ContactLog, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientUpdateContactLogWithHttpInfo($Request)
+    public function clientUpdateContactLogWithHttpInfo($Request): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\ContactLog';
         $request = $this->clientUpdateContactLogRequest($Request);
@@ -10378,7 +10378,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientUpdateContactLogAsync($Request)
+    public function clientUpdateContactLogAsync($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->clientUpdateContactLogAsyncWithHttpInfo($Request)
             ->then(
@@ -10398,7 +10398,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientUpdateContactLogAsyncWithHttpInfo($Request)
+    public function clientUpdateContactLogAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\ContactLog';
         $request = $this->clientUpdateContactLogRequest($Request);
@@ -10448,7 +10448,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientUpdateContactLogRequest($Request)
+    protected function clientUpdateContactLogRequest($Request): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'Request' is set
         if ($Request === null || (is_array($Request) && count($Request) === 0)) {
@@ -10566,7 +10566,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\UploadClientDocumentResponse
      */
-    public function clientUploadClientDocument($Request)
+    public function clientUploadClientDocument($Request): \Nlocascio\Mindbody\Model\UploadClientDocumentResponse
     {
         list($response) = $this->clientUploadClientDocumentWithHttpInfo($Request);
         return $response;
@@ -10583,7 +10583,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\UploadClientDocumentResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientUploadClientDocumentWithHttpInfo($Request)
+    public function clientUploadClientDocumentWithHttpInfo($Request): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\UploadClientDocumentResponse';
         $request = $this->clientUploadClientDocumentRequest($Request);
@@ -10657,7 +10657,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientUploadClientDocumentAsync($Request)
+    public function clientUploadClientDocumentAsync($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->clientUploadClientDocumentAsyncWithHttpInfo($Request)
             ->then(
@@ -10677,7 +10677,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientUploadClientDocumentAsyncWithHttpInfo($Request)
+    public function clientUploadClientDocumentAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\UploadClientDocumentResponse';
         $request = $this->clientUploadClientDocumentRequest($Request);
@@ -10727,7 +10727,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientUploadClientDocumentRequest($Request)
+    protected function clientUploadClientDocumentRequest($Request): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'Request' is set
         if ($Request === null || (is_array($Request) && count($Request) === 0)) {
@@ -10845,7 +10845,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\UploadClientPhotoResponse
      */
-    public function clientUploadClientPhoto($Request)
+    public function clientUploadClientPhoto($Request): \Nlocascio\Mindbody\Model\UploadClientPhotoResponse
     {
         list($response) = $this->clientUploadClientPhotoWithHttpInfo($Request);
         return $response;
@@ -10862,7 +10862,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\UploadClientPhotoResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientUploadClientPhotoWithHttpInfo($Request)
+    public function clientUploadClientPhotoWithHttpInfo($Request): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\UploadClientPhotoResponse';
         $request = $this->clientUploadClientPhotoRequest($Request);
@@ -10936,7 +10936,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientUploadClientPhotoAsync($Request)
+    public function clientUploadClientPhotoAsync($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->clientUploadClientPhotoAsyncWithHttpInfo($Request)
             ->then(
@@ -10956,7 +10956,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientUploadClientPhotoAsyncWithHttpInfo($Request)
+    public function clientUploadClientPhotoAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\UploadClientPhotoResponse';
         $request = $this->clientUploadClientPhotoRequest($Request);
@@ -11006,7 +11006,7 @@ class ClientApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientUploadClientPhotoRequest($Request)
+    protected function clientUploadClientPhotoRequest($Request): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'Request' is set
         if ($Request === null || (is_array($Request) && count($Request) === 0)) {
@@ -11119,7 +11119,7 @@ class ClientApi
      * @throws \RuntimeException on file opening failure
      * @return array of http client options
      */
-    protected function createHttpClientOption()
+    protected function createHttpClientOption(): array
     {
         $options = [];
         if ($this->config->getDebug()) {

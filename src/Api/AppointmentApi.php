@@ -48,7 +48,7 @@ use Nlocascio\Mindbody\ObjectSerializer;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class AppointmentApi
+class AppointmentApi implements ApiInterface
 {
     /**
      * @var ClientInterface
@@ -83,7 +83,7 @@ class AppointmentApi
     /**
      * @return Configuration
      */
-    public function getConfig()
+    public function getConfig(): Configuration
     {
         return $this->config;
     }
@@ -99,7 +99,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\AddAppointmentResponse
      */
-    public function appointmentAddAppointment($Request)
+    public function appointmentAddAppointment($Request): \Nlocascio\Mindbody\Model\AddAppointmentResponse
     {
         list($response) = $this->appointmentAddAppointmentWithHttpInfo($Request);
         return $response;
@@ -116,7 +116,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\AddAppointmentResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function appointmentAddAppointmentWithHttpInfo($Request)
+    public function appointmentAddAppointmentWithHttpInfo($Request): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\AddAppointmentResponse';
         $request = $this->appointmentAddAppointmentRequest($Request);
@@ -190,7 +190,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function appointmentAddAppointmentAsync($Request)
+    public function appointmentAddAppointmentAsync($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->appointmentAddAppointmentAsyncWithHttpInfo($Request)
             ->then(
@@ -210,7 +210,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function appointmentAddAppointmentAsyncWithHttpInfo($Request)
+    public function appointmentAddAppointmentAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\AddAppointmentResponse';
         $request = $this->appointmentAddAppointmentRequest($Request);
@@ -260,7 +260,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function appointmentAddAppointmentRequest($Request)
+    protected function appointmentAddAppointmentRequest($Request): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'Request' is set
         if ($Request === null || (is_array($Request) && count($Request) === 0)) {
@@ -378,7 +378,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\AddAppointmentAddOnResponse
      */
-    public function appointmentAddAppointmentAddOn($Request)
+    public function appointmentAddAppointmentAddOn($Request): \Nlocascio\Mindbody\Model\AddAppointmentAddOnResponse
     {
         list($response) = $this->appointmentAddAppointmentAddOnWithHttpInfo($Request);
         return $response;
@@ -395,7 +395,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\AddAppointmentAddOnResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function appointmentAddAppointmentAddOnWithHttpInfo($Request)
+    public function appointmentAddAppointmentAddOnWithHttpInfo($Request): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\AddAppointmentAddOnResponse';
         $request = $this->appointmentAddAppointmentAddOnRequest($Request);
@@ -469,7 +469,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function appointmentAddAppointmentAddOnAsync($Request)
+    public function appointmentAddAppointmentAddOnAsync($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->appointmentAddAppointmentAddOnAsyncWithHttpInfo($Request)
             ->then(
@@ -489,7 +489,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function appointmentAddAppointmentAddOnAsyncWithHttpInfo($Request)
+    public function appointmentAddAppointmentAddOnAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\AddAppointmentAddOnResponse';
         $request = $this->appointmentAddAppointmentAddOnRequest($Request);
@@ -539,7 +539,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function appointmentAddAppointmentAddOnRequest($Request)
+    protected function appointmentAddAppointmentAddOnRequest($Request): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'Request' is set
         if ($Request === null || (is_array($Request) && count($Request) === 0)) {
@@ -657,7 +657,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function appointmentDeleteAppointmentAddOn($Id)
+    public function appointmentDeleteAppointmentAddOn($Id): void
     {
         $this->appointmentDeleteAppointmentAddOnWithHttpInfo($Id);
     }
@@ -673,7 +673,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function appointmentDeleteAppointmentAddOnWithHttpInfo($Id)
+    public function appointmentDeleteAppointmentAddOnWithHttpInfo($Id): array
     {
         $returnType = '';
         $request = $this->appointmentDeleteAppointmentAddOnRequest($Id);
@@ -725,7 +725,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function appointmentDeleteAppointmentAddOnAsync($Id)
+    public function appointmentDeleteAppointmentAddOnAsync($Id): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->appointmentDeleteAppointmentAddOnAsyncWithHttpInfo($Id)
             ->then(
@@ -745,7 +745,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function appointmentDeleteAppointmentAddOnAsyncWithHttpInfo($Id)
+    public function appointmentDeleteAppointmentAddOnAsyncWithHttpInfo($Id): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '';
         $request = $this->appointmentDeleteAppointmentAddOnRequest($Id);
@@ -781,7 +781,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function appointmentDeleteAppointmentAddOnRequest($Id)
+    protected function appointmentDeleteAppointmentAddOnRequest($Id): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'Id' is set
         if ($Id === null || (is_array($Id) && count($Id) === 0)) {
@@ -905,7 +905,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetActiveSessionTimesResponse
      */
-    public function appointmentGetActiveSessionTimes($RequestEndTime = null, $RequestLimit = null, $RequestOffset = null, $RequestScheduleType = null, $RequestSessionTypeIds = null, $RequestStartTime = null)
+    public function appointmentGetActiveSessionTimes($RequestEndTime = null, $RequestLimit = null, $RequestOffset = null, $RequestScheduleType = null, $RequestSessionTypeIds = null, $RequestStartTime = null): \Nlocascio\Mindbody\Model\GetActiveSessionTimesResponse
     {
         list($response) = $this->appointmentGetActiveSessionTimesWithHttpInfo($RequestEndTime, $RequestLimit, $RequestOffset, $RequestScheduleType, $RequestSessionTypeIds, $RequestStartTime);
         return $response;
@@ -927,7 +927,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetActiveSessionTimesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function appointmentGetActiveSessionTimesWithHttpInfo($RequestEndTime = null, $RequestLimit = null, $RequestOffset = null, $RequestScheduleType = null, $RequestSessionTypeIds = null, $RequestStartTime = null)
+    public function appointmentGetActiveSessionTimesWithHttpInfo($RequestEndTime = null, $RequestLimit = null, $RequestOffset = null, $RequestScheduleType = null, $RequestSessionTypeIds = null, $RequestStartTime = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetActiveSessionTimesResponse';
         $request = $this->appointmentGetActiveSessionTimesRequest($RequestEndTime, $RequestLimit, $RequestOffset, $RequestScheduleType, $RequestSessionTypeIds, $RequestStartTime);
@@ -1006,7 +1006,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function appointmentGetActiveSessionTimesAsync($RequestEndTime = null, $RequestLimit = null, $RequestOffset = null, $RequestScheduleType = null, $RequestSessionTypeIds = null, $RequestStartTime = null)
+    public function appointmentGetActiveSessionTimesAsync($RequestEndTime = null, $RequestLimit = null, $RequestOffset = null, $RequestScheduleType = null, $RequestSessionTypeIds = null, $RequestStartTime = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->appointmentGetActiveSessionTimesAsyncWithHttpInfo($RequestEndTime, $RequestLimit, $RequestOffset, $RequestScheduleType, $RequestSessionTypeIds, $RequestStartTime)
             ->then(
@@ -1031,7 +1031,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function appointmentGetActiveSessionTimesAsyncWithHttpInfo($RequestEndTime = null, $RequestLimit = null, $RequestOffset = null, $RequestScheduleType = null, $RequestSessionTypeIds = null, $RequestStartTime = null)
+    public function appointmentGetActiveSessionTimesAsyncWithHttpInfo($RequestEndTime = null, $RequestLimit = null, $RequestOffset = null, $RequestScheduleType = null, $RequestSessionTypeIds = null, $RequestStartTime = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetActiveSessionTimesResponse';
         $request = $this->appointmentGetActiveSessionTimesRequest($RequestEndTime, $RequestLimit, $RequestOffset, $RequestScheduleType, $RequestSessionTypeIds, $RequestStartTime);
@@ -1086,7 +1086,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function appointmentGetActiveSessionTimesRequest($RequestEndTime = null, $RequestLimit = null, $RequestOffset = null, $RequestScheduleType = null, $RequestSessionTypeIds = null, $RequestStartTime = null)
+    protected function appointmentGetActiveSessionTimesRequest($RequestEndTime = null, $RequestLimit = null, $RequestOffset = null, $RequestScheduleType = null, $RequestSessionTypeIds = null, $RequestStartTime = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/appointment/activesessiontimes';
@@ -1224,7 +1224,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetAddOnsResponse
      */
-    public function appointmentGetAddOns($RequestLimit = null, $RequestOffset = null, $RequestStaffId = null)
+    public function appointmentGetAddOns($RequestLimit = null, $RequestOffset = null, $RequestStaffId = null): \Nlocascio\Mindbody\Model\GetAddOnsResponse
     {
         list($response) = $this->appointmentGetAddOnsWithHttpInfo($RequestLimit, $RequestOffset, $RequestStaffId);
         return $response;
@@ -1243,7 +1243,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetAddOnsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function appointmentGetAddOnsWithHttpInfo($RequestLimit = null, $RequestOffset = null, $RequestStaffId = null)
+    public function appointmentGetAddOnsWithHttpInfo($RequestLimit = null, $RequestOffset = null, $RequestStaffId = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetAddOnsResponse';
         $request = $this->appointmentGetAddOnsRequest($RequestLimit, $RequestOffset, $RequestStaffId);
@@ -1319,7 +1319,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function appointmentGetAddOnsAsync($RequestLimit = null, $RequestOffset = null, $RequestStaffId = null)
+    public function appointmentGetAddOnsAsync($RequestLimit = null, $RequestOffset = null, $RequestStaffId = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->appointmentGetAddOnsAsyncWithHttpInfo($RequestLimit, $RequestOffset, $RequestStaffId)
             ->then(
@@ -1341,7 +1341,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function appointmentGetAddOnsAsyncWithHttpInfo($RequestLimit = null, $RequestOffset = null, $RequestStaffId = null)
+    public function appointmentGetAddOnsAsyncWithHttpInfo($RequestLimit = null, $RequestOffset = null, $RequestStaffId = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetAddOnsResponse';
         $request = $this->appointmentGetAddOnsRequest($RequestLimit, $RequestOffset, $RequestStaffId);
@@ -1393,7 +1393,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function appointmentGetAddOnsRequest($RequestLimit = null, $RequestOffset = null, $RequestStaffId = null)
+    protected function appointmentGetAddOnsRequest($RequestLimit = null, $RequestOffset = null, $RequestStaffId = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/appointment/addons';
@@ -1513,7 +1513,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetAppointmentOptionsResponse
      */
-    public function appointmentGetAppointmentOptions()
+    public function appointmentGetAppointmentOptions(): \Nlocascio\Mindbody\Model\GetAppointmentOptionsResponse
     {
         list($response) = $this->appointmentGetAppointmentOptionsWithHttpInfo();
         return $response;
@@ -1529,7 +1529,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetAppointmentOptionsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function appointmentGetAppointmentOptionsWithHttpInfo()
+    public function appointmentGetAppointmentOptionsWithHttpInfo(): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetAppointmentOptionsResponse';
         $request = $this->appointmentGetAppointmentOptionsRequest();
@@ -1602,7 +1602,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function appointmentGetAppointmentOptionsAsync()
+    public function appointmentGetAppointmentOptionsAsync(): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->appointmentGetAppointmentOptionsAsyncWithHttpInfo()
             ->then(
@@ -1621,7 +1621,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function appointmentGetAppointmentOptionsAsyncWithHttpInfo()
+    public function appointmentGetAppointmentOptionsAsyncWithHttpInfo(): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetAppointmentOptionsResponse';
         $request = $this->appointmentGetAppointmentOptionsRequest();
@@ -1670,7 +1670,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function appointmentGetAppointmentOptionsRequest()
+    protected function appointmentGetAppointmentOptionsRequest(): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/appointment/appointmentoptions';
@@ -1783,7 +1783,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetAvailableDatesResponse
      */
-    public function appointmentGetAvailableDates($RequestSessionTypeId, $RequestEndDate = null, $RequestLocationId = null, $RequestStaffId = null, $RequestStartDate = null)
+    public function appointmentGetAvailableDates($RequestSessionTypeId, $RequestEndDate = null, $RequestLocationId = null, $RequestStaffId = null, $RequestStartDate = null): \Nlocascio\Mindbody\Model\GetAvailableDatesResponse
     {
         list($response) = $this->appointmentGetAvailableDatesWithHttpInfo($RequestSessionTypeId, $RequestEndDate, $RequestLocationId, $RequestStaffId, $RequestStartDate);
         return $response;
@@ -1804,7 +1804,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetAvailableDatesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function appointmentGetAvailableDatesWithHttpInfo($RequestSessionTypeId, $RequestEndDate = null, $RequestLocationId = null, $RequestStaffId = null, $RequestStartDate = null)
+    public function appointmentGetAvailableDatesWithHttpInfo($RequestSessionTypeId, $RequestEndDate = null, $RequestLocationId = null, $RequestStaffId = null, $RequestStartDate = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetAvailableDatesResponse';
         $request = $this->appointmentGetAvailableDatesRequest($RequestSessionTypeId, $RequestEndDate, $RequestLocationId, $RequestStaffId, $RequestStartDate);
@@ -1882,7 +1882,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function appointmentGetAvailableDatesAsync($RequestSessionTypeId, $RequestEndDate = null, $RequestLocationId = null, $RequestStaffId = null, $RequestStartDate = null)
+    public function appointmentGetAvailableDatesAsync($RequestSessionTypeId, $RequestEndDate = null, $RequestLocationId = null, $RequestStaffId = null, $RequestStartDate = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->appointmentGetAvailableDatesAsyncWithHttpInfo($RequestSessionTypeId, $RequestEndDate, $RequestLocationId, $RequestStaffId, $RequestStartDate)
             ->then(
@@ -1906,7 +1906,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function appointmentGetAvailableDatesAsyncWithHttpInfo($RequestSessionTypeId, $RequestEndDate = null, $RequestLocationId = null, $RequestStaffId = null, $RequestStartDate = null)
+    public function appointmentGetAvailableDatesAsyncWithHttpInfo($RequestSessionTypeId, $RequestEndDate = null, $RequestLocationId = null, $RequestStaffId = null, $RequestStartDate = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetAvailableDatesResponse';
         $request = $this->appointmentGetAvailableDatesRequest($RequestSessionTypeId, $RequestEndDate, $RequestLocationId, $RequestStaffId, $RequestStartDate);
@@ -1960,7 +1960,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function appointmentGetAvailableDatesRequest($RequestSessionTypeId, $RequestEndDate = null, $RequestLocationId = null, $RequestStaffId = null, $RequestStartDate = null)
+    protected function appointmentGetAvailableDatesRequest($RequestSessionTypeId, $RequestEndDate = null, $RequestLocationId = null, $RequestStaffId = null, $RequestStartDate = null): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'RequestSessionTypeId' is set
         if ($RequestSessionTypeId === null || (is_array($RequestSessionTypeId) && count($RequestSessionTypeId) === 0)) {
@@ -2103,7 +2103,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetBookableItemsResponse
      */
-    public function appointmentGetBookableItems($RequestSessionTypeIds, $RequestAppointmentId = null, $RequestEndDate = null, $RequestIgnoreDefaultSessionLength = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null)
+    public function appointmentGetBookableItems($RequestSessionTypeIds, $RequestAppointmentId = null, $RequestEndDate = null, $RequestIgnoreDefaultSessionLength = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null): \Nlocascio\Mindbody\Model\GetBookableItemsResponse
     {
         list($response) = $this->appointmentGetBookableItemsWithHttpInfo($RequestSessionTypeIds, $RequestAppointmentId, $RequestEndDate, $RequestIgnoreDefaultSessionLength, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestStaffIds, $RequestStartDate);
         return $response;
@@ -2128,7 +2128,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetBookableItemsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function appointmentGetBookableItemsWithHttpInfo($RequestSessionTypeIds, $RequestAppointmentId = null, $RequestEndDate = null, $RequestIgnoreDefaultSessionLength = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null)
+    public function appointmentGetBookableItemsWithHttpInfo($RequestSessionTypeIds, $RequestAppointmentId = null, $RequestEndDate = null, $RequestIgnoreDefaultSessionLength = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetBookableItemsResponse';
         $request = $this->appointmentGetBookableItemsRequest($RequestSessionTypeIds, $RequestAppointmentId, $RequestEndDate, $RequestIgnoreDefaultSessionLength, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestStaffIds, $RequestStartDate);
@@ -2210,7 +2210,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function appointmentGetBookableItemsAsync($RequestSessionTypeIds, $RequestAppointmentId = null, $RequestEndDate = null, $RequestIgnoreDefaultSessionLength = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null)
+    public function appointmentGetBookableItemsAsync($RequestSessionTypeIds, $RequestAppointmentId = null, $RequestEndDate = null, $RequestIgnoreDefaultSessionLength = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->appointmentGetBookableItemsAsyncWithHttpInfo($RequestSessionTypeIds, $RequestAppointmentId, $RequestEndDate, $RequestIgnoreDefaultSessionLength, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestStaffIds, $RequestStartDate)
             ->then(
@@ -2238,7 +2238,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function appointmentGetBookableItemsAsyncWithHttpInfo($RequestSessionTypeIds, $RequestAppointmentId = null, $RequestEndDate = null, $RequestIgnoreDefaultSessionLength = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null)
+    public function appointmentGetBookableItemsAsyncWithHttpInfo($RequestSessionTypeIds, $RequestAppointmentId = null, $RequestEndDate = null, $RequestIgnoreDefaultSessionLength = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetBookableItemsResponse';
         $request = $this->appointmentGetBookableItemsRequest($RequestSessionTypeIds, $RequestAppointmentId, $RequestEndDate, $RequestIgnoreDefaultSessionLength, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestStaffIds, $RequestStartDate);
@@ -2296,7 +2296,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function appointmentGetBookableItemsRequest($RequestSessionTypeIds, $RequestAppointmentId = null, $RequestEndDate = null, $RequestIgnoreDefaultSessionLength = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null)
+    protected function appointmentGetBookableItemsRequest($RequestSessionTypeIds, $RequestAppointmentId = null, $RequestEndDate = null, $RequestIgnoreDefaultSessionLength = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'RequestSessionTypeIds' is set
         if ($RequestSessionTypeIds === null || (is_array($RequestSessionTypeIds) && count($RequestSessionTypeIds) === 0)) {
@@ -2462,7 +2462,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetScheduleItemsResponse
      */
-    public function appointmentGetScheduleItems($RequestEndDate = null, $RequestIgnorePrepFinishTimes = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null)
+    public function appointmentGetScheduleItems($RequestEndDate = null, $RequestIgnorePrepFinishTimes = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null): \Nlocascio\Mindbody\Model\GetScheduleItemsResponse
     {
         list($response) = $this->appointmentGetScheduleItemsWithHttpInfo($RequestEndDate, $RequestIgnorePrepFinishTimes, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestStaffIds, $RequestStartDate);
         return $response;
@@ -2485,7 +2485,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetScheduleItemsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function appointmentGetScheduleItemsWithHttpInfo($RequestEndDate = null, $RequestIgnorePrepFinishTimes = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null)
+    public function appointmentGetScheduleItemsWithHttpInfo($RequestEndDate = null, $RequestIgnorePrepFinishTimes = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetScheduleItemsResponse';
         $request = $this->appointmentGetScheduleItemsRequest($RequestEndDate, $RequestIgnorePrepFinishTimes, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestStaffIds, $RequestStartDate);
@@ -2565,7 +2565,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function appointmentGetScheduleItemsAsync($RequestEndDate = null, $RequestIgnorePrepFinishTimes = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null)
+    public function appointmentGetScheduleItemsAsync($RequestEndDate = null, $RequestIgnorePrepFinishTimes = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->appointmentGetScheduleItemsAsyncWithHttpInfo($RequestEndDate, $RequestIgnorePrepFinishTimes, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestStaffIds, $RequestStartDate)
             ->then(
@@ -2591,7 +2591,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function appointmentGetScheduleItemsAsyncWithHttpInfo($RequestEndDate = null, $RequestIgnorePrepFinishTimes = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null)
+    public function appointmentGetScheduleItemsAsyncWithHttpInfo($RequestEndDate = null, $RequestIgnorePrepFinishTimes = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetScheduleItemsResponse';
         $request = $this->appointmentGetScheduleItemsRequest($RequestEndDate, $RequestIgnorePrepFinishTimes, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestStaffIds, $RequestStartDate);
@@ -2647,7 +2647,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function appointmentGetScheduleItemsRequest($RequestEndDate = null, $RequestIgnorePrepFinishTimes = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null)
+    protected function appointmentGetScheduleItemsRequest($RequestEndDate = null, $RequestIgnorePrepFinishTimes = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/appointment/scheduleitems';
@@ -2797,7 +2797,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetStaffAppointmentsResponse
      */
-    public function appointmentGetStaffAppointments($RequestAppointmentIds = null, $RequestClientId = null, $RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null)
+    public function appointmentGetStaffAppointments($RequestAppointmentIds = null, $RequestClientId = null, $RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null): \Nlocascio\Mindbody\Model\GetStaffAppointmentsResponse
     {
         list($response) = $this->appointmentGetStaffAppointmentsWithHttpInfo($RequestAppointmentIds, $RequestClientId, $RequestEndDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestStaffIds, $RequestStartDate);
         return $response;
@@ -2821,7 +2821,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetStaffAppointmentsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function appointmentGetStaffAppointmentsWithHttpInfo($RequestAppointmentIds = null, $RequestClientId = null, $RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null)
+    public function appointmentGetStaffAppointmentsWithHttpInfo($RequestAppointmentIds = null, $RequestClientId = null, $RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetStaffAppointmentsResponse';
         $request = $this->appointmentGetStaffAppointmentsRequest($RequestAppointmentIds, $RequestClientId, $RequestEndDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestStaffIds, $RequestStartDate);
@@ -2902,7 +2902,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function appointmentGetStaffAppointmentsAsync($RequestAppointmentIds = null, $RequestClientId = null, $RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null)
+    public function appointmentGetStaffAppointmentsAsync($RequestAppointmentIds = null, $RequestClientId = null, $RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->appointmentGetStaffAppointmentsAsyncWithHttpInfo($RequestAppointmentIds, $RequestClientId, $RequestEndDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestStaffIds, $RequestStartDate)
             ->then(
@@ -2929,7 +2929,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function appointmentGetStaffAppointmentsAsyncWithHttpInfo($RequestAppointmentIds = null, $RequestClientId = null, $RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null)
+    public function appointmentGetStaffAppointmentsAsyncWithHttpInfo($RequestAppointmentIds = null, $RequestClientId = null, $RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetStaffAppointmentsResponse';
         $request = $this->appointmentGetStaffAppointmentsRequest($RequestAppointmentIds, $RequestClientId, $RequestEndDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestStaffIds, $RequestStartDate);
@@ -2986,7 +2986,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function appointmentGetStaffAppointmentsRequest($RequestAppointmentIds = null, $RequestClientId = null, $RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null)
+    protected function appointmentGetStaffAppointmentsRequest($RequestAppointmentIds = null, $RequestClientId = null, $RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/appointment/staffappointments';
@@ -3136,7 +3136,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\UpdateAppointmentResponse
      */
-    public function appointmentUpdateAppointment($Request)
+    public function appointmentUpdateAppointment($Request): \Nlocascio\Mindbody\Model\UpdateAppointmentResponse
     {
         list($response) = $this->appointmentUpdateAppointmentWithHttpInfo($Request);
         return $response;
@@ -3153,7 +3153,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\UpdateAppointmentResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function appointmentUpdateAppointmentWithHttpInfo($Request)
+    public function appointmentUpdateAppointmentWithHttpInfo($Request): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\UpdateAppointmentResponse';
         $request = $this->appointmentUpdateAppointmentRequest($Request);
@@ -3227,7 +3227,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function appointmentUpdateAppointmentAsync($Request)
+    public function appointmentUpdateAppointmentAsync($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->appointmentUpdateAppointmentAsyncWithHttpInfo($Request)
             ->then(
@@ -3247,7 +3247,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function appointmentUpdateAppointmentAsyncWithHttpInfo($Request)
+    public function appointmentUpdateAppointmentAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\UpdateAppointmentResponse';
         $request = $this->appointmentUpdateAppointmentRequest($Request);
@@ -3297,7 +3297,7 @@ class AppointmentApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function appointmentUpdateAppointmentRequest($Request)
+    protected function appointmentUpdateAppointmentRequest($Request): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'Request' is set
         if ($Request === null || (is_array($Request) && count($Request) === 0)) {
@@ -3410,7 +3410,7 @@ class AppointmentApi
      * @throws \RuntimeException on file opening failure
      * @return array of http client options
      */
-    protected function createHttpClientOption()
+    protected function createHttpClientOption(): array
     {
         $options = [];
         if ($this->config->getDebug()) {

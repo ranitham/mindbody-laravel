@@ -48,7 +48,7 @@ use Nlocascio\Mindbody\ObjectSerializer;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class PricingOptionApi
+class PricingOptionApi implements ApiInterface
 {
     /**
      * @var ClientInterface
@@ -83,7 +83,7 @@ class PricingOptionApi
     /**
      * @return Configuration
      */
-    public function getConfig()
+    public function getConfig(): Configuration
     {
         return $this->config;
     }
@@ -99,7 +99,7 @@ class PricingOptionApi
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function pricingOptionUpdatePricingOption($Request)
+    public function pricingOptionUpdatePricingOption($Request): object
     {
         list($response) = $this->pricingOptionUpdatePricingOptionWithHttpInfo($Request);
         return $response;
@@ -116,7 +116,7 @@ class PricingOptionApi
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function pricingOptionUpdatePricingOptionWithHttpInfo($Request)
+    public function pricingOptionUpdatePricingOptionWithHttpInfo($Request): array
     {
         $returnType = 'object';
         $request = $this->pricingOptionUpdatePricingOptionRequest($Request);
@@ -190,7 +190,7 @@ class PricingOptionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function pricingOptionUpdatePricingOptionAsync($Request)
+    public function pricingOptionUpdatePricingOptionAsync($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->pricingOptionUpdatePricingOptionAsyncWithHttpInfo($Request)
             ->then(
@@ -210,7 +210,7 @@ class PricingOptionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function pricingOptionUpdatePricingOptionAsyncWithHttpInfo($Request)
+    public function pricingOptionUpdatePricingOptionAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = 'object';
         $request = $this->pricingOptionUpdatePricingOptionRequest($Request);
@@ -260,7 +260,7 @@ class PricingOptionApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function pricingOptionUpdatePricingOptionRequest($Request)
+    protected function pricingOptionUpdatePricingOptionRequest($Request): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'Request' is set
         if ($Request === null || (is_array($Request) && count($Request) === 0)) {
@@ -373,7 +373,7 @@ class PricingOptionApi
      * @throws \RuntimeException on file opening failure
      * @return array of http client options
      */
-    protected function createHttpClientOption()
+    protected function createHttpClientOption(): array
     {
         $options = [];
         if ($this->config->getDebug()) {

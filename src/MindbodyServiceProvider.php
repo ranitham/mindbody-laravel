@@ -2,11 +2,10 @@
 
 namespace Nlocascio\Mindbody;
 
+use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider;
 
-class MindbodyServiceProvider extends ServiceProvider {
-
-    public $defer = true;
+class MindbodyServiceProvider extends ServiceProvider implements DeferrableProvider {
 
     /**
      * Boot ServiceProvider

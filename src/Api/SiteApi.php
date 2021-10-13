@@ -48,7 +48,7 @@ use Nlocascio\Mindbody\ObjectSerializer;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SiteApi
+class SiteApi implements ApiInterface
 {
     /**
      * @var ClientInterface
@@ -83,7 +83,7 @@ class SiteApi
     /**
      * @return Configuration
      */
-    public function getConfig()
+    public function getConfig(): Configuration
     {
         return $this->config;
     }
@@ -99,7 +99,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\AddPromoCodeResponse
      */
-    public function siteAddPromoCode($Request)
+    public function siteAddPromoCode($Request): \Nlocascio\Mindbody\Model\AddPromoCodeResponse
     {
         list($response) = $this->siteAddPromoCodeWithHttpInfo($Request);
         return $response;
@@ -116,7 +116,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\AddPromoCodeResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function siteAddPromoCodeWithHttpInfo($Request)
+    public function siteAddPromoCodeWithHttpInfo($Request): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\AddPromoCodeResponse';
         $request = $this->siteAddPromoCodeRequest($Request);
@@ -190,7 +190,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function siteAddPromoCodeAsync($Request)
+    public function siteAddPromoCodeAsync($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->siteAddPromoCodeAsyncWithHttpInfo($Request)
             ->then(
@@ -210,7 +210,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function siteAddPromoCodeAsyncWithHttpInfo($Request)
+    public function siteAddPromoCodeAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\AddPromoCodeResponse';
         $request = $this->siteAddPromoCodeRequest($Request);
@@ -260,7 +260,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function siteAddPromoCodeRequest($Request)
+    protected function siteAddPromoCodeRequest($Request): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'Request' is set
         if ($Request === null || (is_array($Request) && count($Request) === 0)) {
@@ -377,7 +377,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetActivationCodeResponse
      */
-    public function siteGetActivationCode()
+    public function siteGetActivationCode(): \Nlocascio\Mindbody\Model\GetActivationCodeResponse
     {
         list($response) = $this->siteGetActivationCodeWithHttpInfo();
         return $response;
@@ -393,7 +393,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetActivationCodeResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function siteGetActivationCodeWithHttpInfo()
+    public function siteGetActivationCodeWithHttpInfo(): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetActivationCodeResponse';
         $request = $this->siteGetActivationCodeRequest();
@@ -466,7 +466,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function siteGetActivationCodeAsync()
+    public function siteGetActivationCodeAsync(): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->siteGetActivationCodeAsyncWithHttpInfo()
             ->then(
@@ -485,7 +485,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function siteGetActivationCodeAsyncWithHttpInfo()
+    public function siteGetActivationCodeAsyncWithHttpInfo(): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetActivationCodeResponse';
         $request = $this->siteGetActivationCodeRequest();
@@ -534,7 +534,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function siteGetActivationCodeRequest()
+    protected function siteGetActivationCodeRequest(): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/site/activationcode';
@@ -643,7 +643,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetCategoriesResponse
      */
-    public function siteGetCategories($RequestActive = null, $RequestCategoryIds = null, $RequestLimit = null, $RequestOffset = null, $RequestService = null, $RequestSubCategoryIds = null)
+    public function siteGetCategories($RequestActive = null, $RequestCategoryIds = null, $RequestLimit = null, $RequestOffset = null, $RequestService = null, $RequestSubCategoryIds = null): \Nlocascio\Mindbody\Model\GetCategoriesResponse
     {
         list($response) = $this->siteGetCategoriesWithHttpInfo($RequestActive, $RequestCategoryIds, $RequestLimit, $RequestOffset, $RequestService, $RequestSubCategoryIds);
         return $response;
@@ -665,7 +665,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetCategoriesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function siteGetCategoriesWithHttpInfo($RequestActive = null, $RequestCategoryIds = null, $RequestLimit = null, $RequestOffset = null, $RequestService = null, $RequestSubCategoryIds = null)
+    public function siteGetCategoriesWithHttpInfo($RequestActive = null, $RequestCategoryIds = null, $RequestLimit = null, $RequestOffset = null, $RequestService = null, $RequestSubCategoryIds = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetCategoriesResponse';
         $request = $this->siteGetCategoriesRequest($RequestActive, $RequestCategoryIds, $RequestLimit, $RequestOffset, $RequestService, $RequestSubCategoryIds);
@@ -744,7 +744,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function siteGetCategoriesAsync($RequestActive = null, $RequestCategoryIds = null, $RequestLimit = null, $RequestOffset = null, $RequestService = null, $RequestSubCategoryIds = null)
+    public function siteGetCategoriesAsync($RequestActive = null, $RequestCategoryIds = null, $RequestLimit = null, $RequestOffset = null, $RequestService = null, $RequestSubCategoryIds = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->siteGetCategoriesAsyncWithHttpInfo($RequestActive, $RequestCategoryIds, $RequestLimit, $RequestOffset, $RequestService, $RequestSubCategoryIds)
             ->then(
@@ -769,7 +769,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function siteGetCategoriesAsyncWithHttpInfo($RequestActive = null, $RequestCategoryIds = null, $RequestLimit = null, $RequestOffset = null, $RequestService = null, $RequestSubCategoryIds = null)
+    public function siteGetCategoriesAsyncWithHttpInfo($RequestActive = null, $RequestCategoryIds = null, $RequestLimit = null, $RequestOffset = null, $RequestService = null, $RequestSubCategoryIds = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetCategoriesResponse';
         $request = $this->siteGetCategoriesRequest($RequestActive, $RequestCategoryIds, $RequestLimit, $RequestOffset, $RequestService, $RequestSubCategoryIds);
@@ -824,7 +824,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function siteGetCategoriesRequest($RequestActive = null, $RequestCategoryIds = null, $RequestLimit = null, $RequestOffset = null, $RequestService = null, $RequestSubCategoryIds = null)
+    protected function siteGetCategoriesRequest($RequestActive = null, $RequestCategoryIds = null, $RequestLimit = null, $RequestOffset = null, $RequestService = null, $RequestSubCategoryIds = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/site/categories';
@@ -962,7 +962,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetGendersResponse
      */
-    public function siteGetGenders()
+    public function siteGetGenders(): \Nlocascio\Mindbody\Model\GetGendersResponse
     {
         list($response) = $this->siteGetGendersWithHttpInfo();
         return $response;
@@ -978,7 +978,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetGendersResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function siteGetGendersWithHttpInfo()
+    public function siteGetGendersWithHttpInfo(): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetGendersResponse';
         $request = $this->siteGetGendersRequest();
@@ -1051,7 +1051,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function siteGetGendersAsync()
+    public function siteGetGendersAsync(): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->siteGetGendersAsyncWithHttpInfo()
             ->then(
@@ -1070,7 +1070,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function siteGetGendersAsyncWithHttpInfo()
+    public function siteGetGendersAsyncWithHttpInfo(): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetGendersResponse';
         $request = $this->siteGetGendersRequest();
@@ -1119,7 +1119,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function siteGetGendersRequest()
+    protected function siteGetGendersRequest(): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/site/genders';
@@ -1229,7 +1229,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetLocationsResponse
      */
-    public function siteGetLocations($RequestLimit = null, $RequestOffset = null)
+    public function siteGetLocations($RequestLimit = null, $RequestOffset = null): \Nlocascio\Mindbody\Model\GetLocationsResponse
     {
         list($response) = $this->siteGetLocationsWithHttpInfo($RequestLimit, $RequestOffset);
         return $response;
@@ -1247,7 +1247,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetLocationsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function siteGetLocationsWithHttpInfo($RequestLimit = null, $RequestOffset = null)
+    public function siteGetLocationsWithHttpInfo($RequestLimit = null, $RequestOffset = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetLocationsResponse';
         $request = $this->siteGetLocationsRequest($RequestLimit, $RequestOffset);
@@ -1322,7 +1322,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function siteGetLocationsAsync($RequestLimit = null, $RequestOffset = null)
+    public function siteGetLocationsAsync($RequestLimit = null, $RequestOffset = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->siteGetLocationsAsyncWithHttpInfo($RequestLimit, $RequestOffset)
             ->then(
@@ -1343,7 +1343,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function siteGetLocationsAsyncWithHttpInfo($RequestLimit = null, $RequestOffset = null)
+    public function siteGetLocationsAsyncWithHttpInfo($RequestLimit = null, $RequestOffset = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetLocationsResponse';
         $request = $this->siteGetLocationsRequest($RequestLimit, $RequestOffset);
@@ -1394,7 +1394,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function siteGetLocationsRequest($RequestLimit = null, $RequestOffset = null)
+    protected function siteGetLocationsRequest($RequestLimit = null, $RequestOffset = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/site/locations';
@@ -1511,7 +1511,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetMembershipsResponse
      */
-    public function siteGetMemberships($RequestMembershipIds = null)
+    public function siteGetMemberships($RequestMembershipIds = null): \Nlocascio\Mindbody\Model\GetMembershipsResponse
     {
         list($response) = $this->siteGetMembershipsWithHttpInfo($RequestMembershipIds);
         return $response;
@@ -1528,7 +1528,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetMembershipsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function siteGetMembershipsWithHttpInfo($RequestMembershipIds = null)
+    public function siteGetMembershipsWithHttpInfo($RequestMembershipIds = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetMembershipsResponse';
         $request = $this->siteGetMembershipsRequest($RequestMembershipIds);
@@ -1602,7 +1602,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function siteGetMembershipsAsync($RequestMembershipIds = null)
+    public function siteGetMembershipsAsync($RequestMembershipIds = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->siteGetMembershipsAsyncWithHttpInfo($RequestMembershipIds)
             ->then(
@@ -1622,7 +1622,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function siteGetMembershipsAsyncWithHttpInfo($RequestMembershipIds = null)
+    public function siteGetMembershipsAsyncWithHttpInfo($RequestMembershipIds = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetMembershipsResponse';
         $request = $this->siteGetMembershipsRequest($RequestMembershipIds);
@@ -1672,7 +1672,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function siteGetMembershipsRequest($RequestMembershipIds = null)
+    protected function siteGetMembershipsRequest($RequestMembershipIds = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/site/memberships';
@@ -1788,7 +1788,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetPaymentTypesResponse
      */
-    public function siteGetPaymentTypes($RequestActive = null)
+    public function siteGetPaymentTypes($RequestActive = null): \Nlocascio\Mindbody\Model\GetPaymentTypesResponse
     {
         list($response) = $this->siteGetPaymentTypesWithHttpInfo($RequestActive);
         return $response;
@@ -1805,7 +1805,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetPaymentTypesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function siteGetPaymentTypesWithHttpInfo($RequestActive = null)
+    public function siteGetPaymentTypesWithHttpInfo($RequestActive = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetPaymentTypesResponse';
         $request = $this->siteGetPaymentTypesRequest($RequestActive);
@@ -1879,7 +1879,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function siteGetPaymentTypesAsync($RequestActive = null)
+    public function siteGetPaymentTypesAsync($RequestActive = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->siteGetPaymentTypesAsyncWithHttpInfo($RequestActive)
             ->then(
@@ -1899,7 +1899,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function siteGetPaymentTypesAsyncWithHttpInfo($RequestActive = null)
+    public function siteGetPaymentTypesAsyncWithHttpInfo($RequestActive = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetPaymentTypesResponse';
         $request = $this->siteGetPaymentTypesRequest($RequestActive);
@@ -1949,7 +1949,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function siteGetPaymentTypesRequest($RequestActive = null)
+    protected function siteGetPaymentTypesRequest($RequestActive = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/site/paymenttypes';
@@ -2065,7 +2065,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetProgramsResponse
      */
-    public function siteGetPrograms($RequestLimit = null, $RequestOffset = null, $RequestOnlineOnly = null, $RequestScheduleType = null)
+    public function siteGetPrograms($RequestLimit = null, $RequestOffset = null, $RequestOnlineOnly = null, $RequestScheduleType = null): \Nlocascio\Mindbody\Model\GetProgramsResponse
     {
         list($response) = $this->siteGetProgramsWithHttpInfo($RequestLimit, $RequestOffset, $RequestOnlineOnly, $RequestScheduleType);
         return $response;
@@ -2085,7 +2085,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetProgramsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function siteGetProgramsWithHttpInfo($RequestLimit = null, $RequestOffset = null, $RequestOnlineOnly = null, $RequestScheduleType = null)
+    public function siteGetProgramsWithHttpInfo($RequestLimit = null, $RequestOffset = null, $RequestOnlineOnly = null, $RequestScheduleType = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetProgramsResponse';
         $request = $this->siteGetProgramsRequest($RequestLimit, $RequestOffset, $RequestOnlineOnly, $RequestScheduleType);
@@ -2162,7 +2162,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function siteGetProgramsAsync($RequestLimit = null, $RequestOffset = null, $RequestOnlineOnly = null, $RequestScheduleType = null)
+    public function siteGetProgramsAsync($RequestLimit = null, $RequestOffset = null, $RequestOnlineOnly = null, $RequestScheduleType = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->siteGetProgramsAsyncWithHttpInfo($RequestLimit, $RequestOffset, $RequestOnlineOnly, $RequestScheduleType)
             ->then(
@@ -2185,7 +2185,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function siteGetProgramsAsyncWithHttpInfo($RequestLimit = null, $RequestOffset = null, $RequestOnlineOnly = null, $RequestScheduleType = null)
+    public function siteGetProgramsAsyncWithHttpInfo($RequestLimit = null, $RequestOffset = null, $RequestOnlineOnly = null, $RequestScheduleType = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetProgramsResponse';
         $request = $this->siteGetProgramsRequest($RequestLimit, $RequestOffset, $RequestOnlineOnly, $RequestScheduleType);
@@ -2238,7 +2238,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function siteGetProgramsRequest($RequestLimit = null, $RequestOffset = null, $RequestOnlineOnly = null, $RequestScheduleType = null)
+    protected function siteGetProgramsRequest($RequestLimit = null, $RequestOffset = null, $RequestOnlineOnly = null, $RequestScheduleType = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/site/programs';
@@ -2368,7 +2368,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetPromoCodesResponse
      */
-    public function siteGetPromoCodes($RequestActiveOnly = null, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestOnlineOnly = null, $RequestStartDate = null)
+    public function siteGetPromoCodes($RequestActiveOnly = null, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestOnlineOnly = null, $RequestStartDate = null): \Nlocascio\Mindbody\Model\GetPromoCodesResponse
     {
         list($response) = $this->siteGetPromoCodesWithHttpInfo($RequestActiveOnly, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestOnlineOnly, $RequestStartDate);
         return $response;
@@ -2390,7 +2390,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetPromoCodesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function siteGetPromoCodesWithHttpInfo($RequestActiveOnly = null, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestOnlineOnly = null, $RequestStartDate = null)
+    public function siteGetPromoCodesWithHttpInfo($RequestActiveOnly = null, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestOnlineOnly = null, $RequestStartDate = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetPromoCodesResponse';
         $request = $this->siteGetPromoCodesRequest($RequestActiveOnly, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestOnlineOnly, $RequestStartDate);
@@ -2469,7 +2469,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function siteGetPromoCodesAsync($RequestActiveOnly = null, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestOnlineOnly = null, $RequestStartDate = null)
+    public function siteGetPromoCodesAsync($RequestActiveOnly = null, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestOnlineOnly = null, $RequestStartDate = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->siteGetPromoCodesAsyncWithHttpInfo($RequestActiveOnly, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestOnlineOnly, $RequestStartDate)
             ->then(
@@ -2494,7 +2494,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function siteGetPromoCodesAsyncWithHttpInfo($RequestActiveOnly = null, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestOnlineOnly = null, $RequestStartDate = null)
+    public function siteGetPromoCodesAsyncWithHttpInfo($RequestActiveOnly = null, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestOnlineOnly = null, $RequestStartDate = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetPromoCodesResponse';
         $request = $this->siteGetPromoCodesRequest($RequestActiveOnly, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestOnlineOnly, $RequestStartDate);
@@ -2549,7 +2549,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function siteGetPromoCodesRequest($RequestActiveOnly = null, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestOnlineOnly = null, $RequestStartDate = null)
+    protected function siteGetPromoCodesRequest($RequestActiveOnly = null, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestOnlineOnly = null, $RequestStartDate = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/site/promocodes';
@@ -2687,7 +2687,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetResourcesResponse
      */
-    public function siteGetResources($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSessionTypeIds = null, $RequestStartDateTime = null)
+    public function siteGetResources($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSessionTypeIds = null, $RequestStartDateTime = null): \Nlocascio\Mindbody\Model\GetResourcesResponse
     {
         list($response) = $this->siteGetResourcesWithHttpInfo($RequestEndDateTime, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestSessionTypeIds, $RequestStartDateTime);
         return $response;
@@ -2709,7 +2709,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetResourcesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function siteGetResourcesWithHttpInfo($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSessionTypeIds = null, $RequestStartDateTime = null)
+    public function siteGetResourcesWithHttpInfo($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSessionTypeIds = null, $RequestStartDateTime = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetResourcesResponse';
         $request = $this->siteGetResourcesRequest($RequestEndDateTime, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestSessionTypeIds, $RequestStartDateTime);
@@ -2788,7 +2788,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function siteGetResourcesAsync($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSessionTypeIds = null, $RequestStartDateTime = null)
+    public function siteGetResourcesAsync($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSessionTypeIds = null, $RequestStartDateTime = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->siteGetResourcesAsyncWithHttpInfo($RequestEndDateTime, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestSessionTypeIds, $RequestStartDateTime)
             ->then(
@@ -2813,7 +2813,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function siteGetResourcesAsyncWithHttpInfo($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSessionTypeIds = null, $RequestStartDateTime = null)
+    public function siteGetResourcesAsyncWithHttpInfo($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSessionTypeIds = null, $RequestStartDateTime = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetResourcesResponse';
         $request = $this->siteGetResourcesRequest($RequestEndDateTime, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestSessionTypeIds, $RequestStartDateTime);
@@ -2868,7 +2868,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function siteGetResourcesRequest($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSessionTypeIds = null, $RequestStartDateTime = null)
+    protected function siteGetResourcesRequest($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSessionTypeIds = null, $RequestStartDateTime = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/site/resources';
@@ -3007,7 +3007,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetSessionTypesResponse
      */
-    public function siteGetSessionTypes($RequestLimit = null, $RequestOffset = null, $RequestOnlineOnly = null, $RequestProgramIDs = null)
+    public function siteGetSessionTypes($RequestLimit = null, $RequestOffset = null, $RequestOnlineOnly = null, $RequestProgramIDs = null): \Nlocascio\Mindbody\Model\GetSessionTypesResponse
     {
         list($response) = $this->siteGetSessionTypesWithHttpInfo($RequestLimit, $RequestOffset, $RequestOnlineOnly, $RequestProgramIDs);
         return $response;
@@ -3027,7 +3027,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetSessionTypesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function siteGetSessionTypesWithHttpInfo($RequestLimit = null, $RequestOffset = null, $RequestOnlineOnly = null, $RequestProgramIDs = null)
+    public function siteGetSessionTypesWithHttpInfo($RequestLimit = null, $RequestOffset = null, $RequestOnlineOnly = null, $RequestProgramIDs = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetSessionTypesResponse';
         $request = $this->siteGetSessionTypesRequest($RequestLimit, $RequestOffset, $RequestOnlineOnly, $RequestProgramIDs);
@@ -3104,7 +3104,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function siteGetSessionTypesAsync($RequestLimit = null, $RequestOffset = null, $RequestOnlineOnly = null, $RequestProgramIDs = null)
+    public function siteGetSessionTypesAsync($RequestLimit = null, $RequestOffset = null, $RequestOnlineOnly = null, $RequestProgramIDs = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->siteGetSessionTypesAsyncWithHttpInfo($RequestLimit, $RequestOffset, $RequestOnlineOnly, $RequestProgramIDs)
             ->then(
@@ -3127,7 +3127,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function siteGetSessionTypesAsyncWithHttpInfo($RequestLimit = null, $RequestOffset = null, $RequestOnlineOnly = null, $RequestProgramIDs = null)
+    public function siteGetSessionTypesAsyncWithHttpInfo($RequestLimit = null, $RequestOffset = null, $RequestOnlineOnly = null, $RequestProgramIDs = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetSessionTypesResponse';
         $request = $this->siteGetSessionTypesRequest($RequestLimit, $RequestOffset, $RequestOnlineOnly, $RequestProgramIDs);
@@ -3180,7 +3180,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function siteGetSessionTypesRequest($RequestLimit = null, $RequestOffset = null, $RequestOnlineOnly = null, $RequestProgramIDs = null)
+    protected function siteGetSessionTypesRequest($RequestLimit = null, $RequestOffset = null, $RequestOnlineOnly = null, $RequestProgramIDs = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/site/sessiontypes';
@@ -3310,7 +3310,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetSitesResponse
      */
-    public function siteGetSites($RequestLimit = null, $RequestOffset = null, $RequestSiteIds = null)
+    public function siteGetSites($RequestLimit = null, $RequestOffset = null, $RequestSiteIds = null): \Nlocascio\Mindbody\Model\GetSitesResponse
     {
         list($response) = $this->siteGetSitesWithHttpInfo($RequestLimit, $RequestOffset, $RequestSiteIds);
         return $response;
@@ -3329,7 +3329,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetSitesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function siteGetSitesWithHttpInfo($RequestLimit = null, $RequestOffset = null, $RequestSiteIds = null)
+    public function siteGetSitesWithHttpInfo($RequestLimit = null, $RequestOffset = null, $RequestSiteIds = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetSitesResponse';
         $request = $this->siteGetSitesRequest($RequestLimit, $RequestOffset, $RequestSiteIds);
@@ -3405,7 +3405,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function siteGetSitesAsync($RequestLimit = null, $RequestOffset = null, $RequestSiteIds = null)
+    public function siteGetSitesAsync($RequestLimit = null, $RequestOffset = null, $RequestSiteIds = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->siteGetSitesAsyncWithHttpInfo($RequestLimit, $RequestOffset, $RequestSiteIds)
             ->then(
@@ -3427,7 +3427,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function siteGetSitesAsyncWithHttpInfo($RequestLimit = null, $RequestOffset = null, $RequestSiteIds = null)
+    public function siteGetSitesAsyncWithHttpInfo($RequestLimit = null, $RequestOffset = null, $RequestSiteIds = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetSitesResponse';
         $request = $this->siteGetSitesRequest($RequestLimit, $RequestOffset, $RequestSiteIds);
@@ -3479,7 +3479,7 @@ class SiteApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function siteGetSitesRequest($RequestLimit = null, $RequestOffset = null, $RequestSiteIds = null)
+    protected function siteGetSitesRequest($RequestLimit = null, $RequestOffset = null, $RequestSiteIds = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/site/sites';
@@ -3593,7 +3593,7 @@ class SiteApi
      * @throws \RuntimeException on file opening failure
      * @return array of http client options
      */
-    protected function createHttpClientOption()
+    protected function createHttpClientOption(): array
     {
         $options = [];
         if ($this->config->getDebug()) {

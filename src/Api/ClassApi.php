@@ -48,7 +48,7 @@ use Nlocascio\Mindbody\ObjectSerializer;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ClassApi
+class ClassApi implements ApiInterface
 {
     /**
      * @var ClientInterface
@@ -83,7 +83,7 @@ class ClassApi
     /**
      * @return Configuration
      */
-    public function getConfig()
+    public function getConfig(): Configuration
     {
         return $this->config;
     }
@@ -99,7 +99,7 @@ class ClassApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\AddClientToClassResponse
      */
-    public function classAddClientToClass($Request)
+    public function classAddClientToClass($Request): \Nlocascio\Mindbody\Model\AddClientToClassResponse
     {
         list($response) = $this->classAddClientToClassWithHttpInfo($Request);
         return $response;
@@ -116,7 +116,7 @@ class ClassApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\AddClientToClassResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function classAddClientToClassWithHttpInfo($Request)
+    public function classAddClientToClassWithHttpInfo($Request): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\AddClientToClassResponse';
         $request = $this->classAddClientToClassRequest($Request);
@@ -190,7 +190,7 @@ class ClassApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function classAddClientToClassAsync($Request)
+    public function classAddClientToClassAsync($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->classAddClientToClassAsyncWithHttpInfo($Request)
             ->then(
@@ -210,7 +210,7 @@ class ClassApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function classAddClientToClassAsyncWithHttpInfo($Request)
+    public function classAddClientToClassAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\AddClientToClassResponse';
         $request = $this->classAddClientToClassRequest($Request);
@@ -260,7 +260,7 @@ class ClassApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function classAddClientToClassRequest($Request)
+    protected function classAddClientToClassRequest($Request): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'Request' is set
         if ($Request === null || (is_array($Request) && count($Request) === 0)) {
@@ -385,7 +385,7 @@ class ClassApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetClassDescriptionsResponse
      */
-    public function classGetClassDescriptions($RequestClassDescriptionId = null, $RequestEndClassDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProgramIds = null, $RequestStaffId = null, $RequestStartClassDateTime = null)
+    public function classGetClassDescriptions($RequestClassDescriptionId = null, $RequestEndClassDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProgramIds = null, $RequestStaffId = null, $RequestStartClassDateTime = null): \Nlocascio\Mindbody\Model\GetClassDescriptionsResponse
     {
         list($response) = $this->classGetClassDescriptionsWithHttpInfo($RequestClassDescriptionId, $RequestEndClassDateTime, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestProgramIds, $RequestStaffId, $RequestStartClassDateTime);
         return $response;
@@ -409,7 +409,7 @@ class ClassApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetClassDescriptionsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function classGetClassDescriptionsWithHttpInfo($RequestClassDescriptionId = null, $RequestEndClassDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProgramIds = null, $RequestStaffId = null, $RequestStartClassDateTime = null)
+    public function classGetClassDescriptionsWithHttpInfo($RequestClassDescriptionId = null, $RequestEndClassDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProgramIds = null, $RequestStaffId = null, $RequestStartClassDateTime = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClassDescriptionsResponse';
         $request = $this->classGetClassDescriptionsRequest($RequestClassDescriptionId, $RequestEndClassDateTime, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestProgramIds, $RequestStaffId, $RequestStartClassDateTime);
@@ -490,7 +490,7 @@ class ClassApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function classGetClassDescriptionsAsync($RequestClassDescriptionId = null, $RequestEndClassDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProgramIds = null, $RequestStaffId = null, $RequestStartClassDateTime = null)
+    public function classGetClassDescriptionsAsync($RequestClassDescriptionId = null, $RequestEndClassDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProgramIds = null, $RequestStaffId = null, $RequestStartClassDateTime = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->classGetClassDescriptionsAsyncWithHttpInfo($RequestClassDescriptionId, $RequestEndClassDateTime, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestProgramIds, $RequestStaffId, $RequestStartClassDateTime)
             ->then(
@@ -517,7 +517,7 @@ class ClassApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function classGetClassDescriptionsAsyncWithHttpInfo($RequestClassDescriptionId = null, $RequestEndClassDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProgramIds = null, $RequestStaffId = null, $RequestStartClassDateTime = null)
+    public function classGetClassDescriptionsAsyncWithHttpInfo($RequestClassDescriptionId = null, $RequestEndClassDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProgramIds = null, $RequestStaffId = null, $RequestStartClassDateTime = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClassDescriptionsResponse';
         $request = $this->classGetClassDescriptionsRequest($RequestClassDescriptionId, $RequestEndClassDateTime, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestProgramIds, $RequestStaffId, $RequestStartClassDateTime);
@@ -574,7 +574,7 @@ class ClassApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function classGetClassDescriptionsRequest($RequestClassDescriptionId = null, $RequestEndClassDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProgramIds = null, $RequestStaffId = null, $RequestStartClassDateTime = null)
+    protected function classGetClassDescriptionsRequest($RequestClassDescriptionId = null, $RequestEndClassDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProgramIds = null, $RequestStaffId = null, $RequestStartClassDateTime = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/class/classdescriptions';
@@ -726,7 +726,7 @@ class ClassApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetClassSchedulesResponse
      */
-    public function classGetClassSchedules($RequestClassScheduleIds = null, $RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDate = null)
+    public function classGetClassSchedules($RequestClassScheduleIds = null, $RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDate = null): \Nlocascio\Mindbody\Model\GetClassSchedulesResponse
     {
         list($response) = $this->classGetClassSchedulesWithHttpInfo($RequestClassScheduleIds, $RequestEndDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSessionTypeIds, $RequestStaffIds, $RequestStartDate);
         return $response;
@@ -751,7 +751,7 @@ class ClassApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetClassSchedulesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function classGetClassSchedulesWithHttpInfo($RequestClassScheduleIds = null, $RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDate = null)
+    public function classGetClassSchedulesWithHttpInfo($RequestClassScheduleIds = null, $RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDate = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClassSchedulesResponse';
         $request = $this->classGetClassSchedulesRequest($RequestClassScheduleIds, $RequestEndDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSessionTypeIds, $RequestStaffIds, $RequestStartDate);
@@ -833,7 +833,7 @@ class ClassApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function classGetClassSchedulesAsync($RequestClassScheduleIds = null, $RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDate = null)
+    public function classGetClassSchedulesAsync($RequestClassScheduleIds = null, $RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDate = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->classGetClassSchedulesAsyncWithHttpInfo($RequestClassScheduleIds, $RequestEndDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSessionTypeIds, $RequestStaffIds, $RequestStartDate)
             ->then(
@@ -861,7 +861,7 @@ class ClassApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function classGetClassSchedulesAsyncWithHttpInfo($RequestClassScheduleIds = null, $RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDate = null)
+    public function classGetClassSchedulesAsyncWithHttpInfo($RequestClassScheduleIds = null, $RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDate = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClassSchedulesResponse';
         $request = $this->classGetClassSchedulesRequest($RequestClassScheduleIds, $RequestEndDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSessionTypeIds, $RequestStaffIds, $RequestStartDate);
@@ -919,7 +919,7 @@ class ClassApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function classGetClassSchedulesRequest($RequestClassScheduleIds = null, $RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDate = null)
+    protected function classGetClassSchedulesRequest($RequestClassScheduleIds = null, $RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDate = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/class/classschedules';
@@ -1080,7 +1080,7 @@ class ClassApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetClassVisitsResponse
      */
-    public function classGetClassVisits($RequestClassID = null, $RequestLastModifiedDate = null)
+    public function classGetClassVisits($RequestClassID = null, $RequestLastModifiedDate = null): \Nlocascio\Mindbody\Model\GetClassVisitsResponse
     {
         list($response) = $this->classGetClassVisitsWithHttpInfo($RequestClassID, $RequestLastModifiedDate);
         return $response;
@@ -1098,7 +1098,7 @@ class ClassApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetClassVisitsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function classGetClassVisitsWithHttpInfo($RequestClassID = null, $RequestLastModifiedDate = null)
+    public function classGetClassVisitsWithHttpInfo($RequestClassID = null, $RequestLastModifiedDate = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClassVisitsResponse';
         $request = $this->classGetClassVisitsRequest($RequestClassID, $RequestLastModifiedDate);
@@ -1173,7 +1173,7 @@ class ClassApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function classGetClassVisitsAsync($RequestClassID = null, $RequestLastModifiedDate = null)
+    public function classGetClassVisitsAsync($RequestClassID = null, $RequestLastModifiedDate = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->classGetClassVisitsAsyncWithHttpInfo($RequestClassID, $RequestLastModifiedDate)
             ->then(
@@ -1194,7 +1194,7 @@ class ClassApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function classGetClassVisitsAsyncWithHttpInfo($RequestClassID = null, $RequestLastModifiedDate = null)
+    public function classGetClassVisitsAsyncWithHttpInfo($RequestClassID = null, $RequestLastModifiedDate = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClassVisitsResponse';
         $request = $this->classGetClassVisitsRequest($RequestClassID, $RequestLastModifiedDate);
@@ -1245,7 +1245,7 @@ class ClassApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function classGetClassVisitsRequest($RequestClassID = null, $RequestLastModifiedDate = null)
+    protected function classGetClassVisitsRequest($RequestClassID = null, $RequestLastModifiedDate = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/class/classvisits';
@@ -1376,7 +1376,7 @@ class ClassApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetClassesResponse
      */
-    public function classGetClasses($RequestClassDescriptionIds = null, $RequestClassIds = null, $RequestClientId = null, $RequestEndDateTime = null, $RequestHideCanceledClasses = null, $RequestLastModifiedDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSchedulingWindow = null, $RequestSemesterIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDateTime = null)
+    public function classGetClasses($RequestClassDescriptionIds = null, $RequestClassIds = null, $RequestClientId = null, $RequestEndDateTime = null, $RequestHideCanceledClasses = null, $RequestLastModifiedDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSchedulingWindow = null, $RequestSemesterIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDateTime = null): \Nlocascio\Mindbody\Model\GetClassesResponse
     {
         list($response) = $this->classGetClassesWithHttpInfo($RequestClassDescriptionIds, $RequestClassIds, $RequestClientId, $RequestEndDateTime, $RequestHideCanceledClasses, $RequestLastModifiedDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSchedulingWindow, $RequestSemesterIds, $RequestSessionTypeIds, $RequestStaffIds, $RequestStartDateTime);
         return $response;
@@ -1407,7 +1407,7 @@ class ClassApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetClassesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function classGetClassesWithHttpInfo($RequestClassDescriptionIds = null, $RequestClassIds = null, $RequestClientId = null, $RequestEndDateTime = null, $RequestHideCanceledClasses = null, $RequestLastModifiedDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSchedulingWindow = null, $RequestSemesterIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDateTime = null)
+    public function classGetClassesWithHttpInfo($RequestClassDescriptionIds = null, $RequestClassIds = null, $RequestClientId = null, $RequestEndDateTime = null, $RequestHideCanceledClasses = null, $RequestLastModifiedDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSchedulingWindow = null, $RequestSemesterIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDateTime = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClassesResponse';
         $request = $this->classGetClassesRequest($RequestClassDescriptionIds, $RequestClassIds, $RequestClientId, $RequestEndDateTime, $RequestHideCanceledClasses, $RequestLastModifiedDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSchedulingWindow, $RequestSemesterIds, $RequestSessionTypeIds, $RequestStaffIds, $RequestStartDateTime);
@@ -1495,7 +1495,7 @@ class ClassApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function classGetClassesAsync($RequestClassDescriptionIds = null, $RequestClassIds = null, $RequestClientId = null, $RequestEndDateTime = null, $RequestHideCanceledClasses = null, $RequestLastModifiedDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSchedulingWindow = null, $RequestSemesterIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDateTime = null)
+    public function classGetClassesAsync($RequestClassDescriptionIds = null, $RequestClassIds = null, $RequestClientId = null, $RequestEndDateTime = null, $RequestHideCanceledClasses = null, $RequestLastModifiedDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSchedulingWindow = null, $RequestSemesterIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDateTime = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->classGetClassesAsyncWithHttpInfo($RequestClassDescriptionIds, $RequestClassIds, $RequestClientId, $RequestEndDateTime, $RequestHideCanceledClasses, $RequestLastModifiedDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSchedulingWindow, $RequestSemesterIds, $RequestSessionTypeIds, $RequestStaffIds, $RequestStartDateTime)
             ->then(
@@ -1529,7 +1529,7 @@ class ClassApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function classGetClassesAsyncWithHttpInfo($RequestClassDescriptionIds = null, $RequestClassIds = null, $RequestClientId = null, $RequestEndDateTime = null, $RequestHideCanceledClasses = null, $RequestLastModifiedDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSchedulingWindow = null, $RequestSemesterIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDateTime = null)
+    public function classGetClassesAsyncWithHttpInfo($RequestClassDescriptionIds = null, $RequestClassIds = null, $RequestClientId = null, $RequestEndDateTime = null, $RequestHideCanceledClasses = null, $RequestLastModifiedDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSchedulingWindow = null, $RequestSemesterIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDateTime = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClassesResponse';
         $request = $this->classGetClassesRequest($RequestClassDescriptionIds, $RequestClassIds, $RequestClientId, $RequestEndDateTime, $RequestHideCanceledClasses, $RequestLastModifiedDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSchedulingWindow, $RequestSemesterIds, $RequestSessionTypeIds, $RequestStaffIds, $RequestStartDateTime);
@@ -1593,7 +1593,7 @@ class ClassApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function classGetClassesRequest($RequestClassDescriptionIds = null, $RequestClassIds = null, $RequestClientId = null, $RequestEndDateTime = null, $RequestHideCanceledClasses = null, $RequestLastModifiedDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSchedulingWindow = null, $RequestSemesterIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDateTime = null)
+    protected function classGetClassesRequest($RequestClassDescriptionIds = null, $RequestClassIds = null, $RequestClientId = null, $RequestEndDateTime = null, $RequestHideCanceledClasses = null, $RequestLastModifiedDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSchedulingWindow = null, $RequestSemesterIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDateTime = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/class/classes';
@@ -1789,7 +1789,7 @@ class ClassApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetWaitlistEntriesResponse
      */
-    public function classGetWaitlistEntries($RequestClassIds = null, $RequestClassScheduleIds = null, $RequestClientIds = null, $RequestHidePastEntries = null, $RequestLimit = null, $RequestOffset = null, $RequestWaitlistEntryIds = null)
+    public function classGetWaitlistEntries($RequestClassIds = null, $RequestClassScheduleIds = null, $RequestClientIds = null, $RequestHidePastEntries = null, $RequestLimit = null, $RequestOffset = null, $RequestWaitlistEntryIds = null): \Nlocascio\Mindbody\Model\GetWaitlistEntriesResponse
     {
         list($response) = $this->classGetWaitlistEntriesWithHttpInfo($RequestClassIds, $RequestClassScheduleIds, $RequestClientIds, $RequestHidePastEntries, $RequestLimit, $RequestOffset, $RequestWaitlistEntryIds);
         return $response;
@@ -1812,7 +1812,7 @@ class ClassApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetWaitlistEntriesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function classGetWaitlistEntriesWithHttpInfo($RequestClassIds = null, $RequestClassScheduleIds = null, $RequestClientIds = null, $RequestHidePastEntries = null, $RequestLimit = null, $RequestOffset = null, $RequestWaitlistEntryIds = null)
+    public function classGetWaitlistEntriesWithHttpInfo($RequestClassIds = null, $RequestClassScheduleIds = null, $RequestClientIds = null, $RequestHidePastEntries = null, $RequestLimit = null, $RequestOffset = null, $RequestWaitlistEntryIds = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetWaitlistEntriesResponse';
         $request = $this->classGetWaitlistEntriesRequest($RequestClassIds, $RequestClassScheduleIds, $RequestClientIds, $RequestHidePastEntries, $RequestLimit, $RequestOffset, $RequestWaitlistEntryIds);
@@ -1892,7 +1892,7 @@ class ClassApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function classGetWaitlistEntriesAsync($RequestClassIds = null, $RequestClassScheduleIds = null, $RequestClientIds = null, $RequestHidePastEntries = null, $RequestLimit = null, $RequestOffset = null, $RequestWaitlistEntryIds = null)
+    public function classGetWaitlistEntriesAsync($RequestClassIds = null, $RequestClassScheduleIds = null, $RequestClientIds = null, $RequestHidePastEntries = null, $RequestLimit = null, $RequestOffset = null, $RequestWaitlistEntryIds = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->classGetWaitlistEntriesAsyncWithHttpInfo($RequestClassIds, $RequestClassScheduleIds, $RequestClientIds, $RequestHidePastEntries, $RequestLimit, $RequestOffset, $RequestWaitlistEntryIds)
             ->then(
@@ -1918,7 +1918,7 @@ class ClassApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function classGetWaitlistEntriesAsyncWithHttpInfo($RequestClassIds = null, $RequestClassScheduleIds = null, $RequestClientIds = null, $RequestHidePastEntries = null, $RequestLimit = null, $RequestOffset = null, $RequestWaitlistEntryIds = null)
+    public function classGetWaitlistEntriesAsyncWithHttpInfo($RequestClassIds = null, $RequestClassScheduleIds = null, $RequestClientIds = null, $RequestHidePastEntries = null, $RequestLimit = null, $RequestOffset = null, $RequestWaitlistEntryIds = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetWaitlistEntriesResponse';
         $request = $this->classGetWaitlistEntriesRequest($RequestClassIds, $RequestClassScheduleIds, $RequestClientIds, $RequestHidePastEntries, $RequestLimit, $RequestOffset, $RequestWaitlistEntryIds);
@@ -1974,7 +1974,7 @@ class ClassApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function classGetWaitlistEntriesRequest($RequestClassIds = null, $RequestClassScheduleIds = null, $RequestClientIds = null, $RequestHidePastEntries = null, $RequestLimit = null, $RequestOffset = null, $RequestWaitlistEntryIds = null)
+    protected function classGetWaitlistEntriesRequest($RequestClassIds = null, $RequestClassScheduleIds = null, $RequestClientIds = null, $RequestHidePastEntries = null, $RequestLimit = null, $RequestOffset = null, $RequestWaitlistEntryIds = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/class/waitlistentries';
@@ -2123,7 +2123,7 @@ class ClassApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\RemoveClientFromClassResponse
      */
-    public function classRemoveClientFromClass($Request)
+    public function classRemoveClientFromClass($Request): \Nlocascio\Mindbody\Model\RemoveClientFromClassResponse
     {
         list($response) = $this->classRemoveClientFromClassWithHttpInfo($Request);
         return $response;
@@ -2140,7 +2140,7 @@ class ClassApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\RemoveClientFromClassResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function classRemoveClientFromClassWithHttpInfo($Request)
+    public function classRemoveClientFromClassWithHttpInfo($Request): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\RemoveClientFromClassResponse';
         $request = $this->classRemoveClientFromClassRequest($Request);
@@ -2214,7 +2214,7 @@ class ClassApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function classRemoveClientFromClassAsync($Request)
+    public function classRemoveClientFromClassAsync($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->classRemoveClientFromClassAsyncWithHttpInfo($Request)
             ->then(
@@ -2234,7 +2234,7 @@ class ClassApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function classRemoveClientFromClassAsyncWithHttpInfo($Request)
+    public function classRemoveClientFromClassAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\RemoveClientFromClassResponse';
         $request = $this->classRemoveClientFromClassRequest($Request);
@@ -2284,7 +2284,7 @@ class ClassApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function classRemoveClientFromClassRequest($Request)
+    protected function classRemoveClientFromClassRequest($Request): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'Request' is set
         if ($Request === null || (is_array($Request) && count($Request) === 0)) {
@@ -2402,7 +2402,7 @@ class ClassApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\RemoveFromWaitlistResponse
      */
-    public function classRemoveFromWaitlist($RequestWaitlistEntryIds)
+    public function classRemoveFromWaitlist($RequestWaitlistEntryIds): \Nlocascio\Mindbody\Model\RemoveFromWaitlistResponse
     {
         list($response) = $this->classRemoveFromWaitlistWithHttpInfo($RequestWaitlistEntryIds);
         return $response;
@@ -2419,7 +2419,7 @@ class ClassApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\RemoveFromWaitlistResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function classRemoveFromWaitlistWithHttpInfo($RequestWaitlistEntryIds)
+    public function classRemoveFromWaitlistWithHttpInfo($RequestWaitlistEntryIds): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\RemoveFromWaitlistResponse';
         $request = $this->classRemoveFromWaitlistRequest($RequestWaitlistEntryIds);
@@ -2493,7 +2493,7 @@ class ClassApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function classRemoveFromWaitlistAsync($RequestWaitlistEntryIds)
+    public function classRemoveFromWaitlistAsync($RequestWaitlistEntryIds): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->classRemoveFromWaitlistAsyncWithHttpInfo($RequestWaitlistEntryIds)
             ->then(
@@ -2513,7 +2513,7 @@ class ClassApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function classRemoveFromWaitlistAsyncWithHttpInfo($RequestWaitlistEntryIds)
+    public function classRemoveFromWaitlistAsyncWithHttpInfo($RequestWaitlistEntryIds): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\RemoveFromWaitlistResponse';
         $request = $this->classRemoveFromWaitlistRequest($RequestWaitlistEntryIds);
@@ -2563,7 +2563,7 @@ class ClassApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function classRemoveFromWaitlistRequest($RequestWaitlistEntryIds)
+    protected function classRemoveFromWaitlistRequest($RequestWaitlistEntryIds): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'RequestWaitlistEntryIds' is set
         if ($RequestWaitlistEntryIds === null || (is_array($RequestWaitlistEntryIds) && count($RequestWaitlistEntryIds) === 0)) {
@@ -2685,7 +2685,7 @@ class ClassApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\SubstituteClassTeacherResponse
      */
-    public function classSubstituteClassTeacher($Request)
+    public function classSubstituteClassTeacher($Request): \Nlocascio\Mindbody\Model\SubstituteClassTeacherResponse
     {
         list($response) = $this->classSubstituteClassTeacherWithHttpInfo($Request);
         return $response;
@@ -2702,7 +2702,7 @@ class ClassApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\SubstituteClassTeacherResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function classSubstituteClassTeacherWithHttpInfo($Request)
+    public function classSubstituteClassTeacherWithHttpInfo($Request): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\SubstituteClassTeacherResponse';
         $request = $this->classSubstituteClassTeacherRequest($Request);
@@ -2776,7 +2776,7 @@ class ClassApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function classSubstituteClassTeacherAsync($Request)
+    public function classSubstituteClassTeacherAsync($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->classSubstituteClassTeacherAsyncWithHttpInfo($Request)
             ->then(
@@ -2796,7 +2796,7 @@ class ClassApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function classSubstituteClassTeacherAsyncWithHttpInfo($Request)
+    public function classSubstituteClassTeacherAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\SubstituteClassTeacherResponse';
         $request = $this->classSubstituteClassTeacherRequest($Request);
@@ -2846,7 +2846,7 @@ class ClassApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function classSubstituteClassTeacherRequest($Request)
+    protected function classSubstituteClassTeacherRequest($Request): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'Request' is set
         if ($Request === null || (is_array($Request) && count($Request) === 0)) {
@@ -2959,7 +2959,7 @@ class ClassApi
      * @throws \RuntimeException on file opening failure
      * @return array of http client options
      */
-    protected function createHttpClientOption()
+    protected function createHttpClientOption(): array
     {
         $options = [];
         if ($this->config->getDebug()) {

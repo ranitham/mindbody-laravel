@@ -48,7 +48,7 @@ use Nlocascio\Mindbody\ObjectSerializer;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class UserTokenApi
+class UserTokenApi implements ApiInterface
 {
     /**
      * @var ClientInterface
@@ -83,7 +83,7 @@ class UserTokenApi
     /**
      * @return Configuration
      */
-    public function getConfig()
+    public function getConfig(): Configuration
     {
         return $this->config;
     }
@@ -99,7 +99,7 @@ class UserTokenApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\IssueResponse
      */
-    public function userTokenIssue($Request)
+    public function userTokenIssue($Request): \Nlocascio\Mindbody\Model\IssueResponse
     {
         list($response) = $this->userTokenIssueWithHttpInfo($Request);
         return $response;
@@ -116,7 +116,7 @@ class UserTokenApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\IssueResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function userTokenIssueWithHttpInfo($Request)
+    public function userTokenIssueWithHttpInfo($Request): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\IssueResponse';
         $request = $this->userTokenIssueRequest($Request);
@@ -190,7 +190,7 @@ class UserTokenApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function userTokenIssueAsync($Request)
+    public function userTokenIssueAsync($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->userTokenIssueAsyncWithHttpInfo($Request)
             ->then(
@@ -210,7 +210,7 @@ class UserTokenApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function userTokenIssueAsyncWithHttpInfo($Request)
+    public function userTokenIssueAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\IssueResponse';
         $request = $this->userTokenIssueRequest($Request);
@@ -260,7 +260,7 @@ class UserTokenApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function userTokenIssueRequest($Request)
+    protected function userTokenIssueRequest($Request): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'Request' is set
         if ($Request === null || (is_array($Request) && count($Request) === 0)) {
@@ -372,7 +372,7 @@ class UserTokenApi
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function userTokenRevoke()
+    public function userTokenRevoke(): object
     {
         list($response) = $this->userTokenRevokeWithHttpInfo();
         return $response;
@@ -388,7 +388,7 @@ class UserTokenApi
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function userTokenRevokeWithHttpInfo()
+    public function userTokenRevokeWithHttpInfo(): array
     {
         $returnType = 'object';
         $request = $this->userTokenRevokeRequest();
@@ -461,7 +461,7 @@ class UserTokenApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function userTokenRevokeAsync()
+    public function userTokenRevokeAsync(): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->userTokenRevokeAsyncWithHttpInfo()
             ->then(
@@ -480,7 +480,7 @@ class UserTokenApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function userTokenRevokeAsyncWithHttpInfo()
+    public function userTokenRevokeAsyncWithHttpInfo(): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = 'object';
         $request = $this->userTokenRevokeRequest();
@@ -529,7 +529,7 @@ class UserTokenApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function userTokenRevokeRequest()
+    protected function userTokenRevokeRequest(): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/usertoken/revoke';
@@ -633,7 +633,7 @@ class UserTokenApi
      * @throws \RuntimeException on file opening failure
      * @return array of http client options
      */
-    protected function createHttpClientOption()
+    protected function createHttpClientOption(): array
     {
         $options = [];
         if ($this->config->getDebug()) {

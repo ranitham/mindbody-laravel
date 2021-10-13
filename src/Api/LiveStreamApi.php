@@ -48,7 +48,7 @@ use Nlocascio\Mindbody\ObjectSerializer;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class LiveStreamApi
+class LiveStreamApi implements ApiInterface
 {
     /**
      * @var ClientInterface
@@ -83,7 +83,7 @@ class LiveStreamApi
     /**
      * @return Configuration
      */
-    public function getConfig()
+    public function getConfig(): Configuration
     {
         return $this->config;
     }
@@ -99,7 +99,7 @@ class LiveStreamApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GenerateSignedLiveStreamUrlResponse
      */
-    public function liveStreamGenerateSignedLiveStreamUrl($Request)
+    public function liveStreamGenerateSignedLiveStreamUrl($Request): \Nlocascio\Mindbody\Model\GenerateSignedLiveStreamUrlResponse
     {
         list($response) = $this->liveStreamGenerateSignedLiveStreamUrlWithHttpInfo($Request);
         return $response;
@@ -116,7 +116,7 @@ class LiveStreamApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GenerateSignedLiveStreamUrlResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function liveStreamGenerateSignedLiveStreamUrlWithHttpInfo($Request)
+    public function liveStreamGenerateSignedLiveStreamUrlWithHttpInfo($Request): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GenerateSignedLiveStreamUrlResponse';
         $request = $this->liveStreamGenerateSignedLiveStreamUrlRequest($Request);
@@ -190,7 +190,7 @@ class LiveStreamApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function liveStreamGenerateSignedLiveStreamUrlAsync($Request)
+    public function liveStreamGenerateSignedLiveStreamUrlAsync($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->liveStreamGenerateSignedLiveStreamUrlAsyncWithHttpInfo($Request)
             ->then(
@@ -210,7 +210,7 @@ class LiveStreamApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function liveStreamGenerateSignedLiveStreamUrlAsyncWithHttpInfo($Request)
+    public function liveStreamGenerateSignedLiveStreamUrlAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GenerateSignedLiveStreamUrlResponse';
         $request = $this->liveStreamGenerateSignedLiveStreamUrlRequest($Request);
@@ -260,7 +260,7 @@ class LiveStreamApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function liveStreamGenerateSignedLiveStreamUrlRequest($Request)
+    protected function liveStreamGenerateSignedLiveStreamUrlRequest($Request): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'Request' is set
         if ($Request === null || (is_array($Request) && count($Request) === 0)) {
@@ -373,7 +373,7 @@ class LiveStreamApi
      * @throws \RuntimeException on file opening failure
      * @return array of http client options
      */
-    protected function createHttpClientOption()
+    protected function createHttpClientOption(): array
     {
         $options = [];
         if ($this->config->getDebug()) {

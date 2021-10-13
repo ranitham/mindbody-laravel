@@ -48,7 +48,7 @@ use Nlocascio\Mindbody\ObjectSerializer;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class PayrollApi
+class PayrollApi implements ApiInterface
 {
     /**
      * @var ClientInterface
@@ -83,7 +83,7 @@ class PayrollApi
     /**
      * @return Configuration
      */
-    public function getConfig()
+    public function getConfig(): Configuration
     {
         return $this->config;
     }
@@ -104,7 +104,7 @@ class PayrollApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetCommissionsResponse
      */
-    public function payrollGetCommissions($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestStaffId = null, $RequestStartDateTime = null)
+    public function payrollGetCommissions($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestStaffId = null, $RequestStartDateTime = null): \Nlocascio\Mindbody\Model\GetCommissionsResponse
     {
         list($response) = $this->payrollGetCommissionsWithHttpInfo($RequestEndDateTime, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestStaffId, $RequestStartDateTime);
         return $response;
@@ -126,7 +126,7 @@ class PayrollApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetCommissionsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function payrollGetCommissionsWithHttpInfo($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestStaffId = null, $RequestStartDateTime = null)
+    public function payrollGetCommissionsWithHttpInfo($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestStaffId = null, $RequestStartDateTime = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetCommissionsResponse';
         $request = $this->payrollGetCommissionsRequest($RequestEndDateTime, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestStaffId, $RequestStartDateTime);
@@ -205,7 +205,7 @@ class PayrollApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function payrollGetCommissionsAsync($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestStaffId = null, $RequestStartDateTime = null)
+    public function payrollGetCommissionsAsync($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestStaffId = null, $RequestStartDateTime = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->payrollGetCommissionsAsyncWithHttpInfo($RequestEndDateTime, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestStaffId, $RequestStartDateTime)
             ->then(
@@ -230,7 +230,7 @@ class PayrollApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function payrollGetCommissionsAsyncWithHttpInfo($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestStaffId = null, $RequestStartDateTime = null)
+    public function payrollGetCommissionsAsyncWithHttpInfo($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestStaffId = null, $RequestStartDateTime = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetCommissionsResponse';
         $request = $this->payrollGetCommissionsRequest($RequestEndDateTime, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestStaffId, $RequestStartDateTime);
@@ -285,7 +285,7 @@ class PayrollApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function payrollGetCommissionsRequest($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestStaffId = null, $RequestStartDateTime = null)
+    protected function payrollGetCommissionsRequest($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestStaffId = null, $RequestStartDateTime = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/payroll/commissions';
@@ -425,7 +425,7 @@ class PayrollApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetScheduledServiceEarningsResponse
      */
-    public function payrollGetScheduledServiceEarnings($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestScheduledServiceId = null, $RequestScheduledServiceType = null, $RequestStaffId = null, $RequestStartDateTime = null)
+    public function payrollGetScheduledServiceEarnings($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestScheduledServiceId = null, $RequestScheduledServiceType = null, $RequestStaffId = null, $RequestStartDateTime = null): \Nlocascio\Mindbody\Model\GetScheduledServiceEarningsResponse
     {
         list($response) = $this->payrollGetScheduledServiceEarningsWithHttpInfo($RequestEndDateTime, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestScheduledServiceId, $RequestScheduledServiceType, $RequestStaffId, $RequestStartDateTime);
         return $response;
@@ -449,7 +449,7 @@ class PayrollApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetScheduledServiceEarningsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function payrollGetScheduledServiceEarningsWithHttpInfo($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestScheduledServiceId = null, $RequestScheduledServiceType = null, $RequestStaffId = null, $RequestStartDateTime = null)
+    public function payrollGetScheduledServiceEarningsWithHttpInfo($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestScheduledServiceId = null, $RequestScheduledServiceType = null, $RequestStaffId = null, $RequestStartDateTime = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetScheduledServiceEarningsResponse';
         $request = $this->payrollGetScheduledServiceEarningsRequest($RequestEndDateTime, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestScheduledServiceId, $RequestScheduledServiceType, $RequestStaffId, $RequestStartDateTime);
@@ -530,7 +530,7 @@ class PayrollApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function payrollGetScheduledServiceEarningsAsync($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestScheduledServiceId = null, $RequestScheduledServiceType = null, $RequestStaffId = null, $RequestStartDateTime = null)
+    public function payrollGetScheduledServiceEarningsAsync($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestScheduledServiceId = null, $RequestScheduledServiceType = null, $RequestStaffId = null, $RequestStartDateTime = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->payrollGetScheduledServiceEarningsAsyncWithHttpInfo($RequestEndDateTime, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestScheduledServiceId, $RequestScheduledServiceType, $RequestStaffId, $RequestStartDateTime)
             ->then(
@@ -557,7 +557,7 @@ class PayrollApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function payrollGetScheduledServiceEarningsAsyncWithHttpInfo($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestScheduledServiceId = null, $RequestScheduledServiceType = null, $RequestStaffId = null, $RequestStartDateTime = null)
+    public function payrollGetScheduledServiceEarningsAsyncWithHttpInfo($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestScheduledServiceId = null, $RequestScheduledServiceType = null, $RequestStaffId = null, $RequestStartDateTime = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetScheduledServiceEarningsResponse';
         $request = $this->payrollGetScheduledServiceEarningsRequest($RequestEndDateTime, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestScheduledServiceId, $RequestScheduledServiceType, $RequestStaffId, $RequestStartDateTime);
@@ -614,7 +614,7 @@ class PayrollApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function payrollGetScheduledServiceEarningsRequest($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestScheduledServiceId = null, $RequestScheduledServiceType = null, $RequestStaffId = null, $RequestStartDateTime = null)
+    protected function payrollGetScheduledServiceEarningsRequest($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestScheduledServiceId = null, $RequestScheduledServiceType = null, $RequestStaffId = null, $RequestStartDateTime = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/payroll/scheduledserviceearnings';
@@ -760,7 +760,7 @@ class PayrollApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetTimeCardsResponse
      */
-    public function payrollGetTimeCards($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestStaffId = null, $RequestStartDateTime = null)
+    public function payrollGetTimeCards($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestStaffId = null, $RequestStartDateTime = null): \Nlocascio\Mindbody\Model\GetTimeCardsResponse
     {
         list($response) = $this->payrollGetTimeCardsWithHttpInfo($RequestEndDateTime, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestStaffId, $RequestStartDateTime);
         return $response;
@@ -782,7 +782,7 @@ class PayrollApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetTimeCardsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function payrollGetTimeCardsWithHttpInfo($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestStaffId = null, $RequestStartDateTime = null)
+    public function payrollGetTimeCardsWithHttpInfo($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestStaffId = null, $RequestStartDateTime = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetTimeCardsResponse';
         $request = $this->payrollGetTimeCardsRequest($RequestEndDateTime, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestStaffId, $RequestStartDateTime);
@@ -861,7 +861,7 @@ class PayrollApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function payrollGetTimeCardsAsync($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestStaffId = null, $RequestStartDateTime = null)
+    public function payrollGetTimeCardsAsync($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestStaffId = null, $RequestStartDateTime = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->payrollGetTimeCardsAsyncWithHttpInfo($RequestEndDateTime, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestStaffId, $RequestStartDateTime)
             ->then(
@@ -886,7 +886,7 @@ class PayrollApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function payrollGetTimeCardsAsyncWithHttpInfo($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestStaffId = null, $RequestStartDateTime = null)
+    public function payrollGetTimeCardsAsyncWithHttpInfo($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestStaffId = null, $RequestStartDateTime = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetTimeCardsResponse';
         $request = $this->payrollGetTimeCardsRequest($RequestEndDateTime, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestStaffId, $RequestStartDateTime);
@@ -941,7 +941,7 @@ class PayrollApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function payrollGetTimeCardsRequest($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestStaffId = null, $RequestStartDateTime = null)
+    protected function payrollGetTimeCardsRequest($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestStaffId = null, $RequestStartDateTime = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/payroll/timecards';
@@ -1079,7 +1079,7 @@ class PayrollApi
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetTipsResponse
      */
-    public function payrollGetTips($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestStaffId = null, $RequestStartDateTime = null)
+    public function payrollGetTips($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestStaffId = null, $RequestStartDateTime = null): \Nlocascio\Mindbody\Model\GetTipsResponse
     {
         list($response) = $this->payrollGetTipsWithHttpInfo($RequestEndDateTime, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestStaffId, $RequestStartDateTime);
         return $response;
@@ -1101,7 +1101,7 @@ class PayrollApi
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetTipsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function payrollGetTipsWithHttpInfo($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestStaffId = null, $RequestStartDateTime = null)
+    public function payrollGetTipsWithHttpInfo($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestStaffId = null, $RequestStartDateTime = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetTipsResponse';
         $request = $this->payrollGetTipsRequest($RequestEndDateTime, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestStaffId, $RequestStartDateTime);
@@ -1180,7 +1180,7 @@ class PayrollApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function payrollGetTipsAsync($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestStaffId = null, $RequestStartDateTime = null)
+    public function payrollGetTipsAsync($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestStaffId = null, $RequestStartDateTime = null): \GuzzleHttp\Promise\PromiseInterface
     {
         return $this->payrollGetTipsAsyncWithHttpInfo($RequestEndDateTime, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestStaffId, $RequestStartDateTime)
             ->then(
@@ -1205,7 +1205,7 @@ class PayrollApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function payrollGetTipsAsyncWithHttpInfo($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestStaffId = null, $RequestStartDateTime = null)
+    public function payrollGetTipsAsyncWithHttpInfo($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestStaffId = null, $RequestStartDateTime = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetTipsResponse';
         $request = $this->payrollGetTipsRequest($RequestEndDateTime, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestStaffId, $RequestStartDateTime);
@@ -1260,7 +1260,7 @@ class PayrollApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function payrollGetTipsRequest($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestStaffId = null, $RequestStartDateTime = null)
+    protected function payrollGetTipsRequest($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestStaffId = null, $RequestStartDateTime = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/payroll/tips';
@@ -1388,7 +1388,7 @@ class PayrollApi
      * @throws \RuntimeException on file opening failure
      * @return array of http client options
      */
-    protected function createHttpClientOption()
+    protected function createHttpClientOption(): array
     {
         $options = [];
         if ($this->config->getDebug()) {
