@@ -75,7 +75,7 @@ trait ProvidesMethodToEndpointMap
         $methodSignatures = '';
 
         foreach (static::$methodToEndpointMap as $methodName => [$endpointInstance, $targetMethodName]) {
-            //skip 'with HttpInfo methods and Async methods
+            //skip 'withHttpInfo methods and Async methods
             if (\str_ends_with($methodName, 'WithHttpInfo') || \str_ends_with($methodName, 'Async')) {
                 continue;
             }
