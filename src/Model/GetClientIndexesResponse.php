@@ -129,7 +129,7 @@ class GetClientIndexesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClientIndex[]
      */
-    public function getClientIndexes(): \Nlocascio\Mindbody\Model\ClientIndex[]
+    public function getClientIndexes()
     {
         return $this->container['ClientIndexes'];
     }

@@ -237,7 +237,7 @@ class Product extends BaseModel
      *
      * @return int
      */
-    public function getProductId(): int
+    public function getProductId()
     {
         return $this->container['ProductId'];
     }
@@ -261,7 +261,7 @@ class Product extends BaseModel
      *
      * @return string
      */
-    public function getId(): string
+    public function getId()
     {
         return $this->container['Id'];
     }
@@ -285,7 +285,7 @@ class Product extends BaseModel
      *
      * @return int
      */
-    public function getCategoryId(): int
+    public function getCategoryId()
     {
         return $this->container['CategoryId'];
     }
@@ -309,7 +309,7 @@ class Product extends BaseModel
      *
      * @return int
      */
-    public function getSubCategoryId(): int
+    public function getSubCategoryId()
     {
         return $this->container['SubCategoryId'];
     }
@@ -333,7 +333,7 @@ class Product extends BaseModel
      *
      * @return double
      */
-    public function getPrice(): double
+    public function getPrice()
     {
         return $this->container['Price'];
     }
@@ -357,7 +357,7 @@ class Product extends BaseModel
      *
      * @return double
      */
-    public function getTaxIncluded(): double
+    public function getTaxIncluded()
     {
         return $this->container['TaxIncluded'];
     }
@@ -381,7 +381,7 @@ class Product extends BaseModel
      *
      * @return double
      */
-    public function getTaxRate(): double
+    public function getTaxRate()
     {
         return $this->container['TaxRate'];
     }
@@ -405,7 +405,7 @@ class Product extends BaseModel
      *
      * @return int
      */
-    public function getGroupId(): int
+    public function getGroupId()
     {
         return $this->container['GroupId'];
     }
@@ -429,7 +429,7 @@ class Product extends BaseModel
      *
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->container['Name'];
     }
@@ -453,7 +453,7 @@ class Product extends BaseModel
      *
      * @return double
      */
-    public function getOnlinePrice(): double
+    public function getOnlinePrice()
     {
         return $this->container['OnlinePrice'];
     }
@@ -477,7 +477,7 @@ class Product extends BaseModel
      *
      * @return string
      */
-    public function getShortDescription(): string
+    public function getShortDescription()
     {
         return $this->container['ShortDescription'];
     }
@@ -501,7 +501,7 @@ class Product extends BaseModel
      *
      * @return string
      */
-    public function getLongDescription(): string
+    public function getLongDescription()
     {
         return $this->container['LongDescription'];
     }
@@ -525,7 +525,7 @@ class Product extends BaseModel
      *
      * @return int
      */
-    public function getTypeGroup(): int
+    public function getTypeGroup()
     {
         return $this->container['TypeGroup'];
     }
@@ -549,7 +549,7 @@ class Product extends BaseModel
      *
      * @return int
      */
-    public function getSupplierId(): int
+    public function getSupplierId()
     {
         return $this->container['SupplierId'];
     }
@@ -573,7 +573,7 @@ class Product extends BaseModel
      *
      * @return string
      */
-    public function getSupplierName(): string
+    public function getSupplierName()
     {
         return $this->container['SupplierName'];
     }
@@ -597,7 +597,7 @@ class Product extends BaseModel
      *
      * @return string
      */
-    public function getImageURL(): string
+    public function getImageURL()
     {
         return $this->container['ImageURL'];
     }
@@ -621,7 +621,7 @@ class Product extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Color
      */
-    public function getColor(): \Nlocascio\Mindbody\Model\Color
+    public function getColor()
     {
         return $this->container['Color'];
     }
@@ -645,7 +645,7 @@ class Product extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Size
      */
-    public function getSize(): \Nlocascio\Mindbody\Model\Size
+    public function getSize()
     {
         return $this->container['Size'];
     }
@@ -669,7 +669,7 @@ class Product extends BaseModel
      *
      * @return string
      */
-    public function getManufacturerId(): string
+    public function getManufacturerId()
     {
         return $this->container['ManufacturerId'];
     }

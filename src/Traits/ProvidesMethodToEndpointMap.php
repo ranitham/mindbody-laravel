@@ -47,8 +47,8 @@ trait ProvidesMethodToEndpointMap
      */
     protected function getRestCallForMethod(string $methodName): callable
     {
-        if (\array_key_exists($methodName, $this->methodToEndpointMap)) {
-            return $this->methodToEndpointMap[$methodName];
+        if (\array_key_exists($methodName, static::$methodToEndpointMap)) {
+            return static::$methodToEndpointMap[$methodName];
         }
 
         throw new MindbodyErrorException("Called unknown MINDBODY API Method: $methodName");

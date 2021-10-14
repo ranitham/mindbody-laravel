@@ -135,7 +135,7 @@ class GetScheduleItemsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
+    public function getPaginationResponse()
     {
         return $this->container['PaginationResponse'];
     }
@@ -159,7 +159,7 @@ class GetScheduleItemsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Staff[]
      */
-    public function getStaffMembers(): \Nlocascio\Mindbody\Model\Staff[]
+    public function getStaffMembers()
     {
         return $this->container['StaffMembers'];
     }

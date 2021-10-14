@@ -141,7 +141,7 @@ class ClientMemberships extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId()
     {
         return $this->container['ClientId'];
     }
@@ -165,7 +165,7 @@ class ClientMemberships extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClientMembership[]
      */
-    public function getMemberships(): \Nlocascio\Mindbody\Model\ClientMembership[]
+    public function getMemberships()
     {
         return $this->container['Memberships'];
     }
@@ -189,7 +189,7 @@ class ClientMemberships extends BaseModel
      *
      * @return string
      */
-    public function getErrorMessage(): string
+    public function getErrorMessage()
     {
         return $this->container['ErrorMessage'];
     }

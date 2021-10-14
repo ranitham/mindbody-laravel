@@ -225,7 +225,7 @@ class ClientService extends BaseModel
      *
      * @return \DateTime
      */
-    public function getActiveDate(): \DateTime
+    public function getActiveDate()
     {
         return $this->container['ActiveDate'];
     }
@@ -249,7 +249,7 @@ class ClientService extends BaseModel
      *
      * @return int
      */
-    public function getCount(): int
+    public function getCount()
     {
         return $this->container['Count'];
     }
@@ -273,7 +273,7 @@ class ClientService extends BaseModel
      *
      * @return bool
      */
-    public function getCurrent(): bool
+    public function getCurrent()
     {
         return $this->container['Current'];
     }
@@ -297,7 +297,7 @@ class ClientService extends BaseModel
      *
      * @return \DateTime
      */
-    public function getExpirationDate(): \DateTime
+    public function getExpirationDate()
     {
         return $this->container['ExpirationDate'];
     }
@@ -321,7 +321,7 @@ class ClientService extends BaseModel
      *
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->container['Id'];
     }
@@ -345,7 +345,7 @@ class ClientService extends BaseModel
      *
      * @return int
      */
-    public function getProductId(): int
+    public function getProductId()
     {
         return $this->container['ProductId'];
     }
@@ -369,7 +369,7 @@ class ClientService extends BaseModel
      *
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->container['Name'];
     }
@@ -393,7 +393,7 @@ class ClientService extends BaseModel
      *
      * @return \DateTime
      */
-    public function getPaymentDate(): \DateTime
+    public function getPaymentDate()
     {
         return $this->container['PaymentDate'];
     }
@@ -417,7 +417,7 @@ class ClientService extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Program
      */
-    public function getProgram(): \Nlocascio\Mindbody\Model\Program
+    public function getProgram()
     {
         return $this->container['Program'];
     }
@@ -441,7 +441,7 @@ class ClientService extends BaseModel
      *
      * @return int
      */
-    public function getRemaining(): int
+    public function getRemaining()
     {
         return $this->container['Remaining'];
     }
@@ -465,7 +465,7 @@ class ClientService extends BaseModel
      *
      * @return int
      */
-    public function getSiteId(): int
+    public function getSiteId()
     {
         return $this->container['SiteId'];
     }
@@ -489,7 +489,7 @@ class ClientService extends BaseModel
      *
      * @return string
      */
-    public function getAction(): string
+    public function getAction()
     {
         return $this->container['Action'];
     }

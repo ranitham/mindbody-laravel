@@ -153,7 +153,7 @@ class GetProductsInventoryRequest extends BaseModel
      *
      * @return string[]
      */
-    public function getProductIds(): string[]
+    public function getProductIds()
     {
         return $this->container['ProductIds'];
     }
@@ -177,7 +177,7 @@ class GetProductsInventoryRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getLocationIds(): int[]
+    public function getLocationIds()
     {
         return $this->container['LocationIds'];
     }
@@ -201,7 +201,7 @@ class GetProductsInventoryRequest extends BaseModel
      *
      * @return string[]
      */
-    public function getBarcodeIds(): string[]
+    public function getBarcodeIds()
     {
         return $this->container['BarcodeIds'];
     }
@@ -225,7 +225,7 @@ class GetProductsInventoryRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit()
     {
         return $this->container['Limit'];
     }
@@ -249,7 +249,7 @@ class GetProductsInventoryRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset()
     {
         return $this->container['Offset'];
     }

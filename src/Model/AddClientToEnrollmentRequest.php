@@ -177,7 +177,7 @@ class AddClientToEnrollmentRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId()
     {
         return $this->container['ClientId'];
     }
@@ -201,7 +201,7 @@ class AddClientToEnrollmentRequest extends BaseModel
      *
      * @return int
      */
-    public function getClassScheduleId(): int
+    public function getClassScheduleId()
     {
         return $this->container['ClassScheduleId'];
     }
@@ -225,7 +225,7 @@ class AddClientToEnrollmentRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEnrollDateForward(): \DateTime
+    public function getEnrollDateForward()
     {
         return $this->container['EnrollDateForward'];
     }
@@ -249,7 +249,7 @@ class AddClientToEnrollmentRequest extends BaseModel
      *
      * @return \DateTime[]
      */
-    public function getEnrollOpen(): \DateTime[]
+    public function getEnrollOpen()
     {
         return $this->container['EnrollOpen'];
     }
@@ -273,7 +273,7 @@ class AddClientToEnrollmentRequest extends BaseModel
      *
      * @return bool
      */
-    public function getTest(): bool
+    public function getTest()
     {
         return $this->container['Test'];
     }
@@ -297,7 +297,7 @@ class AddClientToEnrollmentRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSendEmail(): bool
+    public function getSendEmail()
     {
         return $this->container['SendEmail'];
     }
@@ -321,7 +321,7 @@ class AddClientToEnrollmentRequest extends BaseModel
      *
      * @return bool
      */
-    public function getWaitlist(): bool
+    public function getWaitlist()
     {
         return $this->container['Waitlist'];
     }
@@ -345,7 +345,7 @@ class AddClientToEnrollmentRequest extends BaseModel
      *
      * @return int
      */
-    public function getWaitlistEntryId(): int
+    public function getWaitlistEntryId()
     {
         return $this->container['WaitlistEntryId'];
     }

@@ -135,7 +135,7 @@ class GetGiftCardResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
+    public function getPaginationResponse()
     {
         return $this->container['PaginationResponse'];
     }
@@ -159,7 +159,7 @@ class GetGiftCardResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\GiftCard[]
      */
-    public function getGiftCards(): \Nlocascio\Mindbody\Model\GiftCard[]
+    public function getGiftCards()
     {
         return $this->container['GiftCards'];
     }

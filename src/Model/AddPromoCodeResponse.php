@@ -129,7 +129,7 @@ class AddPromoCodeResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PromoCode
      */
-    public function getPromoCode(): \Nlocascio\Mindbody\Model\PromoCode
+    public function getPromoCode()
     {
         return $this->container['PromoCode'];
     }

@@ -135,7 +135,7 @@ class GetClassSchedulesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
+    public function getPaginationResponse()
     {
         return $this->container['PaginationResponse'];
     }
@@ -159,7 +159,7 @@ class GetClassSchedulesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClassSchedule[]
      */
-    public function getClassSchedules(): \Nlocascio\Mindbody\Model\ClassSchedule[]
+    public function getClassSchedules()
     {
         return $this->container['ClassSchedules'];
     }

@@ -189,7 +189,7 @@ class AddClientToClassRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId()
     {
         return $this->container['ClientId'];
     }
@@ -213,7 +213,7 @@ class AddClientToClassRequest extends BaseModel
      *
      * @return int
      */
-    public function getClassId(): int
+    public function getClassId()
     {
         return $this->container['ClassId'];
     }
@@ -237,7 +237,7 @@ class AddClientToClassRequest extends BaseModel
      *
      * @return bool
      */
-    public function getTest(): bool
+    public function getTest()
     {
         return $this->container['Test'];
     }
@@ -261,7 +261,7 @@ class AddClientToClassRequest extends BaseModel
      *
      * @return bool
      */
-    public function getRequirePayment(): bool
+    public function getRequirePayment()
     {
         return $this->container['RequirePayment'];
     }
@@ -285,7 +285,7 @@ class AddClientToClassRequest extends BaseModel
      *
      * @return bool
      */
-    public function getWaitlist(): bool
+    public function getWaitlist()
     {
         return $this->container['Waitlist'];
     }
@@ -309,7 +309,7 @@ class AddClientToClassRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSendEmail(): bool
+    public function getSendEmail()
     {
         return $this->container['SendEmail'];
     }
@@ -333,7 +333,7 @@ class AddClientToClassRequest extends BaseModel
      *
      * @return int
      */
-    public function getWaitlistEntryId(): int
+    public function getWaitlistEntryId()
     {
         return $this->container['WaitlistEntryId'];
     }
@@ -357,7 +357,7 @@ class AddClientToClassRequest extends BaseModel
      *
      * @return int
      */
-    public function getClientServiceId(): int
+    public function getClientServiceId()
     {
         return $this->container['ClientServiceId'];
     }
@@ -381,7 +381,7 @@ class AddClientToClassRequest extends BaseModel
      *
      * @return bool
      */
-    public function getCrossRegionalBooking(): bool
+    public function getCrossRegionalBooking()
     {
         return $this->container['CrossRegionalBooking'];
     }
@@ -405,7 +405,7 @@ class AddClientToClassRequest extends BaseModel
      *
      * @return int
      */
-    public function getCrossRegionalBookingClientServiceSiteId(): int
+    public function getCrossRegionalBookingClientServiceSiteId()
     {
         return $this->container['CrossRegionalBookingClientServiceSiteId'];
     }

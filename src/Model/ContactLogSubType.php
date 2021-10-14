@@ -130,7 +130,7 @@ class ContactLogSubType extends BaseModel
      *
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->container['Id'];
     }

@@ -135,7 +135,7 @@ class GetResourcesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
+    public function getPaginationResponse()
     {
         return $this->container['PaginationResponse'];
     }
@@ -159,7 +159,7 @@ class GetResourcesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Resource[]
      */
-    public function getResources(): \Nlocascio\Mindbody\Model\Resource[]
+    public function getResources()
     {
         return $this->container['Resources'];
     }

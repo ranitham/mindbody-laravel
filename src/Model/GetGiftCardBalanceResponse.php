@@ -135,7 +135,7 @@ class GetGiftCardBalanceResponse extends BaseModel
      *
      * @return string
      */
-    public function getBarcodeId(): string
+    public function getBarcodeId()
     {
         return $this->container['BarcodeId'];
     }
@@ -159,7 +159,7 @@ class GetGiftCardBalanceResponse extends BaseModel
      *
      * @return double
      */
-    public function getRemainingBalance(): double
+    public function getRemainingBalance()
     {
         return $this->container['RemainingBalance'];
     }

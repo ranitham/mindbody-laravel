@@ -156,7 +156,7 @@ class GetClientContractsRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId()
     {
         return $this->container['ClientId'];
     }
@@ -180,7 +180,7 @@ class GetClientContractsRequest extends BaseModel
      *
      * @return bool
      */
-    public function getCrossRegionalLookup(): bool
+    public function getCrossRegionalLookup()
     {
         return $this->container['CrossRegionalLookup'];
     }
@@ -204,7 +204,7 @@ class GetClientContractsRequest extends BaseModel
      *
      * @return int
      */
-    public function getClientAssociatedSitesOffset(): int
+    public function getClientAssociatedSitesOffset()
     {
         return $this->container['ClientAssociatedSitesOffset'];
     }
@@ -228,7 +228,7 @@ class GetClientContractsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit()
     {
         return $this->container['Limit'];
     }
@@ -252,7 +252,7 @@ class GetClientContractsRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset()
     {
         return $this->container['Offset'];
     }

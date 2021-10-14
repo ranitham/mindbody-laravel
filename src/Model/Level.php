@@ -142,7 +142,7 @@ class Level extends BaseModel
      *
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->container['Id'];
     }
@@ -166,7 +166,7 @@ class Level extends BaseModel
      *
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->container['Name'];
     }
@@ -190,7 +190,7 @@ class Level extends BaseModel
      *
      * @return string
      */
-    public function getDescription(): string
+    public function getDescription()
     {
         return $this->container['Description'];
     }

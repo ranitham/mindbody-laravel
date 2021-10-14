@@ -294,7 +294,7 @@ class Appointment extends BaseModel
      *
      * @return string
      */
-    public function getGenderPreference(): string
+    public function getGenderPreference()
     {
         return $this->container['GenderPreference'];
     }
@@ -327,7 +327,7 @@ class Appointment extends BaseModel
      *
      * @return int
      */
-    public function getDuration(): int
+    public function getDuration()
     {
         return $this->container['Duration'];
     }
@@ -351,7 +351,7 @@ class Appointment extends BaseModel
      *
      * @return string
      */
-    public function getProviderId(): string
+    public function getProviderId()
     {
         return $this->container['ProviderId'];
     }
@@ -375,7 +375,7 @@ class Appointment extends BaseModel
      *
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->container['Id'];
     }
@@ -399,7 +399,7 @@ class Appointment extends BaseModel
      *
      * @return string
      */
-    public function getStatus(): string
+    public function getStatus()
     {
         return $this->container['Status'];
     }
@@ -432,7 +432,7 @@ class Appointment extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDateTime(): \DateTime
+    public function getStartDateTime()
     {
         return $this->container['StartDateTime'];
     }
@@ -456,7 +456,7 @@ class Appointment extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDateTime(): \DateTime
+    public function getEndDateTime()
     {
         return $this->container['EndDateTime'];
     }
@@ -480,7 +480,7 @@ class Appointment extends BaseModel
      *
      * @return string
      */
-    public function getNotes(): string
+    public function getNotes()
     {
         return $this->container['Notes'];
     }
@@ -504,7 +504,7 @@ class Appointment extends BaseModel
      *
      * @return bool
      */
-    public function getStaffRequested(): bool
+    public function getStaffRequested()
     {
         return $this->container['StaffRequested'];
     }
@@ -528,7 +528,7 @@ class Appointment extends BaseModel
      *
      * @return int
      */
-    public function getProgramId(): int
+    public function getProgramId()
     {
         return $this->container['ProgramId'];
     }
@@ -552,7 +552,7 @@ class Appointment extends BaseModel
      *
      * @return int
      */
-    public function getSessionTypeId(): int
+    public function getSessionTypeId()
     {
         return $this->container['SessionTypeId'];
     }
@@ -576,7 +576,7 @@ class Appointment extends BaseModel
      *
      * @return int
      */
-    public function getLocationId(): int
+    public function getLocationId()
     {
         return $this->container['LocationId'];
     }
@@ -600,7 +600,7 @@ class Appointment extends BaseModel
      *
      * @return int
      */
-    public function getStaffId(): int
+    public function getStaffId()
     {
         return $this->container['StaffId'];
     }
@@ -624,7 +624,7 @@ class Appointment extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId()
     {
         return $this->container['ClientId'];
     }
@@ -648,7 +648,7 @@ class Appointment extends BaseModel
      *
      * @return bool
      */
-    public function getFirstAppointment(): bool
+    public function getFirstAppointment()
     {
         return $this->container['FirstAppointment'];
     }
@@ -672,7 +672,7 @@ class Appointment extends BaseModel
      *
      * @return int
      */
-    public function getClientServiceId(): int
+    public function getClientServiceId()
     {
         return $this->container['ClientServiceId'];
     }
@@ -696,7 +696,7 @@ class Appointment extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Resource[]
      */
-    public function getResources(): \Nlocascio\Mindbody\Model\Resource[]
+    public function getResources()
     {
         return $this->container['Resources'];
     }
@@ -720,7 +720,7 @@ class Appointment extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\AddOnSmall[]
      */
-    public function getAddOns(): \Nlocascio\Mindbody\Model\AddOnSmall[]
+    public function getAddOns()
     {
         return $this->container['AddOns'];
     }

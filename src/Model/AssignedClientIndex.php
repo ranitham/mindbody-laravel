@@ -136,7 +136,7 @@ class AssignedClientIndex extends BaseModel
      *
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->container['Id'];
     }
@@ -160,7 +160,7 @@ class AssignedClientIndex extends BaseModel
      *
      * @return int
      */
-    public function getValueId(): int
+    public function getValueId()
     {
         return $this->container['ValueId'];
     }

@@ -129,7 +129,7 @@ class AddClientResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Client
      */
-    public function getClient(): \Nlocascio\Mindbody\Model\Client
+    public function getClient()
     {
         return $this->container['Client'];
     }

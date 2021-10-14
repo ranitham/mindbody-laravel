@@ -195,7 +195,7 @@ class GiftCard extends BaseModel
      *
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->container['Id'];
     }
@@ -219,7 +219,7 @@ class GiftCard extends BaseModel
      *
      * @return int[]
      */
-    public function getLocationIds(): int[]
+    public function getLocationIds()
     {
         return $this->container['LocationIds'];
     }
@@ -243,7 +243,7 @@ class GiftCard extends BaseModel
      *
      * @return string
      */
-    public function getDescription(): string
+    public function getDescription()
     {
         return $this->container['Description'];
     }
@@ -267,7 +267,7 @@ class GiftCard extends BaseModel
      *
      * @return bool
      */
-    public function getEditableByConsumer(): bool
+    public function getEditableByConsumer()
     {
         return $this->container['EditableByConsumer'];
     }
@@ -291,7 +291,7 @@ class GiftCard extends BaseModel
      *
      * @return double
      */
-    public function getCardValue(): double
+    public function getCardValue()
     {
         return $this->container['CardValue'];
     }
@@ -315,7 +315,7 @@ class GiftCard extends BaseModel
      *
      * @return double
      */
-    public function getSalePrice(): double
+    public function getSalePrice()
     {
         return $this->container['SalePrice'];
     }
@@ -339,7 +339,7 @@ class GiftCard extends BaseModel
      *
      * @return bool
      */
-    public function getSoldOnline(): bool
+    public function getSoldOnline()
     {
         return $this->container['SoldOnline'];
     }
@@ -363,7 +363,7 @@ class GiftCard extends BaseModel
      *
      * @return int[]
      */
-    public function getMembershipRestrictionIds(): int[]
+    public function getMembershipRestrictionIds()
     {
         return $this->container['MembershipRestrictionIds'];
     }
@@ -387,7 +387,7 @@ class GiftCard extends BaseModel
      *
      * @return string
      */
-    public function getGiftCardTerms(): string
+    public function getGiftCardTerms()
     {
         return $this->container['GiftCardTerms'];
     }
@@ -411,7 +411,7 @@ class GiftCard extends BaseModel
      *
      * @return string
      */
-    public function getContactInfo(): string
+    public function getContactInfo()
     {
         return $this->container['ContactInfo'];
     }
@@ -435,7 +435,7 @@ class GiftCard extends BaseModel
      *
      * @return bool
      */
-    public function getDisplayLogo(): bool
+    public function getDisplayLogo()
     {
         return $this->container['DisplayLogo'];
     }
@@ -459,7 +459,7 @@ class GiftCard extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\GiftCardLayout[]
      */
-    public function getLayouts(): \Nlocascio\Mindbody\Model\GiftCardLayout[]
+    public function getLayouts()
     {
         return $this->container['Layouts'];
     }

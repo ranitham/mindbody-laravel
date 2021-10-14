@@ -227,7 +227,7 @@ class AddStaffAvailabilityRequest extends BaseModel
      *
      * @return int
      */
-    public function getStaffId(): int
+    public function getStaffId()
     {
         return $this->container['StaffId'];
     }
@@ -251,7 +251,7 @@ class AddStaffAvailabilityRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIsAvailability(): bool
+    public function getIsAvailability()
     {
         return $this->container['IsAvailability'];
     }
@@ -275,7 +275,7 @@ class AddStaffAvailabilityRequest extends BaseModel
      *
      * @return string
      */
-    public function getDescription(): string
+    public function getDescription()
     {
         return $this->container['Description'];
     }
@@ -299,7 +299,7 @@ class AddStaffAvailabilityRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getProgramIds(): int[]
+    public function getProgramIds()
     {
         return $this->container['ProgramIds'];
     }
@@ -323,7 +323,7 @@ class AddStaffAvailabilityRequest extends BaseModel
      *
      * @return int
      */
-    public function getLocationId(): int
+    public function getLocationId()
     {
         return $this->container['LocationId'];
     }
@@ -347,7 +347,7 @@ class AddStaffAvailabilityRequest extends BaseModel
      *
      * @return string[]
      */
-    public function getDaysOfWeek(): string[]
+    public function getDaysOfWeek()
     {
         return $this->container['DaysOfWeek'];
     }
@@ -371,7 +371,7 @@ class AddStaffAvailabilityRequest extends BaseModel
      *
      * @return string
      */
-    public function getStartTime(): string
+    public function getStartTime()
     {
         return $this->container['StartTime'];
     }
@@ -400,7 +400,7 @@ class AddStaffAvailabilityRequest extends BaseModel
      *
      * @return string
      */
-    public function getEndTime(): string
+    public function getEndTime()
     {
         return $this->container['EndTime'];
     }
@@ -429,7 +429,7 @@ class AddStaffAvailabilityRequest extends BaseModel
      *
      * @return string
      */
-    public function getStartDate(): string
+    public function getStartDate()
     {
         return $this->container['StartDate'];
     }
@@ -458,7 +458,7 @@ class AddStaffAvailabilityRequest extends BaseModel
      *
      * @return string
      */
-    public function getEndDate(): string
+    public function getEndDate()
     {
         return $this->container['EndDate'];
     }
@@ -487,7 +487,7 @@ class AddStaffAvailabilityRequest extends BaseModel
      *
      * @return string
      */
-    public function getStatus(): string
+    public function getStatus()
     {
         return $this->container['Status'];
     }

@@ -145,7 +145,7 @@ class UploadClientPhotoRequest extends BaseModel
      *
      * @return string
      */
-    public function getBytes(): string
+    public function getBytes()
     {
         return $this->container['Bytes'];
     }
@@ -174,7 +174,7 @@ class UploadClientPhotoRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId()
     {
         return $this->container['ClientId'];
     }

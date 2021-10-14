@@ -153,7 +153,7 @@ class GetClientCompleteInfoResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClientWithSuspensionInfo
      */
-    public function getClient(): \Nlocascio\Mindbody\Model\ClientWithSuspensionInfo
+    public function getClient()
     {
         return $this->container['Client'];
     }
@@ -177,7 +177,7 @@ class GetClientCompleteInfoResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClientService[]
      */
-    public function getClientServices(): \Nlocascio\Mindbody\Model\ClientService[]
+    public function getClientServices()
     {
         return $this->container['ClientServices'];
     }
@@ -201,7 +201,7 @@ class GetClientCompleteInfoResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClientContract[]
      */
-    public function getClientContracts(): \Nlocascio\Mindbody\Model\ClientContract[]
+    public function getClientContracts()
     {
         return $this->container['ClientContracts'];
     }
@@ -225,7 +225,7 @@ class GetClientCompleteInfoResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClientMembership[]
      */
-    public function getClientMemberships(): \Nlocascio\Mindbody\Model\ClientMembership[]
+    public function getClientMemberships()
     {
         return $this->container['ClientMemberships'];
     }
@@ -249,7 +249,7 @@ class GetClientCompleteInfoResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClientArrival[]
      */
-    public function getClientArrivals(): \Nlocascio\Mindbody\Model\ClientArrival[]
+    public function getClientArrivals()
     {
         return $this->container['ClientArrivals'];
     }

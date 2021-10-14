@@ -141,7 +141,7 @@ class SubCategory extends BaseModel
      *
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->container['Id'];
     }
@@ -165,7 +165,7 @@ class SubCategory extends BaseModel
      *
      * @return string
      */
-    public function getSubCategoryName(): string
+    public function getSubCategoryName()
     {
         return $this->container['SubCategoryName'];
     }
@@ -189,7 +189,7 @@ class SubCategory extends BaseModel
      *
      * @return bool
      */
-    public function getActive(): bool
+    public function getActive()
     {
         return $this->container['Active'];
     }

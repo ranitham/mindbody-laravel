@@ -192,7 +192,7 @@ class GetActiveSessionTimesRequest extends BaseModel
      *
      * @return string
      */
-    public function getScheduleType(): string
+    public function getScheduleType()
     {
         return $this->container['ScheduleType'];
     }
@@ -225,7 +225,7 @@ class GetActiveSessionTimesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getSessionTypeIds(): int[]
+    public function getSessionTypeIds()
     {
         return $this->container['SessionTypeIds'];
     }
@@ -249,7 +249,7 @@ class GetActiveSessionTimesRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartTime(): \DateTime
+    public function getStartTime()
     {
         return $this->container['StartTime'];
     }
@@ -273,7 +273,7 @@ class GetActiveSessionTimesRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndTime(): \DateTime
+    public function getEndTime()
     {
         return $this->container['EndTime'];
     }
@@ -297,7 +297,7 @@ class GetActiveSessionTimesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit()
     {
         return $this->container['Limit'];
     }
@@ -321,7 +321,7 @@ class GetActiveSessionTimesRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset()
     {
         return $this->container['Offset'];
     }

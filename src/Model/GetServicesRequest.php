@@ -195,7 +195,7 @@ class GetServicesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getProgramIds(): int[]
+    public function getProgramIds()
     {
         return $this->container['ProgramIds'];
     }
@@ -219,7 +219,7 @@ class GetServicesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getSessionTypeIds(): int[]
+    public function getSessionTypeIds()
     {
         return $this->container['SessionTypeIds'];
     }
@@ -243,7 +243,7 @@ class GetServicesRequest extends BaseModel
      *
      * @return string[]
      */
-    public function getServiceIds(): string[]
+    public function getServiceIds()
     {
         return $this->container['ServiceIds'];
     }
@@ -267,7 +267,7 @@ class GetServicesRequest extends BaseModel
      *
      * @return int
      */
-    public function getClassId(): int
+    public function getClassId()
     {
         return $this->container['ClassId'];
     }
@@ -291,7 +291,7 @@ class GetServicesRequest extends BaseModel
      *
      * @return int
      */
-    public function getClassScheduleId(): int
+    public function getClassScheduleId()
     {
         return $this->container['ClassScheduleId'];
     }
@@ -315,7 +315,7 @@ class GetServicesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSellOnline(): bool
+    public function getSellOnline()
     {
         return $this->container['SellOnline'];
     }
@@ -339,7 +339,7 @@ class GetServicesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLocationId(): int
+    public function getLocationId()
     {
         return $this->container['LocationId'];
     }
@@ -363,7 +363,7 @@ class GetServicesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getHideRelatedPrograms(): bool
+    public function getHideRelatedPrograms()
     {
         return $this->container['HideRelatedPrograms'];
     }
@@ -387,7 +387,7 @@ class GetServicesRequest extends BaseModel
      *
      * @return int
      */
-    public function getStaffId(): int
+    public function getStaffId()
     {
         return $this->container['StaffId'];
     }
@@ -411,7 +411,7 @@ class GetServicesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIncludeDiscontinued(): bool
+    public function getIncludeDiscontinued()
     {
         return $this->container['IncludeDiscontinued'];
     }
@@ -435,7 +435,7 @@ class GetServicesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit()
     {
         return $this->container['Limit'];
     }
@@ -459,7 +459,7 @@ class GetServicesRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset()
     {
         return $this->container['Offset'];
     }

@@ -183,7 +183,7 @@ class CheckoutItemWrapper extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\CheckoutItem
      */
-    public function getItem(): \Nlocascio\Mindbody\Model\CheckoutItem
+    public function getItem()
     {
         return $this->container['Item'];
     }
@@ -207,7 +207,7 @@ class CheckoutItemWrapper extends BaseModel
      *
      * @return double
      */
-    public function getDiscountAmount(): double
+    public function getDiscountAmount()
     {
         return $this->container['DiscountAmount'];
     }
@@ -231,7 +231,7 @@ class CheckoutItemWrapper extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\CheckoutAppointmentBookingRequest[]
      */
-    public function getAppointmentBookingRequests(): \Nlocascio\Mindbody\Model\CheckoutAppointmentBookingRequest[]
+    public function getAppointmentBookingRequests()
     {
         return $this->container['AppointmentBookingRequests'];
     }
@@ -255,7 +255,7 @@ class CheckoutItemWrapper extends BaseModel
      *
      * @return int[]
      */
-    public function getEnrollmentIds(): int[]
+    public function getEnrollmentIds()
     {
         return $this->container['EnrollmentIds'];
     }
@@ -279,7 +279,7 @@ class CheckoutItemWrapper extends BaseModel
      *
      * @return int[]
      */
-    public function getClassIds(): int[]
+    public function getClassIds()
     {
         return $this->container['ClassIds'];
     }
@@ -303,7 +303,7 @@ class CheckoutItemWrapper extends BaseModel
      *
      * @return int[]
      */
-    public function getCourseIds(): int[]
+    public function getCourseIds()
     {
         return $this->container['CourseIds'];
     }
@@ -327,7 +327,7 @@ class CheckoutItemWrapper extends BaseModel
      *
      * @return int[]
      */
-    public function getVisitIds(): int[]
+    public function getVisitIds()
     {
         return $this->container['VisitIds'];
     }
@@ -351,7 +351,7 @@ class CheckoutItemWrapper extends BaseModel
      *
      * @return int[]
      */
-    public function getAppointmentIds(): int[]
+    public function getAppointmentIds()
     {
         return $this->container['AppointmentIds'];
     }
@@ -375,7 +375,7 @@ class CheckoutItemWrapper extends BaseModel
      *
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->container['Id'];
     }
@@ -399,7 +399,7 @@ class CheckoutItemWrapper extends BaseModel
      *
      * @return int
      */
-    public function getQuantity(): int
+    public function getQuantity()
     {
         return $this->container['Quantity'];
     }

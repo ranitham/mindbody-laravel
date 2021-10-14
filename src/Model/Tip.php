@@ -147,7 +147,7 @@ class Tip extends BaseModel
      *
      * @return int
      */
-    public function getStaffId(): int
+    public function getStaffId()
     {
         return $this->container['StaffId'];
     }
@@ -171,7 +171,7 @@ class Tip extends BaseModel
      *
      * @return int
      */
-    public function getSaleId(): int
+    public function getSaleId()
     {
         return $this->container['SaleId'];
     }
@@ -195,7 +195,7 @@ class Tip extends BaseModel
      *
      * @return \DateTime
      */
-    public function getSaleDateTime(): \DateTime
+    public function getSaleDateTime()
     {
         return $this->container['SaleDateTime'];
     }
@@ -219,7 +219,7 @@ class Tip extends BaseModel
      *
      * @return double
      */
-    public function getEarnings(): double
+    public function getEarnings()
     {
         return $this->container['Earnings'];
     }

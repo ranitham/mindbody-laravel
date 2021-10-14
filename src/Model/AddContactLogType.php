@@ -136,7 +136,7 @@ class AddContactLogType extends BaseModel
      *
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->container['Id'];
     }
@@ -160,7 +160,7 @@ class AddContactLogType extends BaseModel
      *
      * @return int[]
      */
-    public function getSubTypes(): int[]
+    public function getSubTypes()
     {
         return $this->container['SubTypes'];
     }

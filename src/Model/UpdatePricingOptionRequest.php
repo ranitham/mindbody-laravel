@@ -261,7 +261,7 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return double
      */
-    public function getProductId(): double
+    public function getProductId()
     {
         return $this->container['ProductId'];
     }
@@ -285,7 +285,7 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->container['Name'];
     }
@@ -316,7 +316,7 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return double
      */
-    public function getPrice(): double
+    public function getPrice()
     {
         return $this->container['Price'];
     }
@@ -340,7 +340,7 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return double
      */
-    public function getOnlinePrice(): double
+    public function getOnlinePrice()
     {
         return $this->container['OnlinePrice'];
     }
@@ -364,7 +364,7 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return int
      */
-    public function getCount(): int
+    public function getCount()
     {
         return $this->container['Count'];
     }
@@ -396,7 +396,7 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSellOnline(): bool
+    public function getSellOnline()
     {
         return $this->container['SellOnline'];
     }
@@ -420,7 +420,7 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return string
      */
-    public function getRevenueCategory(): string
+    public function getRevenueCategory()
     {
         return $this->container['RevenueCategory'];
     }
@@ -451,7 +451,7 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return bool
      */
-    public function getDiscontinued(): bool
+    public function getDiscontinued()
     {
         return $this->container['Discontinued'];
     }
@@ -475,7 +475,7 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return int
      */
-    public function getMembershipId(): int
+    public function getMembershipId()
     {
         return $this->container['MembershipId'];
     }
@@ -499,7 +499,7 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIsThirdPartyDiscountPricing(): bool
+    public function getIsThirdPartyDiscountPricing()
     {
         return $this->container['IsThirdPartyDiscountPricing'];
     }
@@ -523,7 +523,7 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return string
      */
-    public function getPriority(): string
+    public function getPriority()
     {
         return $this->container['Priority'];
     }
@@ -547,7 +547,7 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getSellAtLocationIds(): int[]
+    public function getSellAtLocationIds()
     {
         return $this->container['SellAtLocationIds'];
     }
@@ -571,7 +571,7 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getUseAtLocationIds(): int[]
+    public function getUseAtLocationIds()
     {
         return $this->container['UseAtLocationIds'];
     }
@@ -595,7 +595,7 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return string
      */
-    public function getExpirationUnit(): string
+    public function getExpirationUnit()
     {
         return $this->container['ExpirationUnit'];
     }
@@ -619,7 +619,7 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return int
      */
-    public function getExpirationLength(): int
+    public function getExpirationLength()
     {
         return $this->container['ExpirationLength'];
     }
@@ -651,7 +651,7 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return string
      */
-    public function getExpirationType(): string
+    public function getExpirationType()
     {
         return $this->container['ExpirationType'];
     }
@@ -675,7 +675,7 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getRestrictedMembershipIds(): int[]
+    public function getRestrictedMembershipIds()
     {
         return $this->container['RestrictedMembershipIds'];
     }

@@ -153,7 +153,7 @@ class PurchaseAccountCreditResponse extends BaseModel
      *
      * @return double
      */
-    public function getAmountPaid(): double
+    public function getAmountPaid()
     {
         return $this->container['AmountPaid'];
     }
@@ -177,7 +177,7 @@ class PurchaseAccountCreditResponse extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId()
     {
         return $this->container['ClientId'];
     }
@@ -201,7 +201,7 @@ class PurchaseAccountCreditResponse extends BaseModel
      *
      * @return int
      */
-    public function getSaleId(): int
+    public function getSaleId()
     {
         return $this->container['SaleId'];
     }
@@ -225,7 +225,7 @@ class PurchaseAccountCreditResponse extends BaseModel
      *
      * @return bool
      */
-    public function getEmailReceipt(): bool
+    public function getEmailReceipt()
     {
         return $this->container['EmailReceipt'];
     }
@@ -249,7 +249,7 @@ class PurchaseAccountCreditResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaymentProcessingFailure[]
      */
-    public function getPaymentProcessingFailures(): \Nlocascio\Mindbody\Model\PaymentProcessingFailure[]
+    public function getPaymentProcessingFailures()
     {
         return $this->container['PaymentProcessingFailures'];
     }

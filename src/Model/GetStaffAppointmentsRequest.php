@@ -171,7 +171,7 @@ class GetStaffAppointmentsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getAppointmentIds(): int[]
+    public function getAppointmentIds()
     {
         return $this->container['AppointmentIds'];
     }
@@ -195,7 +195,7 @@ class GetStaffAppointmentsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getLocationIds(): int[]
+    public function getLocationIds()
     {
         return $this->container['LocationIds'];
     }
@@ -219,7 +219,7 @@ class GetStaffAppointmentsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDate(): \DateTime
+    public function getStartDate()
     {
         return $this->container['StartDate'];
     }
@@ -243,7 +243,7 @@ class GetStaffAppointmentsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDate(): \DateTime
+    public function getEndDate()
     {
         return $this->container['EndDate'];
     }
@@ -267,7 +267,7 @@ class GetStaffAppointmentsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getStaffIds(): int[]
+    public function getStaffIds()
     {
         return $this->container['StaffIds'];
     }
@@ -291,7 +291,7 @@ class GetStaffAppointmentsRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId()
     {
         return $this->container['ClientId'];
     }
@@ -315,7 +315,7 @@ class GetStaffAppointmentsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit()
     {
         return $this->container['Limit'];
     }
@@ -339,7 +339,7 @@ class GetStaffAppointmentsRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset()
     {
         return $this->container['Offset'];
     }

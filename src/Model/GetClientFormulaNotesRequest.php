@@ -147,7 +147,7 @@ class GetClientFormulaNotesRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId()
     {
         return $this->container['ClientId'];
     }
@@ -171,7 +171,7 @@ class GetClientFormulaNotesRequest extends BaseModel
      *
      * @return int
      */
-    public function getAppointmentId(): int
+    public function getAppointmentId()
     {
         return $this->container['AppointmentId'];
     }
@@ -195,7 +195,7 @@ class GetClientFormulaNotesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit()
     {
         return $this->container['Limit'];
     }
@@ -219,7 +219,7 @@ class GetClientFormulaNotesRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset()
     {
         return $this->container['Offset'];
     }

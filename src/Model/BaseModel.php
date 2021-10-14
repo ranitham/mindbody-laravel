@@ -46,7 +46,7 @@ abstract class _BaseModel implements ModelInterface, \ArrayAccess
    */
   public function getModelName(): string
   {
-    return self::$swaggerModelName;
+    return static::$swaggerModelName;
   }
 
   public static function swaggerTypes(): array
@@ -90,6 +90,7 @@ abstract class _BaseModel implements ModelInterface, \ArrayAccess
  */
 abstract class BaseModel extends _BaseModel
 {
+
 /**
    * Array of property to type mappings. Used for (de)serialization
    *
@@ -111,7 +112,7 @@ abstract class BaseModel extends _BaseModel
    */
   public static function swaggerTypes(): array
   {
-    return self::$swaggerTypes + parent::swaggerTypes();
+    return static::$swaggerTypes + get_parent_class(static::class)::swaggerTypes();
   }
 
   /**
@@ -121,7 +122,7 @@ abstract class BaseModel extends _BaseModel
    */
   public static function swaggerFormats(): array
   {
-    return self::$swaggerFormats + parent::swaggerFormats();
+    return static::$swaggerFormats + get_parent_class(static::class)::swaggerFormats();
   }
 
   /**
@@ -154,7 +155,7 @@ abstract class BaseModel extends _BaseModel
    */
   public static function attributeMap(): array
   {
-    return self::$attributeMap + parent::attributeMap();
+    return static::$attributeMap + get_parent_class(static::class)::attributeMap();
   }
 
   /**
@@ -164,7 +165,7 @@ abstract class BaseModel extends _BaseModel
    */
   public static function setters(): array
   {
-    return self::$setters + parent::setters();
+    return static::$setters + get_parent_class(static::class)::setters();
   }
 
   /**
@@ -174,7 +175,7 @@ abstract class BaseModel extends _BaseModel
    */
   public static function getters(): array
   {
-    return self::$getters + parent::getters();
+    return static::$getters + get_parent_class(static::class)::getters();
   }
 
   public function valid(): bool

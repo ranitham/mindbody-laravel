@@ -189,7 +189,7 @@ class Sale extends BaseModel
      *
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->container['Id'];
     }
@@ -213,7 +213,7 @@ class Sale extends BaseModel
      *
      * @return \DateTime
      */
-    public function getSaleDate(): \DateTime
+    public function getSaleDate()
     {
         return $this->container['SaleDate'];
     }
@@ -237,7 +237,7 @@ class Sale extends BaseModel
      *
      * @return string
      */
-    public function getSaleTime(): string
+    public function getSaleTime()
     {
         return $this->container['SaleTime'];
     }
@@ -261,7 +261,7 @@ class Sale extends BaseModel
      *
      * @return \DateTime
      */
-    public function getSaleDateTime(): \DateTime
+    public function getSaleDateTime()
     {
         return $this->container['SaleDateTime'];
     }
@@ -285,7 +285,7 @@ class Sale extends BaseModel
      *
      * @return \DateTime
      */
-    public function getOriginalSaleDateTime(): \DateTime
+    public function getOriginalSaleDateTime()
     {
         return $this->container['OriginalSaleDateTime'];
     }
@@ -309,7 +309,7 @@ class Sale extends BaseModel
      *
      * @return int
      */
-    public function getSalesRepId(): int
+    public function getSalesRepId()
     {
         return $this->container['SalesRepId'];
     }
@@ -333,7 +333,7 @@ class Sale extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId()
     {
         return $this->container['ClientId'];
     }
@@ -357,7 +357,7 @@ class Sale extends BaseModel
      *
      * @return int
      */
-    public function getRecipientClientId(): int
+    public function getRecipientClientId()
     {
         return $this->container['RecipientClientId'];
     }
@@ -381,7 +381,7 @@ class Sale extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PurchasedItem[]
      */
-    public function getPurchasedItems(): \Nlocascio\Mindbody\Model\PurchasedItem[]
+    public function getPurchasedItems()
     {
         return $this->container['PurchasedItems'];
     }
@@ -405,7 +405,7 @@ class Sale extends BaseModel
      *
      * @return int
      */
-    public function getLocationId(): int
+    public function getLocationId()
     {
         return $this->container['LocationId'];
     }
@@ -429,7 +429,7 @@ class Sale extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\SalePayment[]
      */
-    public function getPayments(): \Nlocascio\Mindbody\Model\SalePayment[]
+    public function getPayments()
     {
         return $this->container['Payments'];
     }

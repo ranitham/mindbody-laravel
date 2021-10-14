@@ -142,7 +142,7 @@ class CustomClientField extends BaseModel
      *
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->container['Id'];
     }
@@ -166,7 +166,7 @@ class CustomClientField extends BaseModel
      *
      * @return string
      */
-    public function getDataType(): string
+    public function getDataType()
     {
         return $this->container['DataType'];
     }
@@ -190,7 +190,7 @@ class CustomClientField extends BaseModel
      *
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->container['Name'];
     }

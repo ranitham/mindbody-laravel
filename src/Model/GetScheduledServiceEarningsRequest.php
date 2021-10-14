@@ -171,7 +171,7 @@ class GetScheduledServiceEarningsRequest extends BaseModel
      *
      * @return string
      */
-    public function getScheduledServiceType(): string
+    public function getScheduledServiceType()
     {
         return $this->container['ScheduledServiceType'];
     }
@@ -195,7 +195,7 @@ class GetScheduledServiceEarningsRequest extends BaseModel
      *
      * @return int
      */
-    public function getScheduledServiceId(): int
+    public function getScheduledServiceId()
     {
         return $this->container['ScheduledServiceId'];
     }
@@ -219,7 +219,7 @@ class GetScheduledServiceEarningsRequest extends BaseModel
      *
      * @return int
      */
-    public function getStaffId(): int
+    public function getStaffId()
     {
         return $this->container['StaffId'];
     }
@@ -243,7 +243,7 @@ class GetScheduledServiceEarningsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDateTime(): \DateTime
+    public function getStartDateTime()
     {
         return $this->container['StartDateTime'];
     }
@@ -267,7 +267,7 @@ class GetScheduledServiceEarningsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDateTime(): \DateTime
+    public function getEndDateTime()
     {
         return $this->container['EndDateTime'];
     }
@@ -291,7 +291,7 @@ class GetScheduledServiceEarningsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLocationId(): int
+    public function getLocationId()
     {
         return $this->container['LocationId'];
     }
@@ -315,7 +315,7 @@ class GetScheduledServiceEarningsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit()
     {
         return $this->container['Limit'];
     }
@@ -339,7 +339,7 @@ class GetScheduledServiceEarningsRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset()
     {
         return $this->container['Offset'];
     }

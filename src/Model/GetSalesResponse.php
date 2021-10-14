@@ -135,7 +135,7 @@ class GetSalesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
+    public function getPaginationResponse()
     {
         return $this->container['PaginationResponse'];
     }
@@ -159,7 +159,7 @@ class GetSalesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Sale[]
      */
-    public function getSales(): \Nlocascio\Mindbody\Model\Sale[]
+    public function getSales()
     {
         return $this->container['Sales'];
     }

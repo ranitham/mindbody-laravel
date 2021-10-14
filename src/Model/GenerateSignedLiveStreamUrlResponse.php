@@ -130,7 +130,7 @@ class GenerateSignedLiveStreamUrlResponse extends BaseModel
      *
      * @return string
      */
-    public function getSignedUrl(): string
+    public function getSignedUrl()
     {
         return $this->container['SignedUrl'];
     }

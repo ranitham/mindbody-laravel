@@ -154,7 +154,7 @@ class ClientDocument extends BaseModel
      *
      * @return string
      */
-    public function getFileName(): string
+    public function getFileName()
     {
         return $this->container['FileName'];
     }
@@ -178,7 +178,7 @@ class ClientDocument extends BaseModel
      *
      * @return string
      */
-    public function getMediaType(): string
+    public function getMediaType()
     {
         return $this->container['MediaType'];
     }
@@ -202,7 +202,7 @@ class ClientDocument extends BaseModel
      *
      * @return string
      */
-    public function getBuffer(): string
+    public function getBuffer()
     {
         return $this->container['Buffer'];
     }

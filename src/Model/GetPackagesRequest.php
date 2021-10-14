@@ -147,7 +147,7 @@ class GetPackagesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getPackageIds(): int[]
+    public function getPackageIds()
     {
         return $this->container['PackageIds'];
     }
@@ -171,7 +171,7 @@ class GetPackagesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSellOnline(): bool
+    public function getSellOnline()
     {
         return $this->container['SellOnline'];
     }
@@ -195,7 +195,7 @@ class GetPackagesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit()
     {
         return $this->container['Limit'];
     }
@@ -219,7 +219,7 @@ class GetPackagesRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset()
     {
         return $this->container['Offset'];
     }

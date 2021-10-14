@@ -135,7 +135,7 @@ class GetClientAccountBalancesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
+    public function getPaginationResponse()
     {
         return $this->container['PaginationResponse'];
     }
@@ -159,7 +159,7 @@ class GetClientAccountBalancesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Client[]
      */
-    public function getClients(): \Nlocascio\Mindbody\Model\Client[]
+    public function getClients()
     {
         return $this->container['Clients'];
     }

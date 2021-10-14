@@ -159,7 +159,7 @@ class SalePayment extends BaseModel
      *
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->container['Id'];
     }
@@ -183,7 +183,7 @@ class SalePayment extends BaseModel
      *
      * @return double
      */
-    public function getAmount(): double
+    public function getAmount()
     {
         return $this->container['Amount'];
     }
@@ -207,7 +207,7 @@ class SalePayment extends BaseModel
      *
      * @return int
      */
-    public function getMethod(): int
+    public function getMethod()
     {
         return $this->container['Method'];
     }
@@ -231,7 +231,7 @@ class SalePayment extends BaseModel
      *
      * @return string
      */
-    public function getType(): string
+    public function getType()
     {
         return $this->container['Type'];
     }
@@ -255,7 +255,7 @@ class SalePayment extends BaseModel
      *
      * @return string
      */
-    public function getNotes(): string
+    public function getNotes()
     {
         return $this->container['Notes'];
     }
@@ -279,7 +279,7 @@ class SalePayment extends BaseModel
      *
      * @return int
      */
-    public function getTransactionId(): int
+    public function getTransactionId()
     {
         return $this->container['TransactionId'];
     }

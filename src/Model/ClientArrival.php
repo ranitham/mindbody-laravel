@@ -147,7 +147,7 @@ class ClientArrival extends BaseModel
      *
      * @return int
      */
-    public function getArrivalProgramID(): int
+    public function getArrivalProgramID()
     {
         return $this->container['ArrivalProgramID'];
     }
@@ -171,7 +171,7 @@ class ClientArrival extends BaseModel
      *
      * @return string
      */
-    public function getArrivalProgramName(): string
+    public function getArrivalProgramName()
     {
         return $this->container['ArrivalProgramName'];
     }
@@ -195,7 +195,7 @@ class ClientArrival extends BaseModel
      *
      * @return bool
      */
-    public function getCanAccess(): bool
+    public function getCanAccess()
     {
         return $this->container['CanAccess'];
     }
@@ -219,7 +219,7 @@ class ClientArrival extends BaseModel
      *
      * @return int[]
      */
-    public function getLocationsIDs(): int[]
+    public function getLocationsIDs()
     {
         return $this->container['LocationsIDs'];
     }

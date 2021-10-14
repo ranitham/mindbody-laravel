@@ -136,7 +136,7 @@ class IssueRequest extends BaseModel
      *
      * @return string
      */
-    public function getUsername(): string
+    public function getUsername()
     {
         return $this->container['Username'];
     }
@@ -160,7 +160,7 @@ class IssueRequest extends BaseModel
      *
      * @return string
      */
-    public function getPassword(): string
+    public function getPassword()
     {
         return $this->container['Password'];
     }

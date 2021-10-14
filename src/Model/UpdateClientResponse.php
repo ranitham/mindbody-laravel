@@ -129,7 +129,7 @@ class UpdateClientResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClientWithSuspensionInfo
      */
-    public function getClient(): \Nlocascio\Mindbody\Model\ClientWithSuspensionInfo
+    public function getClient()
     {
         return $this->container['Client'];
     }

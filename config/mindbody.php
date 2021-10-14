@@ -8,5 +8,5 @@ return [
     "password" => env("MINDBODY_SOURCEPASSWORD"),
   ],
   "source_name" => env("MINDBODY_SOURCENAME"),
-  "apikey" => env("MINDBODY_API_KEY"),
+  "apikey" => env("MINDBODY_APIKEY"),
 ];

@@ -213,7 +213,7 @@ class GetClassesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getClassDescriptionIds(): int[]
+    public function getClassDescriptionIds()
     {
         return $this->container['ClassDescriptionIds'];
     }
@@ -237,7 +237,7 @@ class GetClassesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getClassIds(): int[]
+    public function getClassIds()
     {
         return $this->container['ClassIds'];
     }
@@ -261,7 +261,7 @@ class GetClassesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getStaffIds(): int[]
+    public function getStaffIds()
     {
         return $this->container['StaffIds'];
     }
@@ -285,7 +285,7 @@ class GetClassesRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDateTime(): \DateTime
+    public function getStartDateTime()
     {
         return $this->container['StartDateTime'];
     }
@@ -309,7 +309,7 @@ class GetClassesRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDateTime(): \DateTime
+    public function getEndDateTime()
     {
         return $this->container['EndDateTime'];
     }
@@ -333,7 +333,7 @@ class GetClassesRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId()
     {
         return $this->container['ClientId'];
     }
@@ -357,7 +357,7 @@ class GetClassesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getProgramIds(): int[]
+    public function getProgramIds()
     {
         return $this->container['ProgramIds'];
     }
@@ -381,7 +381,7 @@ class GetClassesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getSessionTypeIds(): int[]
+    public function getSessionTypeIds()
     {
         return $this->container['SessionTypeIds'];
     }
@@ -405,7 +405,7 @@ class GetClassesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getLocationIds(): int[]
+    public function getLocationIds()
     {
         return $this->container['LocationIds'];
     }
@@ -429,7 +429,7 @@ class GetClassesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getSemesterIds(): int[]
+    public function getSemesterIds()
     {
         return $this->container['SemesterIds'];
     }
@@ -453,7 +453,7 @@ class GetClassesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getHideCanceledClasses(): bool
+    public function getHideCanceledClasses()
     {
         return $this->container['HideCanceledClasses'];
     }
@@ -477,7 +477,7 @@ class GetClassesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSchedulingWindow(): bool
+    public function getSchedulingWindow()
     {
         return $this->container['SchedulingWindow'];
     }
@@ -501,7 +501,7 @@ class GetClassesRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getLastModifiedDate(): \DateTime
+    public function getLastModifiedDate()
     {
         return $this->container['LastModifiedDate'];
     }
@@ -525,7 +525,7 @@ class GetClassesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit()
     {
         return $this->container['Limit'];
     }
@@ -549,7 +549,7 @@ class GetClassesRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset()
     {
         return $this->container['Offset'];
     }

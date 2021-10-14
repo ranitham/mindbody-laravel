@@ -135,7 +135,7 @@ class GetBookableItemsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
+    public function getPaginationResponse()
     {
         return $this->container['PaginationResponse'];
     }
@@ -159,7 +159,7 @@ class GetBookableItemsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Availability[]
      */
-    public function getAvailabilities(): \Nlocascio\Mindbody\Model\Availability[]
+    public function getAvailabilities()
     {
         return $this->container['Availabilities'];
     }

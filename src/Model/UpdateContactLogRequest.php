@@ -183,7 +183,7 @@ class UpdateContactLogRequest extends BaseModel
      *
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->container['Id'];
     }
@@ -207,7 +207,7 @@ class UpdateContactLogRequest extends BaseModel
      *
      * @return bool
      */
-    public function getTest(): bool
+    public function getTest()
     {
         return $this->container['Test'];
     }
@@ -231,7 +231,7 @@ class UpdateContactLogRequest extends BaseModel
      *
      * @return int
      */
-    public function getAssignedToStaffId(): int
+    public function getAssignedToStaffId()
     {
         return $this->container['AssignedToStaffId'];
     }
@@ -255,7 +255,7 @@ class UpdateContactLogRequest extends BaseModel
      *
      * @return string
      */
-    public function getText(): string
+    public function getText()
     {
         return $this->container['Text'];
     }
@@ -279,7 +279,7 @@ class UpdateContactLogRequest extends BaseModel
      *
      * @return string
      */
-    public function getContactName(): string
+    public function getContactName()
     {
         return $this->container['ContactName'];
     }
@@ -303,7 +303,7 @@ class UpdateContactLogRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getFollowupByDate(): \DateTime
+    public function getFollowupByDate()
     {
         return $this->container['FollowupByDate'];
     }
@@ -327,7 +327,7 @@ class UpdateContactLogRequest extends BaseModel
      *
      * @return string
      */
-    public function getContactMethod(): string
+    public function getContactMethod()
     {
         return $this->container['ContactMethod'];
     }
@@ -351,7 +351,7 @@ class UpdateContactLogRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIsComplete(): bool
+    public function getIsComplete()
     {
         return $this->container['IsComplete'];
     }
@@ -375,7 +375,7 @@ class UpdateContactLogRequest extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\UpdateContactLogComment[]
      */
-    public function getComments(): \Nlocascio\Mindbody\Model\UpdateContactLogComment[]
+    public function getComments()
     {
         return $this->container['Comments'];
     }
@@ -399,7 +399,7 @@ class UpdateContactLogRequest extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\UpdateContactLogType[]
      */
-    public function getTypes(): \Nlocascio\Mindbody\Model\UpdateContactLogType[]
+    public function getTypes()
     {
         return $this->container['Types'];
     }

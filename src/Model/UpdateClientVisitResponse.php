@@ -129,7 +129,7 @@ class UpdateClientVisitResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Visit
      */
-    public function getVisit(): \Nlocascio\Mindbody\Model\Visit
+    public function getVisit()
     {
         return $this->container['Visit'];
     }

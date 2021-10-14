@@ -147,7 +147,7 @@ class User extends BaseModel
      *
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->container['Id'];
     }
@@ -171,7 +171,7 @@ class User extends BaseModel
      *
      * @return string
      */
-    public function getFirstName(): string
+    public function getFirstName()
     {
         return $this->container['FirstName'];
     }
@@ -195,7 +195,7 @@ class User extends BaseModel
      *
      * @return string
      */
-    public function getLastName(): string
+    public function getLastName()
     {
         return $this->container['LastName'];
     }
@@ -219,7 +219,7 @@ class User extends BaseModel
      *
      * @return string
      */
-    public function getType(): string
+    public function getType()
     {
         return $this->container['Type'];
     }

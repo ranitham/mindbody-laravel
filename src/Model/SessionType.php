@@ -222,7 +222,7 @@ class SessionType extends BaseModel
      *
      * @return string
      */
-    public function getType(): string
+    public function getType()
     {
         return $this->container['Type'];
     }
@@ -255,7 +255,7 @@ class SessionType extends BaseModel
      *
      * @return int
      */
-    public function getDefaultTimeLength(): int
+    public function getDefaultTimeLength()
     {
         return $this->container['DefaultTimeLength'];
     }
@@ -279,7 +279,7 @@ class SessionType extends BaseModel
      *
      * @return int
      */
-    public function getStaffTimeLength(): int
+    public function getStaffTimeLength()
     {
         return $this->container['StaffTimeLength'];
     }
@@ -303,7 +303,7 @@ class SessionType extends BaseModel
      *
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->container['Id'];
     }
@@ -327,7 +327,7 @@ class SessionType extends BaseModel
      *
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->container['Name'];
     }
@@ -351,7 +351,7 @@ class SessionType extends BaseModel
      *
      * @return int
      */
-    public function getNumDeducted(): int
+    public function getNumDeducted()
     {
         return $this->container['NumDeducted'];
     }
@@ -375,7 +375,7 @@ class SessionType extends BaseModel
      *
      * @return int
      */
-    public function getProgramId(): int
+    public function getProgramId()
     {
         return $this->container['ProgramId'];
     }
@@ -399,7 +399,7 @@ class SessionType extends BaseModel
      *
      * @return string
      */
-    public function getCategory(): string
+    public function getCategory()
     {
         return $this->container['Category'];
     }
@@ -423,7 +423,7 @@ class SessionType extends BaseModel
      *
      * @return int
      */
-    public function getCategoryId(): int
+    public function getCategoryId()
     {
         return $this->container['CategoryId'];
     }
@@ -447,7 +447,7 @@ class SessionType extends BaseModel
      *
      * @return string
      */
-    public function getSubcategory(): string
+    public function getSubcategory()
     {
         return $this->container['Subcategory'];
     }
@@ -471,7 +471,7 @@ class SessionType extends BaseModel
      *
      * @return int
      */
-    public function getSubcategoryId(): int
+    public function getSubcategoryId()
     {
         return $this->container['SubcategoryId'];
     }

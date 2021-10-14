@@ -178,7 +178,7 @@ class GetTransactionsRequest extends BaseModel
      *
      * @return int
      */
-    public function getSaleId(): int
+    public function getSaleId()
     {
         return $this->container['SaleId'];
     }
@@ -202,7 +202,7 @@ class GetTransactionsRequest extends BaseModel
      *
      * @return int
      */
-    public function getTransactionId(): int
+    public function getTransactionId()
     {
         return $this->container['TransactionId'];
     }
@@ -226,7 +226,7 @@ class GetTransactionsRequest extends BaseModel
      *
      * @return int
      */
-    public function getClientId(): int
+    public function getClientId()
     {
         return $this->container['ClientId'];
     }
@@ -250,7 +250,7 @@ class GetTransactionsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLocationId(): int
+    public function getLocationId()
     {
         return $this->container['LocationId'];
     }
@@ -274,7 +274,7 @@ class GetTransactionsRequest extends BaseModel
      *
      * @return string
      */
-    public function getStatus(): string
+    public function getStatus()
     {
         return $this->container['Status'];
     }
@@ -298,7 +298,7 @@ class GetTransactionsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getTransactionStartDateTime(): \DateTime
+    public function getTransactionStartDateTime()
     {
         return $this->container['TransactionStartDateTime'];
     }
@@ -322,7 +322,7 @@ class GetTransactionsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getTransactionEndDateTime(): \DateTime
+    public function getTransactionEndDateTime()
     {
         return $this->container['TransactionEndDateTime'];
     }
@@ -346,7 +346,7 @@ class GetTransactionsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit()
     {
         return $this->container['Limit'];
     }
@@ -370,7 +370,7 @@ class GetTransactionsRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset()
     {
         return $this->container['Offset'];
     }

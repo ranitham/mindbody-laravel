@@ -183,7 +183,7 @@ class ProductsInventory extends BaseModel
      *
      * @return int
      */
-    public function getProductId(): int
+    public function getProductId()
     {
         return $this->container['ProductId'];
     }
@@ -207,7 +207,7 @@ class ProductsInventory extends BaseModel
      *
      * @return string
      */
-    public function getBarcodeId(): string
+    public function getBarcodeId()
     {
         return $this->container['BarcodeId'];
     }
@@ -231,7 +231,7 @@ class ProductsInventory extends BaseModel
      *
      * @return int
      */
-    public function getLocationId(): int
+    public function getLocationId()
     {
         return $this->container['LocationId'];
     }
@@ -255,7 +255,7 @@ class ProductsInventory extends BaseModel
      *
      * @return int
      */
-    public function getUnitsLogged(): int
+    public function getUnitsLogged()
     {
         return $this->container['UnitsLogged'];
     }
@@ -279,7 +279,7 @@ class ProductsInventory extends BaseModel
      *
      * @return int
      */
-    public function getUnitsSold(): int
+    public function getUnitsSold()
     {
         return $this->container['UnitsSold'];
     }
@@ -303,7 +303,7 @@ class ProductsInventory extends BaseModel
      *
      * @return int
      */
-    public function getUnitsInStock(): int
+    public function getUnitsInStock()
     {
         return $this->container['UnitsInStock'];
     }
@@ -327,7 +327,7 @@ class ProductsInventory extends BaseModel
      *
      * @return int
      */
-    public function getReorderLevel(): int
+    public function getReorderLevel()
     {
         return $this->container['ReorderLevel'];
     }
@@ -351,7 +351,7 @@ class ProductsInventory extends BaseModel
      *
      * @return int
      */
-    public function getMaxLevel(): int
+    public function getMaxLevel()
     {
         return $this->container['MaxLevel'];
     }
@@ -375,7 +375,7 @@ class ProductsInventory extends BaseModel
      *
      * @return \DateTime
      */
-    public function getCreatedDateTimeUTC(): \DateTime
+    public function getCreatedDateTimeUTC()
     {
         return $this->container['CreatedDateTimeUTC'];
     }
@@ -399,7 +399,7 @@ class ProductsInventory extends BaseModel
      *
      * @return \DateTime
      */
-    public function getModifiedDateTimeUTC(): \DateTime
+    public function getModifiedDateTimeUTC()
     {
         return $this->container['ModifiedDateTimeUTC'];
     }

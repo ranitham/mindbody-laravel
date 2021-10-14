@@ -147,7 +147,7 @@ class GetSessionTypesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getProgramIDs(): int[]
+    public function getProgramIDs()
     {
         return $this->container['ProgramIDs'];
     }
@@ -171,7 +171,7 @@ class GetSessionTypesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getOnlineOnly(): bool
+    public function getOnlineOnly()
     {
         return $this->container['OnlineOnly'];
     }
@@ -195,7 +195,7 @@ class GetSessionTypesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit()
     {
         return $this->container['Limit'];
     }
@@ -219,7 +219,7 @@ class GetSessionTypesRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset()
     {
         return $this->container['Offset'];
     }

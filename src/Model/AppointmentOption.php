@@ -148,7 +148,7 @@ class AppointmentOption extends BaseModel
      *
      * @return string
      */
-    public function getDisplayName(): string
+    public function getDisplayName()
     {
         return $this->container['DisplayName'];
     }
@@ -172,7 +172,7 @@ class AppointmentOption extends BaseModel
      *
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->container['Name'];
     }
@@ -196,7 +196,7 @@ class AppointmentOption extends BaseModel
      *
      * @return string
      */
-    public function getValue(): string
+    public function getValue()
     {
         return $this->container['Value'];
     }
@@ -220,7 +220,7 @@ class AppointmentOption extends BaseModel
      *
      * @return string
      */
-    public function getType(): string
+    public function getType()
     {
         return $this->container['Type'];
     }

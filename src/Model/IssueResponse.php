@@ -142,7 +142,7 @@ class IssueResponse extends BaseModel
      *
      * @return string
      */
-    public function getTokenType(): string
+    public function getTokenType()
     {
         return $this->container['TokenType'];
     }
@@ -166,7 +166,7 @@ class IssueResponse extends BaseModel
      *
      * @return string
      */
-    public function getAccessToken(): string
+    public function getAccessToken()
     {
         return $this->container['AccessToken'];
     }
@@ -190,7 +190,7 @@ class IssueResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\User
      */
-    public function getUser(): \Nlocascio\Mindbody\Model\User
+    public function getUser()
     {
         return $this->container['User'];
     }

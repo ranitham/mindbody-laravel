@@ -195,7 +195,7 @@ class AddPromoCodeRequest extends BaseModel
      *
      * @return string
      */
-    public function getCode(): string
+    public function getCode()
     {
         return $this->container['Code'];
     }
@@ -219,7 +219,7 @@ class AddPromoCodeRequest extends BaseModel
      *
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->container['Name'];
     }
@@ -243,7 +243,7 @@ class AddPromoCodeRequest extends BaseModel
      *
      * @return bool
      */
-    public function getActive(): bool
+    public function getActive()
     {
         return $this->container['Active'];
     }
@@ -267,7 +267,7 @@ class AddPromoCodeRequest extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Discount
      */
-    public function getDiscount(): \Nlocascio\Mindbody\Model\Discount
+    public function getDiscount()
     {
         return $this->container['Discount'];
     }
@@ -291,7 +291,7 @@ class AddPromoCodeRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getActivationDate(): \DateTime
+    public function getActivationDate()
     {
         return $this->container['ActivationDate'];
     }
@@ -315,7 +315,7 @@ class AddPromoCodeRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getExpirationDate(): \DateTime
+    public function getExpirationDate()
     {
         return $this->container['ExpirationDate'];
     }
@@ -339,7 +339,7 @@ class AddPromoCodeRequest extends BaseModel
      *
      * @return int
      */
-    public function getMaxUses(): int
+    public function getMaxUses()
     {
         return $this->container['MaxUses'];
     }
@@ -363,7 +363,7 @@ class AddPromoCodeRequest extends BaseModel
      *
      * @return int
      */
-    public function getDaysAfterCloseDate(): int
+    public function getDaysAfterCloseDate()
     {
         return $this->container['DaysAfterCloseDate'];
     }
@@ -387,7 +387,7 @@ class AddPromoCodeRequest extends BaseModel
      *
      * @return bool
      */
-    public function getAllowOnline(): bool
+    public function getAllowOnline()
     {
         return $this->container['AllowOnline'];
     }
@@ -411,7 +411,7 @@ class AddPromoCodeRequest extends BaseModel
      *
      * @return string[]
      */
-    public function getDaysValid(): string[]
+    public function getDaysValid()
     {
         return $this->container['DaysValid'];
     }
@@ -435,7 +435,7 @@ class AddPromoCodeRequest extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ApplicableItem[]
      */
-    public function getApplicableItems(): \Nlocascio\Mindbody\Model\ApplicableItem[]
+    public function getApplicableItems()
     {
         return $this->container['ApplicableItems'];
     }

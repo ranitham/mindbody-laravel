@@ -165,7 +165,7 @@ class CommissionPayrollPurchaseEvent extends BaseModel
      *
      * @return int
      */
-    public function getStaffId(): int
+    public function getStaffId()
     {
         return $this->container['StaffId'];
     }
@@ -189,7 +189,7 @@ class CommissionPayrollPurchaseEvent extends BaseModel
      *
      * @return \DateTime
      */
-    public function getSaleDateTime(): \DateTime
+    public function getSaleDateTime()
     {
         return $this->container['SaleDateTime'];
     }
@@ -213,7 +213,7 @@ class CommissionPayrollPurchaseEvent extends BaseModel
      *
      * @return int
      */
-    public function getSaleId(): int
+    public function getSaleId()
     {
         return $this->container['SaleId'];
     }
@@ -237,7 +237,7 @@ class CommissionPayrollPurchaseEvent extends BaseModel
      *
      * @return string
      */
-    public function getSaleType(): string
+    public function getSaleType()
     {
         return $this->container['SaleType'];
     }
@@ -261,7 +261,7 @@ class CommissionPayrollPurchaseEvent extends BaseModel
      *
      * @return int
      */
-    public function getProductId(): int
+    public function getProductId()
     {
         return $this->container['ProductId'];
     }
@@ -285,7 +285,7 @@ class CommissionPayrollPurchaseEvent extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\CommissionDetail[]
      */
-    public function getEarningsDetails(): \Nlocascio\Mindbody\Model\CommissionDetail[]
+    public function getEarningsDetails()
     {
         return $this->container['EarningsDetails'];
     }
@@ -309,7 +309,7 @@ class CommissionPayrollPurchaseEvent extends BaseModel
      *
      * @return double
      */
-    public function getEarnings(): double
+    public function getEarnings()
     {
         return $this->container['Earnings'];
     }

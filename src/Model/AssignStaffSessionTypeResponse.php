@@ -171,7 +171,7 @@ class AssignStaffSessionTypeResponse extends BaseModel
      *
      * @return int
      */
-    public function getStaffId(): int
+    public function getStaffId()
     {
         return $this->container['StaffId'];
     }
@@ -195,7 +195,7 @@ class AssignStaffSessionTypeResponse extends BaseModel
      *
      * @return int
      */
-    public function getSessionTypeId(): int
+    public function getSessionTypeId()
     {
         return $this->container['SessionTypeId'];
     }
@@ -219,7 +219,7 @@ class AssignStaffSessionTypeResponse extends BaseModel
      *
      * @return string
      */
-    public function getPayRateType(): string
+    public function getPayRateType()
     {
         return $this->container['PayRateType'];
     }
@@ -243,7 +243,7 @@ class AssignStaffSessionTypeResponse extends BaseModel
      *
      * @return double
      */
-    public function getPayRateAmount(): double
+    public function getPayRateAmount()
     {
         return $this->container['PayRateAmount'];
     }
@@ -267,7 +267,7 @@ class AssignStaffSessionTypeResponse extends BaseModel
      *
      * @return int
      */
-    public function getTimeLength(): int
+    public function getTimeLength()
     {
         return $this->container['TimeLength'];
     }
@@ -291,7 +291,7 @@ class AssignStaffSessionTypeResponse extends BaseModel
      *
      * @return int
      */
-    public function getPrepTime(): int
+    public function getPrepTime()
     {
         return $this->container['PrepTime'];
     }
@@ -315,7 +315,7 @@ class AssignStaffSessionTypeResponse extends BaseModel
      *
      * @return int
      */
-    public function getFinishTime(): int
+    public function getFinishTime()
     {
         return $this->container['FinishTime'];
     }
@@ -339,7 +339,7 @@ class AssignStaffSessionTypeResponse extends BaseModel
      *
      * @return bool
      */
-    public function getActive(): bool
+    public function getActive()
     {
         return $this->container['Active'];
     }

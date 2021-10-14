@@ -190,7 +190,7 @@ class ContactLog extends BaseModel
      *
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->container['Id'];
     }
@@ -214,7 +214,7 @@ class ContactLog extends BaseModel
      *
      * @return string
      */
-    public function getText(): string
+    public function getText()
     {
         return $this->container['Text'];
     }
@@ -238,7 +238,7 @@ class ContactLog extends BaseModel
      *
      * @return \DateTime
      */
-    public function getCreatedDateTime(): \DateTime
+    public function getCreatedDateTime()
     {
         return $this->container['CreatedDateTime'];
     }
@@ -262,7 +262,7 @@ class ContactLog extends BaseModel
      *
      * @return \DateTime
      */
-    public function getFollowupByDate(): \DateTime
+    public function getFollowupByDate()
     {
         return $this->container['FollowupByDate'];
     }
@@ -286,7 +286,7 @@ class ContactLog extends BaseModel
      *
      * @return string
      */
-    public function getContactMethod(): string
+    public function getContactMethod()
     {
         return $this->container['ContactMethod'];
     }
@@ -310,7 +310,7 @@ class ContactLog extends BaseModel
      *
      * @return string
      */
-    public function getContactName(): string
+    public function getContactName()
     {
         return $this->container['ContactName'];
     }
@@ -334,7 +334,7 @@ class ContactLog extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Client
      */
-    public function getClient(): \Nlocascio\Mindbody\Model\Client
+    public function getClient()
     {
         return $this->container['Client'];
     }
@@ -358,7 +358,7 @@ class ContactLog extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Staff
      */
-    public function getCreatedBy(): \Nlocascio\Mindbody\Model\Staff
+    public function getCreatedBy()
     {
         return $this->container['CreatedBy'];
     }
@@ -382,7 +382,7 @@ class ContactLog extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Staff
      */
-    public function getAssignedTo(): \Nlocascio\Mindbody\Model\Staff
+    public function getAssignedTo()
     {
         return $this->container['AssignedTo'];
     }
@@ -406,7 +406,7 @@ class ContactLog extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ContactLogComment[]
      */
-    public function getComments(): \Nlocascio\Mindbody\Model\ContactLogComment[]
+    public function getComments()
     {
         return $this->container['Comments'];
     }
@@ -430,7 +430,7 @@ class ContactLog extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ContactLogType[]
      */
-    public function getTypes(): \Nlocascio\Mindbody\Model\ContactLogType[]
+    public function getTypes()
     {
         return $this->container['Types'];
     }

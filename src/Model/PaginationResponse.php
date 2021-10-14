@@ -147,7 +147,7 @@ class PaginationResponse extends BaseModel
      *
      * @return int
      */
-    public function getRequestedLimit(): int
+    public function getRequestedLimit()
     {
         return $this->container['RequestedLimit'];
     }
@@ -171,7 +171,7 @@ class PaginationResponse extends BaseModel
      *
      * @return int
      */
-    public function getRequestedOffset(): int
+    public function getRequestedOffset()
     {
         return $this->container['RequestedOffset'];
     }
@@ -195,7 +195,7 @@ class PaginationResponse extends BaseModel
      *
      * @return int
      */
-    public function getPageSize(): int
+    public function getPageSize()
     {
         return $this->container['PageSize'];
     }
@@ -219,7 +219,7 @@ class PaginationResponse extends BaseModel
      *
      * @return int
      */
-    public function getTotalResults(): int
+    public function getTotalResults()
     {
         return $this->container['TotalResults'];
     }

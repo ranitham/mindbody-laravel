@@ -147,7 +147,7 @@ class PaymentType extends BaseModel
      *
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->container['Id'];
     }
@@ -171,7 +171,7 @@ class PaymentType extends BaseModel
      *
      * @return string
      */
-    public function getPaymentTypeName(): string
+    public function getPaymentTypeName()
     {
         return $this->container['PaymentTypeName'];
     }
@@ -195,7 +195,7 @@ class PaymentType extends BaseModel
      *
      * @return bool
      */
-    public function getActive(): bool
+    public function getActive()
     {
         return $this->container['Active'];
     }
@@ -219,7 +219,7 @@ class PaymentType extends BaseModel
      *
      * @return double
      */
-    public function getFee(): double
+    public function getFee()
     {
         return $this->container['Fee'];
     }

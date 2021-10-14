@@ -129,7 +129,7 @@ class StoredCardInfo extends BaseModel
      *
      * @return string
      */
-    public function getLastFour(): string
+    public function getLastFour()
     {
         return $this->container['LastFour'];
     }

@@ -129,7 +129,7 @@ class RemoveClientFromClassResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ModelClass
      */
-    public function getClass(): \Nlocascio\Mindbody\Model\ModelClass
+    public function getClass()
     {
         return $this->container['Class'];
     }

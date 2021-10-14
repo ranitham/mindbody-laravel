@@ -129,7 +129,7 @@ class SubstituteClassTeacherResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\SubstituteTeacherClass
      */
-    public function getClass(): \Nlocascio\Mindbody\Model\SubstituteTeacherClass
+    public function getClass()
     {
         return $this->container['Class'];
     }

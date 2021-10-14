@@ -174,7 +174,7 @@ class PurchaseAccountCreditRequest extends BaseModel
      *
      * @return bool
      */
-    public function getTest(): bool
+    public function getTest()
     {
         return $this->container['Test'];
     }
@@ -198,7 +198,7 @@ class PurchaseAccountCreditRequest extends BaseModel
      *
      * @return int
      */
-    public function getLocationId(): int
+    public function getLocationId()
     {
         return $this->container['LocationId'];
     }
@@ -222,7 +222,7 @@ class PurchaseAccountCreditRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId()
     {
         return $this->container['ClientId'];
     }
@@ -246,7 +246,7 @@ class PurchaseAccountCreditRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSendEmailReceipt(): bool
+    public function getSendEmailReceipt()
     {
         return $this->container['SendEmailReceipt'];
     }
@@ -270,7 +270,7 @@ class PurchaseAccountCreditRequest extends BaseModel
      *
      * @return int
      */
-    public function getSalesRepId(): int
+    public function getSalesRepId()
     {
         return $this->container['SalesRepId'];
     }
@@ -294,7 +294,7 @@ class PurchaseAccountCreditRequest extends BaseModel
      *
      * @return bool
      */
-    public function getConsumerPresent(): bool
+    public function getConsumerPresent()
     {
         return $this->container['ConsumerPresent'];
     }
@@ -318,7 +318,7 @@ class PurchaseAccountCreditRequest extends BaseModel
      *
      * @return string
      */
-    public function getPaymentAuthenticationCallbackUrl(): string
+    public function getPaymentAuthenticationCallbackUrl()
     {
         return $this->container['PaymentAuthenticationCallbackUrl'];
     }
@@ -342,7 +342,7 @@ class PurchaseAccountCreditRequest extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\CheckoutPaymentInfo
      */
-    public function getPaymentInfo(): \Nlocascio\Mindbody\Model\CheckoutPaymentInfo
+    public function getPaymentInfo()
     {
         return $this->container['PaymentInfo'];
     }

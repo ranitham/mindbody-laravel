@@ -142,7 +142,7 @@ class ApplicableItem extends BaseModel
      *
      * @return string
      */
-    public function getType(): string
+    public function getType()
     {
         return $this->container['Type'];
     }
@@ -166,7 +166,7 @@ class ApplicableItem extends BaseModel
      *
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->container['Id'];
     }
@@ -190,7 +190,7 @@ class ApplicableItem extends BaseModel
      *
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->container['Name'];
     }

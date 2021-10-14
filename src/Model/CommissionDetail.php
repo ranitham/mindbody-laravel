@@ -135,7 +135,7 @@ class CommissionDetail extends BaseModel
      *
      * @return string
      */
-    public function getCommissionType(): string
+    public function getCommissionType()
     {
         return $this->container['CommissionType'];
     }
@@ -159,7 +159,7 @@ class CommissionDetail extends BaseModel
      *
      * @return double
      */
-    public function getCommissionEarnings(): double
+    public function getCommissionEarnings()
     {
         return $this->container['CommissionEarnings'];
     }

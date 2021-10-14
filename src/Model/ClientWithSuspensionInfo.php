@@ -514,7 +514,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClientSuspensionInfo
      */
-    public function getSuspensionInfo(): \Nlocascio\Mindbody\Model\ClientSuspensionInfo
+    public function getSuspensionInfo()
     {
         return $this->container['SuspensionInfo'];
     }
@@ -538,7 +538,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return string
      */
-    public function getAppointmentGenderPreference(): string
+    public function getAppointmentGenderPreference()
     {
         return $this->container['AppointmentGenderPreference'];
     }
@@ -571,7 +571,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return \DateTime
      */
-    public function getBirthDate(): \DateTime
+    public function getBirthDate()
     {
         return $this->container['BirthDate'];
     }
@@ -595,7 +595,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return string
      */
-    public function getCountry(): string
+    public function getCountry()
     {
         return $this->container['Country'];
     }
@@ -619,7 +619,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return \DateTime
      */
-    public function getCreationDate(): \DateTime
+    public function getCreationDate()
     {
         return $this->container['CreationDate'];
     }
@@ -643,7 +643,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\CustomClientFieldValue[]
      */
-    public function getCustomClientFields(): \Nlocascio\Mindbody\Model\CustomClientFieldValue[]
+    public function getCustomClientFields()
     {
         return $this->container['CustomClientFields'];
     }
@@ -667,7 +667,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClientCreditCard
      */
-    public function getClientCreditCard(): \Nlocascio\Mindbody\Model\ClientCreditCard
+    public function getClientCreditCard()
     {
         return $this->container['ClientCreditCard'];
     }
@@ -691,7 +691,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\AssignedClientIndex[]
      */
-    public function getClientIndexes(): \Nlocascio\Mindbody\Model\AssignedClientIndex[]
+    public function getClientIndexes()
     {
         return $this->container['ClientIndexes'];
     }
@@ -715,7 +715,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClientRelationship[]
      */
-    public function getClientRelationships(): \Nlocascio\Mindbody\Model\ClientRelationship[]
+    public function getClientRelationships()
     {
         return $this->container['ClientRelationships'];
     }
@@ -739,7 +739,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return \DateTime
      */
-    public function getFirstAppointmentDate(): \DateTime
+    public function getFirstAppointmentDate()
     {
         return $this->container['FirstAppointmentDate'];
     }
@@ -763,7 +763,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return string
      */
-    public function getFirstName(): string
+    public function getFirstName()
     {
         return $this->container['FirstName'];
     }
@@ -787,7 +787,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return string
      */
-    public function getId(): string
+    public function getId()
     {
         return $this->container['Id'];
     }
@@ -811,7 +811,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return bool
      */
-    public function getIsCompany(): bool
+    public function getIsCompany()
     {
         return $this->container['IsCompany'];
     }
@@ -835,7 +835,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return bool
      */
-    public function getIsProspect(): bool
+    public function getIsProspect()
     {
         return $this->container['IsProspect'];
     }
@@ -859,7 +859,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return string
      */
-    public function getLastName(): string
+    public function getLastName()
     {
         return $this->container['LastName'];
     }
@@ -883,7 +883,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Liability
      */
-    public function getLiability(): \Nlocascio\Mindbody\Model\Liability
+    public function getLiability()
     {
         return $this->container['Liability'];
     }
@@ -907,7 +907,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return bool
      */
-    public function getLiabilityRelease(): bool
+    public function getLiabilityRelease()
     {
         return $this->container['LiabilityRelease'];
     }
@@ -931,7 +931,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return int
      */
-    public function getMembershipIcon(): int
+    public function getMembershipIcon()
     {
         return $this->container['MembershipIcon'];
     }
@@ -955,7 +955,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return int
      */
-    public function getMobileProvider(): int
+    public function getMobileProvider()
     {
         return $this->container['MobileProvider'];
     }
@@ -979,7 +979,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return string
      */
-    public function getNotes(): string
+    public function getNotes()
     {
         return $this->container['Notes'];
     }
@@ -1003,7 +1003,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return string
      */
-    public function getState(): string
+    public function getState()
     {
         return $this->container['State'];
     }
@@ -1027,7 +1027,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return int
      */
-    public function getUniqueId(): int
+    public function getUniqueId()
     {
         return $this->container['UniqueId'];
     }
@@ -1051,7 +1051,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return \DateTime
      */
-    public function getLastModifiedDateTime(): \DateTime
+    public function getLastModifiedDateTime()
     {
         return $this->container['LastModifiedDateTime'];
     }
@@ -1075,7 +1075,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return string
      */
-    public function getRedAlert(): string
+    public function getRedAlert()
     {
         return $this->container['RedAlert'];
     }
@@ -1099,7 +1099,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return string
      */
-    public function getYellowAlert(): string
+    public function getYellowAlert()
     {
         return $this->container['YellowAlert'];
     }
@@ -1123,7 +1123,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return string
      */
-    public function getMiddleName(): string
+    public function getMiddleName()
     {
         return $this->container['MiddleName'];
     }
@@ -1147,7 +1147,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ProspectStage
      */
-    public function getProspectStage(): \Nlocascio\Mindbody\Model\ProspectStage
+    public function getProspectStage()
     {
         return $this->container['ProspectStage'];
     }
@@ -1171,7 +1171,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return string
      */
-    public function getEmail(): string
+    public function getEmail()
     {
         return $this->container['Email'];
     }
@@ -1195,7 +1195,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return string
      */
-    public function getMobilePhone(): string
+    public function getMobilePhone()
     {
         return $this->container['MobilePhone'];
     }
@@ -1219,7 +1219,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return string
      */
-    public function getHomePhone(): string
+    public function getHomePhone()
     {
         return $this->container['HomePhone'];
     }
@@ -1243,7 +1243,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return string
      */
-    public function getWorkPhone(): string
+    public function getWorkPhone()
     {
         return $this->container['WorkPhone'];
     }
@@ -1267,7 +1267,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return double
      */
-    public function getAccountBalance(): double
+    public function getAccountBalance()
     {
         return $this->container['AccountBalance'];
     }
@@ -1291,7 +1291,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return string
      */
-    public function getAddressLine1(): string
+    public function getAddressLine1()
     {
         return $this->container['AddressLine1'];
     }
@@ -1315,7 +1315,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return string
      */
-    public function getAddressLine2(): string
+    public function getAddressLine2()
     {
         return $this->container['AddressLine2'];
     }
@@ -1339,7 +1339,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return string
      */
-    public function getCity(): string
+    public function getCity()
     {
         return $this->container['City'];
     }
@@ -1363,7 +1363,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return string
      */
-    public function getPostalCode(): string
+    public function getPostalCode()
     {
         return $this->container['PostalCode'];
     }
@@ -1387,7 +1387,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return string
      */
-    public function getWorkExtension(): string
+    public function getWorkExtension()
     {
         return $this->container['WorkExtension'];
     }
@@ -1411,7 +1411,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return string
      */
-    public function getReferredBy(): string
+    public function getReferredBy()
     {
         return $this->container['ReferredBy'];
     }
@@ -1435,7 +1435,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return string
      */
-    public function getPhotoUrl(): string
+    public function getPhotoUrl()
     {
         return $this->container['PhotoUrl'];
     }
@@ -1459,7 +1459,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return string
      */
-    public function getEmergencyContactInfoName(): string
+    public function getEmergencyContactInfoName()
     {
         return $this->container['EmergencyContactInfoName'];
     }
@@ -1483,7 +1483,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return string
      */
-    public function getEmergencyContactInfoEmail(): string
+    public function getEmergencyContactInfoEmail()
     {
         return $this->container['EmergencyContactInfoEmail'];
     }
@@ -1507,7 +1507,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return string
      */
-    public function getEmergencyContactInfoPhone(): string
+    public function getEmergencyContactInfoPhone()
     {
         return $this->container['EmergencyContactInfoPhone'];
     }
@@ -1531,7 +1531,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return string
      */
-    public function getEmergencyContactInfoRelationship(): string
+    public function getEmergencyContactInfoRelationship()
     {
         return $this->container['EmergencyContactInfoRelationship'];
     }
@@ -1555,7 +1555,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return string
      */
-    public function getGender(): string
+    public function getGender()
     {
         return $this->container['Gender'];
     }
@@ -1579,7 +1579,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return string
      */
-    public function getLastFormulaNotes(): string
+    public function getLastFormulaNotes()
     {
         return $this->container['LastFormulaNotes'];
     }
@@ -1603,7 +1603,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return bool
      */
-    public function getActive(): bool
+    public function getActive()
     {
         return $this->container['Active'];
     }
@@ -1627,7 +1627,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\SalesRep[]
      */
-    public function getSalesReps(): \Nlocascio\Mindbody\Model\SalesRep[]
+    public function getSalesReps()
     {
         return $this->container['SalesReps'];
     }
@@ -1651,7 +1651,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return string
      */
-    public function getStatus(): string
+    public function getStatus()
     {
         return $this->container['Status'];
     }
@@ -1675,7 +1675,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return string
      */
-    public function getAction(): string
+    public function getAction()
     {
         return $this->container['Action'];
     }
@@ -1708,7 +1708,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return bool
      */
-    public function getSendAccountEmails(): bool
+    public function getSendAccountEmails()
     {
         return $this->container['SendAccountEmails'];
     }
@@ -1732,7 +1732,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return bool
      */
-    public function getSendAccountTexts(): bool
+    public function getSendAccountTexts()
     {
         return $this->container['SendAccountTexts'];
     }
@@ -1756,7 +1756,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return bool
      */
-    public function getSendPromotionalEmails(): bool
+    public function getSendPromotionalEmails()
     {
         return $this->container['SendPromotionalEmails'];
     }
@@ -1780,7 +1780,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return bool
      */
-    public function getSendPromotionalTexts(): bool
+    public function getSendPromotionalTexts()
     {
         return $this->container['SendPromotionalTexts'];
     }
@@ -1804,7 +1804,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return bool
      */
-    public function getSendScheduleEmails(): bool
+    public function getSendScheduleEmails()
     {
         return $this->container['SendScheduleEmails'];
     }
@@ -1828,7 +1828,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return bool
      */
-    public function getSendScheduleTexts(): bool
+    public function getSendScheduleTexts()
     {
         return $this->container['SendScheduleTexts'];
     }
@@ -1852,7 +1852,7 @@ class ClientWithSuspensionInfo extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Location
      */
-    public function getHomeLocation(): \Nlocascio\Mindbody\Model\Location
+    public function getHomeLocation()
     {
         return $this->container['HomeLocation'];
     }

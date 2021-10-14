@@ -148,7 +148,7 @@ class ClientRelationship extends BaseModel
      *
      * @return string
      */
-    public function getRelatedClientId(): string
+    public function getRelatedClientId()
     {
         return $this->container['RelatedClientId'];
     }
@@ -172,7 +172,7 @@ class ClientRelationship extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Relationship
      */
-    public function getRelationship(): \Nlocascio\Mindbody\Model\Relationship
+    public function getRelationship()
     {
         return $this->container['Relationship'];
     }
@@ -196,7 +196,7 @@ class ClientRelationship extends BaseModel
      *
      * @return string
      */
-    public function getRelationshipName(): string
+    public function getRelationshipName()
     {
         return $this->container['RelationshipName'];
     }
@@ -220,7 +220,7 @@ class ClientRelationship extends BaseModel
      *
      * @return bool
      */
-    public function getDelete(): bool
+    public function getDelete()
     {
         return $this->container['Delete'];
     }

@@ -129,7 +129,7 @@ class UpdateStaffResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Staff
      */
-    public function getStaff(): \Nlocascio\Mindbody\Model\Staff
+    public function getStaff()
     {
         return $this->container['Staff'];
     }

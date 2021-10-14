@@ -184,7 +184,7 @@ class ClientCreditCard extends BaseModel
      *
      * @return string
      */
-    public function getAddress(): string
+    public function getAddress()
     {
         return $this->container['Address'];
     }
@@ -208,7 +208,7 @@ class ClientCreditCard extends BaseModel
      *
      * @return string
      */
-    public function getCardHolder(): string
+    public function getCardHolder()
     {
         return $this->container['CardHolder'];
     }
@@ -232,7 +232,7 @@ class ClientCreditCard extends BaseModel
      *
      * @return string
      */
-    public function getCardNumber(): string
+    public function getCardNumber()
     {
         return $this->container['CardNumber'];
     }
@@ -256,7 +256,7 @@ class ClientCreditCard extends BaseModel
      *
      * @return string
      */
-    public function getCardType(): string
+    public function getCardType()
     {
         return $this->container['CardType'];
     }
@@ -280,7 +280,7 @@ class ClientCreditCard extends BaseModel
      *
      * @return string
      */
-    public function getCity(): string
+    public function getCity()
     {
         return $this->container['City'];
     }
@@ -304,7 +304,7 @@ class ClientCreditCard extends BaseModel
      *
      * @return string
      */
-    public function getExpMonth(): string
+    public function getExpMonth()
     {
         return $this->container['ExpMonth'];
     }
@@ -328,7 +328,7 @@ class ClientCreditCard extends BaseModel
      *
      * @return string
      */
-    public function getExpYear(): string
+    public function getExpYear()
     {
         return $this->container['ExpYear'];
     }
@@ -352,7 +352,7 @@ class ClientCreditCard extends BaseModel
      *
      * @return string
      */
-    public function getLastFour(): string
+    public function getLastFour()
     {
         return $this->container['LastFour'];
     }
@@ -376,7 +376,7 @@ class ClientCreditCard extends BaseModel
      *
      * @return string
      */
-    public function getPostalCode(): string
+    public function getPostalCode()
     {
         return $this->container['PostalCode'];
     }
@@ -400,7 +400,7 @@ class ClientCreditCard extends BaseModel
      *
      * @return string
      */
-    public function getState(): string
+    public function getState()
     {
         return $this->container['State'];
     }

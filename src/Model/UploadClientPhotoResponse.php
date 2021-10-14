@@ -135,7 +135,7 @@ class UploadClientPhotoResponse extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId()
     {
         return $this->container['ClientId'];
     }
@@ -159,7 +159,7 @@ class UploadClientPhotoResponse extends BaseModel
      *
      * @return string
      */
-    public function getPhotoUrl(): string
+    public function getPhotoUrl()
     {
         return $this->container['PhotoUrl'];
     }

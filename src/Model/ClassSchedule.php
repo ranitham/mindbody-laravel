@@ -256,7 +256,7 @@ class ClassSchedule extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ModelClass[]
      */
-    public function getClasses(): \Nlocascio\Mindbody\Model\ModelClass[]
+    public function getClasses()
     {
         return $this->container['Classes'];
     }
@@ -280,7 +280,7 @@ class ClassSchedule extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Client[]
      */
-    public function getClients(): \Nlocascio\Mindbody\Model\Client[]
+    public function getClients()
     {
         return $this->container['Clients'];
     }
@@ -304,7 +304,7 @@ class ClassSchedule extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Course
      */
-    public function getCourse(): \Nlocascio\Mindbody\Model\Course
+    public function getCourse()
     {
         return $this->container['Course'];
     }
@@ -328,7 +328,7 @@ class ClassSchedule extends BaseModel
      *
      * @return int
      */
-    public function getSemesterId(): int
+    public function getSemesterId()
     {
         return $this->container['SemesterId'];
     }
@@ -352,7 +352,7 @@ class ClassSchedule extends BaseModel
      *
      * @return bool
      */
-    public function getIsAvailable(): bool
+    public function getIsAvailable()
     {
         return $this->container['IsAvailable'];
     }
@@ -376,7 +376,7 @@ class ClassSchedule extends BaseModel
      *
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->container['Id'];
     }
@@ -400,7 +400,7 @@ class ClassSchedule extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClassDescription
      */
-    public function getClassDescription(): \Nlocascio\Mindbody\Model\ClassDescription
+    public function getClassDescription()
     {
         return $this->container['ClassDescription'];
     }
@@ -424,7 +424,7 @@ class ClassSchedule extends BaseModel
      *
      * @return bool
      */
-    public function getDaySunday(): bool
+    public function getDaySunday()
     {
         return $this->container['DaySunday'];
     }
@@ -448,7 +448,7 @@ class ClassSchedule extends BaseModel
      *
      * @return bool
      */
-    public function getDayMonday(): bool
+    public function getDayMonday()
     {
         return $this->container['DayMonday'];
     }
@@ -472,7 +472,7 @@ class ClassSchedule extends BaseModel
      *
      * @return bool
      */
-    public function getDayTuesday(): bool
+    public function getDayTuesday()
     {
         return $this->container['DayTuesday'];
     }
@@ -496,7 +496,7 @@ class ClassSchedule extends BaseModel
      *
      * @return bool
      */
-    public function getDayWednesday(): bool
+    public function getDayWednesday()
     {
         return $this->container['DayWednesday'];
     }
@@ -520,7 +520,7 @@ class ClassSchedule extends BaseModel
      *
      * @return bool
      */
-    public function getDayThursday(): bool
+    public function getDayThursday()
     {
         return $this->container['DayThursday'];
     }
@@ -544,7 +544,7 @@ class ClassSchedule extends BaseModel
      *
      * @return bool
      */
-    public function getDayFriday(): bool
+    public function getDayFriday()
     {
         return $this->container['DayFriday'];
     }
@@ -568,7 +568,7 @@ class ClassSchedule extends BaseModel
      *
      * @return bool
      */
-    public function getDaySaturday(): bool
+    public function getDaySaturday()
     {
         return $this->container['DaySaturday'];
     }
@@ -592,7 +592,7 @@ class ClassSchedule extends BaseModel
      *
      * @return bool
      */
-    public function getAllowOpenEnrollment(): bool
+    public function getAllowOpenEnrollment()
     {
         return $this->container['AllowOpenEnrollment'];
     }
@@ -616,7 +616,7 @@ class ClassSchedule extends BaseModel
      *
      * @return bool
      */
-    public function getAllowDateForwardEnrollment(): bool
+    public function getAllowDateForwardEnrollment()
     {
         return $this->container['AllowDateForwardEnrollment'];
     }
@@ -640,7 +640,7 @@ class ClassSchedule extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartTime(): \DateTime
+    public function getStartTime()
     {
         return $this->container['StartTime'];
     }
@@ -664,7 +664,7 @@ class ClassSchedule extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndTime(): \DateTime
+    public function getEndTime()
     {
         return $this->container['EndTime'];
     }
@@ -688,7 +688,7 @@ class ClassSchedule extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDate(): \DateTime
+    public function getStartDate()
     {
         return $this->container['StartDate'];
     }
@@ -712,7 +712,7 @@ class ClassSchedule extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDate(): \DateTime
+    public function getEndDate()
     {
         return $this->container['EndDate'];
     }
@@ -736,7 +736,7 @@ class ClassSchedule extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Staff
      */
-    public function getStaff(): \Nlocascio\Mindbody\Model\Staff
+    public function getStaff()
     {
         return $this->container['Staff'];
     }
@@ -760,7 +760,7 @@ class ClassSchedule extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Location
      */
-    public function getLocation(): \Nlocascio\Mindbody\Model\Location
+    public function getLocation()
     {
         return $this->container['Location'];
     }

@@ -201,7 +201,7 @@ class Membership extends BaseModel
      *
      * @return int
      */
-    public function getMembershipId(): int
+    public function getMembershipId()
     {
         return $this->container['MembershipId'];
     }
@@ -225,7 +225,7 @@ class Membership extends BaseModel
      *
      * @return string
      */
-    public function getMembershipName(): string
+    public function getMembershipName()
     {
         return $this->container['MembershipName'];
     }
@@ -249,7 +249,7 @@ class Membership extends BaseModel
      *
      * @return int
      */
-    public function getPriority(): int
+    public function getPriority()
     {
         return $this->container['Priority'];
     }
@@ -273,7 +273,7 @@ class Membership extends BaseModel
      *
      * @return double
      */
-    public function getMemberRetailDiscount(): double
+    public function getMemberRetailDiscount()
     {
         return $this->container['MemberRetailDiscount'];
     }
@@ -297,7 +297,7 @@ class Membership extends BaseModel
      *
      * @return double
      */
-    public function getMemberServiceDiscount(): double
+    public function getMemberServiceDiscount()
     {
         return $this->container['MemberServiceDiscount'];
     }
@@ -321,7 +321,7 @@ class Membership extends BaseModel
      *
      * @return bool
      */
-    public function getAllowClientsToScheduleUnpaid(): bool
+    public function getAllowClientsToScheduleUnpaid()
     {
         return $this->container['AllowClientsToScheduleUnpaid'];
     }
@@ -345,7 +345,7 @@ class Membership extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ProgramMembership[]
      */
-    public function getOnlineBookingRestrictedToMembersOnly(): \Nlocascio\Mindbody\Model\ProgramMembership[]
+    public function getOnlineBookingRestrictedToMembersOnly()
     {
         return $this->container['OnlineBookingRestrictedToMembersOnly'];
     }
@@ -369,7 +369,7 @@ class Membership extends BaseModel
      *
      * @return int
      */
-    public function getDayOfMonthSchedulingOpensForNextMonth(): int
+    public function getDayOfMonthSchedulingOpensForNextMonth()
     {
         return $this->container['DayOfMonthSchedulingOpensForNextMonth'];
     }
@@ -393,7 +393,7 @@ class Membership extends BaseModel
      *
      * @return bool
      */
-    public function getRestrictSelfSignInToMembersOnly(): bool
+    public function getRestrictSelfSignInToMembersOnly()
     {
         return $this->container['RestrictSelfSignInToMembersOnly'];
     }
@@ -417,7 +417,7 @@ class Membership extends BaseModel
      *
      * @return bool
      */
-    public function getAllowMembersToBookAppointmentsWithoutPaying(): bool
+    public function getAllowMembersToBookAppointmentsWithoutPaying()
     {
         return $this->container['AllowMembersToBookAppointmentsWithoutPaying'];
     }
@@ -441,7 +441,7 @@ class Membership extends BaseModel
      *
      * @return bool
      */
-    public function getAllowMembersToPurchaseNonMembersServices(): bool
+    public function getAllowMembersToPurchaseNonMembersServices()
     {
         return $this->container['AllowMembersToPurchaseNonMembersServices'];
     }
@@ -465,7 +465,7 @@ class Membership extends BaseModel
      *
      * @return bool
      */
-    public function getAllowMembersToPurchaseNonMembersProducts(): bool
+    public function getAllowMembersToPurchaseNonMembersProducts()
     {
         return $this->container['AllowMembersToPurchaseNonMembersProducts'];
     }
@@ -489,7 +489,7 @@ class Membership extends BaseModel
      *
      * @return bool
      */
-    public function getIsActive(): bool
+    public function getIsActive()
     {
         return $this->container['IsActive'];
     }

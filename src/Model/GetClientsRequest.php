@@ -171,7 +171,7 @@ class GetClientsRequest extends BaseModel
      *
      * @return string[]
      */
-    public function getClientIDs(): string[]
+    public function getClientIDs()
     {
         return $this->container['ClientIDs'];
     }
@@ -195,7 +195,7 @@ class GetClientsRequest extends BaseModel
      *
      * @return string
      */
-    public function getSearchText(): string
+    public function getSearchText()
     {
         return $this->container['SearchText'];
     }
@@ -219,7 +219,7 @@ class GetClientsRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIsProspect(): bool
+    public function getIsProspect()
     {
         return $this->container['IsProspect'];
     }
@@ -243,7 +243,7 @@ class GetClientsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getLastModifiedDate(): \DateTime
+    public function getLastModifiedDate()
     {
         return $this->container['LastModifiedDate'];
     }
@@ -267,7 +267,7 @@ class GetClientsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getUniqueIds(): int[]
+    public function getUniqueIds()
     {
         return $this->container['UniqueIds'];
     }
@@ -291,7 +291,7 @@ class GetClientsRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIncludeInactive(): bool
+    public function getIncludeInactive()
     {
         return $this->container['IncludeInactive'];
     }
@@ -315,7 +315,7 @@ class GetClientsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit()
     {
         return $this->container['Limit'];
     }
@@ -339,7 +339,7 @@ class GetClientsRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset()
     {
         return $this->container['Offset'];
     }

@@ -135,7 +135,7 @@ class GetActivationCodeResponse extends BaseModel
      *
      * @return string
      */
-    public function getActivationCode(): string
+    public function getActivationCode()
     {
         return $this->container['ActivationCode'];
     }
@@ -159,7 +159,7 @@ class GetActivationCodeResponse extends BaseModel
      *
      * @return string
      */
-    public function getActivationLink(): string
+    public function getActivationLink()
     {
         return $this->container['ActivationLink'];
     }

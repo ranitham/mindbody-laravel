@@ -159,7 +159,7 @@ class GetResourcesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getSessionTypeIds(): int[]
+    public function getSessionTypeIds()
     {
         return $this->container['SessionTypeIds'];
     }
@@ -183,7 +183,7 @@ class GetResourcesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLocationId(): int
+    public function getLocationId()
     {
         return $this->container['LocationId'];
     }
@@ -207,7 +207,7 @@ class GetResourcesRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDateTime(): \DateTime
+    public function getStartDateTime()
     {
         return $this->container['StartDateTime'];
     }
@@ -231,7 +231,7 @@ class GetResourcesRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDateTime(): \DateTime
+    public function getEndDateTime()
     {
         return $this->container['EndDateTime'];
     }
@@ -255,7 +255,7 @@ class GetResourcesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit()
     {
         return $this->container['Limit'];
     }
@@ -279,7 +279,7 @@ class GetResourcesRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset()
     {
         return $this->container['Offset'];
     }

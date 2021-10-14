@@ -365,7 +365,7 @@ class Visit extends BaseModel
      *
      * @return int
      */
-    public function getAppointmentId(): int
+    public function getAppointmentId()
     {
         return $this->container['AppointmentId'];
     }
@@ -389,7 +389,7 @@ class Visit extends BaseModel
      *
      * @return string
      */
-    public function getAppointmentGenderPreference(): string
+    public function getAppointmentGenderPreference()
     {
         return $this->container['AppointmentGenderPreference'];
     }
@@ -422,7 +422,7 @@ class Visit extends BaseModel
      *
      * @return string
      */
-    public function getAppointmentStatus(): string
+    public function getAppointmentStatus()
     {
         return $this->container['AppointmentStatus'];
     }
@@ -455,7 +455,7 @@ class Visit extends BaseModel
      *
      * @return int
      */
-    public function getClassId(): int
+    public function getClassId()
     {
         return $this->container['ClassId'];
     }
@@ -479,7 +479,7 @@ class Visit extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId()
     {
         return $this->container['ClientId'];
     }
@@ -503,7 +503,7 @@ class Visit extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDateTime(): \DateTime
+    public function getStartDateTime()
     {
         return $this->container['StartDateTime'];
     }
@@ -527,7 +527,7 @@ class Visit extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDateTime(): \DateTime
+    public function getEndDateTime()
     {
         return $this->container['EndDateTime'];
     }
@@ -551,7 +551,7 @@ class Visit extends BaseModel
      *
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->container['Id'];
     }
@@ -575,7 +575,7 @@ class Visit extends BaseModel
      *
      * @return \DateTime
      */
-    public function getLastModifiedDateTime(): \DateTime
+    public function getLastModifiedDateTime()
     {
         return $this->container['LastModifiedDateTime'];
     }
@@ -599,7 +599,7 @@ class Visit extends BaseModel
      *
      * @return bool
      */
-    public function getLateCancelled(): bool
+    public function getLateCancelled()
     {
         return $this->container['LateCancelled'];
     }
@@ -623,7 +623,7 @@ class Visit extends BaseModel
      *
      * @return int
      */
-    public function getSiteId(): int
+    public function getSiteId()
     {
         return $this->container['SiteId'];
     }
@@ -647,7 +647,7 @@ class Visit extends BaseModel
      *
      * @return int
      */
-    public function getLocationId(): int
+    public function getLocationId()
     {
         return $this->container['LocationId'];
     }
@@ -671,7 +671,7 @@ class Visit extends BaseModel
      *
      * @return bool
      */
-    public function getMakeUp(): bool
+    public function getMakeUp()
     {
         return $this->container['MakeUp'];
     }
@@ -695,7 +695,7 @@ class Visit extends BaseModel
      *
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->container['Name'];
     }
@@ -719,7 +719,7 @@ class Visit extends BaseModel
      *
      * @return int
      */
-    public function getServiceId(): int
+    public function getServiceId()
     {
         return $this->container['ServiceId'];
     }
@@ -743,7 +743,7 @@ class Visit extends BaseModel
      *
      * @return string
      */
-    public function getServiceName(): string
+    public function getServiceName()
     {
         return $this->container['ServiceName'];
     }
@@ -767,7 +767,7 @@ class Visit extends BaseModel
      *
      * @return int
      */
-    public function getProductId(): int
+    public function getProductId()
     {
         return $this->container['ProductId'];
     }
@@ -791,7 +791,7 @@ class Visit extends BaseModel
      *
      * @return bool
      */
-    public function getSignedIn(): bool
+    public function getSignedIn()
     {
         return $this->container['SignedIn'];
     }
@@ -815,7 +815,7 @@ class Visit extends BaseModel
      *
      * @return int
      */
-    public function getStaffId(): int
+    public function getStaffId()
     {
         return $this->container['StaffId'];
     }
@@ -839,7 +839,7 @@ class Visit extends BaseModel
      *
      * @return bool
      */
-    public function getWebSignup(): bool
+    public function getWebSignup()
     {
         return $this->container['WebSignup'];
     }
@@ -863,7 +863,7 @@ class Visit extends BaseModel
      *
      * @return string
      */
-    public function getAction(): string
+    public function getAction()
     {
         return $this->container['Action'];
     }
@@ -896,7 +896,7 @@ class Visit extends BaseModel
      *
      * @return bool
      */
-    public function getMissed(): bool
+    public function getMissed()
     {
         return $this->container['Missed'];
     }
@@ -920,7 +920,7 @@ class Visit extends BaseModel
      *
      * @return int
      */
-    public function getVisitType(): int
+    public function getVisitType()
     {
         return $this->container['VisitType'];
     }
@@ -944,7 +944,7 @@ class Visit extends BaseModel
      *
      * @return int
      */
-    public function getTypeGroup(): int
+    public function getTypeGroup()
     {
         return $this->container['TypeGroup'];
     }
@@ -968,7 +968,7 @@ class Visit extends BaseModel
      *
      * @return string
      */
-    public function getTypeTaken(): string
+    public function getTypeTaken()
     {
         return $this->container['TypeTaken'];
     }

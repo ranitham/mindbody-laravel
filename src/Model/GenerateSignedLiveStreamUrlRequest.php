@@ -160,7 +160,7 @@ class GenerateSignedLiveStreamUrlRequest extends BaseModel
      *
      * @return int
      */
-    public function getClientId(): int
+    public function getClientId()
     {
         return $this->container['ClientId'];
     }
@@ -184,7 +184,7 @@ class GenerateSignedLiveStreamUrlRequest extends BaseModel
      *
      * @return int
      */
-    public function getSubscriberId(): int
+    public function getSubscriberId()
     {
         return $this->container['SubscriberId'];
     }
@@ -208,7 +208,7 @@ class GenerateSignedLiveStreamUrlRequest extends BaseModel
      *
      * @return string
      */
-    public function getUserDisplayName(): string
+    public function getUserDisplayName()
     {
         return $this->container['UserDisplayName'];
     }
@@ -232,7 +232,7 @@ class GenerateSignedLiveStreamUrlRequest extends BaseModel
      *
      * @return int
      */
-    public function getServiceId(): int
+    public function getServiceId()
     {
         return $this->container['ServiceId'];
     }
@@ -256,7 +256,7 @@ class GenerateSignedLiveStreamUrlRequest extends BaseModel
      *
      * @return string
      */
-    public function getApiUser(): string
+    public function getApiUser()
     {
         return $this->container['ApiUser'];
     }
@@ -280,7 +280,7 @@ class GenerateSignedLiveStreamUrlRequest extends BaseModel
      *
      * @return string
      */
-    public function getServiceType(): string
+    public function getServiceType()
     {
         return $this->container['ServiceType'];
     }

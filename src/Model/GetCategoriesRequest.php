@@ -160,7 +160,7 @@ class GetCategoriesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getCategoryIds(): int[]
+    public function getCategoryIds()
     {
         return $this->container['CategoryIds'];
     }
@@ -184,7 +184,7 @@ class GetCategoriesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getSubCategoryIds(): int[]
+    public function getSubCategoryIds()
     {
         return $this->container['SubCategoryIds'];
     }
@@ -208,7 +208,7 @@ class GetCategoriesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getService(): bool
+    public function getService()
     {
         return $this->container['Service'];
     }
@@ -232,7 +232,7 @@ class GetCategoriesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getActive(): bool
+    public function getActive()
     {
         return $this->container['Active'];
     }
@@ -256,7 +256,7 @@ class GetCategoriesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit()
     {
         return $this->container['Limit'];
     }
@@ -280,7 +280,7 @@ class GetCategoriesRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset()
     {
         return $this->container['Offset'];
     }

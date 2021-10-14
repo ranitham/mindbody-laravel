@@ -180,7 +180,7 @@ class GetProgramsRequest extends BaseModel
      *
      * @return string
      */
-    public function getScheduleType(): string
+    public function getScheduleType()
     {
         return $this->container['ScheduleType'];
     }
@@ -213,7 +213,7 @@ class GetProgramsRequest extends BaseModel
      *
      * @return bool
      */
-    public function getOnlineOnly(): bool
+    public function getOnlineOnly()
     {
         return $this->container['OnlineOnly'];
     }
@@ -237,7 +237,7 @@ class GetProgramsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit()
     {
         return $this->container['Limit'];
     }
@@ -261,7 +261,7 @@ class GetProgramsRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset()
     {
         return $this->container['Offset'];
     }

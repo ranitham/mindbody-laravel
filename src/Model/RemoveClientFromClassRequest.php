@@ -159,7 +159,7 @@ class RemoveClientFromClassRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId()
     {
         return $this->container['ClientId'];
     }
@@ -183,7 +183,7 @@ class RemoveClientFromClassRequest extends BaseModel
      *
      * @return int
      */
-    public function getClassId(): int
+    public function getClassId()
     {
         return $this->container['ClassId'];
     }
@@ -207,7 +207,7 @@ class RemoveClientFromClassRequest extends BaseModel
      *
      * @return bool
      */
-    public function getTest(): bool
+    public function getTest()
     {
         return $this->container['Test'];
     }
@@ -231,7 +231,7 @@ class RemoveClientFromClassRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSendEmail(): bool
+    public function getSendEmail()
     {
         return $this->container['SendEmail'];
     }
@@ -255,7 +255,7 @@ class RemoveClientFromClassRequest extends BaseModel
      *
      * @return bool
      */
-    public function getLateCancel(): bool
+    public function getLateCancel()
     {
         return $this->container['LateCancel'];
     }

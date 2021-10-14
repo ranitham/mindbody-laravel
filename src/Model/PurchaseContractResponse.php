@@ -153,7 +153,7 @@ class PurchaseContractResponse extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId()
     {
         return $this->container['ClientId'];
     }
@@ -177,7 +177,7 @@ class PurchaseContractResponse extends BaseModel
      *
      * @return int
      */
-    public function getLocationId(): int
+    public function getLocationId()
     {
         return $this->container['LocationId'];
     }
@@ -201,7 +201,7 @@ class PurchaseContractResponse extends BaseModel
      *
      * @return int
      */
-    public function getContractId(): int
+    public function getContractId()
     {
         return $this->container['ContractId'];
     }
@@ -225,7 +225,7 @@ class PurchaseContractResponse extends BaseModel
      *
      * @return int
      */
-    public function getClientContractId(): int
+    public function getClientContractId()
     {
         return $this->container['ClientContractId'];
     }
@@ -249,7 +249,7 @@ class PurchaseContractResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaymentProcessingFailure[]
      */
-    public function getPaymentProcessingFailures(): \Nlocascio\Mindbody\Model\PaymentProcessingFailure[]
+    public function getPaymentProcessingFailures()
     {
         return $this->container['PaymentProcessingFailures'];
     }

@@ -184,7 +184,7 @@ class Course extends BaseModel
      *
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->container['Id'];
     }
@@ -208,7 +208,7 @@ class Course extends BaseModel
      *
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->container['Name'];
     }
@@ -232,7 +232,7 @@ class Course extends BaseModel
      *
      * @return string
      */
-    public function getDescription(): string
+    public function getDescription()
     {
         return $this->container['Description'];
     }
@@ -256,7 +256,7 @@ class Course extends BaseModel
      *
      * @return string
      */
-    public function getNotes(): string
+    public function getNotes()
     {
         return $this->container['Notes'];
     }
@@ -280,7 +280,7 @@ class Course extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDate(): \DateTime
+    public function getStartDate()
     {
         return $this->container['StartDate'];
     }
@@ -304,7 +304,7 @@ class Course extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDate(): \DateTime
+    public function getEndDate()
     {
         return $this->container['EndDate'];
     }
@@ -328,7 +328,7 @@ class Course extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Location
      */
-    public function getLocation(): \Nlocascio\Mindbody\Model\Location
+    public function getLocation()
     {
         return $this->container['Location'];
     }
@@ -352,7 +352,7 @@ class Course extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Staff
      */
-    public function getOrganizer(): \Nlocascio\Mindbody\Model\Staff
+    public function getOrganizer()
     {
         return $this->container['Organizer'];
     }
@@ -376,7 +376,7 @@ class Course extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Program
      */
-    public function getProgram(): \Nlocascio\Mindbody\Model\Program
+    public function getProgram()
     {
         return $this->container['Program'];
     }
@@ -400,7 +400,7 @@ class Course extends BaseModel
      *
      * @return string
      */
-    public function getImageUrl(): string
+    public function getImageUrl()
     {
         return $this->container['ImageUrl'];
     }

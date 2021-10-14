@@ -225,7 +225,7 @@ class Transaction extends BaseModel
      *
      * @return int
      */
-    public function getTransactionId(): int
+    public function getTransactionId()
     {
         return $this->container['TransactionId'];
     }
@@ -249,7 +249,7 @@ class Transaction extends BaseModel
      *
      * @return int
      */
-    public function getSaleId(): int
+    public function getSaleId()
     {
         return $this->container['SaleId'];
     }
@@ -273,7 +273,7 @@ class Transaction extends BaseModel
      *
      * @return int
      */
-    public function getClientId(): int
+    public function getClientId()
     {
         return $this->container['ClientId'];
     }
@@ -297,7 +297,7 @@ class Transaction extends BaseModel
      *
      * @return double
      */
-    public function getAmount(): double
+    public function getAmount()
     {
         return $this->container['Amount'];
     }
@@ -321,7 +321,7 @@ class Transaction extends BaseModel
      *
      * @return bool
      */
-    public function getSettled(): bool
+    public function getSettled()
     {
         return $this->container['Settled'];
     }
@@ -345,7 +345,7 @@ class Transaction extends BaseModel
      *
      * @return string
      */
-    public function getStatus(): string
+    public function getStatus()
     {
         return $this->container['Status'];
     }
@@ -369,7 +369,7 @@ class Transaction extends BaseModel
      *
      * @return \DateTime
      */
-    public function getTransactionTime(): \DateTime
+    public function getTransactionTime()
     {
         return $this->container['TransactionTime'];
     }
@@ -393,7 +393,7 @@ class Transaction extends BaseModel
      *
      * @return \DateTime
      */
-    public function getAuthTime(): \DateTime
+    public function getAuthTime()
     {
         return $this->container['AuthTime'];
     }
@@ -417,7 +417,7 @@ class Transaction extends BaseModel
      *
      * @return int
      */
-    public function getLocationId(): int
+    public function getLocationId()
     {
         return $this->container['LocationId'];
     }
@@ -441,7 +441,7 @@ class Transaction extends BaseModel
      *
      * @return string
      */
-    public function getMerchantId(): string
+    public function getMerchantId()
     {
         return $this->container['MerchantId'];
     }
@@ -465,7 +465,7 @@ class Transaction extends BaseModel
      *
      * @return string
      */
-    public function getTerminalId(): string
+    public function getTerminalId()
     {
         return $this->container['TerminalId'];
     }
@@ -489,7 +489,7 @@ class Transaction extends BaseModel
      *
      * @return string
      */
-    public function getCardExpirationMonth(): string
+    public function getCardExpirationMonth()
     {
         return $this->container['CardExpirationMonth'];
     }
@@ -513,7 +513,7 @@ class Transaction extends BaseModel
      *
      * @return string
      */
-    public function getCardExpirationYear(): string
+    public function getCardExpirationYear()
     {
         return $this->container['CardExpirationYear'];
     }
@@ -537,7 +537,7 @@ class Transaction extends BaseModel
      *
      * @return string
      */
-    public function getCCLastFour(): string
+    public function getCCLastFour()
     {
         return $this->container['CCLastFour'];
     }
@@ -561,7 +561,7 @@ class Transaction extends BaseModel
      *
      * @return string
      */
-    public function getCardType(): string
+    public function getCardType()
     {
         return $this->container['CardType'];
     }
@@ -585,7 +585,7 @@ class Transaction extends BaseModel
      *
      * @return bool
      */
-    public function getCCSwiped(): bool
+    public function getCCSwiped()
     {
         return $this->container['CCSwiped'];
     }
@@ -609,7 +609,7 @@ class Transaction extends BaseModel
      *
      * @return string
      */
-    public function getACHLastFour(): string
+    public function getACHLastFour()
     {
         return $this->container['ACHLastFour'];
     }

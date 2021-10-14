@@ -135,7 +135,7 @@ class GetProductsInventoryResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
+    public function getPaginationResponse()
     {
         return $this->container['PaginationResponse'];
     }
@@ -159,7 +159,7 @@ class GetProductsInventoryResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ProductsInventory[]
      */
-    public function getProductsInventory(): \Nlocascio\Mindbody\Model\ProductsInventory[]
+    public function getProductsInventory()
     {
         return $this->container['ProductsInventory'];
     }

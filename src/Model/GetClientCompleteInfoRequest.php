@@ -163,7 +163,7 @@ class GetClientCompleteInfoRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId()
     {
         return $this->container['ClientId'];
     }
@@ -187,7 +187,7 @@ class GetClientCompleteInfoRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDate(): \DateTime
+    public function getStartDate()
     {
         return $this->container['StartDate'];
     }
@@ -211,7 +211,7 @@ class GetClientCompleteInfoRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDate(): \DateTime
+    public function getEndDate()
     {
         return $this->container['EndDate'];
     }
@@ -235,7 +235,7 @@ class GetClientCompleteInfoRequest extends BaseModel
      *
      * @return bool
      */
-    public function getCrossRegionalLookup(): bool
+    public function getCrossRegionalLookup()
     {
         return $this->container['CrossRegionalLookup'];
     }
@@ -259,7 +259,7 @@ class GetClientCompleteInfoRequest extends BaseModel
      *
      * @return int
      */
-    public function getClientAssociatedSitesOffset(): int
+    public function getClientAssociatedSitesOffset()
     {
         return $this->container['ClientAssociatedSitesOffset'];
     }
@@ -283,7 +283,7 @@ class GetClientCompleteInfoRequest extends BaseModel
      *
      * @return string[]
      */
-    public function getRequiredClientData(): string[]
+    public function getRequiredClientData()
     {
         return $this->container['RequiredClientData'];
     }

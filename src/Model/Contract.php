@@ -327,7 +327,7 @@ class Contract extends BaseModel
      *
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->container['Id'];
     }
@@ -351,7 +351,7 @@ class Contract extends BaseModel
      *
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->container['Name'];
     }
@@ -375,7 +375,7 @@ class Contract extends BaseModel
      *
      * @return string
      */
-    public function getDescription(): string
+    public function getDescription()
     {
         return $this->container['Description'];
     }
@@ -399,7 +399,7 @@ class Contract extends BaseModel
      *
      * @return int
      */
-    public function getAssignsMembershipId(): int
+    public function getAssignsMembershipId()
     {
         return $this->container['AssignsMembershipId'];
     }
@@ -423,7 +423,7 @@ class Contract extends BaseModel
      *
      * @return string
      */
-    public function getAssignsMembershipName(): string
+    public function getAssignsMembershipName()
     {
         return $this->container['AssignsMembershipName'];
     }
@@ -447,7 +447,7 @@ class Contract extends BaseModel
      *
      * @return bool
      */
-    public function getSoldOnline(): bool
+    public function getSoldOnline()
     {
         return $this->container['SoldOnline'];
     }
@@ -471,7 +471,7 @@ class Contract extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ContractItem[]
      */
-    public function getContractItems(): \Nlocascio\Mindbody\Model\ContractItem[]
+    public function getContractItems()
     {
         return $this->container['ContractItems'];
     }
@@ -495,7 +495,7 @@ class Contract extends BaseModel
      *
      * @return string
      */
-    public function getIntroOffer(): string
+    public function getIntroOffer()
     {
         return $this->container['IntroOffer'];
     }
@@ -519,7 +519,7 @@ class Contract extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\AutopaySchedule
      */
-    public function getAutopaySchedule(): \Nlocascio\Mindbody\Model\AutopaySchedule
+    public function getAutopaySchedule()
     {
         return $this->container['AutopaySchedule'];
     }
@@ -543,7 +543,7 @@ class Contract extends BaseModel
      *
      * @return int
      */
-    public function getNumberOfAutopays(): int
+    public function getNumberOfAutopays()
     {
         return $this->container['NumberOfAutopays'];
     }
@@ -567,7 +567,7 @@ class Contract extends BaseModel
      *
      * @return string
      */
-    public function getAutopayTriggerType(): string
+    public function getAutopayTriggerType()
     {
         return $this->container['AutopayTriggerType'];
     }
@@ -591,7 +591,7 @@ class Contract extends BaseModel
      *
      * @return string
      */
-    public function getActionUponCompletionOfAutopays(): string
+    public function getActionUponCompletionOfAutopays()
     {
         return $this->container['ActionUponCompletionOfAutopays'];
     }
@@ -615,7 +615,7 @@ class Contract extends BaseModel
      *
      * @return string
      */
-    public function getClientsChargedOn(): string
+    public function getClientsChargedOn()
     {
         return $this->container['ClientsChargedOn'];
     }
@@ -639,7 +639,7 @@ class Contract extends BaseModel
      *
      * @return \DateTime
      */
-    public function getClientsChargedOnSpecificDate(): \DateTime
+    public function getClientsChargedOnSpecificDate()
     {
         return $this->container['ClientsChargedOnSpecificDate'];
     }
@@ -663,7 +663,7 @@ class Contract extends BaseModel
      *
      * @return double
      */
-    public function getDiscountAmount(): double
+    public function getDiscountAmount()
     {
         return $this->container['DiscountAmount'];
     }
@@ -687,7 +687,7 @@ class Contract extends BaseModel
      *
      * @return double
      */
-    public function getDepositAmount(): double
+    public function getDepositAmount()
     {
         return $this->container['DepositAmount'];
     }
@@ -711,7 +711,7 @@ class Contract extends BaseModel
      *
      * @return bool
      */
-    public function getFirstAutopayFree(): bool
+    public function getFirstAutopayFree()
     {
         return $this->container['FirstAutopayFree'];
     }
@@ -735,7 +735,7 @@ class Contract extends BaseModel
      *
      * @return bool
      */
-    public function getLastAutopayFree(): bool
+    public function getLastAutopayFree()
     {
         return $this->container['LastAutopayFree'];
     }
@@ -759,7 +759,7 @@ class Contract extends BaseModel
      *
      * @return bool
      */
-    public function getClientTerminateOnline(): bool
+    public function getClientTerminateOnline()
     {
         return $this->container['ClientTerminateOnline'];
     }
@@ -783,7 +783,7 @@ class Contract extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\MembershipTypeRestriction[]
      */
-    public function getMembershipTypeRestrictions(): \Nlocascio\Mindbody\Model\MembershipTypeRestriction[]
+    public function getMembershipTypeRestrictions()
     {
         return $this->container['MembershipTypeRestrictions'];
     }
@@ -807,7 +807,7 @@ class Contract extends BaseModel
      *
      * @return int[]
      */
-    public function getLocationPurchaseRestrictionIds(): int[]
+    public function getLocationPurchaseRestrictionIds()
     {
         return $this->container['LocationPurchaseRestrictionIds'];
     }
@@ -831,7 +831,7 @@ class Contract extends BaseModel
      *
      * @return string[]
      */
-    public function getLocationPurchaseRestrictionNames(): string[]
+    public function getLocationPurchaseRestrictionNames()
     {
         return $this->container['LocationPurchaseRestrictionNames'];
     }
@@ -855,7 +855,7 @@ class Contract extends BaseModel
      *
      * @return string
      */
-    public function getAgreementTerms(): string
+    public function getAgreementTerms()
     {
         return $this->container['AgreementTerms'];
     }
@@ -879,7 +879,7 @@ class Contract extends BaseModel
      *
      * @return bool
      */
-    public function getRequiresElectronicConfirmation(): bool
+    public function getRequiresElectronicConfirmation()
     {
         return $this->container['RequiresElectronicConfirmation'];
     }
@@ -903,7 +903,7 @@ class Contract extends BaseModel
      *
      * @return bool
      */
-    public function getAutopayEnabled(): bool
+    public function getAutopayEnabled()
     {
         return $this->container['AutopayEnabled'];
     }
@@ -927,7 +927,7 @@ class Contract extends BaseModel
      *
      * @return double
      */
-    public function getFirstPaymentAmountSubtotal(): double
+    public function getFirstPaymentAmountSubtotal()
     {
         return $this->container['FirstPaymentAmountSubtotal'];
     }
@@ -951,7 +951,7 @@ class Contract extends BaseModel
      *
      * @return double
      */
-    public function getFirstPaymentAmountTax(): double
+    public function getFirstPaymentAmountTax()
     {
         return $this->container['FirstPaymentAmountTax'];
     }
@@ -975,7 +975,7 @@ class Contract extends BaseModel
      *
      * @return double
      */
-    public function getFirstPaymentAmountTotal(): double
+    public function getFirstPaymentAmountTotal()
     {
         return $this->container['FirstPaymentAmountTotal'];
     }
@@ -999,7 +999,7 @@ class Contract extends BaseModel
      *
      * @return double
      */
-    public function getRecurringPaymentAmountSubtotal(): double
+    public function getRecurringPaymentAmountSubtotal()
     {
         return $this->container['RecurringPaymentAmountSubtotal'];
     }
@@ -1023,7 +1023,7 @@ class Contract extends BaseModel
      *
      * @return double
      */
-    public function getRecurringPaymentAmountTax(): double
+    public function getRecurringPaymentAmountTax()
     {
         return $this->container['RecurringPaymentAmountTax'];
     }
@@ -1047,7 +1047,7 @@ class Contract extends BaseModel
      *
      * @return double
      */
-    public function getRecurringPaymentAmountTotal(): double
+    public function getRecurringPaymentAmountTotal()
     {
         return $this->container['RecurringPaymentAmountTotal'];
     }
@@ -1071,7 +1071,7 @@ class Contract extends BaseModel
      *
      * @return double
      */
-    public function getTotalContractAmountSubtotal(): double
+    public function getTotalContractAmountSubtotal()
     {
         return $this->container['TotalContractAmountSubtotal'];
     }
@@ -1095,7 +1095,7 @@ class Contract extends BaseModel
      *
      * @return double
      */
-    public function getTotalContractAmountTax(): double
+    public function getTotalContractAmountTax()
     {
         return $this->container['TotalContractAmountTax'];
     }
@@ -1119,7 +1119,7 @@ class Contract extends BaseModel
      *
      * @return double
      */
-    public function getTotalContractAmountTotal(): double
+    public function getTotalContractAmountTotal()
     {
         return $this->container['TotalContractAmountTotal'];
     }

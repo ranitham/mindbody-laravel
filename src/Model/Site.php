@@ -249,7 +249,7 @@ class Site extends BaseModel
      *
      * @return bool
      */
-    public function getAcceptsAmericanExpress(): bool
+    public function getAcceptsAmericanExpress()
     {
         return $this->container['AcceptsAmericanExpress'];
     }
@@ -273,7 +273,7 @@ class Site extends BaseModel
      *
      * @return bool
      */
-    public function getAcceptsDiscover(): bool
+    public function getAcceptsDiscover()
     {
         return $this->container['AcceptsDiscover'];
     }
@@ -297,7 +297,7 @@ class Site extends BaseModel
      *
      * @return bool
      */
-    public function getAcceptsMasterCard(): bool
+    public function getAcceptsMasterCard()
     {
         return $this->container['AcceptsMasterCard'];
     }
@@ -321,7 +321,7 @@ class Site extends BaseModel
      *
      * @return bool
      */
-    public function getAcceptsVisa(): bool
+    public function getAcceptsVisa()
     {
         return $this->container['AcceptsVisa'];
     }
@@ -345,7 +345,7 @@ class Site extends BaseModel
      *
      * @return bool
      */
-    public function getAllowsDashboardAccess(): bool
+    public function getAllowsDashboardAccess()
     {
         return $this->container['AllowsDashboardAccess'];
     }
@@ -369,7 +369,7 @@ class Site extends BaseModel
      *
      * @return string
      */
-    public function getContactEmail(): string
+    public function getContactEmail()
     {
         return $this->container['ContactEmail'];
     }
@@ -393,7 +393,7 @@ class Site extends BaseModel
      *
      * @return string
      */
-    public function getDescription(): string
+    public function getDescription()
     {
         return $this->container['Description'];
     }
@@ -417,7 +417,7 @@ class Site extends BaseModel
      *
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->container['Id'];
     }
@@ -441,7 +441,7 @@ class Site extends BaseModel
      *
      * @return string
      */
-    public function getLogoUrl(): string
+    public function getLogoUrl()
     {
         return $this->container['LogoUrl'];
     }
@@ -465,7 +465,7 @@ class Site extends BaseModel
      *
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->container['Name'];
     }
@@ -489,7 +489,7 @@ class Site extends BaseModel
      *
      * @return string
      */
-    public function getPageColor1(): string
+    public function getPageColor1()
     {
         return $this->container['PageColor1'];
     }
@@ -513,7 +513,7 @@ class Site extends BaseModel
      *
      * @return string
      */
-    public function getPageColor2(): string
+    public function getPageColor2()
     {
         return $this->container['PageColor2'];
     }
@@ -537,7 +537,7 @@ class Site extends BaseModel
      *
      * @return string
      */
-    public function getPageColor3(): string
+    public function getPageColor3()
     {
         return $this->container['PageColor3'];
     }
@@ -561,7 +561,7 @@ class Site extends BaseModel
      *
      * @return string
      */
-    public function getPageColor4(): string
+    public function getPageColor4()
     {
         return $this->container['PageColor4'];
     }
@@ -585,7 +585,7 @@ class Site extends BaseModel
      *
      * @return string
      */
-    public function getPricingLevel(): string
+    public function getPricingLevel()
     {
         return $this->container['PricingLevel'];
     }
@@ -609,7 +609,7 @@ class Site extends BaseModel
      *
      * @return bool
      */
-    public function getSmsPackageEnabled(): bool
+    public function getSmsPackageEnabled()
     {
         return $this->container['SmsPackageEnabled'];
     }
@@ -633,7 +633,7 @@ class Site extends BaseModel
      *
      * @return bool
      */
-    public function getTaxInclusivePrices(): bool
+    public function getTaxInclusivePrices()
     {
         return $this->container['TaxInclusivePrices'];
     }
@@ -657,7 +657,7 @@ class Site extends BaseModel
      *
      * @return string
      */
-    public function getCurrencyIsoCode(): string
+    public function getCurrencyIsoCode()
     {
         return $this->container['CurrencyIsoCode'];
     }
@@ -681,7 +681,7 @@ class Site extends BaseModel
      *
      * @return string
      */
-    public function getCountryCode(): string
+    public function getCountryCode()
     {
         return $this->container['CountryCode'];
     }
@@ -705,7 +705,7 @@ class Site extends BaseModel
      *
      * @return string
      */
-    public function getTimeZone(): string
+    public function getTimeZone()
     {
         return $this->container['TimeZone'];
     }
@@ -729,7 +729,7 @@ class Site extends BaseModel
      *
      * @return bool
      */
-    public function getAcceptsDirectDebit(): bool
+    public function getAcceptsDirectDebit()
     {
         return $this->container['AcceptsDirectDebit'];
     }

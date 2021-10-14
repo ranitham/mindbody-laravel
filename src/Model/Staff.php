@@ -339,7 +339,7 @@ class Staff extends BaseModel
      *
      * @return string
      */
-    public function getAddress(): string
+    public function getAddress()
     {
         return $this->container['Address'];
     }
@@ -363,7 +363,7 @@ class Staff extends BaseModel
      *
      * @return bool
      */
-    public function getAppointmentInstructor(): bool
+    public function getAppointmentInstructor()
     {
         return $this->container['AppointmentInstructor'];
     }
@@ -387,7 +387,7 @@ class Staff extends BaseModel
      *
      * @return bool
      */
-    public function getAlwaysAllowDoubleBooking(): bool
+    public function getAlwaysAllowDoubleBooking()
     {
         return $this->container['AlwaysAllowDoubleBooking'];
     }
@@ -411,7 +411,7 @@ class Staff extends BaseModel
      *
      * @return string
      */
-    public function getBio(): string
+    public function getBio()
     {
         return $this->container['Bio'];
     }
@@ -435,7 +435,7 @@ class Staff extends BaseModel
      *
      * @return string
      */
-    public function getCity(): string
+    public function getCity()
     {
         return $this->container['City'];
     }
@@ -459,7 +459,7 @@ class Staff extends BaseModel
      *
      * @return string
      */
-    public function getCountry(): string
+    public function getCountry()
     {
         return $this->container['Country'];
     }
@@ -483,7 +483,7 @@ class Staff extends BaseModel
      *
      * @return string
      */
-    public function getEmail(): string
+    public function getEmail()
     {
         return $this->container['Email'];
     }
@@ -507,7 +507,7 @@ class Staff extends BaseModel
      *
      * @return string
      */
-    public function getFirstName(): string
+    public function getFirstName()
     {
         return $this->container['FirstName'];
     }
@@ -531,7 +531,7 @@ class Staff extends BaseModel
      *
      * @return string
      */
-    public function getHomePhone(): string
+    public function getHomePhone()
     {
         return $this->container['HomePhone'];
     }
@@ -555,7 +555,7 @@ class Staff extends BaseModel
      *
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->container['Id'];
     }
@@ -579,7 +579,7 @@ class Staff extends BaseModel
      *
      * @return bool
      */
-    public function getIndependentContractor(): bool
+    public function getIndependentContractor()
     {
         return $this->container['IndependentContractor'];
     }
@@ -603,7 +603,7 @@ class Staff extends BaseModel
      *
      * @return bool
      */
-    public function getIsMale(): bool
+    public function getIsMale()
     {
         return $this->container['IsMale'];
     }
@@ -627,7 +627,7 @@ class Staff extends BaseModel
      *
      * @return string
      */
-    public function getLastName(): string
+    public function getLastName()
     {
         return $this->container['LastName'];
     }
@@ -651,7 +651,7 @@ class Staff extends BaseModel
      *
      * @return string
      */
-    public function getMobilePhone(): string
+    public function getMobilePhone()
     {
         return $this->container['MobilePhone'];
     }
@@ -675,7 +675,7 @@ class Staff extends BaseModel
      *
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->container['Name'];
     }
@@ -699,7 +699,7 @@ class Staff extends BaseModel
      *
      * @return string
      */
-    public function getPostalCode(): string
+    public function getPostalCode()
     {
         return $this->container['PostalCode'];
     }
@@ -723,7 +723,7 @@ class Staff extends BaseModel
      *
      * @return bool
      */
-    public function getClassTeacher(): bool
+    public function getClassTeacher()
     {
         return $this->container['ClassTeacher'];
     }
@@ -747,7 +747,7 @@ class Staff extends BaseModel
      *
      * @return int
      */
-    public function getSortOrder(): int
+    public function getSortOrder()
     {
         return $this->container['SortOrder'];
     }
@@ -771,7 +771,7 @@ class Staff extends BaseModel
      *
      * @return string
      */
-    public function getState(): string
+    public function getState()
     {
         return $this->container['State'];
     }
@@ -795,7 +795,7 @@ class Staff extends BaseModel
      *
      * @return string
      */
-    public function getWorkPhone(): string
+    public function getWorkPhone()
     {
         return $this->container['WorkPhone'];
     }
@@ -819,7 +819,7 @@ class Staff extends BaseModel
      *
      * @return string
      */
-    public function getImageUrl(): string
+    public function getImageUrl()
     {
         return $this->container['ImageUrl'];
     }
@@ -843,7 +843,7 @@ class Staff extends BaseModel
      *
      * @return bool
      */
-    public function getClassAssistant(): bool
+    public function getClassAssistant()
     {
         return $this->container['ClassAssistant'];
     }
@@ -867,7 +867,7 @@ class Staff extends BaseModel
      *
      * @return bool
      */
-    public function getClassAssistant2(): bool
+    public function getClassAssistant2()
     {
         return $this->container['ClassAssistant2'];
     }
@@ -891,7 +891,7 @@ class Staff extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEmploymentStart(): \DateTime
+    public function getEmploymentStart()
     {
         return $this->container['EmploymentStart'];
     }
@@ -915,7 +915,7 @@ class Staff extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEmploymentEnd(): \DateTime
+    public function getEmploymentEnd()
     {
         return $this->container['EmploymentEnd'];
     }
@@ -939,7 +939,7 @@ class Staff extends BaseModel
      *
      * @return string[]
      */
-    public function getProviderIDs(): string[]
+    public function getProviderIDs()
     {
         return $this->container['ProviderIDs'];
     }
@@ -963,7 +963,7 @@ class Staff extends BaseModel
      *
      * @return bool
      */
-    public function getRep(): bool
+    public function getRep()
     {
         return $this->container['Rep'];
     }
@@ -987,7 +987,7 @@ class Staff extends BaseModel
      *
      * @return bool
      */
-    public function getRep2(): bool
+    public function getRep2()
     {
         return $this->container['Rep2'];
     }
@@ -1011,7 +1011,7 @@ class Staff extends BaseModel
      *
      * @return bool
      */
-    public function getRep3(): bool
+    public function getRep3()
     {
         return $this->container['Rep3'];
     }
@@ -1035,7 +1035,7 @@ class Staff extends BaseModel
      *
      * @return bool
      */
-    public function getRep4(): bool
+    public function getRep4()
     {
         return $this->container['Rep4'];
     }
@@ -1059,7 +1059,7 @@ class Staff extends BaseModel
      *
      * @return bool
      */
-    public function getRep5(): bool
+    public function getRep5()
     {
         return $this->container['Rep5'];
     }
@@ -1083,7 +1083,7 @@ class Staff extends BaseModel
      *
      * @return bool
      */
-    public function getRep6(): bool
+    public function getRep6()
     {
         return $this->container['Rep6'];
     }
@@ -1107,7 +1107,7 @@ class Staff extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Appointment[]
      */
-    public function getAppointments(): \Nlocascio\Mindbody\Model\Appointment[]
+    public function getAppointments()
     {
         return $this->container['Appointments'];
     }
@@ -1131,7 +1131,7 @@ class Staff extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Unavailability[]
      */
-    public function getUnavailabilities(): \Nlocascio\Mindbody\Model\Unavailability[]
+    public function getUnavailabilities()
     {
         return $this->container['Unavailabilities'];
     }
@@ -1155,7 +1155,7 @@ class Staff extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Availability[]
      */
-    public function getAvailabilities(): \Nlocascio\Mindbody\Model\Availability[]
+    public function getAvailabilities()
     {
         return $this->container['Availabilities'];
     }
@@ -1179,7 +1179,7 @@ class Staff extends BaseModel
      *
      * @return string
      */
-    public function getEmpID(): string
+    public function getEmpID()
     {
         return $this->container['EmpID'];
     }

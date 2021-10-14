@@ -147,7 +147,7 @@ class GetCrossRegionalClientAssociationsRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId()
     {
         return $this->container['ClientId'];
     }
@@ -171,7 +171,7 @@ class GetCrossRegionalClientAssociationsRequest extends BaseModel
      *
      * @return string
      */
-    public function getEmail(): string
+    public function getEmail()
     {
         return $this->container['Email'];
     }
@@ -195,7 +195,7 @@ class GetCrossRegionalClientAssociationsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit()
     {
         return $this->container['Limit'];
     }
@@ -219,7 +219,7 @@ class GetCrossRegionalClientAssociationsRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset()
     {
         return $this->container['Offset'];
     }

@@ -165,7 +165,7 @@ class ContractItem extends BaseModel
      *
      * @return string
      */
-    public function getId(): string
+    public function getId()
     {
         return $this->container['Id'];
     }
@@ -189,7 +189,7 @@ class ContractItem extends BaseModel
      *
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->container['Name'];
     }
@@ -213,7 +213,7 @@ class ContractItem extends BaseModel
      *
      * @return string
      */
-    public function getDescription(): string
+    public function getDescription()
     {
         return $this->container['Description'];
     }
@@ -237,7 +237,7 @@ class ContractItem extends BaseModel
      *
      * @return string
      */
-    public function getType(): string
+    public function getType()
     {
         return $this->container['Type'];
     }
@@ -261,7 +261,7 @@ class ContractItem extends BaseModel
      *
      * @return double
      */
-    public function getPrice(): double
+    public function getPrice()
     {
         return $this->container['Price'];
     }
@@ -285,7 +285,7 @@ class ContractItem extends BaseModel
      *
      * @return int
      */
-    public function getQuantity(): int
+    public function getQuantity()
     {
         return $this->container['Quantity'];
     }
@@ -309,7 +309,7 @@ class ContractItem extends BaseModel
      *
      * @return bool
      */
-    public function getOneTimeItem(): bool
+    public function getOneTimeItem()
     {
         return $this->container['OneTimeItem'];
     }

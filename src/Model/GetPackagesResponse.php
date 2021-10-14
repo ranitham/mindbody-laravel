@@ -135,7 +135,7 @@ class GetPackagesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Package[]
      */
-    public function getPackages(): \Nlocascio\Mindbody\Model\Package[]
+    public function getPackages()
     {
         return $this->container['Packages'];
     }
@@ -159,7 +159,7 @@ class GetPackagesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
+    public function getPaginationResponse()
     {
         return $this->container['PaginationResponse'];
     }

@@ -129,7 +129,7 @@ class UpdateAppointmentResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Appointment
      */
-    public function getAppointment(): \Nlocascio\Mindbody\Model\Appointment
+    public function getAppointment()
     {
         return $this->container['Appointment'];
     }

@@ -173,7 +173,7 @@ class UpdateClientRewardsRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId()
     {
         return $this->container['ClientId'];
     }
@@ -197,7 +197,7 @@ class UpdateClientRewardsRequest extends BaseModel
      *
      * @return int
      */
-    public function getPoints(): int
+    public function getPoints()
     {
         return $this->container['Points'];
     }
@@ -226,7 +226,7 @@ class UpdateClientRewardsRequest extends BaseModel
      *
      * @return string
      */
-    public function getSource(): string
+    public function getSource()
     {
         return $this->container['Source'];
     }
@@ -250,7 +250,7 @@ class UpdateClientRewardsRequest extends BaseModel
      *
      * @return int
      */
-    public function getSourceId(): int
+    public function getSourceId()
     {
         return $this->container['SourceId'];
     }
@@ -274,7 +274,7 @@ class UpdateClientRewardsRequest extends BaseModel
      *
      * @return string
      */
-    public function getAction(): string
+    public function getAction()
     {
         return $this->container['Action'];
     }
@@ -298,7 +298,7 @@ class UpdateClientRewardsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getActionDateTime(): \DateTime
+    public function getActionDateTime()
     {
         return $this->container['ActionDateTime'];
     }

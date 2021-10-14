@@ -482,7 +482,7 @@ class AddClientRequest extends BaseModel
      *
      * @return double
      */
-    public function getAccountBalance(): double
+    public function getAccountBalance()
     {
         return $this->container['AccountBalance'];
     }
@@ -506,7 +506,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getAction(): string
+    public function getAction()
     {
         return $this->container['Action'];
     }
@@ -539,7 +539,7 @@ class AddClientRequest extends BaseModel
      *
      * @return bool
      */
-    public function getActive(): bool
+    public function getActive()
     {
         return $this->container['Active'];
     }
@@ -563,7 +563,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getAddressLine1(): string
+    public function getAddressLine1()
     {
         return $this->container['AddressLine1'];
     }
@@ -587,7 +587,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getAddressLine2(): string
+    public function getAddressLine2()
     {
         return $this->container['AddressLine2'];
     }
@@ -611,7 +611,7 @@ class AddClientRequest extends BaseModel
      *
      * @return bool
      */
-    public function getApptGenderPrefMale(): bool
+    public function getApptGenderPrefMale()
     {
         return $this->container['ApptGenderPrefMale'];
     }
@@ -635,7 +635,7 @@ class AddClientRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getBirthDate(): \DateTime
+    public function getBirthDate()
     {
         return $this->container['BirthDate'];
     }
@@ -659,7 +659,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getCity(): string
+    public function getCity()
     {
         return $this->container['City'];
     }
@@ -683,7 +683,7 @@ class AddClientRequest extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClientCreditCard
      */
-    public function getClientCreditCard(): \Nlocascio\Mindbody\Model\ClientCreditCard
+    public function getClientCreditCard()
     {
         return $this->container['ClientCreditCard'];
     }
@@ -707,7 +707,7 @@ class AddClientRequest extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\AssignedClientIndex[]
      */
-    public function getClientIndexes(): \Nlocascio\Mindbody\Model\AssignedClientIndex[]
+    public function getClientIndexes()
     {
         return $this->container['ClientIndexes'];
     }
@@ -731,7 +731,7 @@ class AddClientRequest extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClientRelationship[]
      */
-    public function getClientRelationships(): \Nlocascio\Mindbody\Model\ClientRelationship[]
+    public function getClientRelationships()
     {
         return $this->container['ClientRelationships'];
     }
@@ -755,7 +755,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getCountry(): string
+    public function getCountry()
     {
         return $this->container['Country'];
     }
@@ -779,7 +779,7 @@ class AddClientRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getCreationDate(): \DateTime
+    public function getCreationDate()
     {
         return $this->container['CreationDate'];
     }
@@ -803,7 +803,7 @@ class AddClientRequest extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\CustomClientFieldValue[]
      */
-    public function getCustomClientFields(): \Nlocascio\Mindbody\Model\CustomClientFieldValue[]
+    public function getCustomClientFields()
     {
         return $this->container['CustomClientFields'];
     }
@@ -827,7 +827,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getEmail(): string
+    public function getEmail()
     {
         return $this->container['Email'];
     }
@@ -851,7 +851,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getEmergencyContactInfoEmail(): string
+    public function getEmergencyContactInfoEmail()
     {
         return $this->container['EmergencyContactInfoEmail'];
     }
@@ -875,7 +875,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getEmergencyContactInfoName(): string
+    public function getEmergencyContactInfoName()
     {
         return $this->container['EmergencyContactInfoName'];
     }
@@ -899,7 +899,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getEmergencyContactInfoPhone(): string
+    public function getEmergencyContactInfoPhone()
     {
         return $this->container['EmergencyContactInfoPhone'];
     }
@@ -923,7 +923,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getEmergencyContactInfoRelationship(): string
+    public function getEmergencyContactInfoRelationship()
     {
         return $this->container['EmergencyContactInfoRelationship'];
     }
@@ -947,7 +947,7 @@ class AddClientRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getFirstAppointmentDate(): \DateTime
+    public function getFirstAppointmentDate()
     {
         return $this->container['FirstAppointmentDate'];
     }
@@ -971,7 +971,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getFirstName(): string
+    public function getFirstName()
     {
         return $this->container['FirstName'];
     }
@@ -995,7 +995,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getGender(): string
+    public function getGender()
     {
         return $this->container['Gender'];
     }
@@ -1019,7 +1019,7 @@ class AddClientRequest extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Location
      */
-    public function getHomeLocation(): \Nlocascio\Mindbody\Model\Location
+    public function getHomeLocation()
     {
         return $this->container['HomeLocation'];
     }
@@ -1043,7 +1043,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getHomePhone(): string
+    public function getHomePhone()
     {
         return $this->container['HomePhone'];
     }
@@ -1067,7 +1067,7 @@ class AddClientRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIsCompany(): bool
+    public function getIsCompany()
     {
         return $this->container['IsCompany'];
     }
@@ -1091,7 +1091,7 @@ class AddClientRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIsProspect(): bool
+    public function getIsProspect()
     {
         return $this->container['IsProspect'];
     }
@@ -1115,7 +1115,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getLastFormulaNotes(): string
+    public function getLastFormulaNotes()
     {
         return $this->container['LastFormulaNotes'];
     }
@@ -1139,7 +1139,7 @@ class AddClientRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getLastModifiedDateTime(): \DateTime
+    public function getLastModifiedDateTime()
     {
         return $this->container['LastModifiedDateTime'];
     }
@@ -1163,7 +1163,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getLastName(): string
+    public function getLastName()
     {
         return $this->container['LastName'];
     }
@@ -1187,7 +1187,7 @@ class AddClientRequest extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Liability
      */
-    public function getLiability(): \Nlocascio\Mindbody\Model\Liability
+    public function getLiability()
     {
         return $this->container['Liability'];
     }
@@ -1211,7 +1211,7 @@ class AddClientRequest extends BaseModel
      *
      * @return bool
      */
-    public function getLiabilityRelease(): bool
+    public function getLiabilityRelease()
     {
         return $this->container['LiabilityRelease'];
     }
@@ -1235,7 +1235,7 @@ class AddClientRequest extends BaseModel
      *
      * @return int
      */
-    public function getMembershipIcon(): int
+    public function getMembershipIcon()
     {
         return $this->container['MembershipIcon'];
     }
@@ -1259,7 +1259,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getMiddleName(): string
+    public function getMiddleName()
     {
         return $this->container['MiddleName'];
     }
@@ -1283,7 +1283,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getMobilePhone(): string
+    public function getMobilePhone()
     {
         return $this->container['MobilePhone'];
     }
@@ -1307,7 +1307,7 @@ class AddClientRequest extends BaseModel
      *
      * @return int
      */
-    public function getMobileProvider(): int
+    public function getMobileProvider()
     {
         return $this->container['MobileProvider'];
     }
@@ -1331,7 +1331,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getNewId(): string
+    public function getNewId()
     {
         return $this->container['NewId'];
     }
@@ -1355,7 +1355,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getNotes(): string
+    public function getNotes()
     {
         return $this->container['Notes'];
     }
@@ -1379,7 +1379,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getPhotoUrl(): string
+    public function getPhotoUrl()
     {
         return $this->container['PhotoUrl'];
     }
@@ -1403,7 +1403,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getPostalCode(): string
+    public function getPostalCode()
     {
         return $this->container['PostalCode'];
     }
@@ -1427,7 +1427,7 @@ class AddClientRequest extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ProspectStage
      */
-    public function getProspectStage(): \Nlocascio\Mindbody\Model\ProspectStage
+    public function getProspectStage()
     {
         return $this->container['ProspectStage'];
     }
@@ -1451,7 +1451,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getRedAlert(): string
+    public function getRedAlert()
     {
         return $this->container['RedAlert'];
     }
@@ -1475,7 +1475,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getReferredBy(): string
+    public function getReferredBy()
     {
         return $this->container['ReferredBy'];
     }
@@ -1499,7 +1499,7 @@ class AddClientRequest extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\SalesRep[]
      */
-    public function getSalesReps(): \Nlocascio\Mindbody\Model\SalesRep[]
+    public function getSalesReps()
     {
         return $this->container['SalesReps'];
     }
@@ -1523,7 +1523,7 @@ class AddClientRequest extends BaseModel
      *
      * @return int
      */
-    public function getSiteId(): int
+    public function getSiteId()
     {
         return $this->container['SiteId'];
     }
@@ -1547,7 +1547,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getState(): string
+    public function getState()
     {
         return $this->container['State'];
     }
@@ -1571,7 +1571,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getStatus(): string
+    public function getStatus()
     {
         return $this->container['Status'];
     }
@@ -1595,7 +1595,7 @@ class AddClientRequest extends BaseModel
      *
      * @return bool
      */
-    public function getTest(): bool
+    public function getTest()
     {
         return $this->container['Test'];
     }
@@ -1619,7 +1619,7 @@ class AddClientRequest extends BaseModel
      *
      * @return int
      */
-    public function getUniqueId(): int
+    public function getUniqueId()
     {
         return $this->container['UniqueId'];
     }
@@ -1643,7 +1643,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getWorkExtension(): string
+    public function getWorkExtension()
     {
         return $this->container['WorkExtension'];
     }
@@ -1667,7 +1667,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getWorkPhone(): string
+    public function getWorkPhone()
     {
         return $this->container['WorkPhone'];
     }
@@ -1691,7 +1691,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getYellowAlert(): string
+    public function getYellowAlert()
     {
         return $this->container['YellowAlert'];
     }
@@ -1715,7 +1715,7 @@ class AddClientRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSendScheduleEmails(): bool
+    public function getSendScheduleEmails()
     {
         return $this->container['SendScheduleEmails'];
     }
@@ -1739,7 +1739,7 @@ class AddClientRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSendAccountEmails(): bool
+    public function getSendAccountEmails()
     {
         return $this->container['SendAccountEmails'];
     }
@@ -1763,7 +1763,7 @@ class AddClientRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSendPromotionalEmails(): bool
+    public function getSendPromotionalEmails()
     {
         return $this->container['SendPromotionalEmails'];
     }

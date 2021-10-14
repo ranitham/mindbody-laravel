@@ -273,7 +273,7 @@ class Location extends BaseModel
      *
      * @return string[]
      */
-    public function getAdditionalImageURLs(): string[]
+    public function getAdditionalImageURLs()
     {
         return $this->container['AdditionalImageURLs'];
     }
@@ -297,7 +297,7 @@ class Location extends BaseModel
      *
      * @return string
      */
-    public function getAddress(): string
+    public function getAddress()
     {
         return $this->container['Address'];
     }
@@ -321,7 +321,7 @@ class Location extends BaseModel
      *
      * @return string
      */
-    public function getAddress2(): string
+    public function getAddress2()
     {
         return $this->container['Address2'];
     }
@@ -345,7 +345,7 @@ class Location extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Amenity[]
      */
-    public function getAmenities(): \Nlocascio\Mindbody\Model\Amenity[]
+    public function getAmenities()
     {
         return $this->container['Amenities'];
     }
@@ -369,7 +369,7 @@ class Location extends BaseModel
      *
      * @return string
      */
-    public function getBusinessDescription(): string
+    public function getBusinessDescription()
     {
         return $this->container['BusinessDescription'];
     }
@@ -393,7 +393,7 @@ class Location extends BaseModel
      *
      * @return string
      */
-    public function getCity(): string
+    public function getCity()
     {
         return $this->container['City'];
     }
@@ -417,7 +417,7 @@ class Location extends BaseModel
      *
      * @return string
      */
-    public function getDescription(): string
+    public function getDescription()
     {
         return $this->container['Description'];
     }
@@ -441,7 +441,7 @@ class Location extends BaseModel
      *
      * @return bool
      */
-    public function getHasClasses(): bool
+    public function getHasClasses()
     {
         return $this->container['HasClasses'];
     }
@@ -465,7 +465,7 @@ class Location extends BaseModel
      *
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->container['Id'];
     }
@@ -489,7 +489,7 @@ class Location extends BaseModel
      *
      * @return double
      */
-    public function getLatitude(): double
+    public function getLatitude()
     {
         return $this->container['Latitude'];
     }
@@ -513,7 +513,7 @@ class Location extends BaseModel
      *
      * @return double
      */
-    public function getLongitude(): double
+    public function getLongitude()
     {
         return $this->container['Longitude'];
     }
@@ -537,7 +537,7 @@ class Location extends BaseModel
      *
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->container['Name'];
     }
@@ -561,7 +561,7 @@ class Location extends BaseModel
      *
      * @return string
      */
-    public function getPhone(): string
+    public function getPhone()
     {
         return $this->container['Phone'];
     }
@@ -585,7 +585,7 @@ class Location extends BaseModel
      *
      * @return string
      */
-    public function getPhoneExtension(): string
+    public function getPhoneExtension()
     {
         return $this->container['PhoneExtension'];
     }
@@ -609,7 +609,7 @@ class Location extends BaseModel
      *
      * @return string
      */
-    public function getPostalCode(): string
+    public function getPostalCode()
     {
         return $this->container['PostalCode'];
     }
@@ -633,7 +633,7 @@ class Location extends BaseModel
      *
      * @return int
      */
-    public function getSiteID(): int
+    public function getSiteID()
     {
         return $this->container['SiteID'];
     }
@@ -657,7 +657,7 @@ class Location extends BaseModel
      *
      * @return string
      */
-    public function getStateProvCode(): string
+    public function getStateProvCode()
     {
         return $this->container['StateProvCode'];
     }
@@ -681,7 +681,7 @@ class Location extends BaseModel
      *
      * @return float
      */
-    public function getTax1(): float
+    public function getTax1()
     {
         return $this->container['Tax1'];
     }
@@ -705,7 +705,7 @@ class Location extends BaseModel
      *
      * @return float
      */
-    public function getTax2(): float
+    public function getTax2()
     {
         return $this->container['Tax2'];
     }
@@ -729,7 +729,7 @@ class Location extends BaseModel
      *
      * @return float
      */
-    public function getTax3(): float
+    public function getTax3()
     {
         return $this->container['Tax3'];
     }
@@ -753,7 +753,7 @@ class Location extends BaseModel
      *
      * @return float
      */
-    public function getTax4(): float
+    public function getTax4()
     {
         return $this->container['Tax4'];
     }
@@ -777,7 +777,7 @@ class Location extends BaseModel
      *
      * @return float
      */
-    public function getTax5(): float
+    public function getTax5()
     {
         return $this->container['Tax5'];
     }
@@ -801,7 +801,7 @@ class Location extends BaseModel
      *
      * @return int
      */
-    public function getTotalNumberOfRatings(): int
+    public function getTotalNumberOfRatings()
     {
         return $this->container['TotalNumberOfRatings'];
     }
@@ -825,7 +825,7 @@ class Location extends BaseModel
      *
      * @return double
      */
-    public function getAverageRating(): double
+    public function getAverageRating()
     {
         return $this->container['AverageRating'];
     }
@@ -849,7 +849,7 @@ class Location extends BaseModel
      *
      * @return int
      */
-    public function getTotalNumberOfDeals(): int
+    public function getTotalNumberOfDeals()
     {
         return $this->container['TotalNumberOfDeals'];
     }

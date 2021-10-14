@@ -189,7 +189,7 @@ class AddContactLogRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId()
     {
         return $this->container['ClientId'];
     }
@@ -213,7 +213,7 @@ class AddContactLogRequest extends BaseModel
      *
      * @return int
      */
-    public function getAssignedToStaffId(): int
+    public function getAssignedToStaffId()
     {
         return $this->container['AssignedToStaffId'];
     }
@@ -237,7 +237,7 @@ class AddContactLogRequest extends BaseModel
      *
      * @return string
      */
-    public function getText(): string
+    public function getText()
     {
         return $this->container['Text'];
     }
@@ -261,7 +261,7 @@ class AddContactLogRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getFollowupByDate(): \DateTime
+    public function getFollowupByDate()
     {
         return $this->container['FollowupByDate'];
     }
@@ -285,7 +285,7 @@ class AddContactLogRequest extends BaseModel
      *
      * @return string
      */
-    public function getContactMethod(): string
+    public function getContactMethod()
     {
         return $this->container['ContactMethod'];
     }
@@ -309,7 +309,7 @@ class AddContactLogRequest extends BaseModel
      *
      * @return string
      */
-    public function getContactName(): string
+    public function getContactName()
     {
         return $this->container['ContactName'];
     }
@@ -333,7 +333,7 @@ class AddContactLogRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIsComplete(): bool
+    public function getIsComplete()
     {
         return $this->container['IsComplete'];
     }
@@ -357,7 +357,7 @@ class AddContactLogRequest extends BaseModel
      *
      * @return string[]
      */
-    public function getComments(): string[]
+    public function getComments()
     {
         return $this->container['Comments'];
     }
@@ -381,7 +381,7 @@ class AddContactLogRequest extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\AddContactLogType[]
      */
-    public function getTypes(): \Nlocascio\Mindbody\Model\AddContactLogType[]
+    public function getTypes()
     {
         return $this->container['Types'];
     }
@@ -405,7 +405,7 @@ class AddContactLogRequest extends BaseModel
      *
      * @return bool
      */
-    public function getTest(): bool
+    public function getTest()
     {
         return $this->container['Test'];
     }

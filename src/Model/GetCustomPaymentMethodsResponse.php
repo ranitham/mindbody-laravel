@@ -135,7 +135,7 @@ class GetCustomPaymentMethodsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
+    public function getPaginationResponse()
     {
         return $this->container['PaginationResponse'];
     }
@@ -159,7 +159,7 @@ class GetCustomPaymentMethodsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\CustomPaymentMethod[]
      */
-    public function getPaymentMethods(): \Nlocascio\Mindbody\Model\CustomPaymentMethod[]
+    public function getPaymentMethods()
     {
         return $this->container['PaymentMethods'];
     }

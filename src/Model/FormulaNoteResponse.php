@@ -184,7 +184,7 @@ class FormulaNoteResponse extends BaseModel
      *
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->container['Id'];
     }
@@ -208,7 +208,7 @@ class FormulaNoteResponse extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId()
     {
         return $this->container['ClientId'];
     }
@@ -232,7 +232,7 @@ class FormulaNoteResponse extends BaseModel
      *
      * @return int
      */
-    public function getAppointmentId(): int
+    public function getAppointmentId()
     {
         return $this->container['AppointmentId'];
     }
@@ -256,7 +256,7 @@ class FormulaNoteResponse extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEntryDate(): \DateTime
+    public function getEntryDate()
     {
         return $this->container['EntryDate'];
     }
@@ -280,7 +280,7 @@ class FormulaNoteResponse extends BaseModel
      *
      * @return string
      */
-    public function getNote(): string
+    public function getNote()
     {
         return $this->container['Note'];
     }
@@ -304,7 +304,7 @@ class FormulaNoteResponse extends BaseModel
      *
      * @return int
      */
-    public function getSiteId(): int
+    public function getSiteId()
     {
         return $this->container['SiteId'];
     }
@@ -328,7 +328,7 @@ class FormulaNoteResponse extends BaseModel
      *
      * @return string
      */
-    public function getSiteName(): string
+    public function getSiteName()
     {
         return $this->container['SiteName'];
     }
@@ -352,7 +352,7 @@ class FormulaNoteResponse extends BaseModel
      *
      * @return string
      */
-    public function getStaffFirstName(): string
+    public function getStaffFirstName()
     {
         return $this->container['StaffFirstName'];
     }
@@ -376,7 +376,7 @@ class FormulaNoteResponse extends BaseModel
      *
      * @return string
      */
-    public function getStaffLastName(): string
+    public function getStaffLastName()
     {
         return $this->container['StaffLastName'];
     }
@@ -400,7 +400,7 @@ class FormulaNoteResponse extends BaseModel
      *
      * @return string
      */
-    public function getStaffDisplayName(): string
+    public function getStaffDisplayName()
     {
         return $this->container['StaffDisplayName'];
     }

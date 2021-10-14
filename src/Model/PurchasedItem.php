@@ -267,7 +267,7 @@ class PurchasedItem extends BaseModel
      *
      * @return int
      */
-    public function getSaleDetailId(): int
+    public function getSaleDetailId()
     {
         return $this->container['SaleDetailId'];
     }
@@ -291,7 +291,7 @@ class PurchasedItem extends BaseModel
      *
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->container['Id'];
     }
@@ -315,7 +315,7 @@ class PurchasedItem extends BaseModel
      *
      * @return bool
      */
-    public function getIsService(): bool
+    public function getIsService()
     {
         return $this->container['IsService'];
     }
@@ -339,7 +339,7 @@ class PurchasedItem extends BaseModel
      *
      * @return string
      */
-    public function getBarcodeId(): string
+    public function getBarcodeId()
     {
         return $this->container['BarcodeId'];
     }
@@ -363,7 +363,7 @@ class PurchasedItem extends BaseModel
      *
      * @return string
      */
-    public function getDescription(): string
+    public function getDescription()
     {
         return $this->container['Description'];
     }
@@ -387,7 +387,7 @@ class PurchasedItem extends BaseModel
      *
      * @return int
      */
-    public function getContractId(): int
+    public function getContractId()
     {
         return $this->container['ContractId'];
     }
@@ -411,7 +411,7 @@ class PurchasedItem extends BaseModel
      *
      * @return int
      */
-    public function getCategoryId(): int
+    public function getCategoryId()
     {
         return $this->container['CategoryId'];
     }
@@ -435,7 +435,7 @@ class PurchasedItem extends BaseModel
      *
      * @return int
      */
-    public function getSubCategoryId(): int
+    public function getSubCategoryId()
     {
         return $this->container['SubCategoryId'];
     }
@@ -459,7 +459,7 @@ class PurchasedItem extends BaseModel
      *
      * @return double
      */
-    public function getUnitPrice(): double
+    public function getUnitPrice()
     {
         return $this->container['UnitPrice'];
     }
@@ -483,7 +483,7 @@ class PurchasedItem extends BaseModel
      *
      * @return int
      */
-    public function getQuantity(): int
+    public function getQuantity()
     {
         return $this->container['Quantity'];
     }
@@ -507,7 +507,7 @@ class PurchasedItem extends BaseModel
      *
      * @return double
      */
-    public function getDiscountPercent(): double
+    public function getDiscountPercent()
     {
         return $this->container['DiscountPercent'];
     }
@@ -531,7 +531,7 @@ class PurchasedItem extends BaseModel
      *
      * @return double
      */
-    public function getDiscountAmount(): double
+    public function getDiscountAmount()
     {
         return $this->container['DiscountAmount'];
     }
@@ -555,7 +555,7 @@ class PurchasedItem extends BaseModel
      *
      * @return double
      */
-    public function getTax1(): double
+    public function getTax1()
     {
         return $this->container['Tax1'];
     }
@@ -579,7 +579,7 @@ class PurchasedItem extends BaseModel
      *
      * @return double
      */
-    public function getTax2(): double
+    public function getTax2()
     {
         return $this->container['Tax2'];
     }
@@ -603,7 +603,7 @@ class PurchasedItem extends BaseModel
      *
      * @return double
      */
-    public function getTax3(): double
+    public function getTax3()
     {
         return $this->container['Tax3'];
     }
@@ -627,7 +627,7 @@ class PurchasedItem extends BaseModel
      *
      * @return double
      */
-    public function getTax4(): double
+    public function getTax4()
     {
         return $this->container['Tax4'];
     }
@@ -651,7 +651,7 @@ class PurchasedItem extends BaseModel
      *
      * @return double
      */
-    public function getTax5(): double
+    public function getTax5()
     {
         return $this->container['Tax5'];
     }
@@ -675,7 +675,7 @@ class PurchasedItem extends BaseModel
      *
      * @return double
      */
-    public function getTaxAmount(): double
+    public function getTaxAmount()
     {
         return $this->container['TaxAmount'];
     }
@@ -699,7 +699,7 @@ class PurchasedItem extends BaseModel
      *
      * @return double
      */
-    public function getTotalAmount(): double
+    public function getTotalAmount()
     {
         return $this->container['TotalAmount'];
     }
@@ -723,7 +723,7 @@ class PurchasedItem extends BaseModel
      *
      * @return string
      */
-    public function getNotes(): string
+    public function getNotes()
     {
         return $this->container['Notes'];
     }
@@ -747,7 +747,7 @@ class PurchasedItem extends BaseModel
      *
      * @return bool
      */
-    public function getReturned(): bool
+    public function getReturned()
     {
         return $this->container['Returned'];
     }
@@ -771,7 +771,7 @@ class PurchasedItem extends BaseModel
      *
      * @return int
      */
-    public function getPaymentRefId(): int
+    public function getPaymentRefId()
     {
         return $this->container['PaymentRefId'];
     }
@@ -795,7 +795,7 @@ class PurchasedItem extends BaseModel
      *
      * @return \DateTime
      */
-    public function getExpDate(): \DateTime
+    public function getExpDate()
     {
         return $this->container['ExpDate'];
     }
@@ -819,7 +819,7 @@ class PurchasedItem extends BaseModel
      *
      * @return \DateTime
      */
-    public function getActiveDate(): \DateTime
+    public function getActiveDate()
     {
         return $this->container['ActiveDate'];
     }

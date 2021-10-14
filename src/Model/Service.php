@@ -267,7 +267,7 @@ class Service extends BaseModel
      *
      * @return double
      */
-    public function getPrice(): double
+    public function getPrice()
     {
         return $this->container['Price'];
     }
@@ -291,7 +291,7 @@ class Service extends BaseModel
      *
      * @return double
      */
-    public function getOnlinePrice(): double
+    public function getOnlinePrice()
     {
         return $this->container['OnlinePrice'];
     }
@@ -315,7 +315,7 @@ class Service extends BaseModel
      *
      * @return double
      */
-    public function getTaxIncluded(): double
+    public function getTaxIncluded()
     {
         return $this->container['TaxIncluded'];
     }
@@ -339,7 +339,7 @@ class Service extends BaseModel
      *
      * @return int
      */
-    public function getProgramId(): int
+    public function getProgramId()
     {
         return $this->container['ProgramId'];
     }
@@ -363,7 +363,7 @@ class Service extends BaseModel
      *
      * @return double
      */
-    public function getTaxRate(): double
+    public function getTaxRate()
     {
         return $this->container['TaxRate'];
     }
@@ -387,7 +387,7 @@ class Service extends BaseModel
      *
      * @return int
      */
-    public function getProductId(): int
+    public function getProductId()
     {
         return $this->container['ProductId'];
     }
@@ -411,7 +411,7 @@ class Service extends BaseModel
      *
      * @return string
      */
-    public function getId(): string
+    public function getId()
     {
         return $this->container['Id'];
     }
@@ -435,7 +435,7 @@ class Service extends BaseModel
      *
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->container['Name'];
     }
@@ -459,7 +459,7 @@ class Service extends BaseModel
      *
      * @return int
      */
-    public function getCount(): int
+    public function getCount()
     {
         return $this->container['Count'];
     }
@@ -483,7 +483,7 @@ class Service extends BaseModel
      *
      * @return bool
      */
-    public function getSellOnline(): bool
+    public function getSellOnline()
     {
         return $this->container['SellOnline'];
     }
@@ -507,7 +507,7 @@ class Service extends BaseModel
      *
      * @return string
      */
-    public function getType(): string
+    public function getType()
     {
         return $this->container['Type'];
     }
@@ -531,7 +531,7 @@ class Service extends BaseModel
      *
      * @return string
      */
-    public function getExpirationType(): string
+    public function getExpirationType()
     {
         return $this->container['ExpirationType'];
     }
@@ -555,7 +555,7 @@ class Service extends BaseModel
      *
      * @return string
      */
-    public function getExpirationUnit(): string
+    public function getExpirationUnit()
     {
         return $this->container['ExpirationUnit'];
     }
@@ -579,7 +579,7 @@ class Service extends BaseModel
      *
      * @return int
      */
-    public function getExpirationLength(): int
+    public function getExpirationLength()
     {
         return $this->container['ExpirationLength'];
     }
@@ -603,7 +603,7 @@ class Service extends BaseModel
      *
      * @return string
      */
-    public function getRevenueCategory(): string
+    public function getRevenueCategory()
     {
         return $this->container['RevenueCategory'];
     }
@@ -627,7 +627,7 @@ class Service extends BaseModel
      *
      * @return int
      */
-    public function getMembershipId(): int
+    public function getMembershipId()
     {
         return $this->container['MembershipId'];
     }
@@ -651,7 +651,7 @@ class Service extends BaseModel
      *
      * @return int[]
      */
-    public function getSellAtLocationIds(): int[]
+    public function getSellAtLocationIds()
     {
         return $this->container['SellAtLocationIds'];
     }
@@ -675,7 +675,7 @@ class Service extends BaseModel
      *
      * @return int[]
      */
-    public function getUseAtLocationIds(): int[]
+    public function getUseAtLocationIds()
     {
         return $this->container['UseAtLocationIds'];
     }
@@ -699,7 +699,7 @@ class Service extends BaseModel
      *
      * @return string
      */
-    public function getPriority(): string
+    public function getPriority()
     {
         return $this->container['Priority'];
     }
@@ -723,7 +723,7 @@ class Service extends BaseModel
      *
      * @return bool
      */
-    public function getIsIntroOffer(): bool
+    public function getIsIntroOffer()
     {
         return $this->container['IsIntroOffer'];
     }
@@ -747,7 +747,7 @@ class Service extends BaseModel
      *
      * @return string
      */
-    public function getIntroOfferType(): string
+    public function getIntroOfferType()
     {
         return $this->container['IntroOfferType'];
     }
@@ -771,7 +771,7 @@ class Service extends BaseModel
      *
      * @return bool
      */
-    public function getIsThirdPartyDiscountPricing(): bool
+    public function getIsThirdPartyDiscountPricing()
     {
         return $this->container['IsThirdPartyDiscountPricing'];
     }
@@ -795,7 +795,7 @@ class Service extends BaseModel
      *
      * @return string
      */
-    public function getProgram(): string
+    public function getProgram()
     {
         return $this->container['Program'];
     }
@@ -819,7 +819,7 @@ class Service extends BaseModel
      *
      * @return bool
      */
-    public function getDiscontinued(): bool
+    public function getDiscontinued()
     {
         return $this->container['Discontinued'];
     }

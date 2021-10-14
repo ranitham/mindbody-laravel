@@ -147,7 +147,7 @@ class DeleteContactLogRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId()
     {
         return $this->container['ClientId'];
     }
@@ -171,7 +171,7 @@ class DeleteContactLogRequest extends BaseModel
      *
      * @return int
      */
-    public function getContactLogId(): int
+    public function getContactLogId()
     {
         return $this->container['ContactLogId'];
     }
@@ -195,7 +195,7 @@ class DeleteContactLogRequest extends BaseModel
      *
      * @return bool
      */
-    public function getTest(): bool
+    public function getTest()
     {
         return $this->container['Test'];
     }

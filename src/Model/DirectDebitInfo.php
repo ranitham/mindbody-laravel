@@ -147,7 +147,7 @@ class DirectDebitInfo extends BaseModel
      *
      * @return string
      */
-    public function getNameOnAccount(): string
+    public function getNameOnAccount()
     {
         return $this->container['NameOnAccount'];
     }
@@ -171,7 +171,7 @@ class DirectDebitInfo extends BaseModel
      *
      * @return string
      */
-    public function getRoutingNumber(): string
+    public function getRoutingNumber()
     {
         return $this->container['RoutingNumber'];
     }
@@ -195,7 +195,7 @@ class DirectDebitInfo extends BaseModel
      *
      * @return string
      */
-    public function getAccountNumber(): string
+    public function getAccountNumber()
     {
         return $this->container['AccountNumber'];
     }
@@ -219,7 +219,7 @@ class DirectDebitInfo extends BaseModel
      *
      * @return string
      */
-    public function getAccountType(): string
+    public function getAccountType()
     {
         return $this->container['AccountType'];
     }

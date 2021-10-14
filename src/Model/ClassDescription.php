@@ -214,7 +214,7 @@ class ClassDescription extends BaseModel
      *
      * @return bool
      */
-    public function getActive(): bool
+    public function getActive()
     {
         return $this->container['Active'];
     }
@@ -238,7 +238,7 @@ class ClassDescription extends BaseModel
      *
      * @return string
      */
-    public function getDescription(): string
+    public function getDescription()
     {
         return $this->container['Description'];
     }
@@ -262,7 +262,7 @@ class ClassDescription extends BaseModel
      *
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->container['Id'];
     }
@@ -286,7 +286,7 @@ class ClassDescription extends BaseModel
      *
      * @return string
      */
-    public function getImageURL(): string
+    public function getImageURL()
     {
         return $this->container['ImageURL'];
     }
@@ -310,7 +310,7 @@ class ClassDescription extends BaseModel
      *
      * @return \DateTime
      */
-    public function getLastUpdated(): \DateTime
+    public function getLastUpdated()
     {
         return $this->container['LastUpdated'];
     }
@@ -334,7 +334,7 @@ class ClassDescription extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Level
      */
-    public function getLevel(): \Nlocascio\Mindbody\Model\Level
+    public function getLevel()
     {
         return $this->container['Level'];
     }
@@ -358,7 +358,7 @@ class ClassDescription extends BaseModel
      *
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->container['Name'];
     }
@@ -382,7 +382,7 @@ class ClassDescription extends BaseModel
      *
      * @return string
      */
-    public function getNotes(): string
+    public function getNotes()
     {
         return $this->container['Notes'];
     }
@@ -406,7 +406,7 @@ class ClassDescription extends BaseModel
      *
      * @return string
      */
-    public function getPrereq(): string
+    public function getPrereq()
     {
         return $this->container['Prereq'];
     }
@@ -430,7 +430,7 @@ class ClassDescription extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Program
      */
-    public function getProgram(): \Nlocascio\Mindbody\Model\Program
+    public function getProgram()
     {
         return $this->container['Program'];
     }
@@ -454,7 +454,7 @@ class ClassDescription extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\SessionType
      */
-    public function getSessionType(): \Nlocascio\Mindbody\Model\SessionType
+    public function getSessionType()
     {
         return $this->container['SessionType'];
     }
@@ -478,7 +478,7 @@ class ClassDescription extends BaseModel
      *
      * @return string
      */
-    public function getCategory(): string
+    public function getCategory()
     {
         return $this->container['Category'];
     }
@@ -502,7 +502,7 @@ class ClassDescription extends BaseModel
      *
      * @return int
      */
-    public function getCategoryId(): int
+    public function getCategoryId()
     {
         return $this->container['CategoryId'];
     }
@@ -526,7 +526,7 @@ class ClassDescription extends BaseModel
      *
      * @return string
      */
-    public function getSubcategory(): string
+    public function getSubcategory()
     {
         return $this->container['Subcategory'];
     }
@@ -550,7 +550,7 @@ class ClassDescription extends BaseModel
      *
      * @return int
      */
-    public function getSubcategoryId(): int
+    public function getSubcategoryId()
     {
         return $this->container['SubcategoryId'];
     }

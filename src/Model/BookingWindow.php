@@ -148,7 +148,7 @@ class BookingWindow extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDateTime(): \DateTime
+    public function getStartDateTime()
     {
         return $this->container['StartDateTime'];
     }
@@ -172,7 +172,7 @@ class BookingWindow extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDateTime(): \DateTime
+    public function getEndDateTime()
     {
         return $this->container['EndDateTime'];
     }
@@ -196,7 +196,7 @@ class BookingWindow extends BaseModel
      *
      * @return \DateTime
      */
-    public function getDailyStartTime(): \DateTime
+    public function getDailyStartTime()
     {
         return $this->container['DailyStartTime'];
     }
@@ -220,7 +220,7 @@ class BookingWindow extends BaseModel
      *
      * @return \DateTime
      */
-    public function getDailyEndTime(): \DateTime
+    public function getDailyEndTime()
     {
         return $this->container['DailyEndTime'];
     }

@@ -136,7 +136,7 @@ class GiftCardLayout extends BaseModel
      *
      * @return int
      */
-    public function getLayoutId(): int
+    public function getLayoutId()
     {
         return $this->container['LayoutId'];
     }
@@ -160,7 +160,7 @@ class GiftCardLayout extends BaseModel
      *
      * @return string
      */
-    public function getLayoutName(): string
+    public function getLayoutName()
     {
         return $this->container['LayoutName'];
     }

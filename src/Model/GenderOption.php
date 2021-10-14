@@ -148,7 +148,7 @@ class GenderOption extends BaseModel
      *
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->container['Id'];
     }
@@ -172,7 +172,7 @@ class GenderOption extends BaseModel
      *
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->container['Name'];
     }
@@ -196,7 +196,7 @@ class GenderOption extends BaseModel
      *
      * @return bool
      */
-    public function getIsActive(): bool
+    public function getIsActive()
     {
         return $this->container['IsActive'];
     }
@@ -220,7 +220,7 @@ class GenderOption extends BaseModel
      *
      * @return bool
      */
-    public function getIsDefault(): bool
+    public function getIsDefault()
     {
         return $this->container['IsDefault'];
     }

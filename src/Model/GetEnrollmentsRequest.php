@@ -177,7 +177,7 @@ class GetEnrollmentsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getClassScheduleIds(): int[]
+    public function getClassScheduleIds()
     {
         return $this->container['ClassScheduleIds'];
     }
@@ -201,7 +201,7 @@ class GetEnrollmentsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDate(): \DateTime
+    public function getEndDate()
     {
         return $this->container['EndDate'];
     }
@@ -225,7 +225,7 @@ class GetEnrollmentsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getLocationIds(): int[]
+    public function getLocationIds()
     {
         return $this->container['LocationIds'];
     }
@@ -249,7 +249,7 @@ class GetEnrollmentsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getProgramIds(): int[]
+    public function getProgramIds()
     {
         return $this->container['ProgramIds'];
     }
@@ -273,7 +273,7 @@ class GetEnrollmentsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getSessionTypeIds(): int[]
+    public function getSessionTypeIds()
     {
         return $this->container['SessionTypeIds'];
     }
@@ -297,7 +297,7 @@ class GetEnrollmentsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getStaffIds(): int[]
+    public function getStaffIds()
     {
         return $this->container['StaffIds'];
     }
@@ -321,7 +321,7 @@ class GetEnrollmentsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDate(): \DateTime
+    public function getStartDate()
     {
         return $this->container['StartDate'];
     }
@@ -345,7 +345,7 @@ class GetEnrollmentsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit()
     {
         return $this->container['Limit'];
     }
@@ -369,7 +369,7 @@ class GetEnrollmentsRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset()
     {
         return $this->container['Offset'];
     }

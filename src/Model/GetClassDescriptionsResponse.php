@@ -135,7 +135,7 @@ class GetClassDescriptionsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
+    public function getPaginationResponse()
     {
         return $this->container['PaginationResponse'];
     }
@@ -159,7 +159,7 @@ class GetClassDescriptionsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClassDescription[]
      */
-    public function getClassDescriptions(): \Nlocascio\Mindbody\Model\ClassDescription[]
+    public function getClassDescriptions()
     {
         return $this->container['ClassDescriptions'];
     }

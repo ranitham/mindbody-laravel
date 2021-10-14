@@ -135,7 +135,7 @@ class CheckoutItem extends BaseModel
      *
      * @return string
      */
-    public function getType(): string
+    public function getType()
     {
         return $this->container['Type'];
     }
@@ -159,7 +159,7 @@ class CheckoutItem extends BaseModel
      *
      * @return map[string,object]
      */
-    public function getMetadata(): map[string,object]
+    public function getMetadata()
     {
         return $this->container['Metadata'];
     }

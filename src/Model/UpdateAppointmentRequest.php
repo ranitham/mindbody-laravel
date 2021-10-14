@@ -198,7 +198,7 @@ class UpdateAppointmentRequest extends BaseModel
      *
      * @return int
      */
-    public function getAppointmentId(): int
+    public function getAppointmentId()
     {
         return $this->container['AppointmentId'];
     }
@@ -222,7 +222,7 @@ class UpdateAppointmentRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDateTime(): \DateTime
+    public function getEndDateTime()
     {
         return $this->container['EndDateTime'];
     }
@@ -246,7 +246,7 @@ class UpdateAppointmentRequest extends BaseModel
      *
      * @return string
      */
-    public function getExecute(): string
+    public function getExecute()
     {
         return $this->container['Execute'];
     }
@@ -270,7 +270,7 @@ class UpdateAppointmentRequest extends BaseModel
      *
      * @return string
      */
-    public function getGenderPreference(): string
+    public function getGenderPreference()
     {
         return $this->container['GenderPreference'];
     }
@@ -294,7 +294,7 @@ class UpdateAppointmentRequest extends BaseModel
      *
      * @return string
      */
-    public function getNotes(): string
+    public function getNotes()
     {
         return $this->container['Notes'];
     }
@@ -318,7 +318,7 @@ class UpdateAppointmentRequest extends BaseModel
      *
      * @return string
      */
-    public function getProviderId(): string
+    public function getProviderId()
     {
         return $this->container['ProviderId'];
     }
@@ -342,7 +342,7 @@ class UpdateAppointmentRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getResourceIds(): int[]
+    public function getResourceIds()
     {
         return $this->container['ResourceIds'];
     }
@@ -366,7 +366,7 @@ class UpdateAppointmentRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSendEmail(): bool
+    public function getSendEmail()
     {
         return $this->container['SendEmail'];
     }
@@ -390,7 +390,7 @@ class UpdateAppointmentRequest extends BaseModel
      *
      * @return int
      */
-    public function getSessionTypeId(): int
+    public function getSessionTypeId()
     {
         return $this->container['SessionTypeId'];
     }
@@ -414,7 +414,7 @@ class UpdateAppointmentRequest extends BaseModel
      *
      * @return int
      */
-    public function getStaffId(): int
+    public function getStaffId()
     {
         return $this->container['StaffId'];
     }
@@ -438,7 +438,7 @@ class UpdateAppointmentRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDateTime(): \DateTime
+    public function getStartDateTime()
     {
         return $this->container['StartDateTime'];
     }
@@ -462,7 +462,7 @@ class UpdateAppointmentRequest extends BaseModel
      *
      * @return bool
      */
-    public function getTest(): bool
+    public function getTest()
     {
         return $this->container['Test'];
     }

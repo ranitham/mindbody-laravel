@@ -178,7 +178,7 @@ class CreditCardInfo extends BaseModel
      *
      * @return string
      */
-    public function getCreditCardNumber(): string
+    public function getCreditCardNumber()
     {
         return $this->container['CreditCardNumber'];
     }
@@ -202,7 +202,7 @@ class CreditCardInfo extends BaseModel
      *
      * @return string
      */
-    public function getExpMonth(): string
+    public function getExpMonth()
     {
         return $this->container['ExpMonth'];
     }
@@ -226,7 +226,7 @@ class CreditCardInfo extends BaseModel
      *
      * @return string
      */
-    public function getExpYear(): string
+    public function getExpYear()
     {
         return $this->container['ExpYear'];
     }
@@ -250,7 +250,7 @@ class CreditCardInfo extends BaseModel
      *
      * @return string
      */
-    public function getBillingName(): string
+    public function getBillingName()
     {
         return $this->container['BillingName'];
     }
@@ -274,7 +274,7 @@ class CreditCardInfo extends BaseModel
      *
      * @return string
      */
-    public function getBillingAddress(): string
+    public function getBillingAddress()
     {
         return $this->container['BillingAddress'];
     }
@@ -298,7 +298,7 @@ class CreditCardInfo extends BaseModel
      *
      * @return string
      */
-    public function getBillingCity(): string
+    public function getBillingCity()
     {
         return $this->container['BillingCity'];
     }
@@ -322,7 +322,7 @@ class CreditCardInfo extends BaseModel
      *
      * @return string
      */
-    public function getBillingState(): string
+    public function getBillingState()
     {
         return $this->container['BillingState'];
     }
@@ -346,7 +346,7 @@ class CreditCardInfo extends BaseModel
      *
      * @return string
      */
-    public function getBillingPostalCode(): string
+    public function getBillingPostalCode()
     {
         return $this->container['BillingPostalCode'];
     }
@@ -370,7 +370,7 @@ class CreditCardInfo extends BaseModel
      *
      * @return bool
      */
-    public function getSaveInfo(): bool
+    public function getSaveInfo()
     {
         return $this->container['SaveInfo'];
     }

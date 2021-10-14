@@ -135,7 +135,7 @@ class GetClientsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
+    public function getPaginationResponse()
     {
         return $this->container['PaginationResponse'];
     }
@@ -159,7 +159,7 @@ class GetClientsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClientWithSuspensionInfo[]
      */
-    public function getClients(): \Nlocascio\Mindbody\Model\ClientWithSuspensionInfo[]
+    public function getClients()
     {
         return $this->container['Clients'];
     }

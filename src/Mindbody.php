@@ -252,16 +252,24 @@ class Mindbody
 
     private $mindbodyApiEndpoints = [];
 
-    public function __construct()
+    public function __construct($debugFile = 'php://stderr')
     {
         $config = new Configuration();
-        //        $config->setUserAgent(\config('mindbody.source_name'));
-        //        $config->setApiKey('API-Key', \config('mindbody.apikey'));
-        //        $config->setApiKey('siteId', \config('mindbody.site_id'));
+        $config->setUserAgent(\config('mindbody.source_name'));
+        $config->setApiKey('API-Key', \config('mindbody.apikey'));
+        $config->setApiKey('siteId', \config('mindbody.site_id'));
+        $config->setDebug(\config('mindbody.debug'));
+        $config->setDebugFile('php://stderr');
 
         $this->apiConfiguration = $config;
 
-        $this->mindbodyApiEndpoints = $this->initialiseApiEndpoints($this->apiConfiguration, new GuzzleHttpClient(), new HeaderSelector());
+        $this->mindbodyApiEndpoints = $this->initialiseApiEndpoints(
+            $this->apiConfiguration,
+            new GuzzleHttpClient([
+                'curl' => [CURLOPT_SSL_VERIFYPEER => false],
+            ]),
+            new HeaderSelector(),
+        );
         $this->initialiseMaps($this->mindbodyApiEndpoints);
     }
 
@@ -313,20 +321,9 @@ class Mindbody
      */
     public function __call(string $methodName, array $parameters)
     {
-        $this->validateSettings($this->getSettings($this->connection));
-
         $methodCallback = $this->getRestCallForMethod($methodName);
         $this->updateAccessToken();
         return \call_user_func($methodCallback, $parameters);
-    }
-
-    /**
-     * @param $connection
-     * @return mixed
-     */
-    private function getSettings($connection)
-    {
-        return $this->settings[$connection];
     }
 
     /**

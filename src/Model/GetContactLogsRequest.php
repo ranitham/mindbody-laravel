@@ -180,7 +180,7 @@ class GetContactLogsRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId()
     {
         return $this->container['ClientId'];
     }
@@ -204,7 +204,7 @@ class GetContactLogsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDate(): \DateTime
+    public function getStartDate()
     {
         return $this->container['StartDate'];
     }
@@ -228,7 +228,7 @@ class GetContactLogsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDate(): \DateTime
+    public function getEndDate()
     {
         return $this->container['EndDate'];
     }
@@ -252,7 +252,7 @@ class GetContactLogsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getStaffIds(): int[]
+    public function getStaffIds()
     {
         return $this->container['StaffIds'];
     }
@@ -276,7 +276,7 @@ class GetContactLogsRequest extends BaseModel
      *
      * @return bool
      */
-    public function getShowSystemGenerated(): bool
+    public function getShowSystemGenerated()
     {
         return $this->container['ShowSystemGenerated'];
     }
@@ -300,7 +300,7 @@ class GetContactLogsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getTypeIds(): int[]
+    public function getTypeIds()
     {
         return $this->container['TypeIds'];
     }
@@ -324,7 +324,7 @@ class GetContactLogsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getSubtypeIds(): int[]
+    public function getSubtypeIds()
     {
         return $this->container['SubtypeIds'];
     }
@@ -348,7 +348,7 @@ class GetContactLogsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit()
     {
         return $this->container['Limit'];
     }
@@ -372,7 +372,7 @@ class GetContactLogsRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset()
     {
         return $this->container['Offset'];
     }

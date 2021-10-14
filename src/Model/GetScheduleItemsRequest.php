@@ -165,7 +165,7 @@ class GetScheduleItemsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getLocationIds(): int[]
+    public function getLocationIds()
     {
         return $this->container['LocationIds'];
     }
@@ -189,7 +189,7 @@ class GetScheduleItemsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getStaffIds(): int[]
+    public function getStaffIds()
     {
         return $this->container['StaffIds'];
     }
@@ -213,7 +213,7 @@ class GetScheduleItemsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDate(): \DateTime
+    public function getStartDate()
     {
         return $this->container['StartDate'];
     }
@@ -237,7 +237,7 @@ class GetScheduleItemsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDate(): \DateTime
+    public function getEndDate()
     {
         return $this->container['EndDate'];
     }
@@ -261,7 +261,7 @@ class GetScheduleItemsRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIgnorePrepFinishTimes(): bool
+    public function getIgnorePrepFinishTimes()
     {
         return $this->container['IgnorePrepFinishTimes'];
     }
@@ -285,7 +285,7 @@ class GetScheduleItemsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit()
     {
         return $this->container['Limit'];
     }
@@ -309,7 +309,7 @@ class GetScheduleItemsRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset()
     {
         return $this->container['Offset'];
     }

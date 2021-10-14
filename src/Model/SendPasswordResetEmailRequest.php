@@ -151,7 +151,7 @@ class SendPasswordResetEmailRequest extends BaseModel
      *
      * @return string
      */
-    public function getUserEmail(): string
+    public function getUserEmail()
     {
         return $this->container['UserEmail'];
     }
@@ -175,7 +175,7 @@ class SendPasswordResetEmailRequest extends BaseModel
      *
      * @return string
      */
-    public function getUserFirstName(): string
+    public function getUserFirstName()
     {
         return $this->container['UserFirstName'];
     }
@@ -199,7 +199,7 @@ class SendPasswordResetEmailRequest extends BaseModel
      *
      * @return string
      */
-    public function getUserLastName(): string
+    public function getUserLastName()
     {
         return $this->container['UserLastName'];
     }

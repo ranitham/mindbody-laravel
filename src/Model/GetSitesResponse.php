@@ -135,7 +135,7 @@ class GetSitesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
+    public function getPaginationResponse()
     {
         return $this->container['PaginationResponse'];
     }
@@ -159,7 +159,7 @@ class GetSitesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Site[]
      */
-    public function getSites(): \Nlocascio\Mindbody\Model\Site[]
+    public function getSites()
     {
         return $this->container['Sites'];
     }

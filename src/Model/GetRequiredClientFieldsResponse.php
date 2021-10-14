@@ -129,7 +129,7 @@ class GetRequiredClientFieldsResponse extends BaseModel
      *
      * @return string[]
      */
-    public function getRequiredClientFields(): string[]
+    public function getRequiredClientFields()
     {
         return $this->container['RequiredClientFields'];
     }

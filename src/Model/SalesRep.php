@@ -153,7 +153,7 @@ class SalesRep extends BaseModel
      *
      * @return string
      */
-    public function getFirstName(): string
+    public function getFirstName()
     {
         return $this->container['FirstName'];
     }
@@ -177,7 +177,7 @@ class SalesRep extends BaseModel
      *
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->container['Id'];
     }
@@ -201,7 +201,7 @@ class SalesRep extends BaseModel
      *
      * @return string
      */
-    public function getLastName(): string
+    public function getLastName()
     {
         return $this->container['LastName'];
     }
@@ -225,7 +225,7 @@ class SalesRep extends BaseModel
      *
      * @return int
      */
-    public function getSalesRepNumber(): int
+    public function getSalesRepNumber()
     {
         return $this->container['SalesRepNumber'];
     }
@@ -249,7 +249,7 @@ class SalesRep extends BaseModel
      *
      * @return int[]
      */
-    public function getSalesRepNumbers(): int[]
+    public function getSalesRepNumbers()
     {
         return $this->container['SalesRepNumbers'];
     }

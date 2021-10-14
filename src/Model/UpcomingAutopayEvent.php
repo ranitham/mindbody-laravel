@@ -174,7 +174,7 @@ class UpcomingAutopayEvent extends BaseModel
      *
      * @return int
      */
-    public function getClientContractId(): int
+    public function getClientContractId()
     {
         return $this->container['ClientContractId'];
     }
@@ -198,7 +198,7 @@ class UpcomingAutopayEvent extends BaseModel
      *
      * @return double
      */
-    public function getChargeAmount(): double
+    public function getChargeAmount()
     {
         return $this->container['ChargeAmount'];
     }
@@ -222,7 +222,7 @@ class UpcomingAutopayEvent extends BaseModel
      *
      * @return string
      */
-    public function getPaymentMethod(): string
+    public function getPaymentMethod()
     {
         return $this->container['PaymentMethod'];
     }
@@ -255,7 +255,7 @@ class UpcomingAutopayEvent extends BaseModel
      *
      * @return \DateTime
      */
-    public function getScheduleDate(): \DateTime
+    public function getScheduleDate()
     {
         return $this->container['ScheduleDate'];
     }

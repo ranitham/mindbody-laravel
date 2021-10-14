@@ -186,7 +186,7 @@ class Program extends BaseModel
      *
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->container['Id'];
     }
@@ -210,7 +210,7 @@ class Program extends BaseModel
      *
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->container['Name'];
     }
@@ -234,7 +234,7 @@ class Program extends BaseModel
      *
      * @return string
      */
-    public function getScheduleType(): string
+    public function getScheduleType()
     {
         return $this->container['ScheduleType'];
     }
@@ -267,7 +267,7 @@ class Program extends BaseModel
      *
      * @return int
      */
-    public function getCancelOffset(): int
+    public function getCancelOffset()
     {
         return $this->container['CancelOffset'];
     }
@@ -291,7 +291,7 @@ class Program extends BaseModel
      *
      * @return string[]
      */
-    public function getContentFormats(): string[]
+    public function getContentFormats()
     {
         return $this->container['ContentFormats'];
     }

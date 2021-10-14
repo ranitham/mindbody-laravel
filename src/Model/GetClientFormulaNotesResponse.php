@@ -135,7 +135,7 @@ class GetClientFormulaNotesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
+    public function getPaginationResponse()
     {
         return $this->container['PaginationResponse'];
     }
@@ -159,7 +159,7 @@ class GetClientFormulaNotesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\FormulaNoteResponse[]
      */
-    public function getFormulaNotes(): \Nlocascio\Mindbody\Model\FormulaNoteResponse[]
+    public function getFormulaNotes()
     {
         return $this->container['FormulaNotes'];
     }

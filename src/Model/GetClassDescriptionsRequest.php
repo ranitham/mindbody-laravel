@@ -171,7 +171,7 @@ class GetClassDescriptionsRequest extends BaseModel
      *
      * @return int
      */
-    public function getClassDescriptionId(): int
+    public function getClassDescriptionId()
     {
         return $this->container['ClassDescriptionId'];
     }
@@ -195,7 +195,7 @@ class GetClassDescriptionsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getProgramIds(): int[]
+    public function getProgramIds()
     {
         return $this->container['ProgramIds'];
     }
@@ -219,7 +219,7 @@ class GetClassDescriptionsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartClassDateTime(): \DateTime
+    public function getStartClassDateTime()
     {
         return $this->container['StartClassDateTime'];
     }
@@ -243,7 +243,7 @@ class GetClassDescriptionsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndClassDateTime(): \DateTime
+    public function getEndClassDateTime()
     {
         return $this->container['EndClassDateTime'];
     }
@@ -267,7 +267,7 @@ class GetClassDescriptionsRequest extends BaseModel
      *
      * @return int
      */
-    public function getStaffId(): int
+    public function getStaffId()
     {
         return $this->container['StaffId'];
     }
@@ -291,7 +291,7 @@ class GetClassDescriptionsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLocationId(): int
+    public function getLocationId()
     {
         return $this->container['LocationId'];
     }
@@ -315,7 +315,7 @@ class GetClassDescriptionsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit()
     {
         return $this->container['Limit'];
     }
@@ -339,7 +339,7 @@ class GetClassDescriptionsRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset()
     {
         return $this->container['Offset'];
     }

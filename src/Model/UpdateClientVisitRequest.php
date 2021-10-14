@@ -162,7 +162,7 @@ class UpdateClientVisitRequest extends BaseModel
      *
      * @return int
      */
-    public function getVisitId(): int
+    public function getVisitId()
     {
         return $this->container['VisitId'];
     }
@@ -186,7 +186,7 @@ class UpdateClientVisitRequest extends BaseModel
      *
      * @return bool
      */
-    public function getMakeup(): bool
+    public function getMakeup()
     {
         return $this->container['Makeup'];
     }
@@ -210,7 +210,7 @@ class UpdateClientVisitRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSignedIn(): bool
+    public function getSignedIn()
     {
         return $this->container['SignedIn'];
     }
@@ -234,7 +234,7 @@ class UpdateClientVisitRequest extends BaseModel
      *
      * @return string
      */
-    public function getExecute(): string
+    public function getExecute()
     {
         return $this->container['Execute'];
     }
@@ -258,7 +258,7 @@ class UpdateClientVisitRequest extends BaseModel
      *
      * @return bool
      */
-    public function getTest(): bool
+    public function getTest()
     {
         return $this->container['Test'];
     }
@@ -282,7 +282,7 @@ class UpdateClientVisitRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSendEmail(): bool
+    public function getSendEmail()
     {
         return $this->container['SendEmail'];
     }

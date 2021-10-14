@@ -242,7 +242,7 @@ class ClientMembership extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Location[]
      */
-    public function getRestrictedLocations(): \Nlocascio\Mindbody\Model\Location[]
+    public function getRestrictedLocations()
     {
         return $this->container['RestrictedLocations'];
     }
@@ -266,7 +266,7 @@ class ClientMembership extends BaseModel
      *
      * @return string
      */
-    public function getIconCode(): string
+    public function getIconCode()
     {
         return $this->container['IconCode'];
     }
@@ -290,7 +290,7 @@ class ClientMembership extends BaseModel
      *
      * @return int
      */
-    public function getMembershipId(): int
+    public function getMembershipId()
     {
         return $this->container['MembershipId'];
     }
@@ -314,7 +314,7 @@ class ClientMembership extends BaseModel
      *
      * @return \DateTime
      */
-    public function getActiveDate(): \DateTime
+    public function getActiveDate()
     {
         return $this->container['ActiveDate'];
     }
@@ -338,7 +338,7 @@ class ClientMembership extends BaseModel
      *
      * @return int
      */
-    public function getCount(): int
+    public function getCount()
     {
         return $this->container['Count'];
     }
@@ -362,7 +362,7 @@ class ClientMembership extends BaseModel
      *
      * @return bool
      */
-    public function getCurrent(): bool
+    public function getCurrent()
     {
         return $this->container['Current'];
     }
@@ -386,7 +386,7 @@ class ClientMembership extends BaseModel
      *
      * @return \DateTime
      */
-    public function getExpirationDate(): \DateTime
+    public function getExpirationDate()
     {
         return $this->container['ExpirationDate'];
     }
@@ -410,7 +410,7 @@ class ClientMembership extends BaseModel
      *
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->container['Id'];
     }
@@ -434,7 +434,7 @@ class ClientMembership extends BaseModel
      *
      * @return int
      */
-    public function getProductId(): int
+    public function getProductId()
     {
         return $this->container['ProductId'];
     }
@@ -458,7 +458,7 @@ class ClientMembership extends BaseModel
      *
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->container['Name'];
     }
@@ -482,7 +482,7 @@ class ClientMembership extends BaseModel
      *
      * @return \DateTime
      */
-    public function getPaymentDate(): \DateTime
+    public function getPaymentDate()
     {
         return $this->container['PaymentDate'];
     }
@@ -506,7 +506,7 @@ class ClientMembership extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Program
      */
-    public function getProgram(): \Nlocascio\Mindbody\Model\Program
+    public function getProgram()
     {
         return $this->container['Program'];
     }
@@ -530,7 +530,7 @@ class ClientMembership extends BaseModel
      *
      * @return int
      */
-    public function getRemaining(): int
+    public function getRemaining()
     {
         return $this->container['Remaining'];
     }
@@ -554,7 +554,7 @@ class ClientMembership extends BaseModel
      *
      * @return int
      */
-    public function getSiteId(): int
+    public function getSiteId()
     {
         return $this->container['SiteId'];
     }
@@ -578,7 +578,7 @@ class ClientMembership extends BaseModel
      *
      * @return string
      */
-    public function getAction(): string
+    public function getAction()
     {
         return $this->container['Action'];
     }

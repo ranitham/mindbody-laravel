@@ -147,7 +147,7 @@ class AddFormulaNoteRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId()
     {
         return $this->container['ClientId'];
     }
@@ -171,7 +171,7 @@ class AddFormulaNoteRequest extends BaseModel
      *
      * @return int
      */
-    public function getAppointmentId(): int
+    public function getAppointmentId()
     {
         return $this->container['AppointmentId'];
     }
@@ -195,7 +195,7 @@ class AddFormulaNoteRequest extends BaseModel
      *
      * @return string
      */
-    public function getNote(): string
+    public function getNote()
     {
         return $this->container['Note'];
     }

@@ -135,7 +135,7 @@ class GetContractsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
+    public function getPaginationResponse()
     {
         return $this->container['PaginationResponse'];
     }
@@ -159,7 +159,7 @@ class GetContractsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Contract[]
      */
-    public function getContracts(): \Nlocascio\Mindbody\Model\Contract[]
+    public function getContracts()
     {
         return $this->container['Contracts'];
     }

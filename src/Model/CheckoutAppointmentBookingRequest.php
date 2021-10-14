@@ -165,7 +165,7 @@ class CheckoutAppointmentBookingRequest extends BaseModel
      *
      * @return int
      */
-    public function getStaffId(): int
+    public function getStaffId()
     {
         return $this->container['StaffId'];
     }
@@ -189,7 +189,7 @@ class CheckoutAppointmentBookingRequest extends BaseModel
      *
      * @return int
      */
-    public function getLocationId(): int
+    public function getLocationId()
     {
         return $this->container['LocationId'];
     }
@@ -213,7 +213,7 @@ class CheckoutAppointmentBookingRequest extends BaseModel
      *
      * @return int
      */
-    public function getSessionTypeId(): int
+    public function getSessionTypeId()
     {
         return $this->container['SessionTypeId'];
     }
@@ -237,7 +237,7 @@ class CheckoutAppointmentBookingRequest extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Resource[]
      */
-    public function getResources(): \Nlocascio\Mindbody\Model\Resource[]
+    public function getResources()
     {
         return $this->container['Resources'];
     }
@@ -261,7 +261,7 @@ class CheckoutAppointmentBookingRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDateTime(): \DateTime
+    public function getStartDateTime()
     {
         return $this->container['StartDateTime'];
     }
@@ -285,7 +285,7 @@ class CheckoutAppointmentBookingRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDateTime(): \DateTime
+    public function getEndDateTime()
     {
         return $this->container['EndDateTime'];
     }
@@ -309,7 +309,7 @@ class CheckoutAppointmentBookingRequest extends BaseModel
      *
      * @return string
      */
-    public function getProviderId(): string
+    public function getProviderId()
     {
         return $this->container['ProviderId'];
     }

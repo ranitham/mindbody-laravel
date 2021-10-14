@@ -165,7 +165,7 @@ class GetWaitlistEntriesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getClassIds(): int[]
+    public function getClassIds()
     {
         return $this->container['ClassIds'];
     }
@@ -189,7 +189,7 @@ class GetWaitlistEntriesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getClassScheduleIds(): int[]
+    public function getClassScheduleIds()
     {
         return $this->container['ClassScheduleIds'];
     }
@@ -213,7 +213,7 @@ class GetWaitlistEntriesRequest extends BaseModel
      *
      * @return string[]
      */
-    public function getClientIds(): string[]
+    public function getClientIds()
     {
         return $this->container['ClientIds'];
     }
@@ -237,7 +237,7 @@ class GetWaitlistEntriesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getHidePastEntries(): bool
+    public function getHidePastEntries()
     {
         return $this->container['HidePastEntries'];
     }
@@ -261,7 +261,7 @@ class GetWaitlistEntriesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getWaitlistEntryIds(): int[]
+    public function getWaitlistEntryIds()
     {
         return $this->container['WaitlistEntryIds'];
     }
@@ -285,7 +285,7 @@ class GetWaitlistEntriesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit()
     {
         return $this->container['Limit'];
     }
@@ -309,7 +309,7 @@ class GetWaitlistEntriesRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset()
     {
         return $this->container['Offset'];
     }

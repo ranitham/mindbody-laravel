@@ -189,7 +189,7 @@ class PurchaseGiftCardResponse extends BaseModel
      *
      * @return string
      */
-    public function getBarcodeId(): string
+    public function getBarcodeId()
     {
         return $this->container['BarcodeId'];
     }
@@ -213,7 +213,7 @@ class PurchaseGiftCardResponse extends BaseModel
      *
      * @return double
      */
-    public function getValue(): double
+    public function getValue()
     {
         return $this->container['Value'];
     }
@@ -237,7 +237,7 @@ class PurchaseGiftCardResponse extends BaseModel
      *
      * @return double
      */
-    public function getAmountPaid(): double
+    public function getAmountPaid()
     {
         return $this->container['AmountPaid'];
     }
@@ -261,7 +261,7 @@ class PurchaseGiftCardResponse extends BaseModel
      *
      * @return string
      */
-    public function getFromName(): string
+    public function getFromName()
     {
         return $this->container['FromName'];
     }
@@ -285,7 +285,7 @@ class PurchaseGiftCardResponse extends BaseModel
      *
      * @return int
      */
-    public function getLayoutId(): int
+    public function getLayoutId()
     {
         return $this->container['LayoutId'];
     }
@@ -309,7 +309,7 @@ class PurchaseGiftCardResponse extends BaseModel
      *
      * @return bool
      */
-    public function getEmailReceipt(): bool
+    public function getEmailReceipt()
     {
         return $this->container['EmailReceipt'];
     }
@@ -333,7 +333,7 @@ class PurchaseGiftCardResponse extends BaseModel
      *
      * @return string
      */
-    public function getPurchaserClientId(): string
+    public function getPurchaserClientId()
     {
         return $this->container['PurchaserClientId'];
     }
@@ -357,7 +357,7 @@ class PurchaseGiftCardResponse extends BaseModel
      *
      * @return string
      */
-    public function getPurchaserEmail(): string
+    public function getPurchaserEmail()
     {
         return $this->container['PurchaserEmail'];
     }
@@ -381,7 +381,7 @@ class PurchaseGiftCardResponse extends BaseModel
      *
      * @return string
      */
-    public function getRecipientEmail(): string
+    public function getRecipientEmail()
     {
         return $this->container['RecipientEmail'];
     }
@@ -405,7 +405,7 @@ class PurchaseGiftCardResponse extends BaseModel
      *
      * @return int
      */
-    public function getSaleId(): int
+    public function getSaleId()
     {
         return $this->container['SaleId'];
     }
@@ -429,7 +429,7 @@ class PurchaseGiftCardResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaymentProcessingFailure[]
      */
-    public function getPaymentProcessingFailures(): \Nlocascio\Mindbody\Model\PaymentProcessingFailure[]
+    public function getPaymentProcessingFailures()
     {
         return $this->container['PaymentProcessingFailures'];
     }

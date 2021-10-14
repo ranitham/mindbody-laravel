@@ -177,7 +177,7 @@ class WaitlistEntry extends BaseModel
      *
      * @return \DateTime
      */
-    public function getClassDate(): \DateTime
+    public function getClassDate()
     {
         return $this->container['ClassDate'];
     }
@@ -201,7 +201,7 @@ class WaitlistEntry extends BaseModel
      *
      * @return int
      */
-    public function getClassId(): int
+    public function getClassId()
     {
         return $this->container['ClassId'];
     }
@@ -225,7 +225,7 @@ class WaitlistEntry extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClassSchedule
      */
-    public function getClassSchedule(): \Nlocascio\Mindbody\Model\ClassSchedule
+    public function getClassSchedule()
     {
         return $this->container['ClassSchedule'];
     }
@@ -249,7 +249,7 @@ class WaitlistEntry extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Client
      */
-    public function getClient(): \Nlocascio\Mindbody\Model\Client
+    public function getClient()
     {
         return $this->container['Client'];
     }
@@ -273,7 +273,7 @@ class WaitlistEntry extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEnrollmentDateForward(): \DateTime
+    public function getEnrollmentDateForward()
     {
         return $this->container['EnrollmentDateForward'];
     }
@@ -297,7 +297,7 @@ class WaitlistEntry extends BaseModel
      *
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->container['Id'];
     }
@@ -321,7 +321,7 @@ class WaitlistEntry extends BaseModel
      *
      * @return \DateTime
      */
-    public function getRequestDateTime(): \DateTime
+    public function getRequestDateTime()
     {
         return $this->container['RequestDateTime'];
     }
@@ -345,7 +345,7 @@ class WaitlistEntry extends BaseModel
      *
      * @return int
      */
-    public function getVisitRefNo(): int
+    public function getVisitRefNo()
     {
         return $this->container['VisitRefNo'];
     }
@@ -369,7 +369,7 @@ class WaitlistEntry extends BaseModel
      *
      * @return bool
      */
-    public function getWeb(): bool
+    public function getWeb()
     {
         return $this->container['Web'];
     }

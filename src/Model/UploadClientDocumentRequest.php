@@ -141,7 +141,7 @@ class UploadClientDocumentRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId()
     {
         return $this->container['ClientId'];
     }
@@ -165,7 +165,7 @@ class UploadClientDocumentRequest extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClientDocument
      */
-    public function getFile(): \Nlocascio\Mindbody\Model\ClientDocument
+    public function getFile()
     {
         return $this->container['File'];
     }

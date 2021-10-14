@@ -901,7 +901,7 @@ class StaffPermissionGroup extends BaseModel
      *
      * @return string
      */
-    public function getPermissionGroupName(): string
+    public function getPermissionGroupName()
     {
         return $this->container['PermissionGroupName'];
     }
@@ -925,7 +925,7 @@ class StaffPermissionGroup extends BaseModel
      *
      * @return bool
      */
-    public function getIpRestricted(): bool
+    public function getIpRestricted()
     {
         return $this->container['IpRestricted'];
     }
@@ -949,7 +949,7 @@ class StaffPermissionGroup extends BaseModel
      *
      * @return string[]
      */
-    public function getAllowedPermissions(): string[]
+    public function getAllowedPermissions()
     {
         return $this->container['AllowedPermissions'];
     }
@@ -982,7 +982,7 @@ class StaffPermissionGroup extends BaseModel
      *
      * @return string[]
      */
-    public function getDeniedPermissions(): string[]
+    public function getDeniedPermissions()
     {
         return $this->container['DeniedPermissions'];
     }

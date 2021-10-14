@@ -184,7 +184,7 @@ class Availability extends BaseModel
      *
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->container['Id'];
     }
@@ -208,7 +208,7 @@ class Availability extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Staff
      */
-    public function getStaff(): \Nlocascio\Mindbody\Model\Staff
+    public function getStaff()
     {
         return $this->container['Staff'];
     }
@@ -232,7 +232,7 @@ class Availability extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\SessionType
      */
-    public function getSessionType(): \Nlocascio\Mindbody\Model\SessionType
+    public function getSessionType()
     {
         return $this->container['SessionType'];
     }
@@ -256,7 +256,7 @@ class Availability extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Program[]
      */
-    public function getPrograms(): \Nlocascio\Mindbody\Model\Program[]
+    public function getPrograms()
     {
         return $this->container['Programs'];
     }
@@ -280,7 +280,7 @@ class Availability extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDateTime(): \DateTime
+    public function getStartDateTime()
     {
         return $this->container['StartDateTime'];
     }
@@ -304,7 +304,7 @@ class Availability extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDateTime(): \DateTime
+    public function getEndDateTime()
     {
         return $this->container['EndDateTime'];
     }
@@ -328,7 +328,7 @@ class Availability extends BaseModel
      *
      * @return \DateTime
      */
-    public function getBookableEndDateTime(): \DateTime
+    public function getBookableEndDateTime()
     {
         return $this->container['BookableEndDateTime'];
     }
@@ -352,7 +352,7 @@ class Availability extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Location
      */
-    public function getLocation(): \Nlocascio\Mindbody\Model\Location
+    public function getLocation()
     {
         return $this->container['Location'];
     }
@@ -376,7 +376,7 @@ class Availability extends BaseModel
      *
      * @return int
      */
-    public function getPrepTime(): int
+    public function getPrepTime()
     {
         return $this->container['PrepTime'];
     }
@@ -400,7 +400,7 @@ class Availability extends BaseModel
      *
      * @return int
      */
-    public function getFinishTime(): int
+    public function getFinishTime()
     {
         return $this->container['FinishTime'];
     }

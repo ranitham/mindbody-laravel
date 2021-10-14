@@ -129,7 +129,7 @@ class UpdateClientServiceResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClientService
      */
-    public function getClientService(): \Nlocascio\Mindbody\Model\ClientService
+    public function getClientService()
     {
         return $this->container['ClientService'];
     }

@@ -153,7 +153,7 @@ class GetGiftCardsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLocationId(): int
+    public function getLocationId()
     {
         return $this->container['LocationId'];
     }
@@ -177,7 +177,7 @@ class GetGiftCardsRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSoldOnline(): bool
+    public function getSoldOnline()
     {
         return $this->container['SoldOnline'];
     }
@@ -201,7 +201,7 @@ class GetGiftCardsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getIds(): int[]
+    public function getIds()
     {
         return $this->container['Ids'];
     }
@@ -225,7 +225,7 @@ class GetGiftCardsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit()
     {
         return $this->container['Limit'];
     }
@@ -249,7 +249,7 @@ class GetGiftCardsRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset()
     {
         return $this->container['Offset'];
     }

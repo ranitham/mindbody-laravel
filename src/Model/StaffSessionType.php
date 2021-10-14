@@ -246,7 +246,7 @@ class StaffSessionType extends BaseModel
      *
      * @return int
      */
-    public function getStaffId(): int
+    public function getStaffId()
     {
         return $this->container['StaffId'];
     }
@@ -270,7 +270,7 @@ class StaffSessionType extends BaseModel
      *
      * @return string
      */
-    public function getType(): string
+    public function getType()
     {
         return $this->container['Type'];
     }
@@ -303,7 +303,7 @@ class StaffSessionType extends BaseModel
      *
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->container['Id'];
     }
@@ -327,7 +327,7 @@ class StaffSessionType extends BaseModel
      *
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->container['Name'];
     }
@@ -351,7 +351,7 @@ class StaffSessionType extends BaseModel
      *
      * @return int
      */
-    public function getNumDeducted(): int
+    public function getNumDeducted()
     {
         return $this->container['NumDeducted'];
     }
@@ -375,7 +375,7 @@ class StaffSessionType extends BaseModel
      *
      * @return int
      */
-    public function getProgramId(): int
+    public function getProgramId()
     {
         return $this->container['ProgramId'];
     }
@@ -399,7 +399,7 @@ class StaffSessionType extends BaseModel
      *
      * @return string
      */
-    public function getCategory(): string
+    public function getCategory()
     {
         return $this->container['Category'];
     }
@@ -423,7 +423,7 @@ class StaffSessionType extends BaseModel
      *
      * @return int
      */
-    public function getCategoryId(): int
+    public function getCategoryId()
     {
         return $this->container['CategoryId'];
     }
@@ -447,7 +447,7 @@ class StaffSessionType extends BaseModel
      *
      * @return string
      */
-    public function getSubcategory(): string
+    public function getSubcategory()
     {
         return $this->container['Subcategory'];
     }
@@ -471,7 +471,7 @@ class StaffSessionType extends BaseModel
      *
      * @return int
      */
-    public function getSubcategoryId(): int
+    public function getSubcategoryId()
     {
         return $this->container['SubcategoryId'];
     }
@@ -495,7 +495,7 @@ class StaffSessionType extends BaseModel
      *
      * @return int
      */
-    public function getTimeLength(): int
+    public function getTimeLength()
     {
         return $this->container['TimeLength'];
     }
@@ -519,7 +519,7 @@ class StaffSessionType extends BaseModel
      *
      * @return int
      */
-    public function getPrepTime(): int
+    public function getPrepTime()
     {
         return $this->container['PrepTime'];
     }
@@ -543,7 +543,7 @@ class StaffSessionType extends BaseModel
      *
      * @return int
      */
-    public function getFinishTime(): int
+    public function getFinishTime()
     {
         return $this->container['FinishTime'];
     }
@@ -567,7 +567,7 @@ class StaffSessionType extends BaseModel
      *
      * @return string
      */
-    public function getPayRateType(): string
+    public function getPayRateType()
     {
         return $this->container['PayRateType'];
     }
@@ -591,7 +591,7 @@ class StaffSessionType extends BaseModel
      *
      * @return double
      */
-    public function getPayRateAmount(): double
+    public function getPayRateAmount()
     {
         return $this->container['PayRateAmount'];
     }

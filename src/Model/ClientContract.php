@@ -209,7 +209,7 @@ class ClientContract extends BaseModel
      *
      * @return \DateTime
      */
-    public function getAgreementDate(): \DateTime
+    public function getAgreementDate()
     {
         return $this->container['AgreementDate'];
     }
@@ -233,7 +233,7 @@ class ClientContract extends BaseModel
      *
      * @return string
      */
-    public function getAutopayStatus(): string
+    public function getAutopayStatus()
     {
         return $this->container['AutopayStatus'];
     }
@@ -266,7 +266,7 @@ class ClientContract extends BaseModel
      *
      * @return string
      */
-    public function getContractName(): string
+    public function getContractName()
     {
         return $this->container['ContractName'];
     }
@@ -290,7 +290,7 @@ class ClientContract extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDate(): \DateTime
+    public function getEndDate()
     {
         return $this->container['EndDate'];
     }
@@ -314,7 +314,7 @@ class ClientContract extends BaseModel
      *
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->container['Id'];
     }
@@ -338,7 +338,7 @@ class ClientContract extends BaseModel
      *
      * @return int
      */
-    public function getOriginationLocationId(): int
+    public function getOriginationLocationId()
     {
         return $this->container['OriginationLocationId'];
     }
@@ -362,7 +362,7 @@ class ClientContract extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDate(): \DateTime
+    public function getStartDate()
     {
         return $this->container['StartDate'];
     }
@@ -386,7 +386,7 @@ class ClientContract extends BaseModel
      *
      * @return int
      */
-    public function getSiteId(): int
+    public function getSiteId()
     {
         return $this->container['SiteId'];
     }
@@ -410,7 +410,7 @@ class ClientContract extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\UpcomingAutopayEvent[]
      */
-    public function getUpcomingAutopayEvents(): \Nlocascio\Mindbody\Model\UpcomingAutopayEvent[]
+    public function getUpcomingAutopayEvents()
     {
         return $this->container['UpcomingAutopayEvents'];
     }
@@ -434,7 +434,7 @@ class ClientContract extends BaseModel
      *
      * @return int
      */
-    public function getContractID(): int
+    public function getContractID()
     {
         return $this->container['ContractID'];
     }

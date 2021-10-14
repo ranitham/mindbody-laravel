@@ -135,7 +135,7 @@ class GetPromoCodesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
+    public function getPaginationResponse()
     {
         return $this->container['PaginationResponse'];
     }
@@ -159,7 +159,7 @@ class GetPromoCodesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PromoCode[]
      */
-    public function getPromoCodes(): \Nlocascio\Mindbody\Model\PromoCode[]
+    public function getPromoCodes()
     {
         return $this->container['PromoCodes'];
     }

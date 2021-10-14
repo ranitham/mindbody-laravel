@@ -165,7 +165,7 @@ class GetStaffRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getStaffIds(): int[]
+    public function getStaffIds()
     {
         return $this->container['StaffIds'];
     }
@@ -189,7 +189,7 @@ class GetStaffRequest extends BaseModel
      *
      * @return string[]
      */
-    public function getFilters(): string[]
+    public function getFilters()
     {
         return $this->container['Filters'];
     }
@@ -213,7 +213,7 @@ class GetStaffRequest extends BaseModel
      *
      * @return int
      */
-    public function getSessionTypeId(): int
+    public function getSessionTypeId()
     {
         return $this->container['SessionTypeId'];
     }
@@ -237,7 +237,7 @@ class GetStaffRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDateTime(): \DateTime
+    public function getStartDateTime()
     {
         return $this->container['StartDateTime'];
     }
@@ -261,7 +261,7 @@ class GetStaffRequest extends BaseModel
      *
      * @return int
      */
-    public function getLocationId(): int
+    public function getLocationId()
     {
         return $this->container['LocationId'];
     }
@@ -285,7 +285,7 @@ class GetStaffRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit()
     {
         return $this->container['Limit'];
     }
@@ -309,7 +309,7 @@ class GetStaffRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset()
     {
         return $this->container['Offset'];
     }

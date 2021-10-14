@@ -183,7 +183,7 @@ class Category extends BaseModel
      *
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->container['Id'];
     }
@@ -207,7 +207,7 @@ class Category extends BaseModel
      *
      * @return string
      */
-    public function getCategoryName(): string
+    public function getCategoryName()
     {
         return $this->container['CategoryName'];
     }
@@ -231,7 +231,7 @@ class Category extends BaseModel
      *
      * @return string
      */
-    public function getDescription(): string
+    public function getDescription()
     {
         return $this->container['Description'];
     }
@@ -255,7 +255,7 @@ class Category extends BaseModel
      *
      * @return bool
      */
-    public function getService(): bool
+    public function getService()
     {
         return $this->container['Service'];
     }
@@ -279,7 +279,7 @@ class Category extends BaseModel
      *
      * @return bool
      */
-    public function getActive(): bool
+    public function getActive()
     {
         return $this->container['Active'];
     }
@@ -303,7 +303,7 @@ class Category extends BaseModel
      *
      * @return bool
      */
-    public function getIsPrimary(): bool
+    public function getIsPrimary()
     {
         return $this->container['IsPrimary'];
     }
@@ -327,7 +327,7 @@ class Category extends BaseModel
      *
      * @return bool
      */
-    public function getIsSecondary(): bool
+    public function getIsSecondary()
     {
         return $this->container['IsSecondary'];
     }
@@ -351,7 +351,7 @@ class Category extends BaseModel
      *
      * @return \DateTime
      */
-    public function getCreatedDateTimeUTC(): \DateTime
+    public function getCreatedDateTimeUTC()
     {
         return $this->container['CreatedDateTimeUTC'];
     }
@@ -375,7 +375,7 @@ class Category extends BaseModel
      *
      * @return \DateTime
      */
-    public function getModifiedDateTimeUTC(): \DateTime
+    public function getModifiedDateTimeUTC()
     {
         return $this->container['ModifiedDateTimeUTC'];
     }
@@ -399,7 +399,7 @@ class Category extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\SubCategory[]
      */
-    public function getSubCategories(): \Nlocascio\Mindbody\Model\SubCategory[]
+    public function getSubCategories()
     {
         return $this->container['SubCategories'];
     }

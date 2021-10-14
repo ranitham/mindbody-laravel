@@ -178,7 +178,7 @@ class ClientPurchaseRecord extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Sale
      */
-    public function getSale(): \Nlocascio\Mindbody\Model\Sale
+    public function getSale()
     {
         return $this->container['Sale'];
     }
@@ -202,7 +202,7 @@ class ClientPurchaseRecord extends BaseModel
      *
      * @return string
      */
-    public function getDescription(): string
+    public function getDescription()
     {
         return $this->container['Description'];
     }
@@ -226,7 +226,7 @@ class ClientPurchaseRecord extends BaseModel
      *
      * @return bool
      */
-    public function getAccountPayment(): bool
+    public function getAccountPayment()
     {
         return $this->container['AccountPayment'];
     }
@@ -250,7 +250,7 @@ class ClientPurchaseRecord extends BaseModel
      *
      * @return double
      */
-    public function getPrice(): double
+    public function getPrice()
     {
         return $this->container['Price'];
     }
@@ -274,7 +274,7 @@ class ClientPurchaseRecord extends BaseModel
      *
      * @return double
      */
-    public function getAmountPaid(): double
+    public function getAmountPaid()
     {
         return $this->container['AmountPaid'];
     }
@@ -298,7 +298,7 @@ class ClientPurchaseRecord extends BaseModel
      *
      * @return double
      */
-    public function getDiscount(): double
+    public function getDiscount()
     {
         return $this->container['Discount'];
     }
@@ -322,7 +322,7 @@ class ClientPurchaseRecord extends BaseModel
      *
      * @return double
      */
-    public function getTax(): double
+    public function getTax()
     {
         return $this->container['Tax'];
     }
@@ -346,7 +346,7 @@ class ClientPurchaseRecord extends BaseModel
      *
      * @return bool
      */
-    public function getReturned(): bool
+    public function getReturned()
     {
         return $this->container['Returned'];
     }
@@ -370,7 +370,7 @@ class ClientPurchaseRecord extends BaseModel
      *
      * @return int
      */
-    public function getQuantity(): int
+    public function getQuantity()
     {
         return $this->container['Quantity'];
     }
