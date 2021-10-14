@@ -323,7 +323,7 @@ class Mindbody
     {
         $methodCallback = $this->getRestCallForMethod($methodName);
         $this->updateAccessToken();
-        return \call_user_func($methodCallback, $parameters);
+        return \call_user_func_array($methodCallback, $parameters);
     }
 
     /**
