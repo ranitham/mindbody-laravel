@@ -5,3 +5,4 @@
 3. Run java -jar swagger-codegen-cli.jar generate  -l php -i mindbody.json -c swagger-php-config.json -t swagger-templates/php to generate the files
 4. Fix up any return type issues (see SalesApi)
 5. Delete src\test directory
+6. Use Nlocascio\Mindbody\Mindbody::getEndpointMethodSignatures(); to update the method signatures at the top of Mindbody.php and MBO.php

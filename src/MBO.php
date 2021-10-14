@@ -5,88 +5,210 @@ namespace Nlocascio\Mindbody;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @method static MBOSoap\AddArrivalResult AddArrival(MBOSoap\AddArrivalRequest $parameters)
- * @method static MBOSoap\AddClientFormulaNoteResult AddClientFormulaNote(MBOSoap\AddClientFormulaNoteRequest $parameters)
- * @method static MBOSoap\AddClientsToClassesResult AddClientsToClasses(MBOSoap\AddClientsToClassesRequest $parameters)
- * @method static MBOSoap\AddClientsToEnrollmentsResult AddClientsToEnrollments(MBOSoap\AddClientsToEnrollmentsRequest $parameters)
- * @method static MBOSoap\AddClientsToClassesResult AddClientToClass(MBOSoap\AddClientToClassRequest $parameters)
- * @method static MBOSoap\AddOrUpdateAppointmentsResult AddOrUpdateAppointments(MBOSoap\AddOrUpdateAppointmentsRequest $parameters)
- * @method static MBOSoap\AddOrUpdateAvailabilitiesResult AddOrUpdateAvailabilities(MBOSoap\AddOrUpdateAvailabilitiesRequest $parameters)
- * @method static MBOSoap\AddOrUpdateClientsResult AddOrUpdateClients(MBOSoap\AddOrUpdateClientsRequest $parameters)
- * @method static MBOSoap\AddOrUpdateContactLogsResult AddOrUpdateContactLogs(MBOSoap\AddOrUpdateContactLogsRequest $parameters)
- * @method static MBOSoap\AddOrUpdateStaffResult AddOrUpdateStaff(MBOSoap\AddOrUpdateStaffRequest $parameters)
- * @method static MBOSoap\CancelSingleClassResult CancelSingleClass(MBOSoap\CancelSingleClassRequest $parameters)
- * @method static MBOSoap\CheckoutShoppingCartResult CheckoutShoppingCart(MBOSoap\CheckoutShoppingCartRequest $parameters)
- * @method static MBOSoap\DeleteClientFormulaNoteResult DeleteClientFormulaNote(MBOSoap\DeleteClientFormulaNoteRequest $parameters)
- * @method static MBOSoap\GetAcceptedCardTypeResult GetAcceptedCardType(MBOSoap\GetAcceptedCardTypeRequest $parameters)
- * @method static MBOSoap\GetActivationCodeResult GetActivationCode(MBOSoap\GetActivationCodeRequest $parameters)
- * @method static MBOSoap\GetActiveClientMembershipsResult GetActiveClientMemberships(MBOSoap\GetActiveClientMembershipsRequest $parameters)
- * @method static MBOSoap\GetActiveSessionTimesResult GetActiveSessionTimes(MBOSoap\GetActiveSessionTimesRequest $parameters)
- * @method static MBOSoap\GetAppointmentOptionsResult GetAppointmentOptions(MBOSoap\GetAppointmentOptionsRequest $parameters)
- * @method static MBOSoap\GetBookableItemsResult GetBookableItems(MBOSoap\GetBookableItemsRequest $parameters)
- * @method static MBOSoap\GetClassDescriptionsResult GetClassDescriptions(MBOSoap\GetClassDescriptionsRequest $parameters)
- * @method static MBOSoap\GetClassesResult GetClasses(MBOSoap\GetClassesRequest $parameters)
- * @method static MBOSoap\GetClassSchedulesResult GetClassSchedules(MBOSoap\GetClassSchedulesRequest $parameters)
- * @method static MBOSoap\GetClassVisitsResult GetClassVisits(MBOSoap\GetClassVisitsRequest $parameters)
- * @method static MBOSoap\GetClientAccountBalancesResult GetClientAccountBalances(MBOSoap\GetClientAccountBalancesRequest $parameters)
- * @method static MBOSoap\GetClientContactLogsResult GetClientContactLogs(MBOSoap\GetClientContactLogsRequest $parameters)
- * @method static MBOSoap\GetClientContractsResult GetClientContracts(MBOSoap\GetClientContractsRequest $parameters)
- * @method static MBOSoap\GetClientFormulaNotesResult GetClientFormulaNotes(MBOSoap\GetClientFormulaNotesRequest $parameters)
- * @method static MBOSoap\GetClientIndexesResult GetClientIndexes(MBOSoap\GetClientIndexesRequest $parameters)
- * @method static MBOSoap\GetClientPurchasesResult GetClientPurchases(MBOSoap\GetClientPurchasesRequest $parameters)
- * @method static MBOSoap\GetClientReferralTypesResult GetClientReferralTypes(MBOSoap\GetClientReferralTypesRequest $parameters)
- * @method static MBOSoap\GetClientScheduleResult GetClientSchedule(MBOSoap\GetClientScheduleRequest $parameters)
- * @method static MBOSoap\GetClientServicesResult GetClientServices(MBOSoap\GetClientServicesRequest $parameters)
- * @method static MBOSoap\GetClientsResult GetClients(MBOSoap\GetClientsRequest $parameters)
- * @method static MBOSoap\GetClientVisitsResult GetClientVisits(MBOSoap\GetClientVisitsRequest $parameters)
- * @method static MBOSoap\GetContactLogTypesResult GetContactLogTypes(MBOSoap\GetContactLogTypesRequest $parameters)
- * @method static MBOSoap\GetContractsResult GetContracts(MBOSoap\GetContractsRequest $parameters)
- * @method static MBOSoap\GetCoursesResult GetCourses(MBOSoap\GetCoursesRequest $parameters)
- * @method static MBOSoap\GetCrossRegionalClientAssociationsResult GetCrossRegionalClientAssociations(MBOSoap\GetCrossRegionalClientAssociationsRequest $parameters)
- * @method static MBOSoap\GetCustomClientFieldsResult GetCustomClientFields(MBOSoap\GetCustomClientFieldsRequest $parameters)
- * @method static MBOSoap\GetCustomPaymentMethodsResult GetCustomPaymentMethods(MBOSoap\GetCustomPaymentMethodsRequest $parameters)
- * @method static MBOSoap\GetEnrollmentsResult GetEnrollments(MBOSoap\GetEnrollmentsRequest $parameters)
- * @method static MBOSoap\GetGendersResult GetGenders(MBOSoap\GetGendersRequest $parameters)
- * @method static MBOSoap\GetLocationsResult GetLocations(MBOSoap\GetLocationsRequest $parameters)
- * @method static MBOSoap\GetMobileProvidersResult GetMobileProviders(MBOSoap\GetMobileProvidersRequest $parameters)
- * @method static MBOSoap\GetPackagesResult GetPackages(MBOSoap\GetPackagesRequest $parameters)
- * @method static MBOSoap\GetProductsResult GetProducts(MBOSoap\GetProductsRequest $parameters)
- * @method static MBOSoap\GetProgramsResult GetPrograms(MBOSoap\GetProgramsRequest $parameters)
- * @method static MBOSoap\GetProspectStagesResult GetProspectStages(MBOSoap\GetProspectStagesRequest $parameters)
- * @method static MBOSoap\GetRelationshipsResult GetRelationships(MBOSoap\GetRelationshipsRequest $parameters)
- * @method static MBOSoap\GetRequiredClientFieldsResult GetRequiredClientFields(MBOSoap\GetRequiredClientFieldsRequest $parameters)
- * @method static MBOSoap\GetResourceScheduleResult GetResourceSchedule(MBOSoap\GetResourceScheduleRequest $parameters)
- * @method static MBOSoap\GetResourcesResult GetResources(MBOSoap\GetResourcesRequest $parameters)
- * @method static MBOSoap\GetSalesRepsResult GetSalesReps(MBOSoap\GetSalesRepsRequest $parameters)
- * @method static MBOSoap\GetSalesResult GetSales(MBOSoap\GetSalesRequest $parameters)
- * @method static MBOSoap\GetScheduleItemsResult GetScheduleItems(MBOSoap\GetScheduleItemsRequest $parameters)
- * @method static MBOSoap\GetSemestersResult GetSemesters(MBOSoap\GetSemestersRequest $parameters)
- * @method static MBOSoap\GetServicesResult GetServices(MBOSoap\GetServicesRequest $parameters)
- * @method static MBOSoap\GetSessionTypesResult GetSessionTypes(MBOSoap\GetSessionTypesRequest $parameters)
- * @method static MBOSoap\GetSitesResult GetSites(MBOSoap\GetSitesRequest $parameters)
- * @method static MBOSoap\GetStaffAppointmentsResult GetStaffAppointments(MBOSoap\GetStaffAppointmentsRequest $parameters)
- * @method static MBOSoap\GetStaffImgURLResult GetStaffImgURL(MBOSoap\GetStaffImgURLRequest $parameters)
- * @method static MBOSoap\GetStaffPermissionsResult GetStaffPermissions(MBOSoap\GetStaffPermissionsRequest $parameters)
- * @method static MBOSoap\GetStaffResult GetStaff(MBOSoap\GetStaffRequest $parameters)
- * @method static MBOSoap\GetWaitlistEntriesResult GetWaitlistEntries(MBOSoap\GetWaitlistEntriesRequest $parameters)
- * @method static MBOSoap\PurchaseContractsResult PurchaseContracts(MBOSoap\PurchaseContractsRequest $parameters)
- * @method static MBOSoap\RedeemSpaFinderWellnessCardResult RedeemSpaFinderWellnessCard(MBOSoap\RedeemSpaFinderWellnessCardRequest $parameters)
- * @method static MBOSoap\RemoveClientsFromClassesResult RemoveClientsFromClasses(MBOSoap\RemoveClientsFromClassesRequest $parameters)
- * @method static MBOSoap\RemoveFromWaitlistResult RemoveFromWaitlist(MBOSoap\RemoveFromWaitlistRequest $parameters)
- * @method static MBOSoap\ReserveResourceResult ReserveResource(MBOSoap\ReserveResourceRequest $parameters)
- * @method static MBOSoap\ReturnSaleResult ReturnSale(MBOSoap\ReturnSaleRequest $parameters)
- * @method static MBOSoap\ClientSendUserNewPasswordResult SendUserNewPassword(MBOSoap\SendUserNewPasswordRequest $parameters)
- * @method static MBOSoap\SubstituteClassTeacherResult SubstituteClassTeacher(MBOSoap\SubstituteClassTeacherRequest $parameters)
- * @method static MBOSoap\UpdateClientCrossRegionalResult UpdateClientCrossRegional(MBOSoap\UpdateClientCrossRegionalRequest $parameters)
- * @method static MBOSoap\UpdateClientServicesResult UpdateClientServices(MBOSoap\UpdateClientServicesRequest $parameters)
- * @method static MBOSoap\UpdateClientVisitsResult UpdateClientVisits(MBOSoap\UpdateClientVisitsRequest $parameters)
- * @method static MBOSoap\UpdateProductsResult UpdateProducts(MBOSoap\UpdateProductsRequest $parameters)
- * @method static MBOSoap\UpdateSaleDateResult UpdateSaleDate(MBOSoap\UpdateSaleDateRequest $parameters)
- * @method static MBOSoap\UpdateServicesResult UpdateServices(MBOSoap\UpdateServicesRequest $parameters)
- * @method static MBOSoap\UploadClientDocumentResult UploadClientDocument(MBOSoap\UploadClientDocumentRequest $parameters)
- * @method static MBOSoap\UploadClientPhotoResult UploadClientPhoto(MBOSoap\UploadClientPhotoRequest $parameters)
- * @method static MBOSoap\ValidateLoginResult ValidateLogin(MBOSoap\ValidateLoginRequest $parameters)
- * @method static MBOSoap\ValidateLoginResult ValidateStaffLogin(MBOSoap\ValidateLoginRequest $parameters)
+ * @method static \Nlocascio\Mindbody\Model\AddAppointmentResponse appointmentAddAppointment(\Nlocascio\Mindbody\Model\AddAppointmentRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\AddAppointmentResponse AddAppointment(\Nlocascio\Mindbody\Model\AddAppointmentRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\AddAppointmentAddOnResponse appointmentAddAppointmentAddOn(\Nlocascio\Mindbody\Model\AddAppointmentAddOnRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\AddAppointmentAddOnResponse AddAppointmentAddOn(\Nlocascio\Mindbody\Model\AddAppointmentAddOnRequest $Request);
+ * @method static void appointmentDeleteAppointmentAddOn(int $Id);
+ * @method static void DeleteAppointmentAddOn(int $Id);
+ * @method static \Nlocascio\Mindbody\Model\GetActiveSessionTimesResponse appointmentGetActiveSessionTimes(\DateTime $RequestEndTime, int $RequestLimit, int $RequestOffset, string $RequestScheduleType, int[] $RequestSessionTypeIds, \DateTime $RequestStartTime);
+ * @method static \Nlocascio\Mindbody\Model\GetActiveSessionTimesResponse GetActiveSessionTimes(\DateTime $RequestEndTime, int $RequestLimit, int $RequestOffset, string $RequestScheduleType, int[] $RequestSessionTypeIds, \DateTime $RequestStartTime);
+ * @method static \Nlocascio\Mindbody\Model\GetAddOnsResponse appointmentGetAddOns(int $RequestLimit, int $RequestOffset, int $RequestStaffId);
+ * @method static \Nlocascio\Mindbody\Model\GetAddOnsResponse GetAddOns(int $RequestLimit, int $RequestOffset, int $RequestStaffId);
+ * @method static \Nlocascio\Mindbody\Model\GetAppointmentOptionsResponse appointmentGetAppointmentOptions();
+ * @method static \Nlocascio\Mindbody\Model\GetAppointmentOptionsResponse GetAppointmentOptions();
+ * @method static \Nlocascio\Mindbody\Model\GetAvailableDatesResponse appointmentGetAvailableDates(int $RequestSessionTypeId, \DateTime $RequestEndDate, int $RequestLocationId, int $RequestStaffId, \DateTime $RequestStartDate);
+ * @method static \Nlocascio\Mindbody\Model\GetAvailableDatesResponse GetAvailableDates(int $RequestSessionTypeId, \DateTime $RequestEndDate, int $RequestLocationId, int $RequestStaffId, \DateTime $RequestStartDate);
+ * @method static \Nlocascio\Mindbody\Model\GetBookableItemsResponse appointmentGetBookableItems(int[] $RequestSessionTypeIds, int $RequestAppointmentId, \DateTime $RequestEndDate, bool $RequestIgnoreDefaultSessionLength, int $RequestLimit, int[] $RequestLocationIds, int $RequestOffset, int[] $RequestStaffIds, \DateTime $RequestStartDate);
+ * @method static \Nlocascio\Mindbody\Model\GetBookableItemsResponse GetBookableItems(int[] $RequestSessionTypeIds, int $RequestAppointmentId, \DateTime $RequestEndDate, bool $RequestIgnoreDefaultSessionLength, int $RequestLimit, int[] $RequestLocationIds, int $RequestOffset, int[] $RequestStaffIds, \DateTime $RequestStartDate);
+ * @method static \Nlocascio\Mindbody\Model\GetScheduleItemsResponse appointmentGetScheduleItems(\DateTime $RequestEndDate, bool $RequestIgnorePrepFinishTimes, int $RequestLimit, int[] $RequestLocationIds, int $RequestOffset, int[] $RequestStaffIds, \DateTime $RequestStartDate);
+ * @method static \Nlocascio\Mindbody\Model\GetScheduleItemsResponse GetScheduleItems(\DateTime $RequestEndDate, bool $RequestIgnorePrepFinishTimes, int $RequestLimit, int[] $RequestLocationIds, int $RequestOffset, int[] $RequestStaffIds, \DateTime $RequestStartDate);
+ * @method static \Nlocascio\Mindbody\Model\GetStaffAppointmentsResponse appointmentGetStaffAppointments(int[] $RequestAppointmentIds, string $RequestClientId, \DateTime $RequestEndDate, int $RequestLimit, int[] $RequestLocationIds, int $RequestOffset, int[] $RequestStaffIds, \DateTime $RequestStartDate);
+ * @method static \Nlocascio\Mindbody\Model\GetStaffAppointmentsResponse GetStaffAppointments(int[] $RequestAppointmentIds, string $RequestClientId, \DateTime $RequestEndDate, int $RequestLimit, int[] $RequestLocationIds, int $RequestOffset, int[] $RequestStaffIds, \DateTime $RequestStartDate);
+ * @method static \Nlocascio\Mindbody\Model\UpdateAppointmentResponse appointmentUpdateAppointment(\Nlocascio\Mindbody\Model\UpdateAppointmentRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\UpdateAppointmentResponse UpdateAppointment(\Nlocascio\Mindbody\Model\UpdateAppointmentRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\AddClientToClassResponse classAddClientToClass(\Nlocascio\Mindbody\Model\AddClientToClassRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\AddClientToClassResponse AddClientToClass(\Nlocascio\Mindbody\Model\AddClientToClassRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\GetClassDescriptionsResponse classGetClassDescriptions(int $RequestClassDescriptionId, \DateTime $RequestEndClassDateTime, int $RequestLimit, int $RequestLocationId, int $RequestOffset, int[] $RequestProgramIds, int $RequestStaffId, \DateTime $RequestStartClassDateTime);
+ * @method static \Nlocascio\Mindbody\Model\GetClassDescriptionsResponse GetClassDescriptions(int $RequestClassDescriptionId, \DateTime $RequestEndClassDateTime, int $RequestLimit, int $RequestLocationId, int $RequestOffset, int[] $RequestProgramIds, int $RequestStaffId, \DateTime $RequestStartClassDateTime);
+ * @method static \Nlocascio\Mindbody\Model\GetClassSchedulesResponse classGetClassSchedules(int[] $RequestClassScheduleIds, \DateTime $RequestEndDate, int $RequestLimit, int[] $RequestLocationIds, int $RequestOffset, int[] $RequestProgramIds, int[] $RequestSessionTypeIds, int[] $RequestStaffIds, \DateTime $RequestStartDate);
+ * @method static \Nlocascio\Mindbody\Model\GetClassSchedulesResponse GetClassSchedules(int[] $RequestClassScheduleIds, \DateTime $RequestEndDate, int $RequestLimit, int[] $RequestLocationIds, int $RequestOffset, int[] $RequestProgramIds, int[] $RequestSessionTypeIds, int[] $RequestStaffIds, \DateTime $RequestStartDate);
+ * @method static \Nlocascio\Mindbody\Model\GetClassVisitsResponse classGetClassVisits(int $RequestClassID, \DateTime $RequestLastModifiedDate);
+ * @method static \Nlocascio\Mindbody\Model\GetClassVisitsResponse GetClassVisits(int $RequestClassID, \DateTime $RequestLastModifiedDate);
+ * @method static \Nlocascio\Mindbody\Model\GetClassesResponse classGetClasses(int[] $RequestClassDescriptionIds, int[] $RequestClassIds, string $RequestClientId, \DateTime $RequestEndDateTime, bool $RequestHideCanceledClasses, \DateTime $RequestLastModifiedDate, int $RequestLimit, int[] $RequestLocationIds, int $RequestOffset, int[] $RequestProgramIds, bool $RequestSchedulingWindow, int[] $RequestSemesterIds, int[] $RequestSessionTypeIds, int[] $RequestStaffIds, \DateTime $RequestStartDateTime);
+ * @method static \Nlocascio\Mindbody\Model\GetClassesResponse GetClasses(int[] $RequestClassDescriptionIds, int[] $RequestClassIds, string $RequestClientId, \DateTime $RequestEndDateTime, bool $RequestHideCanceledClasses, \DateTime $RequestLastModifiedDate, int $RequestLimit, int[] $RequestLocationIds, int $RequestOffset, int[] $RequestProgramIds, bool $RequestSchedulingWindow, int[] $RequestSemesterIds, int[] $RequestSessionTypeIds, int[] $RequestStaffIds, \DateTime $RequestStartDateTime);
+ * @method static \Nlocascio\Mindbody\Model\GetWaitlistEntriesResponse classGetWaitlistEntries(int[] $RequestClassIds, int[] $RequestClassScheduleIds, string[] $RequestClientIds, bool $RequestHidePastEntries, int $RequestLimit, int $RequestOffset, int[] $RequestWaitlistEntryIds);
+ * @method static \Nlocascio\Mindbody\Model\GetWaitlistEntriesResponse GetWaitlistEntries(int[] $RequestClassIds, int[] $RequestClassScheduleIds, string[] $RequestClientIds, bool $RequestHidePastEntries, int $RequestLimit, int $RequestOffset, int[] $RequestWaitlistEntryIds);
+ * @method static \Nlocascio\Mindbody\Model\RemoveClientFromClassResponse classRemoveClientFromClass(\Nlocascio\Mindbody\Model\RemoveClientFromClassRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\RemoveClientFromClassResponse RemoveClientFromClass(\Nlocascio\Mindbody\Model\RemoveClientFromClassRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\RemoveFromWaitlistResponse classRemoveFromWaitlist(int[] $RequestWaitlistEntryIds);
+ * @method static \Nlocascio\Mindbody\Model\RemoveFromWaitlistResponse RemoveFromWaitlist(int[] $RequestWaitlistEntryIds);
+ * @method static \Nlocascio\Mindbody\Model\SubstituteClassTeacherResponse classSubstituteClassTeacher(\Nlocascio\Mindbody\Model\SubstituteClassTeacherRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\SubstituteClassTeacherResponse SubstituteClassTeacher(\Nlocascio\Mindbody\Model\SubstituteClassTeacherRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\AddArrivalResponse clientAddArrival(\Nlocascio\Mindbody\Model\AddArrivalRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\AddArrivalResponse AddArrival(\Nlocascio\Mindbody\Model\AddArrivalRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\AddClientResponse clientAddClient(\Nlocascio\Mindbody\Model\AddClientRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\AddClientResponse AddClient(\Nlocascio\Mindbody\Model\AddClientRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\AddClientDirectDebitInfoResponse clientAddClientDirectDebitInfo(\Nlocascio\Mindbody\Model\AddClientDirectDebitInfoRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\AddClientDirectDebitInfoResponse AddClientDirectDebitInfo(\Nlocascio\Mindbody\Model\AddClientDirectDebitInfoRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\ContactLog clientAddContactLog(\Nlocascio\Mindbody\Model\AddContactLogRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\ContactLog AddContactLog(\Nlocascio\Mindbody\Model\AddContactLogRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\FormulaNoteResponse clientAddFormulaNote(\Nlocascio\Mindbody\Model\AddFormulaNoteRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\FormulaNoteResponse AddFormulaNote(\Nlocascio\Mindbody\Model\AddFormulaNoteRequest $Request);
+ * @method static void clientDeleteClientFormulaNote(string $RequestClientId, int $RequestFormulaNoteId, int $RequestLimit, int $RequestOffset);
+ * @method static void DeleteClientFormulaNote(string $RequestClientId, int $RequestFormulaNoteId, int $RequestLimit, int $RequestOffset);
+ * @method static object clientDeleteContactLog(string $RequestClientId, int $RequestContactLogId, bool $RequestTest);
+ * @method static object DeleteContactLog(string $RequestClientId, int $RequestContactLogId, bool $RequestTest);
+ * @method static object clientDeleteDirectDebitInfo(string $ClientId);
+ * @method static object DeleteDirectDebitInfo(string $ClientId);
+ * @method static \Nlocascio\Mindbody\Model\GetActiveClientMembershipsResponse clientGetActiveClientMemberships(string $RequestClientId, int $RequestClientAssociatedSitesOffset, bool $RequestCrossRegionalLookup, int $RequestLimit, int $RequestLocationId, int $RequestOffset);
+ * @method static \Nlocascio\Mindbody\Model\GetActiveClientMembershipsResponse GetActiveClientMemberships(string $RequestClientId, int $RequestClientAssociatedSitesOffset, bool $RequestCrossRegionalLookup, int $RequestLimit, int $RequestLocationId, int $RequestOffset);
+ * @method static \Nlocascio\Mindbody\Model\GetActiveClientsMembershipsResponse clientGetActiveClientsMemberships(string[] $RequestClientIds, int $RequestClientAssociatedSitesOffset, bool $RequestCrossRegionalLookup, int $RequestLimit, int $RequestLocationId, int $RequestOffset);
+ * @method static \Nlocascio\Mindbody\Model\GetActiveClientsMembershipsResponse GetActiveClientsMemberships(string[] $RequestClientIds, int $RequestClientAssociatedSitesOffset, bool $RequestCrossRegionalLookup, int $RequestLimit, int $RequestLocationId, int $RequestOffset);
+ * @method static \Nlocascio\Mindbody\Model\GetClientAccountBalancesResponse clientGetClientAccountBalances(string[] $RequestClientIds, \DateTime $RequestBalanceDate, int $RequestClassId, int $RequestLimit, int $RequestOffset);
+ * @method static \Nlocascio\Mindbody\Model\GetClientAccountBalancesResponse GetClientAccountBalances(string[] $RequestClientIds, \DateTime $RequestBalanceDate, int $RequestClassId, int $RequestLimit, int $RequestOffset);
+ * @method static \Nlocascio\Mindbody\Model\GetClientCompleteInfoResponse clientGetClientCompleteInfo(string $RequestClientId, int $RequestClientAssociatedSitesOffset, bool $RequestCrossRegionalLookup, \DateTime $RequestEndDate, string[] $RequestRequiredClientData, \DateTime $RequestStartDate);
+ * @method static \Nlocascio\Mindbody\Model\GetClientCompleteInfoResponse GetClientCompleteInfo(string $RequestClientId, int $RequestClientAssociatedSitesOffset, bool $RequestCrossRegionalLookup, \DateTime $RequestEndDate, string[] $RequestRequiredClientData, \DateTime $RequestStartDate);
+ * @method static \Nlocascio\Mindbody\Model\GetClientContractsResponse clientGetClientContracts(string $RequestClientId, int $RequestClientAssociatedSitesOffset, bool $RequestCrossRegionalLookup, int $RequestLimit, int $RequestOffset);
+ * @method static \Nlocascio\Mindbody\Model\GetClientContractsResponse GetClientContracts(string $RequestClientId, int $RequestClientAssociatedSitesOffset, bool $RequestCrossRegionalLookup, int $RequestLimit, int $RequestOffset);
+ * @method static \Nlocascio\Mindbody\Model\GetClientDuplicatesResponse clientGetClientDuplicates(string $RequestEmail, string $RequestFirstName, string $RequestLastName, int $RequestLimit, int $RequestOffset);
+ * @method static \Nlocascio\Mindbody\Model\GetClientDuplicatesResponse GetClientDuplicates(string $RequestEmail, string $RequestFirstName, string $RequestLastName, int $RequestLimit, int $RequestOffset);
+ * @method static \Nlocascio\Mindbody\Model\GetClientFormulaNotesResponse clientGetClientFormulaNotes(int $RequestAppointmentId, string $RequestClientId, int $RequestLimit, int $RequestOffset);
+ * @method static \Nlocascio\Mindbody\Model\GetClientFormulaNotesResponse GetClientFormulaNotes(int $RequestAppointmentId, string $RequestClientId, int $RequestLimit, int $RequestOffset);
+ * @method static \Nlocascio\Mindbody\Model\GetClientIndexesResponse clientGetClientIndexes(bool $RequestRequiredOnly);
+ * @method static \Nlocascio\Mindbody\Model\GetClientIndexesResponse GetClientIndexes(bool $RequestRequiredOnly);
+ * @method static \Nlocascio\Mindbody\Model\GetClientPurchasesResponse clientGetClientPurchases(string $RequestClientId, \DateTime $RequestEndDate, int $RequestLimit, int $RequestOffset, int $RequestSaleId, \DateTime $RequestStartDate);
+ * @method static \Nlocascio\Mindbody\Model\GetClientPurchasesResponse GetClientPurchases(string $RequestClientId, \DateTime $RequestEndDate, int $RequestLimit, int $RequestOffset, int $RequestSaleId, \DateTime $RequestStartDate);
+ * @method static \Nlocascio\Mindbody\Model\GetClientReferralTypesResponse clientGetClientReferralTypes(bool $RequestIncludeInactive);
+ * @method static \Nlocascio\Mindbody\Model\GetClientReferralTypesResponse GetClientReferralTypes(bool $RequestIncludeInactive);
+ * @method static \Nlocascio\Mindbody\Model\GetClientRewardsResponse clientGetClientRewards(string $RequestClientId, \DateTime $RequestEndDate, int $RequestLimit, int $RequestOffset, \DateTime $RequestStartDate);
+ * @method static \Nlocascio\Mindbody\Model\GetClientRewardsResponse GetClientRewards(string $RequestClientId, \DateTime $RequestEndDate, int $RequestLimit, int $RequestOffset, \DateTime $RequestStartDate);
+ * @method static \Nlocascio\Mindbody\Model\GetClientServicesResponse clientGetClientServices(string $RequestClientId, int $RequestClassId, int $RequestClientAssociatedSitesOffset, bool $RequestCrossRegionalLookup, \DateTime $RequestEndDate, bool $RequestIgnoreCrossRegionalSiteLimit, int $RequestLimit, int[] $RequestLocationIds, int $RequestOffset, int[] $RequestProgramIds, int $RequestSessionTypeId, bool $RequestShowActiveOnly, \DateTime $RequestStartDate, int $RequestVisitCount);
+ * @method static \Nlocascio\Mindbody\Model\GetClientServicesResponse GetClientServices(string $RequestClientId, int $RequestClassId, int $RequestClientAssociatedSitesOffset, bool $RequestCrossRegionalLookup, \DateTime $RequestEndDate, bool $RequestIgnoreCrossRegionalSiteLimit, int $RequestLimit, int[] $RequestLocationIds, int $RequestOffset, int[] $RequestProgramIds, int $RequestSessionTypeId, bool $RequestShowActiveOnly, \DateTime $RequestStartDate, int $RequestVisitCount);
+ * @method static \Nlocascio\Mindbody\Model\GetClientVisitsResponse clientGetClientVisits(string $RequestClientId, int $RequestClientAssociatedSitesOffset, bool $RequestCrossRegionalLookup, \DateTime $RequestEndDate, int $RequestLimit, int $RequestOffset, \DateTime $RequestStartDate, bool $RequestUnpaidsOnly);
+ * @method static \Nlocascio\Mindbody\Model\GetClientVisitsResponse GetClientVisits(string $RequestClientId, int $RequestClientAssociatedSitesOffset, bool $RequestCrossRegionalLookup, \DateTime $RequestEndDate, int $RequestLimit, int $RequestOffset, \DateTime $RequestStartDate, bool $RequestUnpaidsOnly);
+ * @method static \Nlocascio\Mindbody\Model\GetClientsResponse clientGetClients(string[] $RequestClientIDs, bool $RequestIncludeInactive, bool $RequestIsProspect, \DateTime $RequestLastModifiedDate, int $RequestLimit, int $RequestOffset, string $RequestSearchText, int[] $RequestUniqueIds);
+ * @method static \Nlocascio\Mindbody\Model\GetClientsResponse GetClients(string[] $RequestClientIDs, bool $RequestIncludeInactive, bool $RequestIsProspect, \DateTime $RequestLastModifiedDate, int $RequestLimit, int $RequestOffset, string $RequestSearchText, int[] $RequestUniqueIds);
+ * @method static \Nlocascio\Mindbody\Model\GetContactLogTypesResponse clientGetContactLogTypes(int $RequestContactLogTypeId, int $RequestLimit, int $RequestOffset);
+ * @method static \Nlocascio\Mindbody\Model\GetContactLogTypesResponse GetContactLogTypes(int $RequestContactLogTypeId, int $RequestLimit, int $RequestOffset);
+ * @method static \Nlocascio\Mindbody\Model\GetContactLogsResponse clientGetContactLogs(string $RequestClientId, \DateTime $RequestEndDate, int $RequestLimit, int $RequestOffset, bool $RequestShowSystemGenerated, int[] $RequestStaffIds, \DateTime $RequestStartDate, int[] $RequestSubtypeIds, int[] $RequestTypeIds);
+ * @method static \Nlocascio\Mindbody\Model\GetContactLogsResponse GetContactLogs(string $RequestClientId, \DateTime $RequestEndDate, int $RequestLimit, int $RequestOffset, bool $RequestShowSystemGenerated, int[] $RequestStaffIds, \DateTime $RequestStartDate, int[] $RequestSubtypeIds, int[] $RequestTypeIds);
+ * @method static \Nlocascio\Mindbody\Model\GetCrossRegionalClientAssociationsResponse clientGetCrossRegionalClientAssociations(string $RequestClientId, string $RequestEmail, int $RequestLimit, int $RequestOffset);
+ * @method static \Nlocascio\Mindbody\Model\GetCrossRegionalClientAssociationsResponse GetCrossRegionalClientAssociations(string $RequestClientId, string $RequestEmail, int $RequestLimit, int $RequestOffset);
+ * @method static \Nlocascio\Mindbody\Model\GetCustomClientFieldsResponse clientGetCustomClientFields(int $RequestLimit, int $RequestOffset);
+ * @method static \Nlocascio\Mindbody\Model\GetCustomClientFieldsResponse GetCustomClientFields(int $RequestLimit, int $RequestOffset);
+ * @method static \Nlocascio\Mindbody\Model\DirectDebitInfo clientGetDirectDebitInfo(string $ClientId);
+ * @method static \Nlocascio\Mindbody\Model\DirectDebitInfo GetDirectDebitInfo(string $ClientId);
+ * @method static \Nlocascio\Mindbody\Model\GetRequiredClientFieldsResponse clientGetRequiredClientFields();
+ * @method static \Nlocascio\Mindbody\Model\GetRequiredClientFieldsResponse GetRequiredClientFields();
+ * @method static object clientSendAutoEmail(\Nlocascio\Mindbody\Model\SendAutoEmailRequest $Request);
+ * @method static object SendAutoEmail(\Nlocascio\Mindbody\Model\SendAutoEmailRequest $Request);
+ * @method static object clientSendPasswordResetEmail(\Nlocascio\Mindbody\Model\SendPasswordResetEmailRequest $Request);
+ * @method static object SendPasswordResetEmail(\Nlocascio\Mindbody\Model\SendPasswordResetEmailRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\UpdateClientResponse clientUpdateClient(\Nlocascio\Mindbody\Model\UpdateClientRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\UpdateClientResponse UpdateClient(\Nlocascio\Mindbody\Model\UpdateClientRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\GetClientRewardsResponse clientUpdateClientRewards(\Nlocascio\Mindbody\Model\UpdateClientRewardsRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\GetClientRewardsResponse UpdateClientRewards(\Nlocascio\Mindbody\Model\UpdateClientRewardsRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\UpdateClientServiceResponse clientUpdateClientService(\Nlocascio\Mindbody\Model\UpdateClientServiceRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\UpdateClientServiceResponse UpdateClientService(\Nlocascio\Mindbody\Model\UpdateClientServiceRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\UpdateClientVisitResponse clientUpdateClientVisit(\Nlocascio\Mindbody\Model\UpdateClientVisitRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\UpdateClientVisitResponse UpdateClientVisit(\Nlocascio\Mindbody\Model\UpdateClientVisitRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\ContactLog clientUpdateContactLog(\Nlocascio\Mindbody\Model\UpdateContactLogRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\ContactLog UpdateContactLog(\Nlocascio\Mindbody\Model\UpdateContactLogRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\UploadClientDocumentResponse clientUploadClientDocument(\Nlocascio\Mindbody\Model\UploadClientDocumentRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\UploadClientDocumentResponse UploadClientDocument(\Nlocascio\Mindbody\Model\UploadClientDocumentRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\UploadClientPhotoResponse clientUploadClientPhoto(\Nlocascio\Mindbody\Model\UploadClientPhotoRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\UploadClientPhotoResponse UploadClientPhoto(\Nlocascio\Mindbody\Model\UploadClientPhotoRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\ClassSchedule enrollmentAddClientToEnrollment(\Nlocascio\Mindbody\Model\AddClientToEnrollmentRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\ClassSchedule AddClientToEnrollment(\Nlocascio\Mindbody\Model\AddClientToEnrollmentRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\GetEnrollmentsResponse enrollmentGetEnrollments(int[] $RequestClassScheduleIds, \DateTime $RequestEndDate, int $RequestLimit, int[] $RequestLocationIds, int $RequestOffset, int[] $RequestProgramIds, int[] $RequestSessionTypeIds, int[] $RequestStaffIds, \DateTime $RequestStartDate);
+ * @method static \Nlocascio\Mindbody\Model\GetEnrollmentsResponse GetEnrollments(int[] $RequestClassScheduleIds, \DateTime $RequestEndDate, int $RequestLimit, int[] $RequestLocationIds, int $RequestOffset, int[] $RequestProgramIds, int[] $RequestSessionTypeIds, int[] $RequestStaffIds, \DateTime $RequestStartDate);
+ * @method static \Nlocascio\Mindbody\Model\GenerateSignedLiveStreamUrlResponse liveStreamGenerateSignedLiveStreamUrl(\Nlocascio\Mindbody\Model\GenerateSignedLiveStreamUrlRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\GenerateSignedLiveStreamUrlResponse GenerateSignedLiveStreamUrl(\Nlocascio\Mindbody\Model\GenerateSignedLiveStreamUrlRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\GetCommissionsResponse payrollGetCommissions(\DateTime $RequestEndDateTime, int $RequestLimit, int $RequestLocationId, int $RequestOffset, int $RequestStaffId, \DateTime $RequestStartDateTime);
+ * @method static \Nlocascio\Mindbody\Model\GetCommissionsResponse GetCommissions(\DateTime $RequestEndDateTime, int $RequestLimit, int $RequestLocationId, int $RequestOffset, int $RequestStaffId, \DateTime $RequestStartDateTime);
+ * @method static \Nlocascio\Mindbody\Model\GetScheduledServiceEarningsResponse payrollGetScheduledServiceEarnings(\DateTime $RequestEndDateTime, int $RequestLimit, int $RequestLocationId, int $RequestOffset, int $RequestScheduledServiceId, string $RequestScheduledServiceType, int $RequestStaffId, \DateTime $RequestStartDateTime);
+ * @method static \Nlocascio\Mindbody\Model\GetScheduledServiceEarningsResponse GetScheduledServiceEarnings(\DateTime $RequestEndDateTime, int $RequestLimit, int $RequestLocationId, int $RequestOffset, int $RequestScheduledServiceId, string $RequestScheduledServiceType, int $RequestStaffId, \DateTime $RequestStartDateTime);
+ * @method static \Nlocascio\Mindbody\Model\GetTimeCardsResponse payrollGetTimeCards(\DateTime $RequestEndDateTime, int $RequestLimit, int $RequestLocationId, int $RequestOffset, int $RequestStaffId, \DateTime $RequestStartDateTime);
+ * @method static \Nlocascio\Mindbody\Model\GetTimeCardsResponse GetTimeCards(\DateTime $RequestEndDateTime, int $RequestLimit, int $RequestLocationId, int $RequestOffset, int $RequestStaffId, \DateTime $RequestStartDateTime);
+ * @method static \Nlocascio\Mindbody\Model\GetTipsResponse payrollGetTips(\DateTime $RequestEndDateTime, int $RequestLimit, int $RequestLocationId, int $RequestOffset, int $RequestStaffId, \DateTime $RequestStartDateTime);
+ * @method static \Nlocascio\Mindbody\Model\GetTipsResponse GetTips(\DateTime $RequestEndDateTime, int $RequestLimit, int $RequestLocationId, int $RequestOffset, int $RequestStaffId, \DateTime $RequestStartDateTime);
+ * @method static object pricingOptionUpdatePricingOption(\Nlocascio\Mindbody\Model\UpdatePricingOptionRequest $Request);
+ * @method static object UpdatePricingOption(\Nlocascio\Mindbody\Model\UpdatePricingOptionRequest $Request);
+ * @method static object saleCheckoutShoppingCart(\Nlocascio\Mindbody\Model\CheckoutShoppingCartRequest $Request);
+ * @method static object CheckoutShoppingCart(\Nlocascio\Mindbody\Model\CheckoutShoppingCartRequest $Request);
+ * @method static string[] saleGetAcceptedCardTypes();
+ * @method static string[] GetAcceptedCardTypes();
+ * @method static \Nlocascio\Mindbody\Model\GetContractsResponse saleGetContracts(int $RequestLocationId, int $RequestConsumerId, int[] $RequestContractIds, int $RequestLimit, int $RequestOffset, bool $RequestSoldOnline);
+ * @method static \Nlocascio\Mindbody\Model\GetContractsResponse GetContracts(int $RequestLocationId, int $RequestConsumerId, int[] $RequestContractIds, int $RequestLimit, int $RequestOffset, bool $RequestSoldOnline);
+ * @method static \Nlocascio\Mindbody\Model\GetCustomPaymentMethodsResponse saleGetCustomPaymentMethods(int $RequestLimit, int $RequestOffset);
+ * @method static \Nlocascio\Mindbody\Model\GetCustomPaymentMethodsResponse GetCustomPaymentMethods(int $RequestLimit, int $RequestOffset);
+ * @method static \Nlocascio\Mindbody\Model\GetGiftCardBalanceResponse saleGetGiftCardBalance(string $BarcodeId);
+ * @method static \Nlocascio\Mindbody\Model\GetGiftCardBalanceResponse GetGiftCardBalance(string $BarcodeId);
+ * @method static \Nlocascio\Mindbody\Model\GetGiftCardResponse saleGetGiftCards(int[] $RequestIds, int $RequestLimit, int $RequestLocationId, int $RequestOffset, bool $RequestSoldOnline);
+ * @method static \Nlocascio\Mindbody\Model\GetGiftCardResponse GetGiftCards(int[] $RequestIds, int $RequestLimit, int $RequestLocationId, int $RequestOffset, bool $RequestSoldOnline);
+ * @method static \Nlocascio\Mindbody\Model\GetPackagesResponse saleGetPackages(int $RequestLimit, int $RequestOffset, int[] $RequestPackageIds, bool $RequestSellOnline);
+ * @method static \Nlocascio\Mindbody\Model\GetPackagesResponse GetPackages(int $RequestLimit, int $RequestOffset, int[] $RequestPackageIds, bool $RequestSellOnline);
+ * @method static \Nlocascio\Mindbody\Model\GetProductsResponse saleGetProducts(int[] $RequestCategoryIds, int $RequestLimit, int $RequestLocationId, int $RequestOffset, string[] $RequestProductIds, string $RequestSearchText, bool $RequestSellOnline, int[] $RequestSubCategoryIds);
+ * @method static \Nlocascio\Mindbody\Model\GetProductsResponse GetProducts(int[] $RequestCategoryIds, int $RequestLimit, int $RequestLocationId, int $RequestOffset, string[] $RequestProductIds, string $RequestSearchText, bool $RequestSellOnline, int[] $RequestSubCategoryIds);
+ * @method static \Nlocascio\Mindbody\Model\GetProductsInventoryResponse saleGetProductsInventory(string[] $RequestBarcodeIds, int $RequestLimit, int[] $RequestLocationIds, int $RequestOffset, string[] $RequestProductIds);
+ * @method static \Nlocascio\Mindbody\Model\GetProductsInventoryResponse GetProductsInventory(string[] $RequestBarcodeIds, int $RequestLimit, int[] $RequestLocationIds, int $RequestOffset, string[] $RequestProductIds);
+ * @method static \Nlocascio\Mindbody\Model\GetSalesResponse saleGetSales(\DateTime $RequestEndSaleDateTime, int $RequestLimit, int $RequestOffset, int $RequestPaymentMethodId, int $RequestSaleId, \DateTime $RequestStartSaleDateTime);
+ * @method static \Nlocascio\Mindbody\Model\GetSalesResponse GetSales(\DateTime $RequestEndSaleDateTime, int $RequestLimit, int $RequestOffset, int $RequestPaymentMethodId, int $RequestSaleId, \DateTime $RequestStartSaleDateTime);
+ * @method static \Nlocascio\Mindbody\Model\GetServicesResponse saleGetServices(int $RequestClassId, int $RequestClassScheduleId, bool $RequestHideRelatedPrograms, bool $RequestIncludeDiscontinued, int $RequestLimit, int $RequestLocationId, int $RequestOffset, int[] $RequestProgramIds, bool $RequestSellOnline, string[] $RequestServiceIds, int[] $RequestSessionTypeIds, int $RequestStaffId);
+ * @method static \Nlocascio\Mindbody\Model\GetServicesResponse GetServices(int $RequestClassId, int $RequestClassScheduleId, bool $RequestHideRelatedPrograms, bool $RequestIncludeDiscontinued, int $RequestLimit, int $RequestLocationId, int $RequestOffset, int[] $RequestProgramIds, bool $RequestSellOnline, string[] $RequestServiceIds, int[] $RequestSessionTypeIds, int $RequestStaffId);
+ * @method static \Nlocascio\Mindbody\Model\GetTransactionsResponse saleGetTransactions(int $RequestClientId, int $RequestLimit, int $RequestLocationId, int $RequestOffset, int $RequestSaleId, string $RequestStatus, \DateTime $RequestTransactionEndDateTime, int $RequestTransactionId, \DateTime $RequestTransactionStartDateTime);
+ * @method static \Nlocascio\Mindbody\Model\GetTransactionsResponse GetTransactions(int $RequestClientId, int $RequestLimit, int $RequestLocationId, int $RequestOffset, int $RequestSaleId, string $RequestStatus, \DateTime $RequestTransactionEndDateTime, int $RequestTransactionId, \DateTime $RequestTransactionStartDateTime);
+ * @method static \Nlocascio\Mindbody\Model\PurchaseAccountCreditResponse salePurchaseAccountCredit(\Nlocascio\Mindbody\Model\PurchaseAccountCreditRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\PurchaseAccountCreditResponse PurchaseAccountCredit(\Nlocascio\Mindbody\Model\PurchaseAccountCreditRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\PurchaseContractResponse salePurchaseContract(\Nlocascio\Mindbody\Model\PurchaseContractRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\PurchaseContractResponse PurchaseContract(\Nlocascio\Mindbody\Model\PurchaseContractRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\PurchaseGiftCardResponse salePurchaseGiftCard(\Nlocascio\Mindbody\Model\PurchaseGiftCardRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\PurchaseGiftCardResponse PurchaseGiftCard(\Nlocascio\Mindbody\Model\PurchaseGiftCardRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\AddPromoCodeResponse siteAddPromoCode(\Nlocascio\Mindbody\Model\AddPromoCodeRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\AddPromoCodeResponse AddPromoCode(\Nlocascio\Mindbody\Model\AddPromoCodeRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\GetActivationCodeResponse siteGetActivationCode();
+ * @method static \Nlocascio\Mindbody\Model\GetActivationCodeResponse GetActivationCode();
+ * @method static \Nlocascio\Mindbody\Model\GetCategoriesResponse siteGetCategories(bool $RequestActive, int[] $RequestCategoryIds, int $RequestLimit, int $RequestOffset, bool $RequestService, int[] $RequestSubCategoryIds);
+ * @method static \Nlocascio\Mindbody\Model\GetCategoriesResponse GetCategories(bool $RequestActive, int[] $RequestCategoryIds, int $RequestLimit, int $RequestOffset, bool $RequestService, int[] $RequestSubCategoryIds);
+ * @method static \Nlocascio\Mindbody\Model\GetGendersResponse siteGetGenders();
+ * @method static \Nlocascio\Mindbody\Model\GetGendersResponse GetGenders();
+ * @method static \Nlocascio\Mindbody\Model\GetLocationsResponse siteGetLocations(int $RequestLimit, int $RequestOffset);
+ * @method static \Nlocascio\Mindbody\Model\GetLocationsResponse GetLocations(int $RequestLimit, int $RequestOffset);
+ * @method static \Nlocascio\Mindbody\Model\GetMembershipsResponse siteGetMemberships(int[] $RequestMembershipIds);
+ * @method static \Nlocascio\Mindbody\Model\GetMembershipsResponse GetMemberships(int[] $RequestMembershipIds);
+ * @method static \Nlocascio\Mindbody\Model\GetPaymentTypesResponse siteGetPaymentTypes(bool $RequestActive);
+ * @method static \Nlocascio\Mindbody\Model\GetPaymentTypesResponse GetPaymentTypes(bool $RequestActive);
+ * @method static \Nlocascio\Mindbody\Model\GetProgramsResponse siteGetPrograms(int $RequestLimit, int $RequestOffset, bool $RequestOnlineOnly, string $RequestScheduleType);
+ * @method static \Nlocascio\Mindbody\Model\GetProgramsResponse GetPrograms(int $RequestLimit, int $RequestOffset, bool $RequestOnlineOnly, string $RequestScheduleType);
+ * @method static \Nlocascio\Mindbody\Model\GetPromoCodesResponse siteGetPromoCodes(bool $RequestActiveOnly, \DateTime $RequestEndDate, int $RequestLimit, int $RequestOffset, bool $RequestOnlineOnly, \DateTime $RequestStartDate);
+ * @method static \Nlocascio\Mindbody\Model\GetPromoCodesResponse GetPromoCodes(bool $RequestActiveOnly, \DateTime $RequestEndDate, int $RequestLimit, int $RequestOffset, bool $RequestOnlineOnly, \DateTime $RequestStartDate);
+ * @method static \Nlocascio\Mindbody\Model\GetResourcesResponse siteGetResources(\DateTime $RequestEndDateTime, int $RequestLimit, int $RequestLocationId, int $RequestOffset, int[] $RequestSessionTypeIds, \DateTime $RequestStartDateTime);
+ * @method static \Nlocascio\Mindbody\Model\GetResourcesResponse GetResources(\DateTime $RequestEndDateTime, int $RequestLimit, int $RequestLocationId, int $RequestOffset, int[] $RequestSessionTypeIds, \DateTime $RequestStartDateTime);
+ * @method static \Nlocascio\Mindbody\Model\GetSessionTypesResponse siteGetSessionTypes(int $RequestLimit, int $RequestOffset, bool $RequestOnlineOnly, int[] $RequestProgramIDs);
+ * @method static \Nlocascio\Mindbody\Model\GetSessionTypesResponse GetSessionTypes(int $RequestLimit, int $RequestOffset, bool $RequestOnlineOnly, int[] $RequestProgramIDs);
+ * @method static \Nlocascio\Mindbody\Model\GetSitesResponse siteGetSites(int $RequestLimit, int $RequestOffset, int[] $RequestSiteIds);
+ * @method static \Nlocascio\Mindbody\Model\GetSitesResponse GetSites(int $RequestLimit, int $RequestOffset, int[] $RequestSiteIds);
+ * @method static \Nlocascio\Mindbody\Model\AddStaffResponse staffAddStaff(\Nlocascio\Mindbody\Model\AddStaffRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\AddStaffResponse AddStaff(\Nlocascio\Mindbody\Model\AddStaffRequest $Request);
+ * @method static void staffAddStaffAvailability(\Nlocascio\Mindbody\Model\AddStaffAvailabilityRequest $Request);
+ * @method static void AddStaffAvailability(\Nlocascio\Mindbody\Model\AddStaffAvailabilityRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\AssignStaffSessionTypeResponse staffAssignStaffSessionType(\Nlocascio\Mindbody\Model\AssignStaffSessionTypeRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\AssignStaffSessionTypeResponse AssignStaffSessionType(\Nlocascio\Mindbody\Model\AssignStaffSessionTypeRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\GetStaffResponse staffGetStaff(string[] $RequestFilters, int $RequestLimit, int $RequestLocationId, int $RequestOffset, int $RequestSessionTypeId, int[] $RequestStaffIds, \DateTime $RequestStartDateTime);
+ * @method static \Nlocascio\Mindbody\Model\GetStaffResponse GetStaff(string[] $RequestFilters, int $RequestLimit, int $RequestLocationId, int $RequestOffset, int $RequestSessionTypeId, int[] $RequestStaffIds, \DateTime $RequestStartDateTime);
+ * @method static \Nlocascio\Mindbody\Model\GetStaffPermissionsResponse staffGetStaffPermissions(int $RequestStaffId);
+ * @method static \Nlocascio\Mindbody\Model\GetStaffPermissionsResponse GetStaffPermissions(int $RequestStaffId);
+ * @method static \Nlocascio\Mindbody\Model\GetStaffSessionTypesResponse staffGetStaffSessionTypes(int $RequestStaffId, int $RequestLimit, int $RequestOffset, bool $RequestOnlineOnly, int[] $RequestProgramIds);
+ * @method static \Nlocascio\Mindbody\Model\GetStaffSessionTypesResponse GetStaffSessionTypes(int $RequestStaffId, int $RequestLimit, int $RequestOffset, bool $RequestOnlineOnly, int[] $RequestProgramIds);
+ * @method static \Nlocascio\Mindbody\Model\UpdateStaffResponse staffUpdateStaff(\Nlocascio\Mindbody\Model\UpdateStaffRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\UpdateStaffResponse UpdateStaff(\Nlocascio\Mindbody\Model\UpdateStaffRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\UpdateStaffPermissionsResponse staffUpdateStaffPermissions(\Nlocascio\Mindbody\Model\UpdateStaffPermissionsRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\UpdateStaffPermissionsResponse UpdateStaffPermissions(\Nlocascio\Mindbody\Model\UpdateStaffPermissionsRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\IssueResponse userTokenIssue(\Nlocascio\Mindbody\Model\IssueRequest $Request);
+ * @method static \Nlocascio\Mindbody\Model\IssueResponse Issue(\Nlocascio\Mindbody\Model\IssueRequest $Request);
+ * @method static object userTokenRevoke();
+ * @method static object Revoke();
  */
 class MBO extends Facade
 {

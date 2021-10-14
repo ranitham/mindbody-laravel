@@ -41,5 +41,15 @@
     }
   },
   "minimum-stability": "dev",
-  "prefer-stable": true
+  "prefer-stable": true,
+  "extra": {
+    "laravel": {
+        "providers": [
+            "Nlocascio\\Mindbody\\MindbodyServiceProvider"
+        ],
+        "aliases": {
+            "Mbo": "Nlocascio\\Mindbody\\MBO"
+        }
+    }
+},
 }
