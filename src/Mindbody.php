@@ -234,7 +234,8 @@ class Mindbody
     use ProvidesMethodToEndpointMap;
     use ProvidesMindbodyAuthorisationToken;
 
-    private static $endpoints = [
+    /** @var array<string, string> */
+    private static array $endpoints = [
         'appointment' => AppointmentApi::class,
         'class' => ClassApi::class,
         'client' => ClientApi::class,
@@ -250,16 +251,17 @@ class Mindbody
 
     private Configuration $apiConfiguration;
 
+    /** @var array<string, ApiInterface> */
     private $mindbodyApiEndpoints = [];
 
-    public function __construct($debugFile = 'php://stderr')
+    public function __construct()
     {
         $config = new Configuration();
         $config->setUserAgent(\config('mindbody.source_name'));
         $config->setApiKey('API-Key', \config('mindbody.apikey'));
         $config->setApiKey('siteId', \config('mindbody.site_id'));
         $config->setDebug(\config('mindbody.debug'));
-        $config->setDebugFile('php://stderr');
+        $config->setDebugFile(\config('mindbody.debug_file'));
 
         $this->apiConfiguration = $config;
 
@@ -279,7 +281,7 @@ class Mindbody
      * @param GuzzleHttpClient $client
      * @param HeaderSelector $headerSelector
      *
-     * @return array
+     * @return array<string, ApiInterface>
      */
     public static function initialiseApiEndpoints(
         Configuration $apiConfiguration = null,
@@ -308,30 +310,21 @@ class Mindbody
             return $this->mindbodyApiEndpoints[$endpointName];
         }
 
-        throw new MindbodyErrorException('Could not find Endpoint: ' + $endpointName);
+        throw new MindbodyErrorException('Could not find Endpoint: ' . $endpointName);
     }
 
     /**
      * Magic method to call an api function
      *
      * @param string $methodName
-     * @param array $parameters
+     * @param mixed[] $parameters
      *
-     * @return void
+     * @return mixed
      */
     public function __call(string $methodName, array $parameters)
     {
         $methodCallback = $this->getRestCallForMethod($methodName);
         $this->updateAccessToken();
         return \call_user_func_array($methodCallback, $parameters);
-    }
-
-    /**
-     * @param $settings
-     * @return bool
-     */
-    private function validateSettings($settings)
-    {
-        return true;
     }
 }

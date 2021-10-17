@@ -70,7 +70,7 @@ class Course extends BaseModel
     /**
       * Array of property to format mappings. Used for (de)serialization
       *
-      * @var string[]
+      * @var array<int, string|null>
       */
     protected static $swaggerFormats = [
         'Id' => 'int64',
@@ -169,7 +169,7 @@ class Course extends BaseModel
     /**
      * Show all the invalid properties with reasons.
      *
-     * @return array invalid properties with reasons
+     * @return string[] invalid properties with reasons
      */
     public function listInvalidProperties(): array
     {

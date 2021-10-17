@@ -75,7 +75,7 @@ class CheckoutShoppingCartRequest extends BaseModel
     /**
       * Array of property to format mappings. Used for (de)serialization
       *
-      * @var string[]
+      * @var array<int, string|null>
       */
     protected static $swaggerFormats = [
         'CartId' => null,
@@ -204,7 +204,7 @@ class CheckoutShoppingCartRequest extends BaseModel
     /**
      * Show all the invalid properties with reasons.
      *
-     * @return array invalid properties with reasons
+     * @return string[] invalid properties with reasons
      */
     public function listInvalidProperties(): array
     {

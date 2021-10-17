@@ -11,20 +11,21 @@ use PhpParser\Node\Stmt\Echo_;
  */
 function fetchAPI(string $address): array
 {
-  $swaggerAPIDoc = file_get_contents($address);
-  if ($swaggerAPIDoc) {
-    $processedJSONAPI = processJSONApiAsText($swaggerAPIDoc);
-    return json_decode($processedJSONAPI, true);
-  } else {
-    throw new ErrorException(
-      "Could not fetch the Mindbody API from" + $address + '\n'
-    );
-  }
+    $swaggerAPIDoc = file_get_contents($address);
+    if ($swaggerAPIDoc) {
+        $processedJSONAPI = processJSONApiAsText($swaggerAPIDoc);
+        return json_decode($processedJSONAPI, true);
+    } else {
+        throw new ErrorException('Could not fetch the Mindbody API from' + $address + '\n');
+    }
 }
 
 function processJSONApiAsText(string $jsonAPI): string
 {
-  return str_replace("/public/v{version}/", "/public/v6/", $jsonAPI);
+    $find = ['/public/v{version}/', '"format":"double"'];
+    $replace = ['/public/v6/', '"format":"float"'];
+
+    return str_replace($find, $replace, $jsonAPI);
 }
 
 /**
@@ -35,29 +36,27 @@ function processJSONApiAsText(string $jsonAPI): string
  */
 function writeAPI(array $mboAPI, string $filename)
 {
-  $jsonData = json_encode($mboAPI);
-  return file_put_contents($filename, $jsonData);
+    $jsonData = json_encode($mboAPI);
+    return file_put_contents($filename, $jsonData);
 }
 
 function removeParameters(array $parameters, array $keysToRemove): array
 {
-  $cleanedParameters = array_filter($parameters, function ($oasParameter) use (
-    $keysToRemove
-  ) {
-    return !in_array($oasParameter["name"], $keysToRemove);
-  });
+    $cleanedParameters = array_filter($parameters, function ($oasParameter) use ($keysToRemove) {
+        return !in_array($oasParameter['name'], $keysToRemove);
+    });
 
-  return array_values($cleanedParameters);
+    return array_values($cleanedParameters);
 }
 
 function hasParameter(array $parameterArray, string $parameterName)
 {
-  $has = false;
-  foreach ($parameterArray as $parameter) {
-    $has |= $parameter["name"] == $parameterName;
-  }
+    $has = false;
+    foreach ($parameterArray as $parameter) {
+        $has |= $parameter['name'] == $parameterName;
+    }
 
-  return $has;
+    return $has;
 }
 
 /**
@@ -67,63 +66,50 @@ function hasParameter(array $parameterArray, string $parameterName)
  */
 function processAPI(array $api): array
 {
-  // change empty properties from arrays to objects
-  foreach ($api["definitions"] as &$definition) {
-    if ($definition["properties"] === []) {
-      $definition["properties"] = new stdClass();
+    // change empty properties from arrays to objects
+    foreach ($api['definitions'] as &$definition) {
+        if ($definition['properties'] === []) {
+            $definition['properties'] = new stdClass();
+        }
     }
-  }
 
-  foreach ($api["paths"] as &$path) {
-    // clean out version number requirement in path
-    foreach ($path as $operationName => &$operation) {
-      if ($operationName === "parameters") {
-        throw new Exception("Unexpected operation in MBO API");
-      }
+    foreach ($api['paths'] as &$path) {
+        // clean out version number requirement in path
+        foreach ($path as $operationName => &$operation) {
+            if ($operationName === 'parameters') {
+                throw new Exception('Unexpected operation in MBO API');
+            }
 
-      $wantsSiteID = hasParameter($operation["parameters"], "siteId");
-      $wantsAuthorization = hasParameter(
-        $operation["parameters"],
-        "authorization"
-      );
+            $wantsSiteID = hasParameter($operation['parameters'], 'siteId');
+            $wantsAuthorization = hasParameter($operation['parameters'], 'authorization');
 
-      // CLean out the parameters of security related items / globals
-      $operation["parameters"] = removeParameters($operation["parameters"], [
-        "version",
-        "siteId",
-        "authorization",
-      ]);
+            // CLean out the parameters of security related items / globals
+            $operation['parameters'] = removeParameters($operation['parameters'], ['version', 'siteId', 'authorization']);
 
-      $operation["security"][] = ["API-Key" => []];
-      if ($wantsSiteID) {
-        $operation["security"][] = ["siteId" => []];
-      }
-      if ($wantsAuthorization) {
-        $operation["security"][] = ["authorization" => []];
-      }
+            $operation['security'][] = ['API-Key' => []];
+            if ($wantsSiteID) {
+                $operation['security'][] = ['siteId' => []];
+            }
+            if ($wantsAuthorization) {
+                $operation['security'][] = ['authorization' => []];
+            }
+        }
     }
-  }
 
-  $api["securityDefinitions"]["siteId"] = getSecurityDefinition(
-    "siteId",
-    "Mindbody Site ID used for Authentication"
-  );
-  $api["securityDefinitions"]["authorization"] = getSecurityDefinition(
-    "authorization",
-    "A staff user authorization token."
-  );
+    $api['securityDefinitions']['siteId'] = getSecurityDefinition('siteId', 'Mindbody Site ID used for Authentication');
+    $api['securityDefinitions']['authorization'] = getSecurityDefinition('authorization', 'A staff user authorization token.');
 
-  return $api;
+    return $api;
 }
 
 function getSecurityDefinition(string $name, $description): array
 {
-  return [
-    "type" => "apiKey",
-    "description" => $description,
-    "name" => $name,
-    "in" => "header",
-  ];
+    return [
+        'type' => 'apiKey',
+        'description' => $description,
+        'name' => $name,
+        'in' => 'header',
+    ];
 }
 
 /**
@@ -133,23 +119,18 @@ function getSecurityDefinition(string $name, $description): array
  */
 function fetchSwaggerCodegen(bool $overwrite = false)
 {
-  $filename = "swagger-codegen.jar";
+    $filename = 'swagger-codegen.jar';
 
-  if (!file_exists($filename) || $overwrite) {
-    $swaggerURL =
-      "https://repo1.maven.org/maven2/io/swagger/swagger-codegen-cli/2.4.23/swagger-codegen-cli-2.4.23.jar";
-    if (file_put_contents($filename, file_get_contents($swaggerURL))) {
-      echo "Downloaded the swagger-codegen binary\r\n";
-    } else {
-      throw new ErrorException("Could not download the swagger-codegen binary");
+    if (!file_exists($filename) || $overwrite) {
+        $swaggerURL = 'https://repo1.maven.org/maven2/io/swagger/swagger-codegen-cli/2.4.23/swagger-codegen-cli-2.4.23.jar';
+        if (file_put_contents($filename, file_get_contents($swaggerURL))) {
+            echo "Downloaded the swagger-codegen binary\r\n";
+        } else {
+            throw new ErrorException('Could not download the swagger-codegen binary');
+        }
     }
-  }
 }
 
-
-writeAPI(
-  processAPI(fetchAPI("https://api.mindbodyonline.com/public/v6/swagger/doc")),
-  "./mindbody.json"
-);
+writeAPI(processAPI(fetchAPI('https://api.mindbodyonline.com/public/v6/swagger/doc')), './mindbody.json');
 
 ?>
