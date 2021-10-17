@@ -26,7 +26,7 @@ class MindbodyMagicMethodDocumentor
             }
 
             $signatureParts = static::processPHPDoc($methodReflector);
-            $signature = '* @method ';
+            $signature = '* @method static ';
             if (\array_key_exists('return', $signatureParts)) {
                 $signature .= $signatureParts['return'] . ' ';
             }
