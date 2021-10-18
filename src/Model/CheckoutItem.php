@@ -101,8 +101,27 @@ class CheckoutItem extends BaseModel
     ];
 
 
+    const TYPE_SERVICE = 'Service';
+    const TYPE_PRODUCT = 'Product';
+    const TYPE_PACKAGE = 'Package';
+    const TYPE_TIP = 'Tip';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues(): array
+    {
+        return [
+            self::TYPE_SERVICE,
+            self::TYPE_PRODUCT,
+            self::TYPE_PACKAGE,
+            self::TYPE_TIP,
+        ];
+    }
     
 
     /**
@@ -125,6 +144,14 @@ class CheckoutItem extends BaseModel
     public function listInvalidProperties(): array
     {
         $invalidProperties = parent::listInvalidProperties();
+
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['Type']) && !in_array($this->container['Type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'Type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -149,6 +176,15 @@ class CheckoutItem extends BaseModel
      */
     public function setType($Type): self
     {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($Type) && !in_array($Type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'Type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['Type'] = $Type;
 
         return $this;

@@ -67,9 +67,35 @@ function hasParameter(array $parameterArray, string $parameterName)
 function processAPI(array $api): array
 {
     // change empty properties from arrays to objects
-    foreach ($api['definitions'] as &$definition) {
+    foreach ($api['definitions'] as $definitionName => &$definition) {
         if ($definition['properties'] === []) {
             $definition['properties'] = new stdClass();
+        }
+
+        if ($definitionName === 'CheckoutPaymentInfo') {
+            $definition['properties']['Type']['enum'] = [
+                'CreditCard',
+                'StoredCard',
+                'DirectDebit',
+                'EncryptedTrackData',
+                'TrackData',
+                'DebitAccount',
+                'Custom',
+                'Comp',
+                'Cash',
+                'Check',
+                'GiftCard',
+            ];
+
+        }
+
+        if ($definitionName === 'CheckoutItem') {
+            $definition['properties']['Type']['enum'] = [
+                'Service',
+                'Product',
+                'Package',
+                'Tip',
+            ];
         }
     }
 

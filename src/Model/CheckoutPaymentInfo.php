@@ -101,8 +101,41 @@ class CheckoutPaymentInfo extends BaseModel
     ];
 
 
+    const TYPE_CREDIT_CARD = 'CreditCard';
+    const TYPE_STORED_CARD = 'StoredCard';
+    const TYPE_DIRECT_DEBIT = 'DirectDebit';
+    const TYPE_ENCRYPTED_TRACK_DATA = 'EncryptedTrackData';
+    const TYPE_TRACK_DATA = 'TrackData';
+    const TYPE_DEBIT_ACCOUNT = 'DebitAccount';
+    const TYPE_CUSTOM = 'Custom';
+    const TYPE_COMP = 'Comp';
+    const TYPE_CASH = 'Cash';
+    const TYPE_CHECK = 'Check';
+    const TYPE_GIFT_CARD = 'GiftCard';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues(): array
+    {
+        return [
+            self::TYPE_CREDIT_CARD,
+            self::TYPE_STORED_CARD,
+            self::TYPE_DIRECT_DEBIT,
+            self::TYPE_ENCRYPTED_TRACK_DATA,
+            self::TYPE_TRACK_DATA,
+            self::TYPE_DEBIT_ACCOUNT,
+            self::TYPE_CUSTOM,
+            self::TYPE_COMP,
+            self::TYPE_CASH,
+            self::TYPE_CHECK,
+            self::TYPE_GIFT_CARD,
+        ];
+    }
     
 
     /**
@@ -125,6 +158,14 @@ class CheckoutPaymentInfo extends BaseModel
     public function listInvalidProperties(): array
     {
         $invalidProperties = parent::listInvalidProperties();
+
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['Type']) && !in_array($this->container['Type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'Type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -149,6 +190,15 @@ class CheckoutPaymentInfo extends BaseModel
      */
     public function setType($Type): self
     {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($Type) && !in_array($Type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'Type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['Type'] = $Type;
 
         return $this;
