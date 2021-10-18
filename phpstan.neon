@@ -5,4 +5,8 @@ parameters:
     excludePaths:
         analyse:
         - src/Api
-        - src/Model
+    ignoreErrors:
+        -
+            message: '#Call to function is_null\(\) with .* will always evaluate to false.#'
+            paths:
+                - src/Model

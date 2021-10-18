@@ -60,7 +60,7 @@ class GetClientReferralTypesRequest extends BaseModel
     /**
       * Array of property to format mappings. Used for (de)serialization
       *
-      * @var array<int, string|null>
+      * @var array<string, string|null>
       */
     protected static $swaggerFormats = [
         'IncludeInactive' => null

@@ -22,8 +22,8 @@ function fetchAPI(string $address): array
 
 function processJSONApiAsText(string $jsonAPI): string
 {
-    $find = ['/public/v{version}/', '"format":"double"'];
-    $replace = ['/public/v6/', '"format":"float"'];
+    $find = ['/public/v{version}/'];
+    $replace = ['/public/v6/'];
 
     return str_replace($find, $replace, $jsonAPI);
 }
