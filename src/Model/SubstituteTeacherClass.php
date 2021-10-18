@@ -38,7 +38,7 @@ namespace Nlocascio\Mindbody\Model;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SubstituteTeacherClass extends BaseModel
+class SubstituteTeacherClass extends BaseModel implements ModelWithId
 {
     const DISCRIMINATOR = null;
 

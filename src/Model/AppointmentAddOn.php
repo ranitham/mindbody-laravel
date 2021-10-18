@@ -37,7 +37,7 @@ namespace Nlocascio\Mindbody\Model;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class AppointmentAddOn extends BaseModel
+class AppointmentAddOn extends BaseModel implements ModelWithId
 {
     const DISCRIMINATOR = null;
 
