@@ -37,7 +37,7 @@ namespace Nlocascio\Mindbody\Model;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  * @property string $Type The type of item. Possible values are:  * Service - Indicates that this item is a pricing option.  * Product - Indicates that this item is a retail product.  * Package - Indicates that this item is a package.  * Tip - Indicates that this item is a tip.
- * @property map[string,object] $Metadata Contains information about the item to be purchased. See [Cart Item Metadata](https://developers.mindbodyonline.com/PublicDocumentation/V6#cart-item-metadata) for more information.
+ * @property object $Metadata Contains information about the item to be purchased. See [Cart Item Metadata](https://developers.mindbodyonline.com/PublicDocumentation/V6#cart-item-metadata) for more information.
  *
  */
 class CheckoutItem extends BaseModel
@@ -58,7 +58,7 @@ class CheckoutItem extends BaseModel
       */
     protected static $swaggerTypes = [
         'Type' => 'string',
-        'Metadata' => 'map[string,object]'
+        'Metadata' => 'object'
     ];
 
     /**
@@ -196,7 +196,7 @@ class CheckoutItem extends BaseModel
     /**
      * Gets Metadata
      *
-     * @return map[string,object]
+     * @return object
      */
     public function getMetadata()
     {
@@ -206,7 +206,7 @@ class CheckoutItem extends BaseModel
     /**
      * Sets Metadata
      *
-     * @param map[string,object] $Metadata Contains information about the item to be purchased. See [Cart Item Metadata](https://developers.mindbodyonline.com/PublicDocumentation/V6#cart-item-metadata) for more information.
+     * @param object $Metadata Contains information about the item to be purchased. See [Cart Item Metadata](https://developers.mindbodyonline.com/PublicDocumentation/V6#cart-item-metadata) for more information.
      *
      * @return $this
      */

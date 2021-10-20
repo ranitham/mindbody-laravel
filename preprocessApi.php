@@ -73,6 +73,7 @@ function processAPI(array $api): array
         }
 
         if ($definitionName === 'CheckoutPaymentInfo') {
+            $definition['properties']['Metadata']['additionalProperties'] = true;
             $definition['properties']['Type']['enum'] = [
                 'CreditCard',
                 'StoredCard',
@@ -90,6 +91,7 @@ function processAPI(array $api): array
         }
 
         if ($definitionName === 'CheckoutItem') {
+            $definition['properties']['Metadata']['additionalProperties'] = true;
             $definition['properties']['Type']['enum'] = [
                 'Service',
                 'Product',
