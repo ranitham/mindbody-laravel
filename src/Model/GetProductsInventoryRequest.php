@@ -36,6 +36,12 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string[] $ProductIds An IDs filter for products inventory data.
+ * @property int[] $LocationIds The location IDs to use to determine the inventory data of the product of specific location.<br />  Default: **online store**
+ * @property string[] $BarcodeIds An IDs is barcodeId to filter for products inventory data.
+ * @property int $Limit Number of results to include, defaults to 100
+ * @property int $Offset Page offset, defaults to 0.
+ *
  */
 class GetProductsInventoryRequest extends BaseModel
 {

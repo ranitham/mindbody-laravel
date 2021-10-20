@@ -36,6 +36,14 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $StaffId The ID of the staff member who earned commissions.
+ * @property \DateTime $SaleDateTime The date and time when the sale occurred.
+ * @property int $SaleId The sale’s ID.
+ * @property string $SaleType The Sales type. When this is \"Purchase\" indicates that this sale paid commission to a staff. When this is \"Return\"
+ * @property int $ProductId The product ID of the item for which the staff earned commissions.
+ * @property \Nlocascio\Mindbody\Model\CommissionDetail[] $EarningsDetails Contains information about which commissions the staff earned for this item.
+ * @property double $Earnings The total commissions earned by the staff for this item.
+ *
  */
 class CommissionPayrollPurchaseEvent extends BaseModel
 {

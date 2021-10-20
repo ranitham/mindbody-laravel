@@ -37,6 +37,11 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string $RelatedClientId The RSSID of the related client.
+ * @property \Nlocascio\Mindbody\Model\Relationship $Relationship Contains details about the relationship between two clients.
+ * @property string $RelationshipName The name of the relationship of the related client.
+ * @property bool $Delete When true, this relationship is removed from the associated clients.
+ *
  */
 class ClientRelationship extends BaseModel
 {

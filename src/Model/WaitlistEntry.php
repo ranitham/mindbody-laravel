@@ -36,6 +36,16 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property \DateTime $ClassDate The date of the class or enrollment.
+ * @property int $ClassId The ID of the class or enrollment.
+ * @property \Nlocascio\Mindbody\Model\ClassSchedule $ClassSchedule Contains information about the class schedule for this waiting list entry.
+ * @property \Nlocascio\Mindbody\Model\Client $Client Contains information about the requested client who is on the waiting list.
+ * @property \DateTime $EnrollmentDateForward If the waiting list entry was created for an enrollment, this is the date on or after which the client can be added to the enrollment from the waitlist.
+ * @property int $Id The ID of the waiting list entry.
+ * @property \DateTime $RequestDateTime The date and time that the request to be on the waiting list was made.
+ * @property int $VisitRefNo The ID of the visit that is associated with the waiting list entry.
+ * @property bool $Web If `true`, the entry on the waiting list was requested online.<br />  If `false`, the entry on the waiting list was requested off-line, for example in person or by phone.
+ *
  */
 class WaitlistEntry extends BaseModel implements ModelWithId
 {

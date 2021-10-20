@@ -36,6 +36,41 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $Id The contract’s ID at the subscriber’s business.
+ * @property string $Name The name of the contract.
+ * @property string $Description A description of the contract.
+ * @property int $AssignsMembershipId The ID of the membership that was assigned to the client when the client signed up for a contract.
+ * @property string $AssignsMembershipName The name of the membership that was assigned to the client when the client signed up for this contract.
+ * @property bool $SoldOnline When `true`, indicates that this membership is intended to be shown to clients in client experiences.<br />  When `false`, this contract should only be shown to staff members.
+ * @property \Nlocascio\Mindbody\Model\ContractItem[] $ContractItems Contains information about the items in the contract.
+ * @property string $IntroOffer Defines whether this contract is treated as an introductory offer. If this is an introductory offer, then clients are always charged a set number of times rather than month to month, using their AutoPays. Possible values are:  * None  * NewConsumer  * NewAndReturningConsumer
+ * @property \Nlocascio\Mindbody\Model\AutopaySchedule $AutopaySchedule Contains information about the AutoPay schedule. This parameter is null if `AutopayTriggerType` has a value of `PricingOptionRunsOutOrExpires`.
+ * @property int $NumberOfAutopays The number of times that the AutoPay is to be run. This value is null if `FrequencyType` is `MonthToMonth`.
+ * @property string $AutopayTriggerType Defines whether the AutoPay, if applicable to this contract, runs on a set schedule or when the pricing option runs out or expires. Possible values are:  * OnSetSchedule  * PricingOptionRunsOutOrExpires
+ * @property string $ActionUponCompletionOfAutopays The renewal action to be taken when this AutoPay is completed. Possible values are:  * ContractExpires  * ContractAutomaticallyRenews
+ * @property string $ClientsChargedOn The value that indicates when clients are charged. Possible values are:  * OnSaleDate  * FirstOfTheMonth  * FifteenthOfTheMonth  * LastDayOfTheMonth  * FirstOrFifteenthOfTheMonth  * FirstOrSixteenthOfTheMonth  * FifteenthOrEndOfTheMonth  * SpecificDate
+ * @property \DateTime $ClientsChargedOnSpecificDate If `ClientsChargedOn` is defined as a specific date, this property holds the value of that date. Otherwise, this property is null.
+ * @property double $DiscountAmount The calculated discount applied to the items in this contract.
+ * @property double $DepositAmount The amount of the deposit required for this contract.
+ * @property bool $FirstAutopayFree When `true`, indicates that the first payment for the AutoPay is free.
+ * @property bool $LastAutopayFree When `true`, indicates that the last payment for the AutoPay is free.
+ * @property bool $ClientTerminateOnline When `true`, indicates that the client can terminate this contract on the Internet.
+ * @property \Nlocascio\Mindbody\Model\MembershipTypeRestriction[] $MembershipTypeRestrictions Contains information about the memberships that can purchase this contract. If null, then no membership restrictions exist, and anyone can purchase the contract.
+ * @property int[] $LocationPurchaseRestrictionIds The IDs of the locations where this contract may be sold. If there are no restrictions, this value is null.
+ * @property string[] $LocationPurchaseRestrictionNames Location names where the contract may be purchased. If this value is null, there are no restrictions.
+ * @property string $AgreementTerms Business-defined terms and conditions for the contract.
+ * @property bool $RequiresElectronicConfirmation When `true`, clients who purchase the contract are prompted to agree to the terms of the contract the next time that they log in.
+ * @property bool $AutopayEnabled When `true`, this contract establishes an AutoPay on the client’s account.
+ * @property double $FirstPaymentAmountSubtotal The subtotal of the amount that the client is to be charged when signing up for the contract.
+ * @property double $FirstPaymentAmountTax The amount of tax that the client is to be charged when signing up for the contract.
+ * @property double $FirstPaymentAmountTotal The total amount that the client is to be charged when signing up for the contract.
+ * @property double $RecurringPaymentAmountSubtotal The subtotal amount that the client is to be charged on an ongoing basis.
+ * @property double $RecurringPaymentAmountTax The amount of tax the client is to be charged on an ongoing basis.
+ * @property double $RecurringPaymentAmountTotal The total amount that the client is to be charged on an ongoing basis.
+ * @property double $TotalContractAmountSubtotal The subtotal amount that the client is to be charged over the lifespan of the contract.
+ * @property double $TotalContractAmountTax The total amount of tax the client is to be charged over the lifespan of the contract.
+ * @property double $TotalContractAmountTotal The total amount the client is to be charged over the lifespan of the contract.
+ *
  */
 class Contract extends BaseModel implements ModelWithId
 {

@@ -37,6 +37,8 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property \Nlocascio\Mindbody\Model\PaymentType[] $PaymentTypes The requested payment types.
+ *
  */
 class GetPaymentTypesResponse extends BaseModel
 {

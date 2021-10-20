@@ -37,6 +37,9 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $LayoutId The ID of the layout.
+ * @property string $LayoutName The name of the layout.
+ *
  */
 class GiftCardLayout extends BaseModel
 {

@@ -36,6 +36,16 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string $ClientId The ID of the client whose contact logs are being requested.
+ * @property \DateTime $StartDate Filters the results to contact logs created on or after this date.<br />  Default: **the current date**
+ * @property \DateTime $EndDate Filters the results to contact logs created before this date.<br />  Default: **the start date**
+ * @property int[] $StaffIds Filters the results to return contact logs assigned to one or more staff IDs.
+ * @property bool $ShowSystemGenerated When `true`, system-generated contact logs are returned in the results.<br />  Default: **false**
+ * @property int[] $TypeIds Filters the results to contact logs assigned one or more of these type IDs.
+ * @property int[] $SubtypeIds Filters the results to contact logs assigned one or more of these subtype IDs.
+ * @property int $Limit Number of results to include, defaults to 100
+ * @property int $Offset Page offset, defaults to 0.
+ *
  */
 class GetContactLogsRequest extends BaseModel
 {

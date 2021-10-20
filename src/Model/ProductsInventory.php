@@ -36,6 +36,17 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $ProductId A ProductId of the product.
+ * @property string $BarcodeId The Id is barcode Id of the product.
+ * @property int $LocationId The LocationId of the product.
+ * @property int $UnitsLogged UnitsLogged of the product.
+ * @property int $UnitsSold UnitsSold of the product.
+ * @property int $UnitsInStock The units in stock of the product
+ * @property int $ReorderLevel ReorderLevel of the product.
+ * @property int $MaxLevel MaxLevel of the product.
+ * @property \DateTime $CreatedDateTimeUTC CreatedDateTimeUTC of the product.
+ * @property \DateTime $ModifiedDateTimeUTC ModifiedDateTimeUTC of the product.
+ *
  */
 class ProductsInventory extends BaseModel
 {

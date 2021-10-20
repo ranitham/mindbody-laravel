@@ -36,6 +36,12 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string $ClientId The RSSID of the client to remove from the specified class.
+ * @property int $ClassId The ID of the class that you want to remove the client from.
+ * @property bool $Test When `true`, the request ensures that its parameters are valid without affecting real data.<br />  When `false`, the request performs as intended and may affect live client data.<br />  Default: **false**
+ * @property bool $SendEmail When `true`, indicates that the client should be sent an email. Depending on the site and client settings, an email may or may not be sent.<br />  Default: **false**
+ * @property bool $LateCancel When `true`, indicates that the client is to be late cancelled from the class.<br />  When `false`, indicates that the client is to be early cancelled from the class.<br />  Default: **false**
+ *
  */
 class RemoveClientFromClassRequest extends BaseModel
 {

@@ -37,6 +37,10 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string $UserEmail The user’s email address. The software uses this parameter as the username.
+ * @property string $UserFirstName The user’s first name. The software uses this parameter to verify the user.
+ * @property string $UserLastName The user’s last name. The software uses this parameter to verify the user.
+ *
  */
 class SendPasswordResetEmailRequest extends BaseModel
 {

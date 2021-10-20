@@ -37,6 +37,10 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $Id The contact log type’s ID.
+ * @property string $Name The type's Name
+ * @property \Nlocascio\Mindbody\Model\ContactLogSubType[] $SubTypes A list of the subtypes being used to tag this contact log type.
+ *
  */
 class ContactLogType extends BaseModel implements ModelWithId
 {

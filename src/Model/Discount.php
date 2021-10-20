@@ -37,6 +37,9 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string $Type Type of discount percentage/amount
+ * @property double $Amount Amount of discount
+ *
  */
 class Discount extends BaseModel
 {

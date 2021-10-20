@@ -37,6 +37,9 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $Id The index ID assigned to the client.
+ * @property int $ValueId The index’s value ID.
+ *
  */
 class AssignedClientIndex extends BaseModel implements ModelWithId
 {

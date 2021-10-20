@@ -37,6 +37,11 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string $DisplayName The name displayed for this appointment option.
+ * @property string $Name The name given to this option.
+ * @property string $Value The value of the option.
+ * @property string $Type The data type of the option value.
+ *
  */
 class AppointmentOption extends BaseModel
 {

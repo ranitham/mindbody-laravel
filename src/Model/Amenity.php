@@ -37,6 +37,9 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $Id The ID number of the amenity.
+ * @property string $Name The name of the amenity, for example, food or lockers.
+ *
  */
 class Amenity extends BaseModel implements ModelWithId
 {

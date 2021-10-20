@@ -36,6 +36,12 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property \Nlocascio\Mindbody\Model\ClientWithSuspensionInfo $Client The requested client.
+ * @property \Nlocascio\Mindbody\Model\ClientService[] $ClientServices Contains information about client pricing options.
+ * @property \Nlocascio\Mindbody\Model\ClientContract[] $ClientContracts Contains the details of the client’s contract.
+ * @property \Nlocascio\Mindbody\Model\ClientMembership[] $ClientMemberships Details about the requested memberships.
+ * @property \Nlocascio\Mindbody\Model\ClientArrival[] $ClientArrivals Details about the active client arrival programs.
+ *
  */
 class GetClientCompleteInfoResponse extends BaseModel
 {

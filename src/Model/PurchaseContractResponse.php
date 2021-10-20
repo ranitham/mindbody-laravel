@@ -36,6 +36,12 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string $ClientId The ID of the client who is purchasing the contract.
+ * @property int $LocationId The ID of the location where the contract is being purchased.
+ * @property int $ContractId The ID of the general contract being purchased.
+ * @property int $ClientContractId The ID of the specific contract being purchased by this specific client, not to be confused with the `ContractId`, which refers to a general contract that the business offers.
+ * @property \Nlocascio\Mindbody\Model\PaymentProcessingFailure[] $PaymentProcessingFailures Any cart processing failures, for example when SCA challenged, the cart is in PaymentAuthenticationRequired state and at least one of the failures listed will provide an authentication Url.
+ *
  */
 class PurchaseContractResponse extends BaseModel
 {

@@ -36,6 +36,9 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string $Type The type of item. Possible values are:  * Service - Indicates that this item is a pricing option.  * Product - Indicates that this item is a retail product.  * Package - Indicates that this item is a package.  * Tip - Indicates that this item is a tip.
+ * @property map[string,object] $Metadata Contains information about the item to be purchased. See [Cart Item Metadata](https://developers.mindbodyonline.com/PublicDocumentation/V6#cart-item-metadata) for more information.
+ *
  */
 class CheckoutItem extends BaseModel
 {

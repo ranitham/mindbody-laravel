@@ -36,6 +36,11 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $Id The ID of the unavailability.
+ * @property \DateTime $StartDateTime The date and time the unavailability starts.
+ * @property \DateTime $EndDateTime The date and time the unavailability ends.
+ * @property string $Description A description of the unavailability.
+ *
  */
 class Unavailability extends BaseModel implements ModelWithId
 {

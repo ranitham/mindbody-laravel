@@ -36,6 +36,11 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int[] $PackageIds A list of the packages IDs to filter by.
+ * @property bool $SellOnline When `true`, only returns products that can be sold online.<br />  When `false`, all products are returned.<br />  Default: **false**
+ * @property int $Limit Number of results to include, defaults to 100
+ * @property int $Offset Page offset, defaults to 0.
+ *
  */
 class GetPackagesRequest extends BaseModel
 {

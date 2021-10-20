@@ -37,6 +37,11 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $Id The id of the gender option
+ * @property string $Name The name of the gender option
+ * @property bool $IsActive Whether the gender option is active and can be assigned to a consumer profile
+ * @property bool $IsDefault Whether the gender option is the default value applied to a consumer profile
+ *
  */
 class GenderOption extends BaseModel implements ModelWithId
 {

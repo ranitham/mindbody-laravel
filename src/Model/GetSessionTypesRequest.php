@@ -36,6 +36,11 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int[] $ProgramIDs Filters results to session types that belong to one of the given program IDs. If omitted, all program IDs return.
+ * @property bool $OnlineOnly When `true`, indicates that only the session types that can be booked online should be returned.<br />  Default: **false**
+ * @property int $Limit Number of results to include, defaults to 100
+ * @property int $Offset Page offset, defaults to 0.
+ *
  */
 class GetSessionTypesRequest extends BaseModel
 {

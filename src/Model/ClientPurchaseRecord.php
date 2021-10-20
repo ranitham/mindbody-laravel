@@ -37,6 +37,16 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property \Nlocascio\Mindbody\Model\Sale $Sale Contains details about the sale and payment for a purchase event.
+ * @property string $Description The item name and description.
+ * @property bool $AccountPayment If `true`, the item was a payment credited to an account.
+ * @property double $Price The item's price before taxes and discounts.
+ * @property double $AmountPaid The amount paid for the item.
+ * @property double $Discount The discount amount that was applied to the item.
+ * @property double $Tax The amount of tax that was applied to the item.
+ * @property bool $Returned The return status of the item. If `true`, this item was returned.
+ * @property int $Quantity The quantity of the item purchased.
+ *
  */
 class ClientPurchaseRecord extends BaseModel
 {

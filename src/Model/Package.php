@@ -36,6 +36,13 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $Id The ID of the package.
+ * @property string $Name The name of the package.
+ * @property double $DiscountPercentage The discount percentage applied to the package.
+ * @property bool $SellOnline When `true`, only products that can be sold online are returned.<br />  When `false`, all products are returned.
+ * @property \Nlocascio\Mindbody\Model\Service[] $Services Information about the services in the packages.
+ * @property \Nlocascio\Mindbody\Model\Product[] $Products Information about the products in the packages.
+ *
  */
 class Package extends BaseModel implements ModelWithId
 {

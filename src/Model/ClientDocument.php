@@ -36,6 +36,10 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string $FileName The name of the file to be used on the client’s documents page when it is uploaded.
+ * @property string $MediaType The type of file or file extension. Possible values are:  * pdf  * jpg  * jpeg  * tif  * tiff  * png  * doc  * docx  * bmp  * txt  * rtf  * xlsx  * xls  * gif  * zip  * ppt  * pptx  * mov
+ * @property string $Buffer A Base64-encoded string representation of the file’s byte array.
+ *
  */
 class ClientDocument extends BaseModel
 {

@@ -36,6 +36,11 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $StaffId The ID of the staff member the tip is for.
+ * @property int $SaleId The sale’s ID associated with the tip.
+ * @property \DateTime $SaleDateTime The date and time when the tip was given.
+ * @property double $Earnings The amount tipped to the staff member.
+ *
  */
 class Tip extends BaseModel
 {

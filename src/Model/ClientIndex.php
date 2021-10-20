@@ -37,6 +37,13 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $Id The unique ID of the client index.
+ * @property string $Name The name of the client index.
+ * @property bool $RequiredBusinessMode When `true`, indicates that the index is required when creating profiles in business mode.
+ * @property bool $RequiredConsumerMode When `true`, indicates that the index is required when creating profiles in consumer mode.
+ * @property \Nlocascio\Mindbody\Model\ClientIndexValue[] $Values Contains information about the index's possible values.
+ * @property string $Action The action performed on this object.
+ *
  */
 class ClientIndex extends BaseModel implements ModelWithId
 {

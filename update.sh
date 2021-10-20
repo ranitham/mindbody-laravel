@@ -10,5 +10,5 @@ for i in *Api.php; do sed -i -E 's/(function\s.*\(.*?\)\s*:\s*)(.*?\[\])/\1array
 popd
 
 pushd src/Model
-grep -l 'public function getId\(\)' * | xargs -I {} sed -i -E 's/(class\s.*?extends\sBaseModel)/\1 implements ModelWithId/gm' {}
+grep -l 'public function getId()' * | xargs -I {} sed -i -E 's/(class\s.*?extends\sBaseModel)/\1 implements ModelWithId/gm' {}
 popd

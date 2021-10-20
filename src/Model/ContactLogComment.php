@@ -37,6 +37,11 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $Id The comment’s ID.
+ * @property string $Text The comment’s body text.
+ * @property \DateTime $CreatedDateTime The local time when the comment was created.
+ * @property \Nlocascio\Mindbody\Model\Staff $CreatedBy Information about the staff member who created the comment.
+ *
  */
 class ContactLogComment extends BaseModel implements ModelWithId
 {

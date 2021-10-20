@@ -36,6 +36,9 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $FileSize The size of the uploaded file.
+ * @property string $FileName The name of the uploaded file.
+ *
  */
 class UploadClientDocumentResponse extends BaseModel
 {

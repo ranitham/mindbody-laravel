@@ -36,6 +36,28 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property bool $AcceptsAmericanExpress When `true`, indicates that this site accepts American Express cards.<br />  When `false`, indicates that this site does not accept American Express credit cards.
+ * @property bool $AcceptsDiscover When `true`, indicates that this site accepts Discover cards.<br />  When `false`, indicates that this site does not accept Discover credit cards.
+ * @property bool $AcceptsMasterCard When `true`, indicates that this site accepts MasterCard cards.<br />  When `false`, indicates that this site does not accept MasterCard credit cards.
+ * @property bool $AcceptsVisa When `true`, indicates that this site accepts Visa cards.<br />  When `false`, indicates that this site does not accept Visa credit cards.
+ * @property bool $AllowsDashboardAccess When `true`, indicates that this site allows access to its dashboard.<br />  When `false`, indicates that this site does not allow access to its dashboard.
+ * @property string $ContactEmail The site’s email address.
+ * @property string $Description A description of the site.
+ * @property int $Id The site ID.
+ * @property string $LogoUrl The URL to the site’s logo.
+ * @property string $Name The name of the site.
+ * @property string $PageColor1 A hex code for a color the business owner uses in marketing. This color can be used to set a theme for an integration so that it matches the configured color-scheme for the business.
+ * @property string $PageColor2 The hex code for a second color, to be used in the same manner as `pageColor1`.
+ * @property string $PageColor3 The hex code for a third color, to be used in the same manner as `pageColor1`.
+ * @property string $PageColor4 The hex code for a fourth color, to be used in the same manner as `pageColor1`.
+ * @property string $PricingLevel The MINDBODY pricing level for the business. Possible values are:  Accelerate - The business is on MINDBODY’s Accelerate pricing tier.  Grow - The business is on MINDBODY’s Essential pricing tier.  Legacy - The business is on an older MINDBODY pricing tier that is no longer offered.  Listing - The business is on an older MINDBODY pricing tier that is no longer offered.  Pro - The business is on an older MINDBODY pricing tier that is no longer offered.  Solo - The business is on an older MINDBODY pricing tier that is no longer offered.  Ultimate - The business is on MINDBODY’s Ultimate pricing tier.
+ * @property bool $SmsPackageEnabled When `true`, indicates that the business uses SMS text messages to communicate with its clients.<br />  When `false`, indicates that the business does not use SMS text messages to communicate with its clients.
+ * @property bool $TaxInclusivePrices When `true`, indicates that the total includes tax.<br />  When `false`, indicates that the total does not include tax.
+ * @property string $CurrencyIsoCode The currency ISO code for the site.
+ * @property string $CountryCode The country code for the site.
+ * @property string $TimeZone The time zone the site is located in.
+ * @property bool $AcceptsDirectDebit When `true`, indicates that direct debit can be used by clients at this site.<br />  When `false`, indicates that direct debit can not by used by clients at this site.
+ *
  */
 class Site extends BaseModel implements ModelWithId
 {

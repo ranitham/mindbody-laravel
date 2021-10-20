@@ -36,6 +36,9 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property \Nlocascio\Mindbody\Model\PaginationResponse $PaginationResponse Contains information about the pagination used. See Pagination for a description of the Pagination information.
+ * @property \Nlocascio\Mindbody\Model\Tip[] $Tips Contains information about tips given to staff members within the given date range. Results are ordered by StaffId.
+ *
  */
 class GetTipsResponse extends BaseModel
 {

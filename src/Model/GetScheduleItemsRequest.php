@@ -36,6 +36,14 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int[] $LocationIds A list of requested location IDs.
+ * @property int[] $StaffIds A list of requested staff IDs.
+ * @property \DateTime $StartDate The start date of the requested date range.   <br />Default: **today’s date**
+ * @property \DateTime $EndDate The end date of the requested date range.   <br />Default: **today’s date**
+ * @property bool $IgnorePrepFinishTimes When `true`, appointment preparation and finish unavailabilities are not returned.   <br />Default: **false**
+ * @property int $Limit Number of results to include, defaults to 100
+ * @property int $Offset Page offset, defaults to 0.
+ *
  */
 class GetScheduleItemsRequest extends BaseModel
 {

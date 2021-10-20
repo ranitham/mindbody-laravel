@@ -37,6 +37,17 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property \DateTime $AgreementDate The date on which the contract was signed.
+ * @property string $AutopayStatus The status of the client’s autopay.
+ * @property string $ContractName The name of the contract.
+ * @property \DateTime $EndDate The date that the contract expires.
+ * @property int $Id The unique ID of the contract.
+ * @property int $OriginationLocationId The ID of the location where the contract was issued.
+ * @property \DateTime $StartDate The date that the contract became active.
+ * @property int $SiteId The ID of the site where the contract was issued.
+ * @property \Nlocascio\Mindbody\Model\UpcomingAutopayEvent[] $UpcomingAutopayEvents Contains details of the autopay events.
+ * @property int $ContractID The ID of the contract
+ *
  */
 class ClientContract extends BaseModel implements ModelWithId
 {

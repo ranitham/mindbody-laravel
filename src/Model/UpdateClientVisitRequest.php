@@ -36,6 +36,13 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $VisitId The ID of the visit to be updated.
+ * @property bool $Makeup When `true`, indicates that the visit is eligible to be made up.
+ * @property bool $SignedIn When `true`, indicates that the client has signed in for the visit.
+ * @property string $Execute The execute code used to update this visit. Possible values are:  * Cancel  * Latecancel  * Unlatecancel
+ * @property bool $Test When `true`, indicates that test mode is enabled. When test mode is enabled, input information is validated, but not committed.<br />  Default: **false**
+ * @property bool $SendEmail When `true`, indicates that the client should be sent an email for cancellations. Note that email is not sent unless the client has an email address and automatic emails have been set up correctly.<br />  Default: **false**
+ *
  */
 class UpdateClientVisitRequest extends BaseModel
 {

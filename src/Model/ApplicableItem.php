@@ -37,6 +37,10 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string $Type Type of a promo code
+ * @property int $Id ID of the item
+ * @property string $Name Name of the item
+ *
  */
 class ApplicableItem extends BaseModel implements ModelWithId
 {

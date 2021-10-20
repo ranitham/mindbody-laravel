@@ -36,6 +36,18 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string $Name Name of the promo code
+ * @property string $Code Code to be used at purchase for discount
+ * @property bool $Active Active status
+ * @property \Nlocascio\Mindbody\Model\Discount $Discount Discount info
+ * @property \DateTime $ActivationDate Date activated
+ * @property \DateTime $ExpirationDate Date expired
+ * @property int $MaxUses How many times it can be used
+ * @property int $DaysAfterCloseDate Days after close date
+ * @property bool $AllowOnline Whether it can be used online
+ * @property string[] $DaysValid What days the promo code can be used
+ * @property \Nlocascio\Mindbody\Model\ApplicableItem[] $ApplicableItems Items that the promo code will have the discount for
+ *
  */
 class PromoCode extends BaseModel
 {

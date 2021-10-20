@@ -36,6 +36,22 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int[] $ClassDescriptionIds The requested class description IDs.
+ * @property int[] $ClassIds The requested class IDs.
+ * @property int[] $StaffIds The requested IDs of the teaching staff members.
+ * @property \DateTime $StartDateTime The requested start date for filtering.   <br />Default: **today’s date**
+ * @property \DateTime $EndDateTime The requested end date for filtering.  <br />Default: **today’s date**
+ * @property string $ClientId The client ID of the client who is viewing this class list. Based on identity, the client may be able to see additional information, such as membership specials.
+ * @property int[] $ProgramIds A list of program IDs on which to base the search.
+ * @property int[] $SessionTypeIds A list of session type IDs on which to base the search.
+ * @property int[] $LocationIds A list of location IDs on which to base the search.
+ * @property int[] $SemesterIds A list of semester IDs on which to base the search.
+ * @property bool $HideCanceledClasses When `true`, canceled classes are removed from the response.<br />  When `false`, canceled classes are included in the response.<br />  Default: **false**
+ * @property bool $SchedulingWindow When `true`, classes outside scheduling window are removed from the response.<br />  When `false`, classes are included in the response, regardless of the scheduling window.<br />  Default: **false**
+ * @property \DateTime $LastModifiedDate When included in the request, only records modified on or after the `LastModifiedDate` specified are included in the response.
+ * @property int $Limit Number of results to include, defaults to 100
+ * @property int $Offset Page offset, defaults to 0.
+ *
  */
 class GetClassesRequest extends BaseModel
 {

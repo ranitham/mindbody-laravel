@@ -36,6 +36,9 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string $ClientId The Unique Id of the client as assigned by the business.
+ * @property string $EmailType The type of auto email to send (currently only BusinessWelcomeEmail or ConsumerWelcomeEmail are supported.)
+ *
  */
 class SendAutoEmailRequest extends BaseModel
 {

@@ -36,6 +36,19 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $Id The gift card's `ProductID`.
+ * @property int[] $LocationIds The IDs of the locations where the gift card is sold.
+ * @property string $Description A description of the gift card.
+ * @property bool $EditableByConsumer When `true`, indicates that the gift card can be edited by the client.
+ * @property double $CardValue The value of the gift card.
+ * @property double $SalePrice The sale price of the gift card, if applicable.
+ * @property bool $SoldOnline When `true`, indicates that the gift card is sold online.
+ * @property int[] $MembershipRestrictionIds A list of IDs for membership restrictions, if this card is restricted to members with certain types of memberships.
+ * @property string $GiftCardTerms The terms of the gift card.
+ * @property string $ContactInfo Contact information for the gift card.
+ * @property bool $DisplayLogo When `true`, indicates that the logo should be displayed on the gift card.
+ * @property \Nlocascio\Mindbody\Model\GiftCardLayout[] $Layouts A list of layouts available for the gift card.
+ *
  */
 class GiftCard extends BaseModel implements ModelWithId
 {

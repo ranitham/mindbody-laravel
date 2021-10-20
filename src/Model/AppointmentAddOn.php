@@ -36,6 +36,12 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $Id Id
+ * @property string $Name Name
+ * @property int $NumDeducted NumDeducted
+ * @property int $CategoryId CategoryId
+ * @property string $Category Category
+ *
  */
 class AppointmentAddOn extends BaseModel implements ModelWithId
 {

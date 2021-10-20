@@ -36,6 +36,9 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property \Nlocascio\Mindbody\Model\PaginationResponse $PaginationResponse Contains information about the pagination used.
+ * @property \Nlocascio\Mindbody\Model\ClassSchedule[] $ClassSchedules Contains information about the class schedules.
+ *
  */
 class GetClassSchedulesResponse extends BaseModel
 {

@@ -36,6 +36,11 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string $NameOnAccount The name on the bank account.
+ * @property string $RoutingNumber The routing number for the bank.
+ * @property string $AccountNumber The bank account number.
+ * @property string $AccountType The account type. Either Checking or Savings.
+ *
  */
 class DirectDebitInfo extends BaseModel
 {

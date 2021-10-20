@@ -37,6 +37,9 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property \Nlocascio\Mindbody\Model\PaginationResponse $PaginationResponse Contains information about the pagination used.
+ * @property \Nlocascio\Mindbody\Model\Transaction[] $Transactions Contains the transaction objects, each of which describes the transaction details for a purchase event.
+ *
  */
 class GetTransactionsResponse extends BaseModel
 {

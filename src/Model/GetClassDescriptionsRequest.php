@@ -36,6 +36,15 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $ClassDescriptionId Filters to the single result with the given ID.
+ * @property int[] $ProgramIds Filters results to class descriptions belonging to the given programs.
+ * @property \DateTime $StartClassDateTime Filters the results to class descriptions for scheduled classes that happen on or after the given date and time.
+ * @property \DateTime $EndClassDateTime Filters the results to class descriptions for scheduled classes that happen before the given date and time.
+ * @property int $StaffId Filters results to class descriptions for scheduled classes taught by the given staff member.
+ * @property int $LocationId Filters results to classes descriptions for schedule classes as the given location.
+ * @property int $Limit Number of results to include, defaults to 100
+ * @property int $Offset Page offset, defaults to 0.
+ *
  */
 class GetClassDescriptionsRequest extends BaseModel
 {

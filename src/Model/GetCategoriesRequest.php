@@ -37,6 +37,13 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int[] $CategoryIds The requested category IDs.
+ * @property int[] $SubCategoryIds The requested sub category IDs.
+ * @property bool $Service The requested Service type. true indicates for Revenue Categories and false indicates for Product Revenue Categories.
+ * @property bool $Active The requested Active type categories. true indicates for Active Categories and false indicates for Deactivated Categories.
+ * @property int $Limit Number of results to include, defaults to 100
+ * @property int $Offset Page offset, defaults to 0.
+ *
  */
 class GetCategoriesRequest extends BaseModel
 {

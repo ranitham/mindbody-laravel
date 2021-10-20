@@ -37,6 +37,24 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property double $ProductId The id of the pricing option (legacy Id in mongo db)
+ * @property string $Name Pricing option name.
+ * @property double $Price Price of this Pricing option.
+ * @property double $OnlinePrice Online price of this Pricing option.
+ * @property int $Count Number of sessions for this pricing option
+ * @property bool $SellOnline Whether this pricing option sell online or not
+ * @property string $RevenueCategory Revenue Category of this pricing option
+ * @property bool $Discontinued Whether this pricing option active or inactive
+ * @property int $MembershipId The ID of the membership required to purchase the pricing option  Default is -1 and will not update Membership if it is not passed in body
+ * @property bool $IsThirdPartyDiscountPricing Is this pricing option sold at discounted rates by third-parties  Once set to true it cannot be changed
+ * @property string $Priority The priority of the pricing option  Priority can be set to Low(-1), Medium (0), High(1)
+ * @property int[] $SellAtLocationIds The location IDs where this pricing option is sold   (default is null and will not update SellAtLocation if it is not passed in body)
+ * @property int[] $UseAtLocationIds The location IDs where this pricing option is used  (default is null and will not update UseAtLocation if it is not passed in body)
+ * @property string $ExpirationUnit The Expiration unit, either Days or Months
+ * @property int $ExpirationLength The number of days or months that the pricing option is active for.
+ * @property string $ExpirationType The date the pricing option begins its activation,   either the SaleDate or DateOfClientFirstVisit
+ * @property int[] $RestrictedMembershipIds This pricing option can be used under these memberships only  If null/empty then not restricted to any membership
+ *
  */
 class UpdatePricingOptionRequest extends BaseModel
 {

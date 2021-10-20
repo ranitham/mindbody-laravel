@@ -36,6 +36,9 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property \Nlocascio\Mindbody\Model\PaginationResponse $PaginationResponse Contains information about the pagination used.
+ * @property string[] $ActiveSessionTimes List of available start times for active sessions. Note the following:  * The times returned represent possibilities for scheduling a session, not necessarily currently scheduled sessions.  * The response includes either all schedule types or those filtered by supplying `ScheduleType` or `SessionTypeIds`.  * Each session has an associated schedule type, but when you supply `SessionTypeIds`, they may map to one or more of the schedule types.
+ *
  */
 class GetActiveSessionTimesResponse extends BaseModel
 {

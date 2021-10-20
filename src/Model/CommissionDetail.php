@@ -36,6 +36,9 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string $CommissionType The type of commission earned. Possible values are:  * ItemStandardPercentageCommission  * ItemStandardFlatCommission  * ItemPromotionalPercentageCommission  * ItemPromotionalFlatCommission  * StaffStandardPercentageCommission  * StaffStandardFlatCommission  * StaffPromotionalPercentageCommission  * StaffPromotionalFlatCommission
+ * @property double $CommissionEarnings The portion of `Earnings` earned by this `CommissionType`.
+ *
  */
 class CommissionDetail extends BaseModel
 {

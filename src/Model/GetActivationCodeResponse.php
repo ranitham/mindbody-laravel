@@ -36,6 +36,9 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string $ActivationCode An activation code used to provide access to a site’s business data through MINDBODY.
+ * @property string $ActivationLink A link to the Manage Credentials screen.
+ *
  */
 class GetActivationCodeResponse extends BaseModel
 {

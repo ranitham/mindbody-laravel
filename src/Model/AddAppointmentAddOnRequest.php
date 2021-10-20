@@ -37,6 +37,12 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property bool $ApplyPayment Currently not supported Apply Payment for this add-on service.  Optional defaults to true
+ * @property int $AppointmentId The unique identifier for the appointment we are adding on to
+ * @property int $SessionTypeId The service we are adding on to the appointment
+ * @property int $StaffId Optional.  The staff performing the service will default to the appointment staff if unspecified
+ * @property bool $Test Optional.  When true only performs validation of the request.  Defaults to False.
+ *
  */
 class AddAppointmentAddOnRequest extends BaseModel
 {

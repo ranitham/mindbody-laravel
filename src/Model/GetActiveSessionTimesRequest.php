@@ -36,6 +36,13 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string $ScheduleType Filters on the provided the schedule type. Either `SessionTypeIds` or `ScheduleType` must be provided.
+ * @property int[] $SessionTypeIds Filters on the provided session type IDs. Either `SessionTypeIds` or `ScheduleType` must be provided.
+ * @property \DateTime $StartTime Filters results to times that start on or after this time on the current date. Any date provided is ignored.  <br />Default: **00:00:00**
+ * @property \DateTime $EndTime Filters results to times that end on or before this time on the current date. Any date provided is ignored..  <br />Default: **23:59:59**
+ * @property int $Limit Number of results to include, defaults to 100
+ * @property int $Offset Page offset, defaults to 0.
+ *
  */
 class GetActiveSessionTimesRequest extends BaseModel
 {

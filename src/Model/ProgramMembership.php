@@ -36,6 +36,9 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $Id The service category’s ID.
+ * @property string $Name The name of this service category.
+ *
  */
 class ProgramMembership extends BaseModel implements ModelWithId
 {

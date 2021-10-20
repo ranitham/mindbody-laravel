@@ -36,6 +36,9 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $StaffId The ID of the staff member whose permission group you want to update.
+ * @property string $PermissionGroupName The name of the permission group. Case insensitive
+ *
  */
 class UpdateStaffPermissionsRequest extends BaseModel
 {

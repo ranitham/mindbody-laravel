@@ -37,6 +37,8 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property \DateTime[] $AvailableDates A list of dates where scheduled appointment availability was found after applying request filters.
+ *
  */
 class GetAvailableDatesResponse extends BaseModel
 {

@@ -36,6 +36,10 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string $ClientId ID of the client.
+ * @property \Nlocascio\Mindbody\Model\ClientMembership[] $Memberships Client membership details
+ * @property string $ErrorMessage Used to return error message on conditional basis
+ *
  */
 class ClientMemberships extends BaseModel
 {

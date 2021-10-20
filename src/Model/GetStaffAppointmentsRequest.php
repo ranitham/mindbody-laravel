@@ -36,6 +36,15 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int[] $AppointmentIds A list of the requested appointment IDs.
+ * @property int[] $LocationIds A list of the requested location IDs.
+ * @property \DateTime $StartDate The start date of the requested date range. If omitted, the default is used.   <br />Default: **today’s date**
+ * @property \DateTime $EndDate The end date of the requested date range.   <br />Default: **StartDate**
+ * @property int[] $StaffIds List of staff IDs to be returned. Use a value of zero to return all staff appointments.
+ * @property string $ClientId The client ID to be returned.
+ * @property int $Limit Number of results to include, defaults to 100
+ * @property int $Offset Page offset, defaults to 0.
+ *
  */
 class GetStaffAppointmentsRequest extends BaseModel
 {

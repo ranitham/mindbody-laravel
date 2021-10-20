@@ -37,6 +37,10 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $Id The ID of the custom client field.
+ * @property string $DataType The data type of the field.
+ * @property string $Name The name of the field.
+ *
  */
 class CustomClientField extends BaseModel implements ModelWithId
 {

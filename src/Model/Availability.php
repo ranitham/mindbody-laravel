@@ -37,6 +37,17 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $Id The ID of the availability.
+ * @property \Nlocascio\Mindbody\Model\Staff $Staff Contains information about staff members.
+ * @property \Nlocascio\Mindbody\Model\SessionType $SessionType Contains information about the types of sessions.
+ * @property \Nlocascio\Mindbody\Model\Program[] $Programs Contains information about the programs.
+ * @property \DateTime $StartDateTime The date and time the availability starts.
+ * @property \DateTime $EndDateTime The date and time the availability ends.
+ * @property \DateTime $BookableEndDateTime The time of day that the last appointment can start.
+ * @property \Nlocascio\Mindbody\Model\Location $Location Contains information about the location.
+ * @property int $PrepTime Prep time in minutes
+ * @property int $FinishTime Finish time in minutes
+ *
  */
 class Availability extends BaseModel implements ModelWithId
 {

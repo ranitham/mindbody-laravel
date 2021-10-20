@@ -37,6 +37,10 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property bool $Active When `true`, indicates that the index value can be assigned to its parent index.<br />  When `false`, indicates that the index value has been deactivated and cannot be assigned to its parent index.
+ * @property int $Id The index value’s ID.
+ * @property string $Name The name of the client index value.
+ *
  */
 class ClientIndexValue extends BaseModel implements ModelWithId
 {

@@ -37,6 +37,16 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $SaleId Filters results to the requested sale ID.
+ * @property int $TransactionId Filters results to the requested transaction ID.
+ * @property int $ClientId Filters results to the requested client ID.
+ * @property int $LocationId Filters results to the requested location ID.
+ * @property string $Status Filters results to the requested status.
+ * @property \DateTime $TransactionStartDateTime Filters results to transactions that happened after this date and time.
+ * @property \DateTime $TransactionEndDateTime Filters results to transactions that happened before this date and time.
+ * @property int $Limit Number of results to include, defaults to 100
+ * @property int $Offset Page offset, defaults to 0.
+ *
  */
 class GetTransactionsRequest extends BaseModel
 {

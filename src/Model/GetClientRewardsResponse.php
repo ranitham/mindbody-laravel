@@ -36,6 +36,10 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property \Nlocascio\Mindbody\Model\PaginationResponse $PaginationResponse Contains information about the pagination used.
+ * @property int $Balance Current balance of client rewards
+ * @property \Nlocascio\Mindbody\Model\ClientRewardTransaction[] $Transactions List of client reward transactions
+ *
  */
 class GetClientRewardsResponse extends BaseModel
 {

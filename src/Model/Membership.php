@@ -36,6 +36,20 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $MembershipId The membership id.
+ * @property string $MembershipName The membership name.
+ * @property int $Priority The priority/sort order.
+ * @property double $MemberRetailDiscount The membership discount for retail as a percentage.
+ * @property double $MemberServiceDiscount The membership discount for services as a percentage.
+ * @property bool $AllowClientsToScheduleUnpaid Allow clients in this membership to schedule unpaid.
+ * @property \Nlocascio\Mindbody\Model\ProgramMembership[] $OnlineBookingRestrictedToMembersOnly List of programs that are restricted to clients in this membership only.
+ * @property int $DayOfMonthSchedulingOpensForNextMonth Day of month scheduling opens for next month.  Unrestricted is a null value.
+ * @property bool $RestrictSelfSignInToMembersOnly Restrict self sign in to members only.
+ * @property bool $AllowMembersToBookAppointmentsWithoutPaying Allow members to book appointments without paying.
+ * @property bool $AllowMembersToPurchaseNonMembersServices Allow members to purchase non-members services.
+ * @property bool $AllowMembersToPurchaseNonMembersProducts Allow members to purchase non-members products.
+ * @property bool $IsActive Indicates if the membership is active.
+ *
  */
 class Membership extends BaseModel
 {

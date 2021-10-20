@@ -37,6 +37,10 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $Id The ID of the relationship.
+ * @property string $RelationshipName1 The name of the first relationship.
+ * @property string $RelationshipName2 The name of the second relationship.
+ *
  */
 class Relationship extends BaseModel implements ModelWithId
 {

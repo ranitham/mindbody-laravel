@@ -37,6 +37,25 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string $GenderPreference The preferred gender of the appointment provider.
+ * @property int $Duration The duration of the appointment.
+ * @property string $ProviderId If a user has Complementary and Alternative Medicine features enabled, this property indicates the provider assigned to the appointment.
+ * @property int $Id The unique ID of the appointment.
+ * @property string $Status The status of this appointment.
+ * @property \DateTime $StartDateTime The date and time the appointment is to start.
+ * @property \DateTime $EndDateTime The date and time the appointment is to end.
+ * @property string $Notes Any notes associated with the appointment.
+ * @property bool $StaffRequested When `true`, indicates that the staff member was requested specifically by the client.
+ * @property int $ProgramId The ID of the program to which this appointment belongs.
+ * @property int $SessionTypeId The ID of the session type of this appointment.
+ * @property int $LocationId The ID of the location where this appointment is to take place.
+ * @property int $StaffId The ID of the staff member providing the service for this appointment.
+ * @property string $ClientId The RSSID of the client who is booked for this appointment.
+ * @property bool $FirstAppointment When `true`, indicates that this is the client’s first appointment at this site.
+ * @property int $ClientServiceId The ID of the pass on the client’s account that is to pay for this appointment.
+ * @property \Nlocascio\Mindbody\Model\Resource[] $Resources The resources this appointment is to use.
+ * @property \Nlocascio\Mindbody\Model\AddOnSmall[] $AddOns Any AddOns associated with the appointment
+ *
  */
 class Appointment extends BaseModel implements ModelWithId
 {

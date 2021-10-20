@@ -36,6 +36,8 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property \Nlocascio\Mindbody\Model\ModelClass $Class Contains class and booking information.
+ *
  */
 class GetClassVisitsResponse extends BaseModel
 {

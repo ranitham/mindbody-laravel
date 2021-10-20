@@ -36,6 +36,14 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $StaffId The ID of the requested staff member.
+ * @property string $Task The staff member’s job title.
+ * @property \DateTime $TimeIn The time that the staff member started the job task.
+ * @property \DateTime $TimeOut The time that the staff member stopped doing the job task.
+ * @property double $Hours The number of hours on this time card, rounded to the nearest fourth decimal place.
+ * @property double $HourlyRate The hourly rate the business pays this staff for this `Task`.
+ * @property double $Earnings The total amount earned by the staff member for this time card entry.
+ *
  */
 class TimeCardEvent extends BaseModel
 {

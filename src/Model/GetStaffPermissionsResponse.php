@@ -36,6 +36,8 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property \Nlocascio\Mindbody\Model\StaffPermissionGroup $UserGroup Contains information about the requested staff member’s permission group.
+ *
  */
 class GetStaffPermissionsResponse extends BaseModel
 {

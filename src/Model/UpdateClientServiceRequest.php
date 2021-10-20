@@ -36,6 +36,12 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $ServiceId The ID of the service to update.
+ * @property \DateTime $ActiveDate The date that the service became active.
+ * @property \DateTime $ExpirationDate The date that the service is to expire.
+ * @property int $Count Total number of sessions
+ * @property bool $Test When `true`, indicates that input information is to be validated, but not committed.<br />  When `false` or omitted, the database is affected.<br />  Default: **false**
+ *
  */
 class UpdateClientServiceRequest extends BaseModel
 {

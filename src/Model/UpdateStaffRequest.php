@@ -36,6 +36,35 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $ID The unique id of the staff
+ * @property string $FirstName The staff member’s first name.
+ * @property string $LastName The staff member’s last name.
+ * @property string $Email The staff member’s email address.
+ * @property bool $IsMale When `true`, indicates that the staff member is male.  When `false`, indicates that the staff member is female.
+ * @property string $HomePhone The staff member’s home phone number.
+ * @property string $WorkPhone The staff member’s work phone number.
+ * @property string $MobilePhone The staff member’s mobile phone number.
+ * @property string $Bio The staff member’s biography. This string contains HTML.
+ * @property string $Address The address of the staff member.
+ * @property string $Address2 The address line2 of the staff member.
+ * @property string $City The staff member’s city.
+ * @property string $State The staff member’s state.
+ * @property string $Country The staff member’s country.
+ * @property string $PostalCode The staff member’s postal code.
+ * @property bool $ClassAssistant Is the staff an assistant
+ * @property bool $ClassAssistant2 Is the staff an assistant2
+ * @property bool $IndependentContractor When `true`, indicates that the staff member is an independent contractor.  When `false`, indicates that the staff member is not an independent contractor.
+ * @property bool $AppointmentInstructor When `true`, indicates that the staff member offers appointments.<br />  When `false`, indicates that the staff member does not offer appointments.
+ * @property bool $AlwaysAllowDoubleBooking When `true`, indicates that the staff member can be scheduled for overlapping services.<br />  When `false`, indicates that the staff can only be scheduled for one service at a time in any given time-frame.
+ * @property bool $ClassTeacher When `true`, indicates that the staff member can teach classes.  When `false`, indicates that the staff member cannot teach classes.
+ * @property \DateTime $EmploymentStart The start date of employment
+ * @property \DateTime $EmploymentEnd The end date of employment
+ * @property int $SortOrder If configured by the business owner, this field determines a staff member’s weight when sorting. Use this field to sort staff members on your interface.
+ * @property string[] $ProviderIDs A list of providerIDs for the staff.  In the US it is one per staff and is numeric, otherwise it can be a list and is alpha-numeric  for more information see https://support.mindbodyonline.com/s/article/204075743-Provider-IDs?language=en_US
+ * @property bool $Active Is the staff member active?
+ * @property string $Notes Staff Member Private Notes
+ * @property string $EmpID The EmpID assigned to the staff member.
+ *
  */
 class UpdateStaffRequest extends BaseModel
 {

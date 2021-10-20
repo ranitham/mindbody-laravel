@@ -36,6 +36,11 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $Id Id
+ * @property string $PaymentTypeName PaymentTypeName
+ * @property bool $Active Active
+ * @property double $Fee Fee
+ *
  */
 class PaymentType extends BaseModel implements ModelWithId
 {

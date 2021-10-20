@@ -37,6 +37,8 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string $SignedUrl Encrypted URL that will allow a user to join a live stream without logging in.
+ *
  */
 class GenerateSignedLiveStreamUrlResponse extends BaseModel
 {

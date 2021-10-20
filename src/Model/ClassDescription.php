@@ -37,6 +37,22 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property bool $Active When `true`, indicates that the business can assign this class description to new class schedules.<br />  When `false`, indicates that the business cannot assign this class description to new class schedules.
+ * @property string $Description The long version of the class description.
+ * @property int $Id The class description's ID.
+ * @property string $ImageURL The class description's image URL, if any. If it does not exist, nothing is returned.
+ * @property \DateTime $LastUpdated The date this class description was last modified.
+ * @property \Nlocascio\Mindbody\Model\Level $Level The level information about this class.
+ * @property string $Name The name of this class description.
+ * @property string $Notes Any notes about the class description.
+ * @property string $Prereq Any prerequisites for the class.
+ * @property \Nlocascio\Mindbody\Model\Program $Program Contains information about the class description's program.
+ * @property \Nlocascio\Mindbody\Model\SessionType $SessionType Contains information about the class description's session type.
+ * @property string $Category The category of this class description.
+ * @property int $CategoryId The category ID of this class description.
+ * @property string $Subcategory The subcategory of this class description.
+ * @property int $SubcategoryId The subcategory ID of this class description.
+ *
  */
 class ClassDescription extends BaseModel implements ModelWithId
 {

@@ -37,6 +37,10 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $SiteId The ID of the site to which the client belongs.
+ * @property string $ClientId The client’s RSSID.
+ * @property int $UniqueId The client’s unique ID.
+ *
  */
 class CrossRegionalClientAssociation extends BaseModel
 {

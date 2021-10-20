@@ -37,6 +37,13 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $ClientId Id of client at the studio
+ * @property int $SubscriberId Id of studio aka studioId/siteId
+ * @property string $UserDisplayName User name displayed in VWP live stream
+ * @property int $ServiceId Id of class instance at studio on given date/time right now since it only supports classes (different from class id)
+ * @property string $ApiUser Identification of 3rd party integrator
+ * @property string $ServiceType Possible values are: \"class\", \"appointment\"
+ *
  */
 class GenerateSignedLiveStreamUrlRequest extends BaseModel
 {

@@ -36,6 +36,13 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $ClassId The ID of the class to which a substitute teacher needs to be assigned.
+ * @property int $StaffId The staff ID of the teacher to substitute.
+ * @property bool $OverrideConflicts When `true`, overrides any conflicts in the schedule.
+ * @property bool $SendClientEmail When `true`, sends the client an automatic email about the substitution, if the client has opted to receive email.
+ * @property bool $SendOriginalTeacherEmail When `true`, sends the originally scheduled teacher an automatic email about the substitution.
+ * @property bool $SendSubstituteTeacherEmail When `true`, sends the substituted teacher an automatic email about the substitution.
+ *
  */
 class SubstituteClassTeacherRequest extends BaseModel
 {

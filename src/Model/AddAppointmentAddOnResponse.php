@@ -36,6 +36,9 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $AppointmentId This is the id of the main appointment we added on to
+ * @property int $AddOnAppointmentId This is the id for the newly created add-on appointment
+ *
  */
 class AddAppointmentAddOnResponse extends BaseModel
 {

@@ -36,6 +36,9 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $Id The ID of the product size.
+ * @property string $Name The name of the product size.
+ *
  */
 class Size extends BaseModel implements ModelWithId
 {

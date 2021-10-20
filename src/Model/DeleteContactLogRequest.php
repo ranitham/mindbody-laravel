@@ -36,6 +36,10 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string $ClientId The client ID of the client whose Contact Log is being deleted.
+ * @property int $ContactLogId The Contact Log ID.
+ * @property bool $Test When `true`, indicates that this is a test request and no data is inserted into the subscriber’s database.  When `false`, the database is updated.
+ *
  */
 class DeleteContactLogRequest extends BaseModel
 {

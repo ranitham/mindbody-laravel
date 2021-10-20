@@ -37,6 +37,13 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string $ClientId Required.  The client’s ID, as configured by the business owner. This is the client’s barcode ID if the business owner assigns barcodes to clients.
+ * @property int $Points Required. The amount of Rewards Points we are earning/redeeming
+ * @property string $Source Required if Action is \"Earned\".  Must be one of \"Sale\",\"Class Booking\",\"Appointment Booking\", or \"Referral\"
+ * @property int $SourceId Optional.  The unique Id in the MINDBODY System for the Source of the reward.  For example, If the Action is \"Earned\" and Source is \"Sale\" then the SourceId is the unique Id for the   sale in the MINDBODY System.  If action is redeemed, the RedemptionType will be \"Purchase\" and if provided the SourceId is the unique id of the sale in the MINDBODY system where the points were redeemed.
+ * @property string $Action Required.  The Action we are taking on the rewards points.  Must be either \"Earned\" or \"Redeemed\"
+ * @property \DateTime $ActionDateTime Optional.  The Date and Time the Action Occurred in UTC.  May not be in the future, if omitted defaults to current Date/Time in UTC.
+ *
  */
 class UpdateClientRewardsRequest extends BaseModel
 {

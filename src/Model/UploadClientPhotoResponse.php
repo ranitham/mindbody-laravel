@@ -36,6 +36,9 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string $ClientId The RSSID of the client for whom the photo was uploaded.
+ * @property string $PhotoUrl The URL of the uploaded photo.
+ *
  */
 class UploadClientPhotoResponse extends BaseModel
 {

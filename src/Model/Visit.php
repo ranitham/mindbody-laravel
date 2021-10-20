@@ -37,6 +37,32 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $AppointmentId The appointment’s ID.
+ * @property string $AppointmentGenderPreference The gender of staff member with whom the client prefers to book appointments.
+ * @property string $AppointmentStatus The status of the appointment.
+ * @property int $ClassId The class ID that was used to retrieve the visits.
+ * @property string $ClientId The ID of the client associated with the visit.
+ * @property \DateTime $StartDateTime The time this class is scheduled to start.
+ * @property \DateTime $EndDateTime The date and time the visit ends. The Public API returns UTC dates and times. For example, a class that occurs on June 25th, 2018 at 2:15PM (EST) appears as “2018-06-25T19:15:00Z” because EST is five hours behind UTC. Date time pairs always return in the format YYYY-MM-DDTHH:mm:ssZ.
+ * @property int $Id The ID of the visit.
+ * @property \DateTime $LastModifiedDateTime When included in the request, only records modified on or after the specified `LastModifiedDate` are included in the response. The Public API returns UTC dates and times. For example, a class that occurs on June 25th, 2018 at 2:15PM (EST) appears as “2018-06-25T19:15:00Z” because EST is five hours behind UTC. Date time pairs always return in the format YYYY-MM-DDTHH:mm:ssZ.
+ * @property bool $LateCancelled When `true`, indicates that the class has been `LateCancelled`.<br />  When `false`, indicates that the class has not been `LateCancelled`.
+ * @property int $SiteId The ID of the site the visit occurred
+ * @property int $LocationId The ID of the location where the visit took place or is to take place.
+ * @property bool $MakeUp When `true`, the client can make up this session and a session is not deducted from the pricing option that was used to sign the client into the enrollment. When the client has the make-up session, a session is automatically removed from a pricing option that matches the service category of the enrollment and is within the same date range of the missed session.<br />  When `false`, the client cannot make up this session. See [Enrollments: Make-ups](https://support.mindbodyonline.com/s/article/203259433-Enrollments-Make-ups?language=en_US) for more information.
+ * @property string $Name The name of the class.
+ * @property int $ServiceId The ID of the client's pricing option applied to the class visit.
+ * @property string $ServiceName The name of the pricing option applied to the class visit.
+ * @property int $ProductId The business' ID of the type of pricing option used to pay for the class visit.
+ * @property bool $SignedIn When `true`, indicates that the client has been signed in.<br />  When `false`, indicates that the client has not been signed in.
+ * @property int $StaffId The ID of the staff member who is teaching the class.
+ * @property bool $WebSignup When `true`, indicates that the client signed up online.<br />  When `false`, indicates that the client was signed up by a staff member.
+ * @property string $Action The action taken.
+ * @property bool $Missed When `true`, indicates that the class has been `Missed`.<br />  When `false`, indicates that the class has not been `Missed`.
+ * @property int $VisitType Indicates the class visit type id
+ * @property int $TypeGroup Indicates the type group id of the class
+ * @property string $TypeTaken Indicates the type taken by the class
+ *
  */
 class Visit extends BaseModel implements ModelWithId
 {

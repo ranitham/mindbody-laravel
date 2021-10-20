@@ -37,6 +37,9 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string $Username The staff member’s username.
+ * @property string $Password The staff member’s password.
+ *
  */
 class IssueRequest extends BaseModel
 {

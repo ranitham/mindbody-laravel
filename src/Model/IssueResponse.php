@@ -37,6 +37,10 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string $TokenType TokenType
+ * @property string $AccessToken The authentication token value.
+ * @property \Nlocascio\Mindbody\Model\User $User Contains information about the user represented by the access token.
+ *
  */
 class IssueResponse extends BaseModel
 {

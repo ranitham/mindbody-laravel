@@ -36,6 +36,14 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int[] $StaffIds A list of the requested staff IDs.
+ * @property string[] $Filters Filters to apply to the search. Possible values are:  * StaffViewable  * AppointmentInstructor  * ClassInstructor  * Male  * Female
+ * @property int $SessionTypeId Return only staff members that are available for the specified session type. You must supply a valid `StartDateTime` and `LocationID` to use this parameter.
+ * @property \DateTime $StartDateTime Return only staff members that are available at the specified date and time. You must supply a valid `SessionTypeID` and `LocationID` to use this parameter.
+ * @property int $LocationId Return only staff members that are available at the specified location. You must supply a valid `SessionTypeID` and `StartDateTime` to use this parameter.
+ * @property int $Limit Number of results to include, defaults to 100
+ * @property int $Offset Page offset, defaults to 0.
+ *
  */
 class GetStaffRequest extends BaseModel
 {

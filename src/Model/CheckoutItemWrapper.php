@@ -36,6 +36,17 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property \Nlocascio\Mindbody\Model\CheckoutItem $Item Information about an item in the cart.
+ * @property double $DiscountAmount The amount the item is discounted. This parameter is ignored for packages.
+ * @property \Nlocascio\Mindbody\Model\CheckoutAppointmentBookingRequest[] $AppointmentBookingRequests A list of appointments to be booked then paid for by this item. This parameter applies only to pricing option items.
+ * @property int[] $EnrollmentIds A list of enrollment IDs that this item is to pay for. This parameter applies only to pricing option items.
+ * @property int[] $ClassIds A list of class IDs that this item is to pay for. This parameter applies only to pricing option items.
+ * @property int[] $CourseIds A list of course IDs that this item is to pay for. This parameter applies only to pricing option items.
+ * @property int[] $VisitIds A list of visit IDs that this item is to pay for. This parameter applies only to pricing option items.
+ * @property int[] $AppointmentIds A list of appointment IDs that this item is to reconcile.
+ * @property int $Id The item’s unique ID within the cart.
+ * @property int $Quantity The number of this item to be purchased.
+ *
  */
 class CheckoutItemWrapper extends BaseModel implements ModelWithId
 {

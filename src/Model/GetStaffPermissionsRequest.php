@@ -36,6 +36,8 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $StaffId The ID of the staff member whose permissions you want to return.
+ *
  */
 class GetStaffPermissionsRequest extends BaseModel
 {

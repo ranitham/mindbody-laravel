@@ -36,6 +36,31 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $SaleDetailId The ID of the sale detail
+ * @property int $Id The ProductID of the item.
+ * @property bool $IsService When `true`, indicates that the purchased item was a pricing option for a service.
+ * @property string $BarcodeId The BarcodeId of the item.  For services, BarcodeId may be null  If no barcode id is explicitly set by the business it is the internal id in a string format.
+ * @property string $Description Description of the sale transaction/pricing option description
+ * @property int $ContractId Contract ID purchased by the client
+ * @property int $CategoryId Revenue Category ID
+ * @property int $SubCategoryId Revenue Subcategory ID
+ * @property double $UnitPrice Per unit price of the item sold
+ * @property int $Quantity Quantity of the products
+ * @property double $DiscountPercent Discount % applied during sale
+ * @property double $DiscountAmount Discount Amount
+ * @property double $Tax1 Tax1 applicable for the product
+ * @property double $Tax2 Tax2 applicable for the product
+ * @property double $Tax3 Tax3 applicable for the product
+ * @property double $Tax4 Tax4 applicable for the product
+ * @property double $Tax5 Tax5 applicable for the product
+ * @property double $TaxAmount Tax rate applicable for the product
+ * @property double $TotalAmount Charged to the customer for paying
+ * @property string $Notes Notes
+ * @property bool $Returned Returned or not
+ * @property int $PaymentRefId Payment Reference ID
+ * @property \DateTime $ExpDate Expiration date of the pricing option purchased
+ * @property \DateTime $ActiveDate Activation date of pricing option purchased
+ *
  */
 class PurchasedItem extends BaseModel implements ModelWithId
 {

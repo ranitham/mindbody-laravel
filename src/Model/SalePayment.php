@@ -36,6 +36,13 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $Id A unique identifier for this payment.
+ * @property double $Amount The amount of this payment.
+ * @property int $Method The method for this payment.
+ * @property string $Type The type of payment.
+ * @property string $Notes Notes about this payment.
+ * @property int $TransactionId The payment transaction ID
+ *
  */
 class SalePayment extends BaseModel implements ModelWithId
 {

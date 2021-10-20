@@ -36,6 +36,8 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property \Nlocascio\Mindbody\Model\ModelClass $Class Contains information about the class from which the client was removed.
+ *
  */
 class RemoveClientFromClassResponse extends BaseModel
 {

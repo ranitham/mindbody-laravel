@@ -36,6 +36,10 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property bool $Active When `true`, indicates that the client is a prospect at the business and has not yet purchased any of the business pricing options.  When `false`, indicates that the client has already purchased at least one pricing option from the business.
+ * @property string $Description A description of the prospect stage.
+ * @property int $Id The ID of the prospect stage assigned to the client.
+ *
  */
 class ProspectStage extends BaseModel implements ModelWithId
 {

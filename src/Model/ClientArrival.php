@@ -36,6 +36,11 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $ArrivalProgramID Arrival program id
+ * @property string $ArrivalProgramName Arrival program name
+ * @property bool $CanAccess Property to check client can access arrival service.
+ * @property int[] $LocationsIDs List of locations where arrival service can availed
+ *
  */
 class ClientArrival extends BaseModel
 {

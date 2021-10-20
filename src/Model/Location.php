@@ -36,6 +36,32 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string[] $AdditionalImageURLs A list of URLs of any images associated with this location.
+ * @property string $Address The first line of the location’s street address.
+ * @property string $Address2 A second address line for the location’s street address, if needed.
+ * @property \Nlocascio\Mindbody\Model\Amenity[] $Amenities A list of strings representing amenities available at the location.
+ * @property string $BusinessDescription The business description for the location, as configured by the business owner.
+ * @property string $City The location’s city.
+ * @property string $Description A description of the location.
+ * @property bool $HasClasses When `true`, indicates that classes are held at this location.<br />  When `false`, Indicates that classes are not held at this location.
+ * @property int $Id The ID assigned to this location.
+ * @property double $Latitude The location’s latitude.
+ * @property double $Longitude The location’s longitude.
+ * @property string $Name The name of this location.
+ * @property string $Phone The location’s phone number.
+ * @property string $PhoneExtension The location’s phone extension.
+ * @property string $PostalCode The location’s postal code.
+ * @property int $SiteID The ID number assigned to this location.
+ * @property string $StateProvCode The location’s state or province code.
+ * @property float $Tax1 A decimal representation of the location’s first tax rate. Tax properties are provided to apply all taxes to the purchase price that the purchase is subject to. Use as many tax properties as needed to represent all the taxes that apply in the location. Enter a decimal number that represents the appropriate tax rate. For example, for an 8% sales tax, enter 0.08.
+ * @property float $Tax2 A decimal representation of the location’s second tax rate. See the example in the description of Tax1.
+ * @property float $Tax3 A decimal representation of the location’s third tax rate. See the example in the description of Tax1.
+ * @property float $Tax4 A decimal representation of the location’s fourth tax rate. See the example in the description of Tax1.
+ * @property float $Tax5 A decimal representation of the location’s fifth tax rate. See the example in the description of Tax1.
+ * @property int $TotalNumberOfRatings The number of reviews that clients have left for this location.
+ * @property double $AverageRating The average rating for the location, out of five stars.
+ * @property int $TotalNumberOfDeals The number of distinct introductory pricing options available for purchase at this location.
+ *
  */
 class Location extends BaseModel implements ModelWithId
 {

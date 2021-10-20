@@ -37,6 +37,17 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $Id The course ID.
+ * @property string $Name The course name.
+ * @property string $Description A description of the course.
+ * @property string $Notes Any notes that have been written about the course.
+ * @property \DateTime $StartDate Date and time that the course starts.
+ * @property \DateTime $EndDate Date and time that the course ends.
+ * @property \Nlocascio\Mindbody\Model\Location $Location Contains information about the location.
+ * @property \Nlocascio\Mindbody\Model\Staff $Organizer Contains information about the staff member in charge of organizing the event.
+ * @property \Nlocascio\Mindbody\Model\Program $Program Contains information about the service category to which the course belongs.
+ * @property string $ImageUrl The URL of the image associated with this course, if one exists.
+ *
  */
 class Course extends BaseModel implements ModelWithId
 {

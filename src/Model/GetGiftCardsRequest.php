@@ -36,8 +36,14 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $LocationId When included, returns gift cards that are sold at the provided location ID.
+ * @property bool $SoldOnline When `true`, only returns gift cards that are sold online.<br />  Default: **false**
+ * @property int[] $Ids Filters the results to the requested gift card IDs.<br />  Default: **all** gift cards.
+ * @property int $Limit Number of results to include, defaults to 100
+ * @property int $Offset Page offset, defaults to 0.
+ *
  */
-class GetGiftCardsRequest extends BaseModel implements ModelWithId
+class GetGiftCardsRequest extends BaseModel
 {
     const DISCRIMINATOR = null;
 

@@ -36,6 +36,9 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $Id The ID of the membership that is allowed to purchase the contract.
+ * @property string $Name The name of the membership type.
+ *
  */
 class MembershipTypeRestriction extends BaseModel implements ModelWithId
 {

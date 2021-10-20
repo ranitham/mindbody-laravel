@@ -36,6 +36,9 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property \Nlocascio\Mindbody\Model\PaginationResponse $PaginationResponse Contains information about the pagination used.
+ * @property \Nlocascio\Mindbody\Model\CommissionPayrollPurchaseEvent[] $Commissions Contains information about commissions earned by staff for sales within the given date range. Results are ordered by `SaleId`, then by `StaffId`.
+ *
  */
 class GetCommissionsResponse extends BaseModel
 {

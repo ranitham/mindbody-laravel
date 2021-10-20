@@ -37,6 +37,18 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $Id The contact log’s ID.
+ * @property string $Text The contact log’s body text.
+ * @property \DateTime $CreatedDateTime The local date and time when the contact log was created.
+ * @property \DateTime $FollowupByDate The date by which the assigned staff member should close or follow up on this contact log.
+ * @property string $ContactMethod The method by which the client wants to be contacted.
+ * @property string $ContactName The name of the client to contact.
+ * @property \Nlocascio\Mindbody\Model\Client $Client Information about the client to whom the contact log belongs.
+ * @property \Nlocascio\Mindbody\Model\Staff $CreatedBy Information about the staff member who created the contact log.
+ * @property \Nlocascio\Mindbody\Model\Staff $AssignedTo Information about the staff member to whom the contact log is assigned for follow up.
+ * @property \Nlocascio\Mindbody\Model\ContactLogComment[] $Comments The contact log’s comments.
+ * @property \Nlocascio\Mindbody\Model\ContactLogType[] $Types Contains information about contact log types.
+ *
  */
 class ContactLog extends BaseModel implements ModelWithId
 {

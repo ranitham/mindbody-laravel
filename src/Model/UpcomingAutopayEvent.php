@@ -36,6 +36,11 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $ClientContractId The ID of the contract.
+ * @property double $ChargeAmount The amount charged.
+ * @property string $PaymentMethod The payment method.
+ * @property \DateTime $ScheduleDate The date and time of the next payment.
+ *
  */
 class UpcomingAutopayEvent extends BaseModel
 {

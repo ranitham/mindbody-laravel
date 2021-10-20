@@ -36,6 +36,11 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $Id The user’s ID at the business. This is always 0 for Admin and Owner type users.
+ * @property string $FirstName The user’s first name.
+ * @property string $LastName The user’s last name.
+ * @property string $Type The user’s type. Possible values are:  * Staff  * Owner  * Admin
+ *
  */
 class User extends BaseModel implements ModelWithId
 {

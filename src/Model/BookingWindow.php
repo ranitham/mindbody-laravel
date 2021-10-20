@@ -37,6 +37,11 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property \DateTime $StartDateTime Date and time that the booking window opens; that is, the first day of sales.
+ * @property \DateTime $EndDateTime Date and time that the booking window closes; that is, the last day of sales.
+ * @property \DateTime $DailyStartTime The time that the booking window opens; that is, the time that the store opens.
+ * @property \DateTime $DailyEndTime The time that the booking window closes; that is, the time that the store closes.
+ *
  */
 class BookingWindow extends BaseModel
 {

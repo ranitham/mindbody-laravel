@@ -36,6 +36,15 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $StaffId Staff member assigned to the session type
+ * @property int $SessionTypeId The session type the staff member is assigned to
+ * @property string $PayRateType The pay rate type name  Can be: \"Flat\", \"Percent\", or \"No Pay\"
+ * @property double $PayRateAmount The pay rate amount. It is interpreted based on the value of PayRateTypeId
+ * @property int $TimeLength The staff specific amount of time that a session of this type typically lasts.
+ * @property int $PrepTime Prep time in minutes
+ * @property int $FinishTime Finish time in minutes
+ * @property bool $Active Whether this association is active
+ *
  */
 class AssignStaffSessionTypeResponse extends BaseModel
 {

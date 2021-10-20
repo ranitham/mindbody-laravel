@@ -36,6 +36,31 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property double $Price The cost of the pricing option when sold at a physical location.
+ * @property double $OnlinePrice The cost of the pricing option when sold online.
+ * @property double $TaxIncluded The amount of tax included in the price, if inclusive pricing is enabled.
+ * @property int $ProgramId The ID of the program that this pricing option applies to.
+ * @property double $TaxRate The tax rate applied to the pricing option. This field is populated only when you include a `LocationID` in the request.
+ * @property int $ProductId The unique ID of the pricing option.
+ * @property string $Id The barcode ID of the pricing option.
+ * @property string $Name The name of the pricing option.
+ * @property int $Count The initial count of usages available for the pricing option.
+ * @property bool $SellOnline A flag for whether or not the pricing option is sold online.
+ * @property string $Type Indicates if the pricing option is a drop-in, series, or unlimiited.
+ * @property string $ExpirationType Indicates if the pricing option begins its activation on the date of sale or first usage.
+ * @property string $ExpirationUnit The unit, either days or months, of ExpirationLength.
+ * @property int $ExpirationLength The lifetime of a pricing option.
+ * @property string $RevenueCategory The revenue category of the pricing option.
+ * @property int $MembershipId The ID that this pricing option grants membership to.
+ * @property int[] $SellAtLocationIds The location IDs where this pricing option is sold.
+ * @property int[] $UseAtLocationIds The location IDs where this pricing option may be used.
+ * @property string $Priority The priority of the pricing option.
+ * @property bool $IsIntroOffer A flag that indicates if this pricing option is an introductory offer.
+ * @property string $IntroOfferType Indicates if this pricing option may be purchased to new clients or all clients.
+ * @property bool $IsThirdPartyDiscountPricing A flag that indicates if this pricing option involves a third party discount
+ * @property string $Program The name of the program corresponding to ProgramId.
+ * @property bool $Discontinued Whether this pricing option has been discontinued or not
+ *
  */
 class Service extends BaseModel implements ModelWithId
 {

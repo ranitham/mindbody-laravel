@@ -34,6 +34,7 @@ namespace Nlocascio\Mindbody\Model;
  *
  * @package Nlocascio\Mindbody\Model
  * @author  Swagger Codegen team
+ * @property mixed $Id
  */
 interface ModelWithId extends ModelInterface
 {

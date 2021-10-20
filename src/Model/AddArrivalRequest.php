@@ -36,6 +36,11 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string $ClientId The ID of the requested client.
+ * @property int $LocationId The ID of the location for the requested arrival.
+ * @property int $ArrivalTypeId The ID of the arrival type to take.   OPTIONAL: will take first payment found if not provided
+ * @property bool $Test OPTIONAL: If test is true only validation is ran
+ *
  */
 class AddArrivalRequest extends BaseModel
 {

@@ -36,6 +36,9 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $Id The ID of the custom payment method.
+ * @property string $Name The name of the custom payment method.
+ *
  */
 class CustomPaymentMethod extends BaseModel implements ModelWithId
 {

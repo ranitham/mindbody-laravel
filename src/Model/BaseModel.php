@@ -29,8 +29,10 @@
 namespace Nlocascio\Mindbody\Model;
 
 use \Nlocascio\Mindbody\ObjectSerializer;
+use ArrayIterator;
+use Traversable;
 
-abstract class _BaseModel implements ModelInterface, \ArrayAccess 
+abstract class _BaseModel implements ModelInterface
 {
   /**
    * The original name of the model.
@@ -87,8 +89,11 @@ abstract class _BaseModel implements ModelInterface, \ArrayAccess
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ *
+ * @implements ArrayAccess<string, mixed>
+ * @implements IteratorAggregate<string, mixed>
  */
-abstract class BaseModel extends _BaseModel
+abstract class BaseModel extends _BaseModel implements \ArrayAccess, \IteratorAggregate
 {
 
 /**
@@ -270,6 +275,42 @@ abstract class BaseModel extends _BaseModel
     return $this->container;
   }
 
+
+  /** @return Traversable<string, mixed>  */
+  public function getIterator(): Traversable
+  {
+    return new ArrayIterator($this->asArray());
+  }
+
+  public function __set(string $name, mixed $value): void
+  {
+      if (array_key_exists($name, static::setters())) {
+          $setter = static::setters()[$name];
+          $setter($value);
+      } else {
+          throw new \UnexpectedValueException('Cannot set variable named ' . $name . 'in ' . \get_class($this));
+      }
+  }
+
+  public function __get(string $name): mixed
+  {
+      if (array_key_exists($name, static::getters())) {
+        $getter = static::getters()[$name];
+        return $this->$getter();
+      } else {
+          throw new \UnexpectedValueException('Cannot get variable named ' . $name . ' in ' . \get_class($this));
+      }
+  }
+
+  public function __isset(string $name): bool
+  {
+    return \array_key_exists($name, $this->container);
+  }
+
+  public function __unset(string $name): void
+  {
+    unset($this->container[$name]);
+  }
 }
 
 

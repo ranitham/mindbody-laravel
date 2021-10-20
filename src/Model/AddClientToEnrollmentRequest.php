@@ -36,6 +36,15 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string $ClientId The ID of the client who is being booked into the enrollment.
+ * @property int $ClassScheduleId The ID of the class schedule (enrollment) into which the client is being booked.
+ * @property \DateTime $EnrollDateForward Enroll the clients from this date forward. `EnrollDateForward` takes priority over open enrollment.
+ * @property \DateTime[] $EnrollOpen Enroll for selected days.
+ * @property bool $Test When `true`, input information is validated, but not committed.<br />  Default: **false**
+ * @property bool $SendEmail When `true`, indicates that the client should be sent an email. An email is only sent if the client has an email address and automatic emails have been set up.<br />  Default: **false**
+ * @property bool $Waitlist When `true`, the client is added to a specific enrollments waiting list.
+ * @property int $WaitlistEntryId The waiting list entry to add. Used to add a client to an enrollment from a waiting list entry.
+ *
  */
 class AddClientToEnrollmentRequest extends BaseModel
 {

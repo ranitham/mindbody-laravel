@@ -37,6 +37,17 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string $Address The billing address for the credit card.
+ * @property string $CardHolder The name of the card holder.
+ * @property string $CardNumber The credit card number.
+ * @property string $CardType The type of credit card, for example Visa or MasterCard.
+ * @property string $City The city in which the billing address is located.
+ * @property string $ExpMonth The month in which the credit card expires.
+ * @property string $ExpYear The year in which the credit card expires.
+ * @property string $LastFour The last four digits of the credit card number.
+ * @property string $PostalCode The postal code where the billing address is located.
+ * @property string $State The state that the billing address is located in.
+ *
  */
 class ClientCreditCard extends BaseModel
 {

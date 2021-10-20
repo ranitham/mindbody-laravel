@@ -37,6 +37,28 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $ClassScheduleId The class schedule ID of the requested class.
+ * @property \Nlocascio\Mindbody\Model\Location $Location Contains information about the location where the class is taking place.
+ * @property int $MaxCapacity The total number of bookings allowed in the class.
+ * @property int $WebCapacity The total number of online bookings allowed in the class.
+ * @property int $TotalBooked The total number of clients who are booked into the class prior to this call being made.
+ * @property int $TotalBookedWaitlist The total number of booked clients who are on the waiting list for the class prior to this call being made.
+ * @property int $WebBooked The total number of bookings in the class made by online users, prior to this call being made. This property is the current number of bookings counted toward the `WebCapacity` limit.
+ * @property int $SemesterId Identifies the semester assigned to this class.
+ * @property bool $IsCanceled When `true`, indicates that the class has been canceled.<br />  When `false`, indicates that the class has not been canceled and may still be bookable.
+ * @property bool $Substitute When `true`, indicates that the class is being taught by a substitute teacher.
+ * @property bool $Active When `true`, indicates that the class is being shown to clients in consumer mode.
+ * @property bool $IsWaitlistAvailable When `true`, indicates that the class has a waiting list and there is space available on the waiting list for another client.<br />  When `false`, indicates either that the class does not have a waiting list or there is no space available on the class waiting list.
+ * @property bool $HideCancel When `true`, indicates that this class is should not be shown to clients when `IsCancelled` is `true`.<br />  When `false`, indicates that this class is should be shown to clients when `IsCancelled` is `true`.<br />  This property can be ignored when the `IsCancelled` property is `false`.
+ * @property int $Id The unique identifier of the class.
+ * @property bool $IsAvailable When `true`, indicates that the class can be booked.<br />  When `false`, that the class cannot be booked at this time.
+ * @property \DateTime $StartDateTime The date and time that this class is scheduled to start.
+ * @property \DateTime $EndDateTime The date and time when this class is scheduled to end.
+ * @property \DateTime $LastModifiedDateTime The last time the class was modified.
+ * @property \Nlocascio\Mindbody\Model\ClassDescription $ClassDescription Contains information about this class.
+ * @property \Nlocascio\Mindbody\Model\Staff $Staff Contains information about the teacher of the class.
+ * @property string $VirtualStreamLink The URL for the pre-recorded live stream for the class if hosted on the mindbody virtual wellness platform
+ *
  */
 class SubstituteTeacherClass extends BaseModel implements ModelWithId
 {

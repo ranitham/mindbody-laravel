@@ -36,6 +36,13 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string $ClientId The ID of the client you are querying for purchases.
+ * @property \DateTime $StartDate Filters results to purchases made on or after this timestamp.<br />  Default: **now**
+ * @property \DateTime $EndDate Filters results to purchases made before this timestamp.<br />  Default: **end of today**
+ * @property int $SaleId Filters results to the single record associated with this ID.
+ * @property int $Limit Number of results to include, defaults to 100
+ * @property int $Offset Page offset, defaults to 0.
+ *
  */
 class GetClientPurchasesRequest extends BaseModel
 {

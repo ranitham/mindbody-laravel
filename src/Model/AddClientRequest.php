@@ -36,6 +36,61 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property double $AccountBalance The client’s current [account balance](https://mindbody-online-support.force.com/support/s/article/203262013-Adding-account-payments-video-tutorial?language=en_US).
+ * @property string $Action The action taken.
+ * @property bool $Active When `true`, indicates that the client is active at the site.<br />  When `false`, indicates that the client is not active at the site.
+ * @property string $AddressLine1 The first line of the client’s street address.
+ * @property string $AddressLine2 The second line of the client’s street address, if needed.
+ * @property bool $ApptGenderPrefMale When `true`, indicates that the client prefers services to be provided by a male service provider.<br />  When `false`, indicates that the client prefers services to be provided by a female service provider.<br />  When `null`, indicates that the client has no preference.  Default: **null**
+ * @property \DateTime $BirthDate The client’s date of birth.
+ * @property string $City The client’s city.
+ * @property \Nlocascio\Mindbody\Model\ClientCreditCard $ClientCreditCard Contains information about the client’s credit card.
+ * @property \Nlocascio\Mindbody\Model\AssignedClientIndex[] $ClientIndexes Contains a list of the indexes and client index values to be assigned to the client.
+ * @property \Nlocascio\Mindbody\Model\ClientRelationship[] $ClientRelationships Contains information about client relationships to be assigned to the client.
+ * @property string $Country The country in which the client is located.
+ * @property \DateTime $CreationDate The date when the client was added to the business, either by the client from the online store or by a staff member at the subscriber’s business. This value always returns in the format yyyy-mm-ddThh:mm:ss:ms.
+ * @property \Nlocascio\Mindbody\Model\CustomClientFieldValue[] $CustomClientFields Contains information about the custom fields to be assigned to the client.
+ * @property string $Email The client’s email address.
+ * @property string $EmergencyContactInfoEmail The email address of the client’s emergency contact.<br />  For more information, see [Children’s program features(emergency contact information)](https://support.mindbodyonline.com/s/article/203259283-Children-s-program-features-emergency-contact-information?language=en_US).
+ * @property string $EmergencyContactInfoName The name of the client’s emergency contact.
+ * @property string $EmergencyContactInfoPhone The phone number of the client’s emergency contact.
+ * @property string $EmergencyContactInfoRelationship The client’s relationship with the emergency contact, for example, mother or spouse.
+ * @property \DateTime $FirstAppointmentDate The date of the client’s first booked appointment at the business.
+ * @property string $FirstName The client’s first name. You must specify a first name when you add a client.
+ * @property string $Gender The client’s gender.
+ * @property \Nlocascio\Mindbody\Model\Location $HomeLocation Sets the client’s home location to the passed location, based on its ID.
+ * @property string $HomePhone The client’s home phone number.
+ * @property bool $IsCompany When `true`, indicates that the client should be marked as a company at the business.<br />  When `false`, indicates the client is an individual and does not represent a company.
+ * @property bool $IsProspect This value is set only if the business owner allows individuals to be prospects.<br />  When `true`, indicates that the client should be marked as a prospect for the business.<br />  When `false`, indicates that the client should not be marked as a prospect for the business.
+ * @property string $LastFormulaNotes The last [formula note](https://support.mindbodyonline.com/s/article/203259903-Appointments-Formula-notes?language=en_US) entered for the client.
+ * @property \DateTime $LastModifiedDateTime The UTC date and time when the client’s information was last modified.
+ * @property string $LastName The client’s last name. You must specify a last name when you add a client.
+ * @property \Nlocascio\Mindbody\Model\Liability $Liability Contains the client’s liability agreement information for the business.
+ * @property bool $LiabilityRelease Passing `true` sets the client’s liability information as follows:  * `IsReleased` is set to `true`.  * `AgreementDate` is set to the time zone of the business when the call was processed.  * `ReleasedBy` is set to `null` if the call is made by the client, `0` if the call was made by the business owner, or to a specific staff member’s ID if a staff member made the call.  Passing `false` sets the client’s liability information as follows:  * `IsReleased` is set to `false`.  * `AgreementDate` is set to `null`.  * `ReleasedBy` is set to `null`.
+ * @property int $MembershipIcon The ID of the membership icon displayed next to the client’s name, if the client has a membership on their account.
+ * @property string $MiddleName The client’s middle name.
+ * @property string $MobilePhone The client’s mobile phone number.
+ * @property int $MobileProvider The client's mobile provider.
+ * @property string $NewId When passed, sets the client's ID to this value. Otherwise, the client's ID will match their `UniqueId`.
+ * @property string $Notes Any notes entered on the client’s account by staff members. This value should never be shown to clients unless the business owner has a specific reason for showing them.
+ * @property string $PhotoUrl The URL for the client’s photo, if one has been uploaded.
+ * @property string $PostalCode The client’s postal code.
+ * @property \Nlocascio\Mindbody\Model\ProspectStage $ProspectStage Contains information about the client [prospect stage](https://support.mindbodyonline.com/s/article/206176457-Prospect-Stages?language=en_US).
+ * @property string $RedAlert Contains any red alert information entered by the business owner for the client.
+ * @property string $ReferredBy Specifies how the client was referred to the business. You can get a list of possible strings using the `GET ClientReferralTypes` endpoint.<br />  For more information, see [Referral types and referral subtypes](https://support.mindbodyonline.com/s/article/203259393-Referral-types-and-referral-subtypes?language=en_US).
+ * @property \Nlocascio\Mindbody\Model\SalesRep[] $SalesReps Contains information about the sales representatives to be assigned to the new client.
+ * @property int $SiteId The ID of the site.
+ * @property string $State The client’s state.
+ * @property string $Status The client’s status.
+ * @property bool $Test When `true`, indicates that test mode is enabled. The method is validated, but no client data is added or updated.<br />  Default: **false**
+ * @property int $UniqueId The client’s system-generated ID at the business. This value cannot be changed by business owners and is always unique across all clients at the business. This ID is not widely used in the Public API, but can be used by your application to uniquely identify clients.
+ * @property string $WorkExtension The client’s work phone extension number.
+ * @property string $WorkPhone The client’s work phone number.
+ * @property string $YellowAlert Contains any yellow alert information entered by the business owner for the client.
+ * @property bool $SendScheduleEmails When `true`, indicates that the client opts to receive schedule emails.
+ * @property bool $SendAccountEmails When `true`, indicates that the client opts to receive account emails.
+ * @property bool $SendPromotionalEmails When `true`, indicates that the client opts to receive promotional emails.
+ *
  */
 class AddClientRequest extends BaseModel
 {

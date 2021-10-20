@@ -36,6 +36,9 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $Id The ID of the contact log type to update the subtypes of.
+ * @property int[] $SubTypes The subtype IDs that are to be added to the contact log.
+ *
  */
 class UpdateContactLogType extends BaseModel implements ModelWithId
 {

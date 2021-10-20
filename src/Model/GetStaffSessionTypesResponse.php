@@ -36,6 +36,9 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property \Nlocascio\Mindbody\Model\PaginationResponse $PaginationResponse Contains information about the pagination properties used.
+ * @property \Nlocascio\Mindbody\Model\StaffSessionType[] $StaffSessionTypes Contains information about staff member session types.
+ *
  */
 class GetStaffSessionTypesResponse extends BaseModel
 {

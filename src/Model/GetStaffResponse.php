@@ -36,6 +36,9 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property \Nlocascio\Mindbody\Model\PaginationResponse $PaginationResponse PaginationResponse
+ * @property \Nlocascio\Mindbody\Model\Staff[] $StaffMembers A list of staff members.
+ *
  */
 class GetStaffResponse extends BaseModel
 {

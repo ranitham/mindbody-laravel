@@ -37,6 +37,62 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string $AppointmentGenderPreference The gender of staff member with whom the client prefers to book appointments.
+ * @property \DateTime $BirthDate The client’s date of birth.
+ * @property string $Country The client’s country.
+ * @property \DateTime $CreationDate The date the client’s profile was created and added to the business, either by the client from the online store, or by a staff member. This value always returns in the format `yyyy-mm-ddThh:mm:ss:ms`.
+ * @property \Nlocascio\Mindbody\Model\CustomClientFieldValue[] $CustomClientFields Contains information about the custom client fields assigned to the client.
+ * @property \Nlocascio\Mindbody\Model\ClientCreditCard $ClientCreditCard Contains information about the client’s credit card.
+ * @property \Nlocascio\Mindbody\Model\AssignedClientIndex[] $ClientIndexes Contains the IDs of the client’s assigned ClientIndexes and ClientIndexValues.
+ * @property \Nlocascio\Mindbody\Model\ClientRelationship[] $ClientRelationships Contains information about the relationship between two clients.
+ * @property \DateTime $FirstAppointmentDate The date of the client’s first booked appointment at the business.
+ * @property string $FirstName The client’s first name.
+ * @property string $Id The client’s ID, as configured by the business owner. This is the client’s barcode ID if the business owner assigns barcodes to clients. This ID is used throughout the Public API for client-related Public API calls. When used in a POST `UpdateClient` request, the `Id` is used to identify the client for the update.
+ * @property bool $IsCompany When `true`, indicates that the client should be marked as a company at the business.<br />  When `false`, indicates the client is an individual and does not represent a company.
+ * @property bool $IsProspect This value is set only if the business owner allows individuals to be prospects.<br />  When `true`, indicates that the client should be marked as a prospect for the business.<br />  When `false`, indicates that the client should not be marked as a prospect for the business.
+ * @property string $LastName The client’s last name.
+ * @property \Nlocascio\Mindbody\Model\Liability $Liability Contains the client’s liability agreement information for the business.
+ * @property bool $LiabilityRelease Passing `true` sets the client’s liability information as follows:  * `IsReleased` is set to `true`.  * `AgreementDate` is set to the time zone of the business when the call was processed.  * `ReleasedBy` is set to `null` if the call is made by the client, `0` if the call was made by the business owner, or to a specific staff member’s ID if a staff member made the call.  Passing `false` sets the client’s liability information as follows:  * `IsReleased` is set to `false`.  * `AgreementDate` is set to `null`.  * `ReleasedBy` is set to `null`.
+ * @property int $MembershipIcon The ID of the [membership icon](https://support.mindbodyonline.com/s/article/203259703-Membership-Setup-screen?language=en_US) displayed next to the client’s name, if the client has a membership on their account.
+ * @property int $MobileProvider The client’s mobile provider.
+ * @property string $Notes Any notes entered on the client’s account by staff members. This value should never be shown to clients unless the business owner has a specific reason for showing them.
+ * @property string $State The client’s state.
+ * @property int $UniqueId The client’s system-generated ID at the business. This value cannot be changed by business owners and is always unique across all clients at the business. This ID is not widely used in the Public API, but can be used by your application to uniquely identify clients.
+ * @property \DateTime $LastModifiedDateTime The UTC date and time when the client’s information was last modified.
+ * @property string $RedAlert Contains any red alert information entered by the business owner for the client.
+ * @property string $YellowAlert Contains any yellow alert information entered by the business owner for the client.
+ * @property string $MiddleName The client’s middle name.
+ * @property \Nlocascio\Mindbody\Model\ProspectStage $ProspectStage Contains information about the client [prospect stage](https://support.mindbodyonline.com/s/article/206176457-Prospect-Stages?language=en_US).
+ * @property string $Email The client’s email address.
+ * @property string $MobilePhone The client’s mobile phone number.
+ * @property string $HomePhone The client’s home phone number.
+ * @property string $WorkPhone The client’s work phone number.
+ * @property double $AccountBalance The client’s current [account balance](https://mindbody-online-support.force.com/support/s/article/203262013-Adding-account-payments-video-tutorial?language=en_US).
+ * @property string $AddressLine1 The first line of the client’s street address.
+ * @property string $AddressLine2 The second line of the client’s street address, if needed.
+ * @property string $City The client’s city.
+ * @property string $PostalCode The client’s postal code.
+ * @property string $WorkExtension The client’s work phone extension number.
+ * @property string $ReferredBy Specifies how the client was referred to the business. You can get a list of possible strings using the `GetClientReferralTypes` endpoint.
+ * @property string $PhotoUrl The URL of the client’s photo for the client profile.
+ * @property string $EmergencyContactInfoName The name of the client’s emergency contact.
+ * @property string $EmergencyContactInfoEmail The email address of the client’s emergency contact.
+ * @property string $EmergencyContactInfoPhone The phone number of the client’s emergency contact.
+ * @property string $EmergencyContactInfoRelationship The client’s relationship with the emergency contact.
+ * @property string $Gender The gender of the client.
+ * @property string $LastFormulaNotes The last [formula note](https://support.mindbodyonline.com/s/article/203259903-Appointments-Formula-notes?language=en_US) entered for the client.
+ * @property bool $Active When `true`, indicates that the client’s profile is marked as active on the site.<br />  When `false`, the client’s profile is inactive.
+ * @property \Nlocascio\Mindbody\Model\SalesRep[] $SalesReps A list of sales representatives.
+ * @property string $Status The status of the client in the business. Possible values are:  * Declined  * Non-Member  * Active  * Expired  * Suspended  * Terminated
+ * @property string $Action The action taken.
+ * @property bool $SendAccountEmails When `true`, indicates that the client has opted to receive general account notifications by email. This property is editable.   <br />Default: **false**
+ * @property bool $SendAccountTexts When `true`, indicates that the client has opted to receive general account notifications by text message. This parameter cannot be updated by developers. If included in a request, it is ignored.
+ * @property bool $SendPromotionalEmails When `true`, indicates that the client has opted to receive promotional notifications by email. This property is editable.   <br />Default: **false**
+ * @property bool $SendPromotionalTexts When `true`, indicates that the client has opted to receive promotional notifications by text message. This parameter cannot be updated by developers. If included in a request, it is ignored.
+ * @property bool $SendScheduleEmails When `true`, indicates that the client has opted to receive schedule notifications by email. This property is editable.   <br />Default: **false**
+ * @property bool $SendScheduleTexts When `true`, indicates that the client has opted to receive schedule notifications by text message. This parameter cannot be updated by developers. If included in a request, it is ignored.
+ * @property \Nlocascio\Mindbody\Model\Location $HomeLocation Information about the Home Location for this client
+ *
  */
 class Client extends BaseModel implements ModelWithId
 {

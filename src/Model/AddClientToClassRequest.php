@@ -36,6 +36,17 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string $ClientId The ID of the client who is being booked into the class
+ * @property int $ClassId The ID of the class into which the client is being booked
+ * @property bool $Test When `true`, indicates that input information is validated, but not committed.<br />  When `false`, the information is committed and the database is affected.<br />  Default: **false**
+ * @property bool $RequirePayment When `true`, the client must have an active, usable pricing option on their account.<br />  When `false` or omitted, an active pricing option is not required to complete the client’s booking.
+ * @property bool $Waitlist When `true`, indicates that the client should be added to a specific class waiting list.<br />  When `false`, the client should not be added to the waiting list.
+ * @property bool $SendEmail When `true`, the subscriber’s configured Booking Confirmation automatic email is sent to the client. Note that an email is sent only if the client has an email address and automatic emails have been set up.<br />  When `false`, indicates that the client does not receive emails.<br />  Default: **false**
+ * @property int $WaitlistEntryId The ID of the waiting list entry from which you are moving a client into a class.
+ * @property int $ClientServiceId The ID of the pricing option on the client’s account that you want to use to pay for this booking, if payment is required at the time of the update.
+ * @property bool $CrossRegionalBooking When `true`, cross regional series are checked and used if applicable.
+ * @property int $CrossRegionalBookingClientServiceSiteId If the request is cross regional, use a purchased pricing option from this specified site. If omitted, an attempt is made to use an applicable pricing option from the local site.
+ *
  */
 class AddClientToClassRequest extends BaseModel
 {

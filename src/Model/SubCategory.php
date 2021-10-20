@@ -36,6 +36,10 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $Id Id
+ * @property string $SubCategoryName SubCategoryName
+ * @property bool $Active Active
+ *
  */
 class SubCategory extends BaseModel implements ModelWithId
 {

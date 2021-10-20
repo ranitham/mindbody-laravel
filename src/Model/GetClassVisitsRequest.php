@@ -36,6 +36,9 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $ClassID The class ID.
+ * @property \DateTime $LastModifiedDate When included in the request, only records modified on or after the `LastModifiedDate` specified are included in the response.
+ *
  */
 class GetClassVisitsRequest extends BaseModel
 {

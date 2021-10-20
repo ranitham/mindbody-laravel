@@ -37,6 +37,34 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $ClassScheduleId The ID used to retrieve the class schedule for the desired class.
+ * @property \Nlocascio\Mindbody\Model\Visit[] $Visits Contains information about visits.
+ * @property \Nlocascio\Mindbody\Model\Client[] $Clients Contains information about clients.
+ * @property \Nlocascio\Mindbody\Model\Location $Location Contains information about a location.
+ * @property \Nlocascio\Mindbody\Model\Resource $Resource Contains information about a resource, such as a room, assigned to a class.
+ * @property int $MaxCapacity The maximum number of clients allowed in the class.
+ * @property int $WebCapacity The maximum number of clients allowed to sign up online for the class.
+ * @property int $TotalBooked The total number of clients booked in the class.
+ * @property int $TotalBookedWaitlist The total number of booked clients on the waiting list for the class.
+ * @property int $WebBooked The total number of clients who signed up online for the class.
+ * @property int $SemesterId The ID of the semester that the class is a part of, if any.
+ * @property bool $IsCanceled When `true`, indicates that the class has been cancelled.<br />  When `false`, indicates that the class has not been cancelled.
+ * @property bool $Substitute When `true`, indicates that the class is being taught by a substitute teacher.<br />  When `false`, indicates that the class is being taught by its regular teacher.
+ * @property bool $Active When `true`, indicates that the class is shown to clients when in consumer mode.<br />  When `false`, indicates that the class is not shown to clients when in consumer mode.
+ * @property bool $IsWaitlistAvailable When `true`, indicates that the clients can be placed on a waiting list for the class.<br />  When `false`, indicates that the clients cannot be placed on a waiting list for the class.
+ * @property bool $IsEnrolled When `true`, indicates that the client with the given `ClientId` is enrolled in this class.<br />  When `false`, indicates that the client with the given `ClientId` is not enrolled in this class.
+ * @property bool $HideCancel When `true`, indicates that this class is hidden when cancelled.<br />  When `false`, indicates that this class is not hidden when cancelled.
+ * @property int $Id The unique identifier for the class.
+ * @property bool $IsAvailable When `true`, indicates that the client with the given client ID can book this class.<br />  When `false`, indicates that the client with the given client ID cannot book this class.
+ * @property \DateTime $StartDateTime The time this class is scheduled to start.
+ * @property \DateTime $EndDateTime The time this class is scheduled to end.
+ * @property \DateTime $LastModifiedDateTime The last time this class was modified.
+ * @property \Nlocascio\Mindbody\Model\ClassDescription $ClassDescription Contains information that defines the class.
+ * @property \Nlocascio\Mindbody\Model\Staff $Staff Contains information about the staff member.
+ * @property \Nlocascio\Mindbody\Model\BookingWindow $BookingWindow Contains information about the window for booking.
+ * @property string $BookingStatus Contains the booking’s payment status.
+ * @property string $VirtualStreamLink The URL for the live stream for the class if hosted on the mindbody virtual wellness platform
+ *
  */
 class ModelClass extends BaseModel implements ModelWithId
 {

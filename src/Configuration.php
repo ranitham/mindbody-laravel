@@ -39,6 +39,7 @@ namespace Nlocascio\Mindbody;
  */
 class Configuration
 {
+    /* @var Configuration */
     private static $defaultConfiguration;
 
     /**

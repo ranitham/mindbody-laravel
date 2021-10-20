@@ -37,6 +37,8 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property bool $Active The requested Active payment types. true indicates for Active payment types and false indicates for Deactivated payment types.
+ *
  */
 class GetPaymentTypesRequest extends BaseModel
 {

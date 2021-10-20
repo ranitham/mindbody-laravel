@@ -36,6 +36,12 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string $ClientId The ID of the client whose reward information is being requested.
+ * @property \DateTime $StartDate Filters the results to rewards transactions created on or after this date.<br />  Default: **the current date**
+ * @property \DateTime $EndDate Filters the results to rewards transactions created before this date.<br />  Default: **the start date**
+ * @property int $Limit Number of results to include, defaults to 100
+ * @property int $Offset Page offset, defaults to 0.
+ *
  */
 class GetClientRewardsRequest extends BaseModel
 {

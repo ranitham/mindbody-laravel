@@ -36,6 +36,10 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string $FrequencyType Defines how often clients are charged. Possible values are:  * SetNumberOfAutopays  * MonthToMonth
+ * @property int $FrequencyValue The interval of AutoPay frequency, combined with `FrequencyTimeUnit`. This value is null if `FrequencyType` is `MonthToMonth`.
+ * @property string $FrequencyTimeUnit Defines the time unit that sets how often to run the AutoPay, combined with `FrequencyValue`. This value is null if `FrequencyType` is `MonthToMonth`. Possible values are:  * Weekly  * Monthly  * Yearly
+ *
  */
 class AutopaySchedule extends BaseModel
 {

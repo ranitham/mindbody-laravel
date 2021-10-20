@@ -36,6 +36,12 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $StaffId The ID of the staff member who taught the class.
+ * @property int $ScheduledServiceId The class' ID.
+ * @property string $ScheduledServiceType The type of the scheduled service; i.e, a class, appointment, or enrollment.
+ * @property double $Earnings The total monetary amount the staff is to be paid for this class.
+ * @property \DateTime $DateTime DateTime
+ *
  */
 class ScheduledServiceEarningsEvent extends BaseModel
 {

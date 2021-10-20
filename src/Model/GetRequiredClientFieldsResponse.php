@@ -36,6 +36,8 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string[] $RequiredClientFields A list of strings that maps to the client fields that are required by the site.
+ *
  */
 class GetRequiredClientFieldsResponse extends BaseModel
 {

@@ -36,6 +36,11 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string $PermissionGroupName The name of the permission group.
+ * @property bool $IpRestricted When `true`, the staff member’s permissions are restricted to specific IP addresses.<br />  When `false`, the staff member’s permissions are not restricted to specific IP addresses.
+ * @property string[] $AllowedPermissions A list of the permissions allowed to the staff member. See [Permission Values](https://developers.mindbodyonline.com/PublicDocumentation/V6#epermission-values) for descriptions of the possible permissions.
+ * @property string[] $DeniedPermissions A list of the permissions that the staff member is not allowed to exercise. See [Permission Values](https://developers.mindbodyonline.com/PublicDocumentation/V6#epermission-values) for descriptions of the possible permissions.
+ *
  */
 class StaffPermissionGroup extends BaseModel
 {

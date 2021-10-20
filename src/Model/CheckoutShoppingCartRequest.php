@@ -36,6 +36,23 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string $CartId The unique ID of the shopping cart to be processed. You can use this value to maintain a persistent cart. If you do not specify a cart ID, the MINDBODY software generates one.
+ * @property string $ClientId The RSSID of the client making the purchase. A cart can be validated without a client ID, but a client ID must be specified to complete a sale.
+ * @property bool $Test When `true`, indicates that the contents of the cart are validated, but the transaction does not take place. You should use this parameter during testing and when checking the calculated totals of the items in the cart.<br />  When `false`, the transaction takes place and the database is affected.<br />  Default: **false**
+ * @property \Nlocascio\Mindbody\Model\CheckoutItemWrapper[] $Items A list of the items in the cart.
+ * @property bool $InStore When `true`, indicates that the cart is to be completed by a staff member and is to take place at one of the business’ physical locations.<br />  When `false`, indicates that the cart is to be completed by a client from the business’ online store.<br />  Default: **false**
+ * @property bool $CalculateTax If true tax calculation should be done.
+ * @property string $PromotionCode Promotion code to be applied to the cart.
+ * @property \Nlocascio\Mindbody\Model\CheckoutPaymentInfo[] $Payments A list of payment information objects to be applied to payment against the items in the cart.
+ * @property bool $SendEmail When `true`, sends a purchase receipt email to the client. Note that all appropriate permissions and settings must be enabled for the client to receive an email.<br />  Default: **false**
+ * @property int $LocationId The location ID to be used for pulling business mode prices and taxes. If no location ID is supplied, it defaults to the online store, represented by a null value.   Default: **null** (the online store)
+ * @property string $Image The byte array data of the signature image.
+ * @property string $ImageFileName The name of the signature image being uploaded.
+ * @property bool $ConsumerPresent Set to true to indicate that the consumer is present.    Used in conjunction with EU SCA requirements.  If true you must also provide a PaymentAuthenticationCallbackUrl for consumer authorization of the transaction
+ * @property string $PaymentAuthenticationCallbackUrl The URL that the EU consumer is redirected to upon authorizing the transaction with the bank's SCA (Strong Customer Authentication) challenge
+ * @property int[] $TransactionIds The list of TransactionIds provided with initial response containing SCA Challenge URLs for ConsumerPresent transactions
+ * @property bool $IsBillingPostalCodeRequired the flag to check billing post code is required or not.
+ *
  */
 class CheckoutShoppingCartRequest extends BaseModel
 {

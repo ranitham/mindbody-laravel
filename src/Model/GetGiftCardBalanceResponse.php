@@ -36,6 +36,9 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string $BarcodeId The gift card's barcode ID.
+ * @property double $RemainingBalance The gift card's remaining balance.
+ *
  */
 class GetGiftCardBalanceResponse extends BaseModel
 {

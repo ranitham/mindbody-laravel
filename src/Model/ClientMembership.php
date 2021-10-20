@@ -36,6 +36,22 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property \Nlocascio\Mindbody\Model\Location[] $RestrictedLocations The locations that the membership is restricted to, if any.
+ * @property string $IconCode Text code that represents the `MembershipIcon`.
+ * @property int $MembershipId The membership's ID.
+ * @property \DateTime $ActiveDate The date that this pricing option became active and could be used to pay for services.
+ * @property int $Count The number of service sessions this pricing option contained when first purchased.
+ * @property bool $Current When `true`, there are service sessions remaining on the pricing option that can be used pay for the current session.<br />  When `false`, the client cannot use this pricing option to pay for other services.
+ * @property \DateTime $ExpirationDate The date when the pricing option expires and can no longer be used to pay for services, even if unused service sessions remain on the option; expressed as UTC.
+ * @property int $Id The unique ID assigned to this pricing option, specific to when it was purchased by the client.
+ * @property int $ProductId The unique ID of this pricing option, not specific to any client's purchase of it.
+ * @property string $Name The name of this pricing option.
+ * @property \DateTime $PaymentDate The date on which the client paid for this pricing option.
+ * @property \Nlocascio\Mindbody\Model\Program $Program Contains information about the service category this service falls under.
+ * @property int $Remaining The number of service sessions remaining in the pricing option that can still be used.
+ * @property int $SiteId The ID of the subscriber site associated with this pricing option.
+ * @property string $Action The action taken.
+ *
  */
 class ClientMembership extends BaseModel implements ModelWithId
 {

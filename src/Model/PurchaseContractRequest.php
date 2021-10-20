@@ -36,6 +36,22 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property bool $Test When `true`, the Public API validates input information, but does not commit it, so no client data is affected.<br />  When `false` or omitted, the transaction is committed, and client data is affected.<br />  Default: **false**
+ * @property int $LocationId The ID of the location where the client is purchasing the contract; used for AutoPays.
+ * @property string $ClientId The ID of the client. Note that this is not the same as the client’s unique ID.
+ * @property int $ContractId The ID of the contract being purchased.
+ * @property \DateTime $StartDate The date that the contract starts.<br />  Default: **today’s date**
+ * @property string $FirstPaymentOccurs The date on which the first payment is to occur. Possible values:  * Instant  * `StartDate`
+ * @property string $ClientSignature A representation of the client’s signature. This value can take the form of Base64-encoded byte array. The file type should be PNG. The picture of the client’s signature is uploaded and viewable from the Client Documents page in the Core Business Mode software. The title of the document is:<br />  clientContractSignature-{uniquePurchasedClientContractID}-{contractName}-{contractStartDate}.{fileType}
+ * @property string $PromotionCode A promotion code, if one applies. Promotion codes are applied to items that are both marked as pay now in a contract and are discounted by the promotion code. If a pay now item is an autopay item, its autopay price is the price at the time of checkout, so, if a promotion code was applied, all autopays are scheduled using that discounted price.
+ * @property \Nlocascio\Mindbody\Model\CreditCardInfo $CreditCardInfo Contains credit card payment information.<br />  This is only required if `StoredCardInfo` is not passed and `UseDirectDebit` is `false`.
+ * @property \Nlocascio\Mindbody\Model\StoredCardInfo $StoredCardInfo Contains information about the stored credit card payment.<br />  This is only required if `CreditCardInfo` is not passed and `UseDirectDebit` is `false`.
+ * @property bool $SendNotifications When `true`, indicates that email and SMS notifications should be sent to the client after purchase.<br />  Default: **true**
+ * @property int $SalesRepId The ID of the staff member who is to be marked as the sales rep for this contract purchase.
+ * @property bool $UseDirectDebit When `true`, indicates that the direct debit information stored on the client's account is to be used to pay for the contract.<br />  This is only required if both `CreditCardInfo` and `StoredCardInfo` are not passed.<br />  Default: **false**
+ * @property bool $ConsumerPresent When `true`, indicates that the consumer is available to address any SCA challenge issued by the bank.  EU Only.<br />   Default: **false**
+ * @property string $PaymentAuthenticationCallbackUrl This is the Url the consumer will be redirected back to after completion of the Banks SCA challenge.
+ *
  */
 class PurchaseContractRequest extends BaseModel
 {

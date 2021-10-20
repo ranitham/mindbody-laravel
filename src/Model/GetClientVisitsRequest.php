@@ -36,6 +36,15 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string $ClientId The ID of the requested client.
+ * @property int $ClientAssociatedSitesOffset The number of sites to skip when returning the site associated with a client.
+ * @property bool $CrossRegionalLookup When `true`, indicates that past and scheduled client visits across all sites in the region are returned.<br />  When `false`, indicates that only visits at the current site are returned.
+ * @property \DateTime $EndDate The date past which class visits are not returned.  Default: **today’s date**
+ * @property \DateTime $StartDate The date before which class visits are not returned.  Default: **the end date**
+ * @property bool $UnpaidsOnly When `true`, indicates that only visits that have not been paid for are returned.<br />  When `false`, indicates that all visits are returned, regardless of whether they have been paid for.<br />  Default: **false**
+ * @property int $Limit Number of results to include, defaults to 100
+ * @property int $Offset Page offset, defaults to 0.
+ *
  */
 class GetClientVisitsRequest extends BaseModel
 {

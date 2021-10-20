@@ -37,6 +37,10 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string $Type The type of the failure
+ * @property string $Message Descriptive message for the failure
+ * @property string $AuthenticationRedirectUrl For SCA aware flows, this is the url provided by the bank where the consumer can authorize the transaction
+ *
  */
 class PaymentProcessingFailure extends BaseModel
 {

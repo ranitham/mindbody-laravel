@@ -36,6 +36,9 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $Id The ID of the contact log comment to be updated. Pass a value of `0` to add a new comment to the contact log.
+ * @property string $Text The new text for the comment.
+ *
  */
 class UpdateContactLogComment extends BaseModel implements ModelWithId
 {

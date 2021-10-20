@@ -36,6 +36,7 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ *
  */
 class RemoveFromWaitlistResponse extends BaseModel
 {

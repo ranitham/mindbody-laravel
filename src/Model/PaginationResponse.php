@@ -36,6 +36,11 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $RequestedLimit Limit from pagination request
+ * @property int $RequestedOffset Offset from pagination request
+ * @property int $PageSize Number of results returned in this response
+ * @property int $TotalResults Total number of results in dataset
+ *
  */
 class PaginationResponse extends BaseModel
 {

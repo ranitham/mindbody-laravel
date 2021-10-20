@@ -37,6 +37,29 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property \Nlocascio\Mindbody\Model\ModelClass[] $Classes Contains information about classes.
+ * @property \Nlocascio\Mindbody\Model\Client[] $Clients Contains information about clients.
+ * @property \Nlocascio\Mindbody\Model\Course $Course Contains information about the course that the enrollment is a part of.
+ * @property int $SemesterId The semester ID for the enrollment (if any).
+ * @property bool $IsAvailable When `true`, indicates that the enrollment shows in consumer mode, has not started yet, and there is room in each class of the enrollment.<br />  When `false`, indicates that either the enrollment does not show in consumer mode, has already started, or there is no room in some classes of the enrollment.
+ * @property int $Id The unique ID of the class schedule.
+ * @property \Nlocascio\Mindbody\Model\ClassDescription $ClassDescription Contains information about the class.
+ * @property bool $DaySunday When `true`, indicates that this schedule occurs on Sundays.
+ * @property bool $DayMonday When `true`, indicates that this schedule occurs on Mondays.
+ * @property bool $DayTuesday When `true`, indicates that this schedule occurs on Tuesdays.
+ * @property bool $DayWednesday When `true`, indicates that this schedule occurs on Wednesdays.
+ * @property bool $DayThursday When `true`, indicates that this schedule occurs on Thursdays.
+ * @property bool $DayFriday When `true`, indicates that this schedule occurs on Fridays.
+ * @property bool $DaySaturday When `true`, indicates that this schedule occurs on Saturdays.
+ * @property bool $AllowOpenEnrollment When `true`, indicates that the enrollment allows booking after the enrollment has started.
+ * @property bool $AllowDateForwardEnrollment When `true`, indicates that this the enrollment shows in consumer mode, the enrollment has not started yet, and there is room in each class of the enrollment.
+ * @property \DateTime $StartTime The time this class schedule starts.
+ * @property \DateTime $EndTime The time this class schedule ends.
+ * @property \DateTime $StartDate The date this class schedule starts.
+ * @property \DateTime $EndDate The date this class schedule ends.
+ * @property \Nlocascio\Mindbody\Model\Staff $Staff Contains information about the staff member who is regularly scheduled to teach the class.
+ * @property \Nlocascio\Mindbody\Model\Location $Location Contains information about the regularly scheduled location of this class.
+ *
  */
 class ClassSchedule extends BaseModel implements ModelWithId
 {

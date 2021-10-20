@@ -36,6 +36,16 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int[] $ClassScheduleIds The class schedule IDs.  <br />Default: **all**
+ * @property \DateTime $EndDate The end date of the range. Return any active enrollments that occur on or before this day.  <br />Default: **StartDate**
+ * @property int[] $LocationIds The location IDs.   <br />Default: **all**
+ * @property int[] $ProgramIds The program IDs.   <br />Default: **all**
+ * @property int[] $SessionTypeIds The session type IDs.   <br />Default: **all**
+ * @property int[] $StaffIds The staff IDs.   <br />Default: **all**
+ * @property \DateTime $StartDate The start date of the range. Return any active enrollments that occur on or after this day.  <br />Default: **today’s date**
+ * @property int $Limit Number of results to include, defaults to 100
+ * @property int $Offset Page offset, defaults to 0.
+ *
  */
 class GetClassSchedulesRequest extends BaseModel
 {

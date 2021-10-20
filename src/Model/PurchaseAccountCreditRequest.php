@@ -36,6 +36,15 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property bool $Test When `true`, the Public API validates input information, but does not commit it, so no client data is affected.<br />  When `false` or omitted, the transaction is committed, and client data is affected.<br />  Default: **false**
+ * @property int $LocationId The ID of the location where the client is purchasing the contract; used for AutoPays.
+ * @property string $ClientId The ID of the client. Note that this is not the same as the client’s unique ID.
+ * @property bool $SendEmailReceipt When `true`, indicates that a purchase receipt email should be sent to the purchasing client, if all settings are correctly configured.<br />  When `false`, no email is sent to the purchaser.
+ * @property int $SalesRepId The ID of the staff member who is to be marked as the sales rep for this gift card purchase.
+ * @property bool $ConsumerPresent When `true`, indicates that the consumer is available to address any SCA challenge issued by the bank.  EU Only.<br />   Default: **false**
+ * @property string $PaymentAuthenticationCallbackUrl This is the Url the consumer will be redirected back to after completion of the Banks SCA challenge.
+ * @property \Nlocascio\Mindbody\Model\CheckoutPaymentInfo $PaymentInfo Contains information about the payment.
+ *
  */
 class PurchaseAccountCreditRequest extends BaseModel
 {

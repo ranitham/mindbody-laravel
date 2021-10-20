@@ -36,6 +36,16 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int[] $SessionTypeIds A list of the requested session type IDs.
+ * @property int[] $LocationIds A list of the requested location IDs.
+ * @property int[] $StaffIds A list of the requested staff IDs.
+ * @property \DateTime $StartDate The start date of the requested date range.   <br />Default: **today’s date**
+ * @property \DateTime $EndDate The end date of the requested date range.   <br />Default: **StartDate**
+ * @property int $AppointmentId If provided, filters out the appointment with this ID.
+ * @property bool $IgnoreDefaultSessionLength When `true`, availabilities that are non-default return, for example, a 30-minute availability with a 60-minute default session length.<br />  When `false`, only availabilities that have the default session length return.
+ * @property int $Limit Number of results to include, defaults to 100
+ * @property int $Offset Page offset, defaults to 0.
+ *
  */
 class GetBookableItemsRequest extends BaseModel
 {

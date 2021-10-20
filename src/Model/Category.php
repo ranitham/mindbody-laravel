@@ -36,6 +36,17 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $Id Id
+ * @property string $CategoryName CategoryName
+ * @property string $Description Description
+ * @property bool $Service Service
+ * @property bool $Active Active
+ * @property bool $IsPrimary IsPrimary
+ * @property bool $IsSecondary IsSecondary
+ * @property \DateTime $CreatedDateTimeUTC CreatedDateTimeUTC
+ * @property \DateTime $ModifiedDateTimeUTC ModifiedDateTimeUTC
+ * @property \Nlocascio\Mindbody\Model\SubCategory[] $SubCategories SubCategories
+ *
  */
 class Category extends BaseModel implements ModelWithId
 {

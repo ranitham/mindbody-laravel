@@ -37,6 +37,13 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property \DateTime $ActionDateTime Timestamp of the transaction
+ * @property string $Action Action that was performed
+ * @property string $Source Source of transaction
+ * @property int $SourceID Unique ID of transaction type
+ * @property \DateTime $ExpirationDateTime Expiration of earned points
+ * @property int $Points Value of the transaction
+ *
  */
 class ClientRewardTransaction extends BaseModel
 {

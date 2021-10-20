@@ -36,6 +36,12 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property double $AmountPaid The amount paid for the gift card by the purchaser.
+ * @property string $ClientId The client ID of the purchaser.
+ * @property int $SaleId The sale ID of the gift card.
+ * @property bool $EmailReceipt Whether or not an email receipt was sent to the purchaser. If true, a receipt was sent.
+ * @property \Nlocascio\Mindbody\Model\PaymentProcessingFailure[] $PaymentProcessingFailures Any cart processing failures, for example when SCA challenged, the cart is in PaymentAuthenticationRequired state and at least one of the failures listed will provide an authentication Url.
+ *
  */
 class PurchaseAccountCreditResponse extends BaseModel
 {

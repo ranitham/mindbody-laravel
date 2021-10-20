@@ -36,6 +36,9 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string $Bytes A Base64-encoded string representation of the image’s byte array.
+ * @property string $ClientId The RSSID of the client for whom the photo is to be uploaded.
+ *
  */
 class UploadClientPhotoRequest extends BaseModel
 {

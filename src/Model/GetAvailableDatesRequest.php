@@ -36,6 +36,12 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $SessionTypeId required requested session type ID.
+ * @property int $LocationId optional requested location ID.
+ * @property int $StaffId optional requested staff ID.
+ * @property \DateTime $StartDate The start date of the requested date range.   <br />Default: **today’s date**
+ * @property \DateTime $EndDate The end date of the requested date range.   <br />Default: **StartDate**
+ *
  */
 class GetAvailableDatesRequest extends BaseModel
 {

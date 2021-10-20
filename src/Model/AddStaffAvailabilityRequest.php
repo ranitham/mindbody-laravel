@@ -37,6 +37,18 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $StaffId The unique id of the staff
+ * @property bool $IsAvailability IsAvailability = true means this is staff available schedule, false means unavailability
+ * @property string $Description Description is required if IsAvailability=false
+ * @property int[] $ProgramIds List of ProgramIds - for session types the staff member performs, required if IsAvailability=true must be an Active ProgramId between 1 and 21
+ * @property int $LocationId The Location for the Availability, will default to 0 when isAvailability=false
+ * @property string[] $DaysOfWeek Day of week for the schedule \"Monday\", \"Tuesday\", etc...
+ * @property string $StartTime The starting time in site local time format \"HH:MM:SS\"
+ * @property string $EndTime The ending time in site local time format \"HH:MM:SS\"
+ * @property string $StartDate The ending time in site local time format \"HH:MM:SS\"
+ * @property string $EndDate The ending time in site local time format \"HH:MM:SS\"
+ * @property string $Status one of \"Public\", \"Masked\", \"Hidden\", default \"Public\") - Schedule privacy. \"Masked\" only valid if IsAavailability=true
+ *
  */
 class AddStaffAvailabilityRequest extends BaseModel
 {

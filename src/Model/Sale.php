@@ -36,6 +36,18 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $Id The sale ID.
+ * @property \DateTime $SaleDate The date the item was sold.
+ * @property string $SaleTime The time the item was sold.
+ * @property \DateTime $SaleDateTime The date and time the item was sold.
+ * @property \DateTime $OriginalSaleDateTime The date and time the item was sold originally.
+ * @property int $SalesRepId The sales representative ID
+ * @property string $ClientId The ID of the client who made the purchase.
+ * @property int $RecipientClientId Recipient Client Id
+ * @property \Nlocascio\Mindbody\Model\PurchasedItem[] $PurchasedItems Contains information that describes the purchased items.
+ * @property int $LocationId The ID of the location where the sale takes place.
+ * @property \Nlocascio\Mindbody\Model\SalePayment[] $Payments Contains information that describes the payments that contributed to this sale.
+ *
  */
 class Sale extends BaseModel implements ModelWithId
 {

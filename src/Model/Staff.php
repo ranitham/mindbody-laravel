@@ -36,6 +36,43 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string $Address The address of the staff member who is teaching the class.
+ * @property bool $AppointmentInstructor When `true`, indicates that the staff member offers appointments.<br />  When `false`, indicates that the staff member does not offer appointments.
+ * @property bool $AlwaysAllowDoubleBooking When `true`, indicates that the staff member can be scheduled for overlapping services.<br />  When `false`, indicates that the staff can only be scheduled for one service at a time in any given time-frame.
+ * @property string $Bio The staff member’s biography. This string contains HTML.
+ * @property string $City The staff member’s city.
+ * @property string $Country The staff member’s country.
+ * @property string $Email The staff member’s email address.
+ * @property string $FirstName The staff member’s first name.
+ * @property string $HomePhone The staff member’s home phone number.
+ * @property int $Id The ID assigned to the staff member.
+ * @property bool $IndependentContractor When `true`, indicates that the staff member is an independent contractor.  When `false`, indicates that the staff member is not an independent contractor.
+ * @property bool $IsMale When `true`, indicates that the staff member is male.  When `false`, indicates that the staff member is female.
+ * @property string $LastName The staff member’s last name.
+ * @property string $MobilePhone The staff member’s mobile phone number.
+ * @property string $Name The staff member’s name.
+ * @property string $PostalCode The staff member’s postal code.
+ * @property bool $ClassTeacher When `true`, indicates that the staff member can teach classes.  When `false`, indicates that the staff member cannot teach classes.
+ * @property int $SortOrder If configured by the business owner, this field determines a staff member’s weight when sorting. Use this field to sort staff members on your interface.
+ * @property string $State The staff member’s state.
+ * @property string $WorkPhone The staff member’s work phone number.
+ * @property string $ImageUrl The URL of the staff member’s image, if one has been uploaded.
+ * @property bool $ClassAssistant Is the staff an assistant
+ * @property bool $ClassAssistant2 Is the staff an assistant2
+ * @property \DateTime $EmploymentStart The start date of employment
+ * @property \DateTime $EmploymentEnd The end date of employment
+ * @property string[] $ProviderIDs A list of ProviderIds for the staff.
+ * @property bool $Rep return true if staff is sales Rep 1 else false.
+ * @property bool $Rep2 return true if staff is sales Rep 2 else false.
+ * @property bool $Rep3 return true if staff is sales Rep 3 else false.
+ * @property bool $Rep4 return true if staff is sales Rep 4 else false.
+ * @property bool $Rep5 return true if staff is sales Rep 5 else false.
+ * @property bool $Rep6 return true if staff is sales Rep 6 else false.
+ * @property \Nlocascio\Mindbody\Model\Appointment[] $Appointments A list of appointments for the staff.
+ * @property \Nlocascio\Mindbody\Model\Unavailability[] $Unavailabilities A list of unavailabilities for the staff.
+ * @property \Nlocascio\Mindbody\Model\Availability[] $Availabilities A list of availabilities for the staff.
+ * @property string $EmpID The EmpID assigned to the staff member.
+ *
  */
 class Staff extends BaseModel implements ModelWithId
 {

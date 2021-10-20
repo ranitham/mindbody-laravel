@@ -36,6 +36,19 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int[] $ProgramIds Filters to pricing options with the specified program IDs.
+ * @property int[] $SessionTypeIds Filters to the pricing options with the specified session types IDs.
+ * @property string[] $ServiceIds Filters to the pricing options with the specified IDs. In this context, service and pricing option are used interchangeably.
+ * @property int $ClassId Filters to the pricing options for the specified class ID.
+ * @property int $ClassScheduleId Filters to the pricing options for the specified class schedule ID.
+ * @property bool $SellOnline When `true`, filters to the pricing options that can be sold online.<br />  Default: **false**
+ * @property int $LocationId When specified, for each returned pricing option, `TaxRate` and `TaxIncluded` are calculated according to the specified location. Note that this does not filter results to only services provided at the given location, and for locations where Value-Added Tax (VAT) rules apply, the `TaxRate` is set to zero.
+ * @property bool $HideRelatedPrograms When `true`, indicates that pricing options of related programs are omitted from the response.<br />  Default: **false**
+ * @property int $StaffId Sets `Price` and `OnlinePrice` to the particular pricing of a specific staff member, if allowed by the business.
+ * @property bool $IncludeDiscontinued When `true`, indicates that the filtered pricing option list includes discontinued pricing options.<br />  Default: **false**
+ * @property int $Limit Number of results to include, defaults to 100
+ * @property int $Offset Page offset, defaults to 0.
+ *
  */
 class GetServicesRequest extends BaseModel
 {

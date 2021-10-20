@@ -36,6 +36,26 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $ProductId A ProductID of the product.
+ * @property string $Id The unique ID of the product variant, for example, a particular size and color combination.
+ * @property int $CategoryId A CategoryID of the product.
+ * @property int $SubCategoryId A SubCategoryID of the product.
+ * @property double $Price The price of the product.
+ * @property double $TaxIncluded If tax inclusive-pricing is enabled, this field shows how much tax was added to the price.
+ * @property double $TaxRate The tax rate that was applied to this purchase.
+ * @property int $GroupId The unique ID of the product group.
+ * @property string $Name The name of the product.
+ * @property double $OnlinePrice The online price of the product.
+ * @property string $ShortDescription A short description of the product.
+ * @property string $LongDescription A longer description of the product.
+ * @property int $TypeGroup A TypeGroup of the product.
+ * @property int $SupplierId A SupplierID of the product.
+ * @property string $SupplierName A Supplier name of the product.
+ * @property string $ImageURL 
+ * @property \Nlocascio\Mindbody\Model\Color $Color The color of the product.
+ * @property \Nlocascio\Mindbody\Model\Size $Size Contains information about the size of the product.
+ * @property string $ManufacturerId The ManufacturerId of the product.
+ *
  */
 class Product extends BaseModel implements ModelWithId
 {

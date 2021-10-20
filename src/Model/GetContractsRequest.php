@@ -36,6 +36,13 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int[] $ContractIds When included, the response only contains details about the specified contract IDs.
+ * @property bool $SoldOnline When `true`, the response only contains details about contracts and AutoPay options that can be sold online.<br />  When `false`, only contracts that are not intended to be sold online are returned.<br />  Default: **all contracts**
+ * @property int $LocationId The ID of the location that has the requested contracts and AutoPay options.
+ * @property int $ConsumerId The ID of the client.
+ * @property int $Limit Number of results to include, defaults to 100
+ * @property int $Offset Page offset, defaults to 0.
+ *
  */
 class GetContractsRequest extends BaseModel
 {

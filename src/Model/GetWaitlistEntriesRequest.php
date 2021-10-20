@@ -36,6 +36,14 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int[] $ClassIds The requested class IDs. If a class ID is present, the request automatically disregards any class schedule IDs in the request. <br />  Either `ClassScheduleIds`, `ClientIds`, `WaitlistEntryIds`, or `ClassIds` is required; the others become optional.<br />  Default: **all ClassIds**
+ * @property int[] $ClassScheduleIds The requested class schedule IDs. If a class ID is present, the request automatically disregards any class schedule IDs in the request.<br />  Either `ClassScheduleIds`, `ClientIds`, `WaitlistEntryIds`, or `ClassIds` is required; the others become optional.<br />  Default: **all ClassScheduleIds**
+ * @property string[] $ClientIds The requested client IDs.<br />  Either `ClassScheduleIds`, `ClientIds`, `WaitlistEntryIds`, or `ClassIds` is required; the others become optional.<br />  Default: **all ClientIds**
+ * @property bool $HidePastEntries When `true`, indicates that past waiting list entries are hidden from clients.<br />  When `false`, indicates that past entries are not hidden from clients.<br />  Default: **false**
+ * @property int[] $WaitlistEntryIds The requested waiting list entry IDs.<br />  Either `ClassScheduleIds`, `ClientIds`, `WaitlistEntryIds`, or `ClassIds` is required; the others become optional.<br />  Default: **all WaitlistEntryIds**
+ * @property int $Limit Number of results to include, defaults to 100
+ * @property int $Offset Page offset, defaults to 0.
+ *
  */
 class GetWaitlistEntriesRequest extends BaseModel
 {

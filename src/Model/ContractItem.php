@@ -36,6 +36,14 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string $Id The ID of the item.
+ * @property string $Name The name of the item.
+ * @property string $Description A description of the item.
+ * @property string $Type The type of the item.
+ * @property double $Price The price of the item.
+ * @property int $Quantity The quantity of the item.
+ * @property bool $OneTimeItem When `true`, indicates that the item is charged only once.<br />  When `false`, indicates that the item is charged multiple times.
+ *
  */
 class ContractItem extends BaseModel implements ModelWithId
 {

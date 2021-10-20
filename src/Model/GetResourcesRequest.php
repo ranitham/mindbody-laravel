@@ -36,6 +36,13 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int[] $SessionTypeIds List of session type IDs.<br />  Default: **all**
+ * @property int $LocationId The location of the resource. This parameter is ignored if `EndDateTime` or `LocationID` is not set.<br />  Default: **all**
+ * @property \DateTime $StartDateTime The time the resource starts. This parameter is ignored if `EndDateTime` or `LocationID` is not set.
+ * @property \DateTime $EndDateTime The time the resource ends. This parameter is ignored if `EndDateTime` or `LocationID` is not set.
+ * @property int $Limit Number of results to include, defaults to 100
+ * @property int $Offset Page offset, defaults to 0.
+ *
  */
 class GetResourcesRequest extends BaseModel
 {

@@ -36,6 +36,12 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $Id The service category’s ID.
+ * @property string $Name The name of this service category.
+ * @property string $ScheduleType The service category’s schedule type.
+ * @property int $CancelOffset The offset to use for the service category.
+ * @property string[] $ContentFormats The content delivery platform(s) used by the service category.
+ *
  */
 class Program extends BaseModel implements ModelWithId
 {

@@ -37,6 +37,16 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string $CreditCardNumber CreditCardNumber
+ * @property string $ExpMonth ExpMonth
+ * @property string $ExpYear ExpYear
+ * @property string $BillingName BillingName
+ * @property string $BillingAddress BillingAddress
+ * @property string $BillingCity BillingCity
+ * @property string $BillingState BillingState
+ * @property string $BillingPostalCode BillingPostalCode
+ * @property bool $SaveInfo SaveInfo
+ *
  */
 class CreditCardInfo extends BaseModel
 {

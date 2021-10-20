@@ -36,6 +36,12 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string $FirstName The client first name to match on when searching for duplicates.
+ * @property string $LastName The client last name to match on when searching for duplicates.
+ * @property string $Email The client email to match on when searching for duplicates.
+ * @property int $Limit Number of results to include, defaults to 100
+ * @property int $Offset Page offset, defaults to 0.
+ *
  */
 class GetClientDuplicatesRequest extends BaseModel
 {

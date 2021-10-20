@@ -36,6 +36,9 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property \Nlocascio\Mindbody\Model\PaginationResponse $PaginationResponse Pagination Response
+ * @property \Nlocascio\Mindbody\Model\PromoCode[] $PromoCodes Contains information about Promocodes at a site
+ *
  */
 class GetPromoCodesResponse extends BaseModel
 {

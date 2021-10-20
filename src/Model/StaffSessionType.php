@@ -36,6 +36,22 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $StaffId The staff member Id
+ * @property string $Type Contains the class description session type.
+ * @property int $Id This session type’s unique Id.
+ * @property string $Name The name of this session type.
+ * @property int $NumDeducted The number of sessions that this session type deducts from the pricing option used to pay for this type of session.
+ * @property int $ProgramId This session type’s service category Id.
+ * @property string $Category This session type’s category.
+ * @property int $CategoryId This session type’s category Id.
+ * @property string $Subcategory This session type’s subcategory.
+ * @property int $SubcategoryId This session type’s subcategory Id.
+ * @property int $TimeLength TimeLength
+ * @property int $PrepTime Prep time in minutes
+ * @property int $FinishTime Finish time in minutes
+ * @property string $PayRateType The pay rate type
+ * @property double $PayRateAmount The pay rate amount
+ *
  */
 class StaffSessionType extends BaseModel implements ModelWithId
 {

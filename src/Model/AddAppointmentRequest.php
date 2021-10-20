@@ -36,6 +36,23 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property bool $ApplyPayment When `true`, indicates that a payment should be applied to the appointment.   <br />Default: **true**
+ * @property string $ClientId The RRSID of the client for whom the new appointment is being made.
+ * @property int $Duration The duration of the appointment. This parameter is used to change the default duration of an appointment.
+ * @property string $Execute The action taken to add this appointment.
+ * @property \DateTime $EndDateTime The end date and time of the new appointment. <br />  Default: **StartDateTime**, offset by the staff member’s default appointment duration.
+ * @property string $GenderPreference The client’s service provider gender preference.
+ * @property int $LocationId The ID of the location where the new appointment is to take place.
+ * @property string $Notes Any general notes about this appointment.
+ * @property string $ProviderId If a user has Complementary and Alternative Medicine features enabled, this parameter assigns a provider ID to the appointment.
+ * @property int[] $ResourceIds A list of resource IDs to associate with the new appointment.
+ * @property bool $SendEmail Whether to send client an email for cancellations. An email is sent only if the client has an email address and automatic emails have been set up.   <br />Default: **false**
+ * @property int $SessionTypeId The session type associated with the new appointment.
+ * @property int $StaffId The ID of the staff member who is adding the new appointment.
+ * @property bool $StaffRequested When `true`, indicates that the staff member was requested specifically by the client.
+ * @property \DateTime $StartDateTime The start date and time of the new appointment.
+ * @property bool $Test When true, indicates that the method is to be validated, but no new appointment data is added.   <br />Default: **false**
+ *
  */
 class AddAppointmentRequest extends BaseModel
 {

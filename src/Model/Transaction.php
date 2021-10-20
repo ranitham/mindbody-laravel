@@ -36,6 +36,24 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $TransactionId The transaction ID.
+ * @property int $SaleId The sale ID.
+ * @property int $ClientId The ID of the client who made the purchase.
+ * @property double $Amount The amount charged on the card
+ * @property bool $Settled Whether it is settled or not
+ * @property string $Status Status of the transaction
+ * @property \DateTime $TransactionTime Time of card swiped
+ * @property \DateTime $AuthTime Time of card authorized
+ * @property int $LocationId The ID of the location where the sale takes place.
+ * @property string $MerchantId Merchant ID of the studio
+ * @property string $TerminalId Terminal ID used for payment. Not applicable for CNP/Bank
+ * @property string $CardExpirationMonth Expiry month of the card
+ * @property string $CardExpirationYear Expiry year of the card
+ * @property string $CCLastFour Last 4 digits of CC
+ * @property string $CardType Type of the card
+ * @property bool $CCSwiped Whether card is swiped or not
+ * @property string $ACHLastFour Customer’s ACH last 4 digits
+ *
  */
 class Transaction extends BaseModel
 {

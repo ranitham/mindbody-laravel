@@ -36,6 +36,10 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string $ClientId Required.  The client’s ID, as configured by the business owner. This is the client’s barcode ID if the business owner assigns barcodes to clients.
+ * @property int $AppointmentId The optional appointment Id associated with the formula note
+ * @property string $Note The note itself
+ *
  */
 class AddFormulaNoteRequest extends BaseModel
 {

@@ -36,6 +36,13 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $SaleId Filters results to the requested sale ID.
+ * @property \DateTime $StartSaleDateTime Filters results to sales that happened after this date and time.
+ * @property \DateTime $EndSaleDateTime Filters results to sales that happened before this date and time.
+ * @property int $PaymentMethodId Filters results to sales paid for by the given payment method ID.
+ * @property int $Limit Number of results to include, defaults to 100
+ * @property int $Offset Page offset, defaults to 0.
+ *
  */
 class GetSalesRequest extends BaseModel
 {

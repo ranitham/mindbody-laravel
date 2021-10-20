@@ -36,6 +36,9 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property bool $ArrivalAdded When `true`, indicates that the arrival was added to the database.
+ * @property \Nlocascio\Mindbody\Model\ClientService $ClientService Contains information about the pricing option being used to pay for the client’s current service session.
+ *
  */
 class AddArrivalResponse extends BaseModel
 {

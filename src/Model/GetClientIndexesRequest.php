@@ -36,6 +36,8 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property bool $RequiredOnly When `true`, filters the results to only indexes that are required on creation.<br />  When `false` or omitted, returns all of the client indexes.
+ *
  */
 class GetClientIndexesRequest extends BaseModel
 {

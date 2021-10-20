@@ -36,6 +36,24 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property bool $Test When `true`, allows you to test the request without affecting the database.<br />  When `false`, the request is carried out and the database is affected.
+ * @property int $LocationId The ID of the location where the gift card is being sold.
+ * @property int $LayoutId The ID of the layout used for the gift card’s image.
+ * @property string $PurchaserClientId The RSSID of the client who is purchasing the gift card.
+ * @property int $GiftCardId The product ID of the gift card being purchased.
+ * @property bool $SendEmailReceipt When `true`, indicates that a purchase receipt email should be sent to the purchasing client, if all settings are correctly configured.<br />  When `false`, no email is sent to the purchaser.
+ * @property string $RecipientEmail The email address to send the gift card image to. This parameter is required if the `LayoutId` is not 0.<br />  Maximum length: **100**
+ * @property string $RecipientName The name of the person who is to receive the gift card. This parameter is required if the `LayoutId` is not 0.<br />  Maximum length: **20**
+ * @property string $Title The text to use as the title of the gift card, for example: Happy Birthday, Maria! This parameter is required if the `LayoutId` is not 0.<br />  Maximum length: **20**
+ * @property string $GiftMessage A personal message to include in the gift card.<br />  Maximum length: **300**
+ * @property \DateTime $DeliveryDate The date that the gift card’s image is to be delivered to the recipient. This parameter cannot be set to a date in the past. This parameter is required if the `LayoutId` is not 0.  Default: **today**  Minimum: **today**
+ * @property \Nlocascio\Mindbody\Model\CheckoutPaymentInfo $PaymentInfo Contains information about the payment.
+ * @property int $SalesRepId The ID of the staff member who is to be marked as the sales rep for this gift card purchase.
+ * @property bool $ConsumerPresent When `true`, indicates that the consumer is available to address any SCA challenge issued by the bank.  EU Only.<br />   Default: **false**
+ * @property string $PaymentAuthenticationCallbackUrl This is the Url the consumer will be redirected back to after completion of the Banks SCA challenge.
+ * @property string $BarcodeId Sets the barcode ID of the giftcard. When not provided, a barcode ID is automatically generated.<br />  If a giftcard with the given barcode ID already exists and the site supports reloadable giftcards, the existing giftcard is reloaded<br />  Maximum length: **100**
+ * @property string $SenderName Overrides the name that would otherwise be populated by specifying PurchaserClientId.<br />  Maximum length: **20**
+ *
  */
 class PurchaseGiftCardRequest extends BaseModel
 {

@@ -36,6 +36,14 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $StaffId The ID of the staff member who is to provide the service being booked.
+ * @property int $LocationId The ID of the location where the appointment is to take place.
+ * @property int $SessionTypeId The ID of the session type of this appointment.
+ * @property \Nlocascio\Mindbody\Model\Resource[] $Resources Contains information about the resources to be used for the appointment.
+ * @property \DateTime $StartDateTime The date and time that the appointment is to start in the business’ timezone. This value must be passed in the format yyyy-mm-ddThh:mm:ss.
+ * @property \DateTime $EndDateTime The date and time that the appointment is to end in the business’ timezone. This value must be passed in the format yyyy-mm-ddThh:mm:ss.
+ * @property string $ProviderId The National Provider Identifier (NPI) of the staff member who is to provide the service. For an explanation of Provider IDs, see [Provider IDs](https://support.mindbodyonline.com/s/article/204075743-Provider-IDs?language=en_US).
+ *
  */
 class CheckoutAppointmentBookingRequest extends BaseModel
 {

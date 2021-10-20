@@ -37,6 +37,10 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property bool $BookingSuspended When 'true', indicates that the client is suspended from booking
+ * @property string $SuspensionStartDate Indicates the Date that BookingSuspension starts 'YYYY-MM-DD'
+ * @property string $SuspensionEndDate Indicates the Date that BookingSuspension ends 'YYYY-MM-DD'
+ *
  */
 class ClientSuspensionInfo extends BaseModel
 {

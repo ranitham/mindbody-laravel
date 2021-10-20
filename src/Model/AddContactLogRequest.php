@@ -36,6 +36,17 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string $ClientId The ID of the client whose contact log is being added.
+ * @property int $AssignedToStaffId The ID of the staff member to whom the contact log is assigned.
+ * @property string $Text The body of the contact log.
+ * @property \DateTime $FollowupByDate The date by which the assigned staff member should complete this contact log.
+ * @property string $ContactMethod How the client wants to be contacted.
+ * @property string $ContactName The name of the person to be contacted by the assigned staff member.
+ * @property bool $IsComplete Mark the Complete checkbox as checked if ContactLog is complete
+ * @property string[] $Comments Any comments on the contact log.
+ * @property \Nlocascio\Mindbody\Model\AddContactLogType[] $Types The contact log types used to tag this contact log.
+ * @property bool $Test When `true`, indicates that this is a test request and no data is inserted into the subscriber’s database.<br />  When `false`, the database is updated.
+ *
  */
 class AddContactLogRequest extends BaseModel
 {

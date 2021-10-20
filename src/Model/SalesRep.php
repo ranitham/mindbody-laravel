@@ -36,6 +36,12 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string $FirstName The first name of the sales representative.
+ * @property int $Id The staff ID of the sales representative.
+ * @property string $LastName The last name of the sales representative.
+ * @property int $SalesRepNumber This value is the number that identifies the type of sales representative assigned to this client. One to six types of sales representatives can be assigned to a client at any given time, depending on site settings.
+ * @property int[] $SalesRepNumbers A list of the different types of sales representative functions assigned to this staff member.
+ *
  */
 class SalesRep extends BaseModel implements ModelWithId
 {

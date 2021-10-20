@@ -36,6 +36,9 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string $ClientId The RSSID of the client for whom the document is to be uploaded.
+ * @property \Nlocascio\Mindbody\Model\ClientDocument $File Contains information about the file to be uploaded.
+ *
  */
 class UploadClientDocumentRequest extends BaseModel
 {

@@ -37,6 +37,17 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $Id The unique Id of the Formula Note.
+ * @property string $ClientId The unique Id of the Client for the formula note
+ * @property int $AppointmentId The unique Id of the Appointment if the Formula Note was added to a specific appointment.
+ * @property \DateTime $EntryDate The Date the Formula Note was created.
+ * @property string $Note The Note itself
+ * @property int $SiteId The SiteId where the Formula Note originated.
+ * @property string $SiteName The name of the Site where the Formula Note originated.
+ * @property string $StaffFirstName The first name of the Staff for the associated appointment.
+ * @property string $StaffLastName The last name of the Staff for the associated appointment.
+ * @property string $StaffDisplayName The display name of the Staff for the associated appointment.
+ *
  */
 class FormulaNoteResponse extends BaseModel implements ModelWithId
 {

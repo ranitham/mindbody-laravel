@@ -36,6 +36,15 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property string[] $ProductIds An ID filter for products.
+ * @property string $SearchText A search filter, used for searching by term.
+ * @property int[] $CategoryIds A list of category IDs to filter by.
+ * @property int[] $SubCategoryIds A list of subcategory IDs to filter by.
+ * @property bool $SellOnline When `true`, only products that can be sold online are returned.<br />  When `false`, all products are returned.<br />  Default: **false**
+ * @property int $LocationId The location ID to use to determine the tax for the products that this request returns.<br />  Default: **online store**
+ * @property int $Limit Number of results to include, defaults to 100
+ * @property int $Offset Page offset, defaults to 0.
+ *
  */
 class GetProductsRequest extends BaseModel
 {
