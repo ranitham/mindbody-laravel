@@ -1,0 +1,12 @@
+parameters:
+    level: 5
+    paths:
+        - src
+    excludePaths:
+        analyse:
+        - src/Api
+    ignoreErrors:
+        -
+            message: '#Call to function is_null\(\) with .* will always evaluate to false.#'
+            paths:
+                - src/Model

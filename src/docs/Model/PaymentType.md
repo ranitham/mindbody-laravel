@@ -1,0 +1,13 @@
+# PaymentType
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Id** | **int** |  | [optional] 
+**PaymentTypeName** | **string** |  | [optional] 
+**Active** | **bool** |  | [optional] 
+**Fee** | **double** |  | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
