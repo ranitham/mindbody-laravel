@@ -79,11 +79,9 @@ abstract class _BaseModel implements ModelInterface
  * @package  {{invokerPackage}}
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- *
- * @implements ArrayAccess<string, mixed>
- * @implements IteratorAggregate<string, mixed>
+
  */
-abstract class BaseModel extends _BaseModel implements \ArrayAccess, \IteratorAggregate
+abstract class BaseModel extends _BaseModel
 {
 
 /**
@@ -107,7 +105,7 @@ abstract class BaseModel extends _BaseModel implements \ArrayAccess, \IteratorAg
    */
   public static function swaggerTypes(): array
   {
-    return static::$swaggerTypes + get_parent_class(static::class)::swaggerTypes();
+    return static::$swaggerTypes + (get_parent_class(static::class) !== false ? get_parent_class(static::class)::swaggerTypes() : []);
   }
 
   /**
@@ -117,7 +115,7 @@ abstract class BaseModel extends _BaseModel implements \ArrayAccess, \IteratorAg
    */
   public static function swaggerFormats(): array
   {
-    return static::$swaggerFormats + get_parent_class(static::class)::swaggerFormats();
+    return static::$swaggerFormats + (get_parent_class(static::class) !== false ? get_parent_class(static::class)::swaggerFormats() : []);
   }
 
   /**
@@ -150,7 +148,7 @@ abstract class BaseModel extends _BaseModel implements \ArrayAccess, \IteratorAg
    */
   public static function attributeMap(): array
   {
-    return static::$attributeMap + get_parent_class(static::class)::attributeMap();
+    return static::$attributeMap + (get_parent_class(static::class) !== false ? get_parent_class(static::class)::attributeMap() : []);
   }
 
   /**
@@ -160,7 +158,7 @@ abstract class BaseModel extends _BaseModel implements \ArrayAccess, \IteratorAg
    */
   public static function setters(): array
   {
-    return static::$setters + get_parent_class(static::class)::setters();
+    return static::$setters + (get_parent_class(static::class) !== false ? get_parent_class(static::class)::setters() : []);
   }
 
   /**
@@ -170,7 +168,7 @@ abstract class BaseModel extends _BaseModel implements \ArrayAccess, \IteratorAg
    */
   public static function getters(): array
   {
-    return static::$getters + get_parent_class(static::class)::getters();
+    return static::$getters + (get_parent_class(static::class) !== false ? get_parent_class(static::class)::getters() : []);
   }
 
   public function valid(): bool
@@ -188,7 +186,7 @@ abstract class BaseModel extends _BaseModel implements \ArrayAccess, \IteratorAg
   /**
    * Returns true if offset exists. False otherwise.
    *
-   * @param integer $offset Offset
+   * @param string $offset Offset
    *
    * @return bool
    */
@@ -200,7 +198,7 @@ abstract class BaseModel extends _BaseModel implements \ArrayAccess, \IteratorAg
   /**
    * Gets offset.
    *
-   * @param integer $offset Offset
+   * @param string $offset Offset
    *
    * @return mixed
    */
@@ -212,7 +210,7 @@ abstract class BaseModel extends _BaseModel implements \ArrayAccess, \IteratorAg
   /**
    * Sets value based on offset.
    *
-   * @param integer $offset Offset
+   * @param string $offset Offset
    * @param mixed   $value  Value to be set
    *
    * @return void
@@ -229,7 +227,7 @@ abstract class BaseModel extends _BaseModel implements \ArrayAccess, \IteratorAg
   /**
    * Unsets offset.
    *
-   * @param integer $offset Offset
+   * @param string $offset Offset
    *
    * @return void
    */

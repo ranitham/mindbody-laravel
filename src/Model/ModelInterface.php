@@ -2,7 +2,7 @@
 /**
  * ModelInterface
  *
- * PHP version 5
+ * PHP version 8
  *
  * @category Class
  * @package  Nlocascio\Mindbody\Model
@@ -34,8 +34,10 @@ namespace Nlocascio\Mindbody\Model;
  *
  * @package Nlocascio\Mindbody\Model
  * @author  Swagger Codegen team
+ * @extends \ArrayAccess<string, mixed>
+ * @extends \IteratorAggregate<string, mixed>
  */
-interface ModelInterface
+interface ModelInterface extends \ArrayAccess, \IteratorAggregate
 {
     /**
      * The original name of the model.
@@ -93,4 +95,12 @@ interface ModelInterface
      * @return bool
      */
     public function valid();
+
+
+     /**
+      * Return the model variables as an array
+      *
+      * @return array
+      */
+    public function asArray(): array;
 }
