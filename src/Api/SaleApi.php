@@ -99,7 +99,7 @@ class SaleApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function saleCheckoutShoppingCart($Request): object
+    public function saleCheckoutShoppingCart($Request): array
     {
         list($response) = $this->saleCheckoutShoppingCartWithHttpInfo($Request);
         return $response;

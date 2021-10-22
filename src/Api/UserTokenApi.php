@@ -372,7 +372,7 @@ class UserTokenApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function userTokenRevoke(): object
+    public function userTokenRevoke(): array
     {
         list($response) = $this->userTokenRevokeWithHttpInfo();
         return $response;

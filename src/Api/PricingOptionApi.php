@@ -99,7 +99,7 @@ class PricingOptionApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function pricingOptionUpdatePricingOption($Request): object
+    public function pricingOptionUpdatePricingOption($Request): array
     {
         list($response) = $this->pricingOptionUpdatePricingOptionWithHttpInfo($Request);
         return $response;

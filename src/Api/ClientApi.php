@@ -1764,7 +1764,7 @@ class ClientApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function clientDeleteContactLog($RequestClientId, $RequestContactLogId, $RequestTest = null): object
+    public function clientDeleteContactLog($RequestClientId, $RequestContactLogId, $RequestTest = null): array
     {
         list($response) = $this->clientDeleteContactLogWithHttpInfo($RequestClientId, $RequestContactLogId, $RequestTest);
         return $response;
@@ -2066,7 +2066,7 @@ class ClientApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function clientDeleteDirectDebitInfo($ClientId = null): object
+    public function clientDeleteDirectDebitInfo($ClientId = null): array
     {
         list($response) = $this->clientDeleteDirectDebitInfoWithHttpInfo($ClientId);
         return $response;
@@ -8617,7 +8617,7 @@ class ClientApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function clientSendAutoEmail($Request): object
+    public function clientSendAutoEmail($Request): array
     {
         list($response) = $this->clientSendAutoEmailWithHttpInfo($Request);
         return $response;
@@ -8896,7 +8896,7 @@ class ClientApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function clientSendPasswordResetEmail($Request): object
+    public function clientSendPasswordResetEmail($Request): array
     {
         list($response) = $this->clientSendPasswordResetEmailWithHttpInfo($Request);
         return $response;
