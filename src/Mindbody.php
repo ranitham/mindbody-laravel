@@ -325,6 +325,14 @@ class Mindbody
     {
         $methodCallback = $this->getRestCallForMethod($methodName);
         $this->updateAccessToken();
-        return \call_user_func_array($methodCallback, $parameters);
+        try {
+            return \call_user_func_array($methodCallback, $parameters);
+        } catch (ApiException $e) {
+            if ($e->getCode() == 401 && \str_contains($e->getMessage(), 'Token expired')) {
+                $this->forgetAccessToken();
+                $this->updateAccessToken();
+                return \call_user_func_array($methodCallback, $parameters); // Try again
+            }
+        }
     }
 }
