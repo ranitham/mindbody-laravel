@@ -3,6 +3,7 @@
 return [
   "debug" => env("MINDBODY_DEBUG", false),
   "debug_file" => env("MINDBODY_DEBUG_FILE", 'php://stderr'),
+  "audit" => env("MINDBODY_AUDIT", true),
   "site_id" => env("MINDBODY_SITEIDS"),
   "source_credentials" => [
     "username" => "_" . env("MINDBODY_SOURCENAME"),
