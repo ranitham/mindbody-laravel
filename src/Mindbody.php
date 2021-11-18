@@ -2,9 +2,10 @@
 
 namespace Nlocascio\Mindbody;
 
+use Carbon\Carbon;
 use Nlocascio\Mindbody\Exceptions\MindbodyErrorException;
-use Illuminate\Support\Facades\Log;
 use GuzzleHttp\Client as GuzzleHttpClient;
+use Illuminate\Support\Facades\Storage;
 use Nlocascio\Mindbody\Api\ApiInterface;
 use Nlocascio\Mindbody\Traits\ProvidesMethodToEndpointMap;
 use Nlocascio\Mindbody\Traits\ProvidesMindbodyAuthorisationToken;
@@ -326,13 +327,33 @@ class Mindbody
         $methodCallback = $this->getRestCallForMethod($methodName);
         $this->updateAccessToken();
         try {
-            return \call_user_func_array($methodCallback, $parameters);
+            return $this->call_user_func_array_with_audit($methodName, $methodCallback, $parameters);
         } catch (ApiException $e) {
             if ($e->getCode() == 401 && \str_contains($e->getMessage(), 'Token expired')) {
                 $this->forgetAccessToken();
                 $this->updateAccessToken();
-                return \call_user_func_array($methodCallback, $parameters); // Try again
+                return $this->call_user_func_array_with_audit($methodName, $methodCallback, $parameters);
             }
         }
+    }
+
+    /**
+     * Support auditing function calls to MBO
+     *
+     * @param string $methodName
+     * @param callable $callback
+     * @param array $args
+     *
+     * @return mixed
+     */
+    private function call_user_func_array_with_audit(string $methodName, callable $callback, array $args): mixed
+    {
+        if (\config('mindbody.audit')) {
+            $auditFile = storage_path('mboaudit.csv');
+            $auditLog = Carbon::now()->format(Carbon::ATOM) . ',' . $methodName . '\n'; 
+            Storage::append($auditFile, $auditLog);
+        }
+
+        return \call_user_func_array($callback, $args);
     }
 }
