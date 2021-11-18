@@ -349,9 +349,9 @@ class Mindbody
     private function call_user_func_array_with_audit(string $methodName, callable $callback, array $args): mixed
     {
         if (\config('mindbody.audit')) {
-            $auditFile = storage_path('mboaudit.csv');
-            $auditLog = Carbon::now()->format(Carbon::ATOM) . ',' . $methodName . '\n'; 
-            Storage::append($auditFile, $auditLog);
+            $auditFile = ('mboaudit.csv');
+            $auditLog = Carbon::now()->format(Carbon::ATOM) . ',' . $methodName; 
+            Storage::disk('local')->append($auditFile, $auditLog);
         }
 
         return \call_user_func_array($callback, $args);
