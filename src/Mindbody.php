@@ -319,7 +319,7 @@ class Mindbody
      *
      * @param string $methodName
      * @param mixed[] $parameters
-     *
+     * @throws ApiException
      * @return mixed
      */
     public function __call(string $methodName, array $parameters)
@@ -333,6 +333,8 @@ class Mindbody
                 $this->forgetAccessToken();
                 $this->updateAccessToken();
                 return $this->call_user_func_array_with_audit($methodName, $methodCallback, $parameters);
+            } else {
+                throw $e;
             }
         }
     }
