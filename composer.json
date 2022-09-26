@@ -18,7 +18,6 @@
         "ext-json": "*",
         "ext-mbstring": "*",
         "illuminate/support": ">=5.1",
-        "phpdocumentor/reflection": "~4.0",
         "guzzlehttp/guzzle": "^7.0"
     },
     "require-dev": {
