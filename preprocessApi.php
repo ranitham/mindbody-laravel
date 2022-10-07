@@ -22,10 +22,16 @@ function fetchAPI(string $address): array
 
 function processJSONApiAsText(string $jsonAPI): string
 {
-    $find = ['/public/v{version}/'];
-    $replace = ['/public/v6/'];
+    $find = ['/public/v{version}/', 'ExtensionModels.', 'CheckoutRequest.Items.','CheckoutRequest.Payments.', 'CheckoutRequest.'];
+    $replace = ['/public/v6/','','','',''];
 
-    return str_replace($find, $replace, $jsonAPI);
+    $processedJSONAPI = str_replace($find, $replace, $jsonAPI);
+
+    $patterns = ['/Mindbody\.PublicApi\.Dto\.Models\.V6(\.[A-z]*Controller\.|\.)/', '/Mindbody\.PublicApi\.Common\.Models\./'];
+    $replacements =['',''];
+
+
+    return preg_replace($patterns, $replacements, $processedJSONAPI);
 }
 
 /**
