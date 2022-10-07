@@ -40,7 +40,7 @@ namespace Nlocascio\Mindbody;
 class Configuration
 {
     /* @var Configuration */
-    private static $defaultConfiguration;
+    private static Configuration $defaultConfiguration;
 
     /**
      * Associate array to store API key(s)
@@ -368,7 +368,7 @@ class Configuration
      */
     public static function getDefaultConfiguration(): Configuration
     {
-        if (self::$defaultConfiguration === null) {
+        if (self::$defaultConfiguration == null) {
             self::$defaultConfiguration = new Configuration();
         }
 

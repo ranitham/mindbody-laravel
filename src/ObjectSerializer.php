@@ -46,9 +46,9 @@ class ObjectSerializer
      * @param string $type   the SwaggerType of the data
      * @param string $format the format of the Swagger type of the data
      *
-     * @return string|object serialized form of $data
+     * @return string|object|array serialized form of $data
      */
-    public static function sanitizeForSerialization($data, $type = null, $format = null)
+    public static function sanitizeForSerialization($data, $type = null, $format = null): string|object|array
     {
         if (is_scalar($data) || null === $data) {
             return $data;
@@ -173,7 +173,7 @@ class ObjectSerializer
      * the parameter. If it's a string, pass through unchanged
      * If it's a datetime object, format it in ISO8601
      *
-     * @param string|\DateTime $value the value of the parameter
+     * @param string|\DateTime|bool $value the value of the parameter
      *
      * @return string the header string
      */
@@ -228,7 +228,6 @@ class ObjectSerializer
      * @param mixed    $data          object or primitive to be deserialized
      * @param string   $class         class name is passed as a string
      * @param string[] $httpHeaders   HTTP headers
-     * @param string   $discriminator discriminator if polymorphism is used
      *
      * @return object|array|null an single or an array of $class instances
      */
@@ -305,6 +304,7 @@ class ObjectSerializer
                     $class = $subclass;
                 }
             }
+
             $instance = new $class();
             foreach ($instance::swaggerTypes() as $property => $type) {
                 $propertySetter = $instance::setters()[$property];

@@ -104,7 +104,7 @@ abstract class BaseModel extends _BaseModel
   /**
    * Array of property to format mappings. Used for (de)serialization
    *
-   * @var string[]
+   * @var array<string, string|null>
    */
   protected static $swaggerFormats = [];
 
