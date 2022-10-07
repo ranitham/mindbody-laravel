@@ -46,6 +46,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property bool $HideRelatedPrograms When `true`, indicates that pricing options of related programs are omitted from the response.<br />  Default: **false**
  * @property int $StaffId Sets `Price` and `OnlinePrice` to the particular pricing of a specific staff member, if allowed by the business.
  * @property bool $IncludeDiscontinued When `true`, indicates that the filtered pricing option list includes discontinued pricing options.<br />  Default: **false**
+ * @property bool $IncludeSaleInContractOnly When `true`, indicates that the filtered pricing option list includes sale in contract only pricing options.<br />  Default: **false**
  * @property int $Limit Number of results to include, defaults to 100
  * @property int $Offset Page offset, defaults to 0.
  *
@@ -77,6 +78,7 @@ class GetServicesRequest extends BaseModel
         'HideRelatedPrograms' => 'bool',
         'StaffId' => 'int',
         'IncludeDiscontinued' => 'bool',
+        'IncludeSaleInContractOnly' => 'bool',
         'Limit' => 'int',
         'Offset' => 'int'
     ];
@@ -97,6 +99,7 @@ class GetServicesRequest extends BaseModel
         'HideRelatedPrograms' => null,
         'StaffId' => 'int64',
         'IncludeDiscontinued' => null,
+        'IncludeSaleInContractOnly' => null,
         'Limit' => 'int32',
         'Offset' => 'int32'
     ];
@@ -119,6 +122,7 @@ class GetServicesRequest extends BaseModel
         'HideRelatedPrograms' => 'HideRelatedPrograms',
         'StaffId' => 'StaffId',
         'IncludeDiscontinued' => 'IncludeDiscontinued',
+        'IncludeSaleInContractOnly' => 'IncludeSaleInContractOnly',
         'Limit' => 'Limit',
         'Offset' => 'Offset'
     ];
@@ -139,6 +143,7 @@ class GetServicesRequest extends BaseModel
         'HideRelatedPrograms' => 'setHideRelatedPrograms',
         'StaffId' => 'setStaffId',
         'IncludeDiscontinued' => 'setIncludeDiscontinued',
+        'IncludeSaleInContractOnly' => 'setIncludeSaleInContractOnly',
         'Limit' => 'setLimit',
         'Offset' => 'setOffset'
     ];
@@ -159,6 +164,7 @@ class GetServicesRequest extends BaseModel
         'HideRelatedPrograms' => 'getHideRelatedPrograms',
         'StaffId' => 'getStaffId',
         'IncludeDiscontinued' => 'getIncludeDiscontinued',
+        'IncludeSaleInContractOnly' => 'getIncludeSaleInContractOnly',
         'Limit' => 'getLimit',
         'Offset' => 'getOffset'
     ];
@@ -186,6 +192,7 @@ class GetServicesRequest extends BaseModel
         $this->container['HideRelatedPrograms'] = isset($data['HideRelatedPrograms']) ? $data['HideRelatedPrograms'] : null;
         $this->container['StaffId'] = isset($data['StaffId']) ? $data['StaffId'] : null;
         $this->container['IncludeDiscontinued'] = isset($data['IncludeDiscontinued']) ? $data['IncludeDiscontinued'] : null;
+        $this->container['IncludeSaleInContractOnly'] = isset($data['IncludeSaleInContractOnly']) ? $data['IncludeSaleInContractOnly'] : null;
         $this->container['Limit'] = isset($data['Limit']) ? $data['Limit'] : null;
         $this->container['Offset'] = isset($data['Offset']) ? $data['Offset'] : null;
     }
@@ -439,6 +446,30 @@ class GetServicesRequest extends BaseModel
     public function setIncludeDiscontinued($IncludeDiscontinued): self
     {
         $this->container['IncludeDiscontinued'] = $IncludeDiscontinued;
+
+        return $this;
+    }
+
+    /**
+     * Gets IncludeSaleInContractOnly
+     *
+     * @return bool
+     */
+    public function getIncludeSaleInContractOnly()
+    {
+        return $this->container['IncludeSaleInContractOnly'];
+    }
+
+    /**
+     * Sets IncludeSaleInContractOnly
+     *
+     * @param bool $IncludeSaleInContractOnly When `true`, indicates that the filtered pricing option list includes sale in contract only pricing options.<br />  Default: **false**
+     *
+     * @return $this
+     */
+    public function setIncludeSaleInContractOnly($IncludeSaleInContractOnly): self
+    {
+        $this->container['IncludeSaleInContractOnly'] = $IncludeSaleInContractOnly;
 
         return $this;
     }

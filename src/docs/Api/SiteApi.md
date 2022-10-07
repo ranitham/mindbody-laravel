@@ -10,9 +10,12 @@ Method | HTTP request | Description
 [**siteGetGenders**](SiteApi.md#siteGetGenders) | **GET** /public/v6/site/genders | Get the gender options at a site.
 [**siteGetLocations**](SiteApi.md#siteGetLocations) | **GET** /public/v6/site/locations | Get locations for a site.
 [**siteGetMemberships**](SiteApi.md#siteGetMemberships) | **GET** /public/v6/site/memberships | Get the memberships at a site.
+[**siteGetMobileProviders**](SiteApi.md#siteGetMobileProviders) | **GET** /public/v6/site/mobileproviders | Gets a list of active mobile providers for the site.
 [**siteGetPaymentTypes**](SiteApi.md#siteGetPaymentTypes) | **GET** /public/v6/site/paymenttypes | Get payment types for a site.
 [**siteGetPrograms**](SiteApi.md#siteGetPrograms) | **GET** /public/v6/site/programs | Get service categories offered at a site.
 [**siteGetPromoCodes**](SiteApi.md#siteGetPromoCodes) | **GET** /public/v6/site/promocodes | Get promocodes for a site.
+[**siteGetProspectStages**](SiteApi.md#siteGetProspectStages) | **GET** /public/v6/site/prospectstages | Gets a list of prospect stages for a site.
+[**siteGetRelationships**](SiteApi.md#siteGetRelationships) | **GET** /public/v6/site/relationships | Returns all active relationships of the site.
 [**siteGetResources**](SiteApi.md#siteGetResources) | **GET** /public/v6/site/resources | Get resources used at a site.
 [**siteGetSessionTypes**](SiteApi.md#siteGetSessionTypes) | **GET** /public/v6/site/sessiontypes | Get the session types used at a site.
 [**siteGetSites**](SiteApi.md#siteGetSites) | **GET** /public/v6/site/sites | Get all sites that can be accessed by an API Key.
@@ -386,6 +389,67 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **siteGetMobileProviders**
+> \Nlocascio\Mindbody\Model\GetMobileProvidersResponse siteGetMobileProviders($RequestActive)
+
+Gets a list of active mobile providers for the site.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: API-Key
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'Bearer');
+// Configure API key authorization: authorization
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('authorization', 'Bearer');
+// Configure API key authorization: siteId
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('siteId', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('siteId', 'Bearer');
+
+$apiInstance = new Nlocascio\Mindbody\Api\SiteApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$RequestActive = true; // bool | When true, the response only contains mobile providers which are activated. When false, only deactivated mobile providers are returned. Default: All Mobile Providers
+
+try {
+    $result = $apiInstance->siteGetMobileProviders($RequestActive);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SiteApi->siteGetMobileProviders: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **RequestActive** | **bool**| When true, the response only contains mobile providers which are activated. When false, only deactivated mobile providers are returned. Default: All Mobile Providers | [optional]
+
+### Return type
+
+[**\Nlocascio\Mindbody\Model\GetMobileProvidersResponse**](../Model/GetMobileProvidersResponse.md)
+
+### Authorization
+
+[API-Key](../../README.md#API-Key), [authorization](../../README.md#authorization), [siteId](../../README.md#siteId)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, text/json, application/xml, text/xml, multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **siteGetPaymentTypes**
 > \Nlocascio\Mindbody\Model\GetPaymentTypesResponse siteGetPaymentTypes($RequestActive)
 
@@ -573,6 +637,132 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Nlocascio\Mindbody\Model\GetPromoCodesResponse**](../Model/GetPromoCodesResponse.md)
+
+### Authorization
+
+[API-Key](../../README.md#API-Key), [authorization](../../README.md#authorization), [siteId](../../README.md#siteId)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, text/json, application/xml, text/xml, multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **siteGetProspectStages**
+> \Nlocascio\Mindbody\Model\GetProspectStagesResponse siteGetProspectStages($RequestActive)
+
+Gets a list of prospect stages for a site.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: API-Key
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'Bearer');
+// Configure API key authorization: authorization
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('authorization', 'Bearer');
+// Configure API key authorization: siteId
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('siteId', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('siteId', 'Bearer');
+
+$apiInstance = new Nlocascio\Mindbody\Api\SiteApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$RequestActive = true; // bool | The requested Active type Prospect Stages. true indicates for Active Prospect Stages and false indicates for Deactivated Prospect Stages.
+
+try {
+    $result = $apiInstance->siteGetProspectStages($RequestActive);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SiteApi->siteGetProspectStages: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **RequestActive** | **bool**| The requested Active type Prospect Stages. true indicates for Active Prospect Stages and false indicates for Deactivated Prospect Stages. | [optional]
+
+### Return type
+
+[**\Nlocascio\Mindbody\Model\GetProspectStagesResponse**](../Model/GetProspectStagesResponse.md)
+
+### Authorization
+
+[API-Key](../../README.md#API-Key), [authorization](../../README.md#authorization), [siteId](../../README.md#siteId)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, text/json, application/xml, text/xml, multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **siteGetRelationships**
+> \Nlocascio\Mindbody\Model\GetRelationshipsResponse siteGetRelationships($RequestActive, $RequestLimit, $RequestOffset)
+
+Returns all active relationships of the site.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: API-Key
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'Bearer');
+// Configure API key authorization: authorization
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('authorization', 'Bearer');
+// Configure API key authorization: siteId
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('siteId', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('siteId', 'Bearer');
+
+$apiInstance = new Nlocascio\Mindbody\Api\SiteApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$RequestActive = true; // bool | The requested Active type Relationships. true indicates for Active Relationships and false indicates for Deactivated Relationships.
+$RequestLimit = 56; // int | Number of results to include, defaults to 100
+$RequestOffset = 56; // int | Page offset, defaults to 0.
+
+try {
+    $result = $apiInstance->siteGetRelationships($RequestActive, $RequestLimit, $RequestOffset);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SiteApi->siteGetRelationships: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **RequestActive** | **bool**| The requested Active type Relationships. true indicates for Active Relationships and false indicates for Deactivated Relationships. | [optional]
+ **RequestLimit** | **int**| Number of results to include, defaults to 100 | [optional]
+ **RequestOffset** | **int**| Page offset, defaults to 0. | [optional]
+
+### Return type
+
+[**\Nlocascio\Mindbody\Model\GetRelationshipsResponse**](../Model/GetRelationshipsResponse.md)
 
 ### Authorization
 

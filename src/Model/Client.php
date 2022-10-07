@@ -81,7 +81,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property string $EmergencyContactInfoRelationship The client’s relationship with the emergency contact.
  * @property string $Gender The gender of the client.
  * @property string $LastFormulaNotes The last [formula note](https://support.mindbodyonline.com/s/article/203259903-Appointments-Formula-notes?language=en_US) entered for the client.
- * @property bool $Active When `true`, indicates that the client’s profile is marked as active on the site.<br />  When `false`, the client’s profile is inactive.
+ * @property bool $Active When `true`, indicates that the client’s profile is marked as active on the site.<br />  When `false`, the client’s profile is inactive.  Defaults to `true` based on the assumption that if a client is currently inactive OR is to be marked inactive, this property will explicitly be mapped/set to `false`.
  * @property \Nlocascio\Mindbody\Model\SalesRep[] $SalesReps A list of sales representatives.
  * @property string $Status The status of the client in the business. Possible values are:  * Declined  * Non-Member  * Active  * Expired  * Suspended  * Terminated
  * @property string $Action The action taken.
@@ -92,6 +92,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property bool $SendScheduleEmails When `true`, indicates that the client has opted to receive schedule notifications by email. This property is editable.   <br />Default: **false**
  * @property bool $SendScheduleTexts When `true`, indicates that the client has opted to receive schedule notifications by text message. This parameter cannot be updated by developers. If included in a request, it is ignored.
  * @property \Nlocascio\Mindbody\Model\Location $HomeLocation Information about the Home Location for this client
+ * @property string $LockerNumber The clients locker number.
  *
  */
 class Client extends BaseModel implements ModelWithId
@@ -165,7 +166,8 @@ class Client extends BaseModel implements ModelWithId
         'SendPromotionalTexts' => 'bool',
         'SendScheduleEmails' => 'bool',
         'SendScheduleTexts' => 'bool',
-        'HomeLocation' => '\Nlocascio\Mindbody\Model\Location'
+        'HomeLocation' => '\Nlocascio\Mindbody\Model\Location',
+        'LockerNumber' => 'string'
     ];
 
     /**
@@ -228,7 +230,8 @@ class Client extends BaseModel implements ModelWithId
         'SendPromotionalTexts' => null,
         'SendScheduleEmails' => null,
         'SendScheduleTexts' => null,
-        'HomeLocation' => null
+        'HomeLocation' => null,
+        'LockerNumber' => null
     ];
 
 
@@ -293,7 +296,8 @@ class Client extends BaseModel implements ModelWithId
         'SendPromotionalTexts' => 'SendPromotionalTexts',
         'SendScheduleEmails' => 'SendScheduleEmails',
         'SendScheduleTexts' => 'SendScheduleTexts',
-        'HomeLocation' => 'HomeLocation'
+        'HomeLocation' => 'HomeLocation',
+        'LockerNumber' => 'LockerNumber'
     ];
 
     /**
@@ -356,7 +360,8 @@ class Client extends BaseModel implements ModelWithId
         'SendPromotionalTexts' => 'setSendPromotionalTexts',
         'SendScheduleEmails' => 'setSendScheduleEmails',
         'SendScheduleTexts' => 'setSendScheduleTexts',
-        'HomeLocation' => 'setHomeLocation'
+        'HomeLocation' => 'setHomeLocation',
+        'LockerNumber' => 'setLockerNumber'
     ];
 
     /**
@@ -419,7 +424,8 @@ class Client extends BaseModel implements ModelWithId
         'SendPromotionalTexts' => 'getSendPromotionalTexts',
         'SendScheduleEmails' => 'getSendScheduleEmails',
         'SendScheduleTexts' => 'getSendScheduleTexts',
-        'HomeLocation' => 'getHomeLocation'
+        'HomeLocation' => 'getHomeLocation',
+        'LockerNumber' => 'getLockerNumber'
     ];
 
 
@@ -528,6 +534,7 @@ class Client extends BaseModel implements ModelWithId
         $this->container['SendScheduleEmails'] = isset($data['SendScheduleEmails']) ? $data['SendScheduleEmails'] : null;
         $this->container['SendScheduleTexts'] = isset($data['SendScheduleTexts']) ? $data['SendScheduleTexts'] : null;
         $this->container['HomeLocation'] = isset($data['HomeLocation']) ? $data['HomeLocation'] : null;
+        $this->container['LockerNumber'] = isset($data['LockerNumber']) ? $data['LockerNumber'] : null;
     }
 
     /**
@@ -1637,7 +1644,7 @@ class Client extends BaseModel implements ModelWithId
     /**
      * Sets Active
      *
-     * @param bool $Active When `true`, indicates that the client’s profile is marked as active on the site.<br />  When `false`, the client’s profile is inactive.
+     * @param bool $Active When `true`, indicates that the client’s profile is marked as active on the site.<br />  When `false`, the client’s profile is inactive.  Defaults to `true` based on the assumption that if a client is currently inactive OR is to be marked inactive, this property will explicitly be mapped/set to `false`.
      *
      * @return $this
      */
@@ -1893,6 +1900,30 @@ class Client extends BaseModel implements ModelWithId
     public function setHomeLocation($HomeLocation): self
     {
         $this->container['HomeLocation'] = $HomeLocation;
+
+        return $this;
+    }
+
+    /**
+     * Gets LockerNumber
+     *
+     * @return string
+     */
+    public function getLockerNumber()
+    {
+        return $this->container['LockerNumber'];
+    }
+
+    /**
+     * Sets LockerNumber
+     *
+     * @param string $LockerNumber The clients locker number.
+     *
+     * @return $this
+     */
+    public function setLockerNumber($LockerNumber): self
+    {
+        $this->container['LockerNumber'] = $LockerNumber;
 
         return $this;
     }

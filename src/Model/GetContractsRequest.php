@@ -40,6 +40,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property bool $SoldOnline When `true`, the response only contains details about contracts and AutoPay options that can be sold online.<br />  When `false`, only contracts that are not intended to be sold online are returned.<br />  Default: **all contracts**
  * @property int $LocationId The ID of the location that has the requested contracts and AutoPay options.
  * @property int $ConsumerId The ID of the client.
+ * @property string $PromoCode PromoCode to apply
  * @property int $Limit Number of results to include, defaults to 100
  * @property int $Offset Page offset, defaults to 0.
  *
@@ -65,6 +66,7 @@ class GetContractsRequest extends BaseModel
         'SoldOnline' => 'bool',
         'LocationId' => 'int',
         'ConsumerId' => 'int',
+        'PromoCode' => 'string',
         'Limit' => 'int',
         'Offset' => 'int'
     ];
@@ -79,6 +81,7 @@ class GetContractsRequest extends BaseModel
         'SoldOnline' => null,
         'LocationId' => 'int32',
         'ConsumerId' => 'int64',
+        'PromoCode' => null,
         'Limit' => 'int32',
         'Offset' => 'int32'
     ];
@@ -95,6 +98,7 @@ class GetContractsRequest extends BaseModel
         'SoldOnline' => 'SoldOnline',
         'LocationId' => 'LocationId',
         'ConsumerId' => 'ConsumerId',
+        'PromoCode' => 'PromoCode',
         'Limit' => 'Limit',
         'Offset' => 'Offset'
     ];
@@ -109,6 +113,7 @@ class GetContractsRequest extends BaseModel
         'SoldOnline' => 'setSoldOnline',
         'LocationId' => 'setLocationId',
         'ConsumerId' => 'setConsumerId',
+        'PromoCode' => 'setPromoCode',
         'Limit' => 'setLimit',
         'Offset' => 'setOffset'
     ];
@@ -123,6 +128,7 @@ class GetContractsRequest extends BaseModel
         'SoldOnline' => 'getSoldOnline',
         'LocationId' => 'getLocationId',
         'ConsumerId' => 'getConsumerId',
+        'PromoCode' => 'getPromoCode',
         'Limit' => 'getLimit',
         'Offset' => 'getOffset'
     ];
@@ -144,6 +150,7 @@ class GetContractsRequest extends BaseModel
         $this->container['SoldOnline'] = isset($data['SoldOnline']) ? $data['SoldOnline'] : null;
         $this->container['LocationId'] = isset($data['LocationId']) ? $data['LocationId'] : null;
         $this->container['ConsumerId'] = isset($data['ConsumerId']) ? $data['ConsumerId'] : null;
+        $this->container['PromoCode'] = isset($data['PromoCode']) ? $data['PromoCode'] : null;
         $this->container['Limit'] = isset($data['Limit']) ? $data['Limit'] : null;
         $this->container['Offset'] = isset($data['Offset']) ? $data['Offset'] : null;
     }
@@ -256,6 +263,30 @@ class GetContractsRequest extends BaseModel
     public function setConsumerId($ConsumerId): self
     {
         $this->container['ConsumerId'] = $ConsumerId;
+
+        return $this;
+    }
+
+    /**
+     * Gets PromoCode
+     *
+     * @return string
+     */
+    public function getPromoCode()
+    {
+        return $this->container['PromoCode'];
+    }
+
+    /**
+     * Sets PromoCode
+     *
+     * @param string $PromoCode PromoCode to apply
+     *
+     * @return $this
+     */
+    public function setPromoCode($PromoCode): self
+    {
+        $this->container['PromoCode'] = $PromoCode;
 
         return $this;
     }

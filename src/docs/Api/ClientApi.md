@@ -23,6 +23,7 @@ Method | HTTP request | Description
 [**clientGetClientPurchases**](ClientApi.md#clientGetClientPurchases) | **GET** /public/v6/client/clientpurchases | Get a client&#39;s purchase history.
 [**clientGetClientReferralTypes**](ClientApi.md#clientGetClientReferralTypes) | **GET** /public/v6/client/clientreferraltypes | Get a site&#39;s configured client referral types.
 [**clientGetClientRewards**](ClientApi.md#clientGetClientRewards) | **GET** /public/v6/client/clientrewards | 
+[**clientGetClientSchedule**](ClientApi.md#clientGetClientSchedule) | **GET** /public/v6/client/clientschedule | Gets a client&#39;s schedule history.
 [**clientGetClientServices**](ClientApi.md#clientGetClientServices) | **GET** /public/v6/client/clientservices | Get pricing options that a client has purchased.
 [**clientGetClientVisits**](ClientApi.md#clientGetClientVisits) | **GET** /public/v6/client/clientvisits | Get a client&#39;s visit history.
 [**clientGetClients**](ClientApi.md#clientGetClients) | **GET** /public/v6/client/clients | Get clients.
@@ -34,7 +35,10 @@ Method | HTTP request | Description
 [**clientGetRequiredClientFields**](ClientApi.md#clientGetRequiredClientFields) | **GET** /public/v6/client/requiredclientfields | Get client required fields for a site.
 [**clientSendAutoEmail**](ClientApi.md#clientSendAutoEmail) | **POST** /public/v6/client/sendautoemail | Send a client a supported auto email
 [**clientSendPasswordResetEmail**](ClientApi.md#clientSendPasswordResetEmail) | **POST** /public/v6/client/sendpasswordresetemail | Send a password reset email to a client.
+[**clientSuspendContract**](ClientApi.md#clientSuspendContract) | **POST** /public/v6/client/suspendcontract | Suspend client contract
+[**clientTerminateContract**](ClientApi.md#clientTerminateContract) | **POST** /public/v6/client/terminatecontract | Terminate client contract
 [**clientUpdateClient**](ClientApi.md#clientUpdateClient) | **POST** /public/v6/client/updateclient | Update a client at a site.
+[**clientUpdateClientContractAutopays**](ClientApi.md#clientUpdateClientContractAutopays) | **POST** /public/v6/client/updateclientcontractautopays | 
 [**clientUpdateClientRewards**](ClientApi.md#clientUpdateClientRewards) | **POST** /public/v6/client/clientrewards | 
 [**clientUpdateClientService**](ClientApi.md#clientUpdateClientService) | **POST** /public/v6/client/updateclientservice | Update a client&#39;s purchase pricing option.
 [**clientUpdateClientVisit**](ClientApi.md#clientUpdateClientVisit) | **POST** /public/v6/client/updateclientvisit | Update a client&#39;s visit.
@@ -1295,6 +1299,79 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **clientGetClientSchedule**
+> \Nlocascio\Mindbody\Model\GetClientScheduleResponse clientGetClientSchedule($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestStartDate)
+
+Gets a client's schedule history.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: API-Key
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'Bearer');
+// Configure API key authorization: authorization
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('authorization', 'Bearer');
+// Configure API key authorization: siteId
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('siteId', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('siteId', 'Bearer');
+
+$apiInstance = new Nlocascio\Mindbody\Api\ClientApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$RequestClientId = "RequestClientId_example"; // string | The ID of the requested client.
+$RequestClientAssociatedSitesOffset = 56; // int | The number of sites to skip when returning the site associated with a client.
+$RequestCrossRegionalLookup = true; // bool | When `true`, indicates that past and scheduled client visits across all sites in the region are returned.  When `false`, indicates that only visits at the current site are returned.
+$RequestEndDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The date past which class visits are not returned.  Default is today’s date
+$RequestLimit = 56; // int | Number of results to include, defaults to 100
+$RequestOffset = 56; // int | Page offset, defaults to 0.
+$RequestStartDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The date before which class visits are not returned.  Default is the end date
+
+try {
+    $result = $apiInstance->clientGetClientSchedule($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestStartDate);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ClientApi->clientGetClientSchedule: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **RequestClientId** | **string**| The ID of the requested client. |
+ **RequestClientAssociatedSitesOffset** | **int**| The number of sites to skip when returning the site associated with a client. | [optional]
+ **RequestCrossRegionalLookup** | **bool**| When &#x60;true&#x60;, indicates that past and scheduled client visits across all sites in the region are returned.  When &#x60;false&#x60;, indicates that only visits at the current site are returned. | [optional]
+ **RequestEndDate** | **\DateTime**| The date past which class visits are not returned.  Default is today’s date | [optional]
+ **RequestLimit** | **int**| Number of results to include, defaults to 100 | [optional]
+ **RequestOffset** | **int**| Page offset, defaults to 0. | [optional]
+ **RequestStartDate** | **\DateTime**| The date before which class visits are not returned.  Default is the end date | [optional]
+
+### Return type
+
+[**\Nlocascio\Mindbody\Model\GetClientScheduleResponse**](../Model/GetClientScheduleResponse.md)
+
+### Authorization
+
+[API-Key](../../README.md#API-Key), [authorization](../../README.md#authorization), [siteId](../../README.md#siteId)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, text/json, application/xml, text/xml, multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **clientGetClientServices**
 > \Nlocascio\Mindbody\Model\GetClientServicesResponse clientGetClientServices($RequestClientId, $RequestClassId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestEndDate, $RequestIgnoreCrossRegionalSiteLimit, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSessionTypeId, $RequestShowActiveOnly, $RequestStartDate, $RequestVisitCount)
 
@@ -2050,6 +2127,128 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **clientSuspendContract**
+> \Nlocascio\Mindbody\Model\SuspendContractResponse clientSuspendContract($Request)
+
+Suspend client contract
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: API-Key
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'Bearer');
+// Configure API key authorization: authorization
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('authorization', 'Bearer');
+// Configure API key authorization: siteId
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('siteId', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('siteId', 'Bearer');
+
+$apiInstance = new Nlocascio\Mindbody\Api\ClientApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$Request = new \Nlocascio\Mindbody\Model\SuspendContractRequest(); // \Nlocascio\Mindbody\Model\SuspendContractRequest | 
+
+try {
+    $result = $apiInstance->clientSuspendContract($Request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ClientApi->clientSuspendContract: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Request** | [**\Nlocascio\Mindbody\Model\SuspendContractRequest**](../Model/SuspendContractRequest.md)|  |
+
+### Return type
+
+[**\Nlocascio\Mindbody\Model\SuspendContractResponse**](../Model/SuspendContractResponse.md)
+
+### Authorization
+
+[API-Key](../../README.md#API-Key), [authorization](../../README.md#authorization), [siteId](../../README.md#siteId)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml, multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **clientTerminateContract**
+> \Nlocascio\Mindbody\Model\TerminateContractResponse clientTerminateContract($Request)
+
+Terminate client contract
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: API-Key
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'Bearer');
+// Configure API key authorization: authorization
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('authorization', 'Bearer');
+// Configure API key authorization: siteId
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('siteId', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('siteId', 'Bearer');
+
+$apiInstance = new Nlocascio\Mindbody\Api\ClientApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$Request = new \Nlocascio\Mindbody\Model\TerminateContractRequest(); // \Nlocascio\Mindbody\Model\TerminateContractRequest | 
+
+try {
+    $result = $apiInstance->clientTerminateContract($Request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ClientApi->clientTerminateContract: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Request** | [**\Nlocascio\Mindbody\Model\TerminateContractRequest**](../Model/TerminateContractRequest.md)|  |
+
+### Return type
+
+[**\Nlocascio\Mindbody\Model\TerminateContractResponse**](../Model/TerminateContractResponse.md)
+
+### Authorization
+
+[API-Key](../../README.md#API-Key), [authorization](../../README.md#authorization), [siteId](../../README.md#siteId)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml, multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **clientUpdateClient**
 > \Nlocascio\Mindbody\Model\UpdateClientResponse clientUpdateClient($Request)
 
@@ -2101,6 +2300,67 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Nlocascio\Mindbody\Model\UpdateClientResponse**](../Model/UpdateClientResponse.md)
+
+### Authorization
+
+[API-Key](../../README.md#API-Key), [authorization](../../README.md#authorization), [siteId](../../README.md#siteId)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml, multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **clientUpdateClientContractAutopays**
+> \Nlocascio\Mindbody\Model\Contract clientUpdateClientContractAutopays($Request)
+
+
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: API-Key
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'Bearer');
+// Configure API key authorization: authorization
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('authorization', 'Bearer');
+// Configure API key authorization: siteId
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('siteId', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('siteId', 'Bearer');
+
+$apiInstance = new Nlocascio\Mindbody\Api\ClientApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$Request = new \Nlocascio\Mindbody\Model\UpdateClientContractAutopaysRequest(); // \Nlocascio\Mindbody\Model\UpdateClientContractAutopaysRequest | 
+
+try {
+    $result = $apiInstance->clientUpdateClientContractAutopays($Request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ClientApi->clientUpdateClientContractAutopays: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Request** | [**\Nlocascio\Mindbody\Model\UpdateClientContractAutopaysRequest**](../Model/UpdateClientContractAutopaysRequest.md)|  |
+
+### Return type
+
+[**\Nlocascio\Mindbody\Model\Contract**](../Model/Contract.md)
 
 ### Authorization
 

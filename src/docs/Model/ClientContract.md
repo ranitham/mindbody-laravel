@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **SiteId** | **int** | The ID of the site where the contract was issued. | [optional] 
 **UpcomingAutopayEvents** | [**\Nlocascio\Mindbody\Model\UpcomingAutopayEvent[]**](UpcomingAutopayEvent.md) | Contains details of the autopay events. | [optional] 
 **ContractID** | **int** | The ID of the contract | [optional] 
+**TerminationDate** | [**\DateTime**](\DateTime.md) | The date that the contract was terminated. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

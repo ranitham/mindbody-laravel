@@ -4,16 +4,83 @@ All URIs are relative to *https://api.mindbodyonline.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**classAddClassSchedule**](ClassApi.md#classAddClassSchedule) | **POST** /public/v6/class/addclassschedule | 
 [**classAddClientToClass**](ClassApi.md#classAddClientToClass) | **POST** /public/v6/class/addclienttoclass | Book a client into a class.
+[**classCancelSingleClass**](ClassApi.md#classCancelSingleClass) | **POST** /public/v6/class/cancelsingleclass | Cancels a single class instance.
 [**classGetClassDescriptions**](ClassApi.md#classGetClassDescriptions) | **GET** /public/v6/class/classdescriptions | Get class descriptions.
 [**classGetClassSchedules**](ClassApi.md#classGetClassSchedules) | **GET** /public/v6/class/classschedules | Get class schedules.
 [**classGetClassVisits**](ClassApi.md#classGetClassVisits) | **GET** /public/v6/class/classvisits | Get information about clients booked in a class.
 [**classGetClasses**](ClassApi.md#classGetClasses) | **GET** /public/v6/class/classes | Get scheduled classes.
+[**classGetCourses**](ClassApi.md#classGetCourses) | **GET** /public/v6/class/courses | Fetch the list of the course for a studio
+[**classGetSemestersAsync**](ClassApi.md#classGetSemestersAsync) | **GET** /public/v6/class/semesters | Fetch the list of the Semesters
 [**classGetWaitlistEntries**](ClassApi.md#classGetWaitlistEntries) | **GET** /public/v6/class/waitlistentries | Get waiting list entries.
 [**classRemoveClientFromClass**](ClassApi.md#classRemoveClientFromClass) | **POST** /public/v6/class/removeclientfromclass | Remove a client from a class.
+[**classRemoveClientsFromClasses**](ClassApi.md#classRemoveClientsFromClasses) | **POST** /public/v6/class/removeclientsfromclasses | Remove a clients from a classes.
 [**classRemoveFromWaitlist**](ClassApi.md#classRemoveFromWaitlist) | **POST** /public/v6/class/removefromwaitlist | Remove a client from a waiting list.
 [**classSubstituteClassTeacher**](ClassApi.md#classSubstituteClassTeacher) | **POST** /public/v6/class/substituteclassteacher | Substitute a class teacher.
+[**classUpdateClassSchedule**](ClassApi.md#classUpdateClassSchedule) | **POST** /public/v6/class/updateclassschedule | 
 
+
+# **classAddClassSchedule**
+> object classAddClassSchedule($Request)
+
+
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: API-Key
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'Bearer');
+// Configure API key authorization: authorization
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('authorization', 'Bearer');
+// Configure API key authorization: siteId
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('siteId', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('siteId', 'Bearer');
+
+$apiInstance = new Nlocascio\Mindbody\Api\ClassApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$Request = new \Nlocascio\Mindbody\Model\AddClassEnrollmentScheduleRequest(); // \Nlocascio\Mindbody\Model\AddClassEnrollmentScheduleRequest | 
+
+try {
+    $result = $apiInstance->classAddClassSchedule($Request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ClassApi->classAddClassSchedule: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Request** | [**\Nlocascio\Mindbody\Model\AddClassEnrollmentScheduleRequest**](../Model/AddClassEnrollmentScheduleRequest.md)|  |
+
+### Return type
+
+**object**
+
+### Authorization
+
+[API-Key](../../README.md#API-Key), [authorization](../../README.md#authorization), [siteId](../../README.md#siteId)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml, multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **classAddClientToClass**
 > \Nlocascio\Mindbody\Model\AddClientToClassResponse classAddClientToClass($Request)
@@ -66,6 +133,67 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Nlocascio\Mindbody\Model\AddClientToClassResponse**](../Model/AddClientToClassResponse.md)
+
+### Authorization
+
+[API-Key](../../README.md#API-Key), [authorization](../../README.md#authorization), [siteId](../../README.md#siteId)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml, multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **classCancelSingleClass**
+> \Nlocascio\Mindbody\Model\CancelSingleClassResponse classCancelSingleClass($Request)
+
+Cancels a single class instance.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: API-Key
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'Bearer');
+// Configure API key authorization: authorization
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('authorization', 'Bearer');
+// Configure API key authorization: siteId
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('siteId', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('siteId', 'Bearer');
+
+$apiInstance = new Nlocascio\Mindbody\Api\ClassApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$Request = new \Nlocascio\Mindbody\Model\CancelSingleClassRequest(); // \Nlocascio\Mindbody\Model\CancelSingleClassRequest | 
+
+try {
+    $result = $apiInstance->classCancelSingleClass($Request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ClassApi->classCancelSingleClass: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Request** | [**\Nlocascio\Mindbody\Model\CancelSingleClassRequest**](../Model/CancelSingleClassRequest.md)|  |
+
+### Return type
+
+[**\Nlocascio\Mindbody\Model\CancelSingleClassResponse**](../Model/CancelSingleClassResponse.md)
 
 ### Authorization
 
@@ -298,7 +426,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **classGetClasses**
-> \Nlocascio\Mindbody\Model\GetClassesResponse classGetClasses($RequestClassDescriptionIds, $RequestClassIds, $RequestClientId, $RequestEndDateTime, $RequestHideCanceledClasses, $RequestLastModifiedDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSchedulingWindow, $RequestSemesterIds, $RequestSessionTypeIds, $RequestStaffIds, $RequestStartDateTime)
+> \Nlocascio\Mindbody\Model\GetClassesResponse classGetClasses($RequestClassDescriptionIds, $RequestClassIds, $RequestClassScheduleIds, $RequestClientId, $RequestEndDateTime, $RequestHideCanceledClasses, $RequestLastModifiedDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSchedulingWindow, $RequestSemesterIds, $RequestSessionTypeIds, $RequestStaffIds, $RequestStartDateTime)
 
 Get scheduled classes.
 
@@ -328,6 +456,7 @@ $apiInstance = new Nlocascio\Mindbody\Api\ClassApi(
 );
 $RequestClassDescriptionIds = array(56); // int[] | The requested class description IDs.
 $RequestClassIds = array(56); // int[] | The requested class IDs.
+$RequestClassScheduleIds = array(56); // int[] | The requested classScheduleIds.
 $RequestClientId = "RequestClientId_example"; // string | The client ID of the client who is viewing this class list. Based on identity, the client may be able to see additional information, such as membership specials.
 $RequestEndDateTime = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The requested end date for filtering.  <br />Default: **today’s date**
 $RequestHideCanceledClasses = true; // bool | When `true`, canceled classes are removed from the response.<br />  When `false`, canceled classes are included in the response.<br />  Default: **false**
@@ -343,7 +472,7 @@ $RequestStaffIds = array(56); // int[] | The requested IDs of the teaching staff
 $RequestStartDateTime = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The requested start date for filtering.   <br />Default: **today’s date**
 
 try {
-    $result = $apiInstance->classGetClasses($RequestClassDescriptionIds, $RequestClassIds, $RequestClientId, $RequestEndDateTime, $RequestHideCanceledClasses, $RequestLastModifiedDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSchedulingWindow, $RequestSemesterIds, $RequestSessionTypeIds, $RequestStaffIds, $RequestStartDateTime);
+    $result = $apiInstance->classGetClasses($RequestClassDescriptionIds, $RequestClassIds, $RequestClassScheduleIds, $RequestClientId, $RequestEndDateTime, $RequestHideCanceledClasses, $RequestLastModifiedDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSchedulingWindow, $RequestSemesterIds, $RequestSessionTypeIds, $RequestStaffIds, $RequestStartDateTime);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ClassApi->classGetClasses: ', $e->getMessage(), PHP_EOL;
@@ -357,6 +486,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **RequestClassDescriptionIds** | [**int[]**](../Model/int.md)| The requested class description IDs. | [optional]
  **RequestClassIds** | [**int[]**](../Model/int.md)| The requested class IDs. | [optional]
+ **RequestClassScheduleIds** | [**int[]**](../Model/int.md)| The requested classScheduleIds. | [optional]
  **RequestClientId** | **string**| The client ID of the client who is viewing this class list. Based on identity, the client may be able to see additional information, such as membership specials. | [optional]
  **RequestEndDateTime** | **\DateTime**| The requested end date for filtering.  &lt;br /&gt;Default: **today’s date** | [optional]
  **RequestHideCanceledClasses** | **bool**| When &#x60;true&#x60;, canceled classes are removed from the response.&lt;br /&gt;  When &#x60;false&#x60;, canceled classes are included in the response.&lt;br /&gt;  Default: **false** | [optional]
@@ -374,6 +504,154 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Nlocascio\Mindbody\Model\GetClassesResponse**](../Model/GetClassesResponse.md)
+
+### Authorization
+
+[API-Key](../../README.md#API-Key), [authorization](../../README.md#authorization), [siteId](../../README.md#siteId)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, text/json, application/xml, text/xml, multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **classGetCourses**
+> \Nlocascio\Mindbody\Model\GetCoursesReponse classGetCourses($GetCoursesRequestCourseIDs, $GetCoursesRequestEndDate, $GetCoursesRequestLimit, $GetCoursesRequestLocationIDs, $GetCoursesRequestOffset, $GetCoursesRequestProgramIDs, $GetCoursesRequestSemesterIDs, $GetCoursesRequestStaffIDs, $GetCoursesRequestStartDate)
+
+Fetch the list of the course for a studio
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: API-Key
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'Bearer');
+// Configure API key authorization: authorization
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('authorization', 'Bearer');
+// Configure API key authorization: siteId
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('siteId', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('siteId', 'Bearer');
+
+$apiInstance = new Nlocascio\Mindbody\Api\ClassApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$GetCoursesRequestCourseIDs = array(56); // int[] | (optional) The requested course IDs.
+$GetCoursesRequestEndDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The end date range. Any active courses that are on or before this day.  <br />(optional) Defaults to StartDate.
+$GetCoursesRequestLimit = 56; // int | Number of results to include, defaults to 100
+$GetCoursesRequestLocationIDs = array(56); // int[] | (optional) The requested locations.
+$GetCoursesRequestOffset = 56; // int | Page offset, defaults to 0.
+$GetCoursesRequestProgramIDs = array(56); // int[] | (optional) The requested program IDs.
+$GetCoursesRequestSemesterIDs = array(56); // int[] | (optional) The requested semester IDs.
+$GetCoursesRequestStaffIDs = array(56); // int[] | (optional) The requested StaffIDs.
+$GetCoursesRequestStartDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The start date range. Any active courses that are on or after this day.  <br />(optional) Defaults to today.
+
+try {
+    $result = $apiInstance->classGetCourses($GetCoursesRequestCourseIDs, $GetCoursesRequestEndDate, $GetCoursesRequestLimit, $GetCoursesRequestLocationIDs, $GetCoursesRequestOffset, $GetCoursesRequestProgramIDs, $GetCoursesRequestSemesterIDs, $GetCoursesRequestStaffIDs, $GetCoursesRequestStartDate);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ClassApi->classGetCourses: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **GetCoursesRequestCourseIDs** | [**int[]**](../Model/int.md)| (optional) The requested course IDs. | [optional]
+ **GetCoursesRequestEndDate** | **\DateTime**| The end date range. Any active courses that are on or before this day.  &lt;br /&gt;(optional) Defaults to StartDate. | [optional]
+ **GetCoursesRequestLimit** | **int**| Number of results to include, defaults to 100 | [optional]
+ **GetCoursesRequestLocationIDs** | [**int[]**](../Model/int.md)| (optional) The requested locations. | [optional]
+ **GetCoursesRequestOffset** | **int**| Page offset, defaults to 0. | [optional]
+ **GetCoursesRequestProgramIDs** | [**int[]**](../Model/int.md)| (optional) The requested program IDs. | [optional]
+ **GetCoursesRequestSemesterIDs** | [**int[]**](../Model/int.md)| (optional) The requested semester IDs. | [optional]
+ **GetCoursesRequestStaffIDs** | [**int[]**](../Model/int.md)| (optional) The requested StaffIDs. | [optional]
+ **GetCoursesRequestStartDate** | **\DateTime**| The start date range. Any active courses that are on or after this day.  &lt;br /&gt;(optional) Defaults to today. | [optional]
+
+### Return type
+
+[**\Nlocascio\Mindbody\Model\GetCoursesReponse**](../Model/GetCoursesReponse.md)
+
+### Authorization
+
+[API-Key](../../README.md#API-Key), [authorization](../../README.md#authorization), [siteId](../../README.md#siteId)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, text/json, application/xml, text/xml, multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **classGetSemestersAsync**
+> \Nlocascio\Mindbody\Model\GetSemestersResponse classGetSemestersAsync($RequestActive, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestSemesterIDs, $RequestStartDate)
+
+Fetch the list of the Semesters
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: API-Key
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'Bearer');
+// Configure API key authorization: authorization
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('authorization', 'Bearer');
+// Configure API key authorization: siteId
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('siteId', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('siteId', 'Bearer');
+
+$apiInstance = new Nlocascio\Mindbody\Api\ClassApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$RequestActive = true; // bool | Get Active semesters
+$RequestEndDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter semesters with end date
+$RequestLimit = 56; // int | Number of results to include, defaults to 100
+$RequestOffset = 56; // int | Page offset, defaults to 0.
+$RequestSemesterIDs = array(56); // int[] | Get with semester ids
+$RequestStartDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter semesters with start date
+
+try {
+    $result = $apiInstance->classGetSemestersAsync($RequestActive, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestSemesterIDs, $RequestStartDate);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ClassApi->classGetSemestersAsync: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **RequestActive** | **bool**| Get Active semesters | [optional]
+ **RequestEndDate** | **\DateTime**| Filter semesters with end date | [optional]
+ **RequestLimit** | **int**| Number of results to include, defaults to 100 | [optional]
+ **RequestOffset** | **int**| Page offset, defaults to 0. | [optional]
+ **RequestSemesterIDs** | [**int[]**](../Model/int.md)| Get with semester ids | [optional]
+ **RequestStartDate** | **\DateTime**| Filter semesters with start date | [optional]
+
+### Return type
+
+[**\Nlocascio\Mindbody\Model\GetSemestersResponse**](../Model/GetSemestersResponse.md)
 
 ### Authorization
 
@@ -522,6 +800,67 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **classRemoveClientsFromClasses**
+> \Nlocascio\Mindbody\Model\RemoveClientsFromClassesResponse classRemoveClientsFromClasses($Request)
+
+Remove a clients from a classes.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: API-Key
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'Bearer');
+// Configure API key authorization: authorization
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('authorization', 'Bearer');
+// Configure API key authorization: siteId
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('siteId', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('siteId', 'Bearer');
+
+$apiInstance = new Nlocascio\Mindbody\Api\ClassApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$Request = new \Nlocascio\Mindbody\Model\RemoveClientsFromClassesRequest(); // \Nlocascio\Mindbody\Model\RemoveClientsFromClassesRequest | 
+
+try {
+    $result = $apiInstance->classRemoveClientsFromClasses($Request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ClassApi->classRemoveClientsFromClasses: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Request** | [**\Nlocascio\Mindbody\Model\RemoveClientsFromClassesRequest**](../Model/RemoveClientsFromClassesRequest.md)|  |
+
+### Return type
+
+[**\Nlocascio\Mindbody\Model\RemoveClientsFromClassesResponse**](../Model/RemoveClientsFromClassesResponse.md)
+
+### Authorization
+
+[API-Key](../../README.md#API-Key), [authorization](../../README.md#authorization), [siteId](../../README.md#siteId)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml, multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **classRemoveFromWaitlist**
 > \Nlocascio\Mindbody\Model\RemoveFromWaitlistResponse classRemoveFromWaitlist($RequestWaitlistEntryIds)
 
@@ -634,6 +973,67 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Nlocascio\Mindbody\Model\SubstituteClassTeacherResponse**](../Model/SubstituteClassTeacherResponse.md)
+
+### Authorization
+
+[API-Key](../../README.md#API-Key), [authorization](../../README.md#authorization), [siteId](../../README.md#siteId)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml, multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **classUpdateClassSchedule**
+> object classUpdateClassSchedule($Request)
+
+
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: API-Key
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'Bearer');
+// Configure API key authorization: authorization
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('authorization', 'Bearer');
+// Configure API key authorization: siteId
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('siteId', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('siteId', 'Bearer');
+
+$apiInstance = new Nlocascio\Mindbody\Api\ClassApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$Request = new \Nlocascio\Mindbody\Model\UpdateClassEnrollmentScheduleRequest(); // \Nlocascio\Mindbody\Model\UpdateClassEnrollmentScheduleRequest | 
+
+try {
+    $result = $apiInstance->classUpdateClassSchedule($Request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ClassApi->classUpdateClassSchedule: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Request** | [**\Nlocascio\Mindbody\Model\UpdateClassEnrollmentScheduleRequest**](../Model/UpdateClassEnrollmentScheduleRequest.md)|  |
+
+### Return type
+
+**object**
 
 ### Authorization
 

@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ClassDescriptionIds** | **int[]** | The requested class description IDs. | [optional] 
 **ClassIds** | **int[]** | The requested class IDs. | [optional] 
+**ClassScheduleIds** | **int[]** | The requested classScheduleIds. | [optional] 
 **StaffIds** | **int[]** | The requested IDs of the teaching staff members. | [optional] 
 **StartDateTime** | [**\DateTime**](\DateTime.md) | The requested start date for filtering.   &lt;br /&gt;Default: **today’s date** | [optional] 
 **EndDateTime** | [**\DateTime**](\DateTime.md) | The requested end date for filtering.  &lt;br /&gt;Default: **today’s date** | [optional] 

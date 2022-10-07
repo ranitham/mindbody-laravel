@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **BillingState** | **string** |  | [optional] 
 **BillingPostalCode** | **string** |  | [optional] 
 **SaveInfo** | **bool** |  | [optional] 
+**CardId** | **string** | Card Id of a stored instruments card | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

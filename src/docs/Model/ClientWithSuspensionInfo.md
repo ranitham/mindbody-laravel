@@ -48,7 +48,7 @@ Name | Type | Description | Notes
 **EmergencyContactInfoRelationship** | **string** | The client’s relationship with the emergency contact. | [optional] 
 **Gender** | **string** | The gender of the client. | [optional] 
 **LastFormulaNotes** | **string** | The last [formula note](https://support.mindbodyonline.com/s/article/203259903-Appointments-Formula-notes?language&#x3D;en_US) entered for the client. | [optional] 
-**Active** | **bool** | When &#x60;true&#x60;, indicates that the client’s profile is marked as active on the site.&lt;br /&gt;  When &#x60;false&#x60;, the client’s profile is inactive. | [optional] 
+**Active** | **bool** | When &#x60;true&#x60;, indicates that the client’s profile is marked as active on the site.&lt;br /&gt;  When &#x60;false&#x60;, the client’s profile is inactive.  Defaults to &#x60;true&#x60; based on the assumption that if a client is currently inactive OR is to be marked inactive, this property will explicitly be mapped/set to &#x60;false&#x60;. | [optional] 
 **SalesReps** | [**\Nlocascio\Mindbody\Model\SalesRep[]**](SalesRep.md) | A list of sales representatives. | [optional] 
 **Status** | **string** | The status of the client in the business. Possible values are:  * Declined  * Non-Member  * Active  * Expired  * Suspended  * Terminated | [optional] 
 **Action** | **string** | The action taken. | [optional] 
@@ -59,6 +59,7 @@ Name | Type | Description | Notes
 **SendScheduleEmails** | **bool** | When &#x60;true&#x60;, indicates that the client has opted to receive schedule notifications by email. This property is editable.   &lt;br /&gt;Default: **false** | [optional] 
 **SendScheduleTexts** | **bool** | When &#x60;true&#x60;, indicates that the client has opted to receive schedule notifications by text message. This parameter cannot be updated by developers. If included in a request, it is ignored. | [optional] 
 **HomeLocation** | [**\Nlocascio\Mindbody\Model\Location**](Location.md) | Information about the Home Location for this client | [optional] 
+**LockerNumber** | **string** | The clients locker number. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

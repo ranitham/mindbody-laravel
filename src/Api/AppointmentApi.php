@@ -647,6 +647,285 @@ class AppointmentApi implements ApiInterface
     }
 
     /**
+     * Operation appointmentAddAvailabilities
+     *
+     * Add Availabillity/Unavailabillity.
+     *
+     * @param  \Nlocascio\Mindbody\Model\AddAvailabilitiesRequest $Request Request (required)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Nlocascio\Mindbody\Model\AddAvailabilitiesResponse
+     */
+    public function appointmentAddAvailabilities($Request): \Nlocascio\Mindbody\Model\AddAvailabilitiesResponse
+    {
+        list($response) = $this->appointmentAddAvailabilitiesWithHttpInfo($Request);
+        return $response;
+    }
+
+    /**
+     * Operation appointmentAddAvailabilitiesWithHttpInfo
+     *
+     * Add Availabillity/Unavailabillity.
+     *
+     * @param  \Nlocascio\Mindbody\Model\AddAvailabilitiesRequest $Request (required)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Nlocascio\Mindbody\Model\AddAvailabilitiesResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function appointmentAddAvailabilitiesWithHttpInfo($Request): array
+    {
+        $returnType = '\Nlocascio\Mindbody\Model\AddAvailabilitiesResponse';
+        $request = $this->appointmentAddAvailabilitiesRequest($Request);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Nlocascio\Mindbody\Model\AddAvailabilitiesResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation appointmentAddAvailabilitiesAsync
+     *
+     * Add Availabillity/Unavailabillity.
+     *
+     * @param  \Nlocascio\Mindbody\Model\AddAvailabilitiesRequest $Request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function appointmentAddAvailabilitiesAsync($Request): \GuzzleHttp\Promise\PromiseInterface
+    {
+        return $this->appointmentAddAvailabilitiesAsyncWithHttpInfo($Request)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation appointmentAddAvailabilitiesAsyncWithHttpInfo
+     *
+     * Add Availabillity/Unavailabillity.
+     *
+     * @param  \Nlocascio\Mindbody\Model\AddAvailabilitiesRequest $Request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function appointmentAddAvailabilitiesAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
+    {
+        $returnType = '\Nlocascio\Mindbody\Model\AddAvailabilitiesResponse';
+        $request = $this->appointmentAddAvailabilitiesRequest($Request);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'appointmentAddAvailabilities'
+     *
+     * @param  \Nlocascio\Mindbody\Model\AddAvailabilitiesRequest $Request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function appointmentAddAvailabilitiesRequest($Request): \GuzzleHttp\Psr7\Request
+    {
+        // verify the required parameter 'Request' is set
+        if ($Request === null || (is_array($Request) && count($Request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $Request when calling appointmentAddAvailabilities'
+            );
+        }
+
+        $resourcePath = '/public/v6/appointment/availabilities';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // body params
+        $_tempBody = null;
+        if (isset($Request)) {
+            $_tempBody = $Request;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = Utils::jsonEncode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = Utils::jsonEncode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
+        if ($apiKey !== null) {
+            $headers['API-Key'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('authorization');
+        if ($apiKey !== null) {
+            $headers['authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('siteId');
+        if ($apiKey !== null) {
+            $headers['siteId'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation appointmentDeleteAppointmentAddOn
      *
      * Early Cancel/Remove an Appointment Add-On
@@ -800,6 +1079,252 @@ class AppointmentApi implements ApiInterface
         // query params
         if ($Id !== null) {
             $queryParams['id'] = ObjectSerializer::toQueryValue($Id);
+        }
+
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = Utils::jsonEncode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = Utils::jsonEncode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
+        if ($apiKey !== null) {
+            $headers['API-Key'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('authorization');
+        if ($apiKey !== null) {
+            $headers['authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('siteId');
+        if ($apiKey !== null) {
+            $headers['siteId'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation appointmentDeleteAvailability
+     *
+     * Delete availability/unavailability of the staff
+     *
+     * @param  int $DeleteAvailabilityRequestAvailabilityId Availability Id to be deleted (optional)
+     * @param  bool $DeleteAvailabilityRequestTest The test flag (optional)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function appointmentDeleteAvailability($DeleteAvailabilityRequestAvailabilityId = null, $DeleteAvailabilityRequestTest = null): void
+    {
+        $this->appointmentDeleteAvailabilityWithHttpInfo($DeleteAvailabilityRequestAvailabilityId, $DeleteAvailabilityRequestTest);
+    }
+
+    /**
+     * Operation appointmentDeleteAvailabilityWithHttpInfo
+     *
+     * Delete availability/unavailability of the staff
+     *
+     * @param  int $DeleteAvailabilityRequestAvailabilityId Availability Id to be deleted (optional)
+     * @param  bool $DeleteAvailabilityRequestTest The test flag (optional)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function appointmentDeleteAvailabilityWithHttpInfo($DeleteAvailabilityRequestAvailabilityId = null, $DeleteAvailabilityRequestTest = null): array
+    {
+        $returnType = '';
+        $request = $this->appointmentDeleteAvailabilityRequest($DeleteAvailabilityRequestAvailabilityId, $DeleteAvailabilityRequestTest);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation appointmentDeleteAvailabilityAsync
+     *
+     * Delete availability/unavailability of the staff
+     *
+     * @param  int $DeleteAvailabilityRequestAvailabilityId Availability Id to be deleted (optional)
+     * @param  bool $DeleteAvailabilityRequestTest The test flag (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function appointmentDeleteAvailabilityAsync($DeleteAvailabilityRequestAvailabilityId = null, $DeleteAvailabilityRequestTest = null): \GuzzleHttp\Promise\PromiseInterface
+    {
+        return $this->appointmentDeleteAvailabilityAsyncWithHttpInfo($DeleteAvailabilityRequestAvailabilityId, $DeleteAvailabilityRequestTest)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation appointmentDeleteAvailabilityAsyncWithHttpInfo
+     *
+     * Delete availability/unavailability of the staff
+     *
+     * @param  int $DeleteAvailabilityRequestAvailabilityId Availability Id to be deleted (optional)
+     * @param  bool $DeleteAvailabilityRequestTest The test flag (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function appointmentDeleteAvailabilityAsyncWithHttpInfo($DeleteAvailabilityRequestAvailabilityId = null, $DeleteAvailabilityRequestTest = null): \GuzzleHttp\Promise\PromiseInterface
+    {
+        $returnType = '';
+        $request = $this->appointmentDeleteAvailabilityRequest($DeleteAvailabilityRequestAvailabilityId, $DeleteAvailabilityRequestTest);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'appointmentDeleteAvailability'
+     *
+     * @param  int $DeleteAvailabilityRequestAvailabilityId Availability Id to be deleted (optional)
+     * @param  bool $DeleteAvailabilityRequestTest The test flag (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function appointmentDeleteAvailabilityRequest($DeleteAvailabilityRequestAvailabilityId = null, $DeleteAvailabilityRequestTest = null): \GuzzleHttp\Psr7\Request
+    {
+
+        $resourcePath = '/public/v6/appointment/availability';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($DeleteAvailabilityRequestAvailabilityId !== null) {
+            $queryParams['deleteAvailabilityRequest.availabilityId'] = ObjectSerializer::toQueryValue($DeleteAvailabilityRequestAvailabilityId);
+        }
+        // query params
+        if ($DeleteAvailabilityRequestTest !== null) {
+            $queryParams['deleteAvailabilityRequest.test'] = ObjectSerializer::toQueryValue($DeleteAvailabilityRequestTest);
         }
 
 
@@ -3126,6 +3651,289 @@ class AppointmentApi implements ApiInterface
     }
 
     /**
+     * Operation appointmentRemoveFromWaitlist
+     *
+     * Remove an appointment from waitlist
+     *
+     * @param  int[] $RequestWaitlistEntryIds A list of waiting list IDs to remove from waiting lists. (required)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Nlocascio\Mindbody\Model\RemoveFromWaitlistResponse
+     */
+    public function appointmentRemoveFromWaitlist($RequestWaitlistEntryIds): \Nlocascio\Mindbody\Model\RemoveFromWaitlistResponse
+    {
+        list($response) = $this->appointmentRemoveFromWaitlistWithHttpInfo($RequestWaitlistEntryIds);
+        return $response;
+    }
+
+    /**
+     * Operation appointmentRemoveFromWaitlistWithHttpInfo
+     *
+     * Remove an appointment from waitlist
+     *
+     * @param  int[] $RequestWaitlistEntryIds A list of waiting list IDs to remove from waiting lists. (required)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Nlocascio\Mindbody\Model\RemoveFromWaitlistResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function appointmentRemoveFromWaitlistWithHttpInfo($RequestWaitlistEntryIds): array
+    {
+        $returnType = '\Nlocascio\Mindbody\Model\RemoveFromWaitlistResponse';
+        $request = $this->appointmentRemoveFromWaitlistRequest($RequestWaitlistEntryIds);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Nlocascio\Mindbody\Model\RemoveFromWaitlistResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation appointmentRemoveFromWaitlistAsync
+     *
+     * Remove an appointment from waitlist
+     *
+     * @param  int[] $RequestWaitlistEntryIds A list of waiting list IDs to remove from waiting lists. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function appointmentRemoveFromWaitlistAsync($RequestWaitlistEntryIds): \GuzzleHttp\Promise\PromiseInterface
+    {
+        return $this->appointmentRemoveFromWaitlistAsyncWithHttpInfo($RequestWaitlistEntryIds)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation appointmentRemoveFromWaitlistAsyncWithHttpInfo
+     *
+     * Remove an appointment from waitlist
+     *
+     * @param  int[] $RequestWaitlistEntryIds A list of waiting list IDs to remove from waiting lists. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function appointmentRemoveFromWaitlistAsyncWithHttpInfo($RequestWaitlistEntryIds): \GuzzleHttp\Promise\PromiseInterface
+    {
+        $returnType = '\Nlocascio\Mindbody\Model\RemoveFromWaitlistResponse';
+        $request = $this->appointmentRemoveFromWaitlistRequest($RequestWaitlistEntryIds);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'appointmentRemoveFromWaitlist'
+     *
+     * @param  int[] $RequestWaitlistEntryIds A list of waiting list IDs to remove from waiting lists. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function appointmentRemoveFromWaitlistRequest($RequestWaitlistEntryIds): \GuzzleHttp\Psr7\Request
+    {
+        // verify the required parameter 'RequestWaitlistEntryIds' is set
+        if ($RequestWaitlistEntryIds === null || (is_array($RequestWaitlistEntryIds) && count($RequestWaitlistEntryIds) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $RequestWaitlistEntryIds when calling appointmentRemoveFromWaitlist'
+            );
+        }
+
+        $resourcePath = '/public/v6/appointment/removefromappointmentwaitlist';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if (is_array($RequestWaitlistEntryIds)) {
+            $queryParams['request.waitlistEntryIds'] = $RequestWaitlistEntryIds;
+        } else
+        if ($RequestWaitlistEntryIds !== null) {
+            $queryParams['request.waitlistEntryIds'] = ObjectSerializer::toQueryValue($RequestWaitlistEntryIds);
+        }
+
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = Utils::jsonEncode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = Utils::jsonEncode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
+        if ($apiKey !== null) {
+            $headers['API-Key'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('authorization');
+        if ($apiKey !== null) {
+            $headers['authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('siteId');
+        if ($apiKey !== null) {
+            $headers['siteId'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation appointmentUpdateAppointment
      *
      * Update an existing appointment.
@@ -3398,6 +4206,285 @@ class AppointmentApi implements ApiInterface
         $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation appointmentUpdateAvailability
+     *
+     * Update availability/unavailability of the staff
+     *
+     * @param  \Nlocascio\Mindbody\Model\UpdateAvailabilityRequest $UpdateAvailabilityRequest UpdateAvailabilityRequest (required)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Nlocascio\Mindbody\Model\UpdateAvailabilityResponse
+     */
+    public function appointmentUpdateAvailability($UpdateAvailabilityRequest): \Nlocascio\Mindbody\Model\UpdateAvailabilityResponse
+    {
+        list($response) = $this->appointmentUpdateAvailabilityWithHttpInfo($UpdateAvailabilityRequest);
+        return $response;
+    }
+
+    /**
+     * Operation appointmentUpdateAvailabilityWithHttpInfo
+     *
+     * Update availability/unavailability of the staff
+     *
+     * @param  \Nlocascio\Mindbody\Model\UpdateAvailabilityRequest $UpdateAvailabilityRequest (required)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Nlocascio\Mindbody\Model\UpdateAvailabilityResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function appointmentUpdateAvailabilityWithHttpInfo($UpdateAvailabilityRequest): array
+    {
+        $returnType = '\Nlocascio\Mindbody\Model\UpdateAvailabilityResponse';
+        $request = $this->appointmentUpdateAvailabilityRequest($UpdateAvailabilityRequest);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Nlocascio\Mindbody\Model\UpdateAvailabilityResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation appointmentUpdateAvailabilityAsync
+     *
+     * Update availability/unavailability of the staff
+     *
+     * @param  \Nlocascio\Mindbody\Model\UpdateAvailabilityRequest $UpdateAvailabilityRequest (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function appointmentUpdateAvailabilityAsync($UpdateAvailabilityRequest): \GuzzleHttp\Promise\PromiseInterface
+    {
+        return $this->appointmentUpdateAvailabilityAsyncWithHttpInfo($UpdateAvailabilityRequest)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation appointmentUpdateAvailabilityAsyncWithHttpInfo
+     *
+     * Update availability/unavailability of the staff
+     *
+     * @param  \Nlocascio\Mindbody\Model\UpdateAvailabilityRequest $UpdateAvailabilityRequest (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function appointmentUpdateAvailabilityAsyncWithHttpInfo($UpdateAvailabilityRequest): \GuzzleHttp\Promise\PromiseInterface
+    {
+        $returnType = '\Nlocascio\Mindbody\Model\UpdateAvailabilityResponse';
+        $request = $this->appointmentUpdateAvailabilityRequest($UpdateAvailabilityRequest);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'appointmentUpdateAvailability'
+     *
+     * @param  \Nlocascio\Mindbody\Model\UpdateAvailabilityRequest $UpdateAvailabilityRequest (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function appointmentUpdateAvailabilityRequest($UpdateAvailabilityRequest): \GuzzleHttp\Psr7\Request
+    {
+        // verify the required parameter 'UpdateAvailabilityRequest' is set
+        if ($UpdateAvailabilityRequest === null || (is_array($UpdateAvailabilityRequest) && count($UpdateAvailabilityRequest) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $UpdateAvailabilityRequest when calling appointmentUpdateAvailability'
+            );
+        }
+
+        $resourcePath = '/public/v6/appointment/availabilities';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // body params
+        $_tempBody = null;
+        if (isset($UpdateAvailabilityRequest)) {
+            $_tempBody = $UpdateAvailabilityRequest;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = Utils::jsonEncode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = Utils::jsonEncode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
+        if ($apiKey !== null) {
+            $headers['API-Key'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('authorization');
+        if ($apiKey !== null) {
+            $headers['authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('siteId');
+        if ($apiKey !== null) {
+            $headers['siteId'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'PUT',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

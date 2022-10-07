@@ -47,6 +47,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property int $SiteId The ID of the site where the contract was issued.
  * @property \Nlocascio\Mindbody\Model\UpcomingAutopayEvent[] $UpcomingAutopayEvents Contains details of the autopay events.
  * @property int $ContractID The ID of the contract
+ * @property \DateTime $TerminationDate The date that the contract was terminated.
  *
  */
 class ClientContract extends BaseModel implements ModelWithId
@@ -75,7 +76,8 @@ class ClientContract extends BaseModel implements ModelWithId
         'StartDate' => '\DateTime',
         'SiteId' => 'int',
         'UpcomingAutopayEvents' => '\Nlocascio\Mindbody\Model\UpcomingAutopayEvent[]',
-        'ContractID' => 'int'
+        'ContractID' => 'int',
+        'TerminationDate' => '\DateTime'
     ];
 
     /**
@@ -93,7 +95,8 @@ class ClientContract extends BaseModel implements ModelWithId
         'StartDate' => 'date-time',
         'SiteId' => 'int32',
         'UpcomingAutopayEvents' => null,
-        'ContractID' => 'int32'
+        'ContractID' => 'int32',
+        'TerminationDate' => 'date-time'
     ];
 
 
@@ -113,7 +116,8 @@ class ClientContract extends BaseModel implements ModelWithId
         'StartDate' => 'StartDate',
         'SiteId' => 'SiteId',
         'UpcomingAutopayEvents' => 'UpcomingAutopayEvents',
-        'ContractID' => 'ContractID'
+        'ContractID' => 'ContractID',
+        'TerminationDate' => 'TerminationDate'
     ];
 
     /**
@@ -131,7 +135,8 @@ class ClientContract extends BaseModel implements ModelWithId
         'StartDate' => 'setStartDate',
         'SiteId' => 'setSiteId',
         'UpcomingAutopayEvents' => 'setUpcomingAutopayEvents',
-        'ContractID' => 'setContractID'
+        'ContractID' => 'setContractID',
+        'TerminationDate' => 'setTerminationDate'
     ];
 
     /**
@@ -149,7 +154,8 @@ class ClientContract extends BaseModel implements ModelWithId
         'StartDate' => 'getStartDate',
         'SiteId' => 'getSiteId',
         'UpcomingAutopayEvents' => 'getUpcomingAutopayEvents',
-        'ContractID' => 'getContractID'
+        'ContractID' => 'getContractID',
+        'TerminationDate' => 'getTerminationDate'
     ];
 
 
@@ -192,6 +198,7 @@ class ClientContract extends BaseModel implements ModelWithId
         $this->container['SiteId'] = isset($data['SiteId']) ? $data['SiteId'] : null;
         $this->container['UpcomingAutopayEvents'] = isset($data['UpcomingAutopayEvents']) ? $data['UpcomingAutopayEvents'] : null;
         $this->container['ContractID'] = isset($data['ContractID']) ? $data['ContractID'] : null;
+        $this->container['TerminationDate'] = isset($data['TerminationDate']) ? $data['TerminationDate'] : null;
     }
 
     /**
@@ -460,6 +467,30 @@ class ClientContract extends BaseModel implements ModelWithId
     public function setContractID($ContractID): self
     {
         $this->container['ContractID'] = $ContractID;
+
+        return $this;
+    }
+
+    /**
+     * Gets TerminationDate
+     *
+     * @return \DateTime
+     */
+    public function getTerminationDate()
+    {
+        return $this->container['TerminationDate'];
+    }
+
+    /**
+     * Sets TerminationDate
+     *
+     * @param \DateTime $TerminationDate The date that the contract was terminated.
+     *
+     * @return $this
+     */
+    public function setTerminationDate($TerminationDate): self
+    {
+        $this->container['TerminationDate'] = $TerminationDate;
 
         return $this;
     }

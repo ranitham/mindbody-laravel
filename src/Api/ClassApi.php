@@ -89,6 +89,281 @@ class ClassApi implements ApiInterface
     }
 
     /**
+     * Operation classAddClassSchedule
+     *
+     * @param  \Nlocascio\Mindbody\Model\AddClassEnrollmentScheduleRequest $Request Request (required)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return object
+     */
+    public function classAddClassSchedule($Request): array
+    {
+        list($response) = $this->classAddClassScheduleWithHttpInfo($Request);
+        return $response;
+    }
+
+    /**
+     * Operation classAddClassScheduleWithHttpInfo
+     *
+     * @param  \Nlocascio\Mindbody\Model\AddClassEnrollmentScheduleRequest $Request (required)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function classAddClassScheduleWithHttpInfo($Request): array
+    {
+        $returnType = 'object';
+        $request = $this->classAddClassScheduleRequest($Request);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation classAddClassScheduleAsync
+     *
+     * 
+     *
+     * @param  \Nlocascio\Mindbody\Model\AddClassEnrollmentScheduleRequest $Request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function classAddClassScheduleAsync($Request): \GuzzleHttp\Promise\PromiseInterface
+    {
+        return $this->classAddClassScheduleAsyncWithHttpInfo($Request)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation classAddClassScheduleAsyncWithHttpInfo
+     *
+     * 
+     *
+     * @param  \Nlocascio\Mindbody\Model\AddClassEnrollmentScheduleRequest $Request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function classAddClassScheduleAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
+    {
+        $returnType = 'object';
+        $request = $this->classAddClassScheduleRequest($Request);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'classAddClassSchedule'
+     *
+     * @param  \Nlocascio\Mindbody\Model\AddClassEnrollmentScheduleRequest $Request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function classAddClassScheduleRequest($Request): \GuzzleHttp\Psr7\Request
+    {
+        // verify the required parameter 'Request' is set
+        if ($Request === null || (is_array($Request) && count($Request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $Request when calling classAddClassSchedule'
+            );
+        }
+
+        $resourcePath = '/public/v6/class/addclassschedule';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // body params
+        $_tempBody = null;
+        if (isset($Request)) {
+            $_tempBody = $Request;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = Utils::jsonEncode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = Utils::jsonEncode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
+        if ($apiKey !== null) {
+            $headers['API-Key'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('authorization');
+        if ($apiKey !== null) {
+            $headers['authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('siteId');
+        if ($apiKey !== null) {
+            $headers['siteId'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation classAddClientToClass
      *
      * Book a client into a class.
@@ -270,6 +545,285 @@ class ClassApi implements ApiInterface
         }
 
         $resourcePath = '/public/v6/class/addclienttoclass';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // body params
+        $_tempBody = null;
+        if (isset($Request)) {
+            $_tempBody = $Request;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = Utils::jsonEncode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = Utils::jsonEncode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
+        if ($apiKey !== null) {
+            $headers['API-Key'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('authorization');
+        if ($apiKey !== null) {
+            $headers['authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('siteId');
+        if ($apiKey !== null) {
+            $headers['siteId'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation classCancelSingleClass
+     *
+     * Cancels a single class instance.
+     *
+     * @param  \Nlocascio\Mindbody\Model\CancelSingleClassRequest $Request Request (required)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Nlocascio\Mindbody\Model\CancelSingleClassResponse
+     */
+    public function classCancelSingleClass($Request): \Nlocascio\Mindbody\Model\CancelSingleClassResponse
+    {
+        list($response) = $this->classCancelSingleClassWithHttpInfo($Request);
+        return $response;
+    }
+
+    /**
+     * Operation classCancelSingleClassWithHttpInfo
+     *
+     * Cancels a single class instance.
+     *
+     * @param  \Nlocascio\Mindbody\Model\CancelSingleClassRequest $Request (required)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Nlocascio\Mindbody\Model\CancelSingleClassResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function classCancelSingleClassWithHttpInfo($Request): array
+    {
+        $returnType = '\Nlocascio\Mindbody\Model\CancelSingleClassResponse';
+        $request = $this->classCancelSingleClassRequest($Request);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Nlocascio\Mindbody\Model\CancelSingleClassResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation classCancelSingleClassAsync
+     *
+     * Cancels a single class instance.
+     *
+     * @param  \Nlocascio\Mindbody\Model\CancelSingleClassRequest $Request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function classCancelSingleClassAsync($Request): \GuzzleHttp\Promise\PromiseInterface
+    {
+        return $this->classCancelSingleClassAsyncWithHttpInfo($Request)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation classCancelSingleClassAsyncWithHttpInfo
+     *
+     * Cancels a single class instance.
+     *
+     * @param  \Nlocascio\Mindbody\Model\CancelSingleClassRequest $Request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function classCancelSingleClassAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
+    {
+        $returnType = '\Nlocascio\Mindbody\Model\CancelSingleClassResponse';
+        $request = $this->classCancelSingleClassRequest($Request);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'classCancelSingleClass'
+     *
+     * @param  \Nlocascio\Mindbody\Model\CancelSingleClassRequest $Request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function classCancelSingleClassRequest($Request): \GuzzleHttp\Psr7\Request
+    {
+        // verify the required parameter 'Request' is set
+        if ($Request === null || (is_array($Request) && count($Request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $Request when calling classCancelSingleClass'
+            );
+        }
+
+        $resourcePath = '/public/v6/class/cancelsingleclass';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1358,6 +1912,7 @@ class ClassApi implements ApiInterface
      *
      * @param  int[] $RequestClassDescriptionIds The requested class description IDs. (optional)
      * @param  int[] $RequestClassIds The requested class IDs. (optional)
+     * @param  int[] $RequestClassScheduleIds The requested classScheduleIds. (optional)
      * @param  string $RequestClientId The client ID of the client who is viewing this class list. Based on identity, the client may be able to see additional information, such as membership specials. (optional)
      * @param  \DateTime $RequestEndDateTime The requested end date for filtering.  &lt;br /&gt;Default: **today’s date** (optional)
      * @param  bool $RequestHideCanceledClasses When &#x60;true&#x60;, canceled classes are removed from the response.&lt;br /&gt;  When &#x60;false&#x60;, canceled classes are included in the response.&lt;br /&gt;  Default: **false** (optional)
@@ -1376,9 +1931,9 @@ class ClassApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetClassesResponse
      */
-    public function classGetClasses($RequestClassDescriptionIds = null, $RequestClassIds = null, $RequestClientId = null, $RequestEndDateTime = null, $RequestHideCanceledClasses = null, $RequestLastModifiedDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSchedulingWindow = null, $RequestSemesterIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDateTime = null): \Nlocascio\Mindbody\Model\GetClassesResponse
+    public function classGetClasses($RequestClassDescriptionIds = null, $RequestClassIds = null, $RequestClassScheduleIds = null, $RequestClientId = null, $RequestEndDateTime = null, $RequestHideCanceledClasses = null, $RequestLastModifiedDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSchedulingWindow = null, $RequestSemesterIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDateTime = null): \Nlocascio\Mindbody\Model\GetClassesResponse
     {
-        list($response) = $this->classGetClassesWithHttpInfo($RequestClassDescriptionIds, $RequestClassIds, $RequestClientId, $RequestEndDateTime, $RequestHideCanceledClasses, $RequestLastModifiedDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSchedulingWindow, $RequestSemesterIds, $RequestSessionTypeIds, $RequestStaffIds, $RequestStartDateTime);
+        list($response) = $this->classGetClassesWithHttpInfo($RequestClassDescriptionIds, $RequestClassIds, $RequestClassScheduleIds, $RequestClientId, $RequestEndDateTime, $RequestHideCanceledClasses, $RequestLastModifiedDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSchedulingWindow, $RequestSemesterIds, $RequestSessionTypeIds, $RequestStaffIds, $RequestStartDateTime);
         return $response;
     }
 
@@ -1389,6 +1944,7 @@ class ClassApi implements ApiInterface
      *
      * @param  int[] $RequestClassDescriptionIds The requested class description IDs. (optional)
      * @param  int[] $RequestClassIds The requested class IDs. (optional)
+     * @param  int[] $RequestClassScheduleIds The requested classScheduleIds. (optional)
      * @param  string $RequestClientId The client ID of the client who is viewing this class list. Based on identity, the client may be able to see additional information, such as membership specials. (optional)
      * @param  \DateTime $RequestEndDateTime The requested end date for filtering.  &lt;br /&gt;Default: **today’s date** (optional)
      * @param  bool $RequestHideCanceledClasses When &#x60;true&#x60;, canceled classes are removed from the response.&lt;br /&gt;  When &#x60;false&#x60;, canceled classes are included in the response.&lt;br /&gt;  Default: **false** (optional)
@@ -1407,10 +1963,10 @@ class ClassApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetClassesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function classGetClassesWithHttpInfo($RequestClassDescriptionIds = null, $RequestClassIds = null, $RequestClientId = null, $RequestEndDateTime = null, $RequestHideCanceledClasses = null, $RequestLastModifiedDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSchedulingWindow = null, $RequestSemesterIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDateTime = null): array
+    public function classGetClassesWithHttpInfo($RequestClassDescriptionIds = null, $RequestClassIds = null, $RequestClassScheduleIds = null, $RequestClientId = null, $RequestEndDateTime = null, $RequestHideCanceledClasses = null, $RequestLastModifiedDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSchedulingWindow = null, $RequestSemesterIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDateTime = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClassesResponse';
-        $request = $this->classGetClassesRequest($RequestClassDescriptionIds, $RequestClassIds, $RequestClientId, $RequestEndDateTime, $RequestHideCanceledClasses, $RequestLastModifiedDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSchedulingWindow, $RequestSemesterIds, $RequestSessionTypeIds, $RequestStaffIds, $RequestStartDateTime);
+        $request = $this->classGetClassesRequest($RequestClassDescriptionIds, $RequestClassIds, $RequestClassScheduleIds, $RequestClientId, $RequestEndDateTime, $RequestHideCanceledClasses, $RequestLastModifiedDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSchedulingWindow, $RequestSemesterIds, $RequestSessionTypeIds, $RequestStaffIds, $RequestStartDateTime);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1478,6 +2034,7 @@ class ClassApi implements ApiInterface
      *
      * @param  int[] $RequestClassDescriptionIds The requested class description IDs. (optional)
      * @param  int[] $RequestClassIds The requested class IDs. (optional)
+     * @param  int[] $RequestClassScheduleIds The requested classScheduleIds. (optional)
      * @param  string $RequestClientId The client ID of the client who is viewing this class list. Based on identity, the client may be able to see additional information, such as membership specials. (optional)
      * @param  \DateTime $RequestEndDateTime The requested end date for filtering.  &lt;br /&gt;Default: **today’s date** (optional)
      * @param  bool $RequestHideCanceledClasses When &#x60;true&#x60;, canceled classes are removed from the response.&lt;br /&gt;  When &#x60;false&#x60;, canceled classes are included in the response.&lt;br /&gt;  Default: **false** (optional)
@@ -1495,9 +2052,9 @@ class ClassApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function classGetClassesAsync($RequestClassDescriptionIds = null, $RequestClassIds = null, $RequestClientId = null, $RequestEndDateTime = null, $RequestHideCanceledClasses = null, $RequestLastModifiedDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSchedulingWindow = null, $RequestSemesterIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDateTime = null): \GuzzleHttp\Promise\PromiseInterface
+    public function classGetClassesAsync($RequestClassDescriptionIds = null, $RequestClassIds = null, $RequestClassScheduleIds = null, $RequestClientId = null, $RequestEndDateTime = null, $RequestHideCanceledClasses = null, $RequestLastModifiedDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSchedulingWindow = null, $RequestSemesterIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDateTime = null): \GuzzleHttp\Promise\PromiseInterface
     {
-        return $this->classGetClassesAsyncWithHttpInfo($RequestClassDescriptionIds, $RequestClassIds, $RequestClientId, $RequestEndDateTime, $RequestHideCanceledClasses, $RequestLastModifiedDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSchedulingWindow, $RequestSemesterIds, $RequestSessionTypeIds, $RequestStaffIds, $RequestStartDateTime)
+        return $this->classGetClassesAsyncWithHttpInfo($RequestClassDescriptionIds, $RequestClassIds, $RequestClassScheduleIds, $RequestClientId, $RequestEndDateTime, $RequestHideCanceledClasses, $RequestLastModifiedDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSchedulingWindow, $RequestSemesterIds, $RequestSessionTypeIds, $RequestStaffIds, $RequestStartDateTime)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1512,6 +2069,7 @@ class ClassApi implements ApiInterface
      *
      * @param  int[] $RequestClassDescriptionIds The requested class description IDs. (optional)
      * @param  int[] $RequestClassIds The requested class IDs. (optional)
+     * @param  int[] $RequestClassScheduleIds The requested classScheduleIds. (optional)
      * @param  string $RequestClientId The client ID of the client who is viewing this class list. Based on identity, the client may be able to see additional information, such as membership specials. (optional)
      * @param  \DateTime $RequestEndDateTime The requested end date for filtering.  &lt;br /&gt;Default: **today’s date** (optional)
      * @param  bool $RequestHideCanceledClasses When &#x60;true&#x60;, canceled classes are removed from the response.&lt;br /&gt;  When &#x60;false&#x60;, canceled classes are included in the response.&lt;br /&gt;  Default: **false** (optional)
@@ -1529,10 +2087,10 @@ class ClassApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function classGetClassesAsyncWithHttpInfo($RequestClassDescriptionIds = null, $RequestClassIds = null, $RequestClientId = null, $RequestEndDateTime = null, $RequestHideCanceledClasses = null, $RequestLastModifiedDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSchedulingWindow = null, $RequestSemesterIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDateTime = null): \GuzzleHttp\Promise\PromiseInterface
+    public function classGetClassesAsyncWithHttpInfo($RequestClassDescriptionIds = null, $RequestClassIds = null, $RequestClassScheduleIds = null, $RequestClientId = null, $RequestEndDateTime = null, $RequestHideCanceledClasses = null, $RequestLastModifiedDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSchedulingWindow = null, $RequestSemesterIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDateTime = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClassesResponse';
-        $request = $this->classGetClassesRequest($RequestClassDescriptionIds, $RequestClassIds, $RequestClientId, $RequestEndDateTime, $RequestHideCanceledClasses, $RequestLastModifiedDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSchedulingWindow, $RequestSemesterIds, $RequestSessionTypeIds, $RequestStaffIds, $RequestStartDateTime);
+        $request = $this->classGetClassesRequest($RequestClassDescriptionIds, $RequestClassIds, $RequestClassScheduleIds, $RequestClientId, $RequestEndDateTime, $RequestHideCanceledClasses, $RequestLastModifiedDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSchedulingWindow, $RequestSemesterIds, $RequestSessionTypeIds, $RequestStaffIds, $RequestStartDateTime);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1576,6 +2134,7 @@ class ClassApi implements ApiInterface
      *
      * @param  int[] $RequestClassDescriptionIds The requested class description IDs. (optional)
      * @param  int[] $RequestClassIds The requested class IDs. (optional)
+     * @param  int[] $RequestClassScheduleIds The requested classScheduleIds. (optional)
      * @param  string $RequestClientId The client ID of the client who is viewing this class list. Based on identity, the client may be able to see additional information, such as membership specials. (optional)
      * @param  \DateTime $RequestEndDateTime The requested end date for filtering.  &lt;br /&gt;Default: **today’s date** (optional)
      * @param  bool $RequestHideCanceledClasses When &#x60;true&#x60;, canceled classes are removed from the response.&lt;br /&gt;  When &#x60;false&#x60;, canceled classes are included in the response.&lt;br /&gt;  Default: **false** (optional)
@@ -1593,7 +2152,7 @@ class ClassApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function classGetClassesRequest($RequestClassDescriptionIds = null, $RequestClassIds = null, $RequestClientId = null, $RequestEndDateTime = null, $RequestHideCanceledClasses = null, $RequestLastModifiedDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSchedulingWindow = null, $RequestSemesterIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDateTime = null): \GuzzleHttp\Psr7\Request
+    protected function classGetClassesRequest($RequestClassDescriptionIds = null, $RequestClassIds = null, $RequestClassScheduleIds = null, $RequestClientId = null, $RequestEndDateTime = null, $RequestHideCanceledClasses = null, $RequestLastModifiedDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSchedulingWindow = null, $RequestSemesterIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDateTime = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/class/classes';
@@ -1616,6 +2175,13 @@ class ClassApi implements ApiInterface
         } else
         if ($RequestClassIds !== null) {
             $queryParams['request.classIds'] = ObjectSerializer::toQueryValue($RequestClassIds);
+        }
+        // query params
+        if (is_array($RequestClassScheduleIds)) {
+            $queryParams['request.classScheduleIds'] = $RequestClassScheduleIds;
+        } else
+        if ($RequestClassScheduleIds !== null) {
+            $queryParams['request.classScheduleIds'] = ObjectSerializer::toQueryValue($RequestClassScheduleIds);
         }
         // query params
         if ($RequestClientId !== null) {
@@ -1683,6 +2249,689 @@ class ClassApi implements ApiInterface
         // query params
         if ($RequestStartDateTime !== null) {
             $queryParams['request.startDateTime'] = ObjectSerializer::toQueryValue($RequestStartDateTime);
+        }
+
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = Utils::jsonEncode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = Utils::jsonEncode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
+        if ($apiKey !== null) {
+            $headers['API-Key'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('authorization');
+        if ($apiKey !== null) {
+            $headers['authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('siteId');
+        if ($apiKey !== null) {
+            $headers['siteId'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation classGetCourses
+     *
+     * Fetch the list of the course for a studio
+     *
+     * @param  int[] $GetCoursesRequestCourseIDs (optional) The requested course IDs. (optional)
+     * @param  \DateTime $GetCoursesRequestEndDate The end date range. Any active courses that are on or before this day.  &lt;br /&gt;(optional) Defaults to StartDate. (optional)
+     * @param  int $GetCoursesRequestLimit Number of results to include, defaults to 100 (optional)
+     * @param  int[] $GetCoursesRequestLocationIDs (optional) The requested locations. (optional)
+     * @param  int $GetCoursesRequestOffset Page offset, defaults to 0. (optional)
+     * @param  int[] $GetCoursesRequestProgramIDs (optional) The requested program IDs. (optional)
+     * @param  int[] $GetCoursesRequestSemesterIDs (optional) The requested semester IDs. (optional)
+     * @param  int[] $GetCoursesRequestStaffIDs (optional) The requested StaffIDs. (optional)
+     * @param  \DateTime $GetCoursesRequestStartDate The start date range. Any active courses that are on or after this day.  &lt;br /&gt;(optional) Defaults to today. (optional)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Nlocascio\Mindbody\Model\GetCoursesReponse
+     */
+    public function classGetCourses($GetCoursesRequestCourseIDs = null, $GetCoursesRequestEndDate = null, $GetCoursesRequestLimit = null, $GetCoursesRequestLocationIDs = null, $GetCoursesRequestOffset = null, $GetCoursesRequestProgramIDs = null, $GetCoursesRequestSemesterIDs = null, $GetCoursesRequestStaffIDs = null, $GetCoursesRequestStartDate = null): \Nlocascio\Mindbody\Model\GetCoursesReponse
+    {
+        list($response) = $this->classGetCoursesWithHttpInfo($GetCoursesRequestCourseIDs, $GetCoursesRequestEndDate, $GetCoursesRequestLimit, $GetCoursesRequestLocationIDs, $GetCoursesRequestOffset, $GetCoursesRequestProgramIDs, $GetCoursesRequestSemesterIDs, $GetCoursesRequestStaffIDs, $GetCoursesRequestStartDate);
+        return $response;
+    }
+
+    /**
+     * Operation classGetCoursesWithHttpInfo
+     *
+     * Fetch the list of the course for a studio
+     *
+     * @param  int[] $GetCoursesRequestCourseIDs (optional) The requested course IDs. (optional)
+     * @param  \DateTime $GetCoursesRequestEndDate The end date range. Any active courses that are on or before this day.  &lt;br /&gt;(optional) Defaults to StartDate. (optional)
+     * @param  int $GetCoursesRequestLimit Number of results to include, defaults to 100 (optional)
+     * @param  int[] $GetCoursesRequestLocationIDs (optional) The requested locations. (optional)
+     * @param  int $GetCoursesRequestOffset Page offset, defaults to 0. (optional)
+     * @param  int[] $GetCoursesRequestProgramIDs (optional) The requested program IDs. (optional)
+     * @param  int[] $GetCoursesRequestSemesterIDs (optional) The requested semester IDs. (optional)
+     * @param  int[] $GetCoursesRequestStaffIDs (optional) The requested StaffIDs. (optional)
+     * @param  \DateTime $GetCoursesRequestStartDate The start date range. Any active courses that are on or after this day.  &lt;br /&gt;(optional) Defaults to today. (optional)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Nlocascio\Mindbody\Model\GetCoursesReponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function classGetCoursesWithHttpInfo($GetCoursesRequestCourseIDs = null, $GetCoursesRequestEndDate = null, $GetCoursesRequestLimit = null, $GetCoursesRequestLocationIDs = null, $GetCoursesRequestOffset = null, $GetCoursesRequestProgramIDs = null, $GetCoursesRequestSemesterIDs = null, $GetCoursesRequestStaffIDs = null, $GetCoursesRequestStartDate = null): array
+    {
+        $returnType = '\Nlocascio\Mindbody\Model\GetCoursesReponse';
+        $request = $this->classGetCoursesRequest($GetCoursesRequestCourseIDs, $GetCoursesRequestEndDate, $GetCoursesRequestLimit, $GetCoursesRequestLocationIDs, $GetCoursesRequestOffset, $GetCoursesRequestProgramIDs, $GetCoursesRequestSemesterIDs, $GetCoursesRequestStaffIDs, $GetCoursesRequestStartDate);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Nlocascio\Mindbody\Model\GetCoursesReponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation classGetCoursesAsync
+     *
+     * Fetch the list of the course for a studio
+     *
+     * @param  int[] $GetCoursesRequestCourseIDs (optional) The requested course IDs. (optional)
+     * @param  \DateTime $GetCoursesRequestEndDate The end date range. Any active courses that are on or before this day.  &lt;br /&gt;(optional) Defaults to StartDate. (optional)
+     * @param  int $GetCoursesRequestLimit Number of results to include, defaults to 100 (optional)
+     * @param  int[] $GetCoursesRequestLocationIDs (optional) The requested locations. (optional)
+     * @param  int $GetCoursesRequestOffset Page offset, defaults to 0. (optional)
+     * @param  int[] $GetCoursesRequestProgramIDs (optional) The requested program IDs. (optional)
+     * @param  int[] $GetCoursesRequestSemesterIDs (optional) The requested semester IDs. (optional)
+     * @param  int[] $GetCoursesRequestStaffIDs (optional) The requested StaffIDs. (optional)
+     * @param  \DateTime $GetCoursesRequestStartDate The start date range. Any active courses that are on or after this day.  &lt;br /&gt;(optional) Defaults to today. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function classGetCoursesAsync($GetCoursesRequestCourseIDs = null, $GetCoursesRequestEndDate = null, $GetCoursesRequestLimit = null, $GetCoursesRequestLocationIDs = null, $GetCoursesRequestOffset = null, $GetCoursesRequestProgramIDs = null, $GetCoursesRequestSemesterIDs = null, $GetCoursesRequestStaffIDs = null, $GetCoursesRequestStartDate = null): \GuzzleHttp\Promise\PromiseInterface
+    {
+        return $this->classGetCoursesAsyncWithHttpInfo($GetCoursesRequestCourseIDs, $GetCoursesRequestEndDate, $GetCoursesRequestLimit, $GetCoursesRequestLocationIDs, $GetCoursesRequestOffset, $GetCoursesRequestProgramIDs, $GetCoursesRequestSemesterIDs, $GetCoursesRequestStaffIDs, $GetCoursesRequestStartDate)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation classGetCoursesAsyncWithHttpInfo
+     *
+     * Fetch the list of the course for a studio
+     *
+     * @param  int[] $GetCoursesRequestCourseIDs (optional) The requested course IDs. (optional)
+     * @param  \DateTime $GetCoursesRequestEndDate The end date range. Any active courses that are on or before this day.  &lt;br /&gt;(optional) Defaults to StartDate. (optional)
+     * @param  int $GetCoursesRequestLimit Number of results to include, defaults to 100 (optional)
+     * @param  int[] $GetCoursesRequestLocationIDs (optional) The requested locations. (optional)
+     * @param  int $GetCoursesRequestOffset Page offset, defaults to 0. (optional)
+     * @param  int[] $GetCoursesRequestProgramIDs (optional) The requested program IDs. (optional)
+     * @param  int[] $GetCoursesRequestSemesterIDs (optional) The requested semester IDs. (optional)
+     * @param  int[] $GetCoursesRequestStaffIDs (optional) The requested StaffIDs. (optional)
+     * @param  \DateTime $GetCoursesRequestStartDate The start date range. Any active courses that are on or after this day.  &lt;br /&gt;(optional) Defaults to today. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function classGetCoursesAsyncWithHttpInfo($GetCoursesRequestCourseIDs = null, $GetCoursesRequestEndDate = null, $GetCoursesRequestLimit = null, $GetCoursesRequestLocationIDs = null, $GetCoursesRequestOffset = null, $GetCoursesRequestProgramIDs = null, $GetCoursesRequestSemesterIDs = null, $GetCoursesRequestStaffIDs = null, $GetCoursesRequestStartDate = null): \GuzzleHttp\Promise\PromiseInterface
+    {
+        $returnType = '\Nlocascio\Mindbody\Model\GetCoursesReponse';
+        $request = $this->classGetCoursesRequest($GetCoursesRequestCourseIDs, $GetCoursesRequestEndDate, $GetCoursesRequestLimit, $GetCoursesRequestLocationIDs, $GetCoursesRequestOffset, $GetCoursesRequestProgramIDs, $GetCoursesRequestSemesterIDs, $GetCoursesRequestStaffIDs, $GetCoursesRequestStartDate);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'classGetCourses'
+     *
+     * @param  int[] $GetCoursesRequestCourseIDs (optional) The requested course IDs. (optional)
+     * @param  \DateTime $GetCoursesRequestEndDate The end date range. Any active courses that are on or before this day.  &lt;br /&gt;(optional) Defaults to StartDate. (optional)
+     * @param  int $GetCoursesRequestLimit Number of results to include, defaults to 100 (optional)
+     * @param  int[] $GetCoursesRequestLocationIDs (optional) The requested locations. (optional)
+     * @param  int $GetCoursesRequestOffset Page offset, defaults to 0. (optional)
+     * @param  int[] $GetCoursesRequestProgramIDs (optional) The requested program IDs. (optional)
+     * @param  int[] $GetCoursesRequestSemesterIDs (optional) The requested semester IDs. (optional)
+     * @param  int[] $GetCoursesRequestStaffIDs (optional) The requested StaffIDs. (optional)
+     * @param  \DateTime $GetCoursesRequestStartDate The start date range. Any active courses that are on or after this day.  &lt;br /&gt;(optional) Defaults to today. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function classGetCoursesRequest($GetCoursesRequestCourseIDs = null, $GetCoursesRequestEndDate = null, $GetCoursesRequestLimit = null, $GetCoursesRequestLocationIDs = null, $GetCoursesRequestOffset = null, $GetCoursesRequestProgramIDs = null, $GetCoursesRequestSemesterIDs = null, $GetCoursesRequestStaffIDs = null, $GetCoursesRequestStartDate = null): \GuzzleHttp\Psr7\Request
+    {
+
+        $resourcePath = '/public/v6/class/courses';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if (is_array($GetCoursesRequestCourseIDs)) {
+            $queryParams['getCoursesRequest.courseIDs'] = $GetCoursesRequestCourseIDs;
+        } else
+        if ($GetCoursesRequestCourseIDs !== null) {
+            $queryParams['getCoursesRequest.courseIDs'] = ObjectSerializer::toQueryValue($GetCoursesRequestCourseIDs);
+        }
+        // query params
+        if ($GetCoursesRequestEndDate !== null) {
+            $queryParams['getCoursesRequest.endDate'] = ObjectSerializer::toQueryValue($GetCoursesRequestEndDate);
+        }
+        // query params
+        if ($GetCoursesRequestLimit !== null) {
+            $queryParams['getCoursesRequest.limit'] = ObjectSerializer::toQueryValue($GetCoursesRequestLimit);
+        }
+        // query params
+        if (is_array($GetCoursesRequestLocationIDs)) {
+            $queryParams['getCoursesRequest.locationIDs'] = $GetCoursesRequestLocationIDs;
+        } else
+        if ($GetCoursesRequestLocationIDs !== null) {
+            $queryParams['getCoursesRequest.locationIDs'] = ObjectSerializer::toQueryValue($GetCoursesRequestLocationIDs);
+        }
+        // query params
+        if ($GetCoursesRequestOffset !== null) {
+            $queryParams['getCoursesRequest.offset'] = ObjectSerializer::toQueryValue($GetCoursesRequestOffset);
+        }
+        // query params
+        if (is_array($GetCoursesRequestProgramIDs)) {
+            $queryParams['getCoursesRequest.programIDs'] = $GetCoursesRequestProgramIDs;
+        } else
+        if ($GetCoursesRequestProgramIDs !== null) {
+            $queryParams['getCoursesRequest.programIDs'] = ObjectSerializer::toQueryValue($GetCoursesRequestProgramIDs);
+        }
+        // query params
+        if (is_array($GetCoursesRequestSemesterIDs)) {
+            $queryParams['getCoursesRequest.semesterIDs'] = $GetCoursesRequestSemesterIDs;
+        } else
+        if ($GetCoursesRequestSemesterIDs !== null) {
+            $queryParams['getCoursesRequest.semesterIDs'] = ObjectSerializer::toQueryValue($GetCoursesRequestSemesterIDs);
+        }
+        // query params
+        if (is_array($GetCoursesRequestStaffIDs)) {
+            $queryParams['getCoursesRequest.staffIDs'] = $GetCoursesRequestStaffIDs;
+        } else
+        if ($GetCoursesRequestStaffIDs !== null) {
+            $queryParams['getCoursesRequest.staffIDs'] = ObjectSerializer::toQueryValue($GetCoursesRequestStaffIDs);
+        }
+        // query params
+        if ($GetCoursesRequestStartDate !== null) {
+            $queryParams['getCoursesRequest.startDate'] = ObjectSerializer::toQueryValue($GetCoursesRequestStartDate);
+        }
+
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = Utils::jsonEncode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = Utils::jsonEncode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
+        if ($apiKey !== null) {
+            $headers['API-Key'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('authorization');
+        if ($apiKey !== null) {
+            $headers['authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('siteId');
+        if ($apiKey !== null) {
+            $headers['siteId'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation classGetSemestersAsync
+     *
+     * Fetch the list of the Semesters
+     *
+     * @param  bool $RequestActive Get Active semesters (optional)
+     * @param  \DateTime $RequestEndDate Filter semesters with end date (optional)
+     * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
+     * @param  int $RequestOffset Page offset, defaults to 0. (optional)
+     * @param  int[] $RequestSemesterIDs Get with semester ids (optional)
+     * @param  \DateTime $RequestStartDate Filter semesters with start date (optional)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Nlocascio\Mindbody\Model\GetSemestersResponse
+     */
+    public function classGetSemestersAsync($RequestActive = null, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestSemesterIDs = null, $RequestStartDate = null): \Nlocascio\Mindbody\Model\GetSemestersResponse
+    {
+        list($response) = $this->classGetSemestersAsyncWithHttpInfo($RequestActive, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestSemesterIDs, $RequestStartDate);
+        return $response;
+    }
+
+    /**
+     * Operation classGetSemestersAsyncWithHttpInfo
+     *
+     * Fetch the list of the Semesters
+     *
+     * @param  bool $RequestActive Get Active semesters (optional)
+     * @param  \DateTime $RequestEndDate Filter semesters with end date (optional)
+     * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
+     * @param  int $RequestOffset Page offset, defaults to 0. (optional)
+     * @param  int[] $RequestSemesterIDs Get with semester ids (optional)
+     * @param  \DateTime $RequestStartDate Filter semesters with start date (optional)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Nlocascio\Mindbody\Model\GetSemestersResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function classGetSemestersAsyncWithHttpInfo($RequestActive = null, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestSemesterIDs = null, $RequestStartDate = null): array
+    {
+        $returnType = '\Nlocascio\Mindbody\Model\GetSemestersResponse';
+        $request = $this->classGetSemestersAsyncRequest($RequestActive, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestSemesterIDs, $RequestStartDate);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Nlocascio\Mindbody\Model\GetSemestersResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation classGetSemestersAsyncAsync
+     *
+     * Fetch the list of the Semesters
+     *
+     * @param  bool $RequestActive Get Active semesters (optional)
+     * @param  \DateTime $RequestEndDate Filter semesters with end date (optional)
+     * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
+     * @param  int $RequestOffset Page offset, defaults to 0. (optional)
+     * @param  int[] $RequestSemesterIDs Get with semester ids (optional)
+     * @param  \DateTime $RequestStartDate Filter semesters with start date (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function classGetSemestersAsyncAsync($RequestActive = null, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestSemesterIDs = null, $RequestStartDate = null): \GuzzleHttp\Promise\PromiseInterface
+    {
+        return $this->classGetSemestersAsyncAsyncWithHttpInfo($RequestActive, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestSemesterIDs, $RequestStartDate)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation classGetSemestersAsyncAsyncWithHttpInfo
+     *
+     * Fetch the list of the Semesters
+     *
+     * @param  bool $RequestActive Get Active semesters (optional)
+     * @param  \DateTime $RequestEndDate Filter semesters with end date (optional)
+     * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
+     * @param  int $RequestOffset Page offset, defaults to 0. (optional)
+     * @param  int[] $RequestSemesterIDs Get with semester ids (optional)
+     * @param  \DateTime $RequestStartDate Filter semesters with start date (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function classGetSemestersAsyncAsyncWithHttpInfo($RequestActive = null, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestSemesterIDs = null, $RequestStartDate = null): \GuzzleHttp\Promise\PromiseInterface
+    {
+        $returnType = '\Nlocascio\Mindbody\Model\GetSemestersResponse';
+        $request = $this->classGetSemestersAsyncRequest($RequestActive, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestSemesterIDs, $RequestStartDate);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'classGetSemestersAsync'
+     *
+     * @param  bool $RequestActive Get Active semesters (optional)
+     * @param  \DateTime $RequestEndDate Filter semesters with end date (optional)
+     * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
+     * @param  int $RequestOffset Page offset, defaults to 0. (optional)
+     * @param  int[] $RequestSemesterIDs Get with semester ids (optional)
+     * @param  \DateTime $RequestStartDate Filter semesters with start date (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function classGetSemestersAsyncRequest($RequestActive = null, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestSemesterIDs = null, $RequestStartDate = null): \GuzzleHttp\Psr7\Request
+    {
+
+        $resourcePath = '/public/v6/class/semesters';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($RequestActive !== null) {
+            $queryParams['request.active'] = ObjectSerializer::toQueryValue($RequestActive);
+        }
+        // query params
+        if ($RequestEndDate !== null) {
+            $queryParams['request.endDate'] = ObjectSerializer::toQueryValue($RequestEndDate);
+        }
+        // query params
+        if ($RequestLimit !== null) {
+            $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
+        }
+        // query params
+        if ($RequestOffset !== null) {
+            $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
+        }
+        // query params
+        if (is_array($RequestSemesterIDs)) {
+            $queryParams['request.semesterIDs'] = $RequestSemesterIDs;
+        } else
+        if ($RequestSemesterIDs !== null) {
+            $queryParams['request.semesterIDs'] = ObjectSerializer::toQueryValue($RequestSemesterIDs);
+        }
+        // query params
+        if ($RequestStartDate !== null) {
+            $queryParams['request.startDate'] = ObjectSerializer::toQueryValue($RequestStartDate);
         }
 
 
@@ -2392,6 +3641,285 @@ class ClassApi implements ApiInterface
     }
 
     /**
+     * Operation classRemoveClientsFromClasses
+     *
+     * Remove a clients from a classes.
+     *
+     * @param  \Nlocascio\Mindbody\Model\RemoveClientsFromClassesRequest $Request Request (required)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Nlocascio\Mindbody\Model\RemoveClientsFromClassesResponse
+     */
+    public function classRemoveClientsFromClasses($Request): \Nlocascio\Mindbody\Model\RemoveClientsFromClassesResponse
+    {
+        list($response) = $this->classRemoveClientsFromClassesWithHttpInfo($Request);
+        return $response;
+    }
+
+    /**
+     * Operation classRemoveClientsFromClassesWithHttpInfo
+     *
+     * Remove a clients from a classes.
+     *
+     * @param  \Nlocascio\Mindbody\Model\RemoveClientsFromClassesRequest $Request (required)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Nlocascio\Mindbody\Model\RemoveClientsFromClassesResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function classRemoveClientsFromClassesWithHttpInfo($Request): array
+    {
+        $returnType = '\Nlocascio\Mindbody\Model\RemoveClientsFromClassesResponse';
+        $request = $this->classRemoveClientsFromClassesRequest($Request);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Nlocascio\Mindbody\Model\RemoveClientsFromClassesResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation classRemoveClientsFromClassesAsync
+     *
+     * Remove a clients from a classes.
+     *
+     * @param  \Nlocascio\Mindbody\Model\RemoveClientsFromClassesRequest $Request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function classRemoveClientsFromClassesAsync($Request): \GuzzleHttp\Promise\PromiseInterface
+    {
+        return $this->classRemoveClientsFromClassesAsyncWithHttpInfo($Request)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation classRemoveClientsFromClassesAsyncWithHttpInfo
+     *
+     * Remove a clients from a classes.
+     *
+     * @param  \Nlocascio\Mindbody\Model\RemoveClientsFromClassesRequest $Request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function classRemoveClientsFromClassesAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
+    {
+        $returnType = '\Nlocascio\Mindbody\Model\RemoveClientsFromClassesResponse';
+        $request = $this->classRemoveClientsFromClassesRequest($Request);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'classRemoveClientsFromClasses'
+     *
+     * @param  \Nlocascio\Mindbody\Model\RemoveClientsFromClassesRequest $Request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function classRemoveClientsFromClassesRequest($Request): \GuzzleHttp\Psr7\Request
+    {
+        // verify the required parameter 'Request' is set
+        if ($Request === null || (is_array($Request) && count($Request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $Request when calling classRemoveClientsFromClasses'
+            );
+        }
+
+        $resourcePath = '/public/v6/class/removeclientsfromclasses';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // body params
+        $_tempBody = null;
+        if (isset($Request)) {
+            $_tempBody = $Request;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = Utils::jsonEncode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = Utils::jsonEncode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
+        if ($apiKey !== null) {
+            $headers['API-Key'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('authorization');
+        if ($apiKey !== null) {
+            $headers['authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('siteId');
+        if ($apiKey !== null) {
+            $headers['siteId'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation classRemoveFromWaitlist
      *
      * Remove a client from a waiting list.
@@ -2856,6 +4384,281 @@ class ClassApi implements ApiInterface
         }
 
         $resourcePath = '/public/v6/class/substituteclassteacher';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // body params
+        $_tempBody = null;
+        if (isset($Request)) {
+            $_tempBody = $Request;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = Utils::jsonEncode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = Utils::jsonEncode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
+        if ($apiKey !== null) {
+            $headers['API-Key'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('authorization');
+        if ($apiKey !== null) {
+            $headers['authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('siteId');
+        if ($apiKey !== null) {
+            $headers['siteId'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation classUpdateClassSchedule
+     *
+     * @param  \Nlocascio\Mindbody\Model\UpdateClassEnrollmentScheduleRequest $Request Request (required)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return object
+     */
+    public function classUpdateClassSchedule($Request): array
+    {
+        list($response) = $this->classUpdateClassScheduleWithHttpInfo($Request);
+        return $response;
+    }
+
+    /**
+     * Operation classUpdateClassScheduleWithHttpInfo
+     *
+     * @param  \Nlocascio\Mindbody\Model\UpdateClassEnrollmentScheduleRequest $Request (required)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function classUpdateClassScheduleWithHttpInfo($Request): array
+    {
+        $returnType = 'object';
+        $request = $this->classUpdateClassScheduleRequest($Request);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation classUpdateClassScheduleAsync
+     *
+     * 
+     *
+     * @param  \Nlocascio\Mindbody\Model\UpdateClassEnrollmentScheduleRequest $Request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function classUpdateClassScheduleAsync($Request): \GuzzleHttp\Promise\PromiseInterface
+    {
+        return $this->classUpdateClassScheduleAsyncWithHttpInfo($Request)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation classUpdateClassScheduleAsyncWithHttpInfo
+     *
+     * 
+     *
+     * @param  \Nlocascio\Mindbody\Model\UpdateClassEnrollmentScheduleRequest $Request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function classUpdateClassScheduleAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
+    {
+        $returnType = 'object';
+        $request = $this->classUpdateClassScheduleRequest($Request);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'classUpdateClassSchedule'
+     *
+     * @param  \Nlocascio\Mindbody\Model\UpdateClassEnrollmentScheduleRequest $Request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function classUpdateClassScheduleRequest($Request): \GuzzleHttp\Psr7\Request
+    {
+        // verify the required parameter 'Request' is set
+        if ($Request === null || (is_array($Request) && count($Request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $Request when calling classUpdateClassSchedule'
+            );
+        }
+
+        $resourcePath = '/public/v6/class/updateclassschedule';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

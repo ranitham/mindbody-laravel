@@ -37,6 +37,10 @@ Name | Type | Description | Notes
 **TotalContractAmountSubtotal** | **double** | The subtotal amount that the client is to be charged over the lifespan of the contract. | [optional] 
 **TotalContractAmountTax** | **double** | The total amount of tax the client is to be charged over the lifespan of the contract. | [optional] 
 **TotalContractAmountTotal** | **double** | The total amount the client is to be charged over the lifespan of the contract. | [optional] 
+**PromoPaymentAmountSubtotal** | **double** | Subtotal promotional period | [optional] 
+**PromoPaymentAmountTax** | **double** | Taxes of promotional period | [optional] 
+**PromoPaymentAmountTotal** | **double** | Total of promotional period | [optional] 
+**NumberOfPromoAutopays** | **int** | Number of times that the AutoPay runs under the promotional period | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

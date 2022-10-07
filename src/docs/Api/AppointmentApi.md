@@ -6,7 +6,9 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**appointmentAddAppointment**](AppointmentApi.md#appointmentAddAppointment) | **POST** /public/v6/appointment/addappointment | Book a new appointment.
 [**appointmentAddAppointmentAddOn**](AppointmentApi.md#appointmentAddAppointmentAddOn) | **POST** /public/v6/appointment/addappointmentaddon | Add Appointment Add-On
+[**appointmentAddAvailabilities**](AppointmentApi.md#appointmentAddAvailabilities) | **POST** /public/v6/appointment/availabilities | Add Availabillity/Unavailabillity.
 [**appointmentDeleteAppointmentAddOn**](AppointmentApi.md#appointmentDeleteAppointmentAddOn) | **DELETE** /public/v6/appointment/deleteappointmentaddon | Early Cancel/Remove an Appointment Add-On
+[**appointmentDeleteAvailability**](AppointmentApi.md#appointmentDeleteAvailability) | **DELETE** /public/v6/appointment/availability | Delete availability/unavailability of the staff
 [**appointmentGetActiveSessionTimes**](AppointmentApi.md#appointmentGetActiveSessionTimes) | **GET** /public/v6/appointment/activesessiontimes | Get active session times.
 [**appointmentGetAddOns**](AppointmentApi.md#appointmentGetAddOns) | **GET** /public/v6/appointment/addons | Get add ons
 [**appointmentGetAppointmentOptions**](AppointmentApi.md#appointmentGetAppointmentOptions) | **GET** /public/v6/appointment/appointmentoptions | Get appointment-related settings.
@@ -14,7 +16,9 @@ Method | HTTP request | Description
 [**appointmentGetBookableItems**](AppointmentApi.md#appointmentGetBookableItems) | **GET** /public/v6/appointment/bookableitems | Get staff appointment availability.
 [**appointmentGetScheduleItems**](AppointmentApi.md#appointmentGetScheduleItems) | **GET** /public/v6/appointment/scheduleitems | Get appointment schedule.
 [**appointmentGetStaffAppointments**](AppointmentApi.md#appointmentGetStaffAppointments) | **GET** /public/v6/appointment/staffappointments | Get appointments grouped by staff member.
+[**appointmentRemoveFromWaitlist**](AppointmentApi.md#appointmentRemoveFromWaitlist) | **DELETE** /public/v6/appointment/removefromappointmentwaitlist | Remove an appointment from waitlist
 [**appointmentUpdateAppointment**](AppointmentApi.md#appointmentUpdateAppointment) | **POST** /public/v6/appointment/updateappointment | Update an existing appointment.
+[**appointmentUpdateAvailability**](AppointmentApi.md#appointmentUpdateAvailability) | **PUT** /public/v6/appointment/availabilities | Update availability/unavailability of the staff
 
 
 # **appointmentAddAppointment**
@@ -143,6 +147,69 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **appointmentAddAvailabilities**
+> \Nlocascio\Mindbody\Model\AddAvailabilitiesResponse appointmentAddAvailabilities($Request)
+
+Add Availabillity/Unavailabillity.
+
+To Add Availabillity/Unavailabillity, you must use a location ID, staff IDs and the `StartDate/EndDate` of the Availabillity/Unavailabillity.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: API-Key
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'Bearer');
+// Configure API key authorization: authorization
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('authorization', 'Bearer');
+// Configure API key authorization: siteId
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('siteId', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('siteId', 'Bearer');
+
+$apiInstance = new Nlocascio\Mindbody\Api\AppointmentApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$Request = new \Nlocascio\Mindbody\Model\AddAvailabilitiesRequest(); // \Nlocascio\Mindbody\Model\AddAvailabilitiesRequest | 
+
+try {
+    $result = $apiInstance->appointmentAddAvailabilities($Request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AppointmentApi->appointmentAddAvailabilities: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Request** | [**\Nlocascio\Mindbody\Model\AddAvailabilitiesRequest**](../Model/AddAvailabilitiesRequest.md)|  |
+
+### Return type
+
+[**\Nlocascio\Mindbody\Model\AddAvailabilitiesResponse**](../Model/AddAvailabilitiesResponse.md)
+
+### Authorization
+
+[API-Key](../../README.md#API-Key), [authorization](../../README.md#authorization), [siteId](../../README.md#siteId)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml, multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **appointmentDeleteAppointmentAddOn**
 > appointmentDeleteAppointmentAddOn($Id)
 
@@ -189,6 +256,68 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **Id** | **int**|  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[API-Key](../../README.md#API-Key), [authorization](../../README.md#authorization), [siteId](../../README.md#siteId)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, text/json, application/xml, text/xml, multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **appointmentDeleteAvailability**
+> appointmentDeleteAvailability($DeleteAvailabilityRequestAvailabilityId, $DeleteAvailabilityRequestTest)
+
+Delete availability/unavailability of the staff
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: API-Key
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'Bearer');
+// Configure API key authorization: authorization
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('authorization', 'Bearer');
+// Configure API key authorization: siteId
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('siteId', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('siteId', 'Bearer');
+
+$apiInstance = new Nlocascio\Mindbody\Api\AppointmentApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$DeleteAvailabilityRequestAvailabilityId = 56; // int | Availability Id to be deleted
+$DeleteAvailabilityRequestTest = true; // bool | The test flag
+
+try {
+    $apiInstance->appointmentDeleteAvailability($DeleteAvailabilityRequestAvailabilityId, $DeleteAvailabilityRequestTest);
+} catch (Exception $e) {
+    echo 'Exception when calling AppointmentApi->appointmentDeleteAvailability: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **DeleteAvailabilityRequestAvailabilityId** | **int**| Availability Id to be deleted | [optional]
+ **DeleteAvailabilityRequestTest** | **bool**| The test flag | [optional]
 
 ### Return type
 
@@ -706,6 +835,67 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **appointmentRemoveFromWaitlist**
+> \Nlocascio\Mindbody\Model\RemoveFromWaitlistResponse appointmentRemoveFromWaitlist($RequestWaitlistEntryIds)
+
+Remove an appointment from waitlist
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: API-Key
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'Bearer');
+// Configure API key authorization: authorization
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('authorization', 'Bearer');
+// Configure API key authorization: siteId
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('siteId', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('siteId', 'Bearer');
+
+$apiInstance = new Nlocascio\Mindbody\Api\AppointmentApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$RequestWaitlistEntryIds = array(56); // int[] | A list of waiting list IDs to remove from waiting lists.
+
+try {
+    $result = $apiInstance->appointmentRemoveFromWaitlist($RequestWaitlistEntryIds);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AppointmentApi->appointmentRemoveFromWaitlist: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **RequestWaitlistEntryIds** | [**int[]**](../Model/int.md)| A list of waiting list IDs to remove from waiting lists. |
+
+### Return type
+
+[**\Nlocascio\Mindbody\Model\RemoveFromWaitlistResponse**](../Model/RemoveFromWaitlistResponse.md)
+
+### Authorization
+
+[API-Key](../../README.md#API-Key), [authorization](../../README.md#authorization), [siteId](../../README.md#siteId)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, text/json, application/xml, text/xml, multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **appointmentUpdateAppointment**
 > \Nlocascio\Mindbody\Model\UpdateAppointmentResponse appointmentUpdateAppointment($Request)
 
@@ -757,6 +947,67 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Nlocascio\Mindbody\Model\UpdateAppointmentResponse**](../Model/UpdateAppointmentResponse.md)
+
+### Authorization
+
+[API-Key](../../README.md#API-Key), [authorization](../../README.md#authorization), [siteId](../../README.md#siteId)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml, multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **appointmentUpdateAvailability**
+> \Nlocascio\Mindbody\Model\UpdateAvailabilityResponse appointmentUpdateAvailability($UpdateAvailabilityRequest)
+
+Update availability/unavailability of the staff
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: API-Key
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'Bearer');
+// Configure API key authorization: authorization
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('authorization', 'Bearer');
+// Configure API key authorization: siteId
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('siteId', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('siteId', 'Bearer');
+
+$apiInstance = new Nlocascio\Mindbody\Api\AppointmentApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$UpdateAvailabilityRequest = new \Nlocascio\Mindbody\Model\UpdateAvailabilityRequest(); // \Nlocascio\Mindbody\Model\UpdateAvailabilityRequest | 
+
+try {
+    $result = $apiInstance->appointmentUpdateAvailability($UpdateAvailabilityRequest);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AppointmentApi->appointmentUpdateAvailability: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **UpdateAvailabilityRequest** | [**\Nlocascio\Mindbody\Model\UpdateAvailabilityRequest**](../Model/UpdateAvailabilityRequest.md)|  |
+
+### Return type
+
+[**\Nlocascio\Mindbody\Model\UpdateAvailabilityResponse**](../Model/UpdateAvailabilityResponse.md)
 
 ### Authorization
 

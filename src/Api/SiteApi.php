@@ -1778,6 +1778,280 @@ class SiteApi implements ApiInterface
     }
 
     /**
+     * Operation siteGetMobileProviders
+     *
+     * Gets a list of active mobile providers for the site.
+     *
+     * @param  bool $RequestActive When true, the response only contains mobile providers which are activated. When false, only deactivated mobile providers are returned. Default: All Mobile Providers (optional)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Nlocascio\Mindbody\Model\GetMobileProvidersResponse
+     */
+    public function siteGetMobileProviders($RequestActive = null): \Nlocascio\Mindbody\Model\GetMobileProvidersResponse
+    {
+        list($response) = $this->siteGetMobileProvidersWithHttpInfo($RequestActive);
+        return $response;
+    }
+
+    /**
+     * Operation siteGetMobileProvidersWithHttpInfo
+     *
+     * Gets a list of active mobile providers for the site.
+     *
+     * @param  bool $RequestActive When true, the response only contains mobile providers which are activated. When false, only deactivated mobile providers are returned. Default: All Mobile Providers (optional)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Nlocascio\Mindbody\Model\GetMobileProvidersResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function siteGetMobileProvidersWithHttpInfo($RequestActive = null): array
+    {
+        $returnType = '\Nlocascio\Mindbody\Model\GetMobileProvidersResponse';
+        $request = $this->siteGetMobileProvidersRequest($RequestActive);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Nlocascio\Mindbody\Model\GetMobileProvidersResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation siteGetMobileProvidersAsync
+     *
+     * Gets a list of active mobile providers for the site.
+     *
+     * @param  bool $RequestActive When true, the response only contains mobile providers which are activated. When false, only deactivated mobile providers are returned. Default: All Mobile Providers (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function siteGetMobileProvidersAsync($RequestActive = null): \GuzzleHttp\Promise\PromiseInterface
+    {
+        return $this->siteGetMobileProvidersAsyncWithHttpInfo($RequestActive)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation siteGetMobileProvidersAsyncWithHttpInfo
+     *
+     * Gets a list of active mobile providers for the site.
+     *
+     * @param  bool $RequestActive When true, the response only contains mobile providers which are activated. When false, only deactivated mobile providers are returned. Default: All Mobile Providers (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function siteGetMobileProvidersAsyncWithHttpInfo($RequestActive = null): \GuzzleHttp\Promise\PromiseInterface
+    {
+        $returnType = '\Nlocascio\Mindbody\Model\GetMobileProvidersResponse';
+        $request = $this->siteGetMobileProvidersRequest($RequestActive);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'siteGetMobileProviders'
+     *
+     * @param  bool $RequestActive When true, the response only contains mobile providers which are activated. When false, only deactivated mobile providers are returned. Default: All Mobile Providers (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function siteGetMobileProvidersRequest($RequestActive = null): \GuzzleHttp\Psr7\Request
+    {
+
+        $resourcePath = '/public/v6/site/mobileproviders';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($RequestActive !== null) {
+            $queryParams['request.active'] = ObjectSerializer::toQueryValue($RequestActive);
+        }
+
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = Utils::jsonEncode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = Utils::jsonEncode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
+        if ($apiKey !== null) {
+            $headers['API-Key'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('authorization');
+        if ($apiKey !== null) {
+            $headers['authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('siteId');
+        if ($apiKey !== null) {
+            $headers['siteId'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation siteGetPaymentTypes
      *
      * Get payment types for a site.
@@ -2582,6 +2856,572 @@ class SiteApi implements ApiInterface
         // query params
         if ($RequestStartDate !== null) {
             $queryParams['request.startDate'] = ObjectSerializer::toQueryValue($RequestStartDate);
+        }
+
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = Utils::jsonEncode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = Utils::jsonEncode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
+        if ($apiKey !== null) {
+            $headers['API-Key'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('authorization');
+        if ($apiKey !== null) {
+            $headers['authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('siteId');
+        if ($apiKey !== null) {
+            $headers['siteId'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation siteGetProspectStages
+     *
+     * Gets a list of prospect stages for a site.
+     *
+     * @param  bool $RequestActive The requested Active type Prospect Stages. true indicates for Active Prospect Stages and false indicates for Deactivated Prospect Stages. (optional)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Nlocascio\Mindbody\Model\GetProspectStagesResponse
+     */
+    public function siteGetProspectStages($RequestActive = null): \Nlocascio\Mindbody\Model\GetProspectStagesResponse
+    {
+        list($response) = $this->siteGetProspectStagesWithHttpInfo($RequestActive);
+        return $response;
+    }
+
+    /**
+     * Operation siteGetProspectStagesWithHttpInfo
+     *
+     * Gets a list of prospect stages for a site.
+     *
+     * @param  bool $RequestActive The requested Active type Prospect Stages. true indicates for Active Prospect Stages and false indicates for Deactivated Prospect Stages. (optional)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Nlocascio\Mindbody\Model\GetProspectStagesResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function siteGetProspectStagesWithHttpInfo($RequestActive = null): array
+    {
+        $returnType = '\Nlocascio\Mindbody\Model\GetProspectStagesResponse';
+        $request = $this->siteGetProspectStagesRequest($RequestActive);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Nlocascio\Mindbody\Model\GetProspectStagesResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation siteGetProspectStagesAsync
+     *
+     * Gets a list of prospect stages for a site.
+     *
+     * @param  bool $RequestActive The requested Active type Prospect Stages. true indicates for Active Prospect Stages and false indicates for Deactivated Prospect Stages. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function siteGetProspectStagesAsync($RequestActive = null): \GuzzleHttp\Promise\PromiseInterface
+    {
+        return $this->siteGetProspectStagesAsyncWithHttpInfo($RequestActive)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation siteGetProspectStagesAsyncWithHttpInfo
+     *
+     * Gets a list of prospect stages for a site.
+     *
+     * @param  bool $RequestActive The requested Active type Prospect Stages. true indicates for Active Prospect Stages and false indicates for Deactivated Prospect Stages. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function siteGetProspectStagesAsyncWithHttpInfo($RequestActive = null): \GuzzleHttp\Promise\PromiseInterface
+    {
+        $returnType = '\Nlocascio\Mindbody\Model\GetProspectStagesResponse';
+        $request = $this->siteGetProspectStagesRequest($RequestActive);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'siteGetProspectStages'
+     *
+     * @param  bool $RequestActive The requested Active type Prospect Stages. true indicates for Active Prospect Stages and false indicates for Deactivated Prospect Stages. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function siteGetProspectStagesRequest($RequestActive = null): \GuzzleHttp\Psr7\Request
+    {
+
+        $resourcePath = '/public/v6/site/prospectstages';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($RequestActive !== null) {
+            $queryParams['request.active'] = ObjectSerializer::toQueryValue($RequestActive);
+        }
+
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = Utils::jsonEncode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = Utils::jsonEncode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
+        if ($apiKey !== null) {
+            $headers['API-Key'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('authorization');
+        if ($apiKey !== null) {
+            $headers['authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('siteId');
+        if ($apiKey !== null) {
+            $headers['siteId'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation siteGetRelationships
+     *
+     * Returns all active relationships of the site.
+     *
+     * @param  bool $RequestActive The requested Active type Relationships. true indicates for Active Relationships and false indicates for Deactivated Relationships. (optional)
+     * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
+     * @param  int $RequestOffset Page offset, defaults to 0. (optional)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Nlocascio\Mindbody\Model\GetRelationshipsResponse
+     */
+    public function siteGetRelationships($RequestActive = null, $RequestLimit = null, $RequestOffset = null): \Nlocascio\Mindbody\Model\GetRelationshipsResponse
+    {
+        list($response) = $this->siteGetRelationshipsWithHttpInfo($RequestActive, $RequestLimit, $RequestOffset);
+        return $response;
+    }
+
+    /**
+     * Operation siteGetRelationshipsWithHttpInfo
+     *
+     * Returns all active relationships of the site.
+     *
+     * @param  bool $RequestActive The requested Active type Relationships. true indicates for Active Relationships and false indicates for Deactivated Relationships. (optional)
+     * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
+     * @param  int $RequestOffset Page offset, defaults to 0. (optional)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Nlocascio\Mindbody\Model\GetRelationshipsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function siteGetRelationshipsWithHttpInfo($RequestActive = null, $RequestLimit = null, $RequestOffset = null): array
+    {
+        $returnType = '\Nlocascio\Mindbody\Model\GetRelationshipsResponse';
+        $request = $this->siteGetRelationshipsRequest($RequestActive, $RequestLimit, $RequestOffset);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Nlocascio\Mindbody\Model\GetRelationshipsResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation siteGetRelationshipsAsync
+     *
+     * Returns all active relationships of the site.
+     *
+     * @param  bool $RequestActive The requested Active type Relationships. true indicates for Active Relationships and false indicates for Deactivated Relationships. (optional)
+     * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
+     * @param  int $RequestOffset Page offset, defaults to 0. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function siteGetRelationshipsAsync($RequestActive = null, $RequestLimit = null, $RequestOffset = null): \GuzzleHttp\Promise\PromiseInterface
+    {
+        return $this->siteGetRelationshipsAsyncWithHttpInfo($RequestActive, $RequestLimit, $RequestOffset)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation siteGetRelationshipsAsyncWithHttpInfo
+     *
+     * Returns all active relationships of the site.
+     *
+     * @param  bool $RequestActive The requested Active type Relationships. true indicates for Active Relationships and false indicates for Deactivated Relationships. (optional)
+     * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
+     * @param  int $RequestOffset Page offset, defaults to 0. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function siteGetRelationshipsAsyncWithHttpInfo($RequestActive = null, $RequestLimit = null, $RequestOffset = null): \GuzzleHttp\Promise\PromiseInterface
+    {
+        $returnType = '\Nlocascio\Mindbody\Model\GetRelationshipsResponse';
+        $request = $this->siteGetRelationshipsRequest($RequestActive, $RequestLimit, $RequestOffset);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'siteGetRelationships'
+     *
+     * @param  bool $RequestActive The requested Active type Relationships. true indicates for Active Relationships and false indicates for Deactivated Relationships. (optional)
+     * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
+     * @param  int $RequestOffset Page offset, defaults to 0. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function siteGetRelationshipsRequest($RequestActive = null, $RequestLimit = null, $RequestOffset = null): \GuzzleHttp\Psr7\Request
+    {
+
+        $resourcePath = '/public/v6/site/relationships';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($RequestActive !== null) {
+            $queryParams['request.active'] = ObjectSerializer::toQueryValue($RequestActive);
+        }
+        // query params
+        if ($RequestLimit !== null) {
+            $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
+        }
+        // query params
+        if ($RequestOffset !== null) {
+            $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
 
 

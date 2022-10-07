@@ -39,6 +39,7 @@ namespace Nlocascio\Mindbody\Model;
  * @link     https://github.com/swagger-api/swagger-codegen
  * @property int $LayoutId The ID of the layout.
  * @property string $LayoutName The name of the layout.
+ * @property string $LayoutUrl The URL of the layout.
  *
  */
 class GiftCardLayout extends BaseModel
@@ -59,7 +60,8 @@ class GiftCardLayout extends BaseModel
       */
     protected static $swaggerTypes = [
         'LayoutId' => 'int',
-        'LayoutName' => 'string'
+        'LayoutName' => 'string',
+        'LayoutUrl' => 'string'
     ];
 
     /**
@@ -69,7 +71,8 @@ class GiftCardLayout extends BaseModel
       */
     protected static $swaggerFormats = [
         'LayoutId' => 'int32',
-        'LayoutName' => null
+        'LayoutName' => null,
+        'LayoutUrl' => null
     ];
 
 
@@ -81,7 +84,8 @@ class GiftCardLayout extends BaseModel
      */
     protected static $attributeMap = [
         'LayoutId' => 'LayoutId',
-        'LayoutName' => 'LayoutName'
+        'LayoutName' => 'LayoutName',
+        'LayoutUrl' => 'LayoutUrl'
     ];
 
     /**
@@ -91,7 +95,8 @@ class GiftCardLayout extends BaseModel
      */
     protected static $setters = [
         'LayoutId' => 'setLayoutId',
-        'LayoutName' => 'setLayoutName'
+        'LayoutName' => 'setLayoutName',
+        'LayoutUrl' => 'setLayoutUrl'
     ];
 
     /**
@@ -101,7 +106,8 @@ class GiftCardLayout extends BaseModel
      */
     protected static $getters = [
         'LayoutId' => 'getLayoutId',
-        'LayoutName' => 'getLayoutName'
+        'LayoutName' => 'getLayoutName',
+        'LayoutUrl' => 'getLayoutUrl'
     ];
 
 
@@ -119,6 +125,7 @@ class GiftCardLayout extends BaseModel
     {
         $this->container['LayoutId'] = isset($data['LayoutId']) ? $data['LayoutId'] : null;
         $this->container['LayoutName'] = isset($data['LayoutName']) ? $data['LayoutName'] : null;
+        $this->container['LayoutUrl'] = isset($data['LayoutUrl']) ? $data['LayoutUrl'] : null;
     }
 
     /**
@@ -178,6 +185,30 @@ class GiftCardLayout extends BaseModel
     public function setLayoutName($LayoutName): self
     {
         $this->container['LayoutName'] = $LayoutName;
+
+        return $this;
+    }
+
+    /**
+     * Gets LayoutUrl
+     *
+     * @return string
+     */
+    public function getLayoutUrl()
+    {
+        return $this->container['LayoutUrl'];
+    }
+
+    /**
+     * Sets LayoutUrl
+     *
+     * @param string $LayoutUrl The URL of the layout.
+     *
+     * @return $this
+     */
+    public function setLayoutUrl($LayoutUrl): self
+    {
+        $this->container['LayoutUrl'] = $LayoutUrl;
 
         return $this;
     }

@@ -36,9 +36,9 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property int $Id The unique ID of the appointment add on.
- * @property string $Name The Name of the appointment add on.
- * @property int $StaffId The unique ID of the staff for the add on.
+ * @property int $Id Id
+ * @property string $Name Name
+ * @property int $StaffId StaffId
  *
  */
 class AddOnSmall extends BaseModel implements ModelWithId
@@ -153,7 +153,7 @@ class AddOnSmall extends BaseModel implements ModelWithId
     /**
      * Sets Id
      *
-     * @param int $Id The unique ID of the appointment add on.
+     * @param int $Id Id
      *
      * @return $this
      */
@@ -177,7 +177,7 @@ class AddOnSmall extends BaseModel implements ModelWithId
     /**
      * Sets Name
      *
-     * @param string $Name The Name of the appointment add on.
+     * @param string $Name Name
      *
      * @return $this
      */
@@ -201,7 +201,7 @@ class AddOnSmall extends BaseModel implements ModelWithId
     /**
      * Sets StaffId
      *
-     * @param int $StaffId The unique ID of the staff for the add on.
+     * @param int $StaffId StaffId
      *
      * @return $this
      */

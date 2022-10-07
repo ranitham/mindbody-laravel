@@ -70,6 +70,10 @@ namespace Nlocascio\Mindbody\Model;
  * @property double $TotalContractAmountSubtotal The subtotal amount that the client is to be charged over the lifespan of the contract.
  * @property double $TotalContractAmountTax The total amount of tax the client is to be charged over the lifespan of the contract.
  * @property double $TotalContractAmountTotal The total amount the client is to be charged over the lifespan of the contract.
+ * @property double $PromoPaymentAmountSubtotal Subtotal promotional period
+ * @property double $PromoPaymentAmountTax Taxes of promotional period
+ * @property double $PromoPaymentAmountTotal Total of promotional period
+ * @property int $NumberOfPromoAutopays Number of times that the AutoPay runs under the promotional period
  *
  */
 class Contract extends BaseModel implements ModelWithId
@@ -122,7 +126,11 @@ class Contract extends BaseModel implements ModelWithId
         'RecurringPaymentAmountTotal' => 'double',
         'TotalContractAmountSubtotal' => 'double',
         'TotalContractAmountTax' => 'double',
-        'TotalContractAmountTotal' => 'double'
+        'TotalContractAmountTotal' => 'double',
+        'PromoPaymentAmountSubtotal' => 'double',
+        'PromoPaymentAmountTax' => 'double',
+        'PromoPaymentAmountTotal' => 'double',
+        'NumberOfPromoAutopays' => 'int'
     ];
 
     /**
@@ -164,7 +172,11 @@ class Contract extends BaseModel implements ModelWithId
         'RecurringPaymentAmountTotal' => 'double',
         'TotalContractAmountSubtotal' => 'double',
         'TotalContractAmountTax' => 'double',
-        'TotalContractAmountTotal' => 'double'
+        'TotalContractAmountTotal' => 'double',
+        'PromoPaymentAmountSubtotal' => 'double',
+        'PromoPaymentAmountTax' => 'double',
+        'PromoPaymentAmountTotal' => 'double',
+        'NumberOfPromoAutopays' => 'int32'
     ];
 
 
@@ -208,7 +220,11 @@ class Contract extends BaseModel implements ModelWithId
         'RecurringPaymentAmountTotal' => 'RecurringPaymentAmountTotal',
         'TotalContractAmountSubtotal' => 'TotalContractAmountSubtotal',
         'TotalContractAmountTax' => 'TotalContractAmountTax',
-        'TotalContractAmountTotal' => 'TotalContractAmountTotal'
+        'TotalContractAmountTotal' => 'TotalContractAmountTotal',
+        'PromoPaymentAmountSubtotal' => 'PromoPaymentAmountSubtotal',
+        'PromoPaymentAmountTax' => 'PromoPaymentAmountTax',
+        'PromoPaymentAmountTotal' => 'PromoPaymentAmountTotal',
+        'NumberOfPromoAutopays' => 'NumberOfPromoAutopays'
     ];
 
     /**
@@ -250,7 +266,11 @@ class Contract extends BaseModel implements ModelWithId
         'RecurringPaymentAmountTotal' => 'setRecurringPaymentAmountTotal',
         'TotalContractAmountSubtotal' => 'setTotalContractAmountSubtotal',
         'TotalContractAmountTax' => 'setTotalContractAmountTax',
-        'TotalContractAmountTotal' => 'setTotalContractAmountTotal'
+        'TotalContractAmountTotal' => 'setTotalContractAmountTotal',
+        'PromoPaymentAmountSubtotal' => 'setPromoPaymentAmountSubtotal',
+        'PromoPaymentAmountTax' => 'setPromoPaymentAmountTax',
+        'PromoPaymentAmountTotal' => 'setPromoPaymentAmountTotal',
+        'NumberOfPromoAutopays' => 'setNumberOfPromoAutopays'
     ];
 
     /**
@@ -292,7 +312,11 @@ class Contract extends BaseModel implements ModelWithId
         'RecurringPaymentAmountTotal' => 'getRecurringPaymentAmountTotal',
         'TotalContractAmountSubtotal' => 'getTotalContractAmountSubtotal',
         'TotalContractAmountTax' => 'getTotalContractAmountTax',
-        'TotalContractAmountTotal' => 'getTotalContractAmountTotal'
+        'TotalContractAmountTotal' => 'getTotalContractAmountTotal',
+        'PromoPaymentAmountSubtotal' => 'getPromoPaymentAmountSubtotal',
+        'PromoPaymentAmountTax' => 'getPromoPaymentAmountTax',
+        'PromoPaymentAmountTotal' => 'getPromoPaymentAmountTotal',
+        'NumberOfPromoAutopays' => 'getNumberOfPromoAutopays'
     ];
 
 
@@ -342,6 +366,10 @@ class Contract extends BaseModel implements ModelWithId
         $this->container['TotalContractAmountSubtotal'] = isset($data['TotalContractAmountSubtotal']) ? $data['TotalContractAmountSubtotal'] : null;
         $this->container['TotalContractAmountTax'] = isset($data['TotalContractAmountTax']) ? $data['TotalContractAmountTax'] : null;
         $this->container['TotalContractAmountTotal'] = isset($data['TotalContractAmountTotal']) ? $data['TotalContractAmountTotal'] : null;
+        $this->container['PromoPaymentAmountSubtotal'] = isset($data['PromoPaymentAmountSubtotal']) ? $data['PromoPaymentAmountSubtotal'] : null;
+        $this->container['PromoPaymentAmountTax'] = isset($data['PromoPaymentAmountTax']) ? $data['PromoPaymentAmountTax'] : null;
+        $this->container['PromoPaymentAmountTotal'] = isset($data['PromoPaymentAmountTotal']) ? $data['PromoPaymentAmountTotal'] : null;
+        $this->container['NumberOfPromoAutopays'] = isset($data['NumberOfPromoAutopays']) ? $data['NumberOfPromoAutopays'] : null;
     }
 
     /**
@@ -1169,6 +1197,102 @@ class Contract extends BaseModel implements ModelWithId
     public function setTotalContractAmountTotal($TotalContractAmountTotal): self
     {
         $this->container['TotalContractAmountTotal'] = $TotalContractAmountTotal;
+
+        return $this;
+    }
+
+    /**
+     * Gets PromoPaymentAmountSubtotal
+     *
+     * @return double
+     */
+    public function getPromoPaymentAmountSubtotal()
+    {
+        return $this->container['PromoPaymentAmountSubtotal'];
+    }
+
+    /**
+     * Sets PromoPaymentAmountSubtotal
+     *
+     * @param double $PromoPaymentAmountSubtotal Subtotal promotional period
+     *
+     * @return $this
+     */
+    public function setPromoPaymentAmountSubtotal($PromoPaymentAmountSubtotal): self
+    {
+        $this->container['PromoPaymentAmountSubtotal'] = $PromoPaymentAmountSubtotal;
+
+        return $this;
+    }
+
+    /**
+     * Gets PromoPaymentAmountTax
+     *
+     * @return double
+     */
+    public function getPromoPaymentAmountTax()
+    {
+        return $this->container['PromoPaymentAmountTax'];
+    }
+
+    /**
+     * Sets PromoPaymentAmountTax
+     *
+     * @param double $PromoPaymentAmountTax Taxes of promotional period
+     *
+     * @return $this
+     */
+    public function setPromoPaymentAmountTax($PromoPaymentAmountTax): self
+    {
+        $this->container['PromoPaymentAmountTax'] = $PromoPaymentAmountTax;
+
+        return $this;
+    }
+
+    /**
+     * Gets PromoPaymentAmountTotal
+     *
+     * @return double
+     */
+    public function getPromoPaymentAmountTotal()
+    {
+        return $this->container['PromoPaymentAmountTotal'];
+    }
+
+    /**
+     * Sets PromoPaymentAmountTotal
+     *
+     * @param double $PromoPaymentAmountTotal Total of promotional period
+     *
+     * @return $this
+     */
+    public function setPromoPaymentAmountTotal($PromoPaymentAmountTotal): self
+    {
+        $this->container['PromoPaymentAmountTotal'] = $PromoPaymentAmountTotal;
+
+        return $this;
+    }
+
+    /**
+     * Gets NumberOfPromoAutopays
+     *
+     * @return int
+     */
+    public function getNumberOfPromoAutopays()
+    {
+        return $this->container['NumberOfPromoAutopays'];
+    }
+
+    /**
+     * Sets NumberOfPromoAutopays
+     *
+     * @param int $NumberOfPromoAutopays Number of times that the AutoPay runs under the promotional period
+     *
+     * @return $this
+     */
+    public function setNumberOfPromoAutopays($NumberOfPromoAutopays): self
+    {
+        $this->container['NumberOfPromoAutopays'] = $NumberOfPromoAutopays;
 
         return $this;
     }

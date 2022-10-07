@@ -36,42 +36,50 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property string $Address The address of the staff member who is teaching the class.
- * @property bool $AppointmentInstructor When `true`, indicates that the staff member offers appointments.<br />  When `false`, indicates that the staff member does not offer appointments.
- * @property bool $AlwaysAllowDoubleBooking When `true`, indicates that the staff member can be scheduled for overlapping services.<br />  When `false`, indicates that the staff can only be scheduled for one service at a time in any given time-frame.
- * @property string $Bio The staff member’s biography. This string contains HTML.
- * @property string $City The staff member’s city.
- * @property string $Country The staff member’s country.
- * @property string $Email The staff member’s email address.
- * @property string $FirstName The staff member’s first name.
- * @property string $HomePhone The staff member’s home phone number.
- * @property int $Id The ID assigned to the staff member.
- * @property bool $IndependentContractor When `true`, indicates that the staff member is an independent contractor.  When `false`, indicates that the staff member is not an independent contractor.
- * @property bool $IsMale When `true`, indicates that the staff member is male.  When `false`, indicates that the staff member is female.
- * @property string $LastName The staff member’s last name.
- * @property string $MobilePhone The staff member’s mobile phone number.
- * @property string $Name The staff member’s name.
- * @property string $PostalCode The staff member’s postal code.
- * @property bool $ClassTeacher When `true`, indicates that the staff member can teach classes.  When `false`, indicates that the staff member cannot teach classes.
- * @property int $SortOrder If configured by the business owner, this field determines a staff member’s weight when sorting. Use this field to sort staff members on your interface.
- * @property string $State The staff member’s state.
- * @property string $WorkPhone The staff member’s work phone number.
- * @property string $ImageUrl The URL of the staff member’s image, if one has been uploaded.
- * @property bool $ClassAssistant Is the staff an assistant
- * @property bool $ClassAssistant2 Is the staff an assistant2
- * @property \DateTime $EmploymentStart The start date of employment
- * @property \DateTime $EmploymentEnd The end date of employment
- * @property string[] $ProviderIDs A list of ProviderIds for the staff.
- * @property bool $Rep return true if staff is sales Rep 1 else false.
- * @property bool $Rep2 return true if staff is sales Rep 2 else false.
- * @property bool $Rep3 return true if staff is sales Rep 3 else false.
- * @property bool $Rep4 return true if staff is sales Rep 4 else false.
- * @property bool $Rep5 return true if staff is sales Rep 5 else false.
- * @property bool $Rep6 return true if staff is sales Rep 6 else false.
- * @property \Nlocascio\Mindbody\Model\Appointment[] $Appointments A list of appointments for the staff.
- * @property \Nlocascio\Mindbody\Model\Unavailability[] $Unavailabilities A list of unavailabilities for the staff.
- * @property \Nlocascio\Mindbody\Model\Availability[] $Availabilities A list of availabilities for the staff.
- * @property string $EmpID The EmpID assigned to the staff member.
+ * @property int $Id Id
+ * @property string $FirstName FirstName
+ * @property string $LastName LastName
+ * @property string $DisplayName DisplayName
+ * @property string $Email Email
+ * @property string $Bio Bio
+ * @property string $Address Address
+ * @property string $Address2 Address2
+ * @property string $City City
+ * @property string $State State
+ * @property string $PostalCode PostalCode
+ * @property string $ForeignZip ForeignZip
+ * @property string $Country Country
+ * @property string $WorkPhone WorkPhone
+ * @property string $HomePhone HomePhone
+ * @property string $CellPhone CellPhone
+ * @property bool $Active Active
+ * @property bool $IsSystem IsSystem
+ * @property int $SmodeId SmodeId
+ * @property bool $AppointmentTrn AppointmentTrn
+ * @property bool $AlwaysAllowDoubleBooking AlwaysAllowDoubleBooking
+ * @property bool $IndependentContractor IndependentContractor
+ * @property string $ImageUrl ImageUrl
+ * @property bool $IsMale IsMale
+ * @property bool $ReservationTrn ReservationTrn
+ * @property int $SortOrder SortOrder
+ * @property bool $MultiLocationPermission MultiLocationPermission
+ * @property string $Name Name
+ * @property string[] $ProviderIDs ProviderIDs
+ * @property bool $Rep Rep
+ * @property bool $Rep2 Rep2
+ * @property bool $Rep3 Rep3
+ * @property bool $Rep4 Rep4
+ * @property bool $Rep5 Rep5
+ * @property bool $Rep6 Rep6
+ * @property bool $Assistant Assistant
+ * @property bool $Assistant2 Assistant2
+ * @property \DateTime $EmploymentStart EmploymentStart
+ * @property \DateTime $EmploymentEnd EmploymentEnd
+ * @property string $EmpID EmpID
+ * @property \Nlocascio\Mindbody\Model\Appointment[] $Appointments Appointments
+ * @property \Nlocascio\Mindbody\Model\Unavailability[] $Unavailabilities Unavailabilities
+ * @property \Nlocascio\Mindbody\Model\Availability[] $Availabilities Availabilities
+ * @property \Nlocascio\Mindbody\Model\Location[] $LoginLocations LoginLocations
  *
  */
 class Staff extends BaseModel implements ModelWithId
@@ -91,31 +99,34 @@ class Staff extends BaseModel implements ModelWithId
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'Address' => 'string',
-        'AppointmentInstructor' => 'bool',
-        'AlwaysAllowDoubleBooking' => 'bool',
-        'Bio' => 'string',
-        'City' => 'string',
-        'Country' => 'string',
-        'Email' => 'string',
-        'FirstName' => 'string',
-        'HomePhone' => 'string',
         'Id' => 'int',
-        'IndependentContractor' => 'bool',
-        'IsMale' => 'bool',
+        'FirstName' => 'string',
         'LastName' => 'string',
-        'MobilePhone' => 'string',
-        'Name' => 'string',
-        'PostalCode' => 'string',
-        'ClassTeacher' => 'bool',
-        'SortOrder' => 'int',
+        'DisplayName' => 'string',
+        'Email' => 'string',
+        'Bio' => 'string',
+        'Address' => 'string',
+        'Address2' => 'string',
+        'City' => 'string',
         'State' => 'string',
+        'PostalCode' => 'string',
+        'ForeignZip' => 'string',
+        'Country' => 'string',
         'WorkPhone' => 'string',
+        'HomePhone' => 'string',
+        'CellPhone' => 'string',
+        'Active' => 'bool',
+        'IsSystem' => 'bool',
+        'SmodeId' => 'int',
+        'AppointmentTrn' => 'bool',
+        'AlwaysAllowDoubleBooking' => 'bool',
+        'IndependentContractor' => 'bool',
         'ImageUrl' => 'string',
-        'ClassAssistant' => 'bool',
-        'ClassAssistant2' => 'bool',
-        'EmploymentStart' => '\DateTime',
-        'EmploymentEnd' => '\DateTime',
+        'IsMale' => 'bool',
+        'ReservationTrn' => 'bool',
+        'SortOrder' => 'int',
+        'MultiLocationPermission' => 'bool',
+        'Name' => 'string',
         'ProviderIDs' => 'string[]',
         'Rep' => 'bool',
         'Rep2' => 'bool',
@@ -123,10 +134,15 @@ class Staff extends BaseModel implements ModelWithId
         'Rep4' => 'bool',
         'Rep5' => 'bool',
         'Rep6' => 'bool',
+        'Assistant' => 'bool',
+        'Assistant2' => 'bool',
+        'EmploymentStart' => '\DateTime',
+        'EmploymentEnd' => '\DateTime',
+        'EmpID' => 'string',
         'Appointments' => '\Nlocascio\Mindbody\Model\Appointment[]',
         'Unavailabilities' => '\Nlocascio\Mindbody\Model\Unavailability[]',
         'Availabilities' => '\Nlocascio\Mindbody\Model\Availability[]',
-        'EmpID' => 'string'
+        'LoginLocations' => '\Nlocascio\Mindbody\Model\Location[]'
     ];
 
     /**
@@ -135,31 +151,34 @@ class Staff extends BaseModel implements ModelWithId
       * @var array<string, string|null>
       */
     protected static $swaggerFormats = [
-        'Address' => null,
-        'AppointmentInstructor' => null,
-        'AlwaysAllowDoubleBooking' => null,
-        'Bio' => null,
-        'City' => null,
-        'Country' => null,
-        'Email' => null,
-        'FirstName' => null,
-        'HomePhone' => null,
         'Id' => 'int64',
-        'IndependentContractor' => null,
-        'IsMale' => null,
+        'FirstName' => null,
         'LastName' => null,
-        'MobilePhone' => null,
-        'Name' => null,
-        'PostalCode' => null,
-        'ClassTeacher' => null,
-        'SortOrder' => 'int32',
+        'DisplayName' => null,
+        'Email' => null,
+        'Bio' => null,
+        'Address' => null,
+        'Address2' => null,
+        'City' => null,
         'State' => null,
+        'PostalCode' => null,
+        'ForeignZip' => null,
+        'Country' => null,
         'WorkPhone' => null,
+        'HomePhone' => null,
+        'CellPhone' => null,
+        'Active' => null,
+        'IsSystem' => null,
+        'SmodeId' => 'int32',
+        'AppointmentTrn' => null,
+        'AlwaysAllowDoubleBooking' => null,
+        'IndependentContractor' => null,
         'ImageUrl' => null,
-        'ClassAssistant' => null,
-        'ClassAssistant2' => null,
-        'EmploymentStart' => 'date-time',
-        'EmploymentEnd' => 'date-time',
+        'IsMale' => null,
+        'ReservationTrn' => null,
+        'SortOrder' => 'int32',
+        'MultiLocationPermission' => null,
+        'Name' => null,
         'ProviderIDs' => null,
         'Rep' => null,
         'Rep2' => null,
@@ -167,10 +186,15 @@ class Staff extends BaseModel implements ModelWithId
         'Rep4' => null,
         'Rep5' => null,
         'Rep6' => null,
+        'Assistant' => null,
+        'Assistant2' => null,
+        'EmploymentStart' => 'date-time',
+        'EmploymentEnd' => 'date-time',
+        'EmpID' => null,
         'Appointments' => null,
         'Unavailabilities' => null,
         'Availabilities' => null,
-        'EmpID' => null
+        'LoginLocations' => null
     ];
 
 
@@ -181,31 +205,34 @@ class Staff extends BaseModel implements ModelWithId
      * @var string[]
      */
     protected static $attributeMap = [
-        'Address' => 'Address',
-        'AppointmentInstructor' => 'AppointmentInstructor',
-        'AlwaysAllowDoubleBooking' => 'AlwaysAllowDoubleBooking',
-        'Bio' => 'Bio',
-        'City' => 'City',
-        'Country' => 'Country',
-        'Email' => 'Email',
-        'FirstName' => 'FirstName',
-        'HomePhone' => 'HomePhone',
         'Id' => 'Id',
-        'IndependentContractor' => 'IndependentContractor',
-        'IsMale' => 'IsMale',
+        'FirstName' => 'FirstName',
         'LastName' => 'LastName',
-        'MobilePhone' => 'MobilePhone',
-        'Name' => 'Name',
-        'PostalCode' => 'PostalCode',
-        'ClassTeacher' => 'ClassTeacher',
-        'SortOrder' => 'SortOrder',
+        'DisplayName' => 'DisplayName',
+        'Email' => 'Email',
+        'Bio' => 'Bio',
+        'Address' => 'Address',
+        'Address2' => 'Address2',
+        'City' => 'City',
         'State' => 'State',
+        'PostalCode' => 'PostalCode',
+        'ForeignZip' => 'ForeignZip',
+        'Country' => 'Country',
         'WorkPhone' => 'WorkPhone',
+        'HomePhone' => 'HomePhone',
+        'CellPhone' => 'CellPhone',
+        'Active' => 'Active',
+        'IsSystem' => 'IsSystem',
+        'SmodeId' => 'SmodeId',
+        'AppointmentTrn' => 'AppointmentTrn',
+        'AlwaysAllowDoubleBooking' => 'AlwaysAllowDoubleBooking',
+        'IndependentContractor' => 'IndependentContractor',
         'ImageUrl' => 'ImageUrl',
-        'ClassAssistant' => 'ClassAssistant',
-        'ClassAssistant2' => 'ClassAssistant2',
-        'EmploymentStart' => 'EmploymentStart',
-        'EmploymentEnd' => 'EmploymentEnd',
+        'IsMale' => 'IsMale',
+        'ReservationTrn' => 'ReservationTrn',
+        'SortOrder' => 'SortOrder',
+        'MultiLocationPermission' => 'MultiLocationPermission',
+        'Name' => 'Name',
         'ProviderIDs' => 'ProviderIDs',
         'Rep' => 'Rep',
         'Rep2' => 'Rep2',
@@ -213,10 +240,15 @@ class Staff extends BaseModel implements ModelWithId
         'Rep4' => 'Rep4',
         'Rep5' => 'Rep5',
         'Rep6' => 'Rep6',
+        'Assistant' => 'Assistant',
+        'Assistant2' => 'Assistant2',
+        'EmploymentStart' => 'EmploymentStart',
+        'EmploymentEnd' => 'EmploymentEnd',
+        'EmpID' => 'EmpID',
         'Appointments' => 'Appointments',
         'Unavailabilities' => 'Unavailabilities',
         'Availabilities' => 'Availabilities',
-        'EmpID' => 'EmpID'
+        'LoginLocations' => 'LoginLocations'
     ];
 
     /**
@@ -225,31 +257,34 @@ class Staff extends BaseModel implements ModelWithId
      * @var string[]
      */
     protected static $setters = [
-        'Address' => 'setAddress',
-        'AppointmentInstructor' => 'setAppointmentInstructor',
-        'AlwaysAllowDoubleBooking' => 'setAlwaysAllowDoubleBooking',
-        'Bio' => 'setBio',
-        'City' => 'setCity',
-        'Country' => 'setCountry',
-        'Email' => 'setEmail',
-        'FirstName' => 'setFirstName',
-        'HomePhone' => 'setHomePhone',
         'Id' => 'setId',
-        'IndependentContractor' => 'setIndependentContractor',
-        'IsMale' => 'setIsMale',
+        'FirstName' => 'setFirstName',
         'LastName' => 'setLastName',
-        'MobilePhone' => 'setMobilePhone',
-        'Name' => 'setName',
-        'PostalCode' => 'setPostalCode',
-        'ClassTeacher' => 'setClassTeacher',
-        'SortOrder' => 'setSortOrder',
+        'DisplayName' => 'setDisplayName',
+        'Email' => 'setEmail',
+        'Bio' => 'setBio',
+        'Address' => 'setAddress',
+        'Address2' => 'setAddress2',
+        'City' => 'setCity',
         'State' => 'setState',
+        'PostalCode' => 'setPostalCode',
+        'ForeignZip' => 'setForeignZip',
+        'Country' => 'setCountry',
         'WorkPhone' => 'setWorkPhone',
+        'HomePhone' => 'setHomePhone',
+        'CellPhone' => 'setCellPhone',
+        'Active' => 'setActive',
+        'IsSystem' => 'setIsSystem',
+        'SmodeId' => 'setSmodeId',
+        'AppointmentTrn' => 'setAppointmentTrn',
+        'AlwaysAllowDoubleBooking' => 'setAlwaysAllowDoubleBooking',
+        'IndependentContractor' => 'setIndependentContractor',
         'ImageUrl' => 'setImageUrl',
-        'ClassAssistant' => 'setClassAssistant',
-        'ClassAssistant2' => 'setClassAssistant2',
-        'EmploymentStart' => 'setEmploymentStart',
-        'EmploymentEnd' => 'setEmploymentEnd',
+        'IsMale' => 'setIsMale',
+        'ReservationTrn' => 'setReservationTrn',
+        'SortOrder' => 'setSortOrder',
+        'MultiLocationPermission' => 'setMultiLocationPermission',
+        'Name' => 'setName',
         'ProviderIDs' => 'setProviderIDs',
         'Rep' => 'setRep',
         'Rep2' => 'setRep2',
@@ -257,10 +292,15 @@ class Staff extends BaseModel implements ModelWithId
         'Rep4' => 'setRep4',
         'Rep5' => 'setRep5',
         'Rep6' => 'setRep6',
+        'Assistant' => 'setAssistant',
+        'Assistant2' => 'setAssistant2',
+        'EmploymentStart' => 'setEmploymentStart',
+        'EmploymentEnd' => 'setEmploymentEnd',
+        'EmpID' => 'setEmpID',
         'Appointments' => 'setAppointments',
         'Unavailabilities' => 'setUnavailabilities',
         'Availabilities' => 'setAvailabilities',
-        'EmpID' => 'setEmpID'
+        'LoginLocations' => 'setLoginLocations'
     ];
 
     /**
@@ -269,31 +309,34 @@ class Staff extends BaseModel implements ModelWithId
      * @var string[]
      */
     protected static $getters = [
-        'Address' => 'getAddress',
-        'AppointmentInstructor' => 'getAppointmentInstructor',
-        'AlwaysAllowDoubleBooking' => 'getAlwaysAllowDoubleBooking',
-        'Bio' => 'getBio',
-        'City' => 'getCity',
-        'Country' => 'getCountry',
-        'Email' => 'getEmail',
-        'FirstName' => 'getFirstName',
-        'HomePhone' => 'getHomePhone',
         'Id' => 'getId',
-        'IndependentContractor' => 'getIndependentContractor',
-        'IsMale' => 'getIsMale',
+        'FirstName' => 'getFirstName',
         'LastName' => 'getLastName',
-        'MobilePhone' => 'getMobilePhone',
-        'Name' => 'getName',
-        'PostalCode' => 'getPostalCode',
-        'ClassTeacher' => 'getClassTeacher',
-        'SortOrder' => 'getSortOrder',
+        'DisplayName' => 'getDisplayName',
+        'Email' => 'getEmail',
+        'Bio' => 'getBio',
+        'Address' => 'getAddress',
+        'Address2' => 'getAddress2',
+        'City' => 'getCity',
         'State' => 'getState',
+        'PostalCode' => 'getPostalCode',
+        'ForeignZip' => 'getForeignZip',
+        'Country' => 'getCountry',
         'WorkPhone' => 'getWorkPhone',
+        'HomePhone' => 'getHomePhone',
+        'CellPhone' => 'getCellPhone',
+        'Active' => 'getActive',
+        'IsSystem' => 'getIsSystem',
+        'SmodeId' => 'getSmodeId',
+        'AppointmentTrn' => 'getAppointmentTrn',
+        'AlwaysAllowDoubleBooking' => 'getAlwaysAllowDoubleBooking',
+        'IndependentContractor' => 'getIndependentContractor',
         'ImageUrl' => 'getImageUrl',
-        'ClassAssistant' => 'getClassAssistant',
-        'ClassAssistant2' => 'getClassAssistant2',
-        'EmploymentStart' => 'getEmploymentStart',
-        'EmploymentEnd' => 'getEmploymentEnd',
+        'IsMale' => 'getIsMale',
+        'ReservationTrn' => 'getReservationTrn',
+        'SortOrder' => 'getSortOrder',
+        'MultiLocationPermission' => 'getMultiLocationPermission',
+        'Name' => 'getName',
         'ProviderIDs' => 'getProviderIDs',
         'Rep' => 'getRep',
         'Rep2' => 'getRep2',
@@ -301,10 +344,15 @@ class Staff extends BaseModel implements ModelWithId
         'Rep4' => 'getRep4',
         'Rep5' => 'getRep5',
         'Rep6' => 'getRep6',
+        'Assistant' => 'getAssistant',
+        'Assistant2' => 'getAssistant2',
+        'EmploymentStart' => 'getEmploymentStart',
+        'EmploymentEnd' => 'getEmploymentEnd',
+        'EmpID' => 'getEmpID',
         'Appointments' => 'getAppointments',
         'Unavailabilities' => 'getUnavailabilities',
         'Availabilities' => 'getAvailabilities',
-        'EmpID' => 'getEmpID'
+        'LoginLocations' => 'getLoginLocations'
     ];
 
 
@@ -320,31 +368,34 @@ class Staff extends BaseModel implements ModelWithId
      */
     public function __construct(array $data = null)
     {
-        $this->container['Address'] = isset($data['Address']) ? $data['Address'] : null;
-        $this->container['AppointmentInstructor'] = isset($data['AppointmentInstructor']) ? $data['AppointmentInstructor'] : null;
-        $this->container['AlwaysAllowDoubleBooking'] = isset($data['AlwaysAllowDoubleBooking']) ? $data['AlwaysAllowDoubleBooking'] : null;
-        $this->container['Bio'] = isset($data['Bio']) ? $data['Bio'] : null;
-        $this->container['City'] = isset($data['City']) ? $data['City'] : null;
-        $this->container['Country'] = isset($data['Country']) ? $data['Country'] : null;
-        $this->container['Email'] = isset($data['Email']) ? $data['Email'] : null;
-        $this->container['FirstName'] = isset($data['FirstName']) ? $data['FirstName'] : null;
-        $this->container['HomePhone'] = isset($data['HomePhone']) ? $data['HomePhone'] : null;
         $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
-        $this->container['IndependentContractor'] = isset($data['IndependentContractor']) ? $data['IndependentContractor'] : null;
-        $this->container['IsMale'] = isset($data['IsMale']) ? $data['IsMale'] : null;
+        $this->container['FirstName'] = isset($data['FirstName']) ? $data['FirstName'] : null;
         $this->container['LastName'] = isset($data['LastName']) ? $data['LastName'] : null;
-        $this->container['MobilePhone'] = isset($data['MobilePhone']) ? $data['MobilePhone'] : null;
-        $this->container['Name'] = isset($data['Name']) ? $data['Name'] : null;
-        $this->container['PostalCode'] = isset($data['PostalCode']) ? $data['PostalCode'] : null;
-        $this->container['ClassTeacher'] = isset($data['ClassTeacher']) ? $data['ClassTeacher'] : null;
-        $this->container['SortOrder'] = isset($data['SortOrder']) ? $data['SortOrder'] : null;
+        $this->container['DisplayName'] = isset($data['DisplayName']) ? $data['DisplayName'] : null;
+        $this->container['Email'] = isset($data['Email']) ? $data['Email'] : null;
+        $this->container['Bio'] = isset($data['Bio']) ? $data['Bio'] : null;
+        $this->container['Address'] = isset($data['Address']) ? $data['Address'] : null;
+        $this->container['Address2'] = isset($data['Address2']) ? $data['Address2'] : null;
+        $this->container['City'] = isset($data['City']) ? $data['City'] : null;
         $this->container['State'] = isset($data['State']) ? $data['State'] : null;
+        $this->container['PostalCode'] = isset($data['PostalCode']) ? $data['PostalCode'] : null;
+        $this->container['ForeignZip'] = isset($data['ForeignZip']) ? $data['ForeignZip'] : null;
+        $this->container['Country'] = isset($data['Country']) ? $data['Country'] : null;
         $this->container['WorkPhone'] = isset($data['WorkPhone']) ? $data['WorkPhone'] : null;
+        $this->container['HomePhone'] = isset($data['HomePhone']) ? $data['HomePhone'] : null;
+        $this->container['CellPhone'] = isset($data['CellPhone']) ? $data['CellPhone'] : null;
+        $this->container['Active'] = isset($data['Active']) ? $data['Active'] : null;
+        $this->container['IsSystem'] = isset($data['IsSystem']) ? $data['IsSystem'] : null;
+        $this->container['SmodeId'] = isset($data['SmodeId']) ? $data['SmodeId'] : null;
+        $this->container['AppointmentTrn'] = isset($data['AppointmentTrn']) ? $data['AppointmentTrn'] : null;
+        $this->container['AlwaysAllowDoubleBooking'] = isset($data['AlwaysAllowDoubleBooking']) ? $data['AlwaysAllowDoubleBooking'] : null;
+        $this->container['IndependentContractor'] = isset($data['IndependentContractor']) ? $data['IndependentContractor'] : null;
         $this->container['ImageUrl'] = isset($data['ImageUrl']) ? $data['ImageUrl'] : null;
-        $this->container['ClassAssistant'] = isset($data['ClassAssistant']) ? $data['ClassAssistant'] : null;
-        $this->container['ClassAssistant2'] = isset($data['ClassAssistant2']) ? $data['ClassAssistant2'] : null;
-        $this->container['EmploymentStart'] = isset($data['EmploymentStart']) ? $data['EmploymentStart'] : null;
-        $this->container['EmploymentEnd'] = isset($data['EmploymentEnd']) ? $data['EmploymentEnd'] : null;
+        $this->container['IsMale'] = isset($data['IsMale']) ? $data['IsMale'] : null;
+        $this->container['ReservationTrn'] = isset($data['ReservationTrn']) ? $data['ReservationTrn'] : null;
+        $this->container['SortOrder'] = isset($data['SortOrder']) ? $data['SortOrder'] : null;
+        $this->container['MultiLocationPermission'] = isset($data['MultiLocationPermission']) ? $data['MultiLocationPermission'] : null;
+        $this->container['Name'] = isset($data['Name']) ? $data['Name'] : null;
         $this->container['ProviderIDs'] = isset($data['ProviderIDs']) ? $data['ProviderIDs'] : null;
         $this->container['Rep'] = isset($data['Rep']) ? $data['Rep'] : null;
         $this->container['Rep2'] = isset($data['Rep2']) ? $data['Rep2'] : null;
@@ -352,10 +403,15 @@ class Staff extends BaseModel implements ModelWithId
         $this->container['Rep4'] = isset($data['Rep4']) ? $data['Rep4'] : null;
         $this->container['Rep5'] = isset($data['Rep5']) ? $data['Rep5'] : null;
         $this->container['Rep6'] = isset($data['Rep6']) ? $data['Rep6'] : null;
+        $this->container['Assistant'] = isset($data['Assistant']) ? $data['Assistant'] : null;
+        $this->container['Assistant2'] = isset($data['Assistant2']) ? $data['Assistant2'] : null;
+        $this->container['EmploymentStart'] = isset($data['EmploymentStart']) ? $data['EmploymentStart'] : null;
+        $this->container['EmploymentEnd'] = isset($data['EmploymentEnd']) ? $data['EmploymentEnd'] : null;
+        $this->container['EmpID'] = isset($data['EmpID']) ? $data['EmpID'] : null;
         $this->container['Appointments'] = isset($data['Appointments']) ? $data['Appointments'] : null;
         $this->container['Unavailabilities'] = isset($data['Unavailabilities']) ? $data['Unavailabilities'] : null;
         $this->container['Availabilities'] = isset($data['Availabilities']) ? $data['Availabilities'] : null;
-        $this->container['EmpID'] = isset($data['EmpID']) ? $data['EmpID'] : null;
+        $this->container['LoginLocations'] = isset($data['LoginLocations']) ? $data['LoginLocations'] : null;
     }
 
     /**
@@ -372,169 +428,25 @@ class Staff extends BaseModel implements ModelWithId
 
 
     /**
-     * Gets Address
+     * Gets Id
      *
-     * @return string
+     * @return int
      */
-    public function getAddress()
+    public function getId()
     {
-        return $this->container['Address'];
+        return $this->container['Id'];
     }
 
     /**
-     * Sets Address
+     * Sets Id
      *
-     * @param string $Address The address of the staff member who is teaching the class.
+     * @param int $Id Id
      *
      * @return $this
      */
-    public function setAddress($Address): self
+    public function setId($Id): self
     {
-        $this->container['Address'] = $Address;
-
-        return $this;
-    }
-
-    /**
-     * Gets AppointmentInstructor
-     *
-     * @return bool
-     */
-    public function getAppointmentInstructor()
-    {
-        return $this->container['AppointmentInstructor'];
-    }
-
-    /**
-     * Sets AppointmentInstructor
-     *
-     * @param bool $AppointmentInstructor When `true`, indicates that the staff member offers appointments.<br />  When `false`, indicates that the staff member does not offer appointments.
-     *
-     * @return $this
-     */
-    public function setAppointmentInstructor($AppointmentInstructor): self
-    {
-        $this->container['AppointmentInstructor'] = $AppointmentInstructor;
-
-        return $this;
-    }
-
-    /**
-     * Gets AlwaysAllowDoubleBooking
-     *
-     * @return bool
-     */
-    public function getAlwaysAllowDoubleBooking()
-    {
-        return $this->container['AlwaysAllowDoubleBooking'];
-    }
-
-    /**
-     * Sets AlwaysAllowDoubleBooking
-     *
-     * @param bool $AlwaysAllowDoubleBooking When `true`, indicates that the staff member can be scheduled for overlapping services.<br />  When `false`, indicates that the staff can only be scheduled for one service at a time in any given time-frame.
-     *
-     * @return $this
-     */
-    public function setAlwaysAllowDoubleBooking($AlwaysAllowDoubleBooking): self
-    {
-        $this->container['AlwaysAllowDoubleBooking'] = $AlwaysAllowDoubleBooking;
-
-        return $this;
-    }
-
-    /**
-     * Gets Bio
-     *
-     * @return string
-     */
-    public function getBio()
-    {
-        return $this->container['Bio'];
-    }
-
-    /**
-     * Sets Bio
-     *
-     * @param string $Bio The staff member’s biography. This string contains HTML.
-     *
-     * @return $this
-     */
-    public function setBio($Bio): self
-    {
-        $this->container['Bio'] = $Bio;
-
-        return $this;
-    }
-
-    /**
-     * Gets City
-     *
-     * @return string
-     */
-    public function getCity()
-    {
-        return $this->container['City'];
-    }
-
-    /**
-     * Sets City
-     *
-     * @param string $City The staff member’s city.
-     *
-     * @return $this
-     */
-    public function setCity($City): self
-    {
-        $this->container['City'] = $City;
-
-        return $this;
-    }
-
-    /**
-     * Gets Country
-     *
-     * @return string
-     */
-    public function getCountry()
-    {
-        return $this->container['Country'];
-    }
-
-    /**
-     * Sets Country
-     *
-     * @param string $Country The staff member’s country.
-     *
-     * @return $this
-     */
-    public function setCountry($Country): self
-    {
-        $this->container['Country'] = $Country;
-
-        return $this;
-    }
-
-    /**
-     * Gets Email
-     *
-     * @return string
-     */
-    public function getEmail()
-    {
-        return $this->container['Email'];
-    }
-
-    /**
-     * Sets Email
-     *
-     * @param string $Email The staff member’s email address.
-     *
-     * @return $this
-     */
-    public function setEmail($Email): self
-    {
-        $this->container['Email'] = $Email;
+        $this->container['Id'] = $Id;
 
         return $this;
     }
@@ -552,109 +464,13 @@ class Staff extends BaseModel implements ModelWithId
     /**
      * Sets FirstName
      *
-     * @param string $FirstName The staff member’s first name.
+     * @param string $FirstName FirstName
      *
      * @return $this
      */
     public function setFirstName($FirstName): self
     {
         $this->container['FirstName'] = $FirstName;
-
-        return $this;
-    }
-
-    /**
-     * Gets HomePhone
-     *
-     * @return string
-     */
-    public function getHomePhone()
-    {
-        return $this->container['HomePhone'];
-    }
-
-    /**
-     * Sets HomePhone
-     *
-     * @param string $HomePhone The staff member’s home phone number.
-     *
-     * @return $this
-     */
-    public function setHomePhone($HomePhone): self
-    {
-        $this->container['HomePhone'] = $HomePhone;
-
-        return $this;
-    }
-
-    /**
-     * Gets Id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->container['Id'];
-    }
-
-    /**
-     * Sets Id
-     *
-     * @param int $Id The ID assigned to the staff member.
-     *
-     * @return $this
-     */
-    public function setId($Id): self
-    {
-        $this->container['Id'] = $Id;
-
-        return $this;
-    }
-
-    /**
-     * Gets IndependentContractor
-     *
-     * @return bool
-     */
-    public function getIndependentContractor()
-    {
-        return $this->container['IndependentContractor'];
-    }
-
-    /**
-     * Sets IndependentContractor
-     *
-     * @param bool $IndependentContractor When `true`, indicates that the staff member is an independent contractor.  When `false`, indicates that the staff member is not an independent contractor.
-     *
-     * @return $this
-     */
-    public function setIndependentContractor($IndependentContractor): self
-    {
-        $this->container['IndependentContractor'] = $IndependentContractor;
-
-        return $this;
-    }
-
-    /**
-     * Gets IsMale
-     *
-     * @return bool
-     */
-    public function getIsMale()
-    {
-        return $this->container['IsMale'];
-    }
-
-    /**
-     * Sets IsMale
-     *
-     * @param bool $IsMale When `true`, indicates that the staff member is male.  When `false`, indicates that the staff member is female.
-     *
-     * @return $this
-     */
-    public function setIsMale($IsMale): self
-    {
-        $this->container['IsMale'] = $IsMale;
 
         return $this;
     }
@@ -672,7 +488,7 @@ class Staff extends BaseModel implements ModelWithId
     /**
      * Sets LastName
      *
-     * @param string $LastName The staff member’s last name.
+     * @param string $LastName LastName
      *
      * @return $this
      */
@@ -684,121 +500,145 @@ class Staff extends BaseModel implements ModelWithId
     }
 
     /**
-     * Gets MobilePhone
+     * Gets DisplayName
      *
      * @return string
      */
-    public function getMobilePhone()
+    public function getDisplayName()
     {
-        return $this->container['MobilePhone'];
+        return $this->container['DisplayName'];
     }
 
     /**
-     * Sets MobilePhone
+     * Sets DisplayName
      *
-     * @param string $MobilePhone The staff member’s mobile phone number.
+     * @param string $DisplayName DisplayName
      *
      * @return $this
      */
-    public function setMobilePhone($MobilePhone): self
+    public function setDisplayName($DisplayName): self
     {
-        $this->container['MobilePhone'] = $MobilePhone;
+        $this->container['DisplayName'] = $DisplayName;
 
         return $this;
     }
 
     /**
-     * Gets Name
+     * Gets Email
      *
      * @return string
      */
-    public function getName()
+    public function getEmail()
     {
-        return $this->container['Name'];
+        return $this->container['Email'];
     }
 
     /**
-     * Sets Name
+     * Sets Email
      *
-     * @param string $Name The staff member’s name.
+     * @param string $Email Email
      *
      * @return $this
      */
-    public function setName($Name): self
+    public function setEmail($Email): self
     {
-        $this->container['Name'] = $Name;
+        $this->container['Email'] = $Email;
 
         return $this;
     }
 
     /**
-     * Gets PostalCode
+     * Gets Bio
      *
      * @return string
      */
-    public function getPostalCode()
+    public function getBio()
     {
-        return $this->container['PostalCode'];
+        return $this->container['Bio'];
     }
 
     /**
-     * Sets PostalCode
+     * Sets Bio
      *
-     * @param string $PostalCode The staff member’s postal code.
+     * @param string $Bio Bio
      *
      * @return $this
      */
-    public function setPostalCode($PostalCode): self
+    public function setBio($Bio): self
     {
-        $this->container['PostalCode'] = $PostalCode;
+        $this->container['Bio'] = $Bio;
 
         return $this;
     }
 
     /**
-     * Gets ClassTeacher
+     * Gets Address
      *
-     * @return bool
+     * @return string
      */
-    public function getClassTeacher()
+    public function getAddress()
     {
-        return $this->container['ClassTeacher'];
+        return $this->container['Address'];
     }
 
     /**
-     * Sets ClassTeacher
+     * Sets Address
      *
-     * @param bool $ClassTeacher When `true`, indicates that the staff member can teach classes.  When `false`, indicates that the staff member cannot teach classes.
+     * @param string $Address Address
      *
      * @return $this
      */
-    public function setClassTeacher($ClassTeacher): self
+    public function setAddress($Address): self
     {
-        $this->container['ClassTeacher'] = $ClassTeacher;
+        $this->container['Address'] = $Address;
 
         return $this;
     }
 
     /**
-     * Gets SortOrder
+     * Gets Address2
      *
-     * @return int
+     * @return string
      */
-    public function getSortOrder()
+    public function getAddress2()
     {
-        return $this->container['SortOrder'];
+        return $this->container['Address2'];
     }
 
     /**
-     * Sets SortOrder
+     * Sets Address2
      *
-     * @param int $SortOrder If configured by the business owner, this field determines a staff member’s weight when sorting. Use this field to sort staff members on your interface.
+     * @param string $Address2 Address2
      *
      * @return $this
      */
-    public function setSortOrder($SortOrder): self
+    public function setAddress2($Address2): self
     {
-        $this->container['SortOrder'] = $SortOrder;
+        $this->container['Address2'] = $Address2;
+
+        return $this;
+    }
+
+    /**
+     * Gets City
+     *
+     * @return string
+     */
+    public function getCity()
+    {
+        return $this->container['City'];
+    }
+
+    /**
+     * Sets City
+     *
+     * @param string $City City
+     *
+     * @return $this
+     */
+    public function setCity($City): self
+    {
+        $this->container['City'] = $City;
 
         return $this;
     }
@@ -816,13 +656,85 @@ class Staff extends BaseModel implements ModelWithId
     /**
      * Sets State
      *
-     * @param string $State The staff member’s state.
+     * @param string $State State
      *
      * @return $this
      */
     public function setState($State): self
     {
         $this->container['State'] = $State;
+
+        return $this;
+    }
+
+    /**
+     * Gets PostalCode
+     *
+     * @return string
+     */
+    public function getPostalCode()
+    {
+        return $this->container['PostalCode'];
+    }
+
+    /**
+     * Sets PostalCode
+     *
+     * @param string $PostalCode PostalCode
+     *
+     * @return $this
+     */
+    public function setPostalCode($PostalCode): self
+    {
+        $this->container['PostalCode'] = $PostalCode;
+
+        return $this;
+    }
+
+    /**
+     * Gets ForeignZip
+     *
+     * @return string
+     */
+    public function getForeignZip()
+    {
+        return $this->container['ForeignZip'];
+    }
+
+    /**
+     * Sets ForeignZip
+     *
+     * @param string $ForeignZip ForeignZip
+     *
+     * @return $this
+     */
+    public function setForeignZip($ForeignZip): self
+    {
+        $this->container['ForeignZip'] = $ForeignZip;
+
+        return $this;
+    }
+
+    /**
+     * Gets Country
+     *
+     * @return string
+     */
+    public function getCountry()
+    {
+        return $this->container['Country'];
+    }
+
+    /**
+     * Sets Country
+     *
+     * @param string $Country Country
+     *
+     * @return $this
+     */
+    public function setCountry($Country): self
+    {
+        $this->container['Country'] = $Country;
 
         return $this;
     }
@@ -840,13 +752,205 @@ class Staff extends BaseModel implements ModelWithId
     /**
      * Sets WorkPhone
      *
-     * @param string $WorkPhone The staff member’s work phone number.
+     * @param string $WorkPhone WorkPhone
      *
      * @return $this
      */
     public function setWorkPhone($WorkPhone): self
     {
         $this->container['WorkPhone'] = $WorkPhone;
+
+        return $this;
+    }
+
+    /**
+     * Gets HomePhone
+     *
+     * @return string
+     */
+    public function getHomePhone()
+    {
+        return $this->container['HomePhone'];
+    }
+
+    /**
+     * Sets HomePhone
+     *
+     * @param string $HomePhone HomePhone
+     *
+     * @return $this
+     */
+    public function setHomePhone($HomePhone): self
+    {
+        $this->container['HomePhone'] = $HomePhone;
+
+        return $this;
+    }
+
+    /**
+     * Gets CellPhone
+     *
+     * @return string
+     */
+    public function getCellPhone()
+    {
+        return $this->container['CellPhone'];
+    }
+
+    /**
+     * Sets CellPhone
+     *
+     * @param string $CellPhone CellPhone
+     *
+     * @return $this
+     */
+    public function setCellPhone($CellPhone): self
+    {
+        $this->container['CellPhone'] = $CellPhone;
+
+        return $this;
+    }
+
+    /**
+     * Gets Active
+     *
+     * @return bool
+     */
+    public function getActive()
+    {
+        return $this->container['Active'];
+    }
+
+    /**
+     * Sets Active
+     *
+     * @param bool $Active Active
+     *
+     * @return $this
+     */
+    public function setActive($Active): self
+    {
+        $this->container['Active'] = $Active;
+
+        return $this;
+    }
+
+    /**
+     * Gets IsSystem
+     *
+     * @return bool
+     */
+    public function getIsSystem()
+    {
+        return $this->container['IsSystem'];
+    }
+
+    /**
+     * Sets IsSystem
+     *
+     * @param bool $IsSystem IsSystem
+     *
+     * @return $this
+     */
+    public function setIsSystem($IsSystem): self
+    {
+        $this->container['IsSystem'] = $IsSystem;
+
+        return $this;
+    }
+
+    /**
+     * Gets SmodeId
+     *
+     * @return int
+     */
+    public function getSmodeId()
+    {
+        return $this->container['SmodeId'];
+    }
+
+    /**
+     * Sets SmodeId
+     *
+     * @param int $SmodeId SmodeId
+     *
+     * @return $this
+     */
+    public function setSmodeId($SmodeId): self
+    {
+        $this->container['SmodeId'] = $SmodeId;
+
+        return $this;
+    }
+
+    /**
+     * Gets AppointmentTrn
+     *
+     * @return bool
+     */
+    public function getAppointmentTrn()
+    {
+        return $this->container['AppointmentTrn'];
+    }
+
+    /**
+     * Sets AppointmentTrn
+     *
+     * @param bool $AppointmentTrn AppointmentTrn
+     *
+     * @return $this
+     */
+    public function setAppointmentTrn($AppointmentTrn): self
+    {
+        $this->container['AppointmentTrn'] = $AppointmentTrn;
+
+        return $this;
+    }
+
+    /**
+     * Gets AlwaysAllowDoubleBooking
+     *
+     * @return bool
+     */
+    public function getAlwaysAllowDoubleBooking()
+    {
+        return $this->container['AlwaysAllowDoubleBooking'];
+    }
+
+    /**
+     * Sets AlwaysAllowDoubleBooking
+     *
+     * @param bool $AlwaysAllowDoubleBooking AlwaysAllowDoubleBooking
+     *
+     * @return $this
+     */
+    public function setAlwaysAllowDoubleBooking($AlwaysAllowDoubleBooking): self
+    {
+        $this->container['AlwaysAllowDoubleBooking'] = $AlwaysAllowDoubleBooking;
+
+        return $this;
+    }
+
+    /**
+     * Gets IndependentContractor
+     *
+     * @return bool
+     */
+    public function getIndependentContractor()
+    {
+        return $this->container['IndependentContractor'];
+    }
+
+    /**
+     * Sets IndependentContractor
+     *
+     * @param bool $IndependentContractor IndependentContractor
+     *
+     * @return $this
+     */
+    public function setIndependentContractor($IndependentContractor): self
+    {
+        $this->container['IndependentContractor'] = $IndependentContractor;
 
         return $this;
     }
@@ -864,7 +968,7 @@ class Staff extends BaseModel implements ModelWithId
     /**
      * Sets ImageUrl
      *
-     * @param string $ImageUrl The URL of the staff member’s image, if one has been uploaded.
+     * @param string $ImageUrl ImageUrl
      *
      * @return $this
      */
@@ -876,97 +980,121 @@ class Staff extends BaseModel implements ModelWithId
     }
 
     /**
-     * Gets ClassAssistant
+     * Gets IsMale
      *
      * @return bool
      */
-    public function getClassAssistant()
+    public function getIsMale()
     {
-        return $this->container['ClassAssistant'];
+        return $this->container['IsMale'];
     }
 
     /**
-     * Sets ClassAssistant
+     * Sets IsMale
      *
-     * @param bool $ClassAssistant Is the staff an assistant
+     * @param bool $IsMale IsMale
      *
      * @return $this
      */
-    public function setClassAssistant($ClassAssistant): self
+    public function setIsMale($IsMale): self
     {
-        $this->container['ClassAssistant'] = $ClassAssistant;
+        $this->container['IsMale'] = $IsMale;
 
         return $this;
     }
 
     /**
-     * Gets ClassAssistant2
+     * Gets ReservationTrn
      *
      * @return bool
      */
-    public function getClassAssistant2()
+    public function getReservationTrn()
     {
-        return $this->container['ClassAssistant2'];
+        return $this->container['ReservationTrn'];
     }
 
     /**
-     * Sets ClassAssistant2
+     * Sets ReservationTrn
      *
-     * @param bool $ClassAssistant2 Is the staff an assistant2
+     * @param bool $ReservationTrn ReservationTrn
      *
      * @return $this
      */
-    public function setClassAssistant2($ClassAssistant2): self
+    public function setReservationTrn($ReservationTrn): self
     {
-        $this->container['ClassAssistant2'] = $ClassAssistant2;
+        $this->container['ReservationTrn'] = $ReservationTrn;
 
         return $this;
     }
 
     /**
-     * Gets EmploymentStart
+     * Gets SortOrder
      *
-     * @return \DateTime
+     * @return int
      */
-    public function getEmploymentStart()
+    public function getSortOrder()
     {
-        return $this->container['EmploymentStart'];
+        return $this->container['SortOrder'];
     }
 
     /**
-     * Sets EmploymentStart
+     * Sets SortOrder
      *
-     * @param \DateTime $EmploymentStart The start date of employment
+     * @param int $SortOrder SortOrder
      *
      * @return $this
      */
-    public function setEmploymentStart($EmploymentStart): self
+    public function setSortOrder($SortOrder): self
     {
-        $this->container['EmploymentStart'] = $EmploymentStart;
+        $this->container['SortOrder'] = $SortOrder;
 
         return $this;
     }
 
     /**
-     * Gets EmploymentEnd
+     * Gets MultiLocationPermission
      *
-     * @return \DateTime
+     * @return bool
      */
-    public function getEmploymentEnd()
+    public function getMultiLocationPermission()
     {
-        return $this->container['EmploymentEnd'];
+        return $this->container['MultiLocationPermission'];
     }
 
     /**
-     * Sets EmploymentEnd
+     * Sets MultiLocationPermission
      *
-     * @param \DateTime $EmploymentEnd The end date of employment
+     * @param bool $MultiLocationPermission MultiLocationPermission
      *
      * @return $this
      */
-    public function setEmploymentEnd($EmploymentEnd): self
+    public function setMultiLocationPermission($MultiLocationPermission): self
     {
-        $this->container['EmploymentEnd'] = $EmploymentEnd;
+        $this->container['MultiLocationPermission'] = $MultiLocationPermission;
+
+        return $this;
+    }
+
+    /**
+     * Gets Name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['Name'];
+    }
+
+    /**
+     * Sets Name
+     *
+     * @param string $Name Name
+     *
+     * @return $this
+     */
+    public function setName($Name): self
+    {
+        $this->container['Name'] = $Name;
 
         return $this;
     }
@@ -984,7 +1112,7 @@ class Staff extends BaseModel implements ModelWithId
     /**
      * Sets ProviderIDs
      *
-     * @param string[] $ProviderIDs A list of ProviderIds for the staff.
+     * @param string[] $ProviderIDs ProviderIDs
      *
      * @return $this
      */
@@ -1008,7 +1136,7 @@ class Staff extends BaseModel implements ModelWithId
     /**
      * Sets Rep
      *
-     * @param bool $Rep return true if staff is sales Rep 1 else false.
+     * @param bool $Rep Rep
      *
      * @return $this
      */
@@ -1032,7 +1160,7 @@ class Staff extends BaseModel implements ModelWithId
     /**
      * Sets Rep2
      *
-     * @param bool $Rep2 return true if staff is sales Rep 2 else false.
+     * @param bool $Rep2 Rep2
      *
      * @return $this
      */
@@ -1056,7 +1184,7 @@ class Staff extends BaseModel implements ModelWithId
     /**
      * Sets Rep3
      *
-     * @param bool $Rep3 return true if staff is sales Rep 3 else false.
+     * @param bool $Rep3 Rep3
      *
      * @return $this
      */
@@ -1080,7 +1208,7 @@ class Staff extends BaseModel implements ModelWithId
     /**
      * Sets Rep4
      *
-     * @param bool $Rep4 return true if staff is sales Rep 4 else false.
+     * @param bool $Rep4 Rep4
      *
      * @return $this
      */
@@ -1104,7 +1232,7 @@ class Staff extends BaseModel implements ModelWithId
     /**
      * Sets Rep5
      *
-     * @param bool $Rep5 return true if staff is sales Rep 5 else false.
+     * @param bool $Rep5 Rep5
      *
      * @return $this
      */
@@ -1128,13 +1256,133 @@ class Staff extends BaseModel implements ModelWithId
     /**
      * Sets Rep6
      *
-     * @param bool $Rep6 return true if staff is sales Rep 6 else false.
+     * @param bool $Rep6 Rep6
      *
      * @return $this
      */
     public function setRep6($Rep6): self
     {
         $this->container['Rep6'] = $Rep6;
+
+        return $this;
+    }
+
+    /**
+     * Gets Assistant
+     *
+     * @return bool
+     */
+    public function getAssistant()
+    {
+        return $this->container['Assistant'];
+    }
+
+    /**
+     * Sets Assistant
+     *
+     * @param bool $Assistant Assistant
+     *
+     * @return $this
+     */
+    public function setAssistant($Assistant): self
+    {
+        $this->container['Assistant'] = $Assistant;
+
+        return $this;
+    }
+
+    /**
+     * Gets Assistant2
+     *
+     * @return bool
+     */
+    public function getAssistant2()
+    {
+        return $this->container['Assistant2'];
+    }
+
+    /**
+     * Sets Assistant2
+     *
+     * @param bool $Assistant2 Assistant2
+     *
+     * @return $this
+     */
+    public function setAssistant2($Assistant2): self
+    {
+        $this->container['Assistant2'] = $Assistant2;
+
+        return $this;
+    }
+
+    /**
+     * Gets EmploymentStart
+     *
+     * @return \DateTime
+     */
+    public function getEmploymentStart()
+    {
+        return $this->container['EmploymentStart'];
+    }
+
+    /**
+     * Sets EmploymentStart
+     *
+     * @param \DateTime $EmploymentStart EmploymentStart
+     *
+     * @return $this
+     */
+    public function setEmploymentStart($EmploymentStart): self
+    {
+        $this->container['EmploymentStart'] = $EmploymentStart;
+
+        return $this;
+    }
+
+    /**
+     * Gets EmploymentEnd
+     *
+     * @return \DateTime
+     */
+    public function getEmploymentEnd()
+    {
+        return $this->container['EmploymentEnd'];
+    }
+
+    /**
+     * Sets EmploymentEnd
+     *
+     * @param \DateTime $EmploymentEnd EmploymentEnd
+     *
+     * @return $this
+     */
+    public function setEmploymentEnd($EmploymentEnd): self
+    {
+        $this->container['EmploymentEnd'] = $EmploymentEnd;
+
+        return $this;
+    }
+
+    /**
+     * Gets EmpID
+     *
+     * @return string
+     */
+    public function getEmpID()
+    {
+        return $this->container['EmpID'];
+    }
+
+    /**
+     * Sets EmpID
+     *
+     * @param string $EmpID EmpID
+     *
+     * @return $this
+     */
+    public function setEmpID($EmpID): self
+    {
+        $this->container['EmpID'] = $EmpID;
 
         return $this;
     }
@@ -1152,7 +1400,7 @@ class Staff extends BaseModel implements ModelWithId
     /**
      * Sets Appointments
      *
-     * @param \Nlocascio\Mindbody\Model\Appointment[] $Appointments A list of appointments for the staff.
+     * @param \Nlocascio\Mindbody\Model\Appointment[] $Appointments Appointments
      *
      * @return $this
      */
@@ -1176,7 +1424,7 @@ class Staff extends BaseModel implements ModelWithId
     /**
      * Sets Unavailabilities
      *
-     * @param \Nlocascio\Mindbody\Model\Unavailability[] $Unavailabilities A list of unavailabilities for the staff.
+     * @param \Nlocascio\Mindbody\Model\Unavailability[] $Unavailabilities Unavailabilities
      *
      * @return $this
      */
@@ -1200,7 +1448,7 @@ class Staff extends BaseModel implements ModelWithId
     /**
      * Sets Availabilities
      *
-     * @param \Nlocascio\Mindbody\Model\Availability[] $Availabilities A list of availabilities for the staff.
+     * @param \Nlocascio\Mindbody\Model\Availability[] $Availabilities Availabilities
      *
      * @return $this
      */
@@ -1212,25 +1460,25 @@ class Staff extends BaseModel implements ModelWithId
     }
 
     /**
-     * Gets EmpID
+     * Gets LoginLocations
      *
-     * @return string
+     * @return \Nlocascio\Mindbody\Model\Location[]
      */
-    public function getEmpID()
+    public function getLoginLocations()
     {
-        return $this->container['EmpID'];
+        return $this->container['LoginLocations'];
     }
 
     /**
-     * Sets EmpID
+     * Sets LoginLocations
      *
-     * @param string $EmpID The EmpID assigned to the staff member.
+     * @param \Nlocascio\Mindbody\Model\Location[] $LoginLocations LoginLocations
      *
      * @return $this
      */
-    public function setEmpID($EmpID): self
+    public function setLoginLocations($LoginLocations): self
     {
-        $this->container['EmpID'] = $EmpID;
+        $this->container['LoginLocations'] = $LoginLocations;
 
         return $this;
     }

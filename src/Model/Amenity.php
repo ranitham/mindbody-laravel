@@ -33,12 +33,11 @@ namespace Nlocascio\Mindbody\Model;
  * Amenity Class Doc Comment
  *
  * @category Class
- * @description Definition of a location amenity
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property int $Id The ID number of the amenity.
- * @property string $Name The name of the amenity, for example, food or lockers.
+ * @property int $Id Id
+ * @property string $Name Name
  *
  */
 class Amenity extends BaseModel implements ModelWithId
@@ -147,7 +146,7 @@ class Amenity extends BaseModel implements ModelWithId
     /**
      * Sets Id
      *
-     * @param int $Id The ID number of the amenity.
+     * @param int $Id Id
      *
      * @return $this
      */
@@ -171,7 +170,7 @@ class Amenity extends BaseModel implements ModelWithId
     /**
      * Sets Name
      *
-     * @param string $Name The name of the amenity, for example, food or lockers.
+     * @param string $Name Name
      *
      * @return $this
      */

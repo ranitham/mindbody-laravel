@@ -33,28 +33,30 @@ namespace Nlocascio\Mindbody\Model;
  * Appointment Class Doc Comment
  *
  * @category Class
- * @description Contains information about an appointment.
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property string $GenderPreference The preferred gender of the appointment provider.
- * @property int $Duration The duration of the appointment.
- * @property string $ProviderId If a user has Complementary and Alternative Medicine features enabled, this property indicates the provider assigned to the appointment.
- * @property int $Id The unique ID of the appointment.
- * @property string $Status The status of this appointment.
- * @property \DateTime $StartDateTime The date and time the appointment is to start.
- * @property \DateTime $EndDateTime The date and time the appointment is to end.
- * @property string $Notes Any notes associated with the appointment.
- * @property bool $StaffRequested When `true`, indicates that the staff member was requested specifically by the client.
- * @property int $ProgramId The ID of the program to which this appointment belongs.
- * @property int $SessionTypeId The ID of the session type of this appointment.
- * @property int $LocationId The ID of the location where this appointment is to take place.
- * @property int $StaffId The ID of the staff member providing the service for this appointment.
- * @property string $ClientId The RSSID of the client who is booked for this appointment.
- * @property bool $FirstAppointment When `true`, indicates that this is the client’s first appointment at this site.
- * @property int $ClientServiceId The ID of the pass on the client’s account that is to pay for this appointment.
- * @property \Nlocascio\Mindbody\Model\Resource[] $Resources The resources this appointment is to use.
- * @property \Nlocascio\Mindbody\Model\AddOnSmall[] $AddOns Any AddOns associated with the appointment
+ * @property string $GenderPreference GenderPreference
+ * @property int $Duration Duration
+ * @property string $ProviderId ProviderId
+ * @property int $Id Id
+ * @property string $Status Status
+ * @property \DateTime $StartDateTime StartDateTime
+ * @property \DateTime $EndDateTime EndDateTime
+ * @property string $Notes Notes
+ * @property bool $StaffRequested StaffRequested
+ * @property int $ProgramId ProgramId
+ * @property int $WaitlistEntryId WaitlistEntryId
+ * @property int $SessionTypeId SessionTypeId
+ * @property int $LocationId LocationId
+ * @property int $StaffId StaffId
+ * @property string $ClientId ClientId
+ * @property bool $FirstAppointment FirstAppointment
+ * @property int $ClientServiceId ClientServiceId
+ * @property \Nlocascio\Mindbody\Model\Resource[] $Resources Resources
+ * @property \Nlocascio\Mindbody\Model\AddOnSmall[] $AddOns AddOns
+ * @property bool $IsWaitlist IsWaitlist
+ * @property string $OnlineDescription OnlineDescription
  *
  */
 class Appointment extends BaseModel implements ModelWithId
@@ -84,6 +86,7 @@ class Appointment extends BaseModel implements ModelWithId
         'Notes' => 'string',
         'StaffRequested' => 'bool',
         'ProgramId' => 'int',
+        'WaitlistEntryId' => 'int',
         'SessionTypeId' => 'int',
         'LocationId' => 'int',
         'StaffId' => 'int',
@@ -91,7 +94,9 @@ class Appointment extends BaseModel implements ModelWithId
         'FirstAppointment' => 'bool',
         'ClientServiceId' => 'int',
         'Resources' => '\Nlocascio\Mindbody\Model\Resource[]',
-        'AddOns' => '\Nlocascio\Mindbody\Model\AddOnSmall[]'
+        'AddOns' => '\Nlocascio\Mindbody\Model\AddOnSmall[]',
+        'IsWaitlist' => 'bool',
+        'OnlineDescription' => 'string'
     ];
 
     /**
@@ -110,6 +115,7 @@ class Appointment extends BaseModel implements ModelWithId
         'Notes' => null,
         'StaffRequested' => null,
         'ProgramId' => 'int32',
+        'WaitlistEntryId' => 'int64',
         'SessionTypeId' => 'int32',
         'LocationId' => 'int32',
         'StaffId' => 'int64',
@@ -117,7 +123,9 @@ class Appointment extends BaseModel implements ModelWithId
         'FirstAppointment' => null,
         'ClientServiceId' => 'int64',
         'Resources' => null,
-        'AddOns' => null
+        'AddOns' => null,
+        'IsWaitlist' => null,
+        'OnlineDescription' => null
     ];
 
 
@@ -138,6 +146,7 @@ class Appointment extends BaseModel implements ModelWithId
         'Notes' => 'Notes',
         'StaffRequested' => 'StaffRequested',
         'ProgramId' => 'ProgramId',
+        'WaitlistEntryId' => 'WaitlistEntryId',
         'SessionTypeId' => 'SessionTypeId',
         'LocationId' => 'LocationId',
         'StaffId' => 'StaffId',
@@ -145,7 +154,9 @@ class Appointment extends BaseModel implements ModelWithId
         'FirstAppointment' => 'FirstAppointment',
         'ClientServiceId' => 'ClientServiceId',
         'Resources' => 'Resources',
-        'AddOns' => 'AddOns'
+        'AddOns' => 'AddOns',
+        'IsWaitlist' => 'IsWaitlist',
+        'OnlineDescription' => 'OnlineDescription'
     ];
 
     /**
@@ -164,6 +175,7 @@ class Appointment extends BaseModel implements ModelWithId
         'Notes' => 'setNotes',
         'StaffRequested' => 'setStaffRequested',
         'ProgramId' => 'setProgramId',
+        'WaitlistEntryId' => 'setWaitlistEntryId',
         'SessionTypeId' => 'setSessionTypeId',
         'LocationId' => 'setLocationId',
         'StaffId' => 'setStaffId',
@@ -171,7 +183,9 @@ class Appointment extends BaseModel implements ModelWithId
         'FirstAppointment' => 'setFirstAppointment',
         'ClientServiceId' => 'setClientServiceId',
         'Resources' => 'setResources',
-        'AddOns' => 'setAddOns'
+        'AddOns' => 'setAddOns',
+        'IsWaitlist' => 'setIsWaitlist',
+        'OnlineDescription' => 'setOnlineDescription'
     ];
 
     /**
@@ -190,6 +204,7 @@ class Appointment extends BaseModel implements ModelWithId
         'Notes' => 'getNotes',
         'StaffRequested' => 'getStaffRequested',
         'ProgramId' => 'getProgramId',
+        'WaitlistEntryId' => 'getWaitlistEntryId',
         'SessionTypeId' => 'getSessionTypeId',
         'LocationId' => 'getLocationId',
         'StaffId' => 'getStaffId',
@@ -197,15 +212,12 @@ class Appointment extends BaseModel implements ModelWithId
         'FirstAppointment' => 'getFirstAppointment',
         'ClientServiceId' => 'getClientServiceId',
         'Resources' => 'getResources',
-        'AddOns' => 'getAddOns'
+        'AddOns' => 'getAddOns',
+        'IsWaitlist' => 'getIsWaitlist',
+        'OnlineDescription' => 'getOnlineDescription'
     ];
 
 
-    const GENDER_PREFERENCE_NONE = 'None';
-    const GENDER_PREFERENCE_FEMALE = 'Female';
-    const GENDER_PREFERENCE_MALE = 'Male';
-    const STATUS_NONE = 'None';
-    const STATUS_REQUESTED = 'Requested';
     const STATUS_BOOKED = 'Booked';
     const STATUS_COMPLETED = 'Completed';
     const STATUS_CONFIRMED = 'Confirmed';
@@ -221,25 +233,9 @@ class Appointment extends BaseModel implements ModelWithId
      *
      * @return string[]
      */
-    public function getGenderPreferenceAllowableValues(): array
-    {
-        return [
-            self::GENDER_PREFERENCE_NONE,
-            self::GENDER_PREFERENCE_FEMALE,
-            self::GENDER_PREFERENCE_MALE,
-        ];
-    }
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
     public function getStatusAllowableValues(): array
     {
         return [
-            self::STATUS_NONE,
-            self::STATUS_REQUESTED,
             self::STATUS_BOOKED,
             self::STATUS_COMPLETED,
             self::STATUS_CONFIRMED,
@@ -269,6 +265,7 @@ class Appointment extends BaseModel implements ModelWithId
         $this->container['Notes'] = isset($data['Notes']) ? $data['Notes'] : null;
         $this->container['StaffRequested'] = isset($data['StaffRequested']) ? $data['StaffRequested'] : null;
         $this->container['ProgramId'] = isset($data['ProgramId']) ? $data['ProgramId'] : null;
+        $this->container['WaitlistEntryId'] = isset($data['WaitlistEntryId']) ? $data['WaitlistEntryId'] : null;
         $this->container['SessionTypeId'] = isset($data['SessionTypeId']) ? $data['SessionTypeId'] : null;
         $this->container['LocationId'] = isset($data['LocationId']) ? $data['LocationId'] : null;
         $this->container['StaffId'] = isset($data['StaffId']) ? $data['StaffId'] : null;
@@ -277,6 +274,8 @@ class Appointment extends BaseModel implements ModelWithId
         $this->container['ClientServiceId'] = isset($data['ClientServiceId']) ? $data['ClientServiceId'] : null;
         $this->container['Resources'] = isset($data['Resources']) ? $data['Resources'] : null;
         $this->container['AddOns'] = isset($data['AddOns']) ? $data['AddOns'] : null;
+        $this->container['IsWaitlist'] = isset($data['IsWaitlist']) ? $data['IsWaitlist'] : null;
+        $this->container['OnlineDescription'] = isset($data['OnlineDescription']) ? $data['OnlineDescription'] : null;
     }
 
     /**
@@ -287,14 +286,6 @@ class Appointment extends BaseModel implements ModelWithId
     public function listInvalidProperties(): array
     {
         $invalidProperties = parent::listInvalidProperties();
-
-        $allowedValues = $this->getGenderPreferenceAllowableValues();
-        if (!is_null($this->container['GenderPreference']) && !in_array($this->container['GenderPreference'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'GenderPreference', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         $allowedValues = $this->getStatusAllowableValues();
         if (!is_null($this->container['Status']) && !in_array($this->container['Status'], $allowedValues, true)) {
@@ -321,21 +312,12 @@ class Appointment extends BaseModel implements ModelWithId
     /**
      * Sets GenderPreference
      *
-     * @param string $GenderPreference The preferred gender of the appointment provider.
+     * @param string $GenderPreference GenderPreference
      *
      * @return $this
      */
     public function setGenderPreference($GenderPreference): self
     {
-        $allowedValues = $this->getGenderPreferenceAllowableValues();
-        if (!is_null($GenderPreference) && !in_array($GenderPreference, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'GenderPreference', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['GenderPreference'] = $GenderPreference;
 
         return $this;
@@ -354,7 +336,7 @@ class Appointment extends BaseModel implements ModelWithId
     /**
      * Sets Duration
      *
-     * @param int $Duration The duration of the appointment.
+     * @param int $Duration Duration
      *
      * @return $this
      */
@@ -378,7 +360,7 @@ class Appointment extends BaseModel implements ModelWithId
     /**
      * Sets ProviderId
      *
-     * @param string $ProviderId If a user has Complementary and Alternative Medicine features enabled, this property indicates the provider assigned to the appointment.
+     * @param string $ProviderId ProviderId
      *
      * @return $this
      */
@@ -402,7 +384,7 @@ class Appointment extends BaseModel implements ModelWithId
     /**
      * Sets Id
      *
-     * @param int $Id The unique ID of the appointment.
+     * @param int $Id Id
      *
      * @return $this
      */
@@ -426,7 +408,7 @@ class Appointment extends BaseModel implements ModelWithId
     /**
      * Sets Status
      *
-     * @param string $Status The status of this appointment.
+     * @param string $Status Status
      *
      * @return $this
      */
@@ -459,7 +441,7 @@ class Appointment extends BaseModel implements ModelWithId
     /**
      * Sets StartDateTime
      *
-     * @param \DateTime $StartDateTime The date and time the appointment is to start.
+     * @param \DateTime $StartDateTime StartDateTime
      *
      * @return $this
      */
@@ -483,7 +465,7 @@ class Appointment extends BaseModel implements ModelWithId
     /**
      * Sets EndDateTime
      *
-     * @param \DateTime $EndDateTime The date and time the appointment is to end.
+     * @param \DateTime $EndDateTime EndDateTime
      *
      * @return $this
      */
@@ -507,7 +489,7 @@ class Appointment extends BaseModel implements ModelWithId
     /**
      * Sets Notes
      *
-     * @param string $Notes Any notes associated with the appointment.
+     * @param string $Notes Notes
      *
      * @return $this
      */
@@ -531,7 +513,7 @@ class Appointment extends BaseModel implements ModelWithId
     /**
      * Sets StaffRequested
      *
-     * @param bool $StaffRequested When `true`, indicates that the staff member was requested specifically by the client.
+     * @param bool $StaffRequested StaffRequested
      *
      * @return $this
      */
@@ -555,13 +537,37 @@ class Appointment extends BaseModel implements ModelWithId
     /**
      * Sets ProgramId
      *
-     * @param int $ProgramId The ID of the program to which this appointment belongs.
+     * @param int $ProgramId ProgramId
      *
      * @return $this
      */
     public function setProgramId($ProgramId): self
     {
         $this->container['ProgramId'] = $ProgramId;
+
+        return $this;
+    }
+
+    /**
+     * Gets WaitlistEntryId
+     *
+     * @return int
+     */
+    public function getWaitlistEntryId()
+    {
+        return $this->container['WaitlistEntryId'];
+    }
+
+    /**
+     * Sets WaitlistEntryId
+     *
+     * @param int $WaitlistEntryId WaitlistEntryId
+     *
+     * @return $this
+     */
+    public function setWaitlistEntryId($WaitlistEntryId): self
+    {
+        $this->container['WaitlistEntryId'] = $WaitlistEntryId;
 
         return $this;
     }
@@ -579,7 +585,7 @@ class Appointment extends BaseModel implements ModelWithId
     /**
      * Sets SessionTypeId
      *
-     * @param int $SessionTypeId The ID of the session type of this appointment.
+     * @param int $SessionTypeId SessionTypeId
      *
      * @return $this
      */
@@ -603,7 +609,7 @@ class Appointment extends BaseModel implements ModelWithId
     /**
      * Sets LocationId
      *
-     * @param int $LocationId The ID of the location where this appointment is to take place.
+     * @param int $LocationId LocationId
      *
      * @return $this
      */
@@ -627,7 +633,7 @@ class Appointment extends BaseModel implements ModelWithId
     /**
      * Sets StaffId
      *
-     * @param int $StaffId The ID of the staff member providing the service for this appointment.
+     * @param int $StaffId StaffId
      *
      * @return $this
      */
@@ -651,7 +657,7 @@ class Appointment extends BaseModel implements ModelWithId
     /**
      * Sets ClientId
      *
-     * @param string $ClientId The RSSID of the client who is booked for this appointment.
+     * @param string $ClientId ClientId
      *
      * @return $this
      */
@@ -675,7 +681,7 @@ class Appointment extends BaseModel implements ModelWithId
     /**
      * Sets FirstAppointment
      *
-     * @param bool $FirstAppointment When `true`, indicates that this is the client’s first appointment at this site.
+     * @param bool $FirstAppointment FirstAppointment
      *
      * @return $this
      */
@@ -699,7 +705,7 @@ class Appointment extends BaseModel implements ModelWithId
     /**
      * Sets ClientServiceId
      *
-     * @param int $ClientServiceId The ID of the pass on the client’s account that is to pay for this appointment.
+     * @param int $ClientServiceId ClientServiceId
      *
      * @return $this
      */
@@ -723,7 +729,7 @@ class Appointment extends BaseModel implements ModelWithId
     /**
      * Sets Resources
      *
-     * @param \Nlocascio\Mindbody\Model\Resource[] $Resources The resources this appointment is to use.
+     * @param \Nlocascio\Mindbody\Model\Resource[] $Resources Resources
      *
      * @return $this
      */
@@ -747,13 +753,61 @@ class Appointment extends BaseModel implements ModelWithId
     /**
      * Sets AddOns
      *
-     * @param \Nlocascio\Mindbody\Model\AddOnSmall[] $AddOns Any AddOns associated with the appointment
+     * @param \Nlocascio\Mindbody\Model\AddOnSmall[] $AddOns AddOns
      *
      * @return $this
      */
     public function setAddOns($AddOns): self
     {
         $this->container['AddOns'] = $AddOns;
+
+        return $this;
+    }
+
+    /**
+     * Gets IsWaitlist
+     *
+     * @return bool
+     */
+    public function getIsWaitlist()
+    {
+        return $this->container['IsWaitlist'];
+    }
+
+    /**
+     * Sets IsWaitlist
+     *
+     * @param bool $IsWaitlist IsWaitlist
+     *
+     * @return $this
+     */
+    public function setIsWaitlist($IsWaitlist): self
+    {
+        $this->container['IsWaitlist'] = $IsWaitlist;
+
+        return $this;
+    }
+
+    /**
+     * Gets OnlineDescription
+     *
+     * @return string
+     */
+    public function getOnlineDescription()
+    {
+        return $this->container['OnlineDescription'];
+    }
+
+    /**
+     * Sets OnlineDescription
+     *
+     * @param string $OnlineDescription OnlineDescription
+     *
+     * @return $this
+     */
+    public function setOnlineDescription($OnlineDescription): self
+    {
+        $this->container['OnlineDescription'] = $OnlineDescription;
 
         return $this;
     }

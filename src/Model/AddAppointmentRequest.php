@@ -52,6 +52,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property bool $StaffRequested When `true`, indicates that the staff member was requested specifically by the client.
  * @property \DateTime $StartDateTime The start date and time of the new appointment.
  * @property bool $Test When true, indicates that the method is to be validated, but no new appointment data is added.   <br />Default: **false**
+ * @property bool $IsWaitlist Whether to add appointment to waitlist.
  *
  */
 class AddAppointmentRequest extends BaseModel
@@ -86,7 +87,8 @@ class AddAppointmentRequest extends BaseModel
         'StaffId' => 'int',
         'StaffRequested' => 'bool',
         'StartDateTime' => '\DateTime',
-        'Test' => 'bool'
+        'Test' => 'bool',
+        'IsWaitlist' => 'bool'
     ];
 
     /**
@@ -110,7 +112,8 @@ class AddAppointmentRequest extends BaseModel
         'StaffId' => 'int64',
         'StaffRequested' => null,
         'StartDateTime' => 'date-time',
-        'Test' => null
+        'Test' => null,
+        'IsWaitlist' => null
     ];
 
 
@@ -136,7 +139,8 @@ class AddAppointmentRequest extends BaseModel
         'StaffId' => 'StaffId',
         'StaffRequested' => 'StaffRequested',
         'StartDateTime' => 'StartDateTime',
-        'Test' => 'Test'
+        'Test' => 'Test',
+        'IsWaitlist' => 'IsWaitlist'
     ];
 
     /**
@@ -160,7 +164,8 @@ class AddAppointmentRequest extends BaseModel
         'StaffId' => 'setStaffId',
         'StaffRequested' => 'setStaffRequested',
         'StartDateTime' => 'setStartDateTime',
-        'Test' => 'setTest'
+        'Test' => 'setTest',
+        'IsWaitlist' => 'setIsWaitlist'
     ];
 
     /**
@@ -184,7 +189,8 @@ class AddAppointmentRequest extends BaseModel
         'StaffId' => 'getStaffId',
         'StaffRequested' => 'getStaffRequested',
         'StartDateTime' => 'getStartDateTime',
-        'Test' => 'getTest'
+        'Test' => 'getTest',
+        'IsWaitlist' => 'getIsWaitlist'
     ];
 
 
@@ -216,6 +222,7 @@ class AddAppointmentRequest extends BaseModel
         $this->container['StaffRequested'] = isset($data['StaffRequested']) ? $data['StaffRequested'] : null;
         $this->container['StartDateTime'] = isset($data['StartDateTime']) ? $data['StartDateTime'] : null;
         $this->container['Test'] = isset($data['Test']) ? $data['Test'] : null;
+        $this->container['IsWaitlist'] = isset($data['IsWaitlist']) ? $data['IsWaitlist'] : null;
     }
 
     /**
@@ -626,6 +633,30 @@ class AddAppointmentRequest extends BaseModel
     public function setTest($Test): self
     {
         $this->container['Test'] = $Test;
+
+        return $this;
+    }
+
+    /**
+     * Gets IsWaitlist
+     *
+     * @return bool
+     */
+    public function getIsWaitlist()
+    {
+        return $this->container['IsWaitlist'];
+    }
+
+    /**
+     * Sets IsWaitlist
+     *
+     * @param bool $IsWaitlist Whether to add appointment to waitlist.
+     *
+     * @return $this
+     */
+    public function setIsWaitlist($IsWaitlist): self
+    {
+        $this->container['IsWaitlist'] = $IsWaitlist;
 
         return $this;
     }

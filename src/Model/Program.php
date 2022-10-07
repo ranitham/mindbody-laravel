@@ -36,11 +36,12 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property int $Id The service category’s ID.
- * @property string $Name The name of this service category.
- * @property string $ScheduleType The service category’s schedule type.
- * @property int $CancelOffset The offset to use for the service category.
- * @property string[] $ContentFormats The content delivery platform(s) used by the service category.
+ * @property int $CancelOffset CancelOffset
+ * @property int $Id Id
+ * @property string $Name Name
+ * @property string $ScheduleType ScheduleType
+ * @property string $ContentFormat ContentFormat
+ * @property bool $OnlineBookingDisabled OnlineBookingDisabled
  *
  */
 class Program extends BaseModel implements ModelWithId
@@ -60,11 +61,12 @@ class Program extends BaseModel implements ModelWithId
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'CancelOffset' => 'int',
         'Id' => 'int',
         'Name' => 'string',
         'ScheduleType' => 'string',
-        'CancelOffset' => 'int',
-        'ContentFormats' => 'string[]'
+        'ContentFormat' => 'string',
+        'OnlineBookingDisabled' => 'bool'
     ];
 
     /**
@@ -73,11 +75,12 @@ class Program extends BaseModel implements ModelWithId
       * @var array<string, string|null>
       */
     protected static $swaggerFormats = [
+        'CancelOffset' => 'int32',
         'Id' => 'int32',
         'Name' => null,
         'ScheduleType' => null,
-        'CancelOffset' => 'int32',
-        'ContentFormats' => null
+        'ContentFormat' => null,
+        'OnlineBookingDisabled' => null
     ];
 
 
@@ -88,11 +91,12 @@ class Program extends BaseModel implements ModelWithId
      * @var string[]
      */
     protected static $attributeMap = [
+        'CancelOffset' => 'CancelOffset',
         'Id' => 'Id',
         'Name' => 'Name',
         'ScheduleType' => 'ScheduleType',
-        'CancelOffset' => 'CancelOffset',
-        'ContentFormats' => 'ContentFormats'
+        'ContentFormat' => 'ContentFormat',
+        'OnlineBookingDisabled' => 'OnlineBookingDisabled'
     ];
 
     /**
@@ -101,11 +105,12 @@ class Program extends BaseModel implements ModelWithId
      * @var string[]
      */
     protected static $setters = [
+        'CancelOffset' => 'setCancelOffset',
         'Id' => 'setId',
         'Name' => 'setName',
         'ScheduleType' => 'setScheduleType',
-        'CancelOffset' => 'setCancelOffset',
-        'ContentFormats' => 'setContentFormats'
+        'ContentFormat' => 'setContentFormat',
+        'OnlineBookingDisabled' => 'setOnlineBookingDisabled'
     ];
 
     /**
@@ -114,21 +119,25 @@ class Program extends BaseModel implements ModelWithId
      * @var string[]
      */
     protected static $getters = [
+        'CancelOffset' => 'getCancelOffset',
         'Id' => 'getId',
         'Name' => 'getName',
         'ScheduleType' => 'getScheduleType',
-        'CancelOffset' => 'getCancelOffset',
-        'ContentFormats' => 'getContentFormats'
+        'ContentFormat' => 'getContentFormat',
+        'OnlineBookingDisabled' => 'getOnlineBookingDisabled'
     ];
 
 
     const SCHEDULE_TYPE_ALL = 'All';
-    const SCHEDULE_TYPE__CLASS = 'Class';
+    const SCHEDULE_TYPE_DROP_IN = 'DropIn';
     const SCHEDULE_TYPE_ENROLLMENT = 'Enrollment';
     const SCHEDULE_TYPE_APPOINTMENT = 'Appointment';
     const SCHEDULE_TYPE_RESOURCE = 'Resource';
     const SCHEDULE_TYPE_MEDIA = 'Media';
     const SCHEDULE_TYPE_ARRIVAL = 'Arrival';
+    const CONTENT_FORMAT_IN_PERSON = 'InPerson';
+    const CONTENT_FORMAT_MINDBODY = 'Mindbody';
+    const CONTENT_FORMAT_OTHER = 'Other';
     
 
     
@@ -141,12 +150,26 @@ class Program extends BaseModel implements ModelWithId
     {
         return [
             self::SCHEDULE_TYPE_ALL,
-            self::SCHEDULE_TYPE__CLASS,
+            self::SCHEDULE_TYPE_DROP_IN,
             self::SCHEDULE_TYPE_ENROLLMENT,
             self::SCHEDULE_TYPE_APPOINTMENT,
             self::SCHEDULE_TYPE_RESOURCE,
             self::SCHEDULE_TYPE_MEDIA,
             self::SCHEDULE_TYPE_ARRIVAL,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getContentFormatAllowableValues(): array
+    {
+        return [
+            self::CONTENT_FORMAT_IN_PERSON,
+            self::CONTENT_FORMAT_MINDBODY,
+            self::CONTENT_FORMAT_OTHER,
         ];
     }
     
@@ -159,11 +182,12 @@ class Program extends BaseModel implements ModelWithId
      */
     public function __construct(array $data = null)
     {
+        $this->container['CancelOffset'] = isset($data['CancelOffset']) ? $data['CancelOffset'] : null;
         $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
         $this->container['Name'] = isset($data['Name']) ? $data['Name'] : null;
         $this->container['ScheduleType'] = isset($data['ScheduleType']) ? $data['ScheduleType'] : null;
-        $this->container['CancelOffset'] = isset($data['CancelOffset']) ? $data['CancelOffset'] : null;
-        $this->container['ContentFormats'] = isset($data['ContentFormats']) ? $data['ContentFormats'] : null;
+        $this->container['ContentFormat'] = isset($data['ContentFormat']) ? $data['ContentFormat'] : null;
+        $this->container['OnlineBookingDisabled'] = isset($data['OnlineBookingDisabled']) ? $data['OnlineBookingDisabled'] : null;
     }
 
     /**
@@ -183,9 +207,41 @@ class Program extends BaseModel implements ModelWithId
             );
         }
 
+        $allowedValues = $this->getContentFormatAllowableValues();
+        if (!is_null($this->container['ContentFormat']) && !in_array($this->container['ContentFormat'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'ContentFormat', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
+
+    /**
+     * Gets CancelOffset
+     *
+     * @return int
+     */
+    public function getCancelOffset()
+    {
+        return $this->container['CancelOffset'];
+    }
+
+    /**
+     * Sets CancelOffset
+     *
+     * @param int $CancelOffset CancelOffset
+     *
+     * @return $this
+     */
+    public function setCancelOffset($CancelOffset): self
+    {
+        $this->container['CancelOffset'] = $CancelOffset;
+
+        return $this;
+    }
 
     /**
      * Gets Id
@@ -200,7 +256,7 @@ class Program extends BaseModel implements ModelWithId
     /**
      * Sets Id
      *
-     * @param int $Id The service category’s ID.
+     * @param int $Id Id
      *
      * @return $this
      */
@@ -224,7 +280,7 @@ class Program extends BaseModel implements ModelWithId
     /**
      * Sets Name
      *
-     * @param string $Name The name of this service category.
+     * @param string $Name Name
      *
      * @return $this
      */
@@ -248,7 +304,7 @@ class Program extends BaseModel implements ModelWithId
     /**
      * Sets ScheduleType
      *
-     * @param string $ScheduleType The service category’s schedule type.
+     * @param string $ScheduleType ScheduleType
      *
      * @return $this
      */
@@ -269,49 +325,58 @@ class Program extends BaseModel implements ModelWithId
     }
 
     /**
-     * Gets CancelOffset
+     * Gets ContentFormat
      *
-     * @return int
+     * @return string
      */
-    public function getCancelOffset()
+    public function getContentFormat()
     {
-        return $this->container['CancelOffset'];
+        return $this->container['ContentFormat'];
     }
 
     /**
-     * Sets CancelOffset
+     * Sets ContentFormat
      *
-     * @param int $CancelOffset The offset to use for the service category.
+     * @param string $ContentFormat ContentFormat
      *
      * @return $this
      */
-    public function setCancelOffset($CancelOffset): self
+    public function setContentFormat($ContentFormat): self
     {
-        $this->container['CancelOffset'] = $CancelOffset;
+        $allowedValues = $this->getContentFormatAllowableValues();
+        if (!is_null($ContentFormat) && !in_array($ContentFormat, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'ContentFormat', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['ContentFormat'] = $ContentFormat;
 
         return $this;
     }
 
     /**
-     * Gets ContentFormats
+     * Gets OnlineBookingDisabled
      *
-     * @return string[]
+     * @return bool
      */
-    public function getContentFormats()
+    public function getOnlineBookingDisabled()
     {
-        return $this->container['ContentFormats'];
+        return $this->container['OnlineBookingDisabled'];
     }
 
     /**
-     * Sets ContentFormats
+     * Sets OnlineBookingDisabled
      *
-     * @param string[] $ContentFormats The content delivery platform(s) used by the service category.
+     * @param bool $OnlineBookingDisabled OnlineBookingDisabled
      *
      * @return $this
      */
-    public function setContentFormats($ContentFormats): self
+    public function setOnlineBookingDisabled($OnlineBookingDisabled): self
     {
-        $this->container['ContentFormats'] = $ContentFormats;
+        $this->container['OnlineBookingDisabled'] = $OnlineBookingDisabled;
 
         return $this;
     }

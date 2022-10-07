@@ -38,6 +38,7 @@ namespace Nlocascio\Mindbody\Model;
  * @link     https://github.com/swagger-api/swagger-codegen
  * @property int $LocationId When included, returns gift cards that are sold at the provided location ID.
  * @property bool $SoldOnline When `true`, only returns gift cards that are sold online.<br />  Default: **false**
+ * @property bool $IncludeCustomLayouts When `true`, includes custom gift card layouts.<br />  Default: **false**
  * @property int[] $Ids Filters the results to the requested gift card IDs.<br />  Default: **all** gift cards.
  * @property int $Limit Number of results to include, defaults to 100
  * @property int $Offset Page offset, defaults to 0.
@@ -62,6 +63,7 @@ class GetGiftCardsRequest extends BaseModel
     protected static $swaggerTypes = [
         'LocationId' => 'int',
         'SoldOnline' => 'bool',
+        'IncludeCustomLayouts' => 'bool',
         'Ids' => 'int[]',
         'Limit' => 'int',
         'Offset' => 'int'
@@ -75,6 +77,7 @@ class GetGiftCardsRequest extends BaseModel
     protected static $swaggerFormats = [
         'LocationId' => 'int32',
         'SoldOnline' => null,
+        'IncludeCustomLayouts' => null,
         'Ids' => 'int32',
         'Limit' => 'int32',
         'Offset' => 'int32'
@@ -90,6 +93,7 @@ class GetGiftCardsRequest extends BaseModel
     protected static $attributeMap = [
         'LocationId' => 'LocationId',
         'SoldOnline' => 'SoldOnline',
+        'IncludeCustomLayouts' => 'IncludeCustomLayouts',
         'Ids' => 'Ids',
         'Limit' => 'Limit',
         'Offset' => 'Offset'
@@ -103,6 +107,7 @@ class GetGiftCardsRequest extends BaseModel
     protected static $setters = [
         'LocationId' => 'setLocationId',
         'SoldOnline' => 'setSoldOnline',
+        'IncludeCustomLayouts' => 'setIncludeCustomLayouts',
         'Ids' => 'setIds',
         'Limit' => 'setLimit',
         'Offset' => 'setOffset'
@@ -116,6 +121,7 @@ class GetGiftCardsRequest extends BaseModel
     protected static $getters = [
         'LocationId' => 'getLocationId',
         'SoldOnline' => 'getSoldOnline',
+        'IncludeCustomLayouts' => 'getIncludeCustomLayouts',
         'Ids' => 'getIds',
         'Limit' => 'getLimit',
         'Offset' => 'getOffset'
@@ -136,6 +142,7 @@ class GetGiftCardsRequest extends BaseModel
     {
         $this->container['LocationId'] = isset($data['LocationId']) ? $data['LocationId'] : null;
         $this->container['SoldOnline'] = isset($data['SoldOnline']) ? $data['SoldOnline'] : null;
+        $this->container['IncludeCustomLayouts'] = isset($data['IncludeCustomLayouts']) ? $data['IncludeCustomLayouts'] : null;
         $this->container['Ids'] = isset($data['Ids']) ? $data['Ids'] : null;
         $this->container['Limit'] = isset($data['Limit']) ? $data['Limit'] : null;
         $this->container['Offset'] = isset($data['Offset']) ? $data['Offset'] : null;
@@ -198,6 +205,30 @@ class GetGiftCardsRequest extends BaseModel
     public function setSoldOnline($SoldOnline): self
     {
         $this->container['SoldOnline'] = $SoldOnline;
+
+        return $this;
+    }
+
+    /**
+     * Gets IncludeCustomLayouts
+     *
+     * @return bool
+     */
+    public function getIncludeCustomLayouts()
+    {
+        return $this->container['IncludeCustomLayouts'];
+    }
+
+    /**
+     * Sets IncludeCustomLayouts
+     *
+     * @param bool $IncludeCustomLayouts When `true`, includes custom gift card layouts.<br />  Default: **false**
+     *
+     * @return $this
+     */
+    public function setIncludeCustomLayouts($IncludeCustomLayouts): self
+    {
+        $this->container['IncludeCustomLayouts'] = $IncludeCustomLayouts;
 
         return $this;
     }

@@ -36,31 +36,62 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property string[] $AdditionalImageURLs A list of URLs of any images associated with this location.
- * @property string $Address The first line of the location’s street address.
- * @property string $Address2 A second address line for the location’s street address, if needed.
- * @property \Nlocascio\Mindbody\Model\Amenity[] $Amenities A list of strings representing amenities available at the location.
- * @property string $BusinessDescription The business description for the location, as configured by the business owner.
- * @property string $City The location’s city.
- * @property string $Description A description of the location.
- * @property bool $HasClasses When `true`, indicates that classes are held at this location.<br />  When `false`, Indicates that classes are not held at this location.
- * @property int $Id The ID assigned to this location.
- * @property double $Latitude The location’s latitude.
- * @property double $Longitude The location’s longitude.
- * @property string $Name The name of this location.
- * @property string $Phone The location’s phone number.
- * @property string $PhoneExtension The location’s phone extension.
- * @property string $PostalCode The location’s postal code.
- * @property int $SiteID The ID number assigned to this location.
- * @property string $StateProvCode The location’s state or province code.
- * @property float $Tax1 A decimal representation of the location’s first tax rate. Tax properties are provided to apply all taxes to the purchase price that the purchase is subject to. Use as many tax properties as needed to represent all the taxes that apply in the location. Enter a decimal number that represents the appropriate tax rate. For example, for an 8% sales tax, enter 0.08.
- * @property float $Tax2 A decimal representation of the location’s second tax rate. See the example in the description of Tax1.
- * @property float $Tax3 A decimal representation of the location’s third tax rate. See the example in the description of Tax1.
- * @property float $Tax4 A decimal representation of the location’s fourth tax rate. See the example in the description of Tax1.
- * @property float $Tax5 A decimal representation of the location’s fifth tax rate. See the example in the description of Tax1.
- * @property int $TotalNumberOfRatings The number of reviews that clients have left for this location.
- * @property double $AverageRating The average rating for the location, out of five stars.
- * @property int $TotalNumberOfDeals The number of distinct introductory pricing options available for purchase at this location.
+ * @property int $BusinessId BusinessId
+ * @property int $SiteId SiteId
+ * @property string $BusinessDescription BusinessDescription
+ * @property string[] $AdditionalImageURLs AdditionalImageURLs
+ * @property int $FacilitySquareFeet FacilitySquareFeet
+ * @property bool $ProSpaFinderSite ProSpaFinderSite
+ * @property bool $HasClasses HasClasses
+ * @property string $PhoneExtension PhoneExtension
+ * @property string $Action Action
+ * @property int $Id Id
+ * @property string $Name Name
+ * @property string $Address Address
+ * @property string $Address2 Address2
+ * @property float $Tax1 Tax1
+ * @property float $Tax2 Tax2
+ * @property float $Tax3 Tax3
+ * @property float $Tax4 Tax4
+ * @property float $Tax5 Tax5
+ * @property string $Phone Phone
+ * @property string $City City
+ * @property string $StateProvCode StateProvCode
+ * @property string $PostalCode PostalCode
+ * @property double $Latitude Latitude
+ * @property double $Longitude Longitude
+ * @property double $DistanceInMiles DistanceInMiles
+ * @property string $ImageURL ImageURL
+ * @property string $Description Description
+ * @property bool $HasSite HasSite
+ * @property bool $CanBook CanBook
+ * @property int $NumberTreatmentRooms NumberTreatmentRooms
+ * @property bool $Active Active
+ * @property bool $InvActive InvActive
+ * @property bool $WsShow WsShow
+ * @property string $Email Email
+ * @property string $ContactName ContactName
+ * @property string $ShipAddress ShipAddress
+ * @property string $ShipState ShipState
+ * @property string $ShipPostal ShipPostal
+ * @property string $ShipPhone ShipPhone
+ * @property string $ShipPOC ShipPOC
+ * @property bool $TaxGrouping TaxGrouping
+ * @property string $LabelTax1 LabelTax1
+ * @property string $LabelTax2 LabelTax2
+ * @property string $LabelTax3 LabelTax3
+ * @property string $LabelTax4 LabelTax4
+ * @property string $LabelTax5 LabelTax5
+ * @property bool $WAC WAC
+ * @property string $ShipAddress2 ShipAddress2
+ * @property int $MasterLocId MasterLocId
+ * @property string $StreetAddress StreetAddress
+ * @property string $Country Country
+ * @property string $Ext Ext
+ * @property \Nlocascio\Mindbody\Model\Amenity[] $Amenities Amenities
+ * @property int $TotalNumberOfDeals TotalNumberOfDeals
+ * @property int $TotalNumberOfRatings TotalNumberOfRatings
+ * @property double $AverageRating AverageRating
  *
  */
 class Location extends BaseModel implements ModelWithId
@@ -80,31 +111,62 @@ class Location extends BaseModel implements ModelWithId
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'BusinessId' => 'int',
+        'SiteId' => 'int',
+        'BusinessDescription' => 'string',
         'AdditionalImageURLs' => 'string[]',
+        'FacilitySquareFeet' => 'int',
+        'ProSpaFinderSite' => 'bool',
+        'HasClasses' => 'bool',
+        'PhoneExtension' => 'string',
+        'Action' => 'string',
+        'Id' => 'int',
+        'Name' => 'string',
         'Address' => 'string',
         'Address2' => 'string',
-        'Amenities' => '\Nlocascio\Mindbody\Model\Amenity[]',
-        'BusinessDescription' => 'string',
-        'City' => 'string',
-        'Description' => 'string',
-        'HasClasses' => 'bool',
-        'Id' => 'int',
-        'Latitude' => 'double',
-        'Longitude' => 'double',
-        'Name' => 'string',
-        'Phone' => 'string',
-        'PhoneExtension' => 'string',
-        'PostalCode' => 'string',
-        'SiteID' => 'int',
-        'StateProvCode' => 'string',
         'Tax1' => 'float',
         'Tax2' => 'float',
         'Tax3' => 'float',
         'Tax4' => 'float',
         'Tax5' => 'float',
+        'Phone' => 'string',
+        'City' => 'string',
+        'StateProvCode' => 'string',
+        'PostalCode' => 'string',
+        'Latitude' => 'double',
+        'Longitude' => 'double',
+        'DistanceInMiles' => 'double',
+        'ImageURL' => 'string',
+        'Description' => 'string',
+        'HasSite' => 'bool',
+        'CanBook' => 'bool',
+        'NumberTreatmentRooms' => 'int',
+        'Active' => 'bool',
+        'InvActive' => 'bool',
+        'WsShow' => 'bool',
+        'Email' => 'string',
+        'ContactName' => 'string',
+        'ShipAddress' => 'string',
+        'ShipState' => 'string',
+        'ShipPostal' => 'string',
+        'ShipPhone' => 'string',
+        'ShipPOC' => 'string',
+        'TaxGrouping' => 'bool',
+        'LabelTax1' => 'string',
+        'LabelTax2' => 'string',
+        'LabelTax3' => 'string',
+        'LabelTax4' => 'string',
+        'LabelTax5' => 'string',
+        'WAC' => 'bool',
+        'ShipAddress2' => 'string',
+        'MasterLocId' => 'int',
+        'StreetAddress' => 'string',
+        'Country' => 'string',
+        'Ext' => 'string',
+        'Amenities' => '\Nlocascio\Mindbody\Model\Amenity[]',
+        'TotalNumberOfDeals' => 'int',
         'TotalNumberOfRatings' => 'int',
-        'AverageRating' => 'double',
-        'TotalNumberOfDeals' => 'int'
+        'AverageRating' => 'double'
     ];
 
     /**
@@ -113,31 +175,62 @@ class Location extends BaseModel implements ModelWithId
       * @var array<string, string|null>
       */
     protected static $swaggerFormats = [
+        'BusinessId' => 'int32',
+        'SiteId' => 'int32',
+        'BusinessDescription' => null,
         'AdditionalImageURLs' => null,
+        'FacilitySquareFeet' => 'int32',
+        'ProSpaFinderSite' => null,
+        'HasClasses' => null,
+        'PhoneExtension' => null,
+        'Action' => null,
+        'Id' => 'int32',
+        'Name' => null,
         'Address' => null,
         'Address2' => null,
-        'Amenities' => null,
-        'BusinessDescription' => null,
-        'City' => null,
-        'Description' => null,
-        'HasClasses' => null,
-        'Id' => 'int32',
-        'Latitude' => 'double',
-        'Longitude' => 'double',
-        'Name' => null,
-        'Phone' => null,
-        'PhoneExtension' => null,
-        'PostalCode' => null,
-        'SiteID' => 'int32',
-        'StateProvCode' => null,
         'Tax1' => 'float',
         'Tax2' => 'float',
         'Tax3' => 'float',
         'Tax4' => 'float',
         'Tax5' => 'float',
+        'Phone' => null,
+        'City' => null,
+        'StateProvCode' => null,
+        'PostalCode' => null,
+        'Latitude' => 'double',
+        'Longitude' => 'double',
+        'DistanceInMiles' => 'double',
+        'ImageURL' => null,
+        'Description' => null,
+        'HasSite' => null,
+        'CanBook' => null,
+        'NumberTreatmentRooms' => 'int32',
+        'Active' => null,
+        'InvActive' => null,
+        'WsShow' => null,
+        'Email' => null,
+        'ContactName' => null,
+        'ShipAddress' => null,
+        'ShipState' => null,
+        'ShipPostal' => null,
+        'ShipPhone' => null,
+        'ShipPOC' => null,
+        'TaxGrouping' => null,
+        'LabelTax1' => null,
+        'LabelTax2' => null,
+        'LabelTax3' => null,
+        'LabelTax4' => null,
+        'LabelTax5' => null,
+        'WAC' => null,
+        'ShipAddress2' => null,
+        'MasterLocId' => 'int32',
+        'StreetAddress' => null,
+        'Country' => null,
+        'Ext' => null,
+        'Amenities' => null,
+        'TotalNumberOfDeals' => 'int64',
         'TotalNumberOfRatings' => 'int32',
-        'AverageRating' => 'double',
-        'TotalNumberOfDeals' => 'int64'
+        'AverageRating' => 'double'
     ];
 
 
@@ -148,31 +241,62 @@ class Location extends BaseModel implements ModelWithId
      * @var string[]
      */
     protected static $attributeMap = [
+        'BusinessId' => 'BusinessId',
+        'SiteId' => 'SiteId',
+        'BusinessDescription' => 'BusinessDescription',
         'AdditionalImageURLs' => 'AdditionalImageURLs',
+        'FacilitySquareFeet' => 'FacilitySquareFeet',
+        'ProSpaFinderSite' => 'ProSpaFinderSite',
+        'HasClasses' => 'HasClasses',
+        'PhoneExtension' => 'PhoneExtension',
+        'Action' => 'Action',
+        'Id' => 'Id',
+        'Name' => 'Name',
         'Address' => 'Address',
         'Address2' => 'Address2',
-        'Amenities' => 'Amenities',
-        'BusinessDescription' => 'BusinessDescription',
-        'City' => 'City',
-        'Description' => 'Description',
-        'HasClasses' => 'HasClasses',
-        'Id' => 'Id',
-        'Latitude' => 'Latitude',
-        'Longitude' => 'Longitude',
-        'Name' => 'Name',
-        'Phone' => 'Phone',
-        'PhoneExtension' => 'PhoneExtension',
-        'PostalCode' => 'PostalCode',
-        'SiteID' => 'SiteID',
-        'StateProvCode' => 'StateProvCode',
         'Tax1' => 'Tax1',
         'Tax2' => 'Tax2',
         'Tax3' => 'Tax3',
         'Tax4' => 'Tax4',
         'Tax5' => 'Tax5',
+        'Phone' => 'Phone',
+        'City' => 'City',
+        'StateProvCode' => 'StateProvCode',
+        'PostalCode' => 'PostalCode',
+        'Latitude' => 'Latitude',
+        'Longitude' => 'Longitude',
+        'DistanceInMiles' => 'DistanceInMiles',
+        'ImageURL' => 'ImageURL',
+        'Description' => 'Description',
+        'HasSite' => 'HasSite',
+        'CanBook' => 'CanBook',
+        'NumberTreatmentRooms' => 'NumberTreatmentRooms',
+        'Active' => 'Active',
+        'InvActive' => 'InvActive',
+        'WsShow' => 'WsShow',
+        'Email' => 'Email',
+        'ContactName' => 'ContactName',
+        'ShipAddress' => 'ShipAddress',
+        'ShipState' => 'ShipState',
+        'ShipPostal' => 'ShipPostal',
+        'ShipPhone' => 'ShipPhone',
+        'ShipPOC' => 'ShipPOC',
+        'TaxGrouping' => 'TaxGrouping',
+        'LabelTax1' => 'LabelTax1',
+        'LabelTax2' => 'LabelTax2',
+        'LabelTax3' => 'LabelTax3',
+        'LabelTax4' => 'LabelTax4',
+        'LabelTax5' => 'LabelTax5',
+        'WAC' => 'WAC',
+        'ShipAddress2' => 'ShipAddress2',
+        'MasterLocId' => 'MasterLocId',
+        'StreetAddress' => 'StreetAddress',
+        'Country' => 'Country',
+        'Ext' => 'Ext',
+        'Amenities' => 'Amenities',
+        'TotalNumberOfDeals' => 'TotalNumberOfDeals',
         'TotalNumberOfRatings' => 'TotalNumberOfRatings',
-        'AverageRating' => 'AverageRating',
-        'TotalNumberOfDeals' => 'TotalNumberOfDeals'
+        'AverageRating' => 'AverageRating'
     ];
 
     /**
@@ -181,31 +305,62 @@ class Location extends BaseModel implements ModelWithId
      * @var string[]
      */
     protected static $setters = [
+        'BusinessId' => 'setBusinessId',
+        'SiteId' => 'setSiteId',
+        'BusinessDescription' => 'setBusinessDescription',
         'AdditionalImageURLs' => 'setAdditionalImageURLs',
+        'FacilitySquareFeet' => 'setFacilitySquareFeet',
+        'ProSpaFinderSite' => 'setProSpaFinderSite',
+        'HasClasses' => 'setHasClasses',
+        'PhoneExtension' => 'setPhoneExtension',
+        'Action' => 'setAction',
+        'Id' => 'setId',
+        'Name' => 'setName',
         'Address' => 'setAddress',
         'Address2' => 'setAddress2',
-        'Amenities' => 'setAmenities',
-        'BusinessDescription' => 'setBusinessDescription',
-        'City' => 'setCity',
-        'Description' => 'setDescription',
-        'HasClasses' => 'setHasClasses',
-        'Id' => 'setId',
-        'Latitude' => 'setLatitude',
-        'Longitude' => 'setLongitude',
-        'Name' => 'setName',
-        'Phone' => 'setPhone',
-        'PhoneExtension' => 'setPhoneExtension',
-        'PostalCode' => 'setPostalCode',
-        'SiteID' => 'setSiteID',
-        'StateProvCode' => 'setStateProvCode',
         'Tax1' => 'setTax1',
         'Tax2' => 'setTax2',
         'Tax3' => 'setTax3',
         'Tax4' => 'setTax4',
         'Tax5' => 'setTax5',
+        'Phone' => 'setPhone',
+        'City' => 'setCity',
+        'StateProvCode' => 'setStateProvCode',
+        'PostalCode' => 'setPostalCode',
+        'Latitude' => 'setLatitude',
+        'Longitude' => 'setLongitude',
+        'DistanceInMiles' => 'setDistanceInMiles',
+        'ImageURL' => 'setImageURL',
+        'Description' => 'setDescription',
+        'HasSite' => 'setHasSite',
+        'CanBook' => 'setCanBook',
+        'NumberTreatmentRooms' => 'setNumberTreatmentRooms',
+        'Active' => 'setActive',
+        'InvActive' => 'setInvActive',
+        'WsShow' => 'setWsShow',
+        'Email' => 'setEmail',
+        'ContactName' => 'setContactName',
+        'ShipAddress' => 'setShipAddress',
+        'ShipState' => 'setShipState',
+        'ShipPostal' => 'setShipPostal',
+        'ShipPhone' => 'setShipPhone',
+        'ShipPOC' => 'setShipPOC',
+        'TaxGrouping' => 'setTaxGrouping',
+        'LabelTax1' => 'setLabelTax1',
+        'LabelTax2' => 'setLabelTax2',
+        'LabelTax3' => 'setLabelTax3',
+        'LabelTax4' => 'setLabelTax4',
+        'LabelTax5' => 'setLabelTax5',
+        'WAC' => 'setWAC',
+        'ShipAddress2' => 'setShipAddress2',
+        'MasterLocId' => 'setMasterLocId',
+        'StreetAddress' => 'setStreetAddress',
+        'Country' => 'setCountry',
+        'Ext' => 'setExt',
+        'Amenities' => 'setAmenities',
+        'TotalNumberOfDeals' => 'setTotalNumberOfDeals',
         'TotalNumberOfRatings' => 'setTotalNumberOfRatings',
-        'AverageRating' => 'setAverageRating',
-        'TotalNumberOfDeals' => 'setTotalNumberOfDeals'
+        'AverageRating' => 'setAverageRating'
     ];
 
     /**
@@ -214,36 +369,88 @@ class Location extends BaseModel implements ModelWithId
      * @var string[]
      */
     protected static $getters = [
+        'BusinessId' => 'getBusinessId',
+        'SiteId' => 'getSiteId',
+        'BusinessDescription' => 'getBusinessDescription',
         'AdditionalImageURLs' => 'getAdditionalImageURLs',
+        'FacilitySquareFeet' => 'getFacilitySquareFeet',
+        'ProSpaFinderSite' => 'getProSpaFinderSite',
+        'HasClasses' => 'getHasClasses',
+        'PhoneExtension' => 'getPhoneExtension',
+        'Action' => 'getAction',
+        'Id' => 'getId',
+        'Name' => 'getName',
         'Address' => 'getAddress',
         'Address2' => 'getAddress2',
-        'Amenities' => 'getAmenities',
-        'BusinessDescription' => 'getBusinessDescription',
-        'City' => 'getCity',
-        'Description' => 'getDescription',
-        'HasClasses' => 'getHasClasses',
-        'Id' => 'getId',
-        'Latitude' => 'getLatitude',
-        'Longitude' => 'getLongitude',
-        'Name' => 'getName',
-        'Phone' => 'getPhone',
-        'PhoneExtension' => 'getPhoneExtension',
-        'PostalCode' => 'getPostalCode',
-        'SiteID' => 'getSiteID',
-        'StateProvCode' => 'getStateProvCode',
         'Tax1' => 'getTax1',
         'Tax2' => 'getTax2',
         'Tax3' => 'getTax3',
         'Tax4' => 'getTax4',
         'Tax5' => 'getTax5',
+        'Phone' => 'getPhone',
+        'City' => 'getCity',
+        'StateProvCode' => 'getStateProvCode',
+        'PostalCode' => 'getPostalCode',
+        'Latitude' => 'getLatitude',
+        'Longitude' => 'getLongitude',
+        'DistanceInMiles' => 'getDistanceInMiles',
+        'ImageURL' => 'getImageURL',
+        'Description' => 'getDescription',
+        'HasSite' => 'getHasSite',
+        'CanBook' => 'getCanBook',
+        'NumberTreatmentRooms' => 'getNumberTreatmentRooms',
+        'Active' => 'getActive',
+        'InvActive' => 'getInvActive',
+        'WsShow' => 'getWsShow',
+        'Email' => 'getEmail',
+        'ContactName' => 'getContactName',
+        'ShipAddress' => 'getShipAddress',
+        'ShipState' => 'getShipState',
+        'ShipPostal' => 'getShipPostal',
+        'ShipPhone' => 'getShipPhone',
+        'ShipPOC' => 'getShipPOC',
+        'TaxGrouping' => 'getTaxGrouping',
+        'LabelTax1' => 'getLabelTax1',
+        'LabelTax2' => 'getLabelTax2',
+        'LabelTax3' => 'getLabelTax3',
+        'LabelTax4' => 'getLabelTax4',
+        'LabelTax5' => 'getLabelTax5',
+        'WAC' => 'getWAC',
+        'ShipAddress2' => 'getShipAddress2',
+        'MasterLocId' => 'getMasterLocId',
+        'StreetAddress' => 'getStreetAddress',
+        'Country' => 'getCountry',
+        'Ext' => 'getExt',
+        'Amenities' => 'getAmenities',
+        'TotalNumberOfDeals' => 'getTotalNumberOfDeals',
         'TotalNumberOfRatings' => 'getTotalNumberOfRatings',
-        'AverageRating' => 'getAverageRating',
-        'TotalNumberOfDeals' => 'getTotalNumberOfDeals'
+        'AverageRating' => 'getAverageRating'
     ];
 
 
+    const ACTION_NONE = 'None';
+    const ACTION_ADDED = 'Added';
+    const ACTION_UPDATED = 'Updated';
+    const ACTION_FAILED = 'Failed';
+    const ACTION_REMOVED = 'Removed';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getActionAllowableValues(): array
+    {
+        return [
+            self::ACTION_NONE,
+            self::ACTION_ADDED,
+            self::ACTION_UPDATED,
+            self::ACTION_FAILED,
+            self::ACTION_REMOVED,
+        ];
+    }
     
 
     /**
@@ -254,31 +461,62 @@ class Location extends BaseModel implements ModelWithId
      */
     public function __construct(array $data = null)
     {
+        $this->container['BusinessId'] = isset($data['BusinessId']) ? $data['BusinessId'] : null;
+        $this->container['SiteId'] = isset($data['SiteId']) ? $data['SiteId'] : null;
+        $this->container['BusinessDescription'] = isset($data['BusinessDescription']) ? $data['BusinessDescription'] : null;
         $this->container['AdditionalImageURLs'] = isset($data['AdditionalImageURLs']) ? $data['AdditionalImageURLs'] : null;
+        $this->container['FacilitySquareFeet'] = isset($data['FacilitySquareFeet']) ? $data['FacilitySquareFeet'] : null;
+        $this->container['ProSpaFinderSite'] = isset($data['ProSpaFinderSite']) ? $data['ProSpaFinderSite'] : null;
+        $this->container['HasClasses'] = isset($data['HasClasses']) ? $data['HasClasses'] : null;
+        $this->container['PhoneExtension'] = isset($data['PhoneExtension']) ? $data['PhoneExtension'] : null;
+        $this->container['Action'] = isset($data['Action']) ? $data['Action'] : null;
+        $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
+        $this->container['Name'] = isset($data['Name']) ? $data['Name'] : null;
         $this->container['Address'] = isset($data['Address']) ? $data['Address'] : null;
         $this->container['Address2'] = isset($data['Address2']) ? $data['Address2'] : null;
-        $this->container['Amenities'] = isset($data['Amenities']) ? $data['Amenities'] : null;
-        $this->container['BusinessDescription'] = isset($data['BusinessDescription']) ? $data['BusinessDescription'] : null;
-        $this->container['City'] = isset($data['City']) ? $data['City'] : null;
-        $this->container['Description'] = isset($data['Description']) ? $data['Description'] : null;
-        $this->container['HasClasses'] = isset($data['HasClasses']) ? $data['HasClasses'] : null;
-        $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
-        $this->container['Latitude'] = isset($data['Latitude']) ? $data['Latitude'] : null;
-        $this->container['Longitude'] = isset($data['Longitude']) ? $data['Longitude'] : null;
-        $this->container['Name'] = isset($data['Name']) ? $data['Name'] : null;
-        $this->container['Phone'] = isset($data['Phone']) ? $data['Phone'] : null;
-        $this->container['PhoneExtension'] = isset($data['PhoneExtension']) ? $data['PhoneExtension'] : null;
-        $this->container['PostalCode'] = isset($data['PostalCode']) ? $data['PostalCode'] : null;
-        $this->container['SiteID'] = isset($data['SiteID']) ? $data['SiteID'] : null;
-        $this->container['StateProvCode'] = isset($data['StateProvCode']) ? $data['StateProvCode'] : null;
         $this->container['Tax1'] = isset($data['Tax1']) ? $data['Tax1'] : null;
         $this->container['Tax2'] = isset($data['Tax2']) ? $data['Tax2'] : null;
         $this->container['Tax3'] = isset($data['Tax3']) ? $data['Tax3'] : null;
         $this->container['Tax4'] = isset($data['Tax4']) ? $data['Tax4'] : null;
         $this->container['Tax5'] = isset($data['Tax5']) ? $data['Tax5'] : null;
+        $this->container['Phone'] = isset($data['Phone']) ? $data['Phone'] : null;
+        $this->container['City'] = isset($data['City']) ? $data['City'] : null;
+        $this->container['StateProvCode'] = isset($data['StateProvCode']) ? $data['StateProvCode'] : null;
+        $this->container['PostalCode'] = isset($data['PostalCode']) ? $data['PostalCode'] : null;
+        $this->container['Latitude'] = isset($data['Latitude']) ? $data['Latitude'] : null;
+        $this->container['Longitude'] = isset($data['Longitude']) ? $data['Longitude'] : null;
+        $this->container['DistanceInMiles'] = isset($data['DistanceInMiles']) ? $data['DistanceInMiles'] : null;
+        $this->container['ImageURL'] = isset($data['ImageURL']) ? $data['ImageURL'] : null;
+        $this->container['Description'] = isset($data['Description']) ? $data['Description'] : null;
+        $this->container['HasSite'] = isset($data['HasSite']) ? $data['HasSite'] : null;
+        $this->container['CanBook'] = isset($data['CanBook']) ? $data['CanBook'] : null;
+        $this->container['NumberTreatmentRooms'] = isset($data['NumberTreatmentRooms']) ? $data['NumberTreatmentRooms'] : null;
+        $this->container['Active'] = isset($data['Active']) ? $data['Active'] : null;
+        $this->container['InvActive'] = isset($data['InvActive']) ? $data['InvActive'] : null;
+        $this->container['WsShow'] = isset($data['WsShow']) ? $data['WsShow'] : null;
+        $this->container['Email'] = isset($data['Email']) ? $data['Email'] : null;
+        $this->container['ContactName'] = isset($data['ContactName']) ? $data['ContactName'] : null;
+        $this->container['ShipAddress'] = isset($data['ShipAddress']) ? $data['ShipAddress'] : null;
+        $this->container['ShipState'] = isset($data['ShipState']) ? $data['ShipState'] : null;
+        $this->container['ShipPostal'] = isset($data['ShipPostal']) ? $data['ShipPostal'] : null;
+        $this->container['ShipPhone'] = isset($data['ShipPhone']) ? $data['ShipPhone'] : null;
+        $this->container['ShipPOC'] = isset($data['ShipPOC']) ? $data['ShipPOC'] : null;
+        $this->container['TaxGrouping'] = isset($data['TaxGrouping']) ? $data['TaxGrouping'] : null;
+        $this->container['LabelTax1'] = isset($data['LabelTax1']) ? $data['LabelTax1'] : null;
+        $this->container['LabelTax2'] = isset($data['LabelTax2']) ? $data['LabelTax2'] : null;
+        $this->container['LabelTax3'] = isset($data['LabelTax3']) ? $data['LabelTax3'] : null;
+        $this->container['LabelTax4'] = isset($data['LabelTax4']) ? $data['LabelTax4'] : null;
+        $this->container['LabelTax5'] = isset($data['LabelTax5']) ? $data['LabelTax5'] : null;
+        $this->container['WAC'] = isset($data['WAC']) ? $data['WAC'] : null;
+        $this->container['ShipAddress2'] = isset($data['ShipAddress2']) ? $data['ShipAddress2'] : null;
+        $this->container['MasterLocId'] = isset($data['MasterLocId']) ? $data['MasterLocId'] : null;
+        $this->container['StreetAddress'] = isset($data['StreetAddress']) ? $data['StreetAddress'] : null;
+        $this->container['Country'] = isset($data['Country']) ? $data['Country'] : null;
+        $this->container['Ext'] = isset($data['Ext']) ? $data['Ext'] : null;
+        $this->container['Amenities'] = isset($data['Amenities']) ? $data['Amenities'] : null;
+        $this->container['TotalNumberOfDeals'] = isset($data['TotalNumberOfDeals']) ? $data['TotalNumberOfDeals'] : null;
         $this->container['TotalNumberOfRatings'] = isset($data['TotalNumberOfRatings']) ? $data['TotalNumberOfRatings'] : null;
         $this->container['AverageRating'] = isset($data['AverageRating']) ? $data['AverageRating'] : null;
-        $this->container['TotalNumberOfDeals'] = isset($data['TotalNumberOfDeals']) ? $data['TotalNumberOfDeals'] : null;
     }
 
     /**
@@ -290,9 +528,89 @@ class Location extends BaseModel implements ModelWithId
     {
         $invalidProperties = parent::listInvalidProperties();
 
+        $allowedValues = $this->getActionAllowableValues();
+        if (!is_null($this->container['Action']) && !in_array($this->container['Action'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'Action', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
+
+    /**
+     * Gets BusinessId
+     *
+     * @return int
+     */
+    public function getBusinessId()
+    {
+        return $this->container['BusinessId'];
+    }
+
+    /**
+     * Sets BusinessId
+     *
+     * @param int $BusinessId BusinessId
+     *
+     * @return $this
+     */
+    public function setBusinessId($BusinessId): self
+    {
+        $this->container['BusinessId'] = $BusinessId;
+
+        return $this;
+    }
+
+    /**
+     * Gets SiteId
+     *
+     * @return int
+     */
+    public function getSiteId()
+    {
+        return $this->container['SiteId'];
+    }
+
+    /**
+     * Sets SiteId
+     *
+     * @param int $SiteId SiteId
+     *
+     * @return $this
+     */
+    public function setSiteId($SiteId): self
+    {
+        $this->container['SiteId'] = $SiteId;
+
+        return $this;
+    }
+
+    /**
+     * Gets BusinessDescription
+     *
+     * @return string
+     */
+    public function getBusinessDescription()
+    {
+        return $this->container['BusinessDescription'];
+    }
+
+    /**
+     * Sets BusinessDescription
+     *
+     * @param string $BusinessDescription BusinessDescription
+     *
+     * @return $this
+     */
+    public function setBusinessDescription($BusinessDescription): self
+    {
+        $this->container['BusinessDescription'] = $BusinessDescription;
+
+        return $this;
+    }
 
     /**
      * Gets AdditionalImageURLs
@@ -307,13 +625,190 @@ class Location extends BaseModel implements ModelWithId
     /**
      * Sets AdditionalImageURLs
      *
-     * @param string[] $AdditionalImageURLs A list of URLs of any images associated with this location.
+     * @param string[] $AdditionalImageURLs AdditionalImageURLs
      *
      * @return $this
      */
     public function setAdditionalImageURLs($AdditionalImageURLs): self
     {
         $this->container['AdditionalImageURLs'] = $AdditionalImageURLs;
+
+        return $this;
+    }
+
+    /**
+     * Gets FacilitySquareFeet
+     *
+     * @return int
+     */
+    public function getFacilitySquareFeet()
+    {
+        return $this->container['FacilitySquareFeet'];
+    }
+
+    /**
+     * Sets FacilitySquareFeet
+     *
+     * @param int $FacilitySquareFeet FacilitySquareFeet
+     *
+     * @return $this
+     */
+    public function setFacilitySquareFeet($FacilitySquareFeet): self
+    {
+        $this->container['FacilitySquareFeet'] = $FacilitySquareFeet;
+
+        return $this;
+    }
+
+    /**
+     * Gets ProSpaFinderSite
+     *
+     * @return bool
+     */
+    public function getProSpaFinderSite()
+    {
+        return $this->container['ProSpaFinderSite'];
+    }
+
+    /**
+     * Sets ProSpaFinderSite
+     *
+     * @param bool $ProSpaFinderSite ProSpaFinderSite
+     *
+     * @return $this
+     */
+    public function setProSpaFinderSite($ProSpaFinderSite): self
+    {
+        $this->container['ProSpaFinderSite'] = $ProSpaFinderSite;
+
+        return $this;
+    }
+
+    /**
+     * Gets HasClasses
+     *
+     * @return bool
+     */
+    public function getHasClasses()
+    {
+        return $this->container['HasClasses'];
+    }
+
+    /**
+     * Sets HasClasses
+     *
+     * @param bool $HasClasses HasClasses
+     *
+     * @return $this
+     */
+    public function setHasClasses($HasClasses): self
+    {
+        $this->container['HasClasses'] = $HasClasses;
+
+        return $this;
+    }
+
+    /**
+     * Gets PhoneExtension
+     *
+     * @return string
+     */
+    public function getPhoneExtension()
+    {
+        return $this->container['PhoneExtension'];
+    }
+
+    /**
+     * Sets PhoneExtension
+     *
+     * @param string $PhoneExtension PhoneExtension
+     *
+     * @return $this
+     */
+    public function setPhoneExtension($PhoneExtension): self
+    {
+        $this->container['PhoneExtension'] = $PhoneExtension;
+
+        return $this;
+    }
+
+    /**
+     * Gets Action
+     *
+     * @return string
+     */
+    public function getAction()
+    {
+        return $this->container['Action'];
+    }
+
+    /**
+     * Sets Action
+     *
+     * @param string $Action Action
+     *
+     * @return $this
+     */
+    public function setAction($Action): self
+    {
+        $allowedValues = $this->getActionAllowableValues();
+        if (!is_null($Action) && !in_array($Action, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'Action', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['Action'] = $Action;
+
+        return $this;
+    }
+
+    /**
+     * Gets Id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->container['Id'];
+    }
+
+    /**
+     * Sets Id
+     *
+     * @param int $Id Id
+     *
+     * @return $this
+     */
+    public function setId($Id): self
+    {
+        $this->container['Id'] = $Id;
+
+        return $this;
+    }
+
+    /**
+     * Gets Name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['Name'];
+    }
+
+    /**
+     * Sets Name
+     *
+     * @param string $Name Name
+     *
+     * @return $this
+     */
+    public function setName($Name): self
+    {
+        $this->container['Name'] = $Name;
 
         return $this;
     }
@@ -331,7 +826,7 @@ class Location extends BaseModel implements ModelWithId
     /**
      * Sets Address
      *
-     * @param string $Address The first line of the location’s street address.
+     * @param string $Address Address
      *
      * @return $this
      */
@@ -355,349 +850,13 @@ class Location extends BaseModel implements ModelWithId
     /**
      * Sets Address2
      *
-     * @param string $Address2 A second address line for the location’s street address, if needed.
+     * @param string $Address2 Address2
      *
      * @return $this
      */
     public function setAddress2($Address2): self
     {
         $this->container['Address2'] = $Address2;
-
-        return $this;
-    }
-
-    /**
-     * Gets Amenities
-     *
-     * @return \Nlocascio\Mindbody\Model\Amenity[]
-     */
-    public function getAmenities()
-    {
-        return $this->container['Amenities'];
-    }
-
-    /**
-     * Sets Amenities
-     *
-     * @param \Nlocascio\Mindbody\Model\Amenity[] $Amenities A list of strings representing amenities available at the location.
-     *
-     * @return $this
-     */
-    public function setAmenities($Amenities): self
-    {
-        $this->container['Amenities'] = $Amenities;
-
-        return $this;
-    }
-
-    /**
-     * Gets BusinessDescription
-     *
-     * @return string
-     */
-    public function getBusinessDescription()
-    {
-        return $this->container['BusinessDescription'];
-    }
-
-    /**
-     * Sets BusinessDescription
-     *
-     * @param string $BusinessDescription The business description for the location, as configured by the business owner.
-     *
-     * @return $this
-     */
-    public function setBusinessDescription($BusinessDescription): self
-    {
-        $this->container['BusinessDescription'] = $BusinessDescription;
-
-        return $this;
-    }
-
-    /**
-     * Gets City
-     *
-     * @return string
-     */
-    public function getCity()
-    {
-        return $this->container['City'];
-    }
-
-    /**
-     * Sets City
-     *
-     * @param string $City The location’s city.
-     *
-     * @return $this
-     */
-    public function setCity($City): self
-    {
-        $this->container['City'] = $City;
-
-        return $this;
-    }
-
-    /**
-     * Gets Description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->container['Description'];
-    }
-
-    /**
-     * Sets Description
-     *
-     * @param string $Description A description of the location.
-     *
-     * @return $this
-     */
-    public function setDescription($Description): self
-    {
-        $this->container['Description'] = $Description;
-
-        return $this;
-    }
-
-    /**
-     * Gets HasClasses
-     *
-     * @return bool
-     */
-    public function getHasClasses()
-    {
-        return $this->container['HasClasses'];
-    }
-
-    /**
-     * Sets HasClasses
-     *
-     * @param bool $HasClasses When `true`, indicates that classes are held at this location.<br />  When `false`, Indicates that classes are not held at this location.
-     *
-     * @return $this
-     */
-    public function setHasClasses($HasClasses): self
-    {
-        $this->container['HasClasses'] = $HasClasses;
-
-        return $this;
-    }
-
-    /**
-     * Gets Id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->container['Id'];
-    }
-
-    /**
-     * Sets Id
-     *
-     * @param int $Id The ID assigned to this location.
-     *
-     * @return $this
-     */
-    public function setId($Id): self
-    {
-        $this->container['Id'] = $Id;
-
-        return $this;
-    }
-
-    /**
-     * Gets Latitude
-     *
-     * @return double
-     */
-    public function getLatitude()
-    {
-        return $this->container['Latitude'];
-    }
-
-    /**
-     * Sets Latitude
-     *
-     * @param double $Latitude The location’s latitude.
-     *
-     * @return $this
-     */
-    public function setLatitude($Latitude): self
-    {
-        $this->container['Latitude'] = $Latitude;
-
-        return $this;
-    }
-
-    /**
-     * Gets Longitude
-     *
-     * @return double
-     */
-    public function getLongitude()
-    {
-        return $this->container['Longitude'];
-    }
-
-    /**
-     * Sets Longitude
-     *
-     * @param double $Longitude The location’s longitude.
-     *
-     * @return $this
-     */
-    public function setLongitude($Longitude): self
-    {
-        $this->container['Longitude'] = $Longitude;
-
-        return $this;
-    }
-
-    /**
-     * Gets Name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['Name'];
-    }
-
-    /**
-     * Sets Name
-     *
-     * @param string $Name The name of this location.
-     *
-     * @return $this
-     */
-    public function setName($Name): self
-    {
-        $this->container['Name'] = $Name;
-
-        return $this;
-    }
-
-    /**
-     * Gets Phone
-     *
-     * @return string
-     */
-    public function getPhone()
-    {
-        return $this->container['Phone'];
-    }
-
-    /**
-     * Sets Phone
-     *
-     * @param string $Phone The location’s phone number.
-     *
-     * @return $this
-     */
-    public function setPhone($Phone): self
-    {
-        $this->container['Phone'] = $Phone;
-
-        return $this;
-    }
-
-    /**
-     * Gets PhoneExtension
-     *
-     * @return string
-     */
-    public function getPhoneExtension()
-    {
-        return $this->container['PhoneExtension'];
-    }
-
-    /**
-     * Sets PhoneExtension
-     *
-     * @param string $PhoneExtension The location’s phone extension.
-     *
-     * @return $this
-     */
-    public function setPhoneExtension($PhoneExtension): self
-    {
-        $this->container['PhoneExtension'] = $PhoneExtension;
-
-        return $this;
-    }
-
-    /**
-     * Gets PostalCode
-     *
-     * @return string
-     */
-    public function getPostalCode()
-    {
-        return $this->container['PostalCode'];
-    }
-
-    /**
-     * Sets PostalCode
-     *
-     * @param string $PostalCode The location’s postal code.
-     *
-     * @return $this
-     */
-    public function setPostalCode($PostalCode): self
-    {
-        $this->container['PostalCode'] = $PostalCode;
-
-        return $this;
-    }
-
-    /**
-     * Gets SiteID
-     *
-     * @return int
-     */
-    public function getSiteID()
-    {
-        return $this->container['SiteID'];
-    }
-
-    /**
-     * Sets SiteID
-     *
-     * @param int $SiteID The ID number assigned to this location.
-     *
-     * @return $this
-     */
-    public function setSiteID($SiteID): self
-    {
-        $this->container['SiteID'] = $SiteID;
-
-        return $this;
-    }
-
-    /**
-     * Gets StateProvCode
-     *
-     * @return string
-     */
-    public function getStateProvCode()
-    {
-        return $this->container['StateProvCode'];
-    }
-
-    /**
-     * Sets StateProvCode
-     *
-     * @param string $StateProvCode The location’s state or province code.
-     *
-     * @return $this
-     */
-    public function setStateProvCode($StateProvCode): self
-    {
-        $this->container['StateProvCode'] = $StateProvCode;
 
         return $this;
     }
@@ -715,7 +874,7 @@ class Location extends BaseModel implements ModelWithId
     /**
      * Sets Tax1
      *
-     * @param float $Tax1 A decimal representation of the location’s first tax rate. Tax properties are provided to apply all taxes to the purchase price that the purchase is subject to. Use as many tax properties as needed to represent all the taxes that apply in the location. Enter a decimal number that represents the appropriate tax rate. For example, for an 8% sales tax, enter 0.08.
+     * @param float $Tax1 Tax1
      *
      * @return $this
      */
@@ -739,7 +898,7 @@ class Location extends BaseModel implements ModelWithId
     /**
      * Sets Tax2
      *
-     * @param float $Tax2 A decimal representation of the location’s second tax rate. See the example in the description of Tax1.
+     * @param float $Tax2 Tax2
      *
      * @return $this
      */
@@ -763,7 +922,7 @@ class Location extends BaseModel implements ModelWithId
     /**
      * Sets Tax3
      *
-     * @param float $Tax3 A decimal representation of the location’s third tax rate. See the example in the description of Tax1.
+     * @param float $Tax3 Tax3
      *
      * @return $this
      */
@@ -787,7 +946,7 @@ class Location extends BaseModel implements ModelWithId
     /**
      * Sets Tax4
      *
-     * @param float $Tax4 A decimal representation of the location’s fourth tax rate. See the example in the description of Tax1.
+     * @param float $Tax4 Tax4
      *
      * @return $this
      */
@@ -811,13 +970,877 @@ class Location extends BaseModel implements ModelWithId
     /**
      * Sets Tax5
      *
-     * @param float $Tax5 A decimal representation of the location’s fifth tax rate. See the example in the description of Tax1.
+     * @param float $Tax5 Tax5
      *
      * @return $this
      */
     public function setTax5($Tax5): self
     {
         $this->container['Tax5'] = $Tax5;
+
+        return $this;
+    }
+
+    /**
+     * Gets Phone
+     *
+     * @return string
+     */
+    public function getPhone()
+    {
+        return $this->container['Phone'];
+    }
+
+    /**
+     * Sets Phone
+     *
+     * @param string $Phone Phone
+     *
+     * @return $this
+     */
+    public function setPhone($Phone): self
+    {
+        $this->container['Phone'] = $Phone;
+
+        return $this;
+    }
+
+    /**
+     * Gets City
+     *
+     * @return string
+     */
+    public function getCity()
+    {
+        return $this->container['City'];
+    }
+
+    /**
+     * Sets City
+     *
+     * @param string $City City
+     *
+     * @return $this
+     */
+    public function setCity($City): self
+    {
+        $this->container['City'] = $City;
+
+        return $this;
+    }
+
+    /**
+     * Gets StateProvCode
+     *
+     * @return string
+     */
+    public function getStateProvCode()
+    {
+        return $this->container['StateProvCode'];
+    }
+
+    /**
+     * Sets StateProvCode
+     *
+     * @param string $StateProvCode StateProvCode
+     *
+     * @return $this
+     */
+    public function setStateProvCode($StateProvCode): self
+    {
+        $this->container['StateProvCode'] = $StateProvCode;
+
+        return $this;
+    }
+
+    /**
+     * Gets PostalCode
+     *
+     * @return string
+     */
+    public function getPostalCode()
+    {
+        return $this->container['PostalCode'];
+    }
+
+    /**
+     * Sets PostalCode
+     *
+     * @param string $PostalCode PostalCode
+     *
+     * @return $this
+     */
+    public function setPostalCode($PostalCode): self
+    {
+        $this->container['PostalCode'] = $PostalCode;
+
+        return $this;
+    }
+
+    /**
+     * Gets Latitude
+     *
+     * @return double
+     */
+    public function getLatitude()
+    {
+        return $this->container['Latitude'];
+    }
+
+    /**
+     * Sets Latitude
+     *
+     * @param double $Latitude Latitude
+     *
+     * @return $this
+     */
+    public function setLatitude($Latitude): self
+    {
+        $this->container['Latitude'] = $Latitude;
+
+        return $this;
+    }
+
+    /**
+     * Gets Longitude
+     *
+     * @return double
+     */
+    public function getLongitude()
+    {
+        return $this->container['Longitude'];
+    }
+
+    /**
+     * Sets Longitude
+     *
+     * @param double $Longitude Longitude
+     *
+     * @return $this
+     */
+    public function setLongitude($Longitude): self
+    {
+        $this->container['Longitude'] = $Longitude;
+
+        return $this;
+    }
+
+    /**
+     * Gets DistanceInMiles
+     *
+     * @return double
+     */
+    public function getDistanceInMiles()
+    {
+        return $this->container['DistanceInMiles'];
+    }
+
+    /**
+     * Sets DistanceInMiles
+     *
+     * @param double $DistanceInMiles DistanceInMiles
+     *
+     * @return $this
+     */
+    public function setDistanceInMiles($DistanceInMiles): self
+    {
+        $this->container['DistanceInMiles'] = $DistanceInMiles;
+
+        return $this;
+    }
+
+    /**
+     * Gets ImageURL
+     *
+     * @return string
+     */
+    public function getImageURL()
+    {
+        return $this->container['ImageURL'];
+    }
+
+    /**
+     * Sets ImageURL
+     *
+     * @param string $ImageURL ImageURL
+     *
+     * @return $this
+     */
+    public function setImageURL($ImageURL): self
+    {
+        $this->container['ImageURL'] = $ImageURL;
+
+        return $this;
+    }
+
+    /**
+     * Gets Description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->container['Description'];
+    }
+
+    /**
+     * Sets Description
+     *
+     * @param string $Description Description
+     *
+     * @return $this
+     */
+    public function setDescription($Description): self
+    {
+        $this->container['Description'] = $Description;
+
+        return $this;
+    }
+
+    /**
+     * Gets HasSite
+     *
+     * @return bool
+     */
+    public function getHasSite()
+    {
+        return $this->container['HasSite'];
+    }
+
+    /**
+     * Sets HasSite
+     *
+     * @param bool $HasSite HasSite
+     *
+     * @return $this
+     */
+    public function setHasSite($HasSite): self
+    {
+        $this->container['HasSite'] = $HasSite;
+
+        return $this;
+    }
+
+    /**
+     * Gets CanBook
+     *
+     * @return bool
+     */
+    public function getCanBook()
+    {
+        return $this->container['CanBook'];
+    }
+
+    /**
+     * Sets CanBook
+     *
+     * @param bool $CanBook CanBook
+     *
+     * @return $this
+     */
+    public function setCanBook($CanBook): self
+    {
+        $this->container['CanBook'] = $CanBook;
+
+        return $this;
+    }
+
+    /**
+     * Gets NumberTreatmentRooms
+     *
+     * @return int
+     */
+    public function getNumberTreatmentRooms()
+    {
+        return $this->container['NumberTreatmentRooms'];
+    }
+
+    /**
+     * Sets NumberTreatmentRooms
+     *
+     * @param int $NumberTreatmentRooms NumberTreatmentRooms
+     *
+     * @return $this
+     */
+    public function setNumberTreatmentRooms($NumberTreatmentRooms): self
+    {
+        $this->container['NumberTreatmentRooms'] = $NumberTreatmentRooms;
+
+        return $this;
+    }
+
+    /**
+     * Gets Active
+     *
+     * @return bool
+     */
+    public function getActive()
+    {
+        return $this->container['Active'];
+    }
+
+    /**
+     * Sets Active
+     *
+     * @param bool $Active Active
+     *
+     * @return $this
+     */
+    public function setActive($Active): self
+    {
+        $this->container['Active'] = $Active;
+
+        return $this;
+    }
+
+    /**
+     * Gets InvActive
+     *
+     * @return bool
+     */
+    public function getInvActive()
+    {
+        return $this->container['InvActive'];
+    }
+
+    /**
+     * Sets InvActive
+     *
+     * @param bool $InvActive InvActive
+     *
+     * @return $this
+     */
+    public function setInvActive($InvActive): self
+    {
+        $this->container['InvActive'] = $InvActive;
+
+        return $this;
+    }
+
+    /**
+     * Gets WsShow
+     *
+     * @return bool
+     */
+    public function getWsShow()
+    {
+        return $this->container['WsShow'];
+    }
+
+    /**
+     * Sets WsShow
+     *
+     * @param bool $WsShow WsShow
+     *
+     * @return $this
+     */
+    public function setWsShow($WsShow): self
+    {
+        $this->container['WsShow'] = $WsShow;
+
+        return $this;
+    }
+
+    /**
+     * Gets Email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->container['Email'];
+    }
+
+    /**
+     * Sets Email
+     *
+     * @param string $Email Email
+     *
+     * @return $this
+     */
+    public function setEmail($Email): self
+    {
+        $this->container['Email'] = $Email;
+
+        return $this;
+    }
+
+    /**
+     * Gets ContactName
+     *
+     * @return string
+     */
+    public function getContactName()
+    {
+        return $this->container['ContactName'];
+    }
+
+    /**
+     * Sets ContactName
+     *
+     * @param string $ContactName ContactName
+     *
+     * @return $this
+     */
+    public function setContactName($ContactName): self
+    {
+        $this->container['ContactName'] = $ContactName;
+
+        return $this;
+    }
+
+    /**
+     * Gets ShipAddress
+     *
+     * @return string
+     */
+    public function getShipAddress()
+    {
+        return $this->container['ShipAddress'];
+    }
+
+    /**
+     * Sets ShipAddress
+     *
+     * @param string $ShipAddress ShipAddress
+     *
+     * @return $this
+     */
+    public function setShipAddress($ShipAddress): self
+    {
+        $this->container['ShipAddress'] = $ShipAddress;
+
+        return $this;
+    }
+
+    /**
+     * Gets ShipState
+     *
+     * @return string
+     */
+    public function getShipState()
+    {
+        return $this->container['ShipState'];
+    }
+
+    /**
+     * Sets ShipState
+     *
+     * @param string $ShipState ShipState
+     *
+     * @return $this
+     */
+    public function setShipState($ShipState): self
+    {
+        $this->container['ShipState'] = $ShipState;
+
+        return $this;
+    }
+
+    /**
+     * Gets ShipPostal
+     *
+     * @return string
+     */
+    public function getShipPostal()
+    {
+        return $this->container['ShipPostal'];
+    }
+
+    /**
+     * Sets ShipPostal
+     *
+     * @param string $ShipPostal ShipPostal
+     *
+     * @return $this
+     */
+    public function setShipPostal($ShipPostal): self
+    {
+        $this->container['ShipPostal'] = $ShipPostal;
+
+        return $this;
+    }
+
+    /**
+     * Gets ShipPhone
+     *
+     * @return string
+     */
+    public function getShipPhone()
+    {
+        return $this->container['ShipPhone'];
+    }
+
+    /**
+     * Sets ShipPhone
+     *
+     * @param string $ShipPhone ShipPhone
+     *
+     * @return $this
+     */
+    public function setShipPhone($ShipPhone): self
+    {
+        $this->container['ShipPhone'] = $ShipPhone;
+
+        return $this;
+    }
+
+    /**
+     * Gets ShipPOC
+     *
+     * @return string
+     */
+    public function getShipPOC()
+    {
+        return $this->container['ShipPOC'];
+    }
+
+    /**
+     * Sets ShipPOC
+     *
+     * @param string $ShipPOC ShipPOC
+     *
+     * @return $this
+     */
+    public function setShipPOC($ShipPOC): self
+    {
+        $this->container['ShipPOC'] = $ShipPOC;
+
+        return $this;
+    }
+
+    /**
+     * Gets TaxGrouping
+     *
+     * @return bool
+     */
+    public function getTaxGrouping()
+    {
+        return $this->container['TaxGrouping'];
+    }
+
+    /**
+     * Sets TaxGrouping
+     *
+     * @param bool $TaxGrouping TaxGrouping
+     *
+     * @return $this
+     */
+    public function setTaxGrouping($TaxGrouping): self
+    {
+        $this->container['TaxGrouping'] = $TaxGrouping;
+
+        return $this;
+    }
+
+    /**
+     * Gets LabelTax1
+     *
+     * @return string
+     */
+    public function getLabelTax1()
+    {
+        return $this->container['LabelTax1'];
+    }
+
+    /**
+     * Sets LabelTax1
+     *
+     * @param string $LabelTax1 LabelTax1
+     *
+     * @return $this
+     */
+    public function setLabelTax1($LabelTax1): self
+    {
+        $this->container['LabelTax1'] = $LabelTax1;
+
+        return $this;
+    }
+
+    /**
+     * Gets LabelTax2
+     *
+     * @return string
+     */
+    public function getLabelTax2()
+    {
+        return $this->container['LabelTax2'];
+    }
+
+    /**
+     * Sets LabelTax2
+     *
+     * @param string $LabelTax2 LabelTax2
+     *
+     * @return $this
+     */
+    public function setLabelTax2($LabelTax2): self
+    {
+        $this->container['LabelTax2'] = $LabelTax2;
+
+        return $this;
+    }
+
+    /**
+     * Gets LabelTax3
+     *
+     * @return string
+     */
+    public function getLabelTax3()
+    {
+        return $this->container['LabelTax3'];
+    }
+
+    /**
+     * Sets LabelTax3
+     *
+     * @param string $LabelTax3 LabelTax3
+     *
+     * @return $this
+     */
+    public function setLabelTax3($LabelTax3): self
+    {
+        $this->container['LabelTax3'] = $LabelTax3;
+
+        return $this;
+    }
+
+    /**
+     * Gets LabelTax4
+     *
+     * @return string
+     */
+    public function getLabelTax4()
+    {
+        return $this->container['LabelTax4'];
+    }
+
+    /**
+     * Sets LabelTax4
+     *
+     * @param string $LabelTax4 LabelTax4
+     *
+     * @return $this
+     */
+    public function setLabelTax4($LabelTax4): self
+    {
+        $this->container['LabelTax4'] = $LabelTax4;
+
+        return $this;
+    }
+
+    /**
+     * Gets LabelTax5
+     *
+     * @return string
+     */
+    public function getLabelTax5()
+    {
+        return $this->container['LabelTax5'];
+    }
+
+    /**
+     * Sets LabelTax5
+     *
+     * @param string $LabelTax5 LabelTax5
+     *
+     * @return $this
+     */
+    public function setLabelTax5($LabelTax5): self
+    {
+        $this->container['LabelTax5'] = $LabelTax5;
+
+        return $this;
+    }
+
+    /**
+     * Gets WAC
+     *
+     * @return bool
+     */
+    public function getWAC()
+    {
+        return $this->container['WAC'];
+    }
+
+    /**
+     * Sets WAC
+     *
+     * @param bool $WAC WAC
+     *
+     * @return $this
+     */
+    public function setWAC($WAC): self
+    {
+        $this->container['WAC'] = $WAC;
+
+        return $this;
+    }
+
+    /**
+     * Gets ShipAddress2
+     *
+     * @return string
+     */
+    public function getShipAddress2()
+    {
+        return $this->container['ShipAddress2'];
+    }
+
+    /**
+     * Sets ShipAddress2
+     *
+     * @param string $ShipAddress2 ShipAddress2
+     *
+     * @return $this
+     */
+    public function setShipAddress2($ShipAddress2): self
+    {
+        $this->container['ShipAddress2'] = $ShipAddress2;
+
+        return $this;
+    }
+
+    /**
+     * Gets MasterLocId
+     *
+     * @return int
+     */
+    public function getMasterLocId()
+    {
+        return $this->container['MasterLocId'];
+    }
+
+    /**
+     * Sets MasterLocId
+     *
+     * @param int $MasterLocId MasterLocId
+     *
+     * @return $this
+     */
+    public function setMasterLocId($MasterLocId): self
+    {
+        $this->container['MasterLocId'] = $MasterLocId;
+
+        return $this;
+    }
+
+    /**
+     * Gets StreetAddress
+     *
+     * @return string
+     */
+    public function getStreetAddress()
+    {
+        return $this->container['StreetAddress'];
+    }
+
+    /**
+     * Sets StreetAddress
+     *
+     * @param string $StreetAddress StreetAddress
+     *
+     * @return $this
+     */
+    public function setStreetAddress($StreetAddress): self
+    {
+        $this->container['StreetAddress'] = $StreetAddress;
+
+        return $this;
+    }
+
+    /**
+     * Gets Country
+     *
+     * @return string
+     */
+    public function getCountry()
+    {
+        return $this->container['Country'];
+    }
+
+    /**
+     * Sets Country
+     *
+     * @param string $Country Country
+     *
+     * @return $this
+     */
+    public function setCountry($Country): self
+    {
+        $this->container['Country'] = $Country;
+
+        return $this;
+    }
+
+    /**
+     * Gets Ext
+     *
+     * @return string
+     */
+    public function getExt()
+    {
+        return $this->container['Ext'];
+    }
+
+    /**
+     * Sets Ext
+     *
+     * @param string $Ext Ext
+     *
+     * @return $this
+     */
+    public function setExt($Ext): self
+    {
+        $this->container['Ext'] = $Ext;
+
+        return $this;
+    }
+
+    /**
+     * Gets Amenities
+     *
+     * @return \Nlocascio\Mindbody\Model\Amenity[]
+     */
+    public function getAmenities()
+    {
+        return $this->container['Amenities'];
+    }
+
+    /**
+     * Sets Amenities
+     *
+     * @param \Nlocascio\Mindbody\Model\Amenity[] $Amenities Amenities
+     *
+     * @return $this
+     */
+    public function setAmenities($Amenities): self
+    {
+        $this->container['Amenities'] = $Amenities;
+
+        return $this;
+    }
+
+    /**
+     * Gets TotalNumberOfDeals
+     *
+     * @return int
+     */
+    public function getTotalNumberOfDeals()
+    {
+        return $this->container['TotalNumberOfDeals'];
+    }
+
+    /**
+     * Sets TotalNumberOfDeals
+     *
+     * @param int $TotalNumberOfDeals TotalNumberOfDeals
+     *
+     * @return $this
+     */
+    public function setTotalNumberOfDeals($TotalNumberOfDeals): self
+    {
+        $this->container['TotalNumberOfDeals'] = $TotalNumberOfDeals;
 
         return $this;
     }
@@ -835,7 +1858,7 @@ class Location extends BaseModel implements ModelWithId
     /**
      * Sets TotalNumberOfRatings
      *
-     * @param int $TotalNumberOfRatings The number of reviews that clients have left for this location.
+     * @param int $TotalNumberOfRatings TotalNumberOfRatings
      *
      * @return $this
      */
@@ -859,37 +1882,13 @@ class Location extends BaseModel implements ModelWithId
     /**
      * Sets AverageRating
      *
-     * @param double $AverageRating The average rating for the location, out of five stars.
+     * @param double $AverageRating AverageRating
      *
      * @return $this
      */
     public function setAverageRating($AverageRating): self
     {
         $this->container['AverageRating'] = $AverageRating;
-
-        return $this;
-    }
-
-    /**
-     * Gets TotalNumberOfDeals
-     *
-     * @return int
-     */
-    public function getTotalNumberOfDeals()
-    {
-        return $this->container['TotalNumberOfDeals'];
-    }
-
-    /**
-     * Sets TotalNumberOfDeals
-     *
-     * @param int $TotalNumberOfDeals The number of distinct introductory pricing options available for purchase at this location.
-     *
-     * @return $this
-     */
-    public function setTotalNumberOfDeals($TotalNumberOfDeals): self
-    {
-        $this->container['TotalNumberOfDeals'] = $TotalNumberOfDeals;
 
         return $this;
     }

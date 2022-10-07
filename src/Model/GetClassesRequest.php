@@ -38,6 +38,7 @@ namespace Nlocascio\Mindbody\Model;
  * @link     https://github.com/swagger-api/swagger-codegen
  * @property int[] $ClassDescriptionIds The requested class description IDs.
  * @property int[] $ClassIds The requested class IDs.
+ * @property int[] $ClassScheduleIds The requested classScheduleIds.
  * @property int[] $StaffIds The requested IDs of the teaching staff members.
  * @property \DateTime $StartDateTime The requested start date for filtering.   <br />Default: **today’s date**
  * @property \DateTime $EndDateTime The requested end date for filtering.  <br />Default: **today’s date**
@@ -72,6 +73,7 @@ class GetClassesRequest extends BaseModel
     protected static $swaggerTypes = [
         'ClassDescriptionIds' => 'int[]',
         'ClassIds' => 'int[]',
+        'ClassScheduleIds' => 'int[]',
         'StaffIds' => 'int[]',
         'StartDateTime' => '\DateTime',
         'EndDateTime' => '\DateTime',
@@ -95,6 +97,7 @@ class GetClassesRequest extends BaseModel
     protected static $swaggerFormats = [
         'ClassDescriptionIds' => 'int32',
         'ClassIds' => 'int32',
+        'ClassScheduleIds' => 'int32',
         'StaffIds' => 'int64',
         'StartDateTime' => 'date-time',
         'EndDateTime' => 'date-time',
@@ -120,6 +123,7 @@ class GetClassesRequest extends BaseModel
     protected static $attributeMap = [
         'ClassDescriptionIds' => 'ClassDescriptionIds',
         'ClassIds' => 'ClassIds',
+        'ClassScheduleIds' => 'ClassScheduleIds',
         'StaffIds' => 'StaffIds',
         'StartDateTime' => 'StartDateTime',
         'EndDateTime' => 'EndDateTime',
@@ -143,6 +147,7 @@ class GetClassesRequest extends BaseModel
     protected static $setters = [
         'ClassDescriptionIds' => 'setClassDescriptionIds',
         'ClassIds' => 'setClassIds',
+        'ClassScheduleIds' => 'setClassScheduleIds',
         'StaffIds' => 'setStaffIds',
         'StartDateTime' => 'setStartDateTime',
         'EndDateTime' => 'setEndDateTime',
@@ -166,6 +171,7 @@ class GetClassesRequest extends BaseModel
     protected static $getters = [
         'ClassDescriptionIds' => 'getClassDescriptionIds',
         'ClassIds' => 'getClassIds',
+        'ClassScheduleIds' => 'getClassScheduleIds',
         'StaffIds' => 'getStaffIds',
         'StartDateTime' => 'getStartDateTime',
         'EndDateTime' => 'getEndDateTime',
@@ -196,6 +202,7 @@ class GetClassesRequest extends BaseModel
     {
         $this->container['ClassDescriptionIds'] = isset($data['ClassDescriptionIds']) ? $data['ClassDescriptionIds'] : null;
         $this->container['ClassIds'] = isset($data['ClassIds']) ? $data['ClassIds'] : null;
+        $this->container['ClassScheduleIds'] = isset($data['ClassScheduleIds']) ? $data['ClassScheduleIds'] : null;
         $this->container['StaffIds'] = isset($data['StaffIds']) ? $data['StaffIds'] : null;
         $this->container['StartDateTime'] = isset($data['StartDateTime']) ? $data['StartDateTime'] : null;
         $this->container['EndDateTime'] = isset($data['EndDateTime']) ? $data['EndDateTime'] : null;
@@ -268,6 +275,30 @@ class GetClassesRequest extends BaseModel
     public function setClassIds($ClassIds): self
     {
         $this->container['ClassIds'] = $ClassIds;
+
+        return $this;
+    }
+
+    /**
+     * Gets ClassScheduleIds
+     *
+     * @return int[]
+     */
+    public function getClassScheduleIds()
+    {
+        return $this->container['ClassScheduleIds'];
+    }
+
+    /**
+     * Sets ClassScheduleIds
+     *
+     * @param int[] $ClassScheduleIds The requested classScheduleIds.
+     *
+     * @return $this
+     */
+    public function setClassScheduleIds($ClassScheduleIds): self
+    {
+        $this->container['ClassScheduleIds'] = $ClassScheduleIds;
 
         return $this;
     }

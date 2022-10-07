@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **CreatedDateTimeUTC** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **ModifiedDateTimeUTC** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **SubCategories** | [**\Nlocascio\Mindbody\Model\SubCategory[]**](SubCategory.md) |  | [optional] 
+**TotalCount** | **int** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

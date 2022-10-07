@@ -90,6 +90,9 @@ namespace Nlocascio\Mindbody\Model;
  * @property bool $SendScheduleEmails When `true`, indicates that the client opts to receive schedule emails.
  * @property bool $SendAccountEmails When `true`, indicates that the client opts to receive account emails.
  * @property bool $SendPromotionalEmails When `true`, indicates that the client opts to receive promotional emails.
+ * @property bool $SendScheduleTexts When `true`, indicates that the client opts to receive schedule texts.
+ * @property bool $SendAccountTexts When `true`, indicates that the client opts to receive account texts.
+ * @property bool $SendPromotionalTexts When `true`, indicates that the client opts to receive promotional texts.
  *
  */
 class AddClientRequest extends BaseModel
@@ -162,7 +165,10 @@ class AddClientRequest extends BaseModel
         'YellowAlert' => 'string',
         'SendScheduleEmails' => 'bool',
         'SendAccountEmails' => 'bool',
-        'SendPromotionalEmails' => 'bool'
+        'SendPromotionalEmails' => 'bool',
+        'SendScheduleTexts' => 'bool',
+        'SendAccountTexts' => 'bool',
+        'SendPromotionalTexts' => 'bool'
     ];
 
     /**
@@ -224,7 +230,10 @@ class AddClientRequest extends BaseModel
         'YellowAlert' => null,
         'SendScheduleEmails' => null,
         'SendAccountEmails' => null,
-        'SendPromotionalEmails' => null
+        'SendPromotionalEmails' => null,
+        'SendScheduleTexts' => null,
+        'SendAccountTexts' => null,
+        'SendPromotionalTexts' => null
     ];
 
 
@@ -288,7 +297,10 @@ class AddClientRequest extends BaseModel
         'YellowAlert' => 'YellowAlert',
         'SendScheduleEmails' => 'SendScheduleEmails',
         'SendAccountEmails' => 'SendAccountEmails',
-        'SendPromotionalEmails' => 'SendPromotionalEmails'
+        'SendPromotionalEmails' => 'SendPromotionalEmails',
+        'SendScheduleTexts' => 'SendScheduleTexts',
+        'SendAccountTexts' => 'SendAccountTexts',
+        'SendPromotionalTexts' => 'SendPromotionalTexts'
     ];
 
     /**
@@ -350,7 +362,10 @@ class AddClientRequest extends BaseModel
         'YellowAlert' => 'setYellowAlert',
         'SendScheduleEmails' => 'setSendScheduleEmails',
         'SendAccountEmails' => 'setSendAccountEmails',
-        'SendPromotionalEmails' => 'setSendPromotionalEmails'
+        'SendPromotionalEmails' => 'setSendPromotionalEmails',
+        'SendScheduleTexts' => 'setSendScheduleTexts',
+        'SendAccountTexts' => 'setSendAccountTexts',
+        'SendPromotionalTexts' => 'setSendPromotionalTexts'
     ];
 
     /**
@@ -412,7 +427,10 @@ class AddClientRequest extends BaseModel
         'YellowAlert' => 'getYellowAlert',
         'SendScheduleEmails' => 'getSendScheduleEmails',
         'SendAccountEmails' => 'getSendAccountEmails',
-        'SendPromotionalEmails' => 'getSendPromotionalEmails'
+        'SendPromotionalEmails' => 'getSendPromotionalEmails',
+        'SendScheduleTexts' => 'getSendScheduleTexts',
+        'SendAccountTexts' => 'getSendAccountTexts',
+        'SendPromotionalTexts' => 'getSendPromotionalTexts'
     ];
 
 
@@ -503,6 +521,9 @@ class AddClientRequest extends BaseModel
         $this->container['SendScheduleEmails'] = isset($data['SendScheduleEmails']) ? $data['SendScheduleEmails'] : null;
         $this->container['SendAccountEmails'] = isset($data['SendAccountEmails']) ? $data['SendAccountEmails'] : null;
         $this->container['SendPromotionalEmails'] = isset($data['SendPromotionalEmails']) ? $data['SendPromotionalEmails'] : null;
+        $this->container['SendScheduleTexts'] = isset($data['SendScheduleTexts']) ? $data['SendScheduleTexts'] : null;
+        $this->container['SendAccountTexts'] = isset($data['SendAccountTexts']) ? $data['SendAccountTexts'] : null;
+        $this->container['SendPromotionalTexts'] = isset($data['SendPromotionalTexts']) ? $data['SendPromotionalTexts'] : null;
     }
 
     /**
@@ -1833,6 +1854,78 @@ class AddClientRequest extends BaseModel
     public function setSendPromotionalEmails($SendPromotionalEmails): self
     {
         $this->container['SendPromotionalEmails'] = $SendPromotionalEmails;
+
+        return $this;
+    }
+
+    /**
+     * Gets SendScheduleTexts
+     *
+     * @return bool
+     */
+    public function getSendScheduleTexts()
+    {
+        return $this->container['SendScheduleTexts'];
+    }
+
+    /**
+     * Sets SendScheduleTexts
+     *
+     * @param bool $SendScheduleTexts When `true`, indicates that the client opts to receive schedule texts.
+     *
+     * @return $this
+     */
+    public function setSendScheduleTexts($SendScheduleTexts): self
+    {
+        $this->container['SendScheduleTexts'] = $SendScheduleTexts;
+
+        return $this;
+    }
+
+    /**
+     * Gets SendAccountTexts
+     *
+     * @return bool
+     */
+    public function getSendAccountTexts()
+    {
+        return $this->container['SendAccountTexts'];
+    }
+
+    /**
+     * Sets SendAccountTexts
+     *
+     * @param bool $SendAccountTexts When `true`, indicates that the client opts to receive account texts.
+     *
+     * @return $this
+     */
+    public function setSendAccountTexts($SendAccountTexts): self
+    {
+        $this->container['SendAccountTexts'] = $SendAccountTexts;
+
+        return $this;
+    }
+
+    /**
+     * Gets SendPromotionalTexts
+     *
+     * @return bool
+     */
+    public function getSendPromotionalTexts()
+    {
+        return $this->container['SendPromotionalTexts'];
+    }
+
+    /**
+     * Sets SendPromotionalTexts
+     *
+     * @param bool $SendPromotionalTexts When `true`, indicates that the client opts to receive promotional texts.
+     *
+     * @return $this
+     */
+    public function setSendPromotionalTexts($SendPromotionalTexts): self
+    {
+        $this->container['SendPromotionalTexts'] = $SendPromotionalTexts;
 
         return $this;
     }

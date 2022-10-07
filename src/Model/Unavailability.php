@@ -36,10 +36,10 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property int $Id The ID of the unavailability.
- * @property \DateTime $StartDateTime The date and time the unavailability starts.
- * @property \DateTime $EndDateTime The date and time the unavailability ends.
- * @property string $Description A description of the unavailability.
+ * @property int $Id Id
+ * @property \DateTime $StartDateTime StartDateTime
+ * @property \DateTime $EndDateTime EndDateTime
+ * @property string $Description Description
  *
  */
 class Unavailability extends BaseModel implements ModelWithId
@@ -160,7 +160,7 @@ class Unavailability extends BaseModel implements ModelWithId
     /**
      * Sets Id
      *
-     * @param int $Id The ID of the unavailability.
+     * @param int $Id Id
      *
      * @return $this
      */
@@ -184,7 +184,7 @@ class Unavailability extends BaseModel implements ModelWithId
     /**
      * Sets StartDateTime
      *
-     * @param \DateTime $StartDateTime The date and time the unavailability starts.
+     * @param \DateTime $StartDateTime StartDateTime
      *
      * @return $this
      */
@@ -208,7 +208,7 @@ class Unavailability extends BaseModel implements ModelWithId
     /**
      * Sets EndDateTime
      *
-     * @param \DateTime $EndDateTime The date and time the unavailability ends.
+     * @param \DateTime $EndDateTime EndDateTime
      *
      * @return $this
      */
@@ -232,7 +232,7 @@ class Unavailability extends BaseModel implements ModelWithId
     /**
      * Sets Description
      *
-     * @param string $Description A description of the unavailability.
+     * @param string $Description Description
      *
      * @return $this
      */

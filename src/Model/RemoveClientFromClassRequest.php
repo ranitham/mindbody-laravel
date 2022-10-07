@@ -41,6 +41,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property bool $Test When `true`, the request ensures that its parameters are valid without affecting real data.<br />  When `false`, the request performs as intended and may affect live client data.<br />  Default: **false**
  * @property bool $SendEmail When `true`, indicates that the client should be sent an email. Depending on the site and client settings, an email may or may not be sent.<br />  Default: **false**
  * @property bool $LateCancel When `true`, indicates that the client is to be late cancelled from the class.<br />  When `false`, indicates that the client is to be early cancelled from the class.<br />  Default: **false**
+ * @property int $VisitId The Visit Id is an optional field to removed perticular visit from class of client
  *
  */
 class RemoveClientFromClassRequest extends BaseModel
@@ -64,7 +65,8 @@ class RemoveClientFromClassRequest extends BaseModel
         'ClassId' => 'int',
         'Test' => 'bool',
         'SendEmail' => 'bool',
-        'LateCancel' => 'bool'
+        'LateCancel' => 'bool',
+        'VisitId' => 'int'
     ];
 
     /**
@@ -77,7 +79,8 @@ class RemoveClientFromClassRequest extends BaseModel
         'ClassId' => 'int32',
         'Test' => null,
         'SendEmail' => null,
-        'LateCancel' => null
+        'LateCancel' => null,
+        'VisitId' => 'int32'
     ];
 
 
@@ -92,7 +95,8 @@ class RemoveClientFromClassRequest extends BaseModel
         'ClassId' => 'ClassId',
         'Test' => 'Test',
         'SendEmail' => 'SendEmail',
-        'LateCancel' => 'LateCancel'
+        'LateCancel' => 'LateCancel',
+        'VisitId' => 'VisitId'
     ];
 
     /**
@@ -105,7 +109,8 @@ class RemoveClientFromClassRequest extends BaseModel
         'ClassId' => 'setClassId',
         'Test' => 'setTest',
         'SendEmail' => 'setSendEmail',
-        'LateCancel' => 'setLateCancel'
+        'LateCancel' => 'setLateCancel',
+        'VisitId' => 'setVisitId'
     ];
 
     /**
@@ -118,7 +123,8 @@ class RemoveClientFromClassRequest extends BaseModel
         'ClassId' => 'getClassId',
         'Test' => 'getTest',
         'SendEmail' => 'getSendEmail',
-        'LateCancel' => 'getLateCancel'
+        'LateCancel' => 'getLateCancel',
+        'VisitId' => 'getVisitId'
     ];
 
 
@@ -139,6 +145,7 @@ class RemoveClientFromClassRequest extends BaseModel
         $this->container['Test'] = isset($data['Test']) ? $data['Test'] : null;
         $this->container['SendEmail'] = isset($data['SendEmail']) ? $data['SendEmail'] : null;
         $this->container['LateCancel'] = isset($data['LateCancel']) ? $data['LateCancel'] : null;
+        $this->container['VisitId'] = isset($data['VisitId']) ? $data['VisitId'] : null;
     }
 
     /**
@@ -276,6 +283,30 @@ class RemoveClientFromClassRequest extends BaseModel
     public function setLateCancel($LateCancel): self
     {
         $this->container['LateCancel'] = $LateCancel;
+
+        return $this;
+    }
+
+    /**
+     * Gets VisitId
+     *
+     * @return int
+     */
+    public function getVisitId()
+    {
+        return $this->container['VisitId'];
+    }
+
+    /**
+     * Sets VisitId
+     *
+     * @param int $VisitId The Visit Id is an optional field to removed perticular visit from class of client
+     *
+     * @return $this
+     */
+    public function setVisitId($VisitId): self
+    {
+        $this->container['VisitId'] = $VisitId;
 
         return $this;
     }

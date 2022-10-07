@@ -38,6 +38,7 @@ namespace Nlocascio\Mindbody\Model;
  * @link     https://github.com/swagger-api/swagger-codegen
  * @property int[] $PackageIds A list of the packages IDs to filter by.
  * @property bool $SellOnline When `true`, only returns products that can be sold online.<br />  When `false`, all products are returned.<br />  Default: **false**
+ * @property int $LocationId The location ID to use to determine the tax for the products that this request returns.<br />  Default: **online store**
  * @property int $Limit Number of results to include, defaults to 100
  * @property int $Offset Page offset, defaults to 0.
  *
@@ -61,6 +62,7 @@ class GetPackagesRequest extends BaseModel
     protected static $swaggerTypes = [
         'PackageIds' => 'int[]',
         'SellOnline' => 'bool',
+        'LocationId' => 'int',
         'Limit' => 'int',
         'Offset' => 'int'
     ];
@@ -73,6 +75,7 @@ class GetPackagesRequest extends BaseModel
     protected static $swaggerFormats = [
         'PackageIds' => 'int32',
         'SellOnline' => null,
+        'LocationId' => 'int32',
         'Limit' => 'int32',
         'Offset' => 'int32'
     ];
@@ -87,6 +90,7 @@ class GetPackagesRequest extends BaseModel
     protected static $attributeMap = [
         'PackageIds' => 'PackageIds',
         'SellOnline' => 'SellOnline',
+        'LocationId' => 'LocationId',
         'Limit' => 'Limit',
         'Offset' => 'Offset'
     ];
@@ -99,6 +103,7 @@ class GetPackagesRequest extends BaseModel
     protected static $setters = [
         'PackageIds' => 'setPackageIds',
         'SellOnline' => 'setSellOnline',
+        'LocationId' => 'setLocationId',
         'Limit' => 'setLimit',
         'Offset' => 'setOffset'
     ];
@@ -111,6 +116,7 @@ class GetPackagesRequest extends BaseModel
     protected static $getters = [
         'PackageIds' => 'getPackageIds',
         'SellOnline' => 'getSellOnline',
+        'LocationId' => 'getLocationId',
         'Limit' => 'getLimit',
         'Offset' => 'getOffset'
     ];
@@ -130,6 +136,7 @@ class GetPackagesRequest extends BaseModel
     {
         $this->container['PackageIds'] = isset($data['PackageIds']) ? $data['PackageIds'] : null;
         $this->container['SellOnline'] = isset($data['SellOnline']) ? $data['SellOnline'] : null;
+        $this->container['LocationId'] = isset($data['LocationId']) ? $data['LocationId'] : null;
         $this->container['Limit'] = isset($data['Limit']) ? $data['Limit'] : null;
         $this->container['Offset'] = isset($data['Offset']) ? $data['Offset'] : null;
     }
@@ -191,6 +198,30 @@ class GetPackagesRequest extends BaseModel
     public function setSellOnline($SellOnline): self
     {
         $this->container['SellOnline'] = $SellOnline;
+
+        return $this;
+    }
+
+    /**
+     * Gets LocationId
+     *
+     * @return int
+     */
+    public function getLocationId()
+    {
+        return $this->container['LocationId'];
+    }
+
+    /**
+     * Sets LocationId
+     *
+     * @param int $LocationId The location ID to use to determine the tax for the products that this request returns.<br />  Default: **online store**
+     *
+     * @return $this
+     */
+    public function setLocationId($LocationId): self
+    {
+        $this->container['LocationId'] = $LocationId;
 
         return $this;
     }

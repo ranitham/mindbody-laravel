@@ -46,6 +46,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property string $BillingState BillingState
  * @property string $BillingPostalCode BillingPostalCode
  * @property bool $SaveInfo SaveInfo
+ * @property string $CardId Card Id of a stored instruments card
  *
  */
 class CreditCardInfo extends BaseModel
@@ -73,7 +74,8 @@ class CreditCardInfo extends BaseModel
         'BillingCity' => 'string',
         'BillingState' => 'string',
         'BillingPostalCode' => 'string',
-        'SaveInfo' => 'bool'
+        'SaveInfo' => 'bool',
+        'CardId' => 'string'
     ];
 
     /**
@@ -90,7 +92,8 @@ class CreditCardInfo extends BaseModel
         'BillingCity' => null,
         'BillingState' => null,
         'BillingPostalCode' => null,
-        'SaveInfo' => null
+        'SaveInfo' => null,
+        'CardId' => null
     ];
 
 
@@ -109,7 +112,8 @@ class CreditCardInfo extends BaseModel
         'BillingCity' => 'BillingCity',
         'BillingState' => 'BillingState',
         'BillingPostalCode' => 'BillingPostalCode',
-        'SaveInfo' => 'SaveInfo'
+        'SaveInfo' => 'SaveInfo',
+        'CardId' => 'CardId'
     ];
 
     /**
@@ -126,7 +130,8 @@ class CreditCardInfo extends BaseModel
         'BillingCity' => 'setBillingCity',
         'BillingState' => 'setBillingState',
         'BillingPostalCode' => 'setBillingPostalCode',
-        'SaveInfo' => 'setSaveInfo'
+        'SaveInfo' => 'setSaveInfo',
+        'CardId' => 'setCardId'
     ];
 
     /**
@@ -143,7 +148,8 @@ class CreditCardInfo extends BaseModel
         'BillingCity' => 'getBillingCity',
         'BillingState' => 'getBillingState',
         'BillingPostalCode' => 'getBillingPostalCode',
-        'SaveInfo' => 'getSaveInfo'
+        'SaveInfo' => 'getSaveInfo',
+        'CardId' => 'getCardId'
     ];
 
 
@@ -168,6 +174,7 @@ class CreditCardInfo extends BaseModel
         $this->container['BillingState'] = isset($data['BillingState']) ? $data['BillingState'] : null;
         $this->container['BillingPostalCode'] = isset($data['BillingPostalCode']) ? $data['BillingPostalCode'] : null;
         $this->container['SaveInfo'] = isset($data['SaveInfo']) ? $data['SaveInfo'] : null;
+        $this->container['CardId'] = isset($data['CardId']) ? $data['CardId'] : null;
     }
 
     /**
@@ -395,6 +402,30 @@ class CreditCardInfo extends BaseModel
     public function setSaveInfo($SaveInfo): self
     {
         $this->container['SaveInfo'] = $SaveInfo;
+
+        return $this;
+    }
+
+    /**
+     * Gets CardId
+     *
+     * @return string
+     */
+    public function getCardId()
+    {
+        return $this->container['CardId'];
+    }
+
+    /**
+     * Sets CardId
+     *
+     * @param string $CardId Card Id of a stored instruments card
+     *
+     * @return $this
+     */
+    public function setCardId($CardId): self
+    {
+        $this->container['CardId'] = $CardId;
 
         return $this;
     }

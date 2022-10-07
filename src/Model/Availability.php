@@ -33,20 +33,19 @@ namespace Nlocascio\Mindbody\Model;
  * Availability Class Doc Comment
  *
  * @category Class
- * @description A staff availability entry
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property int $Id The ID of the availability.
- * @property \Nlocascio\Mindbody\Model\Staff $Staff Contains information about staff members.
- * @property \Nlocascio\Mindbody\Model\SessionType $SessionType Contains information about the types of sessions.
- * @property \Nlocascio\Mindbody\Model\Program[] $Programs Contains information about the programs.
- * @property \DateTime $StartDateTime The date and time the availability starts.
- * @property \DateTime $EndDateTime The date and time the availability ends.
- * @property \DateTime $BookableEndDateTime The time of day that the last appointment can start.
- * @property \Nlocascio\Mindbody\Model\Location $Location Contains information about the location.
- * @property int $PrepTime Prep time in minutes
- * @property int $FinishTime Finish time in minutes
+ * @property int $Id Id
+ * @property \Nlocascio\Mindbody\Model\Staff $Staff Staff
+ * @property \Nlocascio\Mindbody\Model\SessionType $SessionType SessionType
+ * @property \Nlocascio\Mindbody\Model\Program[] $Programs Programs
+ * @property \DateTime $StartDateTime StartDateTime
+ * @property \DateTime $EndDateTime EndDateTime
+ * @property \DateTime $BookableEndDateTime BookableEndDateTime
+ * @property \Nlocascio\Mindbody\Model\Location $Location Location
+ * @property int $PrepTime PrepTime
+ * @property int $FinishTime FinishTime
  *
  */
 class Availability extends BaseModel implements ModelWithId
@@ -203,7 +202,7 @@ class Availability extends BaseModel implements ModelWithId
     /**
      * Sets Id
      *
-     * @param int $Id The ID of the availability.
+     * @param int $Id Id
      *
      * @return $this
      */
@@ -227,7 +226,7 @@ class Availability extends BaseModel implements ModelWithId
     /**
      * Sets Staff
      *
-     * @param \Nlocascio\Mindbody\Model\Staff $Staff Contains information about staff members.
+     * @param \Nlocascio\Mindbody\Model\Staff $Staff Staff
      *
      * @return $this
      */
@@ -251,7 +250,7 @@ class Availability extends BaseModel implements ModelWithId
     /**
      * Sets SessionType
      *
-     * @param \Nlocascio\Mindbody\Model\SessionType $SessionType Contains information about the types of sessions.
+     * @param \Nlocascio\Mindbody\Model\SessionType $SessionType SessionType
      *
      * @return $this
      */
@@ -275,7 +274,7 @@ class Availability extends BaseModel implements ModelWithId
     /**
      * Sets Programs
      *
-     * @param \Nlocascio\Mindbody\Model\Program[] $Programs Contains information about the programs.
+     * @param \Nlocascio\Mindbody\Model\Program[] $Programs Programs
      *
      * @return $this
      */
@@ -299,7 +298,7 @@ class Availability extends BaseModel implements ModelWithId
     /**
      * Sets StartDateTime
      *
-     * @param \DateTime $StartDateTime The date and time the availability starts.
+     * @param \DateTime $StartDateTime StartDateTime
      *
      * @return $this
      */
@@ -323,7 +322,7 @@ class Availability extends BaseModel implements ModelWithId
     /**
      * Sets EndDateTime
      *
-     * @param \DateTime $EndDateTime The date and time the availability ends.
+     * @param \DateTime $EndDateTime EndDateTime
      *
      * @return $this
      */
@@ -347,7 +346,7 @@ class Availability extends BaseModel implements ModelWithId
     /**
      * Sets BookableEndDateTime
      *
-     * @param \DateTime $BookableEndDateTime The time of day that the last appointment can start.
+     * @param \DateTime $BookableEndDateTime BookableEndDateTime
      *
      * @return $this
      */
@@ -371,7 +370,7 @@ class Availability extends BaseModel implements ModelWithId
     /**
      * Sets Location
      *
-     * @param \Nlocascio\Mindbody\Model\Location $Location Contains information about the location.
+     * @param \Nlocascio\Mindbody\Model\Location $Location Location
      *
      * @return $this
      */
@@ -395,7 +394,7 @@ class Availability extends BaseModel implements ModelWithId
     /**
      * Sets PrepTime
      *
-     * @param int $PrepTime Prep time in minutes
+     * @param int $PrepTime PrepTime
      *
      * @return $this
      */
@@ -419,7 +418,7 @@ class Availability extends BaseModel implements ModelWithId
     /**
      * Sets FinishTime
      *
-     * @param int $FinishTime Finish time in minutes
+     * @param int $FinishTime FinishTime
      *
      * @return $this
      */

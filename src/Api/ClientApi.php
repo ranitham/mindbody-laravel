@@ -5742,6 +5742,340 @@ class ClientApi implements ApiInterface
     }
 
     /**
+     * Operation clientGetClientSchedule
+     *
+     * Gets a client's schedule history.
+     *
+     * @param  string $RequestClientId The ID of the requested client. (required)
+     * @param  int $RequestClientAssociatedSitesOffset The number of sites to skip when returning the site associated with a client. (optional)
+     * @param  bool $RequestCrossRegionalLookup When &#x60;true&#x60;, indicates that past and scheduled client visits across all sites in the region are returned.  When &#x60;false&#x60;, indicates that only visits at the current site are returned. (optional)
+     * @param  \DateTime $RequestEndDate The date past which class visits are not returned.  Default is today’s date (optional)
+     * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
+     * @param  int $RequestOffset Page offset, defaults to 0. (optional)
+     * @param  \DateTime $RequestStartDate The date before which class visits are not returned.  Default is the end date (optional)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Nlocascio\Mindbody\Model\GetClientScheduleResponse
+     */
+    public function clientGetClientSchedule($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestStartDate = null): \Nlocascio\Mindbody\Model\GetClientScheduleResponse
+    {
+        list($response) = $this->clientGetClientScheduleWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestStartDate);
+        return $response;
+    }
+
+    /**
+     * Operation clientGetClientScheduleWithHttpInfo
+     *
+     * Gets a client's schedule history.
+     *
+     * @param  string $RequestClientId The ID of the requested client. (required)
+     * @param  int $RequestClientAssociatedSitesOffset The number of sites to skip when returning the site associated with a client. (optional)
+     * @param  bool $RequestCrossRegionalLookup When &#x60;true&#x60;, indicates that past and scheduled client visits across all sites in the region are returned.  When &#x60;false&#x60;, indicates that only visits at the current site are returned. (optional)
+     * @param  \DateTime $RequestEndDate The date past which class visits are not returned.  Default is today’s date (optional)
+     * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
+     * @param  int $RequestOffset Page offset, defaults to 0. (optional)
+     * @param  \DateTime $RequestStartDate The date before which class visits are not returned.  Default is the end date (optional)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Nlocascio\Mindbody\Model\GetClientScheduleResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function clientGetClientScheduleWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestStartDate = null): array
+    {
+        $returnType = '\Nlocascio\Mindbody\Model\GetClientScheduleResponse';
+        $request = $this->clientGetClientScheduleRequest($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestStartDate);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Nlocascio\Mindbody\Model\GetClientScheduleResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation clientGetClientScheduleAsync
+     *
+     * Gets a client's schedule history.
+     *
+     * @param  string $RequestClientId The ID of the requested client. (required)
+     * @param  int $RequestClientAssociatedSitesOffset The number of sites to skip when returning the site associated with a client. (optional)
+     * @param  bool $RequestCrossRegionalLookup When &#x60;true&#x60;, indicates that past and scheduled client visits across all sites in the region are returned.  When &#x60;false&#x60;, indicates that only visits at the current site are returned. (optional)
+     * @param  \DateTime $RequestEndDate The date past which class visits are not returned.  Default is today’s date (optional)
+     * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
+     * @param  int $RequestOffset Page offset, defaults to 0. (optional)
+     * @param  \DateTime $RequestStartDate The date before which class visits are not returned.  Default is the end date (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function clientGetClientScheduleAsync($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestStartDate = null): \GuzzleHttp\Promise\PromiseInterface
+    {
+        return $this->clientGetClientScheduleAsyncWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestStartDate)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation clientGetClientScheduleAsyncWithHttpInfo
+     *
+     * Gets a client's schedule history.
+     *
+     * @param  string $RequestClientId The ID of the requested client. (required)
+     * @param  int $RequestClientAssociatedSitesOffset The number of sites to skip when returning the site associated with a client. (optional)
+     * @param  bool $RequestCrossRegionalLookup When &#x60;true&#x60;, indicates that past and scheduled client visits across all sites in the region are returned.  When &#x60;false&#x60;, indicates that only visits at the current site are returned. (optional)
+     * @param  \DateTime $RequestEndDate The date past which class visits are not returned.  Default is today’s date (optional)
+     * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
+     * @param  int $RequestOffset Page offset, defaults to 0. (optional)
+     * @param  \DateTime $RequestStartDate The date before which class visits are not returned.  Default is the end date (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function clientGetClientScheduleAsyncWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestStartDate = null): \GuzzleHttp\Promise\PromiseInterface
+    {
+        $returnType = '\Nlocascio\Mindbody\Model\GetClientScheduleResponse';
+        $request = $this->clientGetClientScheduleRequest($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestStartDate);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'clientGetClientSchedule'
+     *
+     * @param  string $RequestClientId The ID of the requested client. (required)
+     * @param  int $RequestClientAssociatedSitesOffset The number of sites to skip when returning the site associated with a client. (optional)
+     * @param  bool $RequestCrossRegionalLookup When &#x60;true&#x60;, indicates that past and scheduled client visits across all sites in the region are returned.  When &#x60;false&#x60;, indicates that only visits at the current site are returned. (optional)
+     * @param  \DateTime $RequestEndDate The date past which class visits are not returned.  Default is today’s date (optional)
+     * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
+     * @param  int $RequestOffset Page offset, defaults to 0. (optional)
+     * @param  \DateTime $RequestStartDate The date before which class visits are not returned.  Default is the end date (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function clientGetClientScheduleRequest($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestStartDate = null): \GuzzleHttp\Psr7\Request
+    {
+        // verify the required parameter 'RequestClientId' is set
+        if ($RequestClientId === null || (is_array($RequestClientId) && count($RequestClientId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $RequestClientId when calling clientGetClientSchedule'
+            );
+        }
+
+        $resourcePath = '/public/v6/client/clientschedule';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($RequestClientId !== null) {
+            $queryParams['request.clientId'] = ObjectSerializer::toQueryValue($RequestClientId);
+        }
+        // query params
+        if ($RequestClientAssociatedSitesOffset !== null) {
+            $queryParams['request.clientAssociatedSitesOffset'] = ObjectSerializer::toQueryValue($RequestClientAssociatedSitesOffset);
+        }
+        // query params
+        if ($RequestCrossRegionalLookup !== null) {
+            $queryParams['request.crossRegionalLookup'] = ObjectSerializer::toQueryValue($RequestCrossRegionalLookup);
+        }
+        // query params
+        if ($RequestEndDate !== null) {
+            $queryParams['request.endDate'] = ObjectSerializer::toQueryValue($RequestEndDate);
+        }
+        // query params
+        if ($RequestLimit !== null) {
+            $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
+        }
+        // query params
+        if ($RequestOffset !== null) {
+            $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
+        }
+        // query params
+        if ($RequestStartDate !== null) {
+            $queryParams['request.startDate'] = ObjectSerializer::toQueryValue($RequestStartDate);
+        }
+
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = Utils::jsonEncode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = Utils::jsonEncode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
+        if ($apiKey !== null) {
+            $headers['API-Key'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('authorization');
+        if ($apiKey !== null) {
+            $headers['authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('siteId');
+        if ($apiKey !== null) {
+            $headers['siteId'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation clientGetClientServices
      *
      * Get pricing options that a client has purchased.
@@ -9165,6 +9499,564 @@ class ClientApi implements ApiInterface
     }
 
     /**
+     * Operation clientSuspendContract
+     *
+     * Suspend client contract
+     *
+     * @param  \Nlocascio\Mindbody\Model\SuspendContractRequest $Request Request (required)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Nlocascio\Mindbody\Model\SuspendContractResponse
+     */
+    public function clientSuspendContract($Request): \Nlocascio\Mindbody\Model\SuspendContractResponse
+    {
+        list($response) = $this->clientSuspendContractWithHttpInfo($Request);
+        return $response;
+    }
+
+    /**
+     * Operation clientSuspendContractWithHttpInfo
+     *
+     * Suspend client contract
+     *
+     * @param  \Nlocascio\Mindbody\Model\SuspendContractRequest $Request (required)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Nlocascio\Mindbody\Model\SuspendContractResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function clientSuspendContractWithHttpInfo($Request): array
+    {
+        $returnType = '\Nlocascio\Mindbody\Model\SuspendContractResponse';
+        $request = $this->clientSuspendContractRequest($Request);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Nlocascio\Mindbody\Model\SuspendContractResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation clientSuspendContractAsync
+     *
+     * Suspend client contract
+     *
+     * @param  \Nlocascio\Mindbody\Model\SuspendContractRequest $Request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function clientSuspendContractAsync($Request): \GuzzleHttp\Promise\PromiseInterface
+    {
+        return $this->clientSuspendContractAsyncWithHttpInfo($Request)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation clientSuspendContractAsyncWithHttpInfo
+     *
+     * Suspend client contract
+     *
+     * @param  \Nlocascio\Mindbody\Model\SuspendContractRequest $Request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function clientSuspendContractAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
+    {
+        $returnType = '\Nlocascio\Mindbody\Model\SuspendContractResponse';
+        $request = $this->clientSuspendContractRequest($Request);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'clientSuspendContract'
+     *
+     * @param  \Nlocascio\Mindbody\Model\SuspendContractRequest $Request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function clientSuspendContractRequest($Request): \GuzzleHttp\Psr7\Request
+    {
+        // verify the required parameter 'Request' is set
+        if ($Request === null || (is_array($Request) && count($Request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $Request when calling clientSuspendContract'
+            );
+        }
+
+        $resourcePath = '/public/v6/client/suspendcontract';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // body params
+        $_tempBody = null;
+        if (isset($Request)) {
+            $_tempBody = $Request;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = Utils::jsonEncode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = Utils::jsonEncode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
+        if ($apiKey !== null) {
+            $headers['API-Key'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('authorization');
+        if ($apiKey !== null) {
+            $headers['authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('siteId');
+        if ($apiKey !== null) {
+            $headers['siteId'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation clientTerminateContract
+     *
+     * Terminate client contract
+     *
+     * @param  \Nlocascio\Mindbody\Model\TerminateContractRequest $Request Request (required)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Nlocascio\Mindbody\Model\TerminateContractResponse
+     */
+    public function clientTerminateContract($Request): \Nlocascio\Mindbody\Model\TerminateContractResponse
+    {
+        list($response) = $this->clientTerminateContractWithHttpInfo($Request);
+        return $response;
+    }
+
+    /**
+     * Operation clientTerminateContractWithHttpInfo
+     *
+     * Terminate client contract
+     *
+     * @param  \Nlocascio\Mindbody\Model\TerminateContractRequest $Request (required)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Nlocascio\Mindbody\Model\TerminateContractResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function clientTerminateContractWithHttpInfo($Request): array
+    {
+        $returnType = '\Nlocascio\Mindbody\Model\TerminateContractResponse';
+        $request = $this->clientTerminateContractRequest($Request);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Nlocascio\Mindbody\Model\TerminateContractResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation clientTerminateContractAsync
+     *
+     * Terminate client contract
+     *
+     * @param  \Nlocascio\Mindbody\Model\TerminateContractRequest $Request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function clientTerminateContractAsync($Request): \GuzzleHttp\Promise\PromiseInterface
+    {
+        return $this->clientTerminateContractAsyncWithHttpInfo($Request)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation clientTerminateContractAsyncWithHttpInfo
+     *
+     * Terminate client contract
+     *
+     * @param  \Nlocascio\Mindbody\Model\TerminateContractRequest $Request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function clientTerminateContractAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
+    {
+        $returnType = '\Nlocascio\Mindbody\Model\TerminateContractResponse';
+        $request = $this->clientTerminateContractRequest($Request);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'clientTerminateContract'
+     *
+     * @param  \Nlocascio\Mindbody\Model\TerminateContractRequest $Request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function clientTerminateContractRequest($Request): \GuzzleHttp\Psr7\Request
+    {
+        // verify the required parameter 'Request' is set
+        if ($Request === null || (is_array($Request) && count($Request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $Request when calling clientTerminateContract'
+            );
+        }
+
+        $resourcePath = '/public/v6/client/terminatecontract';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // body params
+        $_tempBody = null;
+        if (isset($Request)) {
+            $_tempBody = $Request;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = Utils::jsonEncode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = Utils::jsonEncode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
+        if ($apiKey !== null) {
+            $headers['API-Key'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('authorization');
+        if ($apiKey !== null) {
+            $headers['authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('siteId');
+        if ($apiKey !== null) {
+            $headers['siteId'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation clientUpdateClient
      *
      * Update a client at a site.
@@ -9346,6 +10238,281 @@ class ClientApi implements ApiInterface
         }
 
         $resourcePath = '/public/v6/client/updateclient';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // body params
+        $_tempBody = null;
+        if (isset($Request)) {
+            $_tempBody = $Request;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = Utils::jsonEncode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = Utils::jsonEncode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
+        if ($apiKey !== null) {
+            $headers['API-Key'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('authorization');
+        if ($apiKey !== null) {
+            $headers['authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('siteId');
+        if ($apiKey !== null) {
+            $headers['siteId'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation clientUpdateClientContractAutopays
+     *
+     * @param  \Nlocascio\Mindbody\Model\UpdateClientContractAutopaysRequest $Request Request (required)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Nlocascio\Mindbody\Model\Contract
+     */
+    public function clientUpdateClientContractAutopays($Request): \Nlocascio\Mindbody\Model\Contract
+    {
+        list($response) = $this->clientUpdateClientContractAutopaysWithHttpInfo($Request);
+        return $response;
+    }
+
+    /**
+     * Operation clientUpdateClientContractAutopaysWithHttpInfo
+     *
+     * @param  \Nlocascio\Mindbody\Model\UpdateClientContractAutopaysRequest $Request (required)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Nlocascio\Mindbody\Model\Contract, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function clientUpdateClientContractAutopaysWithHttpInfo($Request): array
+    {
+        $returnType = '\Nlocascio\Mindbody\Model\Contract';
+        $request = $this->clientUpdateClientContractAutopaysRequest($Request);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Nlocascio\Mindbody\Model\Contract',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation clientUpdateClientContractAutopaysAsync
+     *
+     * 
+     *
+     * @param  \Nlocascio\Mindbody\Model\UpdateClientContractAutopaysRequest $Request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function clientUpdateClientContractAutopaysAsync($Request): \GuzzleHttp\Promise\PromiseInterface
+    {
+        return $this->clientUpdateClientContractAutopaysAsyncWithHttpInfo($Request)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation clientUpdateClientContractAutopaysAsyncWithHttpInfo
+     *
+     * 
+     *
+     * @param  \Nlocascio\Mindbody\Model\UpdateClientContractAutopaysRequest $Request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function clientUpdateClientContractAutopaysAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
+    {
+        $returnType = '\Nlocascio\Mindbody\Model\Contract';
+        $request = $this->clientUpdateClientContractAutopaysRequest($Request);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'clientUpdateClientContractAutopays'
+     *
+     * @param  \Nlocascio\Mindbody\Model\UpdateClientContractAutopaysRequest $Request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function clientUpdateClientContractAutopaysRequest($Request): \GuzzleHttp\Psr7\Request
+    {
+        // verify the required parameter 'Request' is set
+        if ($Request === null || (is_array($Request) && count($Request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $Request when calling clientUpdateClientContractAutopays'
+            );
+        }
+
+        $resourcePath = '/public/v6/client/updateclientcontractautopays';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

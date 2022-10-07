@@ -57,6 +57,9 @@ Name | Type | Description | Notes
 **SendScheduleEmails** | **bool** | When &#x60;true&#x60;, indicates that the client opts to receive schedule emails. | [optional] 
 **SendAccountEmails** | **bool** | When &#x60;true&#x60;, indicates that the client opts to receive account emails. | [optional] 
 **SendPromotionalEmails** | **bool** | When &#x60;true&#x60;, indicates that the client opts to receive promotional emails. | [optional] 
+**SendScheduleTexts** | **bool** | When &#x60;true&#x60;, indicates that the client opts to receive schedule texts. | [optional] 
+**SendAccountTexts** | **bool** | When &#x60;true&#x60;, indicates that the client opts to receive account texts. | [optional] 
+**SendPromotionalTexts** | **bool** | When &#x60;true&#x60;, indicates that the client opts to receive promotional texts. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

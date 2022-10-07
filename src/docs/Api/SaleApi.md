@@ -16,9 +16,14 @@ Method | HTTP request | Description
 [**saleGetSales**](SaleApi.md#saleGetSales) | **GET** /public/v6/sale/sales | Get sales completed at a site.
 [**saleGetServices**](SaleApi.md#saleGetServices) | **GET** /public/v6/sale/services | Get pricing options available for purchase at a site
 [**saleGetTransactions**](SaleApi.md#saleGetTransactions) | **GET** /public/v6/sale/transactions | Get transactions completed at a site.
+[**saleInitializeCreditCardEntry**](SaleApi.md#saleInitializeCreditCardEntry) | **POST** /public/v6/sale/initializecreditcardentry | 
 [**salePurchaseAccountCredit**](SaleApi.md#salePurchaseAccountCredit) | **POST** /public/v6/sale/purchaseaccountcredit | Purchases account credit for a client
 [**salePurchaseContract**](SaleApi.md#salePurchaseContract) | **POST** /public/v6/sale/purchasecontract | Purchase a contract for a client.
 [**salePurchaseGiftCard**](SaleApi.md#salePurchaseGiftCard) | **POST** /public/v6/sale/purchasegiftcard | Purchase a gift card for a client.
+[**saleReturnSale**](SaleApi.md#saleReturnSale) | **POST** /public/v6/sale/returnsale | Retunn sale
+[**saleUpdateProductPrice**](SaleApi.md#saleUpdateProductPrice) | **POST** /public/v6/sale/updateproductprice | Update retail product&#39;s unit and online price.
+[**saleUpdateSaleDate**](SaleApi.md#saleUpdateSaleDate) | **PUT** /public/v6/sale/updatesaledate | 
+[**saleUpdateServices**](SaleApi.md#saleUpdateServices) | **PUT** /public/v6/sale/services | Update unit price and online price of provided services.
 
 
 # **saleCheckoutShoppingCart**
@@ -144,7 +149,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **saleGetContracts**
-> \Nlocascio\Mindbody\Model\GetContractsResponse saleGetContracts($RequestLocationId, $RequestConsumerId, $RequestContractIds, $RequestLimit, $RequestOffset, $RequestSoldOnline)
+> \Nlocascio\Mindbody\Model\GetContractsResponse saleGetContracts($RequestLocationId, $RequestConsumerId, $RequestContractIds, $RequestLimit, $RequestOffset, $RequestPromoCode, $RequestSoldOnline)
 
 Get contracts available for purchase at a site.
 
@@ -177,10 +182,11 @@ $RequestConsumerId = 789; // int | The ID of the client.
 $RequestContractIds = array(56); // int[] | When included, the response only contains details about the specified contract IDs.
 $RequestLimit = 56; // int | Number of results to include, defaults to 100
 $RequestOffset = 56; // int | Page offset, defaults to 0.
+$RequestPromoCode = "RequestPromoCode_example"; // string | PromoCode to apply
 $RequestSoldOnline = true; // bool | When `true`, the response only contains details about contracts and AutoPay options that can be sold online.<br />  When `false`, only contracts that are not intended to be sold online are returned.<br />  Default: **all contracts**
 
 try {
-    $result = $apiInstance->saleGetContracts($RequestLocationId, $RequestConsumerId, $RequestContractIds, $RequestLimit, $RequestOffset, $RequestSoldOnline);
+    $result = $apiInstance->saleGetContracts($RequestLocationId, $RequestConsumerId, $RequestContractIds, $RequestLimit, $RequestOffset, $RequestPromoCode, $RequestSoldOnline);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SaleApi->saleGetContracts: ', $e->getMessage(), PHP_EOL;
@@ -197,6 +203,7 @@ Name | Type | Description  | Notes
  **RequestContractIds** | [**int[]**](../Model/int.md)| When included, the response only contains details about the specified contract IDs. | [optional]
  **RequestLimit** | **int**| Number of results to include, defaults to 100 | [optional]
  **RequestOffset** | **int**| Page offset, defaults to 0. | [optional]
+ **RequestPromoCode** | **string**| PromoCode to apply | [optional]
  **RequestSoldOnline** | **bool**| When &#x60;true&#x60;, the response only contains details about contracts and AutoPay options that can be sold online.&lt;br /&gt;  When &#x60;false&#x60;, only contracts that are not intended to be sold online are returned.&lt;br /&gt;  Default: **all contracts** | [optional]
 
 ### Return type
@@ -339,7 +346,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **saleGetGiftCards**
-> \Nlocascio\Mindbody\Model\GetGiftCardResponse saleGetGiftCards($RequestIds, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestSoldOnline)
+> \Nlocascio\Mindbody\Model\GetGiftCardResponse saleGetGiftCards($RequestIds, $RequestIncludeCustomLayouts, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestSoldOnline)
 
 Get gift cards available for purchase at a site.
 
@@ -368,13 +375,14 @@ $apiInstance = new Nlocascio\Mindbody\Api\SaleApi(
     $config
 );
 $RequestIds = array(56); // int[] | Filters the results to the requested gift card IDs.<br />  Default: **all** gift cards.
+$RequestIncludeCustomLayouts = true; // bool | When `true`, includes custom gift card layouts.<br />  Default: **false**
 $RequestLimit = 56; // int | Number of results to include, defaults to 100
 $RequestLocationId = 56; // int | When included, returns gift cards that are sold at the provided location ID.
 $RequestOffset = 56; // int | Page offset, defaults to 0.
 $RequestSoldOnline = true; // bool | When `true`, only returns gift cards that are sold online.<br />  Default: **false**
 
 try {
-    $result = $apiInstance->saleGetGiftCards($RequestIds, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestSoldOnline);
+    $result = $apiInstance->saleGetGiftCards($RequestIds, $RequestIncludeCustomLayouts, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestSoldOnline);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SaleApi->saleGetGiftCards: ', $e->getMessage(), PHP_EOL;
@@ -387,6 +395,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **RequestIds** | [**int[]**](../Model/int.md)| Filters the results to the requested gift card IDs.&lt;br /&gt;  Default: **all** gift cards. | [optional]
+ **RequestIncludeCustomLayouts** | **bool**| When &#x60;true&#x60;, includes custom gift card layouts.&lt;br /&gt;  Default: **false** | [optional]
  **RequestLimit** | **int**| Number of results to include, defaults to 100 | [optional]
  **RequestLocationId** | **int**| When included, returns gift cards that are sold at the provided location ID. | [optional]
  **RequestOffset** | **int**| Page offset, defaults to 0. | [optional]
@@ -408,7 +417,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **saleGetPackages**
-> \Nlocascio\Mindbody\Model\GetPackagesResponse saleGetPackages($RequestLimit, $RequestOffset, $RequestPackageIds, $RequestSellOnline)
+> \Nlocascio\Mindbody\Model\GetPackagesResponse saleGetPackages($RequestLimit, $RequestLocationId, $RequestOffset, $RequestPackageIds, $RequestSellOnline)
 
 Get packages available for purchase at a site.
 
@@ -439,12 +448,13 @@ $apiInstance = new Nlocascio\Mindbody\Api\SaleApi(
     $config
 );
 $RequestLimit = 56; // int | Number of results to include, defaults to 100
+$RequestLocationId = 56; // int | The location ID to use to determine the tax for the products that this request returns.<br />  Default: **online store**
 $RequestOffset = 56; // int | Page offset, defaults to 0.
 $RequestPackageIds = array(56); // int[] | A list of the packages IDs to filter by.
 $RequestSellOnline = true; // bool | When `true`, only returns products that can be sold online.<br />  When `false`, all products are returned.<br />  Default: **false**
 
 try {
-    $result = $apiInstance->saleGetPackages($RequestLimit, $RequestOffset, $RequestPackageIds, $RequestSellOnline);
+    $result = $apiInstance->saleGetPackages($RequestLimit, $RequestLocationId, $RequestOffset, $RequestPackageIds, $RequestSellOnline);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SaleApi->saleGetPackages: ', $e->getMessage(), PHP_EOL;
@@ -457,6 +467,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **RequestLimit** | **int**| Number of results to include, defaults to 100 | [optional]
+ **RequestLocationId** | **int**| The location ID to use to determine the tax for the products that this request returns.&lt;br /&gt;  Default: **online store** | [optional]
  **RequestOffset** | **int**| Page offset, defaults to 0. | [optional]
  **RequestPackageIds** | [**int[]**](../Model/int.md)| A list of the packages IDs to filter by. | [optional]
  **RequestSellOnline** | **bool**| When &#x60;true&#x60;, only returns products that can be sold online.&lt;br /&gt;  When &#x60;false&#x60;, all products are returned.&lt;br /&gt;  Default: **false** | [optional]
@@ -692,7 +703,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **saleGetServices**
-> \Nlocascio\Mindbody\Model\GetServicesResponse saleGetServices($RequestClassId, $RequestClassScheduleId, $RequestHideRelatedPrograms, $RequestIncludeDiscontinued, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestProgramIds, $RequestSellOnline, $RequestServiceIds, $RequestSessionTypeIds, $RequestStaffId)
+> \Nlocascio\Mindbody\Model\GetServicesResponse saleGetServices($RequestClassId, $RequestClassScheduleId, $RequestHideRelatedPrograms, $RequestIncludeDiscontinued, $RequestIncludeSaleInContractOnly, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestProgramIds, $RequestSellOnline, $RequestServiceIds, $RequestSessionTypeIds, $RequestStaffId)
 
 Get pricing options available for purchase at a site
 
@@ -724,6 +735,7 @@ $RequestClassId = 56; // int | Filters to the pricing options for the specified 
 $RequestClassScheduleId = 56; // int | Filters to the pricing options for the specified class schedule ID.
 $RequestHideRelatedPrograms = true; // bool | When `true`, indicates that pricing options of related programs are omitted from the response.<br />  Default: **false**
 $RequestIncludeDiscontinued = true; // bool | When `true`, indicates that the filtered pricing option list includes discontinued pricing options.<br />  Default: **false**
+$RequestIncludeSaleInContractOnly = true; // bool | When `true`, indicates that the filtered pricing option list includes sale in contract only pricing options.<br />  Default: **false**
 $RequestLimit = 56; // int | Number of results to include, defaults to 100
 $RequestLocationId = 56; // int | When specified, for each returned pricing option, `TaxRate` and `TaxIncluded` are calculated according to the specified location. Note that this does not filter results to only services provided at the given location, and for locations where Value-Added Tax (VAT) rules apply, the `TaxRate` is set to zero.
 $RequestOffset = 56; // int | Page offset, defaults to 0.
@@ -734,7 +746,7 @@ $RequestSessionTypeIds = array(56); // int[] | Filters to the pricing options wi
 $RequestStaffId = 789; // int | Sets `Price` and `OnlinePrice` to the particular pricing of a specific staff member, if allowed by the business.
 
 try {
-    $result = $apiInstance->saleGetServices($RequestClassId, $RequestClassScheduleId, $RequestHideRelatedPrograms, $RequestIncludeDiscontinued, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestProgramIds, $RequestSellOnline, $RequestServiceIds, $RequestSessionTypeIds, $RequestStaffId);
+    $result = $apiInstance->saleGetServices($RequestClassId, $RequestClassScheduleId, $RequestHideRelatedPrograms, $RequestIncludeDiscontinued, $RequestIncludeSaleInContractOnly, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestProgramIds, $RequestSellOnline, $RequestServiceIds, $RequestSessionTypeIds, $RequestStaffId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SaleApi->saleGetServices: ', $e->getMessage(), PHP_EOL;
@@ -750,6 +762,7 @@ Name | Type | Description  | Notes
  **RequestClassScheduleId** | **int**| Filters to the pricing options for the specified class schedule ID. | [optional]
  **RequestHideRelatedPrograms** | **bool**| When &#x60;true&#x60;, indicates that pricing options of related programs are omitted from the response.&lt;br /&gt;  Default: **false** | [optional]
  **RequestIncludeDiscontinued** | **bool**| When &#x60;true&#x60;, indicates that the filtered pricing option list includes discontinued pricing options.&lt;br /&gt;  Default: **false** | [optional]
+ **RequestIncludeSaleInContractOnly** | **bool**| When &#x60;true&#x60;, indicates that the filtered pricing option list includes sale in contract only pricing options.&lt;br /&gt;  Default: **false** | [optional]
  **RequestLimit** | **int**| Number of results to include, defaults to 100 | [optional]
  **RequestLocationId** | **int**| When specified, for each returned pricing option, &#x60;TaxRate&#x60; and &#x60;TaxIncluded&#x60; are calculated according to the specified location. Note that this does not filter results to only services provided at the given location, and for locations where Value-Added Tax (VAT) rules apply, the &#x60;TaxRate&#x60; is set to zero. | [optional]
  **RequestOffset** | **int**| Page offset, defaults to 0. | [optional]
@@ -847,6 +860,67 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json, text/json, application/xml, text/xml, multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **saleInitializeCreditCardEntry**
+> \Nlocascio\Mindbody\Model\InitializeCreditCardEntryResponse saleInitializeCreditCardEntry($Request)
+
+
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: API-Key
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'Bearer');
+// Configure API key authorization: authorization
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('authorization', 'Bearer');
+// Configure API key authorization: siteId
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('siteId', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('siteId', 'Bearer');
+
+$apiInstance = new Nlocascio\Mindbody\Api\SaleApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$Request = new \Nlocascio\Mindbody\Model\InitializeCreditCardEntryRequest(); // \Nlocascio\Mindbody\Model\InitializeCreditCardEntryRequest | 
+
+try {
+    $result = $apiInstance->saleInitializeCreditCardEntry($Request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SaleApi->saleInitializeCreditCardEntry: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Request** | [**\Nlocascio\Mindbody\Model\InitializeCreditCardEntryRequest**](../Model/InitializeCreditCardEntryRequest.md)|  |
+
+### Return type
+
+[**\Nlocascio\Mindbody\Model\InitializeCreditCardEntryResponse**](../Model/InitializeCreditCardEntryResponse.md)
+
+### Authorization
+
+[API-Key](../../README.md#API-Key), [authorization](../../README.md#authorization), [siteId](../../README.md#siteId)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded, multipart/form-data
  - **Accept**: application/json, text/json, application/xml, text/xml, multipart/form-data
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -1026,6 +1100,250 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Nlocascio\Mindbody\Model\PurchaseGiftCardResponse**](../Model/PurchaseGiftCardResponse.md)
+
+### Authorization
+
+[API-Key](../../README.md#API-Key), [authorization](../../README.md#authorization), [siteId](../../README.md#siteId)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml, multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **saleReturnSale**
+> \Nlocascio\Mindbody\Model\ReturnSaleResponse saleReturnSale($ReturnSaleRequest)
+
+Retunn sale
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: API-Key
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'Bearer');
+// Configure API key authorization: authorization
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('authorization', 'Bearer');
+// Configure API key authorization: siteId
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('siteId', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('siteId', 'Bearer');
+
+$apiInstance = new Nlocascio\Mindbody\Api\SaleApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$ReturnSaleRequest = new \Nlocascio\Mindbody\Model\ReturnSaleRequest(); // \Nlocascio\Mindbody\Model\ReturnSaleRequest | 
+
+try {
+    $result = $apiInstance->saleReturnSale($ReturnSaleRequest);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SaleApi->saleReturnSale: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ReturnSaleRequest** | [**\Nlocascio\Mindbody\Model\ReturnSaleRequest**](../Model/ReturnSaleRequest.md)|  |
+
+### Return type
+
+[**\Nlocascio\Mindbody\Model\ReturnSaleResponse**](../Model/ReturnSaleResponse.md)
+
+### Authorization
+
+[API-Key](../../README.md#API-Key), [authorization](../../README.md#authorization), [siteId](../../README.md#siteId)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml, multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **saleUpdateProductPrice**
+> \Nlocascio\Mindbody\Model\UpdateProductPriceResponse saleUpdateProductPrice($Request)
+
+Update retail product's unit and online price.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: API-Key
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'Bearer');
+// Configure API key authorization: authorization
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('authorization', 'Bearer');
+// Configure API key authorization: siteId
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('siteId', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('siteId', 'Bearer');
+
+$apiInstance = new Nlocascio\Mindbody\Api\SaleApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$Request = new \Nlocascio\Mindbody\Model\UpdateProductPriceRequest(); // \Nlocascio\Mindbody\Model\UpdateProductPriceRequest | 
+
+try {
+    $result = $apiInstance->saleUpdateProductPrice($Request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SaleApi->saleUpdateProductPrice: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Request** | [**\Nlocascio\Mindbody\Model\UpdateProductPriceRequest**](../Model/UpdateProductPriceRequest.md)|  |
+
+### Return type
+
+[**\Nlocascio\Mindbody\Model\UpdateProductPriceResponse**](../Model/UpdateProductPriceResponse.md)
+
+### Authorization
+
+[API-Key](../../README.md#API-Key), [authorization](../../README.md#authorization), [siteId](../../README.md#siteId)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml, multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **saleUpdateSaleDate**
+> \Nlocascio\Mindbody\Model\UpdateSaleDateResponse saleUpdateSaleDate($Request)
+
+
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: API-Key
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'Bearer');
+// Configure API key authorization: authorization
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('authorization', 'Bearer');
+// Configure API key authorization: siteId
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('siteId', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('siteId', 'Bearer');
+
+$apiInstance = new Nlocascio\Mindbody\Api\SaleApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$Request = new \Nlocascio\Mindbody\Model\UpdateSaleDateRequest(); // \Nlocascio\Mindbody\Model\UpdateSaleDateRequest | 
+
+try {
+    $result = $apiInstance->saleUpdateSaleDate($Request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SaleApi->saleUpdateSaleDate: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Request** | [**\Nlocascio\Mindbody\Model\UpdateSaleDateRequest**](../Model/UpdateSaleDateRequest.md)|  |
+
+### Return type
+
+[**\Nlocascio\Mindbody\Model\UpdateSaleDateResponse**](../Model/UpdateSaleDateResponse.md)
+
+### Authorization
+
+[API-Key](../../README.md#API-Key), [authorization](../../README.md#authorization), [siteId](../../README.md#siteId)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml, multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **saleUpdateServices**
+> \Nlocascio\Mindbody\Model\UpdateServiceResponse saleUpdateServices($UpdateServicesRequest)
+
+Update unit price and online price of provided services.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: API-Key
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'Bearer');
+// Configure API key authorization: authorization
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('authorization', 'Bearer');
+// Configure API key authorization: siteId
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('siteId', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('siteId', 'Bearer');
+
+$apiInstance = new Nlocascio\Mindbody\Api\SaleApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$UpdateServicesRequest = array(new \Nlocascio\Mindbody\Model\UpdateServiceRequest()); // \Nlocascio\Mindbody\Model\UpdateServiceRequest[] | 
+
+try {
+    $result = $apiInstance->saleUpdateServices($UpdateServicesRequest);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SaleApi->saleUpdateServices: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **UpdateServicesRequest** | [**\Nlocascio\Mindbody\Model\UpdateServiceRequest[]**](../Model/UpdateServiceRequest.md)|  |
+
+### Return type
+
+[**\Nlocascio\Mindbody\Model\UpdateServiceResponse**](../Model/UpdateServiceResponse.md)
 
 ### Authorization
 

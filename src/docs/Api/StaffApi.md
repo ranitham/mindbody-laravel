@@ -7,7 +7,9 @@ Method | HTTP request | Description
 [**staffAddStaff**](StaffApi.md#staffAddStaff) | **POST** /public/v6/staff/addstaff | 
 [**staffAddStaffAvailability**](StaffApi.md#staffAddStaffAvailability) | **POST** /public/v6/staff/staffavailability | 
 [**staffAssignStaffSessionType**](StaffApi.md#staffAssignStaffSessionType) | **POST** /public/v6/staff/assignsessiontype | 
+[**staffGetSalesReps**](StaffApi.md#staffGetSalesReps) | **GET** /public/v6/staff/salesreps | 
 [**staffGetStaff**](StaffApi.md#staffGetStaff) | **GET** /public/v6/staff/staff | Get staff members at a site.
+[**staffGetStaffImageURL**](StaffApi.md#staffGetStaffImageURL) | **GET** /public/v6/staff/imageurl | Get image URLs for the given staff ID in the request.
 [**staffGetStaffPermissions**](StaffApi.md#staffGetStaffPermissions) | **GET** /public/v6/staff/staffpermissions | Get configured staff permissions for a staff member.
 [**staffGetStaffSessionTypes**](StaffApi.md#staffGetStaffSessionTypes) | **GET** /public/v6/staff/sessiontypes | Get the session types used at a site for a staff member.
 [**staffUpdateStaff**](StaffApi.md#staffUpdateStaff) | **POST** /public/v6/staff/updatestaff | 
@@ -196,6 +198,73 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **staffGetSalesReps**
+> \Nlocascio\Mindbody\Model\GetSalesRepsResponse staffGetSalesReps($RequestActiveOnly, $RequestLimit, $RequestOffset, $RequestSalesRepNumbers)
+
+
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: API-Key
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'Bearer');
+// Configure API key authorization: authorization
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('authorization', 'Bearer');
+// Configure API key authorization: siteId
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('siteId', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('siteId', 'Bearer');
+
+$apiInstance = new Nlocascio\Mindbody\Api\StaffApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$RequestActiveOnly = true; // bool | This is to filter out the active sales rep from the list
+$RequestLimit = 56; // int | Number of results to include, defaults to 100
+$RequestOffset = 56; // int | Page offset, defaults to 0.
+$RequestSalesRepNumbers = array(56); // int[] | This is the list of rep numbers to be fetched
+
+try {
+    $result = $apiInstance->staffGetSalesReps($RequestActiveOnly, $RequestLimit, $RequestOffset, $RequestSalesRepNumbers);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling StaffApi->staffGetSalesReps: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **RequestActiveOnly** | **bool**| This is to filter out the active sales rep from the list | [optional]
+ **RequestLimit** | **int**| Number of results to include, defaults to 100 | [optional]
+ **RequestOffset** | **int**| Page offset, defaults to 0. | [optional]
+ **RequestSalesRepNumbers** | [**int[]**](../Model/int.md)| This is the list of rep numbers to be fetched | [optional]
+
+### Return type
+
+[**\Nlocascio\Mindbody\Model\GetSalesRepsResponse**](../Model/GetSalesRepsResponse.md)
+
+### Authorization
+
+[API-Key](../../README.md#API-Key), [authorization](../../README.md#authorization), [siteId](../../README.md#siteId)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, text/json, application/xml, text/xml, multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **staffGetStaff**
 > \Nlocascio\Mindbody\Model\GetStaffResponse staffGetStaff($RequestFilters, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestSessionTypeId, $RequestStaffIds, $RequestStartDateTime)
 
@@ -257,6 +326,67 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Nlocascio\Mindbody\Model\GetStaffResponse**](../Model/GetStaffResponse.md)
+
+### Authorization
+
+[API-Key](../../README.md#API-Key), [authorization](../../README.md#authorization), [siteId](../../README.md#siteId)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, text/json, application/xml, text/xml, multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **staffGetStaffImageURL**
+> \Nlocascio\Mindbody\Model\GetStaffImageURLResponse staffGetStaffImageURL($RequestStaffId)
+
+Get image URLs for the given staff ID in the request.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: API-Key
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'Bearer');
+// Configure API key authorization: authorization
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('authorization', 'Bearer');
+// Configure API key authorization: siteId
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('siteId', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('siteId', 'Bearer');
+
+$apiInstance = new Nlocascio\Mindbody\Api\StaffApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$RequestStaffId = 789; // int | A requested staff ID.
+
+try {
+    $result = $apiInstance->staffGetStaffImageURL($RequestStaffId);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling StaffApi->staffGetStaffImageURL: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **RequestStaffId** | **int**| A requested staff ID. | [optional]
+
+### Return type
+
+[**\Nlocascio\Mindbody\Model\GetStaffImageURLResponse**](../Model/GetStaffImageURLResponse.md)
 
 ### Authorization
 

@@ -36,17 +36,19 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property string $Type Contains the class description session type.
- * @property int $DefaultTimeLength The default amount of time that a session of this type typically lasts.
- * @property int $StaffTimeLength The amount of time that a session of this type will last for a specific Staff (when applicable.)
- * @property int $Id This session type’s unique ID.
- * @property string $Name The name of this session type.
- * @property int $NumDeducted The number of sessions that this session type deducts from the pricing option used to pay for this type of session.
- * @property int $ProgramId This session type’s service category ID.
- * @property string $Category This session type’s category.
- * @property int $CategoryId This session type’s category ID.
- * @property string $Subcategory This session type’s subcategory.
- * @property int $SubcategoryId This session type’s subcategory ID.
+ * @property string $Type Type
+ * @property int $DefaultTimeLength DefaultTimeLength
+ * @property int $StaffTimeLength StaffTimeLength
+ * @property int $ProgramId ProgramId
+ * @property int $NumDeducted NumDeducted
+ * @property int $Id Id
+ * @property string $Name Name
+ * @property bool $Active Active
+ * @property int $Capacity Capacity
+ * @property bool $ResourceRequired ResourceRequired
+ * @property \Nlocascio\Mindbody\Model\ServiceTag $Category Category
+ * @property \Nlocascio\Mindbody\Model\ServiceTag $Subcategory Subcategory
+ * @property string $OnlineDescription OnlineDescription
  *
  */
 class SessionType extends BaseModel implements ModelWithId
@@ -69,14 +71,16 @@ class SessionType extends BaseModel implements ModelWithId
         'Type' => 'string',
         'DefaultTimeLength' => 'int',
         'StaffTimeLength' => 'int',
+        'ProgramId' => 'int',
+        'NumDeducted' => 'int',
         'Id' => 'int',
         'Name' => 'string',
-        'NumDeducted' => 'int',
-        'ProgramId' => 'int',
-        'Category' => 'string',
-        'CategoryId' => 'int',
-        'Subcategory' => 'string',
-        'SubcategoryId' => 'int'
+        'Active' => 'bool',
+        'Capacity' => 'int',
+        'ResourceRequired' => 'bool',
+        'Category' => '\Nlocascio\Mindbody\Model\ServiceTag',
+        'Subcategory' => '\Nlocascio\Mindbody\Model\ServiceTag',
+        'OnlineDescription' => 'string'
     ];
 
     /**
@@ -88,14 +92,16 @@ class SessionType extends BaseModel implements ModelWithId
         'Type' => null,
         'DefaultTimeLength' => 'int32',
         'StaffTimeLength' => 'int32',
+        'ProgramId' => 'int32',
+        'NumDeducted' => 'int32',
         'Id' => 'int32',
         'Name' => null,
-        'NumDeducted' => 'int32',
-        'ProgramId' => 'int32',
+        'Active' => null,
+        'Capacity' => 'int32',
+        'ResourceRequired' => null,
         'Category' => null,
-        'CategoryId' => 'int32',
         'Subcategory' => null,
-        'SubcategoryId' => 'int32'
+        'OnlineDescription' => null
     ];
 
 
@@ -109,14 +115,16 @@ class SessionType extends BaseModel implements ModelWithId
         'Type' => 'Type',
         'DefaultTimeLength' => 'DefaultTimeLength',
         'StaffTimeLength' => 'StaffTimeLength',
+        'ProgramId' => 'ProgramId',
+        'NumDeducted' => 'NumDeducted',
         'Id' => 'Id',
         'Name' => 'Name',
-        'NumDeducted' => 'NumDeducted',
-        'ProgramId' => 'ProgramId',
+        'Active' => 'Active',
+        'Capacity' => 'Capacity',
+        'ResourceRequired' => 'ResourceRequired',
         'Category' => 'Category',
-        'CategoryId' => 'CategoryId',
         'Subcategory' => 'Subcategory',
-        'SubcategoryId' => 'SubcategoryId'
+        'OnlineDescription' => 'OnlineDescription'
     ];
 
     /**
@@ -128,14 +136,16 @@ class SessionType extends BaseModel implements ModelWithId
         'Type' => 'setType',
         'DefaultTimeLength' => 'setDefaultTimeLength',
         'StaffTimeLength' => 'setStaffTimeLength',
+        'ProgramId' => 'setProgramId',
+        'NumDeducted' => 'setNumDeducted',
         'Id' => 'setId',
         'Name' => 'setName',
-        'NumDeducted' => 'setNumDeducted',
-        'ProgramId' => 'setProgramId',
+        'Active' => 'setActive',
+        'Capacity' => 'setCapacity',
+        'ResourceRequired' => 'setResourceRequired',
         'Category' => 'setCategory',
-        'CategoryId' => 'setCategoryId',
         'Subcategory' => 'setSubcategory',
-        'SubcategoryId' => 'setSubcategoryId'
+        'OnlineDescription' => 'setOnlineDescription'
     ];
 
     /**
@@ -147,19 +157,21 @@ class SessionType extends BaseModel implements ModelWithId
         'Type' => 'getType',
         'DefaultTimeLength' => 'getDefaultTimeLength',
         'StaffTimeLength' => 'getStaffTimeLength',
+        'ProgramId' => 'getProgramId',
+        'NumDeducted' => 'getNumDeducted',
         'Id' => 'getId',
         'Name' => 'getName',
-        'NumDeducted' => 'getNumDeducted',
-        'ProgramId' => 'getProgramId',
+        'Active' => 'getActive',
+        'Capacity' => 'getCapacity',
+        'ResourceRequired' => 'getResourceRequired',
         'Category' => 'getCategory',
-        'CategoryId' => 'getCategoryId',
         'Subcategory' => 'getSubcategory',
-        'SubcategoryId' => 'getSubcategoryId'
+        'OnlineDescription' => 'getOnlineDescription'
     ];
 
 
     const TYPE_ALL = 'All';
-    const TYPE__CLASS = 'Class';
+    const TYPE_DROP_IN = 'DropIn';
     const TYPE_ENROLLMENT = 'Enrollment';
     const TYPE_APPOINTMENT = 'Appointment';
     const TYPE_RESOURCE = 'Resource';
@@ -177,7 +189,7 @@ class SessionType extends BaseModel implements ModelWithId
     {
         return [
             self::TYPE_ALL,
-            self::TYPE__CLASS,
+            self::TYPE_DROP_IN,
             self::TYPE_ENROLLMENT,
             self::TYPE_APPOINTMENT,
             self::TYPE_RESOURCE,
@@ -198,14 +210,16 @@ class SessionType extends BaseModel implements ModelWithId
         $this->container['Type'] = isset($data['Type']) ? $data['Type'] : null;
         $this->container['DefaultTimeLength'] = isset($data['DefaultTimeLength']) ? $data['DefaultTimeLength'] : null;
         $this->container['StaffTimeLength'] = isset($data['StaffTimeLength']) ? $data['StaffTimeLength'] : null;
+        $this->container['ProgramId'] = isset($data['ProgramId']) ? $data['ProgramId'] : null;
+        $this->container['NumDeducted'] = isset($data['NumDeducted']) ? $data['NumDeducted'] : null;
         $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
         $this->container['Name'] = isset($data['Name']) ? $data['Name'] : null;
-        $this->container['NumDeducted'] = isset($data['NumDeducted']) ? $data['NumDeducted'] : null;
-        $this->container['ProgramId'] = isset($data['ProgramId']) ? $data['ProgramId'] : null;
+        $this->container['Active'] = isset($data['Active']) ? $data['Active'] : null;
+        $this->container['Capacity'] = isset($data['Capacity']) ? $data['Capacity'] : null;
+        $this->container['ResourceRequired'] = isset($data['ResourceRequired']) ? $data['ResourceRequired'] : null;
         $this->container['Category'] = isset($data['Category']) ? $data['Category'] : null;
-        $this->container['CategoryId'] = isset($data['CategoryId']) ? $data['CategoryId'] : null;
         $this->container['Subcategory'] = isset($data['Subcategory']) ? $data['Subcategory'] : null;
-        $this->container['SubcategoryId'] = isset($data['SubcategoryId']) ? $data['SubcategoryId'] : null;
+        $this->container['OnlineDescription'] = isset($data['OnlineDescription']) ? $data['OnlineDescription'] : null;
     }
 
     /**
@@ -242,7 +256,7 @@ class SessionType extends BaseModel implements ModelWithId
     /**
      * Sets Type
      *
-     * @param string $Type Contains the class description session type.
+     * @param string $Type Type
      *
      * @return $this
      */
@@ -275,7 +289,7 @@ class SessionType extends BaseModel implements ModelWithId
     /**
      * Sets DefaultTimeLength
      *
-     * @param int $DefaultTimeLength The default amount of time that a session of this type typically lasts.
+     * @param int $DefaultTimeLength DefaultTimeLength
      *
      * @return $this
      */
@@ -299,13 +313,61 @@ class SessionType extends BaseModel implements ModelWithId
     /**
      * Sets StaffTimeLength
      *
-     * @param int $StaffTimeLength The amount of time that a session of this type will last for a specific Staff (when applicable.)
+     * @param int $StaffTimeLength StaffTimeLength
      *
      * @return $this
      */
     public function setStaffTimeLength($StaffTimeLength): self
     {
         $this->container['StaffTimeLength'] = $StaffTimeLength;
+
+        return $this;
+    }
+
+    /**
+     * Gets ProgramId
+     *
+     * @return int
+     */
+    public function getProgramId()
+    {
+        return $this->container['ProgramId'];
+    }
+
+    /**
+     * Sets ProgramId
+     *
+     * @param int $ProgramId ProgramId
+     *
+     * @return $this
+     */
+    public function setProgramId($ProgramId): self
+    {
+        $this->container['ProgramId'] = $ProgramId;
+
+        return $this;
+    }
+
+    /**
+     * Gets NumDeducted
+     *
+     * @return int
+     */
+    public function getNumDeducted()
+    {
+        return $this->container['NumDeducted'];
+    }
+
+    /**
+     * Sets NumDeducted
+     *
+     * @param int $NumDeducted NumDeducted
+     *
+     * @return $this
+     */
+    public function setNumDeducted($NumDeducted): self
+    {
+        $this->container['NumDeducted'] = $NumDeducted;
 
         return $this;
     }
@@ -323,7 +385,7 @@ class SessionType extends BaseModel implements ModelWithId
     /**
      * Sets Id
      *
-     * @param int $Id This session type’s unique ID.
+     * @param int $Id Id
      *
      * @return $this
      */
@@ -347,7 +409,7 @@ class SessionType extends BaseModel implements ModelWithId
     /**
      * Sets Name
      *
-     * @param string $Name The name of this session type.
+     * @param string $Name Name
      *
      * @return $this
      */
@@ -359,49 +421,73 @@ class SessionType extends BaseModel implements ModelWithId
     }
 
     /**
-     * Gets NumDeducted
+     * Gets Active
      *
-     * @return int
+     * @return bool
      */
-    public function getNumDeducted()
+    public function getActive()
     {
-        return $this->container['NumDeducted'];
+        return $this->container['Active'];
     }
 
     /**
-     * Sets NumDeducted
+     * Sets Active
      *
-     * @param int $NumDeducted The number of sessions that this session type deducts from the pricing option used to pay for this type of session.
+     * @param bool $Active Active
      *
      * @return $this
      */
-    public function setNumDeducted($NumDeducted): self
+    public function setActive($Active): self
     {
-        $this->container['NumDeducted'] = $NumDeducted;
+        $this->container['Active'] = $Active;
 
         return $this;
     }
 
     /**
-     * Gets ProgramId
+     * Gets Capacity
      *
      * @return int
      */
-    public function getProgramId()
+    public function getCapacity()
     {
-        return $this->container['ProgramId'];
+        return $this->container['Capacity'];
     }
 
     /**
-     * Sets ProgramId
+     * Sets Capacity
      *
-     * @param int $ProgramId This session type’s service category ID.
+     * @param int $Capacity Capacity
      *
      * @return $this
      */
-    public function setProgramId($ProgramId): self
+    public function setCapacity($Capacity): self
     {
-        $this->container['ProgramId'] = $ProgramId;
+        $this->container['Capacity'] = $Capacity;
+
+        return $this;
+    }
+
+    /**
+     * Gets ResourceRequired
+     *
+     * @return bool
+     */
+    public function getResourceRequired()
+    {
+        return $this->container['ResourceRequired'];
+    }
+
+    /**
+     * Sets ResourceRequired
+     *
+     * @param bool $ResourceRequired ResourceRequired
+     *
+     * @return $this
+     */
+    public function setResourceRequired($ResourceRequired): self
+    {
+        $this->container['ResourceRequired'] = $ResourceRequired;
 
         return $this;
     }
@@ -409,7 +495,7 @@ class SessionType extends BaseModel implements ModelWithId
     /**
      * Gets Category
      *
-     * @return string
+     * @return \Nlocascio\Mindbody\Model\ServiceTag
      */
     public function getCategory()
     {
@@ -419,7 +505,7 @@ class SessionType extends BaseModel implements ModelWithId
     /**
      * Sets Category
      *
-     * @param string $Category This session type’s category.
+     * @param \Nlocascio\Mindbody\Model\ServiceTag $Category Category
      *
      * @return $this
      */
@@ -431,33 +517,9 @@ class SessionType extends BaseModel implements ModelWithId
     }
 
     /**
-     * Gets CategoryId
-     *
-     * @return int
-     */
-    public function getCategoryId()
-    {
-        return $this->container['CategoryId'];
-    }
-
-    /**
-     * Sets CategoryId
-     *
-     * @param int $CategoryId This session type’s category ID.
-     *
-     * @return $this
-     */
-    public function setCategoryId($CategoryId): self
-    {
-        $this->container['CategoryId'] = $CategoryId;
-
-        return $this;
-    }
-
-    /**
      * Gets Subcategory
      *
-     * @return string
+     * @return \Nlocascio\Mindbody\Model\ServiceTag
      */
     public function getSubcategory()
     {
@@ -467,7 +529,7 @@ class SessionType extends BaseModel implements ModelWithId
     /**
      * Sets Subcategory
      *
-     * @param string $Subcategory This session type’s subcategory.
+     * @param \Nlocascio\Mindbody\Model\ServiceTag $Subcategory Subcategory
      *
      * @return $this
      */
@@ -479,25 +541,25 @@ class SessionType extends BaseModel implements ModelWithId
     }
 
     /**
-     * Gets SubcategoryId
+     * Gets OnlineDescription
      *
-     * @return int
+     * @return string
      */
-    public function getSubcategoryId()
+    public function getOnlineDescription()
     {
-        return $this->container['SubcategoryId'];
+        return $this->container['OnlineDescription'];
     }
 
     /**
-     * Sets SubcategoryId
+     * Sets OnlineDescription
      *
-     * @param int $SubcategoryId This session type’s subcategory ID.
+     * @param string $OnlineDescription OnlineDescription
      *
      * @return $this
      */
-    public function setSubcategoryId($SubcategoryId): self
+    public function setOnlineDescription($OnlineDescription): self
     {
-        $this->container['SubcategoryId'] = $SubcategoryId;
+        $this->container['OnlineDescription'] = $OnlineDescription;
 
         return $this;
     }

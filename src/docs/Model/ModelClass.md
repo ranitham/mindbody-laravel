@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **MaxCapacity** | **int** | The maximum number of clients allowed in the class. | [optional] 
 **WebCapacity** | **int** | The maximum number of clients allowed to sign up online for the class. | [optional] 
 **TotalBooked** | **int** | The total number of clients booked in the class. | [optional] 
+**TotalSignedIn** | **int** | The total number of clients signed into the class. | [optional] 
 **TotalBookedWaitlist** | **int** | The total number of booked clients on the waiting list for the class. | [optional] 
 **WebBooked** | **int** | The total number of clients who signed up online for the class. | [optional] 
 **SemesterId** | **int** | The ID of the semester that the class is a part of, if any. | [optional] 

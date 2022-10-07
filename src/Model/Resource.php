@@ -33,12 +33,11 @@ namespace Nlocascio\Mindbody\Model;
  * Resource Class Doc Comment
  *
  * @category Class
- * @description Contains information about resources, such as rooms.
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property int $Id The ID of the resource.
- * @property string $Name The name of the resource.
+ * @property int $Id Id
+ * @property string $Name Name
  *
  */
 class Resource extends BaseModel implements ModelWithId
@@ -147,7 +146,7 @@ class Resource extends BaseModel implements ModelWithId
     /**
      * Sets Id
      *
-     * @param int $Id The ID of the resource.
+     * @param int $Id Id
      *
      * @return $this
      */
@@ -171,7 +170,7 @@ class Resource extends BaseModel implements ModelWithId
     /**
      * Sets Name
      *
-     * @param string $Name The name of the resource.
+     * @param string $Name Name
      *
      * @return $this
      */

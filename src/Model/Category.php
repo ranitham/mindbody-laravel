@@ -46,6 +46,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property \DateTime $CreatedDateTimeUTC CreatedDateTimeUTC
  * @property \DateTime $ModifiedDateTimeUTC ModifiedDateTimeUTC
  * @property \Nlocascio\Mindbody\Model\SubCategory[] $SubCategories SubCategories
+ * @property int $TotalCount TotalCount
  *
  */
 class Category extends BaseModel implements ModelWithId
@@ -74,7 +75,8 @@ class Category extends BaseModel implements ModelWithId
         'IsSecondary' => 'bool',
         'CreatedDateTimeUTC' => '\DateTime',
         'ModifiedDateTimeUTC' => '\DateTime',
-        'SubCategories' => '\Nlocascio\Mindbody\Model\SubCategory[]'
+        'SubCategories' => '\Nlocascio\Mindbody\Model\SubCategory[]',
+        'TotalCount' => 'int'
     ];
 
     /**
@@ -92,7 +94,8 @@ class Category extends BaseModel implements ModelWithId
         'IsSecondary' => null,
         'CreatedDateTimeUTC' => 'date-time',
         'ModifiedDateTimeUTC' => 'date-time',
-        'SubCategories' => null
+        'SubCategories' => null,
+        'TotalCount' => 'int32'
     ];
 
 
@@ -112,7 +115,8 @@ class Category extends BaseModel implements ModelWithId
         'IsSecondary' => 'IsSecondary',
         'CreatedDateTimeUTC' => 'CreatedDateTimeUTC',
         'ModifiedDateTimeUTC' => 'ModifiedDateTimeUTC',
-        'SubCategories' => 'SubCategories'
+        'SubCategories' => 'SubCategories',
+        'TotalCount' => 'TotalCount'
     ];
 
     /**
@@ -130,7 +134,8 @@ class Category extends BaseModel implements ModelWithId
         'IsSecondary' => 'setIsSecondary',
         'CreatedDateTimeUTC' => 'setCreatedDateTimeUTC',
         'ModifiedDateTimeUTC' => 'setModifiedDateTimeUTC',
-        'SubCategories' => 'setSubCategories'
+        'SubCategories' => 'setSubCategories',
+        'TotalCount' => 'setTotalCount'
     ];
 
     /**
@@ -148,7 +153,8 @@ class Category extends BaseModel implements ModelWithId
         'IsSecondary' => 'getIsSecondary',
         'CreatedDateTimeUTC' => 'getCreatedDateTimeUTC',
         'ModifiedDateTimeUTC' => 'getModifiedDateTimeUTC',
-        'SubCategories' => 'getSubCategories'
+        'SubCategories' => 'getSubCategories',
+        'TotalCount' => 'getTotalCount'
     ];
 
 
@@ -174,6 +180,7 @@ class Category extends BaseModel implements ModelWithId
         $this->container['CreatedDateTimeUTC'] = isset($data['CreatedDateTimeUTC']) ? $data['CreatedDateTimeUTC'] : null;
         $this->container['ModifiedDateTimeUTC'] = isset($data['ModifiedDateTimeUTC']) ? $data['ModifiedDateTimeUTC'] : null;
         $this->container['SubCategories'] = isset($data['SubCategories']) ? $data['SubCategories'] : null;
+        $this->container['TotalCount'] = isset($data['TotalCount']) ? $data['TotalCount'] : null;
     }
 
     /**
@@ -425,6 +432,30 @@ class Category extends BaseModel implements ModelWithId
     public function setSubCategories($SubCategories): self
     {
         $this->container['SubCategories'] = $SubCategories;
+
+        return $this;
+    }
+
+    /**
+     * Gets TotalCount
+     *
+     * @return int
+     */
+    public function getTotalCount()
+    {
+        return $this->container['TotalCount'];
+    }
+
+    /**
+     * Sets TotalCount
+     *
+     * @param int $TotalCount TotalCount
+     *
+     * @return $this
+     */
+    public function setTotalCount($TotalCount): self
+    {
+        $this->container['TotalCount'] = $TotalCount;
 
         return $this;
     }

@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **HideRelatedPrograms** | **bool** | When &#x60;true&#x60;, indicates that pricing options of related programs are omitted from the response.&lt;br /&gt;  Default: **false** | [optional] 
 **StaffId** | **int** | Sets &#x60;Price&#x60; and &#x60;OnlinePrice&#x60; to the particular pricing of a specific staff member, if allowed by the business. | [optional] 
 **IncludeDiscontinued** | **bool** | When &#x60;true&#x60;, indicates that the filtered pricing option list includes discontinued pricing options.&lt;br /&gt;  Default: **false** | [optional] 
+**IncludeSaleInContractOnly** | **bool** | When &#x60;true&#x60;, indicates that the filtered pricing option list includes sale in contract only pricing options.&lt;br /&gt;  Default: **false** | [optional] 
 **Limit** | **int** | Number of results to include, defaults to 100 | [optional] 
 **Offset** | **int** | Page offset, defaults to 0. | [optional] 
 

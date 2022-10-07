@@ -45,6 +45,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property int $MaxCapacity The maximum number of clients allowed in the class.
  * @property int $WebCapacity The maximum number of clients allowed to sign up online for the class.
  * @property int $TotalBooked The total number of clients booked in the class.
+ * @property int $TotalSignedIn The total number of clients signed into the class.
  * @property int $TotalBookedWaitlist The total number of booked clients on the waiting list for the class.
  * @property int $WebBooked The total number of clients who signed up online for the class.
  * @property int $SemesterId The ID of the semester that the class is a part of, if any.
@@ -91,6 +92,7 @@ class ModelClass extends BaseModel implements ModelWithId
         'MaxCapacity' => 'int',
         'WebCapacity' => 'int',
         'TotalBooked' => 'int',
+        'TotalSignedIn' => 'int',
         'TotalBookedWaitlist' => 'int',
         'WebBooked' => 'int',
         'SemesterId' => 'int',
@@ -126,6 +128,7 @@ class ModelClass extends BaseModel implements ModelWithId
         'MaxCapacity' => 'int32',
         'WebCapacity' => 'int32',
         'TotalBooked' => 'int32',
+        'TotalSignedIn' => 'int32',
         'TotalBookedWaitlist' => 'int32',
         'WebBooked' => 'int32',
         'SemesterId' => 'int32',
@@ -163,6 +166,7 @@ class ModelClass extends BaseModel implements ModelWithId
         'MaxCapacity' => 'MaxCapacity',
         'WebCapacity' => 'WebCapacity',
         'TotalBooked' => 'TotalBooked',
+        'TotalSignedIn' => 'TotalSignedIn',
         'TotalBookedWaitlist' => 'TotalBookedWaitlist',
         'WebBooked' => 'WebBooked',
         'SemesterId' => 'SemesterId',
@@ -198,6 +202,7 @@ class ModelClass extends BaseModel implements ModelWithId
         'MaxCapacity' => 'setMaxCapacity',
         'WebCapacity' => 'setWebCapacity',
         'TotalBooked' => 'setTotalBooked',
+        'TotalSignedIn' => 'setTotalSignedIn',
         'TotalBookedWaitlist' => 'setTotalBookedWaitlist',
         'WebBooked' => 'setWebBooked',
         'SemesterId' => 'setSemesterId',
@@ -233,6 +238,7 @@ class ModelClass extends BaseModel implements ModelWithId
         'MaxCapacity' => 'getMaxCapacity',
         'WebCapacity' => 'getWebCapacity',
         'TotalBooked' => 'getTotalBooked',
+        'TotalSignedIn' => 'getTotalSignedIn',
         'TotalBookedWaitlist' => 'getTotalBookedWaitlist',
         'WebBooked' => 'getWebBooked',
         'SemesterId' => 'getSemesterId',
@@ -292,6 +298,7 @@ class ModelClass extends BaseModel implements ModelWithId
         $this->container['MaxCapacity'] = isset($data['MaxCapacity']) ? $data['MaxCapacity'] : null;
         $this->container['WebCapacity'] = isset($data['WebCapacity']) ? $data['WebCapacity'] : null;
         $this->container['TotalBooked'] = isset($data['TotalBooked']) ? $data['TotalBooked'] : null;
+        $this->container['TotalSignedIn'] = isset($data['TotalSignedIn']) ? $data['TotalSignedIn'] : null;
         $this->container['TotalBookedWaitlist'] = isset($data['TotalBookedWaitlist']) ? $data['TotalBookedWaitlist'] : null;
         $this->container['WebBooked'] = isset($data['WebBooked']) ? $data['WebBooked'] : null;
         $this->container['SemesterId'] = isset($data['SemesterId']) ? $data['SemesterId'] : null;
@@ -522,6 +529,30 @@ class ModelClass extends BaseModel implements ModelWithId
     public function setTotalBooked($TotalBooked): self
     {
         $this->container['TotalBooked'] = $TotalBooked;
+
+        return $this;
+    }
+
+    /**
+     * Gets TotalSignedIn
+     *
+     * @return int
+     */
+    public function getTotalSignedIn()
+    {
+        return $this->container['TotalSignedIn'];
+    }
+
+    /**
+     * Sets TotalSignedIn
+     *
+     * @param int $TotalSignedIn The total number of clients signed into the class.
+     *
+     * @return $this
+     */
+    public function setTotalSignedIn($TotalSignedIn): self
+    {
+        $this->container['TotalSignedIn'] = $TotalSignedIn;
 
         return $this;
     }
