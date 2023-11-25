@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 Get commission payroll for staff members.
 
-A staff authorization token is not required for this endpoint, but if one is passed, its permissions are honored. Depending on the access permissions configured for the staff member whose token is passed, the endpoint returns either only the payroll information for that staff member or it returns the payroll information for all staff members.
+A staff authorization token is not required for this endpoint, but if one is passed, its permissions are honored. Depending on the access permissions configured for the staff member whose token is passed,   the endpoint returns either only the payroll information for that staff member or it returns the payroll information for all staff members.
 
 ### Example
 ```php
@@ -118,8 +118,8 @@ $RequestEndDateTime = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime |
 $RequestLimit = 56; // int | Number of results to include, defaults to 100
 $RequestLocationId = 56; // int | A LocationId that you want to retrieve payroll information for. If you do not supply a `LocationId`, data from all locations is returned.
 $RequestOffset = 56; // int | Page offset, defaults to 0.
-$RequestScheduledServiceId = 789; // int | The ID for the instance of the service offered
-$RequestScheduledServiceType = "RequestScheduledServiceType_example"; // string | Defines a payroll filter for the type of service offered, either \"Class\", \"Appointment\", or \"Enrollment\".
+$RequestScheduledServiceId = 789; // int | Filters the results to a single scheduled service. This parameter must be used with a single ScheduledServiceType.
+$RequestScheduledServiceType = "RequestScheduledServiceType_example"; // string | Filters the results to schedule service earnings for specific types of services. Possible values:  * Class  * Appointment
 $RequestStaffId = 789; // int | A list of staff IDs that you want to retrieve payroll information for. If you do not supply a `StaffId`, all active staff members return, ordered by staff ID.
 $RequestStartDateTime = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The beginning of the date range for the payroll information to be returned. The maximum allowed date range is 14 days.  * If you do not supply a `StartDateTime`, data returns for the seven days prior to the `EndDateTime` that you supply.  * If you do not supply either a `StartDateTime` or an `EndDateTime`, the data returns for seven days prior to today’s date.
 
@@ -140,8 +140,8 @@ Name | Type | Description  | Notes
  **RequestLimit** | **int**| Number of results to include, defaults to 100 | [optional]
  **RequestLocationId** | **int**| A LocationId that you want to retrieve payroll information for. If you do not supply a &#x60;LocationId&#x60;, data from all locations is returned. | [optional]
  **RequestOffset** | **int**| Page offset, defaults to 0. | [optional]
- **RequestScheduledServiceId** | **int**| The ID for the instance of the service offered | [optional]
- **RequestScheduledServiceType** | **string**| Defines a payroll filter for the type of service offered, either \&quot;Class\&quot;, \&quot;Appointment\&quot;, or \&quot;Enrollment\&quot;. | [optional]
+ **RequestScheduledServiceId** | **int**| Filters the results to a single scheduled service. This parameter must be used with a single ScheduledServiceType. | [optional]
+ **RequestScheduledServiceType** | **string**| Filters the results to schedule service earnings for specific types of services. Possible values:  * Class  * Appointment | [optional]
  **RequestStaffId** | **int**| A list of staff IDs that you want to retrieve payroll information for. If you do not supply a &#x60;StaffId&#x60;, all active staff members return, ordered by staff ID. | [optional]
  **RequestStartDateTime** | **\DateTime**| The beginning of the date range for the payroll information to be returned. The maximum allowed date range is 14 days.  * If you do not supply a &#x60;StartDateTime&#x60;, data returns for the seven days prior to the &#x60;EndDateTime&#x60; that you supply.  * If you do not supply either a &#x60;StartDateTime&#x60; or an &#x60;EndDateTime&#x60;, the data returns for seven days prior to today’s date. | [optional]
 
@@ -164,6 +164,8 @@ Name | Type | Description  | Notes
 > \Nlocascio\Mindbody\Model\GetTimeCardsResponse payrollGetTimeCards($RequestEndDateTime, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestStaffId, $RequestStartDateTime)
 
 Get time card payroll for staff members.
+
+This endpoint returns information for all locations. The **View reports for all locations permission **is not supported for staff auth tokens.
 
 ### Example
 ```php
@@ -235,6 +237,8 @@ Name | Type | Description  | Notes
 > \Nlocascio\Mindbody\Model\GetTipsResponse payrollGetTips($RequestEndDateTime, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestStaffId, $RequestStartDateTime)
 
 Get tips for staff members.
+
+A staff authorization token is not required for this endpoint, but if one is passed, its permissions are honored. Depending on the access permissions configured for the staff member whose token is passed,   the endpoint returns either only the payroll information for that staff member or it returns the payroll information for all staff members.  This endpoint returns information for all locations.The** View reports for all locations **permission is not supported for staff auth tokens.
 
 ### Example
 ```php

@@ -16,7 +16,8 @@ Method | HTTP request | Description
 [**appointmentGetBookableItems**](AppointmentApi.md#appointmentGetBookableItems) | **GET** /public/v6/appointment/bookableitems | Get staff appointment availability.
 [**appointmentGetScheduleItems**](AppointmentApi.md#appointmentGetScheduleItems) | **GET** /public/v6/appointment/scheduleitems | Get appointment schedule.
 [**appointmentGetStaffAppointments**](AppointmentApi.md#appointmentGetStaffAppointments) | **GET** /public/v6/appointment/staffappointments | Get appointments grouped by staff member.
-[**appointmentRemoveFromWaitlist**](AppointmentApi.md#appointmentRemoveFromWaitlist) | **DELETE** /public/v6/appointment/removefromappointmentwaitlist | Remove an appointment from waitlist
+[**appointmentGetUnavailabilities**](AppointmentApi.md#appointmentGetUnavailabilities) | **GET** /public/v6/appointment/unavailabilities | Get unavailabilities.
+[**appointmentRemoveFromWaitlist**](AppointmentApi.md#appointmentRemoveFromWaitlist) | **DELETE** /public/v6/appointment/appointmentfromwaitlist | Remove an appointment from waitlist
 [**appointmentUpdateAppointment**](AppointmentApi.md#appointmentUpdateAppointment) | **POST** /public/v6/appointment/updateappointment | Update an existing appointment.
 [**appointmentUpdateAvailability**](AppointmentApi.md#appointmentUpdateAvailability) | **PUT** /public/v6/appointment/availabilities | Update availability/unavailability of the staff
 
@@ -26,7 +27,7 @@ Method | HTTP request | Description
 
 Book a new appointment.
 
-To book an appointment, you must use a location ID, staff ID, client ID, session type ID, and the `StartDateTime` of the appointment. You can get most of this information using `GET BookableItems`.
+A user token is required for this endpoint. To book an appointment, you must use a location ID, staff ID, client ID, session type ID, and the StartDateTime of the appointment. You can get most of this information using GET BookableItems.
 
 ### Example
 ```php
@@ -89,7 +90,7 @@ Name | Type | Description  | Notes
 
 Add Appointment Add-On
 
-Creates an Add On to an existing appointment
+This endpoint books an add-on on top of an existing, regular appointment. To book an add-on, you must use an existing appointment ID and session type ID. You can get a session type ID using `GET AppointmentAddOns`.
 
 ### Example
 ```php
@@ -152,7 +153,7 @@ Name | Type | Description  | Notes
 
 Add Availabillity/Unavailabillity.
 
-To Add Availabillity/Unavailabillity, you must use a location ID, staff IDs and the `StartDate/EndDate` of the Availabillity/Unavailabillity.
+Add availabilities and unavailabilities for a staff member.<br />  Note: You must have a staff user token with the required permissions.
 
 ### Example
 ```php
@@ -215,7 +216,7 @@ Name | Type | Description  | Notes
 
 Early Cancel/Remove an Appointment Add-On
 
-Cross Regional Add On payments are not currently supported.  Returns 204 No Content on success.
+This endpoint can be used to early-cancel a booked appointment add-on.
 
 ### Example
 ```php
@@ -277,6 +278,8 @@ void (empty response body)
 
 Delete availability/unavailability of the staff
 
+This endpoint deletes the availability or unavailability.  Note: You must have a staff user token with the required permissions.
+
 ### Example
 ```php
 <?php
@@ -301,8 +304,8 @@ $apiInstance = new Nlocascio\Mindbody\Api\AppointmentApi(
     new GuzzleHttp\Client(),
     $config
 );
-$DeleteAvailabilityRequestAvailabilityId = 56; // int | Availability Id to be deleted
-$DeleteAvailabilityRequestTest = true; // bool | The test flag
+$DeleteAvailabilityRequestAvailabilityId = 56; // int | The ID of the availability or unavailability.
+$DeleteAvailabilityRequestTest = true; // bool | When `true`, indicates that this is a test request and no data is deleted from the subscriber’s database.  When `false`, the record will be deleted.  Default: **false**
 
 try {
     $apiInstance->appointmentDeleteAvailability($DeleteAvailabilityRequestAvailabilityId, $DeleteAvailabilityRequestTest);
@@ -316,8 +319,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **DeleteAvailabilityRequestAvailabilityId** | **int**| Availability Id to be deleted | [optional]
- **DeleteAvailabilityRequestTest** | **bool**| The test flag | [optional]
+ **DeleteAvailabilityRequestAvailabilityId** | **int**| The ID of the availability or unavailability. | [optional]
+ **DeleteAvailabilityRequestTest** | **bool**| When &#x60;true&#x60;, indicates that this is a test request and no data is deleted from the subscriber’s database.  When &#x60;false&#x60;, the record will be deleted.  Default: **false** | [optional]
 
 ### Return type
 
@@ -339,7 +342,7 @@ void (empty response body)
 
 Get active session times.
 
-Returns a list of the times that can be booked for a given program schedule type. `ActiveSessionTimes` represent the scheduling increments that can be booked during the active business hours for services.
+This is not appointment availability but rather the active business hours for studios and which increments services can be booked at. See BookableItems for appointment availability.
 
 ### Example
 ```php
@@ -412,7 +415,7 @@ Name | Type | Description  | Notes
 
 Get add ons
 
-Returns a list of appointment addons optionally filtered by those that can be performed by the given staff member
+Get active appointment add-ons.
 
 ### Example
 ```php
@@ -440,7 +443,7 @@ $apiInstance = new Nlocascio\Mindbody\Api\AppointmentApi(
 );
 $RequestLimit = 56; // int | Number of results to include, defaults to 100
 $RequestOffset = 56; // int | Page offset, defaults to 0.
-$RequestStaffId = 56; // int | Optionally filter add ons that can be performed by this staff
+$RequestStaffId = 56; // int | Filter to add-ons only performed by this staff member.
 
 try {
     $result = $apiInstance->appointmentGetAddOns($RequestLimit, $RequestOffset, $RequestStaffId);
@@ -457,7 +460,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **RequestLimit** | **int**| Number of results to include, defaults to 100 | [optional]
  **RequestOffset** | **int**| Page offset, defaults to 0. | [optional]
- **RequestStaffId** | **int**| Optionally filter add ons that can be performed by this staff | [optional]
+ **RequestStaffId** | **int**| Filter to add-ons only performed by this staff member. | [optional]
 
 ### Return type
 
@@ -538,7 +541,7 @@ This endpoint does not need any parameter.
 
 Get dates where there is scheduled appointment availability for the given session types.
 
-Returns a list of available dates for the given session types.
+Returns a list of dates to narrow down staff availability when booking. Dates are those which staff are scheduled to work and do not guarantee booking availabilities. After this call is made, use GET BookableItems to retrieve availabilities for specific dates before booking.
 
 ### Example
 ```php
@@ -568,7 +571,7 @@ $RequestSessionTypeId = 56; // int | required requested session type ID.
 $RequestEndDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The end date of the requested date range.   <br />Default: **StartDate**
 $RequestLocationId = 56; // int | optional requested location ID.
 $RequestStaffId = 789; // int | optional requested staff ID.
-$RequestStartDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The start date of the requested date range.   <br />Default: **today’s date**
+$RequestStartDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The start date of the requested date range. If omitted, the default is used.  <br />Default: **today’s date**
 
 try {
     $result = $apiInstance->appointmentGetAvailableDates($RequestSessionTypeId, $RequestEndDate, $RequestLocationId, $RequestStaffId, $RequestStartDate);
@@ -587,7 +590,7 @@ Name | Type | Description  | Notes
  **RequestEndDate** | **\DateTime**| The end date of the requested date range.   &lt;br /&gt;Default: **StartDate** | [optional]
  **RequestLocationId** | **int**| optional requested location ID. | [optional]
  **RequestStaffId** | **int**| optional requested staff ID. | [optional]
- **RequestStartDate** | **\DateTime**| The start date of the requested date range.   &lt;br /&gt;Default: **today’s date** | [optional]
+ **RequestStartDate** | **\DateTime**| The start date of the requested date range. If omitted, the default is used.  &lt;br /&gt;Default: **today’s date** | [optional]
 
 ### Return type
 
@@ -609,7 +612,7 @@ Name | Type | Description  | Notes
 
 Get staff appointment availability.
 
-Returns a list of availabilities with the information needed to book appointments. Availabilities include information such as the location and its amenities, staff members, programs, and session types.
+Returns a list of availabilities with the information needed to book appointments. Availabilities include information such as the location and its amenities, staff members, programs, and session types. Recommended to use with ActiveSessionTimes to see which increments each business allows for booking appointments.
 
 ### Example
 ```php
@@ -642,7 +645,7 @@ $RequestIgnoreDefaultSessionLength = true; // bool | When `true`, availabilities
 $RequestLimit = 56; // int | Number of results to include, defaults to 100
 $RequestLocationIds = array(56); // int[] | A list of the requested location IDs.
 $RequestOffset = 56; // int | Page offset, defaults to 0.
-$RequestStaffIds = array(56); // int[] | A list of the requested staff IDs.
+$RequestStaffIds = array(56); // int[] | A list of the requested staff IDs. Omit parameter to return all staff availabilities.
 $RequestStartDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The start date of the requested date range.   <br />Default: **today’s date**
 
 try {
@@ -665,7 +668,7 @@ Name | Type | Description  | Notes
  **RequestLimit** | **int**| Number of results to include, defaults to 100 | [optional]
  **RequestLocationIds** | [**int[]**](../Model/int.md)| A list of the requested location IDs. | [optional]
  **RequestOffset** | **int**| Page offset, defaults to 0. | [optional]
- **RequestStaffIds** | [**int[]**](../Model/int.md)| A list of the requested staff IDs. | [optional]
+ **RequestStaffIds** | [**int[]**](../Model/int.md)| A list of the requested staff IDs. Omit parameter to return all staff availabilities. | [optional]
  **RequestStartDate** | **\DateTime**| The start date of the requested date range.   &lt;br /&gt;Default: **today’s date** | [optional]
 
 ### Return type
@@ -835,6 +838,75 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **appointmentGetUnavailabilities**
+> \Nlocascio\Mindbody\Model\GetUnavailabilitiesResponse appointmentGetUnavailabilities($RequestEndDate, $RequestLimit, $RequestOffset, $RequestStaffIds, $RequestStartDate)
+
+Get unavailabilities.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: API-Key
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'Bearer');
+// Configure API key authorization: authorization
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('authorization', 'Bearer');
+// Configure API key authorization: siteId
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('siteId', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('siteId', 'Bearer');
+
+$apiInstance = new Nlocascio\Mindbody\Api\AppointmentApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$RequestEndDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The end date of the requested date range.   <br />Default: **today’s date**
+$RequestLimit = 56; // int | Number of results to include, defaults to 100
+$RequestOffset = 56; // int | Page offset, defaults to 0.
+$RequestStaffIds = array(56); // int[] | A list of requested staff IDs.
+$RequestStartDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The start date of the requested date range.   <br />Default: **today’s date**
+
+try {
+    $result = $apiInstance->appointmentGetUnavailabilities($RequestEndDate, $RequestLimit, $RequestOffset, $RequestStaffIds, $RequestStartDate);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AppointmentApi->appointmentGetUnavailabilities: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **RequestEndDate** | **\DateTime**| The end date of the requested date range.   &lt;br /&gt;Default: **today’s date** | [optional]
+ **RequestLimit** | **int**| Number of results to include, defaults to 100 | [optional]
+ **RequestOffset** | **int**| Page offset, defaults to 0. | [optional]
+ **RequestStaffIds** | [**int[]**](../Model/int.md)| A list of requested staff IDs. | [optional]
+ **RequestStartDate** | **\DateTime**| The start date of the requested date range.   &lt;br /&gt;Default: **today’s date** | [optional]
+
+### Return type
+
+[**\Nlocascio\Mindbody\Model\GetUnavailabilitiesResponse**](../Model/GetUnavailabilitiesResponse.md)
+
+### Authorization
+
+[API-Key](../../README.md#API-Key), [authorization](../../README.md#authorization), [siteId](../../README.md#siteId)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, text/json, application/xml, text/xml, multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **appointmentRemoveFromWaitlist**
 > \Nlocascio\Mindbody\Model\RemoveFromWaitlistResponse appointmentRemoveFromWaitlist($RequestWaitlistEntryIds)
 
@@ -864,7 +936,7 @@ $apiInstance = new Nlocascio\Mindbody\Api\AppointmentApi(
     new GuzzleHttp\Client(),
     $config
 );
-$RequestWaitlistEntryIds = array(56); // int[] | A list of waiting list IDs to remove from waiting lists.
+$RequestWaitlistEntryIds = array(56); // int[] | A list of `WaitlistEntryIds` to remove from the waiting list.
 
 try {
     $result = $apiInstance->appointmentRemoveFromWaitlist($RequestWaitlistEntryIds);
@@ -879,7 +951,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **RequestWaitlistEntryIds** | [**int[]**](../Model/int.md)| A list of waiting list IDs to remove from waiting lists. |
+ **RequestWaitlistEntryIds** | [**int[]**](../Model/int.md)| A list of &#x60;WaitlistEntryIds&#x60; to remove from the waiting list. |
 
 ### Return type
 
@@ -963,6 +1035,8 @@ Name | Type | Description  | Notes
 > \Nlocascio\Mindbody\Model\UpdateAvailabilityResponse appointmentUpdateAvailability($UpdateAvailabilityRequest)
 
 Update availability/unavailability of the staff
+
+To update the information for a specific availability or unavailability of the staff.<br />  Note: You must have a staff user token with the required permissions.
 
 ### Example
 ```php

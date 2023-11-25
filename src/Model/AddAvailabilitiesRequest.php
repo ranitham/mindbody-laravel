@@ -36,15 +36,15 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property bool $Test Whether to use test mode. When test mode is enabled, the method will be validated,   but no availability data will be added or updated.<br />  (optional) Defaults to false.
- * @property int $LocationID Location of availability.  <br />Not used when IsUnavailable is true.
+ * @property bool $Test When `true`, the request ensures that its parameters are valid without affecting real data.  When `false`, the request performs as intended and may affect live client data.  (optional) Defaults to false.
+ * @property int $LocationID Location of availability.  <br />Not used when IsUnavailable is `true`.
  * @property int[] $StaffIDs A list of requested staff IDs.<br />  (optional) Defaults to staff ID of user credentials. Use 0 for all.
  * @property int[] $ProgramIDs A list of program IDs.<br />  (optional) Defaults to all.  <br />Not used when IsUnavailable is true.
- * @property \DateTime $StartDateTime The start date and time of the requested date range.
- * @property \DateTime $EndDateTime The end date and time of the requested date range.
+ * @property \DateTime $StartDateTime The start date and time of the new availabilities or unavailabilities.
+ * @property \DateTime $EndDateTime The end date and time of the new availabilities or unavailabilities.
  * @property string[] $DaysOfWeek The days of the week to set.<br />  (optional) Defaults to all.
  * @property string $UnavailableDescription Description of unavalability.  <br />Only used when IsUnavailable is true.
- * @property bool $IsUnavailable If the create is for an unavailability.<br />  (optional) Defaults to false.
+ * @property bool $IsUnavailable When `true`, indicates that unavailability is getting added. When `false`, indicates that availability is getting added.  Default: **false**
  * @property string $PublicDisplay Sets the public display of the availability.<br /><ul><li>Show</li><li>Mask</li><li>Hide</li></ul>  (optional) Defaults to Show.
  *
  */
@@ -252,7 +252,7 @@ class AddAvailabilitiesRequest extends BaseModel
     /**
      * Sets Test
      *
-     * @param bool $Test Whether to use test mode. When test mode is enabled, the method will be validated,   but no availability data will be added or updated.<br />  (optional) Defaults to false.
+     * @param bool $Test When `true`, the request ensures that its parameters are valid without affecting real data.  When `false`, the request performs as intended and may affect live client data.  (optional) Defaults to false.
      *
      * @return $this
      */
@@ -276,7 +276,7 @@ class AddAvailabilitiesRequest extends BaseModel
     /**
      * Sets LocationID
      *
-     * @param int $LocationID Location of availability.  <br />Not used when IsUnavailable is true.
+     * @param int $LocationID Location of availability.  <br />Not used when IsUnavailable is `true`.
      *
      * @return $this
      */
@@ -348,7 +348,7 @@ class AddAvailabilitiesRequest extends BaseModel
     /**
      * Sets StartDateTime
      *
-     * @param \DateTime $StartDateTime The start date and time of the requested date range.
+     * @param \DateTime $StartDateTime The start date and time of the new availabilities or unavailabilities.
      *
      * @return $this
      */
@@ -372,7 +372,7 @@ class AddAvailabilitiesRequest extends BaseModel
     /**
      * Sets EndDateTime
      *
-     * @param \DateTime $EndDateTime The end date and time of the requested date range.
+     * @param \DateTime $EndDateTime The end date and time of the new availabilities or unavailabilities.
      *
      * @return $this
      */
@@ -453,7 +453,7 @@ class AddAvailabilitiesRequest extends BaseModel
     /**
      * Sets IsUnavailable
      *
-     * @param bool $IsUnavailable If the create is for an unavailability.<br />  (optional) Defaults to false.
+     * @param bool $IsUnavailable When `true`, indicates that unavailability is getting added. When `false`, indicates that availability is getting added.  Default: **false**
      *
      * @return $this
      */

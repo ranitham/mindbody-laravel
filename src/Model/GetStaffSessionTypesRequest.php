@@ -36,9 +36,9 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property int $StaffId Filters returned session types to only those the staff member performs.  Staff should be active.
- * @property int[] $ProgramIds Filters results to session types that belong in program IDs.
- * @property bool $OnlineOnly Only session types that can be booked online.
+ * @property int $StaffId The ID of the staff member whose session types you want to return.
+ * @property int[] $ProgramIds Filters results to session types that belong to one of the given program IDs. If omitted, all program IDs return.
+ * @property bool $OnlineOnly When `true`, indicates that only the session types that can be booked online should be returned.  Default: false
  * @property int $Limit Number of results to include, defaults to 100
  * @property int $Offset Page offset, defaults to 0.
  *
@@ -170,7 +170,7 @@ class GetStaffSessionTypesRequest extends BaseModel
     /**
      * Sets StaffId
      *
-     * @param int $StaffId Filters returned session types to only those the staff member performs.  Staff should be active.
+     * @param int $StaffId The ID of the staff member whose session types you want to return.
      *
      * @return $this
      */
@@ -194,7 +194,7 @@ class GetStaffSessionTypesRequest extends BaseModel
     /**
      * Sets ProgramIds
      *
-     * @param int[] $ProgramIds Filters results to session types that belong in program IDs.
+     * @param int[] $ProgramIds Filters results to session types that belong to one of the given program IDs. If omitted, all program IDs return.
      *
      * @return $this
      */
@@ -218,7 +218,7 @@ class GetStaffSessionTypesRequest extends BaseModel
     /**
      * Sets OnlineOnly
      *
-     * @param bool $OnlineOnly Only session types that can be booked online.
+     * @param bool $OnlineOnly When `true`, indicates that only the session types that can be booked online should be returned.  Default: false
      *
      * @return $this
      */

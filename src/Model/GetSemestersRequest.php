@@ -37,10 +37,10 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property int[] $SemesterIDs Get with semester ids
- * @property \DateTime $StartDate Filter semesters with start date
- * @property \DateTime $EndDate Filter semesters with end date
- * @property bool $Active Get Active semesters
+ * @property int[] $SemesterIDs The requested semester IDs.
+ * @property \DateTime $StartDate The start date for the range. All semesters that are on or after this day.  Default: **today’s date**
+ * @property \DateTime $EndDate The end date for the range. All semesters that are on or before this day.  Default: **StartDate**
+ * @property bool $Active When true, the response only contains semesters which are activated. When false, only deactivated semesters are returned.  Default: **All semesters**
  * @property int $Limit Number of results to include, defaults to 100
  * @property int $Offset Page offset, defaults to 0.
  *
@@ -175,7 +175,7 @@ class GetSemestersRequest extends BaseModel
     /**
      * Sets SemesterIDs
      *
-     * @param int[] $SemesterIDs Get with semester ids
+     * @param int[] $SemesterIDs The requested semester IDs.
      *
      * @return $this
      */
@@ -199,7 +199,7 @@ class GetSemestersRequest extends BaseModel
     /**
      * Sets StartDate
      *
-     * @param \DateTime $StartDate Filter semesters with start date
+     * @param \DateTime $StartDate The start date for the range. All semesters that are on or after this day.  Default: **today’s date**
      *
      * @return $this
      */
@@ -223,7 +223,7 @@ class GetSemestersRequest extends BaseModel
     /**
      * Sets EndDate
      *
-     * @param \DateTime $EndDate Filter semesters with end date
+     * @param \DateTime $EndDate The end date for the range. All semesters that are on or before this day.  Default: **StartDate**
      *
      * @return $this
      */
@@ -247,7 +247,7 @@ class GetSemestersRequest extends BaseModel
     /**
      * Sets Active
      *
-     * @param bool $Active Get Active semesters
+     * @param bool $Active When true, the response only contains semesters which are activated. When false, only deactivated semesters are returned.  Default: **All semesters**
      *
      * @return $this
      */

@@ -39,6 +39,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property int $VisitId The ID of the visit to be updated.
  * @property bool $Makeup When `true`, indicates that the visit is eligible to be made up.
  * @property bool $SignedIn When `true`, indicates that the client has signed in for the visit.
+ * @property int $ClientServiceId The ID of the service to assign to the visit.
  * @property string $Execute The execute code used to update this visit. Possible values are:  * Cancel  * Latecancel  * Unlatecancel
  * @property bool $Test When `true`, indicates that test mode is enabled. When test mode is enabled, input information is validated, but not committed.<br />  Default: **false**
  * @property bool $SendEmail When `true`, indicates that the client should be sent an email for cancellations. Note that email is not sent unless the client has an email address and automatic emails have been set up correctly.<br />  Default: **false**
@@ -64,6 +65,7 @@ class UpdateClientVisitRequest extends BaseModel
         'VisitId' => 'int',
         'Makeup' => 'bool',
         'SignedIn' => 'bool',
+        'ClientServiceId' => 'int',
         'Execute' => 'string',
         'Test' => 'bool',
         'SendEmail' => 'bool'
@@ -78,6 +80,7 @@ class UpdateClientVisitRequest extends BaseModel
         'VisitId' => 'int32',
         'Makeup' => null,
         'SignedIn' => null,
+        'ClientServiceId' => 'int32',
         'Execute' => null,
         'Test' => null,
         'SendEmail' => null
@@ -94,6 +97,7 @@ class UpdateClientVisitRequest extends BaseModel
         'VisitId' => 'VisitId',
         'Makeup' => 'Makeup',
         'SignedIn' => 'SignedIn',
+        'ClientServiceId' => 'ClientServiceId',
         'Execute' => 'Execute',
         'Test' => 'Test',
         'SendEmail' => 'SendEmail'
@@ -108,6 +112,7 @@ class UpdateClientVisitRequest extends BaseModel
         'VisitId' => 'setVisitId',
         'Makeup' => 'setMakeup',
         'SignedIn' => 'setSignedIn',
+        'ClientServiceId' => 'setClientServiceId',
         'Execute' => 'setExecute',
         'Test' => 'setTest',
         'SendEmail' => 'setSendEmail'
@@ -122,6 +127,7 @@ class UpdateClientVisitRequest extends BaseModel
         'VisitId' => 'getVisitId',
         'Makeup' => 'getMakeup',
         'SignedIn' => 'getSignedIn',
+        'ClientServiceId' => 'getClientServiceId',
         'Execute' => 'getExecute',
         'Test' => 'getTest',
         'SendEmail' => 'getSendEmail'
@@ -143,6 +149,7 @@ class UpdateClientVisitRequest extends BaseModel
         $this->container['VisitId'] = isset($data['VisitId']) ? $data['VisitId'] : null;
         $this->container['Makeup'] = isset($data['Makeup']) ? $data['Makeup'] : null;
         $this->container['SignedIn'] = isset($data['SignedIn']) ? $data['SignedIn'] : null;
+        $this->container['ClientServiceId'] = isset($data['ClientServiceId']) ? $data['ClientServiceId'] : null;
         $this->container['Execute'] = isset($data['Execute']) ? $data['Execute'] : null;
         $this->container['Test'] = isset($data['Test']) ? $data['Test'] : null;
         $this->container['SendEmail'] = isset($data['SendEmail']) ? $data['SendEmail'] : null;
@@ -232,6 +239,30 @@ class UpdateClientVisitRequest extends BaseModel
     public function setSignedIn($SignedIn): self
     {
         $this->container['SignedIn'] = $SignedIn;
+
+        return $this;
+    }
+
+    /**
+     * Gets ClientServiceId
+     *
+     * @return int
+     */
+    public function getClientServiceId()
+    {
+        return $this->container['ClientServiceId'];
+    }
+
+    /**
+     * Sets ClientServiceId
+     *
+     * @param int $ClientServiceId The ID of the service to assign to the visit.
+     *
+     * @return $this
+     */
+    public function setClientServiceId($ClientServiceId): self
+    {
+        $this->container['ClientServiceId'] = $ClientServiceId;
 
         return $this;
     }

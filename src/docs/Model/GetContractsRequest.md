@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ContractIds** | **int[]** | When included, the response only contains details about the specified contract IDs. | [optional] 
-**SoldOnline** | **bool** | When &#x60;true&#x60;, the response only contains details about contracts and AutoPay options that can be sold online.&lt;br /&gt;  When &#x60;false&#x60;, only contracts that are not intended to be sold online are returned.&lt;br /&gt;  Default: **all contracts** | [optional] 
+**SoldOnline** | **bool** | When &#x60;true&#x60;, the response only contains details about contracts and AutoPay options that can be sold online.   When &#x60;false&#x60;, all contracts are returned.  Default: **false** | [optional] 
 **LocationId** | **int** | The ID of the location that has the requested contracts and AutoPay options. | 
 **ConsumerId** | **int** | The ID of the client. | [optional] 
 **PromoCode** | **string** | PromoCode to apply | [optional] 

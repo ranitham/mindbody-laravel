@@ -21,6 +21,8 @@ Method | HTTP request | Description
 
 
 
+Creates a new staff member record at the specified business. The `FirstName` and `LastName` parameters are always required for this request.
+
 ### Example
 ```php
 <?php
@@ -82,6 +84,8 @@ Name | Type | Description  | Notes
 
 
 
+Enables to add staff availability or unavailability for a given staff member.
+
 ### Example
 ```php
 <?php
@@ -141,6 +145,8 @@ void (empty response body)
 > \Nlocascio\Mindbody\Model\AssignStaffSessionTypeResponse staffAssignStaffSessionType($Request)
 
 
+
+Assigns a staff member to an appointment session type with staff specific properties such as time length and pay rate. A staff user token must be included with staff assigned the ManageStaffPayRates permission.
 
 ### Example
 ```php
@@ -203,6 +209,8 @@ Name | Type | Description  | Notes
 
 
 
+This endpoint returns the basic details of the staffs that are marked as sales reps.
+
 ### Example
 ```php
 <?php
@@ -227,10 +235,10 @@ $apiInstance = new Nlocascio\Mindbody\Api\StaffApi(
     new GuzzleHttp\Client(),
     $config
 );
-$RequestActiveOnly = true; // bool | This is to filter out the active sales rep from the list
+$RequestActiveOnly = true; // bool | When `true`, will return only active reps data.  Default : **false**
 $RequestLimit = 56; // int | Number of results to include, defaults to 100
 $RequestOffset = 56; // int | Page offset, defaults to 0.
-$RequestSalesRepNumbers = array(56); // int[] | This is the list of rep numbers to be fetched
+$RequestSalesRepNumbers = array(56); // int[] | This is the list of the sales rep numbers for which the salesrep data will be fetched.
 
 try {
     $result = $apiInstance->staffGetSalesReps($RequestActiveOnly, $RequestLimit, $RequestOffset, $RequestSalesRepNumbers);
@@ -245,10 +253,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **RequestActiveOnly** | **bool**| This is to filter out the active sales rep from the list | [optional]
+ **RequestActiveOnly** | **bool**| When &#x60;true&#x60;, will return only active reps data.  Default : **false** | [optional]
  **RequestLimit** | **int**| Number of results to include, defaults to 100 | [optional]
  **RequestOffset** | **int**| Page offset, defaults to 0. | [optional]
- **RequestSalesRepNumbers** | [**int[]**](../Model/int.md)| This is the list of rep numbers to be fetched | [optional]
+ **RequestSalesRepNumbers** | [**int[]**](../Model/int.md)| This is the list of the sales rep numbers for which the salesrep data will be fetched. | [optional]
 
 ### Return type
 
@@ -269,6 +277,8 @@ Name | Type | Description  | Notes
 > \Nlocascio\Mindbody\Model\GetStaffResponse staffGetStaff($RequestFilters, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestSessionTypeId, $RequestStaffIds, $RequestStartDateTime)
 
 Get staff members at a site.
+
+When a user token is not passed with the request or the passed user token has insufficient viewing permissions, only the following staff data is returned in the response:                * FirstName  * LastName  * Id  * Bio  * DisplayName  * ImageUrl  * EmpID
 
 ### Example
 ```php
@@ -343,6 +353,8 @@ Name | Type | Description  | Notes
 
 Get image URLs for the given staff ID in the request.
 
+This endpoint can be utilized to retrieve image urls for requested staff member.
+
 ### Example
 ```php
 <?php
@@ -367,7 +379,7 @@ $apiInstance = new Nlocascio\Mindbody\Api\StaffApi(
     new GuzzleHttp\Client(),
     $config
 );
-$RequestStaffId = 789; // int | A requested staff ID.
+$RequestStaffId = 789; // int | The ID of the staff member whose image URL details you want to retrieve.
 
 try {
     $result = $apiInstance->staffGetStaffImageURL($RequestStaffId);
@@ -382,7 +394,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **RequestStaffId** | **int**| A requested staff ID. | [optional]
+ **RequestStaffId** | **int**| The ID of the staff member whose image URL details you want to retrieve. | [optional]
 
 ### Return type
 
@@ -465,6 +477,8 @@ Name | Type | Description  | Notes
 
 Get the session types used at a site for a staff member.
 
+Gets a list of active session types for a specific staff member. A staff user token must be included with staff assigned the ManageStaffPayRates permission.
+
 ### Example
 ```php
 <?php
@@ -489,11 +503,11 @@ $apiInstance = new Nlocascio\Mindbody\Api\StaffApi(
     new GuzzleHttp\Client(),
     $config
 );
-$RequestStaffId = 789; // int | Filters returned session types to only those the staff member performs.  Staff should be active.
+$RequestStaffId = 789; // int | The ID of the staff member whose session types you want to return.
 $RequestLimit = 56; // int | Number of results to include, defaults to 100
 $RequestOffset = 56; // int | Page offset, defaults to 0.
-$RequestOnlineOnly = true; // bool | Only session types that can be booked online.
-$RequestProgramIds = array(56); // int[] | Filters results to session types that belong in program IDs.
+$RequestOnlineOnly = true; // bool | When `true`, indicates that only the session types that can be booked online should be returned.  Default: false
+$RequestProgramIds = array(56); // int[] | Filters results to session types that belong to one of the given program IDs. If omitted, all program IDs return.
 
 try {
     $result = $apiInstance->staffGetStaffSessionTypes($RequestStaffId, $RequestLimit, $RequestOffset, $RequestOnlineOnly, $RequestProgramIds);
@@ -508,11 +522,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **RequestStaffId** | **int**| Filters returned session types to only those the staff member performs.  Staff should be active. |
+ **RequestStaffId** | **int**| The ID of the staff member whose session types you want to return. |
  **RequestLimit** | **int**| Number of results to include, defaults to 100 | [optional]
  **RequestOffset** | **int**| Page offset, defaults to 0. | [optional]
- **RequestOnlineOnly** | **bool**| Only session types that can be booked online. | [optional]
- **RequestProgramIds** | [**int[]**](../Model/int.md)| Filters results to session types that belong in program IDs. | [optional]
+ **RequestOnlineOnly** | **bool**| When &#x60;true&#x60;, indicates that only the session types that can be booked online should be returned.  Default: false | [optional]
+ **RequestProgramIds** | [**int[]**](../Model/int.md)| Filters results to session types that belong to one of the given program IDs. If omitted, all program IDs return. | [optional]
 
 ### Return type
 
@@ -533,6 +547,8 @@ Name | Type | Description  | Notes
 > \Nlocascio\Mindbody\Model\UpdateStaffResponse staffUpdateStaff($Request)
 
 
+
+Updates an existing staff member record at the specified business. The ID is a required parameters for this request.
 
 ### Example
 ```php
@@ -594,6 +610,8 @@ Name | Type | Description  | Notes
 > \Nlocascio\Mindbody\Model\UpdateStaffPermissionsResponse staffUpdateStaffPermissions($Request)
 
 
+
+Assigns a permission group to a staff member. A staff user token must be included with staff assigned the ManageStaffPayRates permission.
 
 ### Example
 ```php

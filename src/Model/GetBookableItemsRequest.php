@@ -38,7 +38,7 @@ namespace Nlocascio\Mindbody\Model;
  * @link     https://github.com/swagger-api/swagger-codegen
  * @property int[] $SessionTypeIds A list of the requested session type IDs.
  * @property int[] $LocationIds A list of the requested location IDs.
- * @property int[] $StaffIds A list of the requested staff IDs.
+ * @property int[] $StaffIds A list of the requested staff IDs. Omit parameter to return all staff availabilities.
  * @property \DateTime $StartDate The start date of the requested date range.   <br />Default: **today’s date**
  * @property \DateTime $EndDate The end date of the requested date range.   <br />Default: **StartDate**
  * @property int $AppointmentId If provided, filters out the appointment with this ID.
@@ -246,7 +246,7 @@ class GetBookableItemsRequest extends BaseModel
     /**
      * Sets StaffIds
      *
-     * @param int[] $StaffIds A list of the requested staff IDs.
+     * @param int[] $StaffIds A list of the requested staff IDs. Omit parameter to return all staff availabilities.
      *
      * @return $this
      */

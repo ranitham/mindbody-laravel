@@ -36,16 +36,16 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property string $FirstName The staff member’s first name.
- * @property string $LastName The staff member’s last name.
+ * @property string $FirstName The staff member first name. You must specify a first name when you add a staff member.
+ * @property string $LastName The staff member last name. You must specify a last name when you add a staff member.
  * @property string $Email The staff member’s email address.
  * @property bool $IsMale When `true`, indicates that the staff member is male.  When `false`, indicates that the staff member is female.
  * @property string $HomePhone The staff member’s home phone number.
  * @property string $WorkPhone The staff member’s work phone number.
  * @property string $MobilePhone The staff member’s mobile phone number.
  * @property string $Bio The staff member’s biography. This string contains HTML.
- * @property string $Address The address of the staff member.
- * @property string $Address2 The address line2 of the staff member.
+ * @property string $Address The first line of the staff member street address.
+ * @property string $Address2 The second line of the staff member street address, if needed.
  * @property string $City The staff member’s city.
  * @property string $State The staff member’s state.
  * @property string $Country The staff member’s country.
@@ -60,8 +60,8 @@ namespace Nlocascio\Mindbody\Model;
  * @property \DateTime $EmploymentEnd The end date of employment
  * @property int $SortOrder If configured by the business owner, this field determines a staff member’s weight when sorting. Use this field to sort staff members on your interface.
  * @property string[] $ProviderIDs A list of providerIDs for the staff.  In the US it is one per staff and is numeric, otherwise it can be a list and is alpha-numeric  for more information see https://support.mindbodyonline.com/s/article/204075743-Provider-IDs?language=en_US
- * @property string $Notes Staff Member Private Notes
- * @property string $EmpID The EmpID assigned to the staff member.
+ * @property string $Notes The staff member private notes.
+ * @property string $EmpID The custom staff ID assigned to the staff member.
  *
  */
 class AddStaffRequest extends BaseModel
@@ -320,7 +320,7 @@ class AddStaffRequest extends BaseModel
     /**
      * Sets FirstName
      *
-     * @param string $FirstName The staff member’s first name.
+     * @param string $FirstName The staff member first name. You must specify a first name when you add a staff member.
      *
      * @return $this
      */
@@ -344,7 +344,7 @@ class AddStaffRequest extends BaseModel
     /**
      * Sets LastName
      *
-     * @param string $LastName The staff member’s last name.
+     * @param string $LastName The staff member last name. You must specify a last name when you add a staff member.
      *
      * @return $this
      */
@@ -512,7 +512,7 @@ class AddStaffRequest extends BaseModel
     /**
      * Sets Address
      *
-     * @param string $Address The address of the staff member.
+     * @param string $Address The first line of the staff member street address.
      *
      * @return $this
      */
@@ -536,7 +536,7 @@ class AddStaffRequest extends BaseModel
     /**
      * Sets Address2
      *
-     * @param string $Address2 The address line2 of the staff member.
+     * @param string $Address2 The second line of the staff member street address, if needed.
      *
      * @return $this
      */
@@ -896,7 +896,7 @@ class AddStaffRequest extends BaseModel
     /**
      * Sets Notes
      *
-     * @param string $Notes Staff Member Private Notes
+     * @param string $Notes The staff member private notes.
      *
      * @return $this
      */
@@ -920,7 +920,7 @@ class AddStaffRequest extends BaseModel
     /**
      * Sets EmpID
      *
-     * @param string $EmpID The EmpID assigned to the staff member.
+     * @param string $EmpID The custom staff ID assigned to the staff member.
      *
      * @return $this
      */

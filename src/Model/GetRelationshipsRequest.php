@@ -37,7 +37,7 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property bool $Active The requested Active type Relationships. true indicates for Active Relationships and false indicates for Deactivated Relationships.
+ * @property bool $Active When `true`, the response only contains relationships which are activated.  When `false`, only deactivated relationships are returned.  Default: **All Relationships**
  * @property int $Limit Number of results to include, defaults to 100
  * @property int $Offset Page offset, defaults to 0.
  *
@@ -154,7 +154,7 @@ class GetRelationshipsRequest extends BaseModel
     /**
      * Sets Active
      *
-     * @param bool $Active The requested Active type Relationships. true indicates for Active Relationships and false indicates for Deactivated Relationships.
+     * @param bool $Active When `true`, the response only contains relationships which are activated.  When `false`, only deactivated relationships are returned.  Default: **All Relationships**
      *
      * @return $this
      */

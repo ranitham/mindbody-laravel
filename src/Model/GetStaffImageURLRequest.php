@@ -37,7 +37,7 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property int $StaffId A requested staff ID.
+ * @property int $StaffId The ID of the staff member whose image URL details you want to retrieve.
  *
  */
 class GetStaffImageURLRequest extends BaseModel
@@ -140,7 +140,7 @@ class GetStaffImageURLRequest extends BaseModel
     /**
      * Sets StaffId
      *
-     * @param int $StaffId A requested staff ID.
+     * @param int $StaffId The ID of the staff member whose image URL details you want to retrieve.
      *
      * @return $this
      */

@@ -5,9 +5,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ClassDescriptionIds** | **int[]** | The requested class description IDs. | [optional] 
 **ClassIds** | **int[]** | The requested class IDs. | [optional] 
-**ClassScheduleIds** | **int[]** | The requested classScheduleIds. | [optional] 
+**ClassScheduleIds** | **int[]** | The requested classSchedule Ids. | [optional] 
 **StaffIds** | **int[]** | The requested IDs of the teaching staff members. | [optional] 
-**StartDateTime** | [**\DateTime**](\DateTime.md) | The requested start date for filtering.   &lt;br /&gt;Default: **today’s date** | [optional] 
+**StartDateTime** | [**\DateTime**](\DateTime.md) | The requested start date for filtering. This also determines what you will see for the ‘BookingWindow’ StartDateTime in the response. For example, if you pass a StartDateTime that is on OR before the BookingWindow ‘Open’ days of the class, you will retrieve the actual ‘StartDateTime’ for the Booking Window. If you pass a StartDateTime that is after the BookingWindow ‘date’, then you will receive results based on that start date. | [optional] 
 **EndDateTime** | [**\DateTime**](\DateTime.md) | The requested end date for filtering.  &lt;br /&gt;Default: **today’s date** | [optional] 
 **ClientId** | **string** | The client ID of the client who is viewing this class list. Based on identity, the client may be able to see additional information, such as membership specials. | [optional] 
 **ProgramIds** | **int[]** | A list of program IDs on which to base the search. | [optional] 

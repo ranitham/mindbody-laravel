@@ -926,12 +926,12 @@ class ClassApi implements ApiInterface
      *
      * Get class descriptions.
      *
-     * @param  int $RequestClassDescriptionId Filters to the single result with the given ID. (optional)
+     * @param  int $RequestClassDescriptionId The ID of the requested client. (optional)
      * @param  \DateTime $RequestEndClassDateTime Filters the results to class descriptions for scheduled classes that happen before the given date and time. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestLocationId Filters results to classes descriptions for schedule classes as the given location. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  int[] $RequestProgramIds Filters results to class descriptions belonging to the given programs. (optional)
+     * @param  int[] $RequestProgramIds A list of requested program IDs. (optional)
      * @param  int $RequestStaffId Filters results to class descriptions for scheduled classes taught by the given staff member. (optional)
      * @param  \DateTime $RequestStartClassDateTime Filters the results to class descriptions for scheduled classes that happen on or after the given date and time. (optional)
      *
@@ -950,12 +950,12 @@ class ClassApi implements ApiInterface
      *
      * Get class descriptions.
      *
-     * @param  int $RequestClassDescriptionId Filters to the single result with the given ID. (optional)
+     * @param  int $RequestClassDescriptionId The ID of the requested client. (optional)
      * @param  \DateTime $RequestEndClassDateTime Filters the results to class descriptions for scheduled classes that happen before the given date and time. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestLocationId Filters results to classes descriptions for schedule classes as the given location. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  int[] $RequestProgramIds Filters results to class descriptions belonging to the given programs. (optional)
+     * @param  int[] $RequestProgramIds A list of requested program IDs. (optional)
      * @param  int $RequestStaffId Filters results to class descriptions for scheduled classes taught by the given staff member. (optional)
      * @param  \DateTime $RequestStartClassDateTime Filters the results to class descriptions for scheduled classes that happen on or after the given date and time. (optional)
      *
@@ -1032,12 +1032,12 @@ class ClassApi implements ApiInterface
      *
      * Get class descriptions.
      *
-     * @param  int $RequestClassDescriptionId Filters to the single result with the given ID. (optional)
+     * @param  int $RequestClassDescriptionId The ID of the requested client. (optional)
      * @param  \DateTime $RequestEndClassDateTime Filters the results to class descriptions for scheduled classes that happen before the given date and time. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestLocationId Filters results to classes descriptions for schedule classes as the given location. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  int[] $RequestProgramIds Filters results to class descriptions belonging to the given programs. (optional)
+     * @param  int[] $RequestProgramIds A list of requested program IDs. (optional)
      * @param  int $RequestStaffId Filters results to class descriptions for scheduled classes taught by the given staff member. (optional)
      * @param  \DateTime $RequestStartClassDateTime Filters the results to class descriptions for scheduled classes that happen on or after the given date and time. (optional)
      *
@@ -1059,12 +1059,12 @@ class ClassApi implements ApiInterface
      *
      * Get class descriptions.
      *
-     * @param  int $RequestClassDescriptionId Filters to the single result with the given ID. (optional)
+     * @param  int $RequestClassDescriptionId The ID of the requested client. (optional)
      * @param  \DateTime $RequestEndClassDateTime Filters the results to class descriptions for scheduled classes that happen before the given date and time. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestLocationId Filters results to classes descriptions for schedule classes as the given location. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  int[] $RequestProgramIds Filters results to class descriptions belonging to the given programs. (optional)
+     * @param  int[] $RequestProgramIds A list of requested program IDs. (optional)
      * @param  int $RequestStaffId Filters results to class descriptions for scheduled classes taught by the given staff member. (optional)
      * @param  \DateTime $RequestStartClassDateTime Filters the results to class descriptions for scheduled classes that happen on or after the given date and time. (optional)
      *
@@ -1116,12 +1116,12 @@ class ClassApi implements ApiInterface
     /**
      * Create request for operation 'classGetClassDescriptions'
      *
-     * @param  int $RequestClassDescriptionId Filters to the single result with the given ID. (optional)
+     * @param  int $RequestClassDescriptionId The ID of the requested client. (optional)
      * @param  \DateTime $RequestEndClassDateTime Filters the results to class descriptions for scheduled classes that happen before the given date and time. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestLocationId Filters results to classes descriptions for schedule classes as the given location. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  int[] $RequestProgramIds Filters results to class descriptions belonging to the given programs. (optional)
+     * @param  int[] $RequestProgramIds A list of requested program IDs. (optional)
      * @param  int $RequestStaffId Filters results to class descriptions for scheduled classes taught by the given staff member. (optional)
      * @param  \DateTime $RequestStartClassDateTime Filters the results to class descriptions for scheduled classes that happen on or after the given date and time. (optional)
      *
@@ -1912,7 +1912,7 @@ class ClassApi implements ApiInterface
      *
      * @param  int[] $RequestClassDescriptionIds The requested class description IDs. (optional)
      * @param  int[] $RequestClassIds The requested class IDs. (optional)
-     * @param  int[] $RequestClassScheduleIds The requested classScheduleIds. (optional)
+     * @param  int[] $RequestClassScheduleIds The requested classSchedule Ids. (optional)
      * @param  string $RequestClientId The client ID of the client who is viewing this class list. Based on identity, the client may be able to see additional information, such as membership specials. (optional)
      * @param  \DateTime $RequestEndDateTime The requested end date for filtering.  &lt;br /&gt;Default: **today’s date** (optional)
      * @param  bool $RequestHideCanceledClasses When &#x60;true&#x60;, canceled classes are removed from the response.&lt;br /&gt;  When &#x60;false&#x60;, canceled classes are included in the response.&lt;br /&gt;  Default: **false** (optional)
@@ -1925,7 +1925,7 @@ class ClassApi implements ApiInterface
      * @param  int[] $RequestSemesterIds A list of semester IDs on which to base the search. (optional)
      * @param  int[] $RequestSessionTypeIds A list of session type IDs on which to base the search. (optional)
      * @param  int[] $RequestStaffIds The requested IDs of the teaching staff members. (optional)
-     * @param  \DateTime $RequestStartDateTime The requested start date for filtering.   &lt;br /&gt;Default: **today’s date** (optional)
+     * @param  \DateTime $RequestStartDateTime The requested start date for filtering. This also determines what you will see for the ‘BookingWindow’ StartDateTime in the response. For example, if you pass a StartDateTime that is on OR before the BookingWindow ‘Open’ days of the class, you will retrieve the actual ‘StartDateTime’ for the Booking Window. If you pass a StartDateTime that is after the BookingWindow ‘date’, then you will receive results based on that start date. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1944,7 +1944,7 @@ class ClassApi implements ApiInterface
      *
      * @param  int[] $RequestClassDescriptionIds The requested class description IDs. (optional)
      * @param  int[] $RequestClassIds The requested class IDs. (optional)
-     * @param  int[] $RequestClassScheduleIds The requested classScheduleIds. (optional)
+     * @param  int[] $RequestClassScheduleIds The requested classSchedule Ids. (optional)
      * @param  string $RequestClientId The client ID of the client who is viewing this class list. Based on identity, the client may be able to see additional information, such as membership specials. (optional)
      * @param  \DateTime $RequestEndDateTime The requested end date for filtering.  &lt;br /&gt;Default: **today’s date** (optional)
      * @param  bool $RequestHideCanceledClasses When &#x60;true&#x60;, canceled classes are removed from the response.&lt;br /&gt;  When &#x60;false&#x60;, canceled classes are included in the response.&lt;br /&gt;  Default: **false** (optional)
@@ -1957,7 +1957,7 @@ class ClassApi implements ApiInterface
      * @param  int[] $RequestSemesterIds A list of semester IDs on which to base the search. (optional)
      * @param  int[] $RequestSessionTypeIds A list of session type IDs on which to base the search. (optional)
      * @param  int[] $RequestStaffIds The requested IDs of the teaching staff members. (optional)
-     * @param  \DateTime $RequestStartDateTime The requested start date for filtering.   &lt;br /&gt;Default: **today’s date** (optional)
+     * @param  \DateTime $RequestStartDateTime The requested start date for filtering. This also determines what you will see for the ‘BookingWindow’ StartDateTime in the response. For example, if you pass a StartDateTime that is on OR before the BookingWindow ‘Open’ days of the class, you will retrieve the actual ‘StartDateTime’ for the Booking Window. If you pass a StartDateTime that is after the BookingWindow ‘date’, then you will receive results based on that start date. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2034,7 +2034,7 @@ class ClassApi implements ApiInterface
      *
      * @param  int[] $RequestClassDescriptionIds The requested class description IDs. (optional)
      * @param  int[] $RequestClassIds The requested class IDs. (optional)
-     * @param  int[] $RequestClassScheduleIds The requested classScheduleIds. (optional)
+     * @param  int[] $RequestClassScheduleIds The requested classSchedule Ids. (optional)
      * @param  string $RequestClientId The client ID of the client who is viewing this class list. Based on identity, the client may be able to see additional information, such as membership specials. (optional)
      * @param  \DateTime $RequestEndDateTime The requested end date for filtering.  &lt;br /&gt;Default: **today’s date** (optional)
      * @param  bool $RequestHideCanceledClasses When &#x60;true&#x60;, canceled classes are removed from the response.&lt;br /&gt;  When &#x60;false&#x60;, canceled classes are included in the response.&lt;br /&gt;  Default: **false** (optional)
@@ -2047,7 +2047,7 @@ class ClassApi implements ApiInterface
      * @param  int[] $RequestSemesterIds A list of semester IDs on which to base the search. (optional)
      * @param  int[] $RequestSessionTypeIds A list of session type IDs on which to base the search. (optional)
      * @param  int[] $RequestStaffIds The requested IDs of the teaching staff members. (optional)
-     * @param  \DateTime $RequestStartDateTime The requested start date for filtering.   &lt;br /&gt;Default: **today’s date** (optional)
+     * @param  \DateTime $RequestStartDateTime The requested start date for filtering. This also determines what you will see for the ‘BookingWindow’ StartDateTime in the response. For example, if you pass a StartDateTime that is on OR before the BookingWindow ‘Open’ days of the class, you will retrieve the actual ‘StartDateTime’ for the Booking Window. If you pass a StartDateTime that is after the BookingWindow ‘date’, then you will receive results based on that start date. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2069,7 +2069,7 @@ class ClassApi implements ApiInterface
      *
      * @param  int[] $RequestClassDescriptionIds The requested class description IDs. (optional)
      * @param  int[] $RequestClassIds The requested class IDs. (optional)
-     * @param  int[] $RequestClassScheduleIds The requested classScheduleIds. (optional)
+     * @param  int[] $RequestClassScheduleIds The requested classSchedule Ids. (optional)
      * @param  string $RequestClientId The client ID of the client who is viewing this class list. Based on identity, the client may be able to see additional information, such as membership specials. (optional)
      * @param  \DateTime $RequestEndDateTime The requested end date for filtering.  &lt;br /&gt;Default: **today’s date** (optional)
      * @param  bool $RequestHideCanceledClasses When &#x60;true&#x60;, canceled classes are removed from the response.&lt;br /&gt;  When &#x60;false&#x60;, canceled classes are included in the response.&lt;br /&gt;  Default: **false** (optional)
@@ -2082,7 +2082,7 @@ class ClassApi implements ApiInterface
      * @param  int[] $RequestSemesterIds A list of semester IDs on which to base the search. (optional)
      * @param  int[] $RequestSessionTypeIds A list of session type IDs on which to base the search. (optional)
      * @param  int[] $RequestStaffIds The requested IDs of the teaching staff members. (optional)
-     * @param  \DateTime $RequestStartDateTime The requested start date for filtering.   &lt;br /&gt;Default: **today’s date** (optional)
+     * @param  \DateTime $RequestStartDateTime The requested start date for filtering. This also determines what you will see for the ‘BookingWindow’ StartDateTime in the response. For example, if you pass a StartDateTime that is on OR before the BookingWindow ‘Open’ days of the class, you will retrieve the actual ‘StartDateTime’ for the Booking Window. If you pass a StartDateTime that is after the BookingWindow ‘date’, then you will receive results based on that start date. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2134,7 +2134,7 @@ class ClassApi implements ApiInterface
      *
      * @param  int[] $RequestClassDescriptionIds The requested class description IDs. (optional)
      * @param  int[] $RequestClassIds The requested class IDs. (optional)
-     * @param  int[] $RequestClassScheduleIds The requested classScheduleIds. (optional)
+     * @param  int[] $RequestClassScheduleIds The requested classSchedule Ids. (optional)
      * @param  string $RequestClientId The client ID of the client who is viewing this class list. Based on identity, the client may be able to see additional information, such as membership specials. (optional)
      * @param  \DateTime $RequestEndDateTime The requested end date for filtering.  &lt;br /&gt;Default: **today’s date** (optional)
      * @param  bool $RequestHideCanceledClasses When &#x60;true&#x60;, canceled classes are removed from the response.&lt;br /&gt;  When &#x60;false&#x60;, canceled classes are included in the response.&lt;br /&gt;  Default: **false** (optional)
@@ -2147,7 +2147,7 @@ class ClassApi implements ApiInterface
      * @param  int[] $RequestSemesterIds A list of semester IDs on which to base the search. (optional)
      * @param  int[] $RequestSessionTypeIds A list of session type IDs on which to base the search. (optional)
      * @param  int[] $RequestStaffIds The requested IDs of the teaching staff members. (optional)
-     * @param  \DateTime $RequestStartDateTime The requested start date for filtering.   &lt;br /&gt;Default: **today’s date** (optional)
+     * @param  \DateTime $RequestStartDateTime The requested start date for filtering. This also determines what you will see for the ‘BookingWindow’ StartDateTime in the response. For example, if you pass a StartDateTime that is on OR before the BookingWindow ‘Open’ days of the class, you will retrieve the actual ‘StartDateTime’ for the Booking Window. If you pass a StartDateTime that is after the BookingWindow ‘date’, then you will receive results based on that start date. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2343,14 +2343,14 @@ class ClassApi implements ApiInterface
      *
      * Fetch the list of the course for a studio
      *
-     * @param  int[] $GetCoursesRequestCourseIDs (optional) The requested course IDs. (optional)
+     * @param  int[] $GetCoursesRequestCourseIDs Return only courses that are available for the specified CourseIds. (optional)
      * @param  \DateTime $GetCoursesRequestEndDate The end date range. Any active courses that are on or before this day.  &lt;br /&gt;(optional) Defaults to StartDate. (optional)
      * @param  int $GetCoursesRequestLimit Number of results to include, defaults to 100 (optional)
-     * @param  int[] $GetCoursesRequestLocationIDs (optional) The requested locations. (optional)
+     * @param  int[] $GetCoursesRequestLocationIDs Return only courses that are available for the specified LocationIds. (optional)
      * @param  int $GetCoursesRequestOffset Page offset, defaults to 0. (optional)
-     * @param  int[] $GetCoursesRequestProgramIDs (optional) The requested program IDs. (optional)
-     * @param  int[] $GetCoursesRequestSemesterIDs (optional) The requested semester IDs. (optional)
-     * @param  int[] $GetCoursesRequestStaffIDs (optional) The requested StaffIDs. (optional)
+     * @param  int[] $GetCoursesRequestProgramIDs Return only courses that are available for the specified ProgramIds. (optional)
+     * @param  int[] $GetCoursesRequestSemesterIDs Return only courses that are available for the specified SemesterIds. (optional)
+     * @param  int[] $GetCoursesRequestStaffIDs Return only courses that are available for the specified StaffIds. (optional)
      * @param  \DateTime $GetCoursesRequestStartDate The start date range. Any active courses that are on or after this day.  &lt;br /&gt;(optional) Defaults to today. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
@@ -2368,14 +2368,14 @@ class ClassApi implements ApiInterface
      *
      * Fetch the list of the course for a studio
      *
-     * @param  int[] $GetCoursesRequestCourseIDs (optional) The requested course IDs. (optional)
+     * @param  int[] $GetCoursesRequestCourseIDs Return only courses that are available for the specified CourseIds. (optional)
      * @param  \DateTime $GetCoursesRequestEndDate The end date range. Any active courses that are on or before this day.  &lt;br /&gt;(optional) Defaults to StartDate. (optional)
      * @param  int $GetCoursesRequestLimit Number of results to include, defaults to 100 (optional)
-     * @param  int[] $GetCoursesRequestLocationIDs (optional) The requested locations. (optional)
+     * @param  int[] $GetCoursesRequestLocationIDs Return only courses that are available for the specified LocationIds. (optional)
      * @param  int $GetCoursesRequestOffset Page offset, defaults to 0. (optional)
-     * @param  int[] $GetCoursesRequestProgramIDs (optional) The requested program IDs. (optional)
-     * @param  int[] $GetCoursesRequestSemesterIDs (optional) The requested semester IDs. (optional)
-     * @param  int[] $GetCoursesRequestStaffIDs (optional) The requested StaffIDs. (optional)
+     * @param  int[] $GetCoursesRequestProgramIDs Return only courses that are available for the specified ProgramIds. (optional)
+     * @param  int[] $GetCoursesRequestSemesterIDs Return only courses that are available for the specified SemesterIds. (optional)
+     * @param  int[] $GetCoursesRequestStaffIDs Return only courses that are available for the specified StaffIds. (optional)
      * @param  \DateTime $GetCoursesRequestStartDate The start date range. Any active courses that are on or after this day.  &lt;br /&gt;(optional) Defaults to today. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
@@ -2451,14 +2451,14 @@ class ClassApi implements ApiInterface
      *
      * Fetch the list of the course for a studio
      *
-     * @param  int[] $GetCoursesRequestCourseIDs (optional) The requested course IDs. (optional)
+     * @param  int[] $GetCoursesRequestCourseIDs Return only courses that are available for the specified CourseIds. (optional)
      * @param  \DateTime $GetCoursesRequestEndDate The end date range. Any active courses that are on or before this day.  &lt;br /&gt;(optional) Defaults to StartDate. (optional)
      * @param  int $GetCoursesRequestLimit Number of results to include, defaults to 100 (optional)
-     * @param  int[] $GetCoursesRequestLocationIDs (optional) The requested locations. (optional)
+     * @param  int[] $GetCoursesRequestLocationIDs Return only courses that are available for the specified LocationIds. (optional)
      * @param  int $GetCoursesRequestOffset Page offset, defaults to 0. (optional)
-     * @param  int[] $GetCoursesRequestProgramIDs (optional) The requested program IDs. (optional)
-     * @param  int[] $GetCoursesRequestSemesterIDs (optional) The requested semester IDs. (optional)
-     * @param  int[] $GetCoursesRequestStaffIDs (optional) The requested StaffIDs. (optional)
+     * @param  int[] $GetCoursesRequestProgramIDs Return only courses that are available for the specified ProgramIds. (optional)
+     * @param  int[] $GetCoursesRequestSemesterIDs Return only courses that are available for the specified SemesterIds. (optional)
+     * @param  int[] $GetCoursesRequestStaffIDs Return only courses that are available for the specified StaffIds. (optional)
      * @param  \DateTime $GetCoursesRequestStartDate The start date range. Any active courses that are on or after this day.  &lt;br /&gt;(optional) Defaults to today. (optional)
      *
      * @throws \InvalidArgumentException
@@ -2479,14 +2479,14 @@ class ClassApi implements ApiInterface
      *
      * Fetch the list of the course for a studio
      *
-     * @param  int[] $GetCoursesRequestCourseIDs (optional) The requested course IDs. (optional)
+     * @param  int[] $GetCoursesRequestCourseIDs Return only courses that are available for the specified CourseIds. (optional)
      * @param  \DateTime $GetCoursesRequestEndDate The end date range. Any active courses that are on or before this day.  &lt;br /&gt;(optional) Defaults to StartDate. (optional)
      * @param  int $GetCoursesRequestLimit Number of results to include, defaults to 100 (optional)
-     * @param  int[] $GetCoursesRequestLocationIDs (optional) The requested locations. (optional)
+     * @param  int[] $GetCoursesRequestLocationIDs Return only courses that are available for the specified LocationIds. (optional)
      * @param  int $GetCoursesRequestOffset Page offset, defaults to 0. (optional)
-     * @param  int[] $GetCoursesRequestProgramIDs (optional) The requested program IDs. (optional)
-     * @param  int[] $GetCoursesRequestSemesterIDs (optional) The requested semester IDs. (optional)
-     * @param  int[] $GetCoursesRequestStaffIDs (optional) The requested StaffIDs. (optional)
+     * @param  int[] $GetCoursesRequestProgramIDs Return only courses that are available for the specified ProgramIds. (optional)
+     * @param  int[] $GetCoursesRequestSemesterIDs Return only courses that are available for the specified SemesterIds. (optional)
+     * @param  int[] $GetCoursesRequestStaffIDs Return only courses that are available for the specified StaffIds. (optional)
      * @param  \DateTime $GetCoursesRequestStartDate The start date range. Any active courses that are on or after this day.  &lt;br /&gt;(optional) Defaults to today. (optional)
      *
      * @throws \InvalidArgumentException
@@ -2537,14 +2537,14 @@ class ClassApi implements ApiInterface
     /**
      * Create request for operation 'classGetCourses'
      *
-     * @param  int[] $GetCoursesRequestCourseIDs (optional) The requested course IDs. (optional)
+     * @param  int[] $GetCoursesRequestCourseIDs Return only courses that are available for the specified CourseIds. (optional)
      * @param  \DateTime $GetCoursesRequestEndDate The end date range. Any active courses that are on or before this day.  &lt;br /&gt;(optional) Defaults to StartDate. (optional)
      * @param  int $GetCoursesRequestLimit Number of results to include, defaults to 100 (optional)
-     * @param  int[] $GetCoursesRequestLocationIDs (optional) The requested locations. (optional)
+     * @param  int[] $GetCoursesRequestLocationIDs Return only courses that are available for the specified LocationIds. (optional)
      * @param  int $GetCoursesRequestOffset Page offset, defaults to 0. (optional)
-     * @param  int[] $GetCoursesRequestProgramIDs (optional) The requested program IDs. (optional)
-     * @param  int[] $GetCoursesRequestSemesterIDs (optional) The requested semester IDs. (optional)
-     * @param  int[] $GetCoursesRequestStaffIDs (optional) The requested StaffIDs. (optional)
+     * @param  int[] $GetCoursesRequestProgramIDs Return only courses that are available for the specified ProgramIds. (optional)
+     * @param  int[] $GetCoursesRequestSemesterIDs Return only courses that are available for the specified SemesterIds. (optional)
+     * @param  int[] $GetCoursesRequestStaffIDs Return only courses that are available for the specified StaffIds. (optional)
      * @param  \DateTime $GetCoursesRequestStartDate The start date range. Any active courses that are on or after this day.  &lt;br /&gt;(optional) Defaults to today. (optional)
      *
      * @throws \InvalidArgumentException
@@ -2704,12 +2704,12 @@ class ClassApi implements ApiInterface
      *
      * Fetch the list of the Semesters
      *
-     * @param  bool $RequestActive Get Active semesters (optional)
-     * @param  \DateTime $RequestEndDate Filter semesters with end date (optional)
+     * @param  bool $RequestActive When true, the response only contains semesters which are activated. When false, only deactivated semesters are returned.  Default: **All semesters** (optional)
+     * @param  \DateTime $RequestEndDate The end date for the range. All semesters that are on or before this day.  Default: **StartDate** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  int[] $RequestSemesterIDs Get with semester ids (optional)
-     * @param  \DateTime $RequestStartDate Filter semesters with start date (optional)
+     * @param  int[] $RequestSemesterIDs The requested semester IDs. (optional)
+     * @param  \DateTime $RequestStartDate The start date for the range. All semesters that are on or after this day.  Default: **today’s date** (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2726,12 +2726,12 @@ class ClassApi implements ApiInterface
      *
      * Fetch the list of the Semesters
      *
-     * @param  bool $RequestActive Get Active semesters (optional)
-     * @param  \DateTime $RequestEndDate Filter semesters with end date (optional)
+     * @param  bool $RequestActive When true, the response only contains semesters which are activated. When false, only deactivated semesters are returned.  Default: **All semesters** (optional)
+     * @param  \DateTime $RequestEndDate The end date for the range. All semesters that are on or before this day.  Default: **StartDate** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  int[] $RequestSemesterIDs Get with semester ids (optional)
-     * @param  \DateTime $RequestStartDate Filter semesters with start date (optional)
+     * @param  int[] $RequestSemesterIDs The requested semester IDs. (optional)
+     * @param  \DateTime $RequestStartDate The start date for the range. All semesters that are on or after this day.  Default: **today’s date** (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2806,12 +2806,12 @@ class ClassApi implements ApiInterface
      *
      * Fetch the list of the Semesters
      *
-     * @param  bool $RequestActive Get Active semesters (optional)
-     * @param  \DateTime $RequestEndDate Filter semesters with end date (optional)
+     * @param  bool $RequestActive When true, the response only contains semesters which are activated. When false, only deactivated semesters are returned.  Default: **All semesters** (optional)
+     * @param  \DateTime $RequestEndDate The end date for the range. All semesters that are on or before this day.  Default: **StartDate** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  int[] $RequestSemesterIDs Get with semester ids (optional)
-     * @param  \DateTime $RequestStartDate Filter semesters with start date (optional)
+     * @param  int[] $RequestSemesterIDs The requested semester IDs. (optional)
+     * @param  \DateTime $RequestStartDate The start date for the range. All semesters that are on or after this day.  Default: **today’s date** (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2831,12 +2831,12 @@ class ClassApi implements ApiInterface
      *
      * Fetch the list of the Semesters
      *
-     * @param  bool $RequestActive Get Active semesters (optional)
-     * @param  \DateTime $RequestEndDate Filter semesters with end date (optional)
+     * @param  bool $RequestActive When true, the response only contains semesters which are activated. When false, only deactivated semesters are returned.  Default: **All semesters** (optional)
+     * @param  \DateTime $RequestEndDate The end date for the range. All semesters that are on or before this day.  Default: **StartDate** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  int[] $RequestSemesterIDs Get with semester ids (optional)
-     * @param  \DateTime $RequestStartDate Filter semesters with start date (optional)
+     * @param  int[] $RequestSemesterIDs The requested semester IDs. (optional)
+     * @param  \DateTime $RequestStartDate The start date for the range. All semesters that are on or after this day.  Default: **today’s date** (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2886,12 +2886,12 @@ class ClassApi implements ApiInterface
     /**
      * Create request for operation 'classGetSemestersAsync'
      *
-     * @param  bool $RequestActive Get Active semesters (optional)
-     * @param  \DateTime $RequestEndDate Filter semesters with end date (optional)
+     * @param  bool $RequestActive When true, the response only contains semesters which are activated. When false, only deactivated semesters are returned.  Default: **All semesters** (optional)
+     * @param  \DateTime $RequestEndDate The end date for the range. All semesters that are on or before this day.  Default: **StartDate** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  int[] $RequestSemesterIDs Get with semester ids (optional)
-     * @param  \DateTime $RequestStartDate Filter semesters with start date (optional)
+     * @param  int[] $RequestSemesterIDs The requested semester IDs. (optional)
+     * @param  \DateTime $RequestStartDate The start date for the range. All semesters that are on or after this day.  Default: **today’s date** (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3924,7 +3924,7 @@ class ClassApi implements ApiInterface
      *
      * Remove a client from a waiting list.
      *
-     * @param  int[] $RequestWaitlistEntryIds A list of waiting list IDs to remove from waiting lists. (required)
+     * @param  int[] $RequestWaitlistEntryIds A list of &#x60;WaitlistEntryIds&#x60; to remove from the waiting list. (required)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3941,7 +3941,7 @@ class ClassApi implements ApiInterface
      *
      * Remove a client from a waiting list.
      *
-     * @param  int[] $RequestWaitlistEntryIds A list of waiting list IDs to remove from waiting lists. (required)
+     * @param  int[] $RequestWaitlistEntryIds A list of &#x60;WaitlistEntryIds&#x60; to remove from the waiting list. (required)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -4016,7 +4016,7 @@ class ClassApi implements ApiInterface
      *
      * Remove a client from a waiting list.
      *
-     * @param  int[] $RequestWaitlistEntryIds A list of waiting list IDs to remove from waiting lists. (required)
+     * @param  int[] $RequestWaitlistEntryIds A list of &#x60;WaitlistEntryIds&#x60; to remove from the waiting list. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4036,7 +4036,7 @@ class ClassApi implements ApiInterface
      *
      * Remove a client from a waiting list.
      *
-     * @param  int[] $RequestWaitlistEntryIds A list of waiting list IDs to remove from waiting lists. (required)
+     * @param  int[] $RequestWaitlistEntryIds A list of &#x60;WaitlistEntryIds&#x60; to remove from the waiting list. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -4086,7 +4086,7 @@ class ClassApi implements ApiInterface
     /**
      * Create request for operation 'classRemoveFromWaitlist'
      *
-     * @param  int[] $RequestWaitlistEntryIds A list of waiting list IDs to remove from waiting lists. (required)
+     * @param  int[] $RequestWaitlistEntryIds A list of &#x60;WaitlistEntryIds&#x60; to remove from the waiting list. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

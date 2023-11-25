@@ -649,6 +649,8 @@ class ClientApi implements ApiInterface
     /**
      * Operation clientAddClientDirectDebitInfo
      *
+     * Add client Direct debit info.
+     *
      * @param  \Nlocascio\Mindbody\Model\AddClientDirectDebitInfoRequest $Request Request (required)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
@@ -663,6 +665,8 @@ class ClientApi implements ApiInterface
 
     /**
      * Operation clientAddClientDirectDebitInfoWithHttpInfo
+     *
+     * Add client Direct debit info.
      *
      * @param  \Nlocascio\Mindbody\Model\AddClientDirectDebitInfoRequest $Request (required)
      *
@@ -737,7 +741,7 @@ class ClientApi implements ApiInterface
     /**
      * Operation clientAddClientDirectDebitInfoAsync
      *
-     * 
+     * Add client Direct debit info.
      *
      * @param  \Nlocascio\Mindbody\Model\AddClientDirectDebitInfoRequest $Request (required)
      *
@@ -757,7 +761,7 @@ class ClientApi implements ApiInterface
     /**
      * Operation clientAddClientDirectDebitInfoAsyncWithHttpInfo
      *
-     * 
+     * Add client Direct debit info.
      *
      * @param  \Nlocascio\Mindbody\Model\AddClientDirectDebitInfoRequest $Request (required)
      *
@@ -1203,6 +1207,8 @@ class ClientApi implements ApiInterface
     /**
      * Operation clientAddFormulaNote
      *
+     * Add client's formula note
+     *
      * @param  \Nlocascio\Mindbody\Model\AddFormulaNoteRequest $Request Request (required)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
@@ -1217,6 +1223,8 @@ class ClientApi implements ApiInterface
 
     /**
      * Operation clientAddFormulaNoteWithHttpInfo
+     *
+     * Add client's formula note
      *
      * @param  \Nlocascio\Mindbody\Model\AddFormulaNoteRequest $Request (required)
      *
@@ -1291,7 +1299,7 @@ class ClientApi implements ApiInterface
     /**
      * Operation clientAddFormulaNoteAsync
      *
-     * 
+     * Add client's formula note
      *
      * @param  \Nlocascio\Mindbody\Model\AddFormulaNoteRequest $Request (required)
      *
@@ -1311,7 +1319,7 @@ class ClientApi implements ApiInterface
     /**
      * Operation clientAddFormulaNoteAsyncWithHttpInfo
      *
-     * 
+     * Add client's formula note
      *
      * @param  \Nlocascio\Mindbody\Model\AddFormulaNoteRequest $Request (required)
      *
@@ -1480,8 +1488,8 @@ class ClientApi implements ApiInterface
      *
      * Deletes client's formula note.
      *
-     * @param  string $RequestClientId The client ID of the client whose formula notes are being requested. (required)
-     * @param  int $RequestFormulaNoteId The Formula Note ID. (required)
+     * @param  string $RequestClientId The client ID of the client whose formula note needs to be deleted. (required)
+     * @param  int $RequestFormulaNoteId The formula note ID for the note to be deleted. (required)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      *
@@ -1499,8 +1507,8 @@ class ClientApi implements ApiInterface
      *
      * Deletes client's formula note.
      *
-     * @param  string $RequestClientId The client ID of the client whose formula notes are being requested. (required)
-     * @param  int $RequestFormulaNoteId The Formula Note ID. (required)
+     * @param  string $RequestClientId The client ID of the client whose formula note needs to be deleted. (required)
+     * @param  int $RequestFormulaNoteId The formula note ID for the note to be deleted. (required)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      *
@@ -1555,8 +1563,8 @@ class ClientApi implements ApiInterface
      *
      * Deletes client's formula note.
      *
-     * @param  string $RequestClientId The client ID of the client whose formula notes are being requested. (required)
-     * @param  int $RequestFormulaNoteId The Formula Note ID. (required)
+     * @param  string $RequestClientId The client ID of the client whose formula note needs to be deleted. (required)
+     * @param  int $RequestFormulaNoteId The formula note ID for the note to be deleted. (required)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      *
@@ -1578,8 +1586,8 @@ class ClientApi implements ApiInterface
      *
      * Deletes client's formula note.
      *
-     * @param  string $RequestClientId The client ID of the client whose formula notes are being requested. (required)
-     * @param  int $RequestFormulaNoteId The Formula Note ID. (required)
+     * @param  string $RequestClientId The client ID of the client whose formula note needs to be deleted. (required)
+     * @param  int $RequestFormulaNoteId The formula note ID for the note to be deleted. (required)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      *
@@ -1617,8 +1625,8 @@ class ClientApi implements ApiInterface
     /**
      * Create request for operation 'clientDeleteClientFormulaNote'
      *
-     * @param  string $RequestClientId The client ID of the client whose formula notes are being requested. (required)
-     * @param  int $RequestFormulaNoteId The Formula Note ID. (required)
+     * @param  string $RequestClientId The client ID of the client whose formula note needs to be deleted. (required)
+     * @param  int $RequestFormulaNoteId The formula note ID for the note to be deleted. (required)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      *
@@ -1648,20 +1656,20 @@ class ClientApi implements ApiInterface
         $multipart = false;
 
         // query params
-        if ($RequestClientId !== null) {
-            $queryParams['request.clientId'] = ObjectSerializer::toQueryValue($RequestClientId);
-        }
-        // query params
-        if ($RequestFormulaNoteId !== null) {
-            $queryParams['request.formulaNoteId'] = ObjectSerializer::toQueryValue($RequestFormulaNoteId);
-        }
-        // query params
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
         // query params
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
+        }
+        // query params
+        if ($RequestClientId !== null) {
+            $queryParams['request.clientId'] = ObjectSerializer::toQueryValue($RequestClientId);
+        }
+        // query params
+        if ($RequestFormulaNoteId !== null) {
+            $queryParams['request.formulaNoteId'] = ObjectSerializer::toQueryValue($RequestFormulaNoteId);
         }
 
 
@@ -1956,16 +1964,16 @@ class ClientApi implements ApiInterface
         $multipart = false;
 
         // query params
+        if ($RequestTest !== null) {
+            $queryParams['request.test'] = ObjectSerializer::toQueryValue($RequestTest);
+        }
+        // query params
         if ($RequestClientId !== null) {
             $queryParams['request.clientId'] = ObjectSerializer::toQueryValue($RequestClientId);
         }
         // query params
         if ($RequestContactLogId !== null) {
             $queryParams['request.contactLogId'] = ObjectSerializer::toQueryValue($RequestContactLogId);
-        }
-        // query params
-        if ($RequestTest !== null) {
-            $queryParams['request.test'] = ObjectSerializer::toQueryValue($RequestTest);
         }
 
 
@@ -2334,11 +2342,11 @@ class ClientApi implements ApiInterface
      *
      * Get a client's active memberships.
      *
-     * @param  string $RequestClientId The ID of the client whose membership was requested. (required)
+     * @param  string $RequestClientId The ID of the client for whom memberships are returned. (required)
      * @param  int $RequestClientAssociatedSitesOffset Used to retrieve a client’s memberships from multiple sites within an organization when the client is associated with more than ten sites. To change which ten sites are searched, change this offset value. A value of 0 means that no sites are skipped and the first ten sites are returned. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that you must always have &#x60;CrossRegionalLookup&#x60; set to &#x60;true&#x60; to use this parameter.&lt;br /&gt;  Default: **0**    For example, if a client is associated with 25 sites, you need to call &#x60;GetClientServices&#x60; three times, as follows:  * Use &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites a client is associated with, which tells you how many additional calls you need to make.  * Either omit &#x60;ClientAssociatedSitesOffset&#x60; or set it to 0 to return the client’s services (pricing options) from sites 1-10.  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 10 to return the client pricing options from sites 11-20  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 20 to return the client pricing options from sites 21-25 (optional)
      * @param  bool $RequestCrossRegionalLookup Used to retrieve a client’s memberships from multiple sites within an organization. When included and set to &#x60;true&#x60;, it searches a maximum of ten sites with which this client is associated. When a client is associated with more than ten sites, use &#x60;ClientAssociatedSitesOffset&#x60; as many times as needed to search the additional sites with which the client is associated. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that a &#x60;SiteID&#x60; is returned and populated in the &#x60;ClientServices&#x60; response when &#x60;CrossRegionalLookup&#x60; is set to &#x60;true&#x60;.  Default: **false** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
-     * @param  int $RequestLocationId The ID of the location where the requested membership was created. (optional)
+     * @param  int $RequestLocationId Filters results to memberships that can be used to pay for scheduled services at that location. This parameter can not be passed when &#x60;CrossRegionalLookup&#x60; is &#x60;true&#x60;. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
@@ -2356,11 +2364,11 @@ class ClientApi implements ApiInterface
      *
      * Get a client's active memberships.
      *
-     * @param  string $RequestClientId The ID of the client whose membership was requested. (required)
+     * @param  string $RequestClientId The ID of the client for whom memberships are returned. (required)
      * @param  int $RequestClientAssociatedSitesOffset Used to retrieve a client’s memberships from multiple sites within an organization when the client is associated with more than ten sites. To change which ten sites are searched, change this offset value. A value of 0 means that no sites are skipped and the first ten sites are returned. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that you must always have &#x60;CrossRegionalLookup&#x60; set to &#x60;true&#x60; to use this parameter.&lt;br /&gt;  Default: **0**    For example, if a client is associated with 25 sites, you need to call &#x60;GetClientServices&#x60; three times, as follows:  * Use &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites a client is associated with, which tells you how many additional calls you need to make.  * Either omit &#x60;ClientAssociatedSitesOffset&#x60; or set it to 0 to return the client’s services (pricing options) from sites 1-10.  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 10 to return the client pricing options from sites 11-20  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 20 to return the client pricing options from sites 21-25 (optional)
      * @param  bool $RequestCrossRegionalLookup Used to retrieve a client’s memberships from multiple sites within an organization. When included and set to &#x60;true&#x60;, it searches a maximum of ten sites with which this client is associated. When a client is associated with more than ten sites, use &#x60;ClientAssociatedSitesOffset&#x60; as many times as needed to search the additional sites with which the client is associated. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that a &#x60;SiteID&#x60; is returned and populated in the &#x60;ClientServices&#x60; response when &#x60;CrossRegionalLookup&#x60; is set to &#x60;true&#x60;.  Default: **false** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
-     * @param  int $RequestLocationId The ID of the location where the requested membership was created. (optional)
+     * @param  int $RequestLocationId Filters results to memberships that can be used to pay for scheduled services at that location. This parameter can not be passed when &#x60;CrossRegionalLookup&#x60; is &#x60;true&#x60;. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
@@ -2436,11 +2444,11 @@ class ClientApi implements ApiInterface
      *
      * Get a client's active memberships.
      *
-     * @param  string $RequestClientId The ID of the client whose membership was requested. (required)
+     * @param  string $RequestClientId The ID of the client for whom memberships are returned. (required)
      * @param  int $RequestClientAssociatedSitesOffset Used to retrieve a client’s memberships from multiple sites within an organization when the client is associated with more than ten sites. To change which ten sites are searched, change this offset value. A value of 0 means that no sites are skipped and the first ten sites are returned. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that you must always have &#x60;CrossRegionalLookup&#x60; set to &#x60;true&#x60; to use this parameter.&lt;br /&gt;  Default: **0**    For example, if a client is associated with 25 sites, you need to call &#x60;GetClientServices&#x60; three times, as follows:  * Use &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites a client is associated with, which tells you how many additional calls you need to make.  * Either omit &#x60;ClientAssociatedSitesOffset&#x60; or set it to 0 to return the client’s services (pricing options) from sites 1-10.  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 10 to return the client pricing options from sites 11-20  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 20 to return the client pricing options from sites 21-25 (optional)
      * @param  bool $RequestCrossRegionalLookup Used to retrieve a client’s memberships from multiple sites within an organization. When included and set to &#x60;true&#x60;, it searches a maximum of ten sites with which this client is associated. When a client is associated with more than ten sites, use &#x60;ClientAssociatedSitesOffset&#x60; as many times as needed to search the additional sites with which the client is associated. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that a &#x60;SiteID&#x60; is returned and populated in the &#x60;ClientServices&#x60; response when &#x60;CrossRegionalLookup&#x60; is set to &#x60;true&#x60;.  Default: **false** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
-     * @param  int $RequestLocationId The ID of the location where the requested membership was created. (optional)
+     * @param  int $RequestLocationId Filters results to memberships that can be used to pay for scheduled services at that location. This parameter can not be passed when &#x60;CrossRegionalLookup&#x60; is &#x60;true&#x60;. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      *
      * @throws \InvalidArgumentException
@@ -2461,11 +2469,11 @@ class ClientApi implements ApiInterface
      *
      * Get a client's active memberships.
      *
-     * @param  string $RequestClientId The ID of the client whose membership was requested. (required)
+     * @param  string $RequestClientId The ID of the client for whom memberships are returned. (required)
      * @param  int $RequestClientAssociatedSitesOffset Used to retrieve a client’s memberships from multiple sites within an organization when the client is associated with more than ten sites. To change which ten sites are searched, change this offset value. A value of 0 means that no sites are skipped and the first ten sites are returned. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that you must always have &#x60;CrossRegionalLookup&#x60; set to &#x60;true&#x60; to use this parameter.&lt;br /&gt;  Default: **0**    For example, if a client is associated with 25 sites, you need to call &#x60;GetClientServices&#x60; three times, as follows:  * Use &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites a client is associated with, which tells you how many additional calls you need to make.  * Either omit &#x60;ClientAssociatedSitesOffset&#x60; or set it to 0 to return the client’s services (pricing options) from sites 1-10.  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 10 to return the client pricing options from sites 11-20  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 20 to return the client pricing options from sites 21-25 (optional)
      * @param  bool $RequestCrossRegionalLookup Used to retrieve a client’s memberships from multiple sites within an organization. When included and set to &#x60;true&#x60;, it searches a maximum of ten sites with which this client is associated. When a client is associated with more than ten sites, use &#x60;ClientAssociatedSitesOffset&#x60; as many times as needed to search the additional sites with which the client is associated. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that a &#x60;SiteID&#x60; is returned and populated in the &#x60;ClientServices&#x60; response when &#x60;CrossRegionalLookup&#x60; is set to &#x60;true&#x60;.  Default: **false** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
-     * @param  int $RequestLocationId The ID of the location where the requested membership was created. (optional)
+     * @param  int $RequestLocationId Filters results to memberships that can be used to pay for scheduled services at that location. This parameter can not be passed when &#x60;CrossRegionalLookup&#x60; is &#x60;true&#x60;. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      *
      * @throws \InvalidArgumentException
@@ -2516,11 +2524,11 @@ class ClientApi implements ApiInterface
     /**
      * Create request for operation 'clientGetActiveClientMemberships'
      *
-     * @param  string $RequestClientId The ID of the client whose membership was requested. (required)
+     * @param  string $RequestClientId The ID of the client for whom memberships are returned. (required)
      * @param  int $RequestClientAssociatedSitesOffset Used to retrieve a client’s memberships from multiple sites within an organization when the client is associated with more than ten sites. To change which ten sites are searched, change this offset value. A value of 0 means that no sites are skipped and the first ten sites are returned. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that you must always have &#x60;CrossRegionalLookup&#x60; set to &#x60;true&#x60; to use this parameter.&lt;br /&gt;  Default: **0**    For example, if a client is associated with 25 sites, you need to call &#x60;GetClientServices&#x60; three times, as follows:  * Use &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites a client is associated with, which tells you how many additional calls you need to make.  * Either omit &#x60;ClientAssociatedSitesOffset&#x60; or set it to 0 to return the client’s services (pricing options) from sites 1-10.  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 10 to return the client pricing options from sites 11-20  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 20 to return the client pricing options from sites 21-25 (optional)
      * @param  bool $RequestCrossRegionalLookup Used to retrieve a client’s memberships from multiple sites within an organization. When included and set to &#x60;true&#x60;, it searches a maximum of ten sites with which this client is associated. When a client is associated with more than ten sites, use &#x60;ClientAssociatedSitesOffset&#x60; as many times as needed to search the additional sites with which the client is associated. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that a &#x60;SiteID&#x60; is returned and populated in the &#x60;ClientServices&#x60; response when &#x60;CrossRegionalLookup&#x60; is set to &#x60;true&#x60;.  Default: **false** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
-     * @param  int $RequestLocationId The ID of the location where the requested membership was created. (optional)
+     * @param  int $RequestLocationId Filters results to memberships that can be used to pay for scheduled services at that location. This parameter can not be passed when &#x60;CrossRegionalLookup&#x60; is &#x60;true&#x60;. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      *
      * @throws \InvalidArgumentException
@@ -2543,10 +2551,6 @@ class ClientApi implements ApiInterface
         $multipart = false;
 
         // query params
-        if ($RequestClientId !== null) {
-            $queryParams['request.clientId'] = ObjectSerializer::toQueryValue($RequestClientId);
-        }
-        // query params
         if ($RequestClientAssociatedSitesOffset !== null) {
             $queryParams['request.clientAssociatedSitesOffset'] = ObjectSerializer::toQueryValue($RequestClientAssociatedSitesOffset);
         }
@@ -2565,6 +2569,10 @@ class ClientApi implements ApiInterface
         // query params
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
+        }
+        // query params
+        if ($RequestClientId !== null) {
+            $queryParams['request.clientId'] = ObjectSerializer::toQueryValue($RequestClientId);
         }
 
 
@@ -2659,11 +2667,11 @@ class ClientApi implements ApiInterface
      *
      * Get a client's active memberships.
      *
-     * @param  string[] $RequestClientIds The ID&#39;s of the clients whose membership was requested. (required)
+     * @param  string[] $RequestClientIds The ID of the client for whom memberships are returned. Maximum allowed : 200. (required)
      * @param  int $RequestClientAssociatedSitesOffset Used to retrieve a client’s memberships from multiple sites within an organization when the client is associated with more than ten sites. To change which ten sites are searched, change this offset value. A value of 0 means that no sites are skipped and the first ten sites are returned. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that you must always have &#x60;CrossRegionalLookup&#x60; set to &#x60;true&#x60; to use this parameter.&lt;br /&gt;  Default: **0**    For example, if a client is associated with 25 sites, you need to call &#x60;GetClientServices&#x60; three times, as follows:  * Use &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites a client is associated with, which tells you how many additional calls you need to make.  * Either omit &#x60;ClientAssociatedSitesOffset&#x60; or set it to 0 to return the client’s services (pricing options) from sites 1-10.  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 10 to return the client pricing options from sites 11-20  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 20 to return the client pricing options from sites 21-25 (optional)
      * @param  bool $RequestCrossRegionalLookup Used to retrieve a client’s memberships from multiple sites within an organization. When included and set to &#x60;true&#x60;, it searches a maximum of ten sites with which this client is associated. When a client is associated with more than ten sites, use &#x60;ClientAssociatedSitesOffset&#x60; as many times as needed to search the additional sites with which the client is associated. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that a &#x60;SiteID&#x60; is returned and populated in the &#x60;ClientServices&#x60; response when &#x60;CrossRegionalLookup&#x60; is set to &#x60;true&#x60;.  Default: **false** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
-     * @param  int $RequestLocationId The ID of the location where the requested membership was created. (optional)
+     * @param  int $RequestLocationId Filters results to memberships that can be used to pay for scheduled services at that location. This parameter can not be passed when &#x60;CrossRegionalLookup&#x60; is &#x60;true&#x60;. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
@@ -2681,11 +2689,11 @@ class ClientApi implements ApiInterface
      *
      * Get a client's active memberships.
      *
-     * @param  string[] $RequestClientIds The ID&#39;s of the clients whose membership was requested. (required)
+     * @param  string[] $RequestClientIds The ID of the client for whom memberships are returned. Maximum allowed : 200. (required)
      * @param  int $RequestClientAssociatedSitesOffset Used to retrieve a client’s memberships from multiple sites within an organization when the client is associated with more than ten sites. To change which ten sites are searched, change this offset value. A value of 0 means that no sites are skipped and the first ten sites are returned. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that you must always have &#x60;CrossRegionalLookup&#x60; set to &#x60;true&#x60; to use this parameter.&lt;br /&gt;  Default: **0**    For example, if a client is associated with 25 sites, you need to call &#x60;GetClientServices&#x60; three times, as follows:  * Use &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites a client is associated with, which tells you how many additional calls you need to make.  * Either omit &#x60;ClientAssociatedSitesOffset&#x60; or set it to 0 to return the client’s services (pricing options) from sites 1-10.  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 10 to return the client pricing options from sites 11-20  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 20 to return the client pricing options from sites 21-25 (optional)
      * @param  bool $RequestCrossRegionalLookup Used to retrieve a client’s memberships from multiple sites within an organization. When included and set to &#x60;true&#x60;, it searches a maximum of ten sites with which this client is associated. When a client is associated with more than ten sites, use &#x60;ClientAssociatedSitesOffset&#x60; as many times as needed to search the additional sites with which the client is associated. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that a &#x60;SiteID&#x60; is returned and populated in the &#x60;ClientServices&#x60; response when &#x60;CrossRegionalLookup&#x60; is set to &#x60;true&#x60;.  Default: **false** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
-     * @param  int $RequestLocationId The ID of the location where the requested membership was created. (optional)
+     * @param  int $RequestLocationId Filters results to memberships that can be used to pay for scheduled services at that location. This parameter can not be passed when &#x60;CrossRegionalLookup&#x60; is &#x60;true&#x60;. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
@@ -2761,11 +2769,11 @@ class ClientApi implements ApiInterface
      *
      * Get a client's active memberships.
      *
-     * @param  string[] $RequestClientIds The ID&#39;s of the clients whose membership was requested. (required)
+     * @param  string[] $RequestClientIds The ID of the client for whom memberships are returned. Maximum allowed : 200. (required)
      * @param  int $RequestClientAssociatedSitesOffset Used to retrieve a client’s memberships from multiple sites within an organization when the client is associated with more than ten sites. To change which ten sites are searched, change this offset value. A value of 0 means that no sites are skipped and the first ten sites are returned. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that you must always have &#x60;CrossRegionalLookup&#x60; set to &#x60;true&#x60; to use this parameter.&lt;br /&gt;  Default: **0**    For example, if a client is associated with 25 sites, you need to call &#x60;GetClientServices&#x60; three times, as follows:  * Use &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites a client is associated with, which tells you how many additional calls you need to make.  * Either omit &#x60;ClientAssociatedSitesOffset&#x60; or set it to 0 to return the client’s services (pricing options) from sites 1-10.  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 10 to return the client pricing options from sites 11-20  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 20 to return the client pricing options from sites 21-25 (optional)
      * @param  bool $RequestCrossRegionalLookup Used to retrieve a client’s memberships from multiple sites within an organization. When included and set to &#x60;true&#x60;, it searches a maximum of ten sites with which this client is associated. When a client is associated with more than ten sites, use &#x60;ClientAssociatedSitesOffset&#x60; as many times as needed to search the additional sites with which the client is associated. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that a &#x60;SiteID&#x60; is returned and populated in the &#x60;ClientServices&#x60; response when &#x60;CrossRegionalLookup&#x60; is set to &#x60;true&#x60;.  Default: **false** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
-     * @param  int $RequestLocationId The ID of the location where the requested membership was created. (optional)
+     * @param  int $RequestLocationId Filters results to memberships that can be used to pay for scheduled services at that location. This parameter can not be passed when &#x60;CrossRegionalLookup&#x60; is &#x60;true&#x60;. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      *
      * @throws \InvalidArgumentException
@@ -2786,11 +2794,11 @@ class ClientApi implements ApiInterface
      *
      * Get a client's active memberships.
      *
-     * @param  string[] $RequestClientIds The ID&#39;s of the clients whose membership was requested. (required)
+     * @param  string[] $RequestClientIds The ID of the client for whom memberships are returned. Maximum allowed : 200. (required)
      * @param  int $RequestClientAssociatedSitesOffset Used to retrieve a client’s memberships from multiple sites within an organization when the client is associated with more than ten sites. To change which ten sites are searched, change this offset value. A value of 0 means that no sites are skipped and the first ten sites are returned. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that you must always have &#x60;CrossRegionalLookup&#x60; set to &#x60;true&#x60; to use this parameter.&lt;br /&gt;  Default: **0**    For example, if a client is associated with 25 sites, you need to call &#x60;GetClientServices&#x60; three times, as follows:  * Use &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites a client is associated with, which tells you how many additional calls you need to make.  * Either omit &#x60;ClientAssociatedSitesOffset&#x60; or set it to 0 to return the client’s services (pricing options) from sites 1-10.  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 10 to return the client pricing options from sites 11-20  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 20 to return the client pricing options from sites 21-25 (optional)
      * @param  bool $RequestCrossRegionalLookup Used to retrieve a client’s memberships from multiple sites within an organization. When included and set to &#x60;true&#x60;, it searches a maximum of ten sites with which this client is associated. When a client is associated with more than ten sites, use &#x60;ClientAssociatedSitesOffset&#x60; as many times as needed to search the additional sites with which the client is associated. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that a &#x60;SiteID&#x60; is returned and populated in the &#x60;ClientServices&#x60; response when &#x60;CrossRegionalLookup&#x60; is set to &#x60;true&#x60;.  Default: **false** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
-     * @param  int $RequestLocationId The ID of the location where the requested membership was created. (optional)
+     * @param  int $RequestLocationId Filters results to memberships that can be used to pay for scheduled services at that location. This parameter can not be passed when &#x60;CrossRegionalLookup&#x60; is &#x60;true&#x60;. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      *
      * @throws \InvalidArgumentException
@@ -2841,11 +2849,11 @@ class ClientApi implements ApiInterface
     /**
      * Create request for operation 'clientGetActiveClientsMemberships'
      *
-     * @param  string[] $RequestClientIds The ID&#39;s of the clients whose membership was requested. (required)
+     * @param  string[] $RequestClientIds The ID of the client for whom memberships are returned. Maximum allowed : 200. (required)
      * @param  int $RequestClientAssociatedSitesOffset Used to retrieve a client’s memberships from multiple sites within an organization when the client is associated with more than ten sites. To change which ten sites are searched, change this offset value. A value of 0 means that no sites are skipped and the first ten sites are returned. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that you must always have &#x60;CrossRegionalLookup&#x60; set to &#x60;true&#x60; to use this parameter.&lt;br /&gt;  Default: **0**    For example, if a client is associated with 25 sites, you need to call &#x60;GetClientServices&#x60; three times, as follows:  * Use &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites a client is associated with, which tells you how many additional calls you need to make.  * Either omit &#x60;ClientAssociatedSitesOffset&#x60; or set it to 0 to return the client’s services (pricing options) from sites 1-10.  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 10 to return the client pricing options from sites 11-20  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 20 to return the client pricing options from sites 21-25 (optional)
      * @param  bool $RequestCrossRegionalLookup Used to retrieve a client’s memberships from multiple sites within an organization. When included and set to &#x60;true&#x60;, it searches a maximum of ten sites with which this client is associated. When a client is associated with more than ten sites, use &#x60;ClientAssociatedSitesOffset&#x60; as many times as needed to search the additional sites with which the client is associated. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that a &#x60;SiteID&#x60; is returned and populated in the &#x60;ClientServices&#x60; response when &#x60;CrossRegionalLookup&#x60; is set to &#x60;true&#x60;.  Default: **false** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
-     * @param  int $RequestLocationId The ID of the location where the requested membership was created. (optional)
+     * @param  int $RequestLocationId Filters results to memberships that can be used to pay for scheduled services at that location. This parameter can not be passed when &#x60;CrossRegionalLookup&#x60; is &#x60;true&#x60;. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      *
      * @throws \InvalidArgumentException
@@ -2868,13 +2876,6 @@ class ClientApi implements ApiInterface
         $multipart = false;
 
         // query params
-        if (is_array($RequestClientIds)) {
-            $queryParams['request.clientIds'] = $RequestClientIds;
-        } else
-        if ($RequestClientIds !== null) {
-            $queryParams['request.clientIds'] = ObjectSerializer::toQueryValue($RequestClientIds);
-        }
-        // query params
         if ($RequestClientAssociatedSitesOffset !== null) {
             $queryParams['request.clientAssociatedSitesOffset'] = ObjectSerializer::toQueryValue($RequestClientAssociatedSitesOffset);
         }
@@ -2893,6 +2894,13 @@ class ClientApi implements ApiInterface
         // query params
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
+        }
+        // query params
+        if (is_array($RequestClientIds)) {
+            $queryParams['request.clientIds'] = $RequestClientIds;
+        } else
+        if ($RequestClientIds !== null) {
+            $queryParams['request.clientIds'] = ObjectSerializer::toQueryValue($RequestClientIds);
         }
 
 
@@ -3191,13 +3199,6 @@ class ClientApi implements ApiInterface
         $multipart = false;
 
         // query params
-        if (is_array($RequestClientIds)) {
-            $queryParams['request.clientIds'] = $RequestClientIds;
-        } else
-        if ($RequestClientIds !== null) {
-            $queryParams['request.clientIds'] = ObjectSerializer::toQueryValue($RequestClientIds);
-        }
-        // query params
         if ($RequestBalanceDate !== null) {
             $queryParams['request.balanceDate'] = ObjectSerializer::toQueryValue($RequestBalanceDate);
         }
@@ -3212,6 +3213,13 @@ class ClientApi implements ApiInterface
         // query params
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
+        }
+        // query params
+        if (is_array($RequestClientIds)) {
+            $queryParams['request.clientIds'] = $RequestClientIds;
+        } else
+        if ($RequestClientIds !== null) {
+            $queryParams['request.clientIds'] = ObjectSerializer::toQueryValue($RequestClientIds);
         }
 
 
@@ -3515,10 +3523,6 @@ class ClientApi implements ApiInterface
         $multipart = false;
 
         // query params
-        if ($RequestClientId !== null) {
-            $queryParams['request.clientId'] = ObjectSerializer::toQueryValue($RequestClientId);
-        }
-        // query params
         if ($RequestClientAssociatedSitesOffset !== null) {
             $queryParams['request.clientAssociatedSitesOffset'] = ObjectSerializer::toQueryValue($RequestClientAssociatedSitesOffset);
         }
@@ -3540,6 +3544,10 @@ class ClientApi implements ApiInterface
         // query params
         if ($RequestStartDate !== null) {
             $queryParams['request.startDate'] = ObjectSerializer::toQueryValue($RequestStartDate);
+        }
+        // query params
+        if ($RequestClientId !== null) {
+            $queryParams['request.clientId'] = ObjectSerializer::toQueryValue($RequestClientId);
         }
 
 
@@ -3838,10 +3846,6 @@ class ClientApi implements ApiInterface
         $multipart = false;
 
         // query params
-        if ($RequestClientId !== null) {
-            $queryParams['request.clientId'] = ObjectSerializer::toQueryValue($RequestClientId);
-        }
-        // query params
         if ($RequestClientAssociatedSitesOffset !== null) {
             $queryParams['request.clientAssociatedSitesOffset'] = ObjectSerializer::toQueryValue($RequestClientAssociatedSitesOffset);
         }
@@ -3856,6 +3860,10 @@ class ClientApi implements ApiInterface
         // query params
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
+        }
+        // query params
+        if ($RequestClientId !== null) {
+            $queryParams['request.clientId'] = ObjectSerializer::toQueryValue($RequestClientId);
         }
 
 
@@ -4260,7 +4268,7 @@ class ClientApi implements ApiInterface
      *
      * Get a client's formula notes.
      *
-     * @param  int $RequestAppointmentId The appointment ID of the appointment that the formula notes are related to. (optional)
+     * @param  int $RequestAppointmentId The appointment ID of an appointment in the studio specified in the header of the request. (optional)
      * @param  string $RequestClientId The client ID of the client whose formula notes are being requested. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
@@ -4280,7 +4288,7 @@ class ClientApi implements ApiInterface
      *
      * Get a client's formula notes.
      *
-     * @param  int $RequestAppointmentId The appointment ID of the appointment that the formula notes are related to. (optional)
+     * @param  int $RequestAppointmentId The appointment ID of an appointment in the studio specified in the header of the request. (optional)
      * @param  string $RequestClientId The client ID of the client whose formula notes are being requested. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
@@ -4358,7 +4366,7 @@ class ClientApi implements ApiInterface
      *
      * Get a client's formula notes.
      *
-     * @param  int $RequestAppointmentId The appointment ID of the appointment that the formula notes are related to. (optional)
+     * @param  int $RequestAppointmentId The appointment ID of an appointment in the studio specified in the header of the request. (optional)
      * @param  string $RequestClientId The client ID of the client whose formula notes are being requested. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
@@ -4381,7 +4389,7 @@ class ClientApi implements ApiInterface
      *
      * Get a client's formula notes.
      *
-     * @param  int $RequestAppointmentId The appointment ID of the appointment that the formula notes are related to. (optional)
+     * @param  int $RequestAppointmentId The appointment ID of an appointment in the studio specified in the header of the request. (optional)
      * @param  string $RequestClientId The client ID of the client whose formula notes are being requested. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
@@ -4434,7 +4442,7 @@ class ClientApi implements ApiInterface
     /**
      * Create request for operation 'clientGetClientFormulaNotes'
      *
-     * @param  int $RequestAppointmentId The appointment ID of the appointment that the formula notes are related to. (optional)
+     * @param  int $RequestAppointmentId The appointment ID of an appointment in the studio specified in the header of the request. (optional)
      * @param  string $RequestClientId The client ID of the client whose formula notes are being requested. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
@@ -5044,10 +5052,6 @@ class ClientApi implements ApiInterface
         $multipart = false;
 
         // query params
-        if ($RequestClientId !== null) {
-            $queryParams['request.clientId'] = ObjectSerializer::toQueryValue($RequestClientId);
-        }
-        // query params
         if ($RequestEndDate !== null) {
             $queryParams['request.endDate'] = ObjectSerializer::toQueryValue($RequestEndDate);
         }
@@ -5066,6 +5070,10 @@ class ClientApi implements ApiInterface
         // query params
         if ($RequestStartDate !== null) {
             $queryParams['request.startDate'] = ObjectSerializer::toQueryValue($RequestStartDate);
+        }
+        // query params
+        if ($RequestClientId !== null) {
+            $queryParams['request.clientId'] = ObjectSerializer::toQueryValue($RequestClientId);
         }
 
 
@@ -5160,7 +5168,7 @@ class ClientApi implements ApiInterface
      *
      * Get a site's configured client referral types.
      *
-     * @param  bool $RequestIncludeInactive When &#x60;true&#x60;, filters the results to include subtypes and inactive referral types.&lt;br /&gt;  When &#x60;false&#x60;, includes no subtypes and only active types. (optional)
+     * @param  bool $RequestIncludeInactive When &#x60;true&#x60;, filters the results to include subtypes and inactive referral types.&lt;br /&gt;  When &#x60;false&#x60;, includes no subtypes and only active types.  Default:**false** (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5177,7 +5185,7 @@ class ClientApi implements ApiInterface
      *
      * Get a site's configured client referral types.
      *
-     * @param  bool $RequestIncludeInactive When &#x60;true&#x60;, filters the results to include subtypes and inactive referral types.&lt;br /&gt;  When &#x60;false&#x60;, includes no subtypes and only active types. (optional)
+     * @param  bool $RequestIncludeInactive When &#x60;true&#x60;, filters the results to include subtypes and inactive referral types.&lt;br /&gt;  When &#x60;false&#x60;, includes no subtypes and only active types.  Default:**false** (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -5252,7 +5260,7 @@ class ClientApi implements ApiInterface
      *
      * Get a site's configured client referral types.
      *
-     * @param  bool $RequestIncludeInactive When &#x60;true&#x60;, filters the results to include subtypes and inactive referral types.&lt;br /&gt;  When &#x60;false&#x60;, includes no subtypes and only active types. (optional)
+     * @param  bool $RequestIncludeInactive When &#x60;true&#x60;, filters the results to include subtypes and inactive referral types.&lt;br /&gt;  When &#x60;false&#x60;, includes no subtypes and only active types.  Default:**false** (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5272,7 +5280,7 @@ class ClientApi implements ApiInterface
      *
      * Get a site's configured client referral types.
      *
-     * @param  bool $RequestIncludeInactive When &#x60;true&#x60;, filters the results to include subtypes and inactive referral types.&lt;br /&gt;  When &#x60;false&#x60;, includes no subtypes and only active types. (optional)
+     * @param  bool $RequestIncludeInactive When &#x60;true&#x60;, filters the results to include subtypes and inactive referral types.&lt;br /&gt;  When &#x60;false&#x60;, includes no subtypes and only active types.  Default:**false** (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -5322,7 +5330,7 @@ class ClientApi implements ApiInterface
     /**
      * Create request for operation 'clientGetClientReferralTypes'
      *
-     * @param  bool $RequestIncludeInactive When &#x60;true&#x60;, filters the results to include subtypes and inactive referral types.&lt;br /&gt;  When &#x60;false&#x60;, includes no subtypes and only active types. (optional)
+     * @param  bool $RequestIncludeInactive When &#x60;true&#x60;, filters the results to include subtypes and inactive referral types.&lt;br /&gt;  When &#x60;false&#x60;, includes no subtypes and only active types.  Default:**false** (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -5634,10 +5642,6 @@ class ClientApi implements ApiInterface
         $multipart = false;
 
         // query params
-        if ($RequestClientId !== null) {
-            $queryParams['request.clientId'] = ObjectSerializer::toQueryValue($RequestClientId);
-        }
-        // query params
         if ($RequestEndDate !== null) {
             $queryParams['request.endDate'] = ObjectSerializer::toQueryValue($RequestEndDate);
         }
@@ -5652,6 +5656,10 @@ class ClientApi implements ApiInterface
         // query params
         if ($RequestStartDate !== null) {
             $queryParams['request.startDate'] = ObjectSerializer::toQueryValue($RequestStartDate);
+        }
+        // query params
+        if ($RequestClientId !== null) {
+            $queryParams['request.clientId'] = ObjectSerializer::toQueryValue($RequestClientId);
         }
 
 
@@ -5960,10 +5968,6 @@ class ClientApi implements ApiInterface
         $multipart = false;
 
         // query params
-        if ($RequestClientId !== null) {
-            $queryParams['request.clientId'] = ObjectSerializer::toQueryValue($RequestClientId);
-        }
-        // query params
         if ($RequestClientAssociatedSitesOffset !== null) {
             $queryParams['request.clientAssociatedSitesOffset'] = ObjectSerializer::toQueryValue($RequestClientAssociatedSitesOffset);
         }
@@ -5986,6 +5990,10 @@ class ClientApi implements ApiInterface
         // query params
         if ($RequestStartDate !== null) {
             $queryParams['request.startDate'] = ObjectSerializer::toQueryValue($RequestStartDate);
+        }
+        // query params
+        if ($RequestClientId !== null) {
+            $queryParams['request.clientId'] = ObjectSerializer::toQueryValue($RequestClientId);
         }
 
 
@@ -6084,7 +6092,7 @@ class ClientApi implements ApiInterface
      * @param  int $RequestClassId Filters results to only those pricing options that can be used to pay for this class. (optional)
      * @param  int $RequestClientAssociatedSitesOffset Used to retrieve a client’s pricing options from multiple sites within an organization when the client is associated with more than ten sites. To change which ten sites are searched, change this offset value. A value of 0 means that no sites are skipped and the first ten sites are returned. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that you must always have &#x60;CrossRegionalLookup&#x60; set to &#x60;true&#x60; to use this parameter.&lt;br /&gt;  Default: **0**    For example, if a client is associated with 25 sites, you need to call &#x60;GetClientServices&#x60; three times, as follows:  * Use &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites a client is associated with, which tells you how many additional calls you need to make.  * Either omit &#x60;ClientAssociatedSitesOffset&#x60; or set it to 0 to return the client’s services (pricing options) from sites 1-10.  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 10 to return the client pricing options from sites 11-20  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 20 to return the client pricing options from sites 21-25 (optional)
      * @param  bool $RequestCrossRegionalLookup Used to retrieve a client’s pricing options from multiple sites within an organization. When included and set to &#x60;true&#x60;, it searches a maximum of ten sites with which this client is associated. When a client is associated with more than ten sites, use &#x60;ClientAssociatedSitesOffset&#x60; as many times as needed to search the additional sites with which the client is associated. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that a &#x60;SiteID&#x60; is returned and populated in the &#x60;ClientServices&#x60; response when &#x60;CrossRegionalLookup&#x60; is set to &#x60;true&#x60;.  Default: **false** (optional)
-     * @param  \DateTime $RequestEndDate Filters results to pricing options that are valid on or before this date. (optional)
+     * @param  \DateTime $RequestEndDate Filters results to pricing options that are valid on or before this date.  Default: **today’s date** (optional)
      * @param  bool $RequestIgnoreCrossRegionalSiteLimit Used to specify if the number of cross regional sites used to search for client’s pricing options should be ignored.   Default: **false** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int[] $RequestLocationIds Filters results to pricing options that can be used at the listed location IDs. (optional)
@@ -6092,7 +6100,7 @@ class ClientApi implements ApiInterface
      * @param  int[] $RequestProgramIds Filters results to pricing options that belong to one of the given program IDs. (optional)
      * @param  int $RequestSessionTypeId Filters results to pricing options that will pay for the given session type ID. Use this to find pricing options that will pay for a specific appointment type. (optional)
      * @param  bool $RequestShowActiveOnly When &#x60;true&#x60;, includes active services only.  Default: **false** (optional)
-     * @param  \DateTime $RequestStartDate Filters results to pricing options that are valid on or after this date. (optional)
+     * @param  \DateTime $RequestStartDate Filters results to pricing options that are valid on or after this date.  Default: **today’s date** (optional)
      * @param  int $RequestVisitCount A filter on the minimum number of visits a service can pay for. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
@@ -6114,7 +6122,7 @@ class ClientApi implements ApiInterface
      * @param  int $RequestClassId Filters results to only those pricing options that can be used to pay for this class. (optional)
      * @param  int $RequestClientAssociatedSitesOffset Used to retrieve a client’s pricing options from multiple sites within an organization when the client is associated with more than ten sites. To change which ten sites are searched, change this offset value. A value of 0 means that no sites are skipped and the first ten sites are returned. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that you must always have &#x60;CrossRegionalLookup&#x60; set to &#x60;true&#x60; to use this parameter.&lt;br /&gt;  Default: **0**    For example, if a client is associated with 25 sites, you need to call &#x60;GetClientServices&#x60; three times, as follows:  * Use &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites a client is associated with, which tells you how many additional calls you need to make.  * Either omit &#x60;ClientAssociatedSitesOffset&#x60; or set it to 0 to return the client’s services (pricing options) from sites 1-10.  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 10 to return the client pricing options from sites 11-20  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 20 to return the client pricing options from sites 21-25 (optional)
      * @param  bool $RequestCrossRegionalLookup Used to retrieve a client’s pricing options from multiple sites within an organization. When included and set to &#x60;true&#x60;, it searches a maximum of ten sites with which this client is associated. When a client is associated with more than ten sites, use &#x60;ClientAssociatedSitesOffset&#x60; as many times as needed to search the additional sites with which the client is associated. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that a &#x60;SiteID&#x60; is returned and populated in the &#x60;ClientServices&#x60; response when &#x60;CrossRegionalLookup&#x60; is set to &#x60;true&#x60;.  Default: **false** (optional)
-     * @param  \DateTime $RequestEndDate Filters results to pricing options that are valid on or before this date. (optional)
+     * @param  \DateTime $RequestEndDate Filters results to pricing options that are valid on or before this date.  Default: **today’s date** (optional)
      * @param  bool $RequestIgnoreCrossRegionalSiteLimit Used to specify if the number of cross regional sites used to search for client’s pricing options should be ignored.   Default: **false** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int[] $RequestLocationIds Filters results to pricing options that can be used at the listed location IDs. (optional)
@@ -6122,7 +6130,7 @@ class ClientApi implements ApiInterface
      * @param  int[] $RequestProgramIds Filters results to pricing options that belong to one of the given program IDs. (optional)
      * @param  int $RequestSessionTypeId Filters results to pricing options that will pay for the given session type ID. Use this to find pricing options that will pay for a specific appointment type. (optional)
      * @param  bool $RequestShowActiveOnly When &#x60;true&#x60;, includes active services only.  Default: **false** (optional)
-     * @param  \DateTime $RequestStartDate Filters results to pricing options that are valid on or after this date. (optional)
+     * @param  \DateTime $RequestStartDate Filters results to pricing options that are valid on or after this date.  Default: **today’s date** (optional)
      * @param  int $RequestVisitCount A filter on the minimum number of visits a service can pay for. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
@@ -6202,7 +6210,7 @@ class ClientApi implements ApiInterface
      * @param  int $RequestClassId Filters results to only those pricing options that can be used to pay for this class. (optional)
      * @param  int $RequestClientAssociatedSitesOffset Used to retrieve a client’s pricing options from multiple sites within an organization when the client is associated with more than ten sites. To change which ten sites are searched, change this offset value. A value of 0 means that no sites are skipped and the first ten sites are returned. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that you must always have &#x60;CrossRegionalLookup&#x60; set to &#x60;true&#x60; to use this parameter.&lt;br /&gt;  Default: **0**    For example, if a client is associated with 25 sites, you need to call &#x60;GetClientServices&#x60; three times, as follows:  * Use &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites a client is associated with, which tells you how many additional calls you need to make.  * Either omit &#x60;ClientAssociatedSitesOffset&#x60; or set it to 0 to return the client’s services (pricing options) from sites 1-10.  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 10 to return the client pricing options from sites 11-20  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 20 to return the client pricing options from sites 21-25 (optional)
      * @param  bool $RequestCrossRegionalLookup Used to retrieve a client’s pricing options from multiple sites within an organization. When included and set to &#x60;true&#x60;, it searches a maximum of ten sites with which this client is associated. When a client is associated with more than ten sites, use &#x60;ClientAssociatedSitesOffset&#x60; as many times as needed to search the additional sites with which the client is associated. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that a &#x60;SiteID&#x60; is returned and populated in the &#x60;ClientServices&#x60; response when &#x60;CrossRegionalLookup&#x60; is set to &#x60;true&#x60;.  Default: **false** (optional)
-     * @param  \DateTime $RequestEndDate Filters results to pricing options that are valid on or before this date. (optional)
+     * @param  \DateTime $RequestEndDate Filters results to pricing options that are valid on or before this date.  Default: **today’s date** (optional)
      * @param  bool $RequestIgnoreCrossRegionalSiteLimit Used to specify if the number of cross regional sites used to search for client’s pricing options should be ignored.   Default: **false** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int[] $RequestLocationIds Filters results to pricing options that can be used at the listed location IDs. (optional)
@@ -6210,7 +6218,7 @@ class ClientApi implements ApiInterface
      * @param  int[] $RequestProgramIds Filters results to pricing options that belong to one of the given program IDs. (optional)
      * @param  int $RequestSessionTypeId Filters results to pricing options that will pay for the given session type ID. Use this to find pricing options that will pay for a specific appointment type. (optional)
      * @param  bool $RequestShowActiveOnly When &#x60;true&#x60;, includes active services only.  Default: **false** (optional)
-     * @param  \DateTime $RequestStartDate Filters results to pricing options that are valid on or after this date. (optional)
+     * @param  \DateTime $RequestStartDate Filters results to pricing options that are valid on or after this date.  Default: **today’s date** (optional)
      * @param  int $RequestVisitCount A filter on the minimum number of visits a service can pay for. (optional)
      *
      * @throws \InvalidArgumentException
@@ -6235,7 +6243,7 @@ class ClientApi implements ApiInterface
      * @param  int $RequestClassId Filters results to only those pricing options that can be used to pay for this class. (optional)
      * @param  int $RequestClientAssociatedSitesOffset Used to retrieve a client’s pricing options from multiple sites within an organization when the client is associated with more than ten sites. To change which ten sites are searched, change this offset value. A value of 0 means that no sites are skipped and the first ten sites are returned. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that you must always have &#x60;CrossRegionalLookup&#x60; set to &#x60;true&#x60; to use this parameter.&lt;br /&gt;  Default: **0**    For example, if a client is associated with 25 sites, you need to call &#x60;GetClientServices&#x60; three times, as follows:  * Use &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites a client is associated with, which tells you how many additional calls you need to make.  * Either omit &#x60;ClientAssociatedSitesOffset&#x60; or set it to 0 to return the client’s services (pricing options) from sites 1-10.  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 10 to return the client pricing options from sites 11-20  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 20 to return the client pricing options from sites 21-25 (optional)
      * @param  bool $RequestCrossRegionalLookup Used to retrieve a client’s pricing options from multiple sites within an organization. When included and set to &#x60;true&#x60;, it searches a maximum of ten sites with which this client is associated. When a client is associated with more than ten sites, use &#x60;ClientAssociatedSitesOffset&#x60; as many times as needed to search the additional sites with which the client is associated. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that a &#x60;SiteID&#x60; is returned and populated in the &#x60;ClientServices&#x60; response when &#x60;CrossRegionalLookup&#x60; is set to &#x60;true&#x60;.  Default: **false** (optional)
-     * @param  \DateTime $RequestEndDate Filters results to pricing options that are valid on or before this date. (optional)
+     * @param  \DateTime $RequestEndDate Filters results to pricing options that are valid on or before this date.  Default: **today’s date** (optional)
      * @param  bool $RequestIgnoreCrossRegionalSiteLimit Used to specify if the number of cross regional sites used to search for client’s pricing options should be ignored.   Default: **false** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int[] $RequestLocationIds Filters results to pricing options that can be used at the listed location IDs. (optional)
@@ -6243,7 +6251,7 @@ class ClientApi implements ApiInterface
      * @param  int[] $RequestProgramIds Filters results to pricing options that belong to one of the given program IDs. (optional)
      * @param  int $RequestSessionTypeId Filters results to pricing options that will pay for the given session type ID. Use this to find pricing options that will pay for a specific appointment type. (optional)
      * @param  bool $RequestShowActiveOnly When &#x60;true&#x60;, includes active services only.  Default: **false** (optional)
-     * @param  \DateTime $RequestStartDate Filters results to pricing options that are valid on or after this date. (optional)
+     * @param  \DateTime $RequestStartDate Filters results to pricing options that are valid on or after this date.  Default: **today’s date** (optional)
      * @param  int $RequestVisitCount A filter on the minimum number of visits a service can pay for. (optional)
      *
      * @throws \InvalidArgumentException
@@ -6298,7 +6306,7 @@ class ClientApi implements ApiInterface
      * @param  int $RequestClassId Filters results to only those pricing options that can be used to pay for this class. (optional)
      * @param  int $RequestClientAssociatedSitesOffset Used to retrieve a client’s pricing options from multiple sites within an organization when the client is associated with more than ten sites. To change which ten sites are searched, change this offset value. A value of 0 means that no sites are skipped and the first ten sites are returned. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that you must always have &#x60;CrossRegionalLookup&#x60; set to &#x60;true&#x60; to use this parameter.&lt;br /&gt;  Default: **0**    For example, if a client is associated with 25 sites, you need to call &#x60;GetClientServices&#x60; three times, as follows:  * Use &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites a client is associated with, which tells you how many additional calls you need to make.  * Either omit &#x60;ClientAssociatedSitesOffset&#x60; or set it to 0 to return the client’s services (pricing options) from sites 1-10.  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 10 to return the client pricing options from sites 11-20  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 20 to return the client pricing options from sites 21-25 (optional)
      * @param  bool $RequestCrossRegionalLookup Used to retrieve a client’s pricing options from multiple sites within an organization. When included and set to &#x60;true&#x60;, it searches a maximum of ten sites with which this client is associated. When a client is associated with more than ten sites, use &#x60;ClientAssociatedSitesOffset&#x60; as many times as needed to search the additional sites with which the client is associated. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that a &#x60;SiteID&#x60; is returned and populated in the &#x60;ClientServices&#x60; response when &#x60;CrossRegionalLookup&#x60; is set to &#x60;true&#x60;.  Default: **false** (optional)
-     * @param  \DateTime $RequestEndDate Filters results to pricing options that are valid on or before this date. (optional)
+     * @param  \DateTime $RequestEndDate Filters results to pricing options that are valid on or before this date.  Default: **today’s date** (optional)
      * @param  bool $RequestIgnoreCrossRegionalSiteLimit Used to specify if the number of cross regional sites used to search for client’s pricing options should be ignored.   Default: **false** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int[] $RequestLocationIds Filters results to pricing options that can be used at the listed location IDs. (optional)
@@ -6306,7 +6314,7 @@ class ClientApi implements ApiInterface
      * @param  int[] $RequestProgramIds Filters results to pricing options that belong to one of the given program IDs. (optional)
      * @param  int $RequestSessionTypeId Filters results to pricing options that will pay for the given session type ID. Use this to find pricing options that will pay for a specific appointment type. (optional)
      * @param  bool $RequestShowActiveOnly When &#x60;true&#x60;, includes active services only.  Default: **false** (optional)
-     * @param  \DateTime $RequestStartDate Filters results to pricing options that are valid on or after this date. (optional)
+     * @param  \DateTime $RequestStartDate Filters results to pricing options that are valid on or after this date.  Default: **today’s date** (optional)
      * @param  int $RequestVisitCount A filter on the minimum number of visits a service can pay for. (optional)
      *
      * @throws \InvalidArgumentException
@@ -6328,10 +6336,6 @@ class ClientApi implements ApiInterface
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        if ($RequestClientId !== null) {
-            $queryParams['request.clientId'] = ObjectSerializer::toQueryValue($RequestClientId);
-        }
         // query params
         if ($RequestClassId !== null) {
             $queryParams['request.classId'] = ObjectSerializer::toQueryValue($RequestClassId);
@@ -6389,6 +6393,10 @@ class ClientApi implements ApiInterface
         // query params
         if ($RequestVisitCount !== null) {
             $queryParams['request.visitCount'] = ObjectSerializer::toQueryValue($RequestVisitCount);
+        }
+        // query params
+        if ($RequestClientId !== null) {
+            $queryParams['request.clientId'] = ObjectSerializer::toQueryValue($RequestClientId);
         }
 
 
@@ -6702,10 +6710,6 @@ class ClientApi implements ApiInterface
         $multipart = false;
 
         // query params
-        if ($RequestClientId !== null) {
-            $queryParams['request.clientId'] = ObjectSerializer::toQueryValue($RequestClientId);
-        }
-        // query params
         if ($RequestClientAssociatedSitesOffset !== null) {
             $queryParams['request.clientAssociatedSitesOffset'] = ObjectSerializer::toQueryValue($RequestClientAssociatedSitesOffset);
         }
@@ -6732,6 +6736,10 @@ class ClientApi implements ApiInterface
         // query params
         if ($RequestUnpaidsOnly !== null) {
             $queryParams['request.unpaidsOnly'] = ObjectSerializer::toQueryValue($RequestUnpaidsOnly);
+        }
+        // query params
+        if ($RequestClientId !== null) {
+            $queryParams['request.clientId'] = ObjectSerializer::toQueryValue($RequestClientId);
         }
 
 
@@ -6826,8 +6834,8 @@ class ClientApi implements ApiInterface
      *
      * Get clients.
      *
-     * @param  string[] $RequestClientIDs The requested client IDs.  Default: **all IDs** that the authenticated user’s access level allows. (optional)
-     * @param  bool $RequestIncludeInactive When &#x60;true&#x60;, indicates the results to include active and inactive clients.&lt;br /&gt;  When &#x60;false&#x60;, indicates that only those clients who are marked as active should be returned. (optional)
+     * @param  string[] $RequestClientIDs The requested client IDs.  Default: **all IDs** that the authenticated user’s access level allows.&lt;br /&gt;  Note: You can fetch information for maximum 20 clients at once. (optional)
+     * @param  bool $RequestIncludeInactive When &#x60;true&#x60;, indicates the results to include active and inactive clients.&lt;br /&gt;  When &#x60;false&#x60;, indicates that only those clients who are marked as active should be returned.  Default: **false** (optional)
      * @param  bool $RequestIsProspect When &#x60;true&#x60;, filters the results to include only those clients marked as prospects for the business.&lt;br /&gt;  When &#x60;false&#x60;, indicates that only those clients who are not marked prospects should be returned. (optional)
      * @param  \DateTime $RequestLastModifiedDate Filters the results to include only the clients that have been modified on or after this date. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
@@ -6850,8 +6858,8 @@ class ClientApi implements ApiInterface
      *
      * Get clients.
      *
-     * @param  string[] $RequestClientIDs The requested client IDs.  Default: **all IDs** that the authenticated user’s access level allows. (optional)
-     * @param  bool $RequestIncludeInactive When &#x60;true&#x60;, indicates the results to include active and inactive clients.&lt;br /&gt;  When &#x60;false&#x60;, indicates that only those clients who are marked as active should be returned. (optional)
+     * @param  string[] $RequestClientIDs The requested client IDs.  Default: **all IDs** that the authenticated user’s access level allows.&lt;br /&gt;  Note: You can fetch information for maximum 20 clients at once. (optional)
+     * @param  bool $RequestIncludeInactive When &#x60;true&#x60;, indicates the results to include active and inactive clients.&lt;br /&gt;  When &#x60;false&#x60;, indicates that only those clients who are marked as active should be returned.  Default: **false** (optional)
      * @param  bool $RequestIsProspect When &#x60;true&#x60;, filters the results to include only those clients marked as prospects for the business.&lt;br /&gt;  When &#x60;false&#x60;, indicates that only those clients who are not marked prospects should be returned. (optional)
      * @param  \DateTime $RequestLastModifiedDate Filters the results to include only the clients that have been modified on or after this date. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
@@ -6932,8 +6940,8 @@ class ClientApi implements ApiInterface
      *
      * Get clients.
      *
-     * @param  string[] $RequestClientIDs The requested client IDs.  Default: **all IDs** that the authenticated user’s access level allows. (optional)
-     * @param  bool $RequestIncludeInactive When &#x60;true&#x60;, indicates the results to include active and inactive clients.&lt;br /&gt;  When &#x60;false&#x60;, indicates that only those clients who are marked as active should be returned. (optional)
+     * @param  string[] $RequestClientIDs The requested client IDs.  Default: **all IDs** that the authenticated user’s access level allows.&lt;br /&gt;  Note: You can fetch information for maximum 20 clients at once. (optional)
+     * @param  bool $RequestIncludeInactive When &#x60;true&#x60;, indicates the results to include active and inactive clients.&lt;br /&gt;  When &#x60;false&#x60;, indicates that only those clients who are marked as active should be returned.  Default: **false** (optional)
      * @param  bool $RequestIsProspect When &#x60;true&#x60;, filters the results to include only those clients marked as prospects for the business.&lt;br /&gt;  When &#x60;false&#x60;, indicates that only those clients who are not marked prospects should be returned. (optional)
      * @param  \DateTime $RequestLastModifiedDate Filters the results to include only the clients that have been modified on or after this date. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
@@ -6959,8 +6967,8 @@ class ClientApi implements ApiInterface
      *
      * Get clients.
      *
-     * @param  string[] $RequestClientIDs The requested client IDs.  Default: **all IDs** that the authenticated user’s access level allows. (optional)
-     * @param  bool $RequestIncludeInactive When &#x60;true&#x60;, indicates the results to include active and inactive clients.&lt;br /&gt;  When &#x60;false&#x60;, indicates that only those clients who are marked as active should be returned. (optional)
+     * @param  string[] $RequestClientIDs The requested client IDs.  Default: **all IDs** that the authenticated user’s access level allows.&lt;br /&gt;  Note: You can fetch information for maximum 20 clients at once. (optional)
+     * @param  bool $RequestIncludeInactive When &#x60;true&#x60;, indicates the results to include active and inactive clients.&lt;br /&gt;  When &#x60;false&#x60;, indicates that only those clients who are marked as active should be returned.  Default: **false** (optional)
      * @param  bool $RequestIsProspect When &#x60;true&#x60;, filters the results to include only those clients marked as prospects for the business.&lt;br /&gt;  When &#x60;false&#x60;, indicates that only those clients who are not marked prospects should be returned. (optional)
      * @param  \DateTime $RequestLastModifiedDate Filters the results to include only the clients that have been modified on or after this date. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
@@ -7016,8 +7024,8 @@ class ClientApi implements ApiInterface
     /**
      * Create request for operation 'clientGetClients'
      *
-     * @param  string[] $RequestClientIDs The requested client IDs.  Default: **all IDs** that the authenticated user’s access level allows. (optional)
-     * @param  bool $RequestIncludeInactive When &#x60;true&#x60;, indicates the results to include active and inactive clients.&lt;br /&gt;  When &#x60;false&#x60;, indicates that only those clients who are marked as active should be returned. (optional)
+     * @param  string[] $RequestClientIDs The requested client IDs.  Default: **all IDs** that the authenticated user’s access level allows.&lt;br /&gt;  Note: You can fetch information for maximum 20 clients at once. (optional)
+     * @param  bool $RequestIncludeInactive When &#x60;true&#x60;, indicates the results to include active and inactive clients.&lt;br /&gt;  When &#x60;false&#x60;, indicates that only those clients who are marked as active should be returned.  Default: **false** (optional)
      * @param  bool $RequestIsProspect When &#x60;true&#x60;, filters the results to include only those clients marked as prospects for the business.&lt;br /&gt;  When &#x60;false&#x60;, indicates that only those clients who are not marked prospects should be returned. (optional)
      * @param  \DateTime $RequestLastModifiedDate Filters the results to include only the clients that have been modified on or after this date. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
@@ -7169,7 +7177,7 @@ class ClientApi implements ApiInterface
      *
      * Get All Active Contact Log Types
      *
-     * @param  int $RequestContactLogTypeId The ID of the Contact Log Type (optional)
+     * @param  int $RequestContactLogTypeId The requested ContactLogType ID.  Default: **all** IDs that the authenticated user’s access level allows. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      *
@@ -7188,7 +7196,7 @@ class ClientApi implements ApiInterface
      *
      * Get All Active Contact Log Types
      *
-     * @param  int $RequestContactLogTypeId The ID of the Contact Log Type (optional)
+     * @param  int $RequestContactLogTypeId The requested ContactLogType ID.  Default: **all** IDs that the authenticated user’s access level allows. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      *
@@ -7265,7 +7273,7 @@ class ClientApi implements ApiInterface
      *
      * Get All Active Contact Log Types
      *
-     * @param  int $RequestContactLogTypeId The ID of the Contact Log Type (optional)
+     * @param  int $RequestContactLogTypeId The requested ContactLogType ID.  Default: **all** IDs that the authenticated user’s access level allows. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      *
@@ -7287,7 +7295,7 @@ class ClientApi implements ApiInterface
      *
      * Get All Active Contact Log Types
      *
-     * @param  int $RequestContactLogTypeId The ID of the Contact Log Type (optional)
+     * @param  int $RequestContactLogTypeId The requested ContactLogType ID.  Default: **all** IDs that the authenticated user’s access level allows. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      *
@@ -7339,7 +7347,7 @@ class ClientApi implements ApiInterface
     /**
      * Create request for operation 'clientGetContactLogTypes'
      *
-     * @param  int $RequestContactLogTypeId The ID of the Contact Log Type (optional)
+     * @param  int $RequestContactLogTypeId The requested ContactLogType ID.  Default: **all** IDs that the authenticated user’s access level allows. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      *
@@ -7685,10 +7693,6 @@ class ClientApi implements ApiInterface
         $multipart = false;
 
         // query params
-        if ($RequestClientId !== null) {
-            $queryParams['request.clientId'] = ObjectSerializer::toQueryValue($RequestClientId);
-        }
-        // query params
         if ($RequestEndDate !== null) {
             $queryParams['request.endDate'] = ObjectSerializer::toQueryValue($RequestEndDate);
         }
@@ -7728,6 +7732,10 @@ class ClientApi implements ApiInterface
         } else
         if ($RequestTypeIds !== null) {
             $queryParams['request.typeIds'] = ObjectSerializer::toQueryValue($RequestTypeIds);
+        }
+        // query params
+        if ($RequestClientId !== null) {
+            $queryParams['request.clientId'] = ObjectSerializer::toQueryValue($RequestClientId);
         }
 
 
@@ -8934,6 +8942,281 @@ class ClientApi implements ApiInterface
         $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation clientMergeClient
+     *
+     * @param  \Nlocascio\Mindbody\Model\MergeClientsRequest $Request Request (required)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return object
+     */
+    public function clientMergeClient($Request): array
+    {
+        list($response) = $this->clientMergeClientWithHttpInfo($Request);
+        return $response;
+    }
+
+    /**
+     * Operation clientMergeClientWithHttpInfo
+     *
+     * @param  \Nlocascio\Mindbody\Model\MergeClientsRequest $Request (required)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function clientMergeClientWithHttpInfo($Request): array
+    {
+        $returnType = 'object';
+        $request = $this->clientMergeClientRequest($Request);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation clientMergeClientAsync
+     *
+     * 
+     *
+     * @param  \Nlocascio\Mindbody\Model\MergeClientsRequest $Request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function clientMergeClientAsync($Request): \GuzzleHttp\Promise\PromiseInterface
+    {
+        return $this->clientMergeClientAsyncWithHttpInfo($Request)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation clientMergeClientAsyncWithHttpInfo
+     *
+     * 
+     *
+     * @param  \Nlocascio\Mindbody\Model\MergeClientsRequest $Request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function clientMergeClientAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
+    {
+        $returnType = 'object';
+        $request = $this->clientMergeClientRequest($Request);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'clientMergeClient'
+     *
+     * @param  \Nlocascio\Mindbody\Model\MergeClientsRequest $Request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function clientMergeClientRequest($Request): \GuzzleHttp\Psr7\Request
+    {
+        // verify the required parameter 'Request' is set
+        if ($Request === null || (is_array($Request) && count($Request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $Request when calling clientMergeClient'
+            );
+        }
+
+        $resourcePath = '/public/v6/client/mergeclients';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // body params
+        $_tempBody = null;
+        if (isset($Request)) {
+            $_tempBody = $Request;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = Utils::jsonEncode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = Utils::jsonEncode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
+        if ($apiKey !== null) {
+            $headers['API-Key'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('authorization');
+        if ($apiKey !== null) {
+            $headers['authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('siteId');
+        if ($apiKey !== null) {
+            $headers['siteId'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -10613,6 +10896,8 @@ class ClientApi implements ApiInterface
     /**
      * Operation clientUpdateClientRewards
      *
+     * Update Client Reward
+     *
      * @param  \Nlocascio\Mindbody\Model\UpdateClientRewardsRequest $Request Request (required)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
@@ -10627,6 +10912,8 @@ class ClientApi implements ApiInterface
 
     /**
      * Operation clientUpdateClientRewardsWithHttpInfo
+     *
+     * Update Client Reward
      *
      * @param  \Nlocascio\Mindbody\Model\UpdateClientRewardsRequest $Request (required)
      *
@@ -10701,7 +10988,7 @@ class ClientApi implements ApiInterface
     /**
      * Operation clientUpdateClientRewardsAsync
      *
-     * 
+     * Update Client Reward
      *
      * @param  \Nlocascio\Mindbody\Model\UpdateClientRewardsRequest $Request (required)
      *
@@ -10721,7 +11008,7 @@ class ClientApi implements ApiInterface
     /**
      * Operation clientUpdateClientRewardsAsyncWithHttpInfo
      *
-     * 
+     * Update Client Reward
      *
      * @param  \Nlocascio\Mindbody\Model\UpdateClientRewardsRequest $Request (required)
      *

@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **ClientIndexes** | [**\Nlocascio\Mindbody\Model\AssignedClientIndex[]**](AssignedClientIndex.md) | Contains the IDs of the client’s assigned ClientIndexes and ClientIndexValues. | [optional] 
 **ClientRelationships** | [**\Nlocascio\Mindbody\Model\ClientRelationship[]**](ClientRelationship.md) | Contains information about the relationship between two clients. | [optional] 
 **FirstAppointmentDate** | [**\DateTime**](\DateTime.md) | The date of the client’s first booked appointment at the business. | [optional] 
+**FirstClassDate** | [**\DateTime**](\DateTime.md) | The date of the clients first booked class at the business. | [optional] 
 **FirstName** | **string** | The client’s first name. | [optional] 
 **Id** | **string** | The client’s ID, as configured by the business owner. This is the client’s barcode ID if the business owner assigns barcodes to clients. This ID is used throughout the Public API for client-related Public API calls. When used in a POST &#x60;UpdateClient&#x60; request, the &#x60;Id&#x60; is used to identify the client for the update. | [optional] 
 **IsCompany** | **bool** | When &#x60;true&#x60;, indicates that the client should be marked as a company at the business.&lt;br /&gt;  When &#x60;false&#x60;, indicates the client is an individual and does not represent a company. | [optional] 

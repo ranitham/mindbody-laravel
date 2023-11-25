@@ -52,7 +52,8 @@ namespace Nlocascio\Mindbody\Model;
  * @property bool $StaffRequested When `true`, indicates that the staff member was requested specifically by the client.
  * @property \DateTime $StartDateTime The start date and time of the new appointment.
  * @property bool $Test When true, indicates that the method is to be validated, but no new appointment data is added.   <br />Default: **false**
- * @property bool $IsWaitlist Whether to add appointment to waitlist.
+ * @property bool $IsWaitlist When `true`, indicates that the client should be added to a specific appointment waiting list.  When `false`, the client should not be added to the waiting list.  Default: **false**
+ * @property string $PartnerExternalId Optional external key for api partners.
  *
  */
 class AddAppointmentRequest extends BaseModel
@@ -88,7 +89,8 @@ class AddAppointmentRequest extends BaseModel
         'StaffRequested' => 'bool',
         'StartDateTime' => '\DateTime',
         'Test' => 'bool',
-        'IsWaitlist' => 'bool'
+        'IsWaitlist' => 'bool',
+        'PartnerExternalId' => 'string'
     ];
 
     /**
@@ -113,7 +115,8 @@ class AddAppointmentRequest extends BaseModel
         'StaffRequested' => null,
         'StartDateTime' => 'date-time',
         'Test' => null,
-        'IsWaitlist' => null
+        'IsWaitlist' => null,
+        'PartnerExternalId' => null
     ];
 
 
@@ -140,7 +143,8 @@ class AddAppointmentRequest extends BaseModel
         'StaffRequested' => 'StaffRequested',
         'StartDateTime' => 'StartDateTime',
         'Test' => 'Test',
-        'IsWaitlist' => 'IsWaitlist'
+        'IsWaitlist' => 'IsWaitlist',
+        'PartnerExternalId' => 'PartnerExternalId'
     ];
 
     /**
@@ -165,7 +169,8 @@ class AddAppointmentRequest extends BaseModel
         'StaffRequested' => 'setStaffRequested',
         'StartDateTime' => 'setStartDateTime',
         'Test' => 'setTest',
-        'IsWaitlist' => 'setIsWaitlist'
+        'IsWaitlist' => 'setIsWaitlist',
+        'PartnerExternalId' => 'setPartnerExternalId'
     ];
 
     /**
@@ -190,7 +195,8 @@ class AddAppointmentRequest extends BaseModel
         'StaffRequested' => 'getStaffRequested',
         'StartDateTime' => 'getStartDateTime',
         'Test' => 'getTest',
-        'IsWaitlist' => 'getIsWaitlist'
+        'IsWaitlist' => 'getIsWaitlist',
+        'PartnerExternalId' => 'getPartnerExternalId'
     ];
 
 
@@ -223,6 +229,7 @@ class AddAppointmentRequest extends BaseModel
         $this->container['StartDateTime'] = isset($data['StartDateTime']) ? $data['StartDateTime'] : null;
         $this->container['Test'] = isset($data['Test']) ? $data['Test'] : null;
         $this->container['IsWaitlist'] = isset($data['IsWaitlist']) ? $data['IsWaitlist'] : null;
+        $this->container['PartnerExternalId'] = isset($data['PartnerExternalId']) ? $data['PartnerExternalId'] : null;
     }
 
     /**
@@ -650,13 +657,37 @@ class AddAppointmentRequest extends BaseModel
     /**
      * Sets IsWaitlist
      *
-     * @param bool $IsWaitlist Whether to add appointment to waitlist.
+     * @param bool $IsWaitlist When `true`, indicates that the client should be added to a specific appointment waiting list.  When `false`, the client should not be added to the waiting list.  Default: **false**
      *
      * @return $this
      */
     public function setIsWaitlist($IsWaitlist): self
     {
         $this->container['IsWaitlist'] = $IsWaitlist;
+
+        return $this;
+    }
+
+    /**
+     * Gets PartnerExternalId
+     *
+     * @return string
+     */
+    public function getPartnerExternalId()
+    {
+        return $this->container['PartnerExternalId'];
+    }
+
+    /**
+     * Sets PartnerExternalId
+     *
+     * @param string $PartnerExternalId Optional external key for api partners.
+     *
+     * @return $this
+     */
+    public function setPartnerExternalId($PartnerExternalId): self
+    {
+        $this->container['PartnerExternalId'] = $PartnerExternalId;
 
         return $this;
     }

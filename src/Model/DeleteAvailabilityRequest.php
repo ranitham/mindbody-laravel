@@ -37,8 +37,8 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property int $AvailabilityId Availability Id to be deleted
- * @property bool $Test The test flag
+ * @property int $AvailabilityId The ID of the availability or unavailability.
+ * @property bool $Test When `true`, indicates that this is a test request and no data is deleted from the subscriber’s database.  When `false`, the record will be deleted.  Default: **false**
  *
  */
 class DeleteAvailabilityRequest extends BaseModel
@@ -147,7 +147,7 @@ class DeleteAvailabilityRequest extends BaseModel
     /**
      * Sets AvailabilityId
      *
-     * @param int $AvailabilityId Availability Id to be deleted
+     * @param int $AvailabilityId The ID of the availability or unavailability.
      *
      * @return $this
      */
@@ -171,7 +171,7 @@ class DeleteAvailabilityRequest extends BaseModel
     /**
      * Sets Test
      *
-     * @param bool $Test The test flag
+     * @param bool $Test When `true`, indicates that this is a test request and no data is deleted from the subscriber’s database.  When `false`, the record will be deleted.  Default: **false**
      *
      * @return $this
      */

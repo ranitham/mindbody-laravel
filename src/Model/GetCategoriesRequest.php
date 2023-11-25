@@ -37,10 +37,10 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property int[] $CategoryIds The requested category IDs.
- * @property int[] $SubCategoryIds The requested sub category IDs.
- * @property bool $Service The requested Service type. true indicates for Revenue Categories and false indicates for Product Revenue Categories.
- * @property bool $Active The requested Active type categories. true indicates for Active Categories and false indicates for Deactivated Categories.
+ * @property int[] $CategoryIds When included, the response only contains details about the specified category Ids.
+ * @property int[] $SubCategoryIds When included, the response only contains details about the specified subcategory Ids.
+ * @property bool $Service When `true`, the response only contains details about Revenue Categories.  When `false`, only Product Revenue Categories are returned.  Default: **All Categories**
+ * @property bool $Active When `true`, the response only contains categories which are activated.   When `false`, only deactivated categories are returned.  Default: **All Categories**
  * @property int $Limit Number of results to include, defaults to 100
  * @property int $Offset Page offset, defaults to 0.
  *
@@ -175,7 +175,7 @@ class GetCategoriesRequest extends BaseModel
     /**
      * Sets CategoryIds
      *
-     * @param int[] $CategoryIds The requested category IDs.
+     * @param int[] $CategoryIds When included, the response only contains details about the specified category Ids.
      *
      * @return $this
      */
@@ -199,7 +199,7 @@ class GetCategoriesRequest extends BaseModel
     /**
      * Sets SubCategoryIds
      *
-     * @param int[] $SubCategoryIds The requested sub category IDs.
+     * @param int[] $SubCategoryIds When included, the response only contains details about the specified subcategory Ids.
      *
      * @return $this
      */
@@ -223,7 +223,7 @@ class GetCategoriesRequest extends BaseModel
     /**
      * Sets Service
      *
-     * @param bool $Service The requested Service type. true indicates for Revenue Categories and false indicates for Product Revenue Categories.
+     * @param bool $Service When `true`, the response only contains details about Revenue Categories.  When `false`, only Product Revenue Categories are returned.  Default: **All Categories**
      *
      * @return $this
      */
@@ -247,7 +247,7 @@ class GetCategoriesRequest extends BaseModel
     /**
      * Sets Active
      *
-     * @param bool $Active The requested Active type categories. true indicates for Active Categories and false indicates for Deactivated Categories.
+     * @param bool $Active When `true`, the response only contains categories which are activated.   When `false`, only deactivated categories are returned.  Default: **All Categories**
      *
      * @return $this
      */

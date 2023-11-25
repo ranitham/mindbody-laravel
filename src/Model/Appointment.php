@@ -44,6 +44,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property \DateTime $StartDateTime StartDateTime
  * @property \DateTime $EndDateTime EndDateTime
  * @property string $Notes Notes
+ * @property string $PartnerExternalId PartnerExternalId
  * @property bool $StaffRequested StaffRequested
  * @property int $ProgramId ProgramId
  * @property int $WaitlistEntryId WaitlistEntryId
@@ -84,6 +85,7 @@ class Appointment extends BaseModel implements ModelWithId
         'StartDateTime' => '\DateTime',
         'EndDateTime' => '\DateTime',
         'Notes' => 'string',
+        'PartnerExternalId' => 'string',
         'StaffRequested' => 'bool',
         'ProgramId' => 'int',
         'WaitlistEntryId' => 'int',
@@ -113,6 +115,7 @@ class Appointment extends BaseModel implements ModelWithId
         'StartDateTime' => 'date-time',
         'EndDateTime' => 'date-time',
         'Notes' => null,
+        'PartnerExternalId' => null,
         'StaffRequested' => null,
         'ProgramId' => 'int32',
         'WaitlistEntryId' => 'int64',
@@ -144,6 +147,7 @@ class Appointment extends BaseModel implements ModelWithId
         'StartDateTime' => 'StartDateTime',
         'EndDateTime' => 'EndDateTime',
         'Notes' => 'Notes',
+        'PartnerExternalId' => 'PartnerExternalId',
         'StaffRequested' => 'StaffRequested',
         'ProgramId' => 'ProgramId',
         'WaitlistEntryId' => 'WaitlistEntryId',
@@ -173,6 +177,7 @@ class Appointment extends BaseModel implements ModelWithId
         'StartDateTime' => 'setStartDateTime',
         'EndDateTime' => 'setEndDateTime',
         'Notes' => 'setNotes',
+        'PartnerExternalId' => 'setPartnerExternalId',
         'StaffRequested' => 'setStaffRequested',
         'ProgramId' => 'setProgramId',
         'WaitlistEntryId' => 'setWaitlistEntryId',
@@ -202,6 +207,7 @@ class Appointment extends BaseModel implements ModelWithId
         'StartDateTime' => 'getStartDateTime',
         'EndDateTime' => 'getEndDateTime',
         'Notes' => 'getNotes',
+        'PartnerExternalId' => 'getPartnerExternalId',
         'StaffRequested' => 'getStaffRequested',
         'ProgramId' => 'getProgramId',
         'WaitlistEntryId' => 'getWaitlistEntryId',
@@ -263,6 +269,7 @@ class Appointment extends BaseModel implements ModelWithId
         $this->container['StartDateTime'] = isset($data['StartDateTime']) ? $data['StartDateTime'] : null;
         $this->container['EndDateTime'] = isset($data['EndDateTime']) ? $data['EndDateTime'] : null;
         $this->container['Notes'] = isset($data['Notes']) ? $data['Notes'] : null;
+        $this->container['PartnerExternalId'] = isset($data['PartnerExternalId']) ? $data['PartnerExternalId'] : null;
         $this->container['StaffRequested'] = isset($data['StaffRequested']) ? $data['StaffRequested'] : null;
         $this->container['ProgramId'] = isset($data['ProgramId']) ? $data['ProgramId'] : null;
         $this->container['WaitlistEntryId'] = isset($data['WaitlistEntryId']) ? $data['WaitlistEntryId'] : null;
@@ -496,6 +503,30 @@ class Appointment extends BaseModel implements ModelWithId
     public function setNotes($Notes): self
     {
         $this->container['Notes'] = $Notes;
+
+        return $this;
+    }
+
+    /**
+     * Gets PartnerExternalId
+     *
+     * @return string
+     */
+    public function getPartnerExternalId()
+    {
+        return $this->container['PartnerExternalId'];
+    }
+
+    /**
+     * Sets PartnerExternalId
+     *
+     * @param string $PartnerExternalId PartnerExternalId
+     *
+     * @return $this
+     */
+    public function setPartnerExternalId($PartnerExternalId): self
+    {
+        $this->container['PartnerExternalId'] = $PartnerExternalId;
 
         return $this;
     }

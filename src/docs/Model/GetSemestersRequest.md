@@ -3,10 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SemesterIDs** | **int[]** | Get with semester ids | [optional] 
-**StartDate** | [**\DateTime**](\DateTime.md) | Filter semesters with start date | [optional] 
-**EndDate** | [**\DateTime**](\DateTime.md) | Filter semesters with end date | [optional] 
-**Active** | **bool** | Get Active semesters | [optional] 
+**SemesterIDs** | **int[]** | The requested semester IDs. | [optional] 
+**StartDate** | [**\DateTime**](\DateTime.md) | The start date for the range. All semesters that are on or after this day.  Default: **today’s date** | [optional] 
+**EndDate** | [**\DateTime**](\DateTime.md) | The end date for the range. All semesters that are on or before this day.  Default: **StartDate** | [optional] 
+**Active** | **bool** | When true, the response only contains semesters which are activated. When false, only deactivated semesters are returned.  Default: **All semesters** | [optional] 
 **Limit** | **int** | Number of results to include, defaults to 100 | [optional] 
 **Offset** | **int** | Page offset, defaults to 0. | [optional] 
 

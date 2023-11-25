@@ -36,10 +36,10 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property bool $ActiveOnly Filter only active, defaults to true
- * @property bool $OnlineOnly Filter only the ones that can be sold online
- * @property \DateTime $StartDate Filter by activation start date
- * @property \DateTime $EndDate Filter by activation end date
+ * @property bool $ActiveOnly If true, filters results to show only promocodes that are active. If **false**, all promocodes are returned.  Default: **true**
+ * @property bool $OnlineOnly If `true`, filters results to show only promocodes that can be used for online sale.  If `false`, all promocodes are returned.  Default: **false**
+ * @property \DateTime $StartDate Filters results to promocodes that were activated after this date.
+ * @property \DateTime $EndDate Filters results to promocodes that were activated before this date.
  * @property int $Limit Number of results to include, defaults to 100
  * @property int $Offset Page offset, defaults to 0.
  *
@@ -174,7 +174,7 @@ class GetPromoCodesRequest extends BaseModel
     /**
      * Sets ActiveOnly
      *
-     * @param bool $ActiveOnly Filter only active, defaults to true
+     * @param bool $ActiveOnly If true, filters results to show only promocodes that are active. If **false**, all promocodes are returned.  Default: **true**
      *
      * @return $this
      */
@@ -198,7 +198,7 @@ class GetPromoCodesRequest extends BaseModel
     /**
      * Sets OnlineOnly
      *
-     * @param bool $OnlineOnly Filter only the ones that can be sold online
+     * @param bool $OnlineOnly If `true`, filters results to show only promocodes that can be used for online sale.  If `false`, all promocodes are returned.  Default: **false**
      *
      * @return $this
      */
@@ -222,7 +222,7 @@ class GetPromoCodesRequest extends BaseModel
     /**
      * Sets StartDate
      *
-     * @param \DateTime $StartDate Filter by activation start date
+     * @param \DateTime $StartDate Filters results to promocodes that were activated after this date.
      *
      * @return $this
      */
@@ -246,7 +246,7 @@ class GetPromoCodesRequest extends BaseModel
     /**
      * Sets EndDate
      *
-     * @param \DateTime $EndDate Filter by activation end date
+     * @param \DateTime $EndDate Filters results to promocodes that were activated before this date.
      *
      * @return $this
      */

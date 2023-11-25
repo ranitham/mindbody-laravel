@@ -36,9 +36,8 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property string $ClientId ClientId
  * @property string $MerchantAccountId MerchantAccountId
- * @property int $LocationId LocationId
+ * @property int $LocationId The ID associated with the location of the sale.
  *
  */
 class InitializeCreditCardEntryRequest extends BaseModel
@@ -58,7 +57,6 @@ class InitializeCreditCardEntryRequest extends BaseModel
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'ClientId' => 'string',
         'MerchantAccountId' => 'string',
         'LocationId' => 'int'
     ];
@@ -69,7 +67,6 @@ class InitializeCreditCardEntryRequest extends BaseModel
       * @var array<string, string|null>
       */
     protected static $swaggerFormats = [
-        'ClientId' => null,
         'MerchantAccountId' => null,
         'LocationId' => 'int32'
     ];
@@ -82,7 +79,6 @@ class InitializeCreditCardEntryRequest extends BaseModel
      * @var string[]
      */
     protected static $attributeMap = [
-        'ClientId' => 'ClientId',
         'MerchantAccountId' => 'MerchantAccountId',
         'LocationId' => 'LocationId'
     ];
@@ -93,7 +89,6 @@ class InitializeCreditCardEntryRequest extends BaseModel
      * @var string[]
      */
     protected static $setters = [
-        'ClientId' => 'setClientId',
         'MerchantAccountId' => 'setMerchantAccountId',
         'LocationId' => 'setLocationId'
     ];
@@ -104,7 +99,6 @@ class InitializeCreditCardEntryRequest extends BaseModel
      * @var string[]
      */
     protected static $getters = [
-        'ClientId' => 'getClientId',
         'MerchantAccountId' => 'getMerchantAccountId',
         'LocationId' => 'getLocationId'
     ];
@@ -122,7 +116,6 @@ class InitializeCreditCardEntryRequest extends BaseModel
      */
     public function __construct(array $data = null)
     {
-        $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
         $this->container['MerchantAccountId'] = isset($data['MerchantAccountId']) ? $data['MerchantAccountId'] : null;
         $this->container['LocationId'] = isset($data['LocationId']) ? $data['LocationId'] : null;
     }
@@ -139,30 +132,6 @@ class InitializeCreditCardEntryRequest extends BaseModel
         return $invalidProperties;
     }
 
-
-    /**
-     * Gets ClientId
-     *
-     * @return string
-     */
-    public function getClientId()
-    {
-        return $this->container['ClientId'];
-    }
-
-    /**
-     * Sets ClientId
-     *
-     * @param string $ClientId ClientId
-     *
-     * @return $this
-     */
-    public function setClientId($ClientId): self
-    {
-        $this->container['ClientId'] = $ClientId;
-
-        return $this;
-    }
 
     /**
      * Gets MerchantAccountId
@@ -201,7 +170,7 @@ class InitializeCreditCardEntryRequest extends BaseModel
     /**
      * Sets LocationId
      *
-     * @param int $LocationId LocationId
+     * @param int $LocationId The ID associated with the location of the sale.
      *
      * @return $this
      */

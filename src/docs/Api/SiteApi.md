@@ -26,6 +26,8 @@ Method | HTTP request | Description
 
 Add promo code to a site.
 
+Creates a new promocode record at the specified business.   This endpoint requires staff user credentials. This staff memeber should have enabled the **Set up promotions / Semester discounts** staff permission.
+
 ### Example
 ```php
 <?php
@@ -166,12 +168,12 @@ $apiInstance = new Nlocascio\Mindbody\Api\SiteApi(
     new GuzzleHttp\Client(),
     $config
 );
-$RequestActive = true; // bool | The requested Active type categories. true indicates for Active Categories and false indicates for Deactivated Categories.
-$RequestCategoryIds = array(56); // int[] | The requested category IDs.
+$RequestActive = true; // bool | When `true`, the response only contains categories which are activated.   When `false`, only deactivated categories are returned.  Default: **All Categories**
+$RequestCategoryIds = array(56); // int[] | When included, the response only contains details about the specified category Ids.
 $RequestLimit = 56; // int | Number of results to include, defaults to 100
 $RequestOffset = 56; // int | Page offset, defaults to 0.
-$RequestService = true; // bool | The requested Service type. true indicates for Revenue Categories and false indicates for Product Revenue Categories.
-$RequestSubCategoryIds = array(56); // int[] | The requested sub category IDs.
+$RequestService = true; // bool | When `true`, the response only contains details about Revenue Categories.  When `false`, only Product Revenue Categories are returned.  Default: **All Categories**
+$RequestSubCategoryIds = array(56); // int[] | When included, the response only contains details about the specified subcategory Ids.
 
 try {
     $result = $apiInstance->siteGetCategories($RequestActive, $RequestCategoryIds, $RequestLimit, $RequestOffset, $RequestService, $RequestSubCategoryIds);
@@ -186,12 +188,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **RequestActive** | **bool**| The requested Active type categories. true indicates for Active Categories and false indicates for Deactivated Categories. | [optional]
- **RequestCategoryIds** | [**int[]**](../Model/int.md)| The requested category IDs. | [optional]
+ **RequestActive** | **bool**| When &#x60;true&#x60;, the response only contains categories which are activated.   When &#x60;false&#x60;, only deactivated categories are returned.  Default: **All Categories** | [optional]
+ **RequestCategoryIds** | [**int[]**](../Model/int.md)| When included, the response only contains details about the specified category Ids. | [optional]
  **RequestLimit** | **int**| Number of results to include, defaults to 100 | [optional]
  **RequestOffset** | **int**| Page offset, defaults to 0. | [optional]
- **RequestService** | **bool**| The requested Service type. true indicates for Revenue Categories and false indicates for Product Revenue Categories. | [optional]
- **RequestSubCategoryIds** | [**int[]**](../Model/int.md)| The requested sub category IDs. | [optional]
+ **RequestService** | **bool**| When &#x60;true&#x60;, the response only contains details about Revenue Categories.  When &#x60;false&#x60;, only Product Revenue Categories are returned.  Default: **All Categories** | [optional]
+ **RequestSubCategoryIds** | [**int[]**](../Model/int.md)| When included, the response only contains details about the specified subcategory Ids. | [optional]
 
 ### Return type
 
@@ -212,6 +214,8 @@ Name | Type | Description  | Notes
 > \Nlocascio\Mindbody\Model\GetGendersResponse siteGetGenders()
 
 Get the gender options at a site.
+
+The endpoint returns a list of configured client gender options for a site. Custom gender options are assignable to client genders only. Currently, custom values returned from this endpoint cannot be used as input for other endpoints to specify the genders of staff or client preferences.
 
 ### Example
 ```php
@@ -357,7 +361,7 @@ $apiInstance = new Nlocascio\Mindbody\Api\SiteApi(
     new GuzzleHttp\Client(),
     $config
 );
-$RequestMembershipIds = array(56); // int[] | Filters results to memberships that belong to one of the given membership IDs. If omitted, all memberships are returned.
+$RequestMembershipIds = array(56); // int[] | The requested membership IDs.<br />  Default: **all** IDs that the authenticated user’s access level allows.
 
 try {
     $result = $apiInstance->siteGetMemberships($RequestMembershipIds);
@@ -372,7 +376,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **RequestMembershipIds** | [**int[]**](../Model/int.md)| Filters results to memberships that belong to one of the given membership IDs. If omitted, all memberships are returned. | [optional]
+ **RequestMembershipIds** | [**int[]**](../Model/int.md)| The requested membership IDs.&lt;br /&gt;  Default: **all** IDs that the authenticated user’s access level allows. | [optional]
 
 ### Return type
 
@@ -393,6 +397,8 @@ Name | Type | Description  | Notes
 > \Nlocascio\Mindbody\Model\GetMobileProvidersResponse siteGetMobileProviders($RequestActive)
 
 Gets a list of active mobile providers for the site.
+
+Get the list of mobile providers that are supported by the business.
 
 ### Example
 ```php
@@ -418,7 +424,7 @@ $apiInstance = new Nlocascio\Mindbody\Api\SiteApi(
     new GuzzleHttp\Client(),
     $config
 );
-$RequestActive = true; // bool | When true, the response only contains mobile providers which are activated. When false, only deactivated mobile providers are returned. Default: All Mobile Providers
+$RequestActive = true; // bool | When `true`, the response only contains mobile providers which are activated.   When `false`, only deactivated mobile providers are returned.  Default: **All Mobile Providers**
 
 try {
     $result = $apiInstance->siteGetMobileProviders($RequestActive);
@@ -433,7 +439,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **RequestActive** | **bool**| When true, the response only contains mobile providers which are activated. When false, only deactivated mobile providers are returned. Default: All Mobile Providers | [optional]
+ **RequestActive** | **bool**| When &#x60;true&#x60;, the response only contains mobile providers which are activated.   When &#x60;false&#x60;, only deactivated mobile providers are returned.  Default: **All Mobile Providers** | [optional]
 
 ### Return type
 
@@ -479,7 +485,7 @@ $apiInstance = new Nlocascio\Mindbody\Api\SiteApi(
     new GuzzleHttp\Client(),
     $config
 );
-$RequestActive = true; // bool | The requested Active payment types. true indicates for Active payment types and false indicates for Deactivated payment types.
+$RequestActive = true; // bool | When `true`, the response only contains payment types which are activated.  When `false`, only deactivated payment types are returned.  Default: **All Payment Types**
 
 try {
     $result = $apiInstance->siteGetPaymentTypes($RequestActive);
@@ -494,7 +500,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **RequestActive** | **bool**| The requested Active payment types. true indicates for Active payment types and false indicates for Deactivated payment types. | [optional]
+ **RequestActive** | **bool**| When &#x60;true&#x60;, the response only contains payment types which are activated.  When &#x60;false&#x60;, only deactivated payment types are returned.  Default: **All Payment Types** | [optional]
 
 ### Return type
 
@@ -543,7 +549,7 @@ $apiInstance = new Nlocascio\Mindbody\Api\SiteApi(
 $RequestLimit = 56; // int | Number of results to include, defaults to 100
 $RequestOffset = 56; // int | Page offset, defaults to 0.
 $RequestOnlineOnly = true; // bool | If `true`, filters results to show only those programs that are shown online.<br />  If `false`, all programs are returned.<br />  Default: **false**
-$RequestScheduleType = "RequestScheduleType_example"; // string | A schedule type used to filter the returned results.
+$RequestScheduleType = "RequestScheduleType_example"; // string | A schedule type used to filter the returned results. Possible values are:  * All  * Class  * Enrollment  * Appointment  * Resource  * Media  * Arrival
 
 try {
     $result = $apiInstance->siteGetPrograms($RequestLimit, $RequestOffset, $RequestOnlineOnly, $RequestScheduleType);
@@ -561,7 +567,7 @@ Name | Type | Description  | Notes
  **RequestLimit** | **int**| Number of results to include, defaults to 100 | [optional]
  **RequestOffset** | **int**| Page offset, defaults to 0. | [optional]
  **RequestOnlineOnly** | **bool**| If &#x60;true&#x60;, filters results to show only those programs that are shown online.&lt;br /&gt;  If &#x60;false&#x60;, all programs are returned.&lt;br /&gt;  Default: **false** | [optional]
- **RequestScheduleType** | **string**| A schedule type used to filter the returned results. | [optional]
+ **RequestScheduleType** | **string**| A schedule type used to filter the returned results. Possible values are:  * All  * Class  * Enrollment  * Appointment  * Resource  * Media  * Arrival | [optional]
 
 ### Return type
 
@@ -583,6 +589,8 @@ Name | Type | Description  | Notes
 
 Get promocodes for a site.
 
+Gets a list of promocodes at the specified business. This endpoint requires staff user credentials.   This staff member should have enabled the Set up promotions / **Semester discounts** staff permission.
+
 ### Example
 ```php
 <?php
@@ -607,12 +615,12 @@ $apiInstance = new Nlocascio\Mindbody\Api\SiteApi(
     new GuzzleHttp\Client(),
     $config
 );
-$RequestActiveOnly = true; // bool | Filter only active, defaults to true
-$RequestEndDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter by activation end date
+$RequestActiveOnly = true; // bool | If true, filters results to show only promocodes that are active. If **false**, all promocodes are returned.  Default: **true**
+$RequestEndDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filters results to promocodes that were activated before this date.
 $RequestLimit = 56; // int | Number of results to include, defaults to 100
 $RequestOffset = 56; // int | Page offset, defaults to 0.
-$RequestOnlineOnly = true; // bool | Filter only the ones that can be sold online
-$RequestStartDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter by activation start date
+$RequestOnlineOnly = true; // bool | If `true`, filters results to show only promocodes that can be used for online sale.  If `false`, all promocodes are returned.  Default: **false**
+$RequestStartDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filters results to promocodes that were activated after this date.
 
 try {
     $result = $apiInstance->siteGetPromoCodes($RequestActiveOnly, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestOnlineOnly, $RequestStartDate);
@@ -627,12 +635,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **RequestActiveOnly** | **bool**| Filter only active, defaults to true | [optional]
- **RequestEndDate** | **\DateTime**| Filter by activation end date | [optional]
+ **RequestActiveOnly** | **bool**| If true, filters results to show only promocodes that are active. If **false**, all promocodes are returned.  Default: **true** | [optional]
+ **RequestEndDate** | **\DateTime**| Filters results to promocodes that were activated before this date. | [optional]
  **RequestLimit** | **int**| Number of results to include, defaults to 100 | [optional]
  **RequestOffset** | **int**| Page offset, defaults to 0. | [optional]
- **RequestOnlineOnly** | **bool**| Filter only the ones that can be sold online | [optional]
- **RequestStartDate** | **\DateTime**| Filter by activation start date | [optional]
+ **RequestOnlineOnly** | **bool**| If &#x60;true&#x60;, filters results to show only promocodes that can be used for online sale.  If &#x60;false&#x60;, all promocodes are returned.  Default: **false** | [optional]
+ **RequestStartDate** | **\DateTime**| Filters results to promocodes that were activated after this date. | [optional]
 
 ### Return type
 
@@ -654,6 +662,8 @@ Name | Type | Description  | Notes
 
 Gets a list of prospect stages for a site.
 
+Get the list of prospect stages that represent the prospect stage options for prospective clients.
+
 ### Example
 ```php
 <?php
@@ -678,7 +688,7 @@ $apiInstance = new Nlocascio\Mindbody\Api\SiteApi(
     new GuzzleHttp\Client(),
     $config
 );
-$RequestActive = true; // bool | The requested Active type Prospect Stages. true indicates for Active Prospect Stages and false indicates for Deactivated Prospect Stages.
+$RequestActive = true; // bool | When `true`, the response only contains prospect stages which are activated.  When `false`, only deactivated prospect stages are returned.  Default: **All Prospect Stages**
 
 try {
     $result = $apiInstance->siteGetProspectStages($RequestActive);
@@ -693,7 +703,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **RequestActive** | **bool**| The requested Active type Prospect Stages. true indicates for Active Prospect Stages and false indicates for Deactivated Prospect Stages. | [optional]
+ **RequestActive** | **bool**| When &#x60;true&#x60;, the response only contains prospect stages which are activated.  When &#x60;false&#x60;, only deactivated prospect stages are returned.  Default: **All Prospect Stages** | [optional]
 
 ### Return type
 
@@ -715,6 +725,8 @@ Name | Type | Description  | Notes
 
 Returns all active relationships of the site.
 
+This endpoint retrieves the business site relationships.
+
 ### Example
 ```php
 <?php
@@ -739,7 +751,7 @@ $apiInstance = new Nlocascio\Mindbody\Api\SiteApi(
     new GuzzleHttp\Client(),
     $config
 );
-$RequestActive = true; // bool | The requested Active type Relationships. true indicates for Active Relationships and false indicates for Deactivated Relationships.
+$RequestActive = true; // bool | When `true`, the response only contains relationships which are activated.  When `false`, only deactivated relationships are returned.  Default: **All Relationships**
 $RequestLimit = 56; // int | Number of results to include, defaults to 100
 $RequestOffset = 56; // int | Page offset, defaults to 0.
 
@@ -756,7 +768,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **RequestActive** | **bool**| The requested Active type Relationships. true indicates for Active Relationships and false indicates for Deactivated Relationships. | [optional]
+ **RequestActive** | **bool**| When &#x60;true&#x60;, the response only contains relationships which are activated.  When &#x60;false&#x60;, only deactivated relationships are returned.  Default: **All Relationships** | [optional]
  **RequestLimit** | **int**| Number of results to include, defaults to 100 | [optional]
  **RequestOffset** | **int**| Page offset, defaults to 0. | [optional]
 
@@ -914,7 +926,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **siteGetSites**
-> \Nlocascio\Mindbody\Model\GetSitesResponse siteGetSites($RequestLimit, $RequestOffset, $RequestSiteIds)
+> \Nlocascio\Mindbody\Model\GetSitesResponse siteGetSites($RequestIncludeLeadChannels, $RequestLimit, $RequestOffset, $RequestSiteIds)
 
 Get all sites that can be accessed by an API Key.
 
@@ -940,12 +952,13 @@ $apiInstance = new Nlocascio\Mindbody\Api\SiteApi(
     new GuzzleHttp\Client(),
     $config
 );
+$RequestIncludeLeadChannels = true; // bool | This is an optional parameter to get lead channels for a Site.
 $RequestLimit = 56; // int | Number of results to include, defaults to 100
 $RequestOffset = 56; // int | Page offset, defaults to 0.
 $RequestSiteIds = array(56); // int[] | List of the requested site IDs. When omitted, returns all sites that the source has access to.
 
 try {
-    $result = $apiInstance->siteGetSites($RequestLimit, $RequestOffset, $RequestSiteIds);
+    $result = $apiInstance->siteGetSites($RequestIncludeLeadChannels, $RequestLimit, $RequestOffset, $RequestSiteIds);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SiteApi->siteGetSites: ', $e->getMessage(), PHP_EOL;
@@ -957,6 +970,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **RequestIncludeLeadChannels** | **bool**| This is an optional parameter to get lead channels for a Site. | [optional]
  **RequestLimit** | **int**| Number of results to include, defaults to 100 | [optional]
  **RequestOffset** | **int**| Page offset, defaults to 0. | [optional]
  **RequestSiteIds** | [**int[]**](../Model/int.md)| List of the requested site IDs. When omitted, returns all sites that the source has access to. | [optional]

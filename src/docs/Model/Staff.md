@@ -32,6 +32,7 @@ Name | Type | Description | Notes
 **MultiLocationPermission** | **bool** |  | [optional] 
 **Name** | **string** |  | [optional] 
 **ProviderIDs** | **string[]** |  | [optional] 
+**StaffSettings** | [**\Nlocascio\Mindbody\Model\StaffSetting**](StaffSetting.md) |  | [optional] 
 **Rep** | **bool** |  | [optional] 
 **Rep2** | **bool** |  | [optional] 
 **Rep3** | **bool** |  | [optional] 

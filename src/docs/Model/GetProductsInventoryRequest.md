@@ -3,9 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ProductIds** | **string[]** | An IDs filter for products inventory data. | [optional] 
-**LocationIds** | **int[]** | The location IDs to use to determine the inventory data of the product of specific location.&lt;br /&gt;  Default: **online store** | [optional] 
-**BarcodeIds** | **string[]** | An IDs is barcodeId to filter for products inventory data. | [optional] 
+**ProductIds** | **string[]** | When included, the response only contains details about the specified product Ids. | [optional] 
+**LocationIds** | **int[]** | When included, the response only contains details about the specified location Ids. | [optional] 
+**BarcodeIds** | **string[]** | When included, the response only contains details about the specified Barcode Ids. | [optional] 
 **Limit** | **int** | Number of results to include, defaults to 100 | [optional] 
 **Offset** | **int** | Page offset, defaults to 0. | [optional] 
 

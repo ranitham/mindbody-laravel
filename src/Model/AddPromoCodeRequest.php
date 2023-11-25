@@ -36,17 +36,17 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property string $Code Promotion Code.
- * @property string $Name Promotion Name.
- * @property bool $Active Active status
+ * @property string $Code The code of the promocode.
+ * @property string $Name The name of the promocode.
+ * @property bool $Active Indicates that promocode is active. Default: **true**
  * @property \Nlocascio\Mindbody\Model\Discount $Discount Discount info
- * @property \DateTime $ActivationDate Date activated
- * @property \DateTime $ExpirationDate Date expired
- * @property int $MaxUses How many times it can be used
- * @property int $DaysAfterCloseDate Days after close date
- * @property bool $AllowOnline Whether it can be used online
- * @property string[] $DaysValid What days the promo code can be used
- * @property \Nlocascio\Mindbody\Model\ApplicableItem[] $ApplicableItems Items that the promo code will have the discount for.  If Null, promo code applies to all items.
+ * @property \DateTime $ActivationDate The date of the promocode activation. Default: **today’s date**
+ * @property \DateTime $ExpirationDate The date of the promocode expiration. Default: **a months from today’s date**
+ * @property int $MaxUses The maximun number of uses. A use is considered a single sale.
+ * @property int $DaysAfterCloseDate The number of days a client has to use a promocode after they are no longer a prospect.
+ * @property bool $AllowOnline Indicates if promocode can be redeemed online in consumer mode. Default: **false**
+ * @property string[] $DaysValid Indicates what days of the week promocode is valid. Defaults to 7 days of the week. Possible values are:  * Monday  * Tuesday  * Wednesday  * Thursday  * Friday  * Saturday  * Sunday
+ * @property \Nlocascio\Mindbody\Model\ApplicableItem[] $ApplicableItems Contains information about appicable items.  See ApplicableItems for a details of the `ApplicableItems` object.
  *
  */
 class AddPromoCodeRequest extends BaseModel
@@ -215,7 +215,7 @@ class AddPromoCodeRequest extends BaseModel
     /**
      * Sets Code
      *
-     * @param string $Code Promotion Code.
+     * @param string $Code The code of the promocode.
      *
      * @return $this
      */
@@ -239,7 +239,7 @@ class AddPromoCodeRequest extends BaseModel
     /**
      * Sets Name
      *
-     * @param string $Name Promotion Name.
+     * @param string $Name The name of the promocode.
      *
      * @return $this
      */
@@ -263,7 +263,7 @@ class AddPromoCodeRequest extends BaseModel
     /**
      * Sets Active
      *
-     * @param bool $Active Active status
+     * @param bool $Active Indicates that promocode is active. Default: **true**
      *
      * @return $this
      */
@@ -311,7 +311,7 @@ class AddPromoCodeRequest extends BaseModel
     /**
      * Sets ActivationDate
      *
-     * @param \DateTime $ActivationDate Date activated
+     * @param \DateTime $ActivationDate The date of the promocode activation. Default: **today’s date**
      *
      * @return $this
      */
@@ -335,7 +335,7 @@ class AddPromoCodeRequest extends BaseModel
     /**
      * Sets ExpirationDate
      *
-     * @param \DateTime $ExpirationDate Date expired
+     * @param \DateTime $ExpirationDate The date of the promocode expiration. Default: **a months from today’s date**
      *
      * @return $this
      */
@@ -359,7 +359,7 @@ class AddPromoCodeRequest extends BaseModel
     /**
      * Sets MaxUses
      *
-     * @param int $MaxUses How many times it can be used
+     * @param int $MaxUses The maximun number of uses. A use is considered a single sale.
      *
      * @return $this
      */
@@ -383,7 +383,7 @@ class AddPromoCodeRequest extends BaseModel
     /**
      * Sets DaysAfterCloseDate
      *
-     * @param int $DaysAfterCloseDate Days after close date
+     * @param int $DaysAfterCloseDate The number of days a client has to use a promocode after they are no longer a prospect.
      *
      * @return $this
      */
@@ -407,7 +407,7 @@ class AddPromoCodeRequest extends BaseModel
     /**
      * Sets AllowOnline
      *
-     * @param bool $AllowOnline Whether it can be used online
+     * @param bool $AllowOnline Indicates if promocode can be redeemed online in consumer mode. Default: **false**
      *
      * @return $this
      */
@@ -431,7 +431,7 @@ class AddPromoCodeRequest extends BaseModel
     /**
      * Sets DaysValid
      *
-     * @param string[] $DaysValid What days the promo code can be used
+     * @param string[] $DaysValid Indicates what days of the week promocode is valid. Defaults to 7 days of the week. Possible values are:  * Monday  * Tuesday  * Wednesday  * Thursday  * Friday  * Saturday  * Sunday
      *
      * @return $this
      */
@@ -455,7 +455,7 @@ class AddPromoCodeRequest extends BaseModel
     /**
      * Sets ApplicableItems
      *
-     * @param \Nlocascio\Mindbody\Model\ApplicableItem[] $ApplicableItems Items that the promo code will have the discount for.  If Null, promo code applies to all items.
+     * @param \Nlocascio\Mindbody\Model\ApplicableItem[] $ApplicableItems Contains information about appicable items.  See ApplicableItems for a details of the `ApplicableItems` object.
      *
      * @return $this
      */

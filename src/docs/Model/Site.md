@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **CountryCode** | **string** | The country code for the site. | [optional] 
 **TimeZone** | **string** | The time zone the site is located in. | [optional] 
 **AcceptsDirectDebit** | **bool** | When &#x60;true&#x60;, indicates that direct debit can be used by clients at this site.&lt;br /&gt;  When &#x60;false&#x60;, indicates that direct debit can not by used by clients at this site. | [optional] 
+**LeadChannels** | [**\Nlocascio\Mindbody\Model\LeadChannel[]**](LeadChannel.md) | The list of lead channels available for a subscriber/studio. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

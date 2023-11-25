@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Active** | **bool** | The requested Active type Relationships. true indicates for Active Relationships and false indicates for Deactivated Relationships. | [optional] 
+**Active** | **bool** | When &#x60;true&#x60;, the response only contains relationships which are activated.  When &#x60;false&#x60;, only deactivated relationships are returned.  Default: **All Relationships** | [optional] 
 **Limit** | **int** | Number of results to include, defaults to 100 | [optional] 
 **Offset** | **int** | Page offset, defaults to 0. | [optional] 
 

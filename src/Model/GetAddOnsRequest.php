@@ -36,7 +36,7 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property int $StaffId Optionally filter add ons that can be performed by this staff
+ * @property int $StaffId Filter to add-ons only performed by this staff member.
  * @property int $Limit Number of results to include, defaults to 100
  * @property int $Offset Page offset, defaults to 0.
  *
@@ -153,7 +153,7 @@ class GetAddOnsRequest extends BaseModel
     /**
      * Sets StaffId
      *
-     * @param int $StaffId Optionally filter add ons that can be performed by this staff
+     * @param int $StaffId Filter to add-ons only performed by this staff member.
      *
      * @return $this
      */

@@ -38,8 +38,9 @@ namespace Nlocascio\Mindbody\Model;
  * @link     https://github.com/swagger-api/swagger-codegen
  * @property string $ClientId The ID of the requested client.
  * @property int $LocationId The ID of the location for the requested arrival.
- * @property int $ArrivalTypeId The ID of the arrival type to take.   OPTIONAL: will take first payment found if not provided
- * @property bool $Test OPTIONAL: If test is true only validation is ran
+ * @property int $ArrivalTypeId The ID of the arrival program (service category) under which this arrival is to be logged. If this is not provided, the program ID of the first arrival pricing option found will be used.  OPTIONAL: will take first payment found if not provided
+ * @property int $LeadChannelId The ID of the Lead Channel ID from lead management. If this is supplied then it will map lead channel on the lead management.  If this is not supplied then it wont save anything.  This parameters required to track the lead channel if new client added while adding arrival of client on non home location.
+ * @property bool $Test When `true`, indicates that the arrival log is to be validated, but no new arrival data is added. When `false`, the arrival is logged and the database is affected.  Default: **false**
  *
  */
 class AddArrivalRequest extends BaseModel
@@ -62,6 +63,7 @@ class AddArrivalRequest extends BaseModel
         'ClientId' => 'string',
         'LocationId' => 'int',
         'ArrivalTypeId' => 'int',
+        'LeadChannelId' => 'int',
         'Test' => 'bool'
     ];
 
@@ -74,6 +76,7 @@ class AddArrivalRequest extends BaseModel
         'ClientId' => null,
         'LocationId' => 'int32',
         'ArrivalTypeId' => 'int32',
+        'LeadChannelId' => 'int32',
         'Test' => null
     ];
 
@@ -88,6 +91,7 @@ class AddArrivalRequest extends BaseModel
         'ClientId' => 'ClientId',
         'LocationId' => 'LocationId',
         'ArrivalTypeId' => 'ArrivalTypeId',
+        'LeadChannelId' => 'LeadChannelId',
         'Test' => 'Test'
     ];
 
@@ -100,6 +104,7 @@ class AddArrivalRequest extends BaseModel
         'ClientId' => 'setClientId',
         'LocationId' => 'setLocationId',
         'ArrivalTypeId' => 'setArrivalTypeId',
+        'LeadChannelId' => 'setLeadChannelId',
         'Test' => 'setTest'
     ];
 
@@ -112,6 +117,7 @@ class AddArrivalRequest extends BaseModel
         'ClientId' => 'getClientId',
         'LocationId' => 'getLocationId',
         'ArrivalTypeId' => 'getArrivalTypeId',
+        'LeadChannelId' => 'getLeadChannelId',
         'Test' => 'getTest'
     ];
 
@@ -131,6 +137,7 @@ class AddArrivalRequest extends BaseModel
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
         $this->container['LocationId'] = isset($data['LocationId']) ? $data['LocationId'] : null;
         $this->container['ArrivalTypeId'] = isset($data['ArrivalTypeId']) ? $data['ArrivalTypeId'] : null;
+        $this->container['LeadChannelId'] = isset($data['LeadChannelId']) ? $data['LeadChannelId'] : null;
         $this->container['Test'] = isset($data['Test']) ? $data['Test'] : null;
     }
 
@@ -214,13 +221,37 @@ class AddArrivalRequest extends BaseModel
     /**
      * Sets ArrivalTypeId
      *
-     * @param int $ArrivalTypeId The ID of the arrival type to take.   OPTIONAL: will take first payment found if not provided
+     * @param int $ArrivalTypeId The ID of the arrival program (service category) under which this arrival is to be logged. If this is not provided, the program ID of the first arrival pricing option found will be used.  OPTIONAL: will take first payment found if not provided
      *
      * @return $this
      */
     public function setArrivalTypeId($ArrivalTypeId): self
     {
         $this->container['ArrivalTypeId'] = $ArrivalTypeId;
+
+        return $this;
+    }
+
+    /**
+     * Gets LeadChannelId
+     *
+     * @return int
+     */
+    public function getLeadChannelId()
+    {
+        return $this->container['LeadChannelId'];
+    }
+
+    /**
+     * Sets LeadChannelId
+     *
+     * @param int $LeadChannelId The ID of the Lead Channel ID from lead management. If this is supplied then it will map lead channel on the lead management.  If this is not supplied then it wont save anything.  This parameters required to track the lead channel if new client added while adding arrival of client on non home location.
+     *
+     * @return $this
+     */
+    public function setLeadChannelId($LeadChannelId): self
+    {
+        $this->container['LeadChannelId'] = $LeadChannelId;
 
         return $this;
     }
@@ -238,7 +269,7 @@ class AddArrivalRequest extends BaseModel
     /**
      * Sets Test
      *
-     * @param bool $Test OPTIONAL: If test is true only validation is ran
+     * @param bool $Test When `true`, indicates that the arrival log is to be validated, but no new arrival data is added. When `false`, the arrival is logged and the database is affected.  Default: **false**
      *
      * @return $this
      */

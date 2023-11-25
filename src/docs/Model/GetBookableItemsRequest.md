@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SessionTypeIds** | **int[]** | A list of the requested session type IDs. | 
 **LocationIds** | **int[]** | A list of the requested location IDs. | [optional] 
-**StaffIds** | **int[]** | A list of the requested staff IDs. | [optional] 
+**StaffIds** | **int[]** | A list of the requested staff IDs. Omit parameter to return all staff availabilities. | [optional] 
 **StartDate** | [**\DateTime**](\DateTime.md) | The start date of the requested date range.   &lt;br /&gt;Default: **today’s date** | [optional] 
 **EndDate** | [**\DateTime**](\DateTime.md) | The end date of the requested date range.   &lt;br /&gt;Default: **StartDate** | [optional] 
 **AppointmentId** | **int** | If provided, filters out the appointment with this ID. | [optional] 

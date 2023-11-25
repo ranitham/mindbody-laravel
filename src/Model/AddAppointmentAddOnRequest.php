@@ -37,11 +37,11 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property bool $ApplyPayment Currently not supported Apply Payment for this add-on service.  Optional defaults to true
- * @property int $AppointmentId The unique identifier for the appointment we are adding on to
- * @property int $SessionTypeId The service we are adding on to the appointment
- * @property int $StaffId Optional.  The staff performing the service will default to the appointment staff if unspecified
- * @property bool $Test Optional.  When true only performs validation of the request.  Defaults to False.
+ * @property bool $ApplyPayment When `true`, indicates that a payment should be applied to the appointment. Currently only ApplyPayment=false is implemented.  Default: **true**
+ * @property int $AppointmentId The appointment ID the add-on is getting added to.
+ * @property int $SessionTypeId The session type associated with the new appointment add-on.
+ * @property int $StaffId The ID of the staff member who is adding the new appointment add-on.  Default: staff member performing the appointment.
+ * @property bool $Test When `true`, indicates that the method is to be validated, but no new appointment add-on data is added.  Default: **false**
  *
  */
 class AddAppointmentAddOnRequest extends BaseModel
@@ -168,7 +168,7 @@ class AddAppointmentAddOnRequest extends BaseModel
     /**
      * Sets ApplyPayment
      *
-     * @param bool $ApplyPayment Currently not supported Apply Payment for this add-on service.  Optional defaults to true
+     * @param bool $ApplyPayment When `true`, indicates that a payment should be applied to the appointment. Currently only ApplyPayment=false is implemented.  Default: **true**
      *
      * @return $this
      */
@@ -192,7 +192,7 @@ class AddAppointmentAddOnRequest extends BaseModel
     /**
      * Sets AppointmentId
      *
-     * @param int $AppointmentId The unique identifier for the appointment we are adding on to
+     * @param int $AppointmentId The appointment ID the add-on is getting added to.
      *
      * @return $this
      */
@@ -216,7 +216,7 @@ class AddAppointmentAddOnRequest extends BaseModel
     /**
      * Sets SessionTypeId
      *
-     * @param int $SessionTypeId The service we are adding on to the appointment
+     * @param int $SessionTypeId The session type associated with the new appointment add-on.
      *
      * @return $this
      */
@@ -240,7 +240,7 @@ class AddAppointmentAddOnRequest extends BaseModel
     /**
      * Sets StaffId
      *
-     * @param int $StaffId Optional.  The staff performing the service will default to the appointment staff if unspecified
+     * @param int $StaffId The ID of the staff member who is adding the new appointment add-on.  Default: staff member performing the appointment.
      *
      * @return $this
      */
@@ -264,7 +264,7 @@ class AddAppointmentAddOnRequest extends BaseModel
     /**
      * Sets Test
      *
-     * @param bool $Test Optional.  When true only performs validation of the request.  Defaults to False.
+     * @param bool $Test When `true`, indicates that the method is to be validated, but no new appointment add-on data is added.  Default: **false**
      *
      * @return $this
      */

@@ -36,11 +36,12 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property int $AppointmentId The appointments unique ID.
+ * @property int $AppointmentId A unique ID for the appointment.
  * @property \DateTime $EndDateTime The end date and time of the new appointment.   <br />Default: **StartDateTime**, offset by the staff member’s default appointment duration.
  * @property string $Execute The action taken to add this appointment.
  * @property string $GenderPreference The client’s service provider gender preference.
  * @property string $Notes Any general notes about this appointment.
+ * @property string $PartnerExternalId Optional external key for api partners.
  * @property string $ProviderId If a user has Complementary and Alternative Medicine features enabled, this parameter assigns a provider ID to the appointment.
  * @property int[] $ResourceIds A list of resource IDs to associate with the new appointment.
  * @property bool $SendEmail Whether to send client an email for cancellations. An email is sent only if the client has an email address and automatic emails have been set up.   <br />Default: **false**
@@ -72,6 +73,7 @@ class UpdateAppointmentRequest extends BaseModel
         'Execute' => 'string',
         'GenderPreference' => 'string',
         'Notes' => 'string',
+        'PartnerExternalId' => 'string',
         'ProviderId' => 'string',
         'ResourceIds' => 'int[]',
         'SendEmail' => 'bool',
@@ -92,6 +94,7 @@ class UpdateAppointmentRequest extends BaseModel
         'Execute' => null,
         'GenderPreference' => null,
         'Notes' => null,
+        'PartnerExternalId' => null,
         'ProviderId' => null,
         'ResourceIds' => 'int32',
         'SendEmail' => null,
@@ -114,6 +117,7 @@ class UpdateAppointmentRequest extends BaseModel
         'Execute' => 'Execute',
         'GenderPreference' => 'GenderPreference',
         'Notes' => 'Notes',
+        'PartnerExternalId' => 'PartnerExternalId',
         'ProviderId' => 'ProviderId',
         'ResourceIds' => 'ResourceIds',
         'SendEmail' => 'SendEmail',
@@ -134,6 +138,7 @@ class UpdateAppointmentRequest extends BaseModel
         'Execute' => 'setExecute',
         'GenderPreference' => 'setGenderPreference',
         'Notes' => 'setNotes',
+        'PartnerExternalId' => 'setPartnerExternalId',
         'ProviderId' => 'setProviderId',
         'ResourceIds' => 'setResourceIds',
         'SendEmail' => 'setSendEmail',
@@ -154,6 +159,7 @@ class UpdateAppointmentRequest extends BaseModel
         'Execute' => 'getExecute',
         'GenderPreference' => 'getGenderPreference',
         'Notes' => 'getNotes',
+        'PartnerExternalId' => 'getPartnerExternalId',
         'ProviderId' => 'getProviderId',
         'ResourceIds' => 'getResourceIds',
         'SendEmail' => 'getSendEmail',
@@ -181,6 +187,7 @@ class UpdateAppointmentRequest extends BaseModel
         $this->container['Execute'] = isset($data['Execute']) ? $data['Execute'] : null;
         $this->container['GenderPreference'] = isset($data['GenderPreference']) ? $data['GenderPreference'] : null;
         $this->container['Notes'] = isset($data['Notes']) ? $data['Notes'] : null;
+        $this->container['PartnerExternalId'] = isset($data['PartnerExternalId']) ? $data['PartnerExternalId'] : null;
         $this->container['ProviderId'] = isset($data['ProviderId']) ? $data['ProviderId'] : null;
         $this->container['ResourceIds'] = isset($data['ResourceIds']) ? $data['ResourceIds'] : null;
         $this->container['SendEmail'] = isset($data['SendEmail']) ? $data['SendEmail'] : null;
@@ -219,7 +226,7 @@ class UpdateAppointmentRequest extends BaseModel
     /**
      * Sets AppointmentId
      *
-     * @param int $AppointmentId The appointments unique ID.
+     * @param int $AppointmentId A unique ID for the appointment.
      *
      * @return $this
      */
@@ -322,6 +329,30 @@ class UpdateAppointmentRequest extends BaseModel
     public function setNotes($Notes): self
     {
         $this->container['Notes'] = $Notes;
+
+        return $this;
+    }
+
+    /**
+     * Gets PartnerExternalId
+     *
+     * @return string
+     */
+    public function getPartnerExternalId()
+    {
+        return $this->container['PartnerExternalId'];
+    }
+
+    /**
+     * Sets PartnerExternalId
+     *
+     * @param string $PartnerExternalId Optional external key for api partners.
+     *
+     * @return $this
+     */
+    public function setPartnerExternalId($PartnerExternalId): self
+    {
+        $this->container['PartnerExternalId'] = $PartnerExternalId;
 
         return $this;
     }

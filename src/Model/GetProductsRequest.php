@@ -36,10 +36,10 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property string[] $ProductIds An ID filter for products.
+ * @property string[] $ProductIds The barcode number of the product to be filter by.
  * @property string $SearchText A search filter, used for searching by term.
- * @property int[] $CategoryIds A list of category IDs to filter by.
- * @property int[] $SubCategoryIds A list of subcategory IDs to filter by.
+ * @property int[] $CategoryIds A list of revenue category IDs to filter by. Use this ID when calling the GET Categories endpoint.     ** Note:** The values for these are not currently retrievable through the API.
+ * @property int[] $SubCategoryIds A list of subcategory IDs to filter by. Use this ID when calling the GET Categories endpoint.    **Note:** The values for these are not currently retrievable through the API.
  * @property bool $SellOnline When `true`, only products that can be sold online are returned.<br />  When `false`, all products are returned.<br />  Default: **false**
  * @property int $LocationId The location ID to use to determine the tax for the products that this request returns.<br />  Default: **online store**
  * @property int $Limit Number of results to include, defaults to 100
@@ -188,7 +188,7 @@ class GetProductsRequest extends BaseModel
     /**
      * Sets ProductIds
      *
-     * @param string[] $ProductIds An ID filter for products.
+     * @param string[] $ProductIds The barcode number of the product to be filter by.
      *
      * @return $this
      */
@@ -236,7 +236,7 @@ class GetProductsRequest extends BaseModel
     /**
      * Sets CategoryIds
      *
-     * @param int[] $CategoryIds A list of category IDs to filter by.
+     * @param int[] $CategoryIds A list of revenue category IDs to filter by. Use this ID when calling the GET Categories endpoint.     ** Note:** The values for these are not currently retrievable through the API.
      *
      * @return $this
      */
@@ -260,7 +260,7 @@ class GetProductsRequest extends BaseModel
     /**
      * Sets SubCategoryIds
      *
-     * @param int[] $SubCategoryIds A list of subcategory IDs to filter by.
+     * @param int[] $SubCategoryIds A list of subcategory IDs to filter by. Use this ID when calling the GET Categories endpoint.    **Note:** The values for these are not currently retrievable through the API.
      *
      * @return $this
      */

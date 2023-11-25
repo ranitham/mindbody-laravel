@@ -38,6 +38,7 @@ namespace Nlocascio\Mindbody\Model;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  * @property int $Id The contact log subtype’s ID.
+ * @property string $Name The contact log subtype’s Name.
  *
  */
 class ContactLogSubType extends BaseModel implements ModelWithId
@@ -57,7 +58,8 @@ class ContactLogSubType extends BaseModel implements ModelWithId
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'Id' => 'int'
+        'Id' => 'int',
+        'Name' => 'string'
     ];
 
     /**
@@ -66,7 +68,8 @@ class ContactLogSubType extends BaseModel implements ModelWithId
       * @var array<string, string|null>
       */
     protected static $swaggerFormats = [
-        'Id' => 'int32'
+        'Id' => 'int32',
+        'Name' => null
     ];
 
 
@@ -77,7 +80,8 @@ class ContactLogSubType extends BaseModel implements ModelWithId
      * @var string[]
      */
     protected static $attributeMap = [
-        'Id' => 'Id'
+        'Id' => 'Id',
+        'Name' => 'Name'
     ];
 
     /**
@@ -86,7 +90,8 @@ class ContactLogSubType extends BaseModel implements ModelWithId
      * @var string[]
      */
     protected static $setters = [
-        'Id' => 'setId'
+        'Id' => 'setId',
+        'Name' => 'setName'
     ];
 
     /**
@@ -95,7 +100,8 @@ class ContactLogSubType extends BaseModel implements ModelWithId
      * @var string[]
      */
     protected static $getters = [
-        'Id' => 'getId'
+        'Id' => 'getId',
+        'Name' => 'getName'
     ];
 
 
@@ -112,6 +118,7 @@ class ContactLogSubType extends BaseModel implements ModelWithId
     public function __construct(array $data = null)
     {
         $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
+        $this->container['Name'] = isset($data['Name']) ? $data['Name'] : null;
     }
 
     /**
@@ -147,6 +154,30 @@ class ContactLogSubType extends BaseModel implements ModelWithId
     public function setId($Id): self
     {
         $this->container['Id'] = $Id;
+
+        return $this;
+    }
+
+    /**
+     * Gets Name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['Name'];
+    }
+
+    /**
+     * Sets Name
+     *
+     * @param string $Name The contact log subtype’s Name.
+     *
+     * @return $this
+     */
+    public function setName($Name): self
+    {
+        $this->container['Name'] = $Name;
 
         return $this;
     }

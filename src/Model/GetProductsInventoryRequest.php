@@ -36,9 +36,9 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property string[] $ProductIds An IDs filter for products inventory data.
- * @property int[] $LocationIds The location IDs to use to determine the inventory data of the product of specific location.<br />  Default: **online store**
- * @property string[] $BarcodeIds An IDs is barcodeId to filter for products inventory data.
+ * @property string[] $ProductIds When included, the response only contains details about the specified product Ids.
+ * @property int[] $LocationIds When included, the response only contains details about the specified location Ids.
+ * @property string[] $BarcodeIds When included, the response only contains details about the specified Barcode Ids.
  * @property int $Limit Number of results to include, defaults to 100
  * @property int $Offset Page offset, defaults to 0.
  *
@@ -167,7 +167,7 @@ class GetProductsInventoryRequest extends BaseModel
     /**
      * Sets ProductIds
      *
-     * @param string[] $ProductIds An IDs filter for products inventory data.
+     * @param string[] $ProductIds When included, the response only contains details about the specified product Ids.
      *
      * @return $this
      */
@@ -191,7 +191,7 @@ class GetProductsInventoryRequest extends BaseModel
     /**
      * Sets LocationIds
      *
-     * @param int[] $LocationIds The location IDs to use to determine the inventory data of the product of specific location.<br />  Default: **online store**
+     * @param int[] $LocationIds When included, the response only contains details about the specified location Ids.
      *
      * @return $this
      */
@@ -215,7 +215,7 @@ class GetProductsInventoryRequest extends BaseModel
     /**
      * Sets BarcodeIds
      *
-     * @param string[] $BarcodeIds An IDs is barcodeId to filter for products inventory data.
+     * @param string[] $BarcodeIds When included, the response only contains details about the specified Barcode Ids.
      *
      * @return $this
      */

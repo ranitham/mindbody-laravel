@@ -36,13 +36,13 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property bool $Test When `true`, the Public API validates input information, but does not commit it, so no client data is affected.<br />  When `false` or omitted, the transaction is committed, and client data is affected.<br />  Default: **false**
- * @property int $LocationId The ID of the location where the client is purchasing the contract; used for AutoPays.
- * @property string $ClientId The ID of the client. Note that this is not the same as the client’s unique ID.
+ * @property bool $Test When `true`, allows you to test the request without affecting the database.  When `false`, the request is carried out and the database is affected.
+ * @property int $LocationId The ID of the location where the account credit is being sold.
+ * @property string $ClientId The ID of the location where the account credit is being sold.
  * @property bool $SendEmailReceipt When `true`, indicates that a purchase receipt email should be sent to the purchasing client, if all settings are correctly configured.<br />  When `false`, no email is sent to the purchaser.
- * @property int $SalesRepId The ID of the staff member who is to be marked as the sales rep for this gift card purchase.
+ * @property int $SalesRepId The ID of the staff member to be marked as the sales rep for this account credit sale.
  * @property bool $ConsumerPresent When `true`, indicates that the consumer is available to address any SCA challenge issued by the bank.  EU Only.<br />   Default: **false**
- * @property string $PaymentAuthenticationCallbackUrl This is the Url the consumer will be redirected back to after completion of the Banks SCA challenge.
+ * @property string $PaymentAuthenticationCallbackUrl The URL consumer is redirected to if the bank requests SCA. This field is only needed if ConsumerPresent is true.
  * @property \Nlocascio\Mindbody\Model\CheckoutPaymentInfo $PaymentInfo Contains information about the payment.
  *
  */
@@ -191,7 +191,7 @@ class PurchaseAccountCreditRequest extends BaseModel
     /**
      * Sets Test
      *
-     * @param bool $Test When `true`, the Public API validates input information, but does not commit it, so no client data is affected.<br />  When `false` or omitted, the transaction is committed, and client data is affected.<br />  Default: **false**
+     * @param bool $Test When `true`, allows you to test the request without affecting the database.  When `false`, the request is carried out and the database is affected.
      *
      * @return $this
      */
@@ -215,7 +215,7 @@ class PurchaseAccountCreditRequest extends BaseModel
     /**
      * Sets LocationId
      *
-     * @param int $LocationId The ID of the location where the client is purchasing the contract; used for AutoPays.
+     * @param int $LocationId The ID of the location where the account credit is being sold.
      *
      * @return $this
      */
@@ -239,7 +239,7 @@ class PurchaseAccountCreditRequest extends BaseModel
     /**
      * Sets ClientId
      *
-     * @param string $ClientId The ID of the client. Note that this is not the same as the client’s unique ID.
+     * @param string $ClientId The ID of the location where the account credit is being sold.
      *
      * @return $this
      */
@@ -287,7 +287,7 @@ class PurchaseAccountCreditRequest extends BaseModel
     /**
      * Sets SalesRepId
      *
-     * @param int $SalesRepId The ID of the staff member who is to be marked as the sales rep for this gift card purchase.
+     * @param int $SalesRepId The ID of the staff member to be marked as the sales rep for this account credit sale.
      *
      * @return $this
      */
@@ -335,7 +335,7 @@ class PurchaseAccountCreditRequest extends BaseModel
     /**
      * Sets PaymentAuthenticationCallbackUrl
      *
-     * @param string $PaymentAuthenticationCallbackUrl This is the Url the consumer will be redirected back to after completion of the Banks SCA challenge.
+     * @param string $PaymentAuthenticationCallbackUrl The URL consumer is redirected to if the bank requests SCA. This field is only needed if ConsumerPresent is true.
      *
      * @return $this
      */

@@ -60,6 +60,8 @@ Name | Type | Description | Notes
 **SendScheduleTexts** | **bool** | When &#x60;true&#x60;, indicates that the client opts to receive schedule texts. | [optional] 
 **SendAccountTexts** | **bool** | When &#x60;true&#x60;, indicates that the client opts to receive account texts. | [optional] 
 **SendPromotionalTexts** | **bool** | When &#x60;true&#x60;, indicates that the client opts to receive promotional texts. | [optional] 
+**LockerNumber** | **string** | The clients locker number. | [optional] 
+**ReactivateInactiveClient** | **bool** | When &#x60;true&#x60;, indicates that the client opts to reactive existing Inactive client. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

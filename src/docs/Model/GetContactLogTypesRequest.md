@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ContactLogTypeId** | **int** | The ID of the Contact Log Type | [optional] 
+**ContactLogTypeId** | **int** | The requested ContactLogType ID.  Default: **all** IDs that the authenticated user’s access level allows. | [optional] 
 **Limit** | **int** | Number of results to include, defaults to 100 | [optional] 
 **Offset** | **int** | Page offset, defaults to 0. | [optional] 
 

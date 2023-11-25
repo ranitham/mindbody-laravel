@@ -39,7 +39,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property string $ClientId The RSSID of the client for whom the contract is getting terminated.
  * @property int $ClientContractId The unique ID of the sale of the contract
  * @property \DateTime $TerminationDate The date to terminate contract
- * @property string $TerminationCode The termination code
+ * @property string $TerminationCode ex. Illness, Injury, Moving, BreakingContract (Note this can be customized by each studio).
  * @property string $TerminationComments The termination comments
  *
  */
@@ -248,7 +248,7 @@ class TerminateContractRequest extends BaseModel
     /**
      * Sets TerminationCode
      *
-     * @param string $TerminationCode The termination code
+     * @param string $TerminationCode ex. Illness, Injury, Moving, BreakingContract (Note this can be customized by each studio).
      *
      * @return $this
      */

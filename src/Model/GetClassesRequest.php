@@ -38,9 +38,9 @@ namespace Nlocascio\Mindbody\Model;
  * @link     https://github.com/swagger-api/swagger-codegen
  * @property int[] $ClassDescriptionIds The requested class description IDs.
  * @property int[] $ClassIds The requested class IDs.
- * @property int[] $ClassScheduleIds The requested classScheduleIds.
+ * @property int[] $ClassScheduleIds The requested classSchedule Ids.
  * @property int[] $StaffIds The requested IDs of the teaching staff members.
- * @property \DateTime $StartDateTime The requested start date for filtering.   <br />Default: **today’s date**
+ * @property \DateTime $StartDateTime The requested start date for filtering. This also determines what you will see for the ‘BookingWindow’ StartDateTime in the response. For example, if you pass a StartDateTime that is on OR before the BookingWindow ‘Open’ days of the class, you will retrieve the actual ‘StartDateTime’ for the Booking Window. If you pass a StartDateTime that is after the BookingWindow ‘date’, then you will receive results based on that start date.
  * @property \DateTime $EndDateTime The requested end date for filtering.  <br />Default: **today’s date**
  * @property string $ClientId The client ID of the client who is viewing this class list. Based on identity, the client may be able to see additional information, such as membership specials.
  * @property int[] $ProgramIds A list of program IDs on which to base the search.
@@ -292,7 +292,7 @@ class GetClassesRequest extends BaseModel
     /**
      * Sets ClassScheduleIds
      *
-     * @param int[] $ClassScheduleIds The requested classScheduleIds.
+     * @param int[] $ClassScheduleIds The requested classSchedule Ids.
      *
      * @return $this
      */
@@ -340,7 +340,7 @@ class GetClassesRequest extends BaseModel
     /**
      * Sets StartDateTime
      *
-     * @param \DateTime $StartDateTime The requested start date for filtering.   <br />Default: **today’s date**
+     * @param \DateTime $StartDateTime The requested start date for filtering. This also determines what you will see for the ‘BookingWindow’ StartDateTime in the response. For example, if you pass a StartDateTime that is on OR before the BookingWindow ‘Open’ days of the class, you will retrieve the actual ‘StartDateTime’ for the Booking Window. If you pass a StartDateTime that is after the BookingWindow ‘date’, then you will receive results based on that start date.
      *
      * @return $this
      */

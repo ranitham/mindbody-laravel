@@ -36,8 +36,8 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property string $ScheduledServiceType Defines a payroll filter for the type of service offered, either \"Class\", \"Appointment\", or \"Enrollment\".
- * @property int $ScheduledServiceId The ID for the instance of the service offered
+ * @property string $ScheduledServiceType Filters the results to schedule service earnings for specific types of services. Possible values:  * Class  * Appointment
+ * @property int $ScheduledServiceId Filters the results to a single scheduled service. This parameter must be used with a single ScheduledServiceType.
  * @property int $StaffId A list of staff IDs that you want to retrieve payroll information for. If you do not supply a `StaffId`, all active staff members return, ordered by staff ID.
  * @property \DateTime $StartDateTime The beginning of the date range for the payroll information to be returned. The maximum allowed date range is 14 days.  * If you do not supply a `StartDateTime`, data returns for the seven days prior to the `EndDateTime` that you supply.  * If you do not supply either a `StartDateTime` or an `EndDateTime`, the data returns for seven days prior to today’s date.
  * @property \DateTime $EndDateTime The end of the date range for the payroll information to be returned. The maximum allowed date range is 14 days.<br />  Default: **Today’s date**  * If you do not supply an `EndDateTime`, the data returns for the period from the `StartDateTime` that you supply to today’s date.  * If you do not supply an `EndDateTime` or a `StartDateTime`, data returns for the seven days prior to today’s date.
@@ -188,7 +188,7 @@ class GetScheduledServiceEarningsRequest extends BaseModel
     /**
      * Sets ScheduledServiceType
      *
-     * @param string $ScheduledServiceType Defines a payroll filter for the type of service offered, either \"Class\", \"Appointment\", or \"Enrollment\".
+     * @param string $ScheduledServiceType Filters the results to schedule service earnings for specific types of services. Possible values:  * Class  * Appointment
      *
      * @return $this
      */
@@ -212,7 +212,7 @@ class GetScheduledServiceEarningsRequest extends BaseModel
     /**
      * Sets ScheduledServiceId
      *
-     * @param int $ScheduledServiceId The ID for the instance of the service offered
+     * @param int $ScheduledServiceId Filters the results to a single scheduled service. This parameter must be used with a single ScheduledServiceType.
      *
      * @return $this
      */

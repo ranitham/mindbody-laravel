@@ -3,11 +3,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ApplyPayment** | **bool** | Currently not supported Apply Payment for this add-on service.  Optional defaults to true | [optional] 
-**AppointmentId** | **int** | The unique identifier for the appointment we are adding on to | [optional] 
-**SessionTypeId** | **int** | The service we are adding on to the appointment | [optional] 
-**StaffId** | **int** | Optional.  The staff performing the service will default to the appointment staff if unspecified | [optional] 
-**Test** | **bool** | Optional.  When true only performs validation of the request.  Defaults to False. | [optional] 
+**ApplyPayment** | **bool** | When &#x60;true&#x60;, indicates that a payment should be applied to the appointment. Currently only ApplyPayment&#x3D;false is implemented.  Default: **true** | [optional] 
+**AppointmentId** | **int** | The appointment ID the add-on is getting added to. | [optional] 
+**SessionTypeId** | **int** | The session type associated with the new appointment add-on. | [optional] 
+**StaffId** | **int** | The ID of the staff member who is adding the new appointment add-on.  Default: staff member performing the appointment. | [optional] 
+**Test** | **bool** | When &#x60;true&#x60;, indicates that the method is to be validated, but no new appointment add-on data is added.  Default: **false** | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

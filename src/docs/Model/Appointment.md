@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **StartDateTime** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **EndDateTime** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **Notes** | **string** |  | [optional] 
+**PartnerExternalId** | **string** |  | [optional] 
 **StaffRequested** | **bool** |  | [optional] 
 **ProgramId** | **int** |  | [optional] 
 **WaitlistEntryId** | **int** |  | [optional] 

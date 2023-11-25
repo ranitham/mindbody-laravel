@@ -36,9 +36,9 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property string $ClientId Required.  The client’s ID, as configured by the business owner. This is the client’s barcode ID if the business owner assigns barcodes to clients.
- * @property int $AppointmentId The optional appointment Id associated with the formula note
- * @property string $Note The note itself
+ * @property string $ClientId Required. The ID of the client who needs to have a formula note added.
+ * @property int $AppointmentId The appointment ID that the formula note is related to.
+ * @property string $Note The new formula note text.
  *
  */
 class AddFormulaNoteRequest extends BaseModel
@@ -159,7 +159,7 @@ class AddFormulaNoteRequest extends BaseModel
     /**
      * Sets ClientId
      *
-     * @param string $ClientId Required.  The client’s ID, as configured by the business owner. This is the client’s barcode ID if the business owner assigns barcodes to clients.
+     * @param string $ClientId Required. The ID of the client who needs to have a formula note added.
      *
      * @return $this
      */
@@ -183,7 +183,7 @@ class AddFormulaNoteRequest extends BaseModel
     /**
      * Sets AppointmentId
      *
-     * @param int $AppointmentId The optional appointment Id associated with the formula note
+     * @param int $AppointmentId The appointment ID that the formula note is related to.
      *
      * @return $this
      */
@@ -207,7 +207,7 @@ class AddFormulaNoteRequest extends BaseModel
     /**
      * Sets Note
      *
-     * @param string $Note The note itself
+     * @param string $Note The new formula note text.
      *
      * @return $this
      */

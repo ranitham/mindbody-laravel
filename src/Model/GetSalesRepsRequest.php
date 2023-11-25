@@ -37,8 +37,8 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property int[] $SalesRepNumbers This is the list of rep numbers to be fetched
- * @property bool $ActiveOnly This is to filter out the active sales rep from the list
+ * @property int[] $SalesRepNumbers This is the list of the sales rep numbers for which the salesrep data will be fetched.
+ * @property bool $ActiveOnly When `true`, will return only active reps data.  Default : **false**
  * @property int $Limit Number of results to include, defaults to 100
  * @property int $Offset Page offset, defaults to 0.
  *
@@ -161,7 +161,7 @@ class GetSalesRepsRequest extends BaseModel
     /**
      * Sets SalesRepNumbers
      *
-     * @param int[] $SalesRepNumbers This is the list of rep numbers to be fetched
+     * @param int[] $SalesRepNumbers This is the list of the sales rep numbers for which the salesrep data will be fetched.
      *
      * @return $this
      */
@@ -185,7 +185,7 @@ class GetSalesRepsRequest extends BaseModel
     /**
      * Sets ActiveOnly
      *
-     * @param bool $ActiveOnly This is to filter out the active sales rep from the list
+     * @param bool $ActiveOnly When `true`, will return only active reps data.  Default : **false**
      *
      * @return $this
      */

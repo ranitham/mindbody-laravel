@@ -46,6 +46,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property \Nlocascio\Mindbody\Model\AssignedClientIndex[] $ClientIndexes Contains the IDs of the client’s assigned ClientIndexes and ClientIndexValues.
  * @property \Nlocascio\Mindbody\Model\ClientRelationship[] $ClientRelationships Contains information about the relationship between two clients.
  * @property \DateTime $FirstAppointmentDate The date of the client’s first booked appointment at the business.
+ * @property \DateTime $FirstClassDate The date of the clients first booked class at the business.
  * @property string $FirstName The client’s first name.
  * @property string $Id The client’s ID, as configured by the business owner. This is the client’s barcode ID if the business owner assigns barcodes to clients. This ID is used throughout the Public API for client-related Public API calls. When used in a POST `UpdateClient` request, the `Id` is used to identify the client for the update.
  * @property bool $IsCompany When `true`, indicates that the client should be marked as a company at the business.<br />  When `false`, indicates the client is an individual and does not represent a company.
@@ -121,6 +122,7 @@ class Client extends BaseModel implements ModelWithId
         'ClientIndexes' => '\Nlocascio\Mindbody\Model\AssignedClientIndex[]',
         'ClientRelationships' => '\Nlocascio\Mindbody\Model\ClientRelationship[]',
         'FirstAppointmentDate' => '\DateTime',
+        'FirstClassDate' => '\DateTime',
         'FirstName' => 'string',
         'Id' => 'string',
         'IsCompany' => 'bool',
@@ -185,6 +187,7 @@ class Client extends BaseModel implements ModelWithId
         'ClientIndexes' => null,
         'ClientRelationships' => null,
         'FirstAppointmentDate' => 'date-time',
+        'FirstClassDate' => 'date-time',
         'FirstName' => null,
         'Id' => null,
         'IsCompany' => null,
@@ -251,6 +254,7 @@ class Client extends BaseModel implements ModelWithId
         'ClientIndexes' => 'ClientIndexes',
         'ClientRelationships' => 'ClientRelationships',
         'FirstAppointmentDate' => 'FirstAppointmentDate',
+        'FirstClassDate' => 'FirstClassDate',
         'FirstName' => 'FirstName',
         'Id' => 'Id',
         'IsCompany' => 'IsCompany',
@@ -315,6 +319,7 @@ class Client extends BaseModel implements ModelWithId
         'ClientIndexes' => 'setClientIndexes',
         'ClientRelationships' => 'setClientRelationships',
         'FirstAppointmentDate' => 'setFirstAppointmentDate',
+        'FirstClassDate' => 'setFirstClassDate',
         'FirstName' => 'setFirstName',
         'Id' => 'setId',
         'IsCompany' => 'setIsCompany',
@@ -379,6 +384,7 @@ class Client extends BaseModel implements ModelWithId
         'ClientIndexes' => 'getClientIndexes',
         'ClientRelationships' => 'getClientRelationships',
         'FirstAppointmentDate' => 'getFirstAppointmentDate',
+        'FirstClassDate' => 'getFirstClassDate',
         'FirstName' => 'getFirstName',
         'Id' => 'getId',
         'IsCompany' => 'getIsCompany',
@@ -488,6 +494,7 @@ class Client extends BaseModel implements ModelWithId
         $this->container['ClientIndexes'] = isset($data['ClientIndexes']) ? $data['ClientIndexes'] : null;
         $this->container['ClientRelationships'] = isset($data['ClientRelationships']) ? $data['ClientRelationships'] : null;
         $this->container['FirstAppointmentDate'] = isset($data['FirstAppointmentDate']) ? $data['FirstAppointmentDate'] : null;
+        $this->container['FirstClassDate'] = isset($data['FirstClassDate']) ? $data['FirstClassDate'] : null;
         $this->container['FirstName'] = isset($data['FirstName']) ? $data['FirstName'] : null;
         $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
         $this->container['IsCompany'] = isset($data['IsCompany']) ? $data['IsCompany'] : null;
@@ -787,6 +794,30 @@ class Client extends BaseModel implements ModelWithId
     public function setFirstAppointmentDate($FirstAppointmentDate): self
     {
         $this->container['FirstAppointmentDate'] = $FirstAppointmentDate;
+
+        return $this;
+    }
+
+    /**
+     * Gets FirstClassDate
+     *
+     * @return \DateTime
+     */
+    public function getFirstClassDate()
+    {
+        return $this->container['FirstClassDate'];
+    }
+
+    /**
+     * Sets FirstClassDate
+     *
+     * @param \DateTime $FirstClassDate The date of the clients first booked class at the business.
+     *
+     * @return $this
+     */
+    public function setFirstClassDate($FirstClassDate): self
+    {
+        $this->container['FirstClassDate'] = $FirstClassDate;
 
         return $this;
     }

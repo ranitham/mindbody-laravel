@@ -3,17 +3,17 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**StaffId** | **int** | The unique id of the staff | 
-**IsAvailability** | **bool** | IsAvailability &#x3D; true means this is staff available schedule, false means unavailability | 
-**Description** | **string** | Description is required if IsAvailability&#x3D;false | [optional] 
-**ProgramIds** | **int[]** | List of ProgramIds - for session types the staff member performs, required if IsAvailability&#x3D;true must be an Active ProgramId between 1 and 21 | [optional] 
-**LocationId** | **int** | The Location for the Availability, will default to 0 when isAvailability&#x3D;false | [optional] 
-**DaysOfWeek** | **string[]** | Day of week for the schedule \&quot;Monday\&quot;, \&quot;Tuesday\&quot;, etc... | 
-**StartTime** | **string** | The starting time in site local time format \&quot;HH:MM:SS\&quot; | 
-**EndTime** | **string** | The ending time in site local time format \&quot;HH:MM:SS\&quot; | 
-**StartDate** | **string** | The ending time in site local time format \&quot;HH:MM:SS\&quot; | 
-**EndDate** | **string** | The ending time in site local time format \&quot;HH:MM:SS\&quot; | 
-**Status** | **string** | one of \&quot;Public\&quot;, \&quot;Masked\&quot;, \&quot;Hidden\&quot;, default \&quot;Public\&quot;) - Schedule privacy. \&quot;Masked\&quot; only valid if IsAavailability&#x3D;true | [optional] 
+**StaffId** | **int** | The ID of the staff member that availability or unavailability will be added. | 
+**IsAvailability** | **bool** | When &#x60;true&#x60;, indicates that availability will be added, &lt;br /&gt;  When &#x60;false&#x60;, indicates that unavailability will be added. | 
+**Description** | **string** | The description of the unavailability, ex. Lunch, Vacation. Required if IsAvailability passed as &#x60;false&#x60;.  Omit if IsAvailability passed as &#x60;true&#x60;. | [optional] 
+**ProgramIds** | **int[]** | A list of program IDs. Must be a valid active schedulable Program ID. Required if IsAvailability passed as &#x60;true&#x60;.   Omit if IsAvailability passed as &#x60;false&#x60;. | [optional] 
+**LocationId** | **int** | The ID of the location where the availability is added. Required if IsAvailability passed as &#x60;true&#x60;.  Omit if IsAvailability passed as &#x60;false&#x60;. | [optional] 
+**DaysOfWeek** | **string[]** | The days of the week. Must contain at least one of the following Sunday, Monday, Tuesday etc. | 
+**StartTime** | **string** | The start time of the schedule. Must be in HH:MM:SS format. | 
+**EndTime** | **string** | The end time of the schedule. Must be in HH:MM:SS format. | 
+**StartDate** | **string** | The start date of the schedule. Must be in YYYY-MM-DD format. | 
+**EndDate** | **string** | The end date of the schedule. Must be in YYYY-MM-DD format. | 
+**Status** | **string** | The status of availability or unavailability. Possible values are:  * Masked  * Hidden  * Public    Default: Public | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

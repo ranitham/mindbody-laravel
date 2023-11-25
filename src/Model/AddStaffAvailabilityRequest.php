@@ -37,17 +37,17 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property int $StaffId The unique id of the staff
- * @property bool $IsAvailability IsAvailability = true means this is staff available schedule, false means unavailability
- * @property string $Description Description is required if IsAvailability=false
- * @property int[] $ProgramIds List of ProgramIds - for session types the staff member performs, required if IsAvailability=true must be an Active ProgramId between 1 and 21
- * @property int $LocationId The Location for the Availability, will default to 0 when isAvailability=false
- * @property string[] $DaysOfWeek Day of week for the schedule \"Monday\", \"Tuesday\", etc...
- * @property string $StartTime The starting time in site local time format \"HH:MM:SS\"
- * @property string $EndTime The ending time in site local time format \"HH:MM:SS\"
- * @property string $StartDate The ending time in site local time format \"HH:MM:SS\"
- * @property string $EndDate The ending time in site local time format \"HH:MM:SS\"
- * @property string $Status one of \"Public\", \"Masked\", \"Hidden\", default \"Public\") - Schedule privacy. \"Masked\" only valid if IsAavailability=true
+ * @property int $StaffId The ID of the staff member that availability or unavailability will be added.
+ * @property bool $IsAvailability When `true`, indicates that availability will be added, <br />  When `false`, indicates that unavailability will be added.
+ * @property string $Description The description of the unavailability, ex. Lunch, Vacation. Required if IsAvailability passed as `false`.  Omit if IsAvailability passed as `true`.
+ * @property int[] $ProgramIds A list of program IDs. Must be a valid active schedulable Program ID. Required if IsAvailability passed as `true`.   Omit if IsAvailability passed as `false`.
+ * @property int $LocationId The ID of the location where the availability is added. Required if IsAvailability passed as `true`.  Omit if IsAvailability passed as `false`.
+ * @property string[] $DaysOfWeek The days of the week. Must contain at least one of the following Sunday, Monday, Tuesday etc.
+ * @property string $StartTime The start time of the schedule. Must be in HH:MM:SS format.
+ * @property string $EndTime The end time of the schedule. Must be in HH:MM:SS format.
+ * @property string $StartDate The start date of the schedule. Must be in YYYY-MM-DD format.
+ * @property string $EndDate The end date of the schedule. Must be in YYYY-MM-DD format.
+ * @property string $Status The status of availability or unavailability. Possible values are:  * Masked  * Hidden  * Public    Default: Public
  *
  */
 class AddStaffAvailabilityRequest extends BaseModel
@@ -247,7 +247,7 @@ class AddStaffAvailabilityRequest extends BaseModel
     /**
      * Sets StaffId
      *
-     * @param int $StaffId The unique id of the staff
+     * @param int $StaffId The ID of the staff member that availability or unavailability will be added.
      *
      * @return $this
      */
@@ -271,7 +271,7 @@ class AddStaffAvailabilityRequest extends BaseModel
     /**
      * Sets IsAvailability
      *
-     * @param bool $IsAvailability IsAvailability = true means this is staff available schedule, false means unavailability
+     * @param bool $IsAvailability When `true`, indicates that availability will be added, <br />  When `false`, indicates that unavailability will be added.
      *
      * @return $this
      */
@@ -295,7 +295,7 @@ class AddStaffAvailabilityRequest extends BaseModel
     /**
      * Sets Description
      *
-     * @param string $Description Description is required if IsAvailability=false
+     * @param string $Description The description of the unavailability, ex. Lunch, Vacation. Required if IsAvailability passed as `false`.  Omit if IsAvailability passed as `true`.
      *
      * @return $this
      */
@@ -319,7 +319,7 @@ class AddStaffAvailabilityRequest extends BaseModel
     /**
      * Sets ProgramIds
      *
-     * @param int[] $ProgramIds List of ProgramIds - for session types the staff member performs, required if IsAvailability=true must be an Active ProgramId between 1 and 21
+     * @param int[] $ProgramIds A list of program IDs. Must be a valid active schedulable Program ID. Required if IsAvailability passed as `true`.   Omit if IsAvailability passed as `false`.
      *
      * @return $this
      */
@@ -343,7 +343,7 @@ class AddStaffAvailabilityRequest extends BaseModel
     /**
      * Sets LocationId
      *
-     * @param int $LocationId The Location for the Availability, will default to 0 when isAvailability=false
+     * @param int $LocationId The ID of the location where the availability is added. Required if IsAvailability passed as `true`.  Omit if IsAvailability passed as `false`.
      *
      * @return $this
      */
@@ -367,7 +367,7 @@ class AddStaffAvailabilityRequest extends BaseModel
     /**
      * Sets DaysOfWeek
      *
-     * @param string[] $DaysOfWeek Day of week for the schedule \"Monday\", \"Tuesday\", etc...
+     * @param string[] $DaysOfWeek The days of the week. Must contain at least one of the following Sunday, Monday, Tuesday etc.
      *
      * @return $this
      */
@@ -391,7 +391,7 @@ class AddStaffAvailabilityRequest extends BaseModel
     /**
      * Sets StartTime
      *
-     * @param string $StartTime The starting time in site local time format \"HH:MM:SS\"
+     * @param string $StartTime The start time of the schedule. Must be in HH:MM:SS format.
      *
      * @return $this
      */
@@ -420,7 +420,7 @@ class AddStaffAvailabilityRequest extends BaseModel
     /**
      * Sets EndTime
      *
-     * @param string $EndTime The ending time in site local time format \"HH:MM:SS\"
+     * @param string $EndTime The end time of the schedule. Must be in HH:MM:SS format.
      *
      * @return $this
      */
@@ -449,7 +449,7 @@ class AddStaffAvailabilityRequest extends BaseModel
     /**
      * Sets StartDate
      *
-     * @param string $StartDate The ending time in site local time format \"HH:MM:SS\"
+     * @param string $StartDate The start date of the schedule. Must be in YYYY-MM-DD format.
      *
      * @return $this
      */
@@ -478,7 +478,7 @@ class AddStaffAvailabilityRequest extends BaseModel
     /**
      * Sets EndDate
      *
-     * @param string $EndDate The ending time in site local time format \"HH:MM:SS\"
+     * @param string $EndDate The end date of the schedule. Must be in YYYY-MM-DD format.
      *
      * @return $this
      */
@@ -507,7 +507,7 @@ class AddStaffAvailabilityRequest extends BaseModel
     /**
      * Sets Status
      *
-     * @param string $Status one of \"Public\", \"Masked\", \"Hidden\", default \"Public\") - Schedule privacy. \"Masked\" only valid if IsAavailability=true
+     * @param string $Status The status of availability or unavailability. Possible values are:  * Masked  * Hidden  * Public    Default: Public
      *
      * @return $this
      */

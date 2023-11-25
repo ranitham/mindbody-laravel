@@ -37,9 +37,9 @@ namespace Nlocascio\Mindbody\Model;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  * @property int $ClassID Class ID to lookup.
- * @property bool $HideCancel Hide canceled class.
- * @property bool $SendClientEmail Client auto email.
- * @property bool $SendStaffEmail Staff auto email.
+ * @property bool $HideCancel When `true`, indicates that this class is hidden when cancelled.  When `false`, indicates that this class is not hidden when cancelled.
+ * @property bool $SendClientEmail When `true`, sends the client an automatic email about the cancellation, if the client has opted to receive email.
+ * @property bool $SendStaffEmail When `true`, sends the staff an automatic email about the cancellation, if the staff has opted to receive email.
  *
  */
 class CancelSingleClassRequest extends BaseModel
@@ -184,7 +184,7 @@ class CancelSingleClassRequest extends BaseModel
     /**
      * Sets HideCancel
      *
-     * @param bool $HideCancel Hide canceled class.
+     * @param bool $HideCancel When `true`, indicates that this class is hidden when cancelled.  When `false`, indicates that this class is not hidden when cancelled.
      *
      * @return $this
      */
@@ -208,7 +208,7 @@ class CancelSingleClassRequest extends BaseModel
     /**
      * Sets SendClientEmail
      *
-     * @param bool $SendClientEmail Client auto email.
+     * @param bool $SendClientEmail When `true`, sends the client an automatic email about the cancellation, if the client has opted to receive email.
      *
      * @return $this
      */
@@ -232,7 +232,7 @@ class CancelSingleClassRequest extends BaseModel
     /**
      * Sets SendStaffEmail
      *
-     * @param bool $SendStaffEmail Staff auto email.
+     * @param bool $SendStaffEmail When `true`, sends the staff an automatic email about the cancellation, if the staff has opted to receive email.
      *
      * @return $this
      */

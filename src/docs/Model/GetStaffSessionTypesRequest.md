@@ -3,9 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**StaffId** | **int** | Filters returned session types to only those the staff member performs.  Staff should be active. | 
-**ProgramIds** | **int[]** | Filters results to session types that belong in program IDs. | [optional] 
-**OnlineOnly** | **bool** | Only session types that can be booked online. | [optional] 
+**StaffId** | **int** | The ID of the staff member whose session types you want to return. | 
+**ProgramIds** | **int[]** | Filters results to session types that belong to one of the given program IDs. If omitted, all program IDs return. | [optional] 
+**OnlineOnly** | **bool** | When &#x60;true&#x60;, indicates that only the session types that can be booked online should be returned.  Default: false | [optional] 
 **Limit** | **int** | Number of results to include, defaults to 100 | [optional] 
 **Offset** | **int** | Page offset, defaults to 0. | [optional] 
 

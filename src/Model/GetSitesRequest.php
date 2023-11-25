@@ -37,6 +37,7 @@ namespace Nlocascio\Mindbody\Model;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  * @property int[] $SiteIds List of the requested site IDs. When omitted, returns all sites that the source has access to.
+ * @property bool $IncludeLeadChannels This is an optional parameter to get lead channels for a Site.
  * @property int $Limit Number of results to include, defaults to 100
  * @property int $Offset Page offset, defaults to 0.
  *
@@ -59,6 +60,7 @@ class GetSitesRequest extends BaseModel
       */
     protected static $swaggerTypes = [
         'SiteIds' => 'int[]',
+        'IncludeLeadChannels' => 'bool',
         'Limit' => 'int',
         'Offset' => 'int'
     ];
@@ -70,6 +72,7 @@ class GetSitesRequest extends BaseModel
       */
     protected static $swaggerFormats = [
         'SiteIds' => 'int32',
+        'IncludeLeadChannels' => null,
         'Limit' => 'int32',
         'Offset' => 'int32'
     ];
@@ -83,6 +86,7 @@ class GetSitesRequest extends BaseModel
      */
     protected static $attributeMap = [
         'SiteIds' => 'SiteIds',
+        'IncludeLeadChannels' => 'IncludeLeadChannels',
         'Limit' => 'Limit',
         'Offset' => 'Offset'
     ];
@@ -94,6 +98,7 @@ class GetSitesRequest extends BaseModel
      */
     protected static $setters = [
         'SiteIds' => 'setSiteIds',
+        'IncludeLeadChannels' => 'setIncludeLeadChannels',
         'Limit' => 'setLimit',
         'Offset' => 'setOffset'
     ];
@@ -105,6 +110,7 @@ class GetSitesRequest extends BaseModel
      */
     protected static $getters = [
         'SiteIds' => 'getSiteIds',
+        'IncludeLeadChannels' => 'getIncludeLeadChannels',
         'Limit' => 'getLimit',
         'Offset' => 'getOffset'
     ];
@@ -123,6 +129,7 @@ class GetSitesRequest extends BaseModel
     public function __construct(array $data = null)
     {
         $this->container['SiteIds'] = isset($data['SiteIds']) ? $data['SiteIds'] : null;
+        $this->container['IncludeLeadChannels'] = isset($data['IncludeLeadChannels']) ? $data['IncludeLeadChannels'] : null;
         $this->container['Limit'] = isset($data['Limit']) ? $data['Limit'] : null;
         $this->container['Offset'] = isset($data['Offset']) ? $data['Offset'] : null;
     }
@@ -160,6 +167,30 @@ class GetSitesRequest extends BaseModel
     public function setSiteIds($SiteIds): self
     {
         $this->container['SiteIds'] = $SiteIds;
+
+        return $this;
+    }
+
+    /**
+     * Gets IncludeLeadChannels
+     *
+     * @return bool
+     */
+    public function getIncludeLeadChannels()
+    {
+        return $this->container['IncludeLeadChannels'];
+    }
+
+    /**
+     * Sets IncludeLeadChannels
+     *
+     * @param bool $IncludeLeadChannels This is an optional parameter to get lead channels for a Site.
+     *
+     * @return $this
+     */
+    public function setIncludeLeadChannels($IncludeLeadChannels): self
+    {
+        $this->container['IncludeLeadChannels'] = $IncludeLeadChannels;
 
         return $this;
     }

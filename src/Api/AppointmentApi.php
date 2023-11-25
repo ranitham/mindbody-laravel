@@ -1173,8 +1173,8 @@ class AppointmentApi implements ApiInterface
      *
      * Delete availability/unavailability of the staff
      *
-     * @param  int $DeleteAvailabilityRequestAvailabilityId Availability Id to be deleted (optional)
-     * @param  bool $DeleteAvailabilityRequestTest The test flag (optional)
+     * @param  int $DeleteAvailabilityRequestAvailabilityId The ID of the availability or unavailability. (optional)
+     * @param  bool $DeleteAvailabilityRequestTest When &#x60;true&#x60;, indicates that this is a test request and no data is deleted from the subscriber’s database.  When &#x60;false&#x60;, the record will be deleted.  Default: **false** (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1190,8 +1190,8 @@ class AppointmentApi implements ApiInterface
      *
      * Delete availability/unavailability of the staff
      *
-     * @param  int $DeleteAvailabilityRequestAvailabilityId Availability Id to be deleted (optional)
-     * @param  bool $DeleteAvailabilityRequestTest The test flag (optional)
+     * @param  int $DeleteAvailabilityRequestAvailabilityId The ID of the availability or unavailability. (optional)
+     * @param  bool $DeleteAvailabilityRequestTest When &#x60;true&#x60;, indicates that this is a test request and no data is deleted from the subscriber’s database.  When &#x60;false&#x60;, the record will be deleted.  Default: **false** (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1244,8 +1244,8 @@ class AppointmentApi implements ApiInterface
      *
      * Delete availability/unavailability of the staff
      *
-     * @param  int $DeleteAvailabilityRequestAvailabilityId Availability Id to be deleted (optional)
-     * @param  bool $DeleteAvailabilityRequestTest The test flag (optional)
+     * @param  int $DeleteAvailabilityRequestAvailabilityId The ID of the availability or unavailability. (optional)
+     * @param  bool $DeleteAvailabilityRequestTest When &#x60;true&#x60;, indicates that this is a test request and no data is deleted from the subscriber’s database.  When &#x60;false&#x60;, the record will be deleted.  Default: **false** (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1265,8 +1265,8 @@ class AppointmentApi implements ApiInterface
      *
      * Delete availability/unavailability of the staff
      *
-     * @param  int $DeleteAvailabilityRequestAvailabilityId Availability Id to be deleted (optional)
-     * @param  bool $DeleteAvailabilityRequestTest The test flag (optional)
+     * @param  int $DeleteAvailabilityRequestAvailabilityId The ID of the availability or unavailability. (optional)
+     * @param  bool $DeleteAvailabilityRequestTest When &#x60;true&#x60;, indicates that this is a test request and no data is deleted from the subscriber’s database.  When &#x60;false&#x60;, the record will be deleted.  Default: **false** (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1302,8 +1302,8 @@ class AppointmentApi implements ApiInterface
     /**
      * Create request for operation 'appointmentDeleteAvailability'
      *
-     * @param  int $DeleteAvailabilityRequestAvailabilityId Availability Id to be deleted (optional)
-     * @param  bool $DeleteAvailabilityRequestTest The test flag (optional)
+     * @param  int $DeleteAvailabilityRequestAvailabilityId The ID of the availability or unavailability. (optional)
+     * @param  bool $DeleteAvailabilityRequestTest When &#x60;true&#x60;, indicates that this is a test request and no data is deleted from the subscriber’s database.  When &#x60;false&#x60;, the record will be deleted.  Default: **false** (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1743,7 +1743,7 @@ class AppointmentApi implements ApiInterface
      *
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  int $RequestStaffId Optionally filter add ons that can be performed by this staff (optional)
+     * @param  int $RequestStaffId Filter to add-ons only performed by this staff member. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1762,7 +1762,7 @@ class AppointmentApi implements ApiInterface
      *
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  int $RequestStaffId Optionally filter add ons that can be performed by this staff (optional)
+     * @param  int $RequestStaffId Filter to add-ons only performed by this staff member. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1839,7 +1839,7 @@ class AppointmentApi implements ApiInterface
      *
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  int $RequestStaffId Optionally filter add ons that can be performed by this staff (optional)
+     * @param  int $RequestStaffId Filter to add-ons only performed by this staff member. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1861,7 +1861,7 @@ class AppointmentApi implements ApiInterface
      *
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  int $RequestStaffId Optionally filter add ons that can be performed by this staff (optional)
+     * @param  int $RequestStaffId Filter to add-ons only performed by this staff member. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1913,7 +1913,7 @@ class AppointmentApi implements ApiInterface
      *
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  int $RequestStaffId Optionally filter add ons that can be performed by this staff (optional)
+     * @param  int $RequestStaffId Filter to add-ons only performed by this staff member. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2302,7 +2302,7 @@ class AppointmentApi implements ApiInterface
      * @param  \DateTime $RequestEndDate The end date of the requested date range.   &lt;br /&gt;Default: **StartDate** (optional)
      * @param  int $RequestLocationId optional requested location ID. (optional)
      * @param  int $RequestStaffId optional requested staff ID. (optional)
-     * @param  \DateTime $RequestStartDate The start date of the requested date range.   &lt;br /&gt;Default: **today’s date** (optional)
+     * @param  \DateTime $RequestStartDate The start date of the requested date range. If omitted, the default is used.  &lt;br /&gt;Default: **today’s date** (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2323,7 +2323,7 @@ class AppointmentApi implements ApiInterface
      * @param  \DateTime $RequestEndDate The end date of the requested date range.   &lt;br /&gt;Default: **StartDate** (optional)
      * @param  int $RequestLocationId optional requested location ID. (optional)
      * @param  int $RequestStaffId optional requested staff ID. (optional)
-     * @param  \DateTime $RequestStartDate The start date of the requested date range.   &lt;br /&gt;Default: **today’s date** (optional)
+     * @param  \DateTime $RequestStartDate The start date of the requested date range. If omitted, the default is used.  &lt;br /&gt;Default: **today’s date** (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2402,7 +2402,7 @@ class AppointmentApi implements ApiInterface
      * @param  \DateTime $RequestEndDate The end date of the requested date range.   &lt;br /&gt;Default: **StartDate** (optional)
      * @param  int $RequestLocationId optional requested location ID. (optional)
      * @param  int $RequestStaffId optional requested staff ID. (optional)
-     * @param  \DateTime $RequestStartDate The start date of the requested date range.   &lt;br /&gt;Default: **today’s date** (optional)
+     * @param  \DateTime $RequestStartDate The start date of the requested date range. If omitted, the default is used.  &lt;br /&gt;Default: **today’s date** (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2426,7 +2426,7 @@ class AppointmentApi implements ApiInterface
      * @param  \DateTime $RequestEndDate The end date of the requested date range.   &lt;br /&gt;Default: **StartDate** (optional)
      * @param  int $RequestLocationId optional requested location ID. (optional)
      * @param  int $RequestStaffId optional requested staff ID. (optional)
-     * @param  \DateTime $RequestStartDate The start date of the requested date range.   &lt;br /&gt;Default: **today’s date** (optional)
+     * @param  \DateTime $RequestStartDate The start date of the requested date range. If omitted, the default is used.  &lt;br /&gt;Default: **today’s date** (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2480,7 +2480,7 @@ class AppointmentApi implements ApiInterface
      * @param  \DateTime $RequestEndDate The end date of the requested date range.   &lt;br /&gt;Default: **StartDate** (optional)
      * @param  int $RequestLocationId optional requested location ID. (optional)
      * @param  int $RequestStaffId optional requested staff ID. (optional)
-     * @param  \DateTime $RequestStartDate The start date of the requested date range.   &lt;br /&gt;Default: **today’s date** (optional)
+     * @param  \DateTime $RequestStartDate The start date of the requested date range. If omitted, the default is used.  &lt;br /&gt;Default: **today’s date** (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2502,10 +2502,6 @@ class AppointmentApi implements ApiInterface
         $multipart = false;
 
         // query params
-        if ($RequestSessionTypeId !== null) {
-            $queryParams['request.sessionTypeId'] = ObjectSerializer::toQueryValue($RequestSessionTypeId);
-        }
-        // query params
         if ($RequestEndDate !== null) {
             $queryParams['request.endDate'] = ObjectSerializer::toQueryValue($RequestEndDate);
         }
@@ -2520,6 +2516,10 @@ class AppointmentApi implements ApiInterface
         // query params
         if ($RequestStartDate !== null) {
             $queryParams['request.startDate'] = ObjectSerializer::toQueryValue($RequestStartDate);
+        }
+        // query params
+        if ($RequestSessionTypeId !== null) {
+            $queryParams['request.sessionTypeId'] = ObjectSerializer::toQueryValue($RequestSessionTypeId);
         }
 
 
@@ -2621,7 +2621,7 @@ class AppointmentApi implements ApiInterface
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int[] $RequestLocationIds A list of the requested location IDs. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  int[] $RequestStaffIds A list of the requested staff IDs. (optional)
+     * @param  int[] $RequestStaffIds A list of the requested staff IDs. Omit parameter to return all staff availabilities. (optional)
      * @param  \DateTime $RequestStartDate The start date of the requested date range.   &lt;br /&gt;Default: **today’s date** (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
@@ -2646,7 +2646,7 @@ class AppointmentApi implements ApiInterface
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int[] $RequestLocationIds A list of the requested location IDs. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  int[] $RequestStaffIds A list of the requested staff IDs. (optional)
+     * @param  int[] $RequestStaffIds A list of the requested staff IDs. Omit parameter to return all staff availabilities. (optional)
      * @param  \DateTime $RequestStartDate The start date of the requested date range.   &lt;br /&gt;Default: **today’s date** (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
@@ -2729,7 +2729,7 @@ class AppointmentApi implements ApiInterface
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int[] $RequestLocationIds A list of the requested location IDs. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  int[] $RequestStaffIds A list of the requested staff IDs. (optional)
+     * @param  int[] $RequestStaffIds A list of the requested staff IDs. Omit parameter to return all staff availabilities. (optional)
      * @param  \DateTime $RequestStartDate The start date of the requested date range.   &lt;br /&gt;Default: **today’s date** (optional)
      *
      * @throws \InvalidArgumentException
@@ -2757,7 +2757,7 @@ class AppointmentApi implements ApiInterface
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int[] $RequestLocationIds A list of the requested location IDs. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  int[] $RequestStaffIds A list of the requested staff IDs. (optional)
+     * @param  int[] $RequestStaffIds A list of the requested staff IDs. Omit parameter to return all staff availabilities. (optional)
      * @param  \DateTime $RequestStartDate The start date of the requested date range.   &lt;br /&gt;Default: **today’s date** (optional)
      *
      * @throws \InvalidArgumentException
@@ -2815,7 +2815,7 @@ class AppointmentApi implements ApiInterface
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int[] $RequestLocationIds A list of the requested location IDs. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  int[] $RequestStaffIds A list of the requested staff IDs. (optional)
+     * @param  int[] $RequestStaffIds A list of the requested staff IDs. Omit parameter to return all staff availabilities. (optional)
      * @param  \DateTime $RequestStartDate The start date of the requested date range.   &lt;br /&gt;Default: **today’s date** (optional)
      *
      * @throws \InvalidArgumentException
@@ -2837,13 +2837,6 @@ class AppointmentApi implements ApiInterface
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        if (is_array($RequestSessionTypeIds)) {
-            $queryParams['request.sessionTypeIds'] = $RequestSessionTypeIds;
-        } else
-        if ($RequestSessionTypeIds !== null) {
-            $queryParams['request.sessionTypeIds'] = ObjectSerializer::toQueryValue($RequestSessionTypeIds);
-        }
         // query params
         if ($RequestAppointmentId !== null) {
             $queryParams['request.appointmentId'] = ObjectSerializer::toQueryValue($RequestAppointmentId);
@@ -2881,6 +2874,13 @@ class AppointmentApi implements ApiInterface
         // query params
         if ($RequestStartDate !== null) {
             $queryParams['request.startDate'] = ObjectSerializer::toQueryValue($RequestStartDate);
+        }
+        // query params
+        if (is_array($RequestSessionTypeIds)) {
+            $queryParams['request.sessionTypeIds'] = $RequestSessionTypeIds;
+        } else
+        if ($RequestSessionTypeIds !== null) {
+            $queryParams['request.sessionTypeIds'] = ObjectSerializer::toQueryValue($RequestSessionTypeIds);
         }
 
 
@@ -3651,11 +3651,324 @@ class AppointmentApi implements ApiInterface
     }
 
     /**
+     * Operation appointmentGetUnavailabilities
+     *
+     * Get unavailabilities.
+     *
+     * @param  \DateTime $RequestEndDate The end date of the requested date range.   &lt;br /&gt;Default: **today’s date** (optional)
+     * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
+     * @param  int $RequestOffset Page offset, defaults to 0. (optional)
+     * @param  int[] $RequestStaffIds A list of requested staff IDs. (optional)
+     * @param  \DateTime $RequestStartDate The start date of the requested date range.   &lt;br /&gt;Default: **today’s date** (optional)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Nlocascio\Mindbody\Model\GetUnavailabilitiesResponse
+     */
+    public function appointmentGetUnavailabilities($RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null): \Nlocascio\Mindbody\Model\GetUnavailabilitiesResponse
+    {
+        list($response) = $this->appointmentGetUnavailabilitiesWithHttpInfo($RequestEndDate, $RequestLimit, $RequestOffset, $RequestStaffIds, $RequestStartDate);
+        return $response;
+    }
+
+    /**
+     * Operation appointmentGetUnavailabilitiesWithHttpInfo
+     *
+     * Get unavailabilities.
+     *
+     * @param  \DateTime $RequestEndDate The end date of the requested date range.   &lt;br /&gt;Default: **today’s date** (optional)
+     * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
+     * @param  int $RequestOffset Page offset, defaults to 0. (optional)
+     * @param  int[] $RequestStaffIds A list of requested staff IDs. (optional)
+     * @param  \DateTime $RequestStartDate The start date of the requested date range.   &lt;br /&gt;Default: **today’s date** (optional)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Nlocascio\Mindbody\Model\GetUnavailabilitiesResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function appointmentGetUnavailabilitiesWithHttpInfo($RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null): array
+    {
+        $returnType = '\Nlocascio\Mindbody\Model\GetUnavailabilitiesResponse';
+        $request = $this->appointmentGetUnavailabilitiesRequest($RequestEndDate, $RequestLimit, $RequestOffset, $RequestStaffIds, $RequestStartDate);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Nlocascio\Mindbody\Model\GetUnavailabilitiesResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation appointmentGetUnavailabilitiesAsync
+     *
+     * Get unavailabilities.
+     *
+     * @param  \DateTime $RequestEndDate The end date of the requested date range.   &lt;br /&gt;Default: **today’s date** (optional)
+     * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
+     * @param  int $RequestOffset Page offset, defaults to 0. (optional)
+     * @param  int[] $RequestStaffIds A list of requested staff IDs. (optional)
+     * @param  \DateTime $RequestStartDate The start date of the requested date range.   &lt;br /&gt;Default: **today’s date** (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function appointmentGetUnavailabilitiesAsync($RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null): \GuzzleHttp\Promise\PromiseInterface
+    {
+        return $this->appointmentGetUnavailabilitiesAsyncWithHttpInfo($RequestEndDate, $RequestLimit, $RequestOffset, $RequestStaffIds, $RequestStartDate)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation appointmentGetUnavailabilitiesAsyncWithHttpInfo
+     *
+     * Get unavailabilities.
+     *
+     * @param  \DateTime $RequestEndDate The end date of the requested date range.   &lt;br /&gt;Default: **today’s date** (optional)
+     * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
+     * @param  int $RequestOffset Page offset, defaults to 0. (optional)
+     * @param  int[] $RequestStaffIds A list of requested staff IDs. (optional)
+     * @param  \DateTime $RequestStartDate The start date of the requested date range.   &lt;br /&gt;Default: **today’s date** (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function appointmentGetUnavailabilitiesAsyncWithHttpInfo($RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null): \GuzzleHttp\Promise\PromiseInterface
+    {
+        $returnType = '\Nlocascio\Mindbody\Model\GetUnavailabilitiesResponse';
+        $request = $this->appointmentGetUnavailabilitiesRequest($RequestEndDate, $RequestLimit, $RequestOffset, $RequestStaffIds, $RequestStartDate);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'appointmentGetUnavailabilities'
+     *
+     * @param  \DateTime $RequestEndDate The end date of the requested date range.   &lt;br /&gt;Default: **today’s date** (optional)
+     * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
+     * @param  int $RequestOffset Page offset, defaults to 0. (optional)
+     * @param  int[] $RequestStaffIds A list of requested staff IDs. (optional)
+     * @param  \DateTime $RequestStartDate The start date of the requested date range.   &lt;br /&gt;Default: **today’s date** (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function appointmentGetUnavailabilitiesRequest($RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null): \GuzzleHttp\Psr7\Request
+    {
+
+        $resourcePath = '/public/v6/appointment/unavailabilities';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($RequestEndDate !== null) {
+            $queryParams['request.endDate'] = ObjectSerializer::toQueryValue($RequestEndDate);
+        }
+        // query params
+        if ($RequestLimit !== null) {
+            $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
+        }
+        // query params
+        if ($RequestOffset !== null) {
+            $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
+        }
+        // query params
+        if (is_array($RequestStaffIds)) {
+            $queryParams['request.staffIds'] = $RequestStaffIds;
+        } else
+        if ($RequestStaffIds !== null) {
+            $queryParams['request.staffIds'] = ObjectSerializer::toQueryValue($RequestStaffIds);
+        }
+        // query params
+        if ($RequestStartDate !== null) {
+            $queryParams['request.startDate'] = ObjectSerializer::toQueryValue($RequestStartDate);
+        }
+
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = Utils::jsonEncode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = Utils::jsonEncode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
+        if ($apiKey !== null) {
+            $headers['API-Key'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('authorization');
+        if ($apiKey !== null) {
+            $headers['authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('siteId');
+        if ($apiKey !== null) {
+            $headers['siteId'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation appointmentRemoveFromWaitlist
      *
      * Remove an appointment from waitlist
      *
-     * @param  int[] $RequestWaitlistEntryIds A list of waiting list IDs to remove from waiting lists. (required)
+     * @param  int[] $RequestWaitlistEntryIds A list of &#x60;WaitlistEntryIds&#x60; to remove from the waiting list. (required)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3672,7 +3985,7 @@ class AppointmentApi implements ApiInterface
      *
      * Remove an appointment from waitlist
      *
-     * @param  int[] $RequestWaitlistEntryIds A list of waiting list IDs to remove from waiting lists. (required)
+     * @param  int[] $RequestWaitlistEntryIds A list of &#x60;WaitlistEntryIds&#x60; to remove from the waiting list. (required)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3747,7 +4060,7 @@ class AppointmentApi implements ApiInterface
      *
      * Remove an appointment from waitlist
      *
-     * @param  int[] $RequestWaitlistEntryIds A list of waiting list IDs to remove from waiting lists. (required)
+     * @param  int[] $RequestWaitlistEntryIds A list of &#x60;WaitlistEntryIds&#x60; to remove from the waiting list. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3767,7 +4080,7 @@ class AppointmentApi implements ApiInterface
      *
      * Remove an appointment from waitlist
      *
-     * @param  int[] $RequestWaitlistEntryIds A list of waiting list IDs to remove from waiting lists. (required)
+     * @param  int[] $RequestWaitlistEntryIds A list of &#x60;WaitlistEntryIds&#x60; to remove from the waiting list. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3817,7 +4130,7 @@ class AppointmentApi implements ApiInterface
     /**
      * Create request for operation 'appointmentRemoveFromWaitlist'
      *
-     * @param  int[] $RequestWaitlistEntryIds A list of waiting list IDs to remove from waiting lists. (required)
+     * @param  int[] $RequestWaitlistEntryIds A list of &#x60;WaitlistEntryIds&#x60; to remove from the waiting list. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3831,7 +4144,7 @@ class AppointmentApi implements ApiInterface
             );
         }
 
-        $resourcePath = '/public/v6/appointment/removefromappointmentwaitlist';
+        $resourcePath = '/public/v6/appointment/appointmentfromwaitlist';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

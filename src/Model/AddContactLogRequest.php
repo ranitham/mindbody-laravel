@@ -42,7 +42,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property \DateTime $FollowupByDate The date by which the assigned staff member should complete this contact log.
  * @property string $ContactMethod How the client wants to be contacted.
  * @property string $ContactName The name of the person to be contacted by the assigned staff member.
- * @property bool $IsComplete Mark the Complete checkbox as checked if ContactLog is complete
+ * @property bool $IsComplete When `true`, indicates that the contact log is complete.  When `false`, indicates the contact log isn’t complete.
  * @property string[] $Comments Any comments on the contact log.
  * @property \Nlocascio\Mindbody\Model\AddContactLogType[] $Types The contact log types used to tag this contact log.
  * @property bool $Test When `true`, indicates that this is a test request and no data is inserted into the subscriber’s database.<br />  When `false`, the database is updated.
@@ -352,7 +352,7 @@ class AddContactLogRequest extends BaseModel
     /**
      * Sets IsComplete
      *
-     * @param bool $IsComplete Mark the Complete checkbox as checked if ContactLog is complete
+     * @param bool $IsComplete When `true`, indicates that the contact log is complete.  When `false`, indicates the contact log isn’t complete.
      *
      * @return $this
      */

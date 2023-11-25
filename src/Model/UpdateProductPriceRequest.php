@@ -37,8 +37,8 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property string $BarcodeId An BarcodeID filter for product.
- * @property double $Price The price of the product.
+ * @property string $BarcodeId The barcode number of the product. This is the `Products[].Id` returned from GET Products.
+ * @property double $Price The price you sell the product for.
  * @property double $OnlinePrice The online price of the product.
  *
  */
@@ -154,7 +154,7 @@ class UpdateProductPriceRequest extends BaseModel
     /**
      * Sets BarcodeId
      *
-     * @param string $BarcodeId An BarcodeID filter for product.
+     * @param string $BarcodeId The barcode number of the product. This is the `Products[].Id` returned from GET Products.
      *
      * @return $this
      */
@@ -178,7 +178,7 @@ class UpdateProductPriceRequest extends BaseModel
     /**
      * Sets Price
      *
-     * @param double $Price The price of the product.
+     * @param double $Price The price you sell the product for.
      *
      * @return $this
      */

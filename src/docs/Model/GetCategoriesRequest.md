@@ -3,10 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CategoryIds** | **int[]** | The requested category IDs. | [optional] 
-**SubCategoryIds** | **int[]** | The requested sub category IDs. | [optional] 
-**Service** | **bool** | The requested Service type. true indicates for Revenue Categories and false indicates for Product Revenue Categories. | [optional] 
-**Active** | **bool** | The requested Active type categories. true indicates for Active Categories and false indicates for Deactivated Categories. | [optional] 
+**CategoryIds** | **int[]** | When included, the response only contains details about the specified category Ids. | [optional] 
+**SubCategoryIds** | **int[]** | When included, the response only contains details about the specified subcategory Ids. | [optional] 
+**Service** | **bool** | When &#x60;true&#x60;, the response only contains details about Revenue Categories.  When &#x60;false&#x60;, only Product Revenue Categories are returned.  Default: **All Categories** | [optional] 
+**Active** | **bool** | When &#x60;true&#x60;, the response only contains categories which are activated.   When &#x60;false&#x60;, only deactivated categories are returned.  Default: **All Categories** | [optional] 
 **Limit** | **int** | Number of results to include, defaults to 100 | [optional] 
 **Offset** | **int** | Page offset, defaults to 0. | [optional] 
 

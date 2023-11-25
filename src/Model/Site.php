@@ -57,6 +57,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property string $CountryCode The country code for the site.
  * @property string $TimeZone The time zone the site is located in.
  * @property bool $AcceptsDirectDebit When `true`, indicates that direct debit can be used by clients at this site.<br />  When `false`, indicates that direct debit can not by used by clients at this site.
+ * @property \Nlocascio\Mindbody\Model\LeadChannel[] $LeadChannels The list of lead channels available for a subscriber/studio.
  *
  */
 class Site extends BaseModel implements ModelWithId
@@ -96,7 +97,8 @@ class Site extends BaseModel implements ModelWithId
         'CurrencyIsoCode' => 'string',
         'CountryCode' => 'string',
         'TimeZone' => 'string',
-        'AcceptsDirectDebit' => 'bool'
+        'AcceptsDirectDebit' => 'bool',
+        'LeadChannels' => '\Nlocascio\Mindbody\Model\LeadChannel[]'
     ];
 
     /**
@@ -125,7 +127,8 @@ class Site extends BaseModel implements ModelWithId
         'CurrencyIsoCode' => null,
         'CountryCode' => null,
         'TimeZone' => null,
-        'AcceptsDirectDebit' => null
+        'AcceptsDirectDebit' => null,
+        'LeadChannels' => null
     ];
 
 
@@ -156,7 +159,8 @@ class Site extends BaseModel implements ModelWithId
         'CurrencyIsoCode' => 'CurrencyIsoCode',
         'CountryCode' => 'CountryCode',
         'TimeZone' => 'TimeZone',
-        'AcceptsDirectDebit' => 'AcceptsDirectDebit'
+        'AcceptsDirectDebit' => 'AcceptsDirectDebit',
+        'LeadChannels' => 'LeadChannels'
     ];
 
     /**
@@ -185,7 +189,8 @@ class Site extends BaseModel implements ModelWithId
         'CurrencyIsoCode' => 'setCurrencyIsoCode',
         'CountryCode' => 'setCountryCode',
         'TimeZone' => 'setTimeZone',
-        'AcceptsDirectDebit' => 'setAcceptsDirectDebit'
+        'AcceptsDirectDebit' => 'setAcceptsDirectDebit',
+        'LeadChannels' => 'setLeadChannels'
     ];
 
     /**
@@ -214,7 +219,8 @@ class Site extends BaseModel implements ModelWithId
         'CurrencyIsoCode' => 'getCurrencyIsoCode',
         'CountryCode' => 'getCountryCode',
         'TimeZone' => 'getTimeZone',
-        'AcceptsDirectDebit' => 'getAcceptsDirectDebit'
+        'AcceptsDirectDebit' => 'getAcceptsDirectDebit',
+        'LeadChannels' => 'getLeadChannels'
     ];
 
 
@@ -251,6 +257,7 @@ class Site extends BaseModel implements ModelWithId
         $this->container['CountryCode'] = isset($data['CountryCode']) ? $data['CountryCode'] : null;
         $this->container['TimeZone'] = isset($data['TimeZone']) ? $data['TimeZone'] : null;
         $this->container['AcceptsDirectDebit'] = isset($data['AcceptsDirectDebit']) ? $data['AcceptsDirectDebit'] : null;
+        $this->container['LeadChannels'] = isset($data['LeadChannels']) ? $data['LeadChannels'] : null;
     }
 
     /**
@@ -766,6 +773,30 @@ class Site extends BaseModel implements ModelWithId
     public function setAcceptsDirectDebit($AcceptsDirectDebit): self
     {
         $this->container['AcceptsDirectDebit'] = $AcceptsDirectDebit;
+
+        return $this;
+    }
+
+    /**
+     * Gets LeadChannels
+     *
+     * @return \Nlocascio\Mindbody\Model\LeadChannel[]
+     */
+    public function getLeadChannels()
+    {
+        return $this->container['LeadChannels'];
+    }
+
+    /**
+     * Sets LeadChannels
+     *
+     * @param \Nlocascio\Mindbody\Model\LeadChannel[] $LeadChannels The list of lead channels available for a subscriber/studio.
+     *
+     * @return $this
+     */
+    public function setLeadChannels($LeadChannels): self
+    {
+        $this->container['LeadChannels'] = $LeadChannels;
 
         return $this;
     }

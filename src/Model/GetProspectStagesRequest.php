@@ -37,7 +37,7 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property bool $Active The requested Active type Prospect Stages. true indicates for Active Prospect Stages and false indicates for Deactivated Prospect Stages.
+ * @property bool $Active When `true`, the response only contains prospect stages which are activated.  When `false`, only deactivated prospect stages are returned.  Default: **All Prospect Stages**
  *
  */
 class GetProspectStagesRequest extends BaseModel
@@ -140,7 +140,7 @@ class GetProspectStagesRequest extends BaseModel
     /**
      * Sets Active
      *
-     * @param bool $Active The requested Active type Prospect Stages. true indicates for Active Prospect Stages and false indicates for Deactivated Prospect Stages.
+     * @param bool $Active When `true`, the response only contains prospect stages which are activated.  When `false`, only deactivated prospect stages are returned.  Default: **All Prospect Stages**
      *
      * @return $this
      */

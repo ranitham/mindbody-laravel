@@ -37,7 +37,7 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property bool $Active When true, the response only contains mobile providers which are activated. When false, only deactivated mobile providers are returned. Default: All Mobile Providers
+ * @property bool $Active When `true`, the response only contains mobile providers which are activated.   When `false`, only deactivated mobile providers are returned.  Default: **All Mobile Providers**
  *
  */
 class GetMobileProvidersRequest extends BaseModel
@@ -140,7 +140,7 @@ class GetMobileProvidersRequest extends BaseModel
     /**
      * Sets Active
      *
-     * @param bool $Active When true, the response only contains mobile providers which are activated. When false, only deactivated mobile providers are returned. Default: All Mobile Providers
+     * @param bool $Active When `true`, the response only contains mobile providers which are activated.   When `false`, only deactivated mobile providers are returned.  Default: **All Mobile Providers**
      *
      * @return $this
      */

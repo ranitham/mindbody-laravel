@@ -19,7 +19,8 @@ Name | Type | Description | Notes
 **StaffRequested** | **bool** | When &#x60;true&#x60;, indicates that the staff member was requested specifically by the client. | [optional] 
 **StartDateTime** | [**\DateTime**](\DateTime.md) | The start date and time of the new appointment. | 
 **Test** | **bool** | When true, indicates that the method is to be validated, but no new appointment data is added.   &lt;br /&gt;Default: **false** | [optional] 
-**IsWaitlist** | **bool** | Whether to add appointment to waitlist. | [optional] 
+**IsWaitlist** | **bool** | When &#x60;true&#x60;, indicates that the client should be added to a specific appointment waiting list.  When &#x60;false&#x60;, the client should not be added to the waiting list.  Default: **false** | [optional] 
+**PartnerExternalId** | **string** | Optional external key for api partners. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

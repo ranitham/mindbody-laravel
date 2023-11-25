@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **FollowupByDate** | [**\DateTime**](\DateTime.md) | The date by which the assigned staff member should complete this contact log. | [optional] 
 **ContactMethod** | **string** | How the client wants to be contacted. | 
 **ContactName** | **string** | The name of the person to be contacted by the assigned staff member. | [optional] 
-**IsComplete** | **bool** | Mark the Complete checkbox as checked if ContactLog is complete | [optional] 
+**IsComplete** | **bool** | When &#x60;true&#x60;, indicates that the contact log is complete.  When &#x60;false&#x60;, indicates the contact log isn’t complete. | [optional] 
 **Comments** | **string[]** | Any comments on the contact log. | [optional] 
 **Types** | [**\Nlocascio\Mindbody\Model\AddContactLogType[]**](AddContactLogType.md) | The contact log types used to tag this contact log. | [optional] 
 **Test** | **bool** | When &#x60;true&#x60;, indicates that this is a test request and no data is inserted into the subscriber’s database.&lt;br /&gt;  When &#x60;false&#x60;, the database is updated. | [optional] 

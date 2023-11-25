@@ -3,11 +3,12 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AppointmentId** | **int** | The appointments unique ID. | 
+**AppointmentId** | **int** | A unique ID for the appointment. | 
 **EndDateTime** | [**\DateTime**](\DateTime.md) | The end date and time of the new appointment.   &lt;br /&gt;Default: **StartDateTime**, offset by the staff member’s default appointment duration. | [optional] 
 **Execute** | **string** | The action taken to add this appointment. | [optional] 
 **GenderPreference** | **string** | The client’s service provider gender preference. | [optional] 
 **Notes** | **string** | Any general notes about this appointment. | [optional] 
+**PartnerExternalId** | **string** | Optional external key for api partners. | [optional] 
 **ProviderId** | **string** | If a user has Complementary and Alternative Medicine features enabled, this parameter assigns a provider ID to the appointment. | [optional] 
 **ResourceIds** | **int[]** | A list of resource IDs to associate with the new appointment. | [optional] 
 **SendEmail** | **bool** | Whether to send client an email for cancellations. An email is sent only if the client has an email address and automatic emails have been set up.   &lt;br /&gt;Default: **false** | [optional] 

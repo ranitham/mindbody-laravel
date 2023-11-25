@@ -36,8 +36,8 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property string $ClientId The client ID of the client whose formula notes are being requested.
- * @property int $FormulaNoteId The Formula Note ID.
+ * @property string $ClientId The client ID of the client whose formula note needs to be deleted.
+ * @property int $FormulaNoteId The formula note ID for the note to be deleted.
  * @property int $Limit Number of results to include, defaults to 100
  * @property int $Offset Page offset, defaults to 0.
  *
@@ -166,7 +166,7 @@ class DeleteClientFormulaNoteRequest extends BaseModel
     /**
      * Sets ClientId
      *
-     * @param string $ClientId The client ID of the client whose formula notes are being requested.
+     * @param string $ClientId The client ID of the client whose formula note needs to be deleted.
      *
      * @return $this
      */
@@ -190,7 +190,7 @@ class DeleteClientFormulaNoteRequest extends BaseModel
     /**
      * Sets FormulaNoteId
      *
-     * @param int $FormulaNoteId The Formula Note ID.
+     * @param int $FormulaNoteId The formula note ID for the note to be deleted.
      *
      * @return $this
      */

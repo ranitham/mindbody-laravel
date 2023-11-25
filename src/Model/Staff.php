@@ -65,6 +65,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property bool $MultiLocationPermission MultiLocationPermission
  * @property string $Name Name
  * @property string[] $ProviderIDs ProviderIDs
+ * @property \Nlocascio\Mindbody\Model\StaffSetting $StaffSettings StaffSettings
  * @property bool $Rep Rep
  * @property bool $Rep2 Rep2
  * @property bool $Rep3 Rep3
@@ -128,6 +129,7 @@ class Staff extends BaseModel implements ModelWithId
         'MultiLocationPermission' => 'bool',
         'Name' => 'string',
         'ProviderIDs' => 'string[]',
+        'StaffSettings' => '\Nlocascio\Mindbody\Model\StaffSetting',
         'Rep' => 'bool',
         'Rep2' => 'bool',
         'Rep3' => 'bool',
@@ -180,6 +182,7 @@ class Staff extends BaseModel implements ModelWithId
         'MultiLocationPermission' => null,
         'Name' => null,
         'ProviderIDs' => null,
+        'StaffSettings' => null,
         'Rep' => null,
         'Rep2' => null,
         'Rep3' => null,
@@ -234,6 +237,7 @@ class Staff extends BaseModel implements ModelWithId
         'MultiLocationPermission' => 'MultiLocationPermission',
         'Name' => 'Name',
         'ProviderIDs' => 'ProviderIDs',
+        'StaffSettings' => 'StaffSettings',
         'Rep' => 'Rep',
         'Rep2' => 'Rep2',
         'Rep3' => 'Rep3',
@@ -286,6 +290,7 @@ class Staff extends BaseModel implements ModelWithId
         'MultiLocationPermission' => 'setMultiLocationPermission',
         'Name' => 'setName',
         'ProviderIDs' => 'setProviderIDs',
+        'StaffSettings' => 'setStaffSettings',
         'Rep' => 'setRep',
         'Rep2' => 'setRep2',
         'Rep3' => 'setRep3',
@@ -338,6 +343,7 @@ class Staff extends BaseModel implements ModelWithId
         'MultiLocationPermission' => 'getMultiLocationPermission',
         'Name' => 'getName',
         'ProviderIDs' => 'getProviderIDs',
+        'StaffSettings' => 'getStaffSettings',
         'Rep' => 'getRep',
         'Rep2' => 'getRep2',
         'Rep3' => 'getRep3',
@@ -397,6 +403,7 @@ class Staff extends BaseModel implements ModelWithId
         $this->container['MultiLocationPermission'] = isset($data['MultiLocationPermission']) ? $data['MultiLocationPermission'] : null;
         $this->container['Name'] = isset($data['Name']) ? $data['Name'] : null;
         $this->container['ProviderIDs'] = isset($data['ProviderIDs']) ? $data['ProviderIDs'] : null;
+        $this->container['StaffSettings'] = isset($data['StaffSettings']) ? $data['StaffSettings'] : null;
         $this->container['Rep'] = isset($data['Rep']) ? $data['Rep'] : null;
         $this->container['Rep2'] = isset($data['Rep2']) ? $data['Rep2'] : null;
         $this->container['Rep3'] = isset($data['Rep3']) ? $data['Rep3'] : null;
@@ -1119,6 +1126,30 @@ class Staff extends BaseModel implements ModelWithId
     public function setProviderIDs($ProviderIDs): self
     {
         $this->container['ProviderIDs'] = $ProviderIDs;
+
+        return $this;
+    }
+
+    /**
+     * Gets StaffSettings
+     *
+     * @return \Nlocascio\Mindbody\Model\StaffSetting
+     */
+    public function getStaffSettings()
+    {
+        return $this->container['StaffSettings'];
+    }
+
+    /**
+     * Sets StaffSettings
+     *
+     * @param \Nlocascio\Mindbody\Model\StaffSetting $StaffSettings StaffSettings
+     *
+     * @return $this
+     */
+    public function setStaffSettings($StaffSettings): self
+    {
+        $this->container['StaffSettings'] = $StaffSettings;
 
         return $this;
     }

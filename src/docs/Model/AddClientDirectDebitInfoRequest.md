@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Test** | **bool** | A value of true performs a dry run exectuion | [optional] 
+**Test** | **bool** | When &#x60;true&#x60;, indicates that test mode is enabled. The information is to be validated, but no data will be added or updated.  Default: **false** | [optional] 
 **ClientId** | **string** | The ID of the client being updated | [optional] 
 **NameOnAccount** | **string** | The name on the bank account being added | [optional] 
 **RoutingNumber** | **string** | The routing number of the bank account being added | [optional] 

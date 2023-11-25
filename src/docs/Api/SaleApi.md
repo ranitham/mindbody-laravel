@@ -31,7 +31,7 @@ Method | HTTP request | Description
 
 Purchase pricing options, packages, retail products, or tips for a client.
 
-This endpoint provides a wide range of functionality. For example, you can use it when a client purchases new pricing options, retail products, packages, and tips. You can also combine purchasing a new pricing option and many other functions, such as booking a client into a class, booking a new appointment for a client, enrolling a client into an enrollment or course, or reconciling an unpaid, already booked appointment or class. Use this call when a client purchases:  * a pricing option, after calling `GET Services` and choosing a specific pricing option’s ID  * a retail product, after calling `GET Products` and choosing a specific retail product’s ID  * a package, after calling `GET Packages` and choosing a specific package’s ID  * a tip to give to a staff member, after calling `GET Staff` and choosing a specific staff member ID, and the amount that the client wants to tip  The documentation provides explanations of the request body and response, as well as the cart item metadata, payment item metadata, and purchased cart items.
+This endpoint provides a wide range of functionality. For example, you can use it when a client purchases new pricing options, retail products, packages, and tips. You can also combine purchasing a new pricing option and many other functions, such as booking a client into a class, booking a new appointment for a client, enrolling a client into an enrollment or course, or reconciling an unpaid, already booked appointment or class. Use this call when a client purchases:  * a pricing option, after calling `GET Services` and choosing a specific pricing option’s ID  * a retail product, after calling `GET Products` and choosing a specific retail product’s ID  * a package, after calling `GET Packages` and choosing a specific package’s ID  * a tip to give to a staff member, after calling `GET Staff` and choosing a specific staff member ID, and the amount that the client wants to tip  The documentation provides explanations of the request body and response, as well as the cart item metadata, payment item metadata, and purchased cart items.  This endpoint had been updated to support Strong Customer Authentication (SCA).  **Note :**  Protect yourself from processor fees and credit card fraud.Remember to always protect your web forms that leverage POST CheckoutShoppingCart, POST PurchaseContract or POST PurchaseGiftCard with a CAPTCHA!
 
 ### Example
 ```php
@@ -153,6 +153,8 @@ This endpoint does not need any parameter.
 
 Get contracts available for purchase at a site.
 
+Returns the contracts and autopay options that are available on a location-by-location basis. Depending on the configurations established by the site, this endpoint returns options that can be used to sign up clients for recurring payments for services offered by the business.
+
 ### Example
 ```php
 <?php
@@ -183,7 +185,7 @@ $RequestContractIds = array(56); // int[] | When included, the response only con
 $RequestLimit = 56; // int | Number of results to include, defaults to 100
 $RequestOffset = 56; // int | Page offset, defaults to 0.
 $RequestPromoCode = "RequestPromoCode_example"; // string | PromoCode to apply
-$RequestSoldOnline = true; // bool | When `true`, the response only contains details about contracts and AutoPay options that can be sold online.<br />  When `false`, only contracts that are not intended to be sold online are returned.<br />  Default: **all contracts**
+$RequestSoldOnline = true; // bool | When `true`, the response only contains details about contracts and AutoPay options that can be sold online.   When `false`, all contracts are returned.  Default: **false**
 
 try {
     $result = $apiInstance->saleGetContracts($RequestLocationId, $RequestConsumerId, $RequestContractIds, $RequestLimit, $RequestOffset, $RequestPromoCode, $RequestSoldOnline);
@@ -204,7 +206,7 @@ Name | Type | Description  | Notes
  **RequestLimit** | **int**| Number of results to include, defaults to 100 | [optional]
  **RequestOffset** | **int**| Page offset, defaults to 0. | [optional]
  **RequestPromoCode** | **string**| PromoCode to apply | [optional]
- **RequestSoldOnline** | **bool**| When &#x60;true&#x60;, the response only contains details about contracts and AutoPay options that can be sold online.&lt;br /&gt;  When &#x60;false&#x60;, only contracts that are not intended to be sold online are returned.&lt;br /&gt;  Default: **all contracts** | [optional]
+ **RequestSoldOnline** | **bool**| When &#x60;true&#x60;, the response only contains details about contracts and AutoPay options that can be sold online.   When &#x60;false&#x60;, all contracts are returned.  Default: **false** | [optional]
 
 ### Return type
 
@@ -289,6 +291,8 @@ Name | Type | Description  | Notes
 
 Get a gift card's remaining balance.
 
+Returns a gift card’s remaining balance.
+
 ### Example
 ```php
 <?php
@@ -350,6 +354,8 @@ Name | Type | Description  | Notes
 
 Get gift cards available for purchase at a site.
 
+Returns information about gift cards that can be purchased.
+
 ### Example
 ```php
 <?php
@@ -375,7 +381,7 @@ $apiInstance = new Nlocascio\Mindbody\Api\SaleApi(
     $config
 );
 $RequestIds = array(56); // int[] | Filters the results to the requested gift card IDs.<br />  Default: **all** gift cards.
-$RequestIncludeCustomLayouts = true; // bool | When `true`, includes custom gift card layouts.<br />  Default: **false**
+$RequestIncludeCustomLayouts = true; // bool | When `true`, includes custom gift card layouts.<br />  When `false`, includes only system layouts.  Default: **false**
 $RequestLimit = 56; // int | Number of results to include, defaults to 100
 $RequestLocationId = 56; // int | When included, returns gift cards that are sold at the provided location ID.
 $RequestOffset = 56; // int | Page offset, defaults to 0.
@@ -395,7 +401,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **RequestIds** | [**int[]**](../Model/int.md)| Filters the results to the requested gift card IDs.&lt;br /&gt;  Default: **all** gift cards. | [optional]
- **RequestIncludeCustomLayouts** | **bool**| When &#x60;true&#x60;, includes custom gift card layouts.&lt;br /&gt;  Default: **false** | [optional]
+ **RequestIncludeCustomLayouts** | **bool**| When &#x60;true&#x60;, includes custom gift card layouts.&lt;br /&gt;  When &#x60;false&#x60;, includes only system layouts.  Default: **false** | [optional]
  **RequestLimit** | **int**| Number of results to include, defaults to 100 | [optional]
  **RequestLocationId** | **int**| When included, returns gift cards that are sold at the provided location ID. | [optional]
  **RequestOffset** | **int**| Page offset, defaults to 0. | [optional]
@@ -516,14 +522,14 @@ $apiInstance = new Nlocascio\Mindbody\Api\SaleApi(
     new GuzzleHttp\Client(),
     $config
 );
-$RequestCategoryIds = array(56); // int[] | A list of category IDs to filter by.
+$RequestCategoryIds = array(56); // int[] | A list of revenue category IDs to filter by. Use this ID when calling the GET Categories endpoint.     ** Note:** The values for these are not currently retrievable through the API.
 $RequestLimit = 56; // int | Number of results to include, defaults to 100
 $RequestLocationId = 56; // int | The location ID to use to determine the tax for the products that this request returns.<br />  Default: **online store**
 $RequestOffset = 56; // int | Page offset, defaults to 0.
-$RequestProductIds = array("RequestProductIds_example"); // string[] | An ID filter for products.
+$RequestProductIds = array("RequestProductIds_example"); // string[] | The barcode number of the product to be filter by.
 $RequestSearchText = "RequestSearchText_example"; // string | A search filter, used for searching by term.
 $RequestSellOnline = true; // bool | When `true`, only products that can be sold online are returned.<br />  When `false`, all products are returned.<br />  Default: **false**
-$RequestSubCategoryIds = array(56); // int[] | A list of subcategory IDs to filter by.
+$RequestSubCategoryIds = array(56); // int[] | A list of subcategory IDs to filter by. Use this ID when calling the GET Categories endpoint.    **Note:** The values for these are not currently retrievable through the API.
 
 try {
     $result = $apiInstance->saleGetProducts($RequestCategoryIds, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestProductIds, $RequestSearchText, $RequestSellOnline, $RequestSubCategoryIds);
@@ -538,14 +544,14 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **RequestCategoryIds** | [**int[]**](../Model/int.md)| A list of category IDs to filter by. | [optional]
+ **RequestCategoryIds** | [**int[]**](../Model/int.md)| A list of revenue category IDs to filter by. Use this ID when calling the GET Categories endpoint.     ** Note:** The values for these are not currently retrievable through the API. | [optional]
  **RequestLimit** | **int**| Number of results to include, defaults to 100 | [optional]
  **RequestLocationId** | **int**| The location ID to use to determine the tax for the products that this request returns.&lt;br /&gt;  Default: **online store** | [optional]
  **RequestOffset** | **int**| Page offset, defaults to 0. | [optional]
- **RequestProductIds** | [**string[]**](../Model/string.md)| An ID filter for products. | [optional]
+ **RequestProductIds** | [**string[]**](../Model/string.md)| The barcode number of the product to be filter by. | [optional]
  **RequestSearchText** | **string**| A search filter, used for searching by term. | [optional]
  **RequestSellOnline** | **bool**| When &#x60;true&#x60;, only products that can be sold online are returned.&lt;br /&gt;  When &#x60;false&#x60;, all products are returned.&lt;br /&gt;  Default: **false** | [optional]
- **RequestSubCategoryIds** | [**int[]**](../Model/int.md)| A list of subcategory IDs to filter by. | [optional]
+ **RequestSubCategoryIds** | [**int[]**](../Model/int.md)| A list of subcategory IDs to filter by. Use this ID when calling the GET Categories endpoint.    **Note:** The values for these are not currently retrievable through the API. | [optional]
 
 ### Return type
 
@@ -591,11 +597,11 @@ $apiInstance = new Nlocascio\Mindbody\Api\SaleApi(
     new GuzzleHttp\Client(),
     $config
 );
-$RequestBarcodeIds = array("RequestBarcodeIds_example"); // string[] | An IDs is barcodeId to filter for products inventory data.
+$RequestBarcodeIds = array("RequestBarcodeIds_example"); // string[] | When included, the response only contains details about the specified Barcode Ids.
 $RequestLimit = 56; // int | Number of results to include, defaults to 100
-$RequestLocationIds = array(56); // int[] | The location IDs to use to determine the inventory data of the product of specific location.<br />  Default: **online store**
+$RequestLocationIds = array(56); // int[] | When included, the response only contains details about the specified location Ids.
 $RequestOffset = 56; // int | Page offset, defaults to 0.
-$RequestProductIds = array("RequestProductIds_example"); // string[] | An IDs filter for products inventory data.
+$RequestProductIds = array("RequestProductIds_example"); // string[] | When included, the response only contains details about the specified product Ids.
 
 try {
     $result = $apiInstance->saleGetProductsInventory($RequestBarcodeIds, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProductIds);
@@ -610,11 +616,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **RequestBarcodeIds** | [**string[]**](../Model/string.md)| An IDs is barcodeId to filter for products inventory data. | [optional]
+ **RequestBarcodeIds** | [**string[]**](../Model/string.md)| When included, the response only contains details about the specified Barcode Ids. | [optional]
  **RequestLimit** | **int**| Number of results to include, defaults to 100 | [optional]
- **RequestLocationIds** | [**int[]**](../Model/int.md)| The location IDs to use to determine the inventory data of the product of specific location.&lt;br /&gt;  Default: **online store** | [optional]
+ **RequestLocationIds** | [**int[]**](../Model/int.md)| When included, the response only contains details about the specified location Ids. | [optional]
  **RequestOffset** | **int**| Page offset, defaults to 0. | [optional]
- **RequestProductIds** | [**string[]**](../Model/string.md)| An IDs filter for products inventory data. | [optional]
+ **RequestProductIds** | [**string[]**](../Model/string.md)| When included, the response only contains details about the specified product Ids. | [optional]
 
 ### Return type
 
@@ -663,8 +669,8 @@ $apiInstance = new Nlocascio\Mindbody\Api\SaleApi(
 $RequestEndSaleDateTime = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filters results to sales that happened before this date and time.
 $RequestLimit = 56; // int | Number of results to include, defaults to 100
 $RequestOffset = 56; // int | Page offset, defaults to 0.
-$RequestPaymentMethodId = 56; // int | Filters results to sales paid for by the given payment method ID.
-$RequestSaleId = 789; // int | Filters results to the requested sale ID.
+$RequestPaymentMethodId = 56; // int | Filters results to sales paid for by the given payment method ID which indicates payment method(s) (i.e. cash, VISA, AMEX, Check, etc.).
+$RequestSaleId = 789; // int | The sale ID associated with the particular item. It Filters results to the requested sale ID.
 $RequestStartSaleDateTime = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filters results to sales that happened after this date and time.
 
 try {
@@ -683,8 +689,8 @@ Name | Type | Description  | Notes
  **RequestEndSaleDateTime** | **\DateTime**| Filters results to sales that happened before this date and time. | [optional]
  **RequestLimit** | **int**| Number of results to include, defaults to 100 | [optional]
  **RequestOffset** | **int**| Page offset, defaults to 0. | [optional]
- **RequestPaymentMethodId** | **int**| Filters results to sales paid for by the given payment method ID. | [optional]
- **RequestSaleId** | **int**| Filters results to the requested sale ID. | [optional]
+ **RequestPaymentMethodId** | **int**| Filters results to sales paid for by the given payment method ID which indicates payment method(s) (i.e. cash, VISA, AMEX, Check, etc.). | [optional]
+ **RequestSaleId** | **int**| The sale ID associated with the particular item. It Filters results to the requested sale ID. | [optional]
  **RequestStartSaleDateTime** | **\DateTime**| Filters results to sales that happened after this date and time. | [optional]
 
 ### Return type
@@ -741,7 +747,7 @@ $RequestLocationId = 56; // int | When specified, for each returned pricing opti
 $RequestOffset = 56; // int | Page offset, defaults to 0.
 $RequestProgramIds = array(56); // int[] | Filters to pricing options with the specified program IDs.
 $RequestSellOnline = true; // bool | When `true`, filters to the pricing options that can be sold online.<br />  Default: **false**
-$RequestServiceIds = array("RequestServiceIds_example"); // string[] | Filters to the pricing options with the specified IDs. In this context, service and pricing option are used interchangeably.
+$RequestServiceIds = array("RequestServiceIds_example"); // string[] | Filters to the pricing options with the specified IDs. In this context, service and pricing option are used interchangeably. These are the `PurchasedItems[].Id` returned from GET Sales.
 $RequestSessionTypeIds = array(56); // int[] | Filters to the pricing options with the specified session types IDs.
 $RequestStaffId = 789; // int | Sets `Price` and `OnlinePrice` to the particular pricing of a specific staff member, if allowed by the business.
 
@@ -768,7 +774,7 @@ Name | Type | Description  | Notes
  **RequestOffset** | **int**| Page offset, defaults to 0. | [optional]
  **RequestProgramIds** | [**int[]**](../Model/int.md)| Filters to pricing options with the specified program IDs. | [optional]
  **RequestSellOnline** | **bool**| When &#x60;true&#x60;, filters to the pricing options that can be sold online.&lt;br /&gt;  Default: **false** | [optional]
- **RequestServiceIds** | [**string[]**](../Model/string.md)| Filters to the pricing options with the specified IDs. In this context, service and pricing option are used interchangeably. | [optional]
+ **RequestServiceIds** | [**string[]**](../Model/string.md)| Filters to the pricing options with the specified IDs. In this context, service and pricing option are used interchangeably. These are the &#x60;PurchasedItems[].Id&#x60; returned from GET Sales. | [optional]
  **RequestSessionTypeIds** | [**int[]**](../Model/int.md)| Filters to the pricing options with the specified session types IDs. | [optional]
  **RequestStaffId** | **int**| Sets &#x60;Price&#x60; and &#x60;OnlinePrice&#x60; to the particular pricing of a specific staff member, if allowed by the business. | [optional]
 
@@ -791,6 +797,8 @@ Name | Type | Description  | Notes
 > \Nlocascio\Mindbody\Model\GetTransactionsResponse saleGetTransactions($RequestClientId, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestSaleId, $RequestStatus, $RequestTransactionEndDateTime, $RequestTransactionId, $RequestTransactionStartDateTime)
 
 Get transactions completed at a site.
+
+This endpoint returns a list of transaction details of processed sales.
 
 ### Example
 ```php
@@ -818,13 +826,13 @@ $apiInstance = new Nlocascio\Mindbody\Api\SaleApi(
 );
 $RequestClientId = 789; // int | Filters results to the requested client ID.
 $RequestLimit = 56; // int | Number of results to include, defaults to 100
-$RequestLocationId = 56; // int | Filters results to the requested location ID.
+$RequestLocationId = 56; // int | Filters the transaction results with the ID number associated with the location of the sale.
 $RequestOffset = 56; // int | Page offset, defaults to 0.
-$RequestSaleId = 789; // int | Filters results to the requested sale ID.
-$RequestStatus = "RequestStatus_example"; // string | Filters results to the requested status.
-$RequestTransactionEndDateTime = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filters results to transactions that happened before this date and time.
-$RequestTransactionId = 56; // int | Filters results to the requested transaction ID.
-$RequestTransactionStartDateTime = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filters results to transactions that happened after this date and time.
+$RequestSaleId = 789; // int | Filters the transaction results with the ID number associated with the sale.
+$RequestStatus = "RequestStatus_example"; // string | Filters the transaction results by the estimated transaction status.
+$RequestTransactionEndDateTime = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filters the transaction results that happpened before this date and time.   Default: **today’s date**
+$RequestTransactionId = 56; // int | Filters the transaction results with the ID number generated when the sale is processed.
+$RequestTransactionStartDateTime = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filters the transaction results that happpened after this date and time.   Default: **today’s date**
 
 try {
     $result = $apiInstance->saleGetTransactions($RequestClientId, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestSaleId, $RequestStatus, $RequestTransactionEndDateTime, $RequestTransactionId, $RequestTransactionStartDateTime);
@@ -841,13 +849,13 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **RequestClientId** | **int**| Filters results to the requested client ID. | [optional]
  **RequestLimit** | **int**| Number of results to include, defaults to 100 | [optional]
- **RequestLocationId** | **int**| Filters results to the requested location ID. | [optional]
+ **RequestLocationId** | **int**| Filters the transaction results with the ID number associated with the location of the sale. | [optional]
  **RequestOffset** | **int**| Page offset, defaults to 0. | [optional]
- **RequestSaleId** | **int**| Filters results to the requested sale ID. | [optional]
- **RequestStatus** | **string**| Filters results to the requested status. | [optional]
- **RequestTransactionEndDateTime** | **\DateTime**| Filters results to transactions that happened before this date and time. | [optional]
- **RequestTransactionId** | **int**| Filters results to the requested transaction ID. | [optional]
- **RequestTransactionStartDateTime** | **\DateTime**| Filters results to transactions that happened after this date and time. | [optional]
+ **RequestSaleId** | **int**| Filters the transaction results with the ID number associated with the sale. | [optional]
+ **RequestStatus** | **string**| Filters the transaction results by the estimated transaction status. | [optional]
+ **RequestTransactionEndDateTime** | **\DateTime**| Filters the transaction results that happpened before this date and time.   Default: **today’s date** | [optional]
+ **RequestTransactionId** | **int**| Filters the transaction results with the ID number generated when the sale is processed. | [optional]
+ **RequestTransactionStartDateTime** | **\DateTime**| Filters the transaction results that happpened after this date and time.   Default: **today’s date** | [optional]
 
 ### Return type
 
@@ -868,6 +876,8 @@ Name | Type | Description  | Notes
 > \Nlocascio\Mindbody\Model\InitializeCreditCardEntryResponse saleInitializeCreditCardEntry($Request)
 
 
+
+This endpoint returns a Callback URL which is used to load Card Element UI with the help of which user will be able to enter the card details and initiate a transaction .  The documentation provides explanations of the request body and response.
 
 ### Example
 ```php
@@ -930,6 +940,8 @@ Name | Type | Description  | Notes
 
 Purchases account credit for a client
 
+Allows a client to purchase account credit from a business.
+
 ### Example
 ```php
 <?php
@@ -991,7 +1003,7 @@ Name | Type | Description  | Notes
 
 Purchase a contract for a client.
 
-Allows a client to sign up for a contract or autopay using the information returned from the `GET Contracts` endpoint. The client can pay with a new credit card or with a stored credit card. The client must exist at the site specified before this call is made.    This endpoint allows a developer to specify whether a client pays now or pays on the `StartDate`.If you are building a client-facing experience, you should talk with the business owner to understand the owner’s policies before you give clients a choice of the two payment types.
+Allows a client to sign up for a contract or autopay using the information returned from the `GET Contracts` endpoint. The client can pay with a new credit card or with a stored credit card. The client must exist at the site specified before this call is made.    This endpoint allows a developer to specify whether a client pays now or pays on the `StartDate`.If you are building a client-facing experience, you should talk with the business owner to understand the owner’s policies before you give clients a choice of the two payment types.  This endpoint had been updated to support Strong Customer Authentication (SCA).    **Note**  Protect yourself from processor fees and credit card fraud. Remember to always protect your web forms that leverage POST CheckoutShoppingCart, POST PurchaseContract or POST PurchaseGiftCard with a CAPTCHA!
 
 ### Example
 ```php
@@ -1117,6 +1129,8 @@ Name | Type | Description  | Notes
 
 Retunn sale
 
+Return a comped sale for a specified sale ID in business mode. The sale is returnable only if it is a sale of a service, product or gift card and it has not been used. Currently, only the comp payment method is supported.
+
 ### Example
 ```php
 <?php
@@ -1178,6 +1192,8 @@ Name | Type | Description  | Notes
 
 Update retail product's unit and online price.
 
+This endpoint updates the retail price and an online price for a product. Passing at least one of them is mandatory.
+
 ### Example
 ```php
 <?php
@@ -1238,6 +1254,8 @@ Name | Type | Description  | Notes
 > \Nlocascio\Mindbody\Model\UpdateSaleDateResponse saleUpdateSaleDate($Request)
 
 
+
+This endpoint updates the SaleDate and returns the details of the sale.
 
 ### Example
 ```php

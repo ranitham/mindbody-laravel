@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SalesRepNumbers** | **int[]** | This is the list of rep numbers to be fetched | [optional] 
-**ActiveOnly** | **bool** | This is to filter out the active sales rep from the list | [optional] 
+**SalesRepNumbers** | **int[]** | This is the list of the sales rep numbers for which the salesrep data will be fetched. | [optional] 
+**ActiveOnly** | **bool** | When &#x60;true&#x60;, will return only active reps data.  Default : **false** | [optional] 
 **Limit** | **int** | Number of results to include, defaults to 100 | [optional] 
 **Offset** | **int** | Page offset, defaults to 0. | [optional] 
 

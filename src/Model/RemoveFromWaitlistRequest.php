@@ -36,7 +36,7 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property int[] $WaitlistEntryIds A list of waiting list IDs to remove from waiting lists.
+ * @property int[] $WaitlistEntryIds A list of `WaitlistEntryIds` to remove from the waiting list.
  *
  */
 class RemoveFromWaitlistRequest extends BaseModel
@@ -142,7 +142,7 @@ class RemoveFromWaitlistRequest extends BaseModel
     /**
      * Sets WaitlistEntryIds
      *
-     * @param int[] $WaitlistEntryIds A list of waiting list IDs to remove from waiting lists.
+     * @param int[] $WaitlistEntryIds A list of `WaitlistEntryIds` to remove from the waiting list.
      *
      * @return $this
      */

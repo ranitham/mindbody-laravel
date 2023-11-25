@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClassDescriptionId** | **int** | Filters to the single result with the given ID. | [optional] 
-**ProgramIds** | **int[]** | Filters results to class descriptions belonging to the given programs. | [optional] 
+**ClassDescriptionId** | **int** | The ID of the requested client. | [optional] 
+**ProgramIds** | **int[]** | A list of requested program IDs. | [optional] 
 **StartClassDateTime** | [**\DateTime**](\DateTime.md) | Filters the results to class descriptions for scheduled classes that happen on or after the given date and time. | [optional] 
 **EndClassDateTime** | [**\DateTime**](\DateTime.md) | Filters the results to class descriptions for scheduled classes that happen before the given date and time. | [optional] 
 **StaffId** | **int** | Filters results to class descriptions for scheduled classes taught by the given staff member. | [optional] 

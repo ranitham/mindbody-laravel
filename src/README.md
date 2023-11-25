@@ -105,7 +105,8 @@ Class | Method | HTTP request | Description
 *AppointmentApi* | [**appointmentGetBookableItems**](docs/Api/AppointmentApi.md#appointmentgetbookableitems) | **GET** /public/v6/appointment/bookableitems | Get staff appointment availability.
 *AppointmentApi* | [**appointmentGetScheduleItems**](docs/Api/AppointmentApi.md#appointmentgetscheduleitems) | **GET** /public/v6/appointment/scheduleitems | Get appointment schedule.
 *AppointmentApi* | [**appointmentGetStaffAppointments**](docs/Api/AppointmentApi.md#appointmentgetstaffappointments) | **GET** /public/v6/appointment/staffappointments | Get appointments grouped by staff member.
-*AppointmentApi* | [**appointmentRemoveFromWaitlist**](docs/Api/AppointmentApi.md#appointmentremovefromwaitlist) | **DELETE** /public/v6/appointment/removefromappointmentwaitlist | Remove an appointment from waitlist
+*AppointmentApi* | [**appointmentGetUnavailabilities**](docs/Api/AppointmentApi.md#appointmentgetunavailabilities) | **GET** /public/v6/appointment/unavailabilities | Get unavailabilities.
+*AppointmentApi* | [**appointmentRemoveFromWaitlist**](docs/Api/AppointmentApi.md#appointmentremovefromwaitlist) | **DELETE** /public/v6/appointment/appointmentfromwaitlist | Remove an appointment from waitlist
 *AppointmentApi* | [**appointmentUpdateAppointment**](docs/Api/AppointmentApi.md#appointmentupdateappointment) | **POST** /public/v6/appointment/updateappointment | Update an existing appointment.
 *AppointmentApi* | [**appointmentUpdateAvailability**](docs/Api/AppointmentApi.md#appointmentupdateavailability) | **PUT** /public/v6/appointment/availabilities | Update availability/unavailability of the staff
 *ClassApi* | [**classAddClassSchedule**](docs/Api/ClassApi.md#classaddclassschedule) | **POST** /public/v6/class/addclassschedule | 
@@ -125,9 +126,9 @@ Class | Method | HTTP request | Description
 *ClassApi* | [**classUpdateClassSchedule**](docs/Api/ClassApi.md#classupdateclassschedule) | **POST** /public/v6/class/updateclassschedule | 
 *ClientApi* | [**clientAddArrival**](docs/Api/ClientApi.md#clientaddarrival) | **POST** /public/v6/client/addarrival | Add an arrival for a client.
 *ClientApi* | [**clientAddClient**](docs/Api/ClientApi.md#clientaddclient) | **POST** /public/v6/client/addclient | Add a client to a site.
-*ClientApi* | [**clientAddClientDirectDebitInfo**](docs/Api/ClientApi.md#clientaddclientdirectdebitinfo) | **POST** /public/v6/client/addclientdirectdebitinfo | 
+*ClientApi* | [**clientAddClientDirectDebitInfo**](docs/Api/ClientApi.md#clientaddclientdirectdebitinfo) | **POST** /public/v6/client/addclientdirectdebitinfo | Add client Direct debit info.
 *ClientApi* | [**clientAddContactLog**](docs/Api/ClientApi.md#clientaddcontactlog) | **POST** /public/v6/client/addcontactlog | Add a contact log to a client&#39;s account.
-*ClientApi* | [**clientAddFormulaNote**](docs/Api/ClientApi.md#clientaddformulanote) | **POST** /public/v6/client/addclientformulanote | 
+*ClientApi* | [**clientAddFormulaNote**](docs/Api/ClientApi.md#clientaddformulanote) | **POST** /public/v6/client/addclientformulanote | Add client&#39;s formula note
 *ClientApi* | [**clientDeleteClientFormulaNote**](docs/Api/ClientApi.md#clientdeleteclientformulanote) | **DELETE** /public/v6/client/clientformulanote | Deletes client&#39;s formula note.
 *ClientApi* | [**clientDeleteContactLog**](docs/Api/ClientApi.md#clientdeletecontactlog) | **DELETE** /public/v6/client/deletecontactlog | Delete client&#39;s contact log.
 *ClientApi* | [**clientDeleteDirectDebitInfo**](docs/Api/ClientApi.md#clientdeletedirectdebitinfo) | **DELETE** /public/v6/client/clientdirectdebitinfo | Delete direct debit info for a client.
@@ -152,13 +153,14 @@ Class | Method | HTTP request | Description
 *ClientApi* | [**clientGetCustomClientFields**](docs/Api/ClientApi.md#clientgetcustomclientfields) | **GET** /public/v6/client/customclientfields | Get a site&#39;s configured custom client fields.
 *ClientApi* | [**clientGetDirectDebitInfo**](docs/Api/ClientApi.md#clientgetdirectdebitinfo) | **GET** /public/v6/client/clientdirectdebitinfo | Get direct debit info for a client.
 *ClientApi* | [**clientGetRequiredClientFields**](docs/Api/ClientApi.md#clientgetrequiredclientfields) | **GET** /public/v6/client/requiredclientfields | Get client required fields for a site.
+*ClientApi* | [**clientMergeClient**](docs/Api/ClientApi.md#clientmergeclient) | **POST** /public/v6/client/mergeclients | 
 *ClientApi* | [**clientSendAutoEmail**](docs/Api/ClientApi.md#clientsendautoemail) | **POST** /public/v6/client/sendautoemail | Send a client a supported auto email
 *ClientApi* | [**clientSendPasswordResetEmail**](docs/Api/ClientApi.md#clientsendpasswordresetemail) | **POST** /public/v6/client/sendpasswordresetemail | Send a password reset email to a client.
 *ClientApi* | [**clientSuspendContract**](docs/Api/ClientApi.md#clientsuspendcontract) | **POST** /public/v6/client/suspendcontract | Suspend client contract
 *ClientApi* | [**clientTerminateContract**](docs/Api/ClientApi.md#clientterminatecontract) | **POST** /public/v6/client/terminatecontract | Terminate client contract
 *ClientApi* | [**clientUpdateClient**](docs/Api/ClientApi.md#clientupdateclient) | **POST** /public/v6/client/updateclient | Update a client at a site.
 *ClientApi* | [**clientUpdateClientContractAutopays**](docs/Api/ClientApi.md#clientupdateclientcontractautopays) | **POST** /public/v6/client/updateclientcontractautopays | 
-*ClientApi* | [**clientUpdateClientRewards**](docs/Api/ClientApi.md#clientupdateclientrewards) | **POST** /public/v6/client/clientrewards | 
+*ClientApi* | [**clientUpdateClientRewards**](docs/Api/ClientApi.md#clientupdateclientrewards) | **POST** /public/v6/client/clientrewards | Update Client Reward
 *ClientApi* | [**clientUpdateClientService**](docs/Api/ClientApi.md#clientupdateclientservice) | **POST** /public/v6/client/updateclientservice | Update a client&#39;s purchase pricing option.
 *ClientApi* | [**clientUpdateClientVisit**](docs/Api/ClientApi.md#clientupdateclientvisit) | **POST** /public/v6/client/updateclientvisit | Update a client&#39;s visit.
 *ClientApi* | [**clientUpdateContactLog**](docs/Api/ClientApi.md#clientupdatecontactlog) | **POST** /public/v6/client/updatecontactlog | Update a contact log on a client&#39;s account.
@@ -181,6 +183,7 @@ Class | Method | HTTP request | Description
 *PickASpotvApi* | [**pickASpotvReservationPut**](docs/Api/PickASpotvApi.md#pickaspotvreservationput) | **PUT** /public/v6/pickaspot/v1/reservation/{pathInfo} | 
 *PricingOptionApi* | [**pricingOptionUpdatePricingOption**](docs/Api/PricingOptionApi.md#pricingoptionupdatepricingoption) | **POST** /public/v6/PricingOption/UpdatePricingOption | Update Pricing Option data such as name, details, price, discontinued using PricingOptionId(product id)
 *ProductApi* | [**productUpdateProducts**](docs/Api/ProductApi.md#productupdateproducts) | **PUT** /public/v6/sale/products | Update retail products available for purchase at a site.
+*PublicApi* | [**staffGetSalesReps**](docs/Api/PublicApi.md#staffgetsalesreps) | **GET** /public/v6/staff/salesreps | 
 *SaleApi* | [**saleCheckoutShoppingCart**](docs/Api/SaleApi.md#salecheckoutshoppingcart) | **POST** /public/v6/sale/checkoutshoppingcart | Purchase pricing options, packages, retail products, or tips for a client.
 *SaleApi* | [**saleGetAcceptedCardTypes**](docs/Api/SaleApi.md#salegetacceptedcardtypes) | **GET** /public/v6/sale/acceptedcardtypes | Get credit cards types that a site accepts.
 *SaleApi* | [**saleGetContracts**](docs/Api/SaleApi.md#salegetcontracts) | **GET** /public/v6/sale/contracts | Get contracts available for purchase at a site.
@@ -450,6 +453,8 @@ Class | Method | HTTP request | Description
  - [GetTipsResponse](docs/Model/GetTipsResponse.md)
  - [GetTransactionsRequest](docs/Model/GetTransactionsRequest.md)
  - [GetTransactionsResponse](docs/Model/GetTransactionsResponse.md)
+ - [GetUnavailabilitiesRequest](docs/Model/GetUnavailabilitiesRequest.md)
+ - [GetUnavailabilitiesResponse](docs/Model/GetUnavailabilitiesResponse.md)
  - [GetWaitlistEntriesRequest](docs/Model/GetWaitlistEntriesRequest.md)
  - [GetWaitlistEntriesResponse](docs/Model/GetWaitlistEntriesResponse.md)
  - [GiftCard](docs/Model/GiftCard.md)
@@ -458,11 +463,13 @@ Class | Method | HTTP request | Description
  - [InitializeCreditCardEntryResponse](docs/Model/InitializeCreditCardEntryResponse.md)
  - [IssueRequest](docs/Model/IssueRequest.md)
  - [IssueResponse](docs/Model/IssueResponse.md)
+ - [LeadChannel](docs/Model/LeadChannel.md)
  - [Level](docs/Model/Level.md)
  - [Liability](docs/Model/Liability.md)
  - [Location](docs/Model/Location.md)
  - [Membership](docs/Model/Membership.md)
  - [MembershipTypeRestriction](docs/Model/MembershipTypeRestriction.md)
+ - [MergeClientsRequest](docs/Model/MergeClientsRequest.md)
  - [MobileProvider](docs/Model/MobileProvider.md)
  - [ModelClass](docs/Model/ModelClass.md)
  - [Package](docs/Model/Package.md)
@@ -508,6 +515,7 @@ Class | Method | HTTP request | Description
  - [Staff](docs/Model/Staff.md)
  - [StaffPermissionGroup](docs/Model/StaffPermissionGroup.md)
  - [StaffSessionType](docs/Model/StaffSessionType.md)
+ - [StaffSetting](docs/Model/StaffSetting.md)
  - [StoredCardInfo](docs/Model/StoredCardInfo.md)
  - [SubCategory](docs/Model/SubCategory.md)
  - [SubstituteClassTeacherRequest](docs/Model/SubstituteClassTeacherRequest.md)
@@ -521,6 +529,7 @@ Class | Method | HTTP request | Description
  - [Tip](docs/Model/Tip.md)
  - [Transaction](docs/Model/Transaction.md)
  - [Unavailability](docs/Model/Unavailability.md)
+ - [UnavailabilityPlain](docs/Model/UnavailabilityPlain.md)
  - [UpcomingAutopayEvent](docs/Model/UpcomingAutopayEvent.md)
  - [UpdateAppointmentRequest](docs/Model/UpdateAppointmentRequest.md)
  - [UpdateAppointmentResponse](docs/Model/UpdateAppointmentResponse.md)

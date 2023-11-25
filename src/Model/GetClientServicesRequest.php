@@ -42,8 +42,8 @@ namespace Nlocascio\Mindbody\Model;
  * @property int $SessionTypeId Filters results to pricing options that will pay for the given session type ID. Use this to find pricing options that will pay for a specific appointment type.
  * @property int[] $LocationIds Filters results to pricing options that can be used at the listed location IDs.
  * @property int $VisitCount A filter on the minimum number of visits a service can pay for.
- * @property \DateTime $StartDate Filters results to pricing options that are valid on or after this date.
- * @property \DateTime $EndDate Filters results to pricing options that are valid on or before this date.
+ * @property \DateTime $StartDate Filters results to pricing options that are valid on or after this date.  Default: **today’s date**
+ * @property \DateTime $EndDate Filters results to pricing options that are valid on or before this date.  Default: **today’s date**
  * @property bool $ShowActiveOnly When `true`, includes active services only.  Default: **false**
  * @property bool $CrossRegionalLookup Used to retrieve a client’s pricing options from multiple sites within an organization. When included and set to `true`, it searches a maximum of ten sites with which this client is associated. When a client is associated with more than ten sites, use `ClientAssociatedSitesOffset` as many times as needed to search the additional sites with which the client is associated. You can use the `CrossRegionalClientAssociations` value from `GET CrossRegionalClientAssociations` to determine how many sites the client is associated with. Note that a `SiteID` is returned and populated in the `ClientServices` response when `CrossRegionalLookup` is set to `true`.  Default: **false**
  * @property bool $IgnoreCrossRegionalSiteLimit Used to specify if the number of cross regional sites used to search for client’s pricing options should be ignored.   Default: **false**
@@ -377,7 +377,7 @@ class GetClientServicesRequest extends BaseModel
     /**
      * Sets StartDate
      *
-     * @param \DateTime $StartDate Filters results to pricing options that are valid on or after this date.
+     * @param \DateTime $StartDate Filters results to pricing options that are valid on or after this date.  Default: **today’s date**
      *
      * @return $this
      */
@@ -401,7 +401,7 @@ class GetClientServicesRequest extends BaseModel
     /**
      * Sets EndDate
      *
-     * @param \DateTime $EndDate Filters results to pricing options that are valid on or before this date.
+     * @param \DateTime $EndDate Filters results to pricing options that are valid on or before this date.  Default: **today’s date**
      *
      * @return $this
      */

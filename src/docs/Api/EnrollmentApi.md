@@ -137,7 +137,7 @@ Name | Type | Description  | Notes
 
 Get enrollments scheduled at a site.
 
-Returns a list of enrollments. An enrollment is a service, such as a workshop or an event, that a staff member offers to multiple students, who commit to coming to all or most of the scheduled sessions. Enrollments typically run for a limited time only.
+Returns a list of enrollments. An enrollment is a service, such as a workshop or an event, that a staff member offers to multiple students, who commit to coming to all or most of the scheduled sessions. Enrollments typically run for a limited time only.                When a user token is not passed with the request or the passed user token has insufficient viewing permissions, only the following staff data is returned in the response:                * FirstName  * LastName  * Id  * Bio  * DisplayName  * ImageUrl
 
 ### Example
 ```php

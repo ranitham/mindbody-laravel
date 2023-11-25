@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ProgramIds** | **int[]** | Filters to pricing options with the specified program IDs. | [optional] 
 **SessionTypeIds** | **int[]** | Filters to the pricing options with the specified session types IDs. | [optional] 
-**ServiceIds** | **string[]** | Filters to the pricing options with the specified IDs. In this context, service and pricing option are used interchangeably. | [optional] 
+**ServiceIds** | **string[]** | Filters to the pricing options with the specified IDs. In this context, service and pricing option are used interchangeably. These are the &#x60;PurchasedItems[].Id&#x60; returned from GET Sales. | [optional] 
 **ClassId** | **int** | Filters to the pricing options for the specified class ID. | [optional] 
 **ClassScheduleId** | **int** | Filters to the pricing options for the specified class schedule ID. | [optional] 
 **SellOnline** | **bool** | When &#x60;true&#x60;, filters to the pricing options that can be sold online.&lt;br /&gt;  Default: **false** | [optional] 

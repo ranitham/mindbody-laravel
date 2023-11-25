@@ -38,7 +38,7 @@ namespace Nlocascio\Mindbody\Model;
  * @link     https://github.com/swagger-api/swagger-codegen
  * @property int $LocationId When included, returns gift cards that are sold at the provided location ID.
  * @property bool $SoldOnline When `true`, only returns gift cards that are sold online.<br />  Default: **false**
- * @property bool $IncludeCustomLayouts When `true`, includes custom gift card layouts.<br />  Default: **false**
+ * @property bool $IncludeCustomLayouts When `true`, includes custom gift card layouts.<br />  When `false`, includes only system layouts.  Default: **false**
  * @property int[] $Ids Filters the results to the requested gift card IDs.<br />  Default: **all** gift cards.
  * @property int $Limit Number of results to include, defaults to 100
  * @property int $Offset Page offset, defaults to 0.
@@ -222,7 +222,7 @@ class GetGiftCardsRequest extends BaseModel
     /**
      * Sets IncludeCustomLayouts
      *
-     * @param bool $IncludeCustomLayouts When `true`, includes custom gift card layouts.<br />  Default: **false**
+     * @param bool $IncludeCustomLayouts When `true`, includes custom gift card layouts.<br />  When `false`, includes only system layouts.  Default: **false**
      *
      * @return $this
      */

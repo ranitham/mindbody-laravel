@@ -36,12 +36,12 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property string[] $ClientIDs The requested client IDs.  Default: **all IDs** that the authenticated user’s access level allows.
+ * @property string[] $ClientIDs The requested client IDs.  Default: **all IDs** that the authenticated user’s access level allows.<br />  Note: You can fetch information for maximum 20 clients at once.
  * @property string $SearchText Text to use in the search. Can include FirstName, LastName, and Email. Note that user credentials must be provided.
  * @property bool $IsProspect When `true`, filters the results to include only those clients marked as prospects for the business.<br />  When `false`, indicates that only those clients who are not marked prospects should be returned.
  * @property \DateTime $LastModifiedDate Filters the results to include only the clients that have been modified on or after this date.
  * @property int[] $UniqueIds Filters results to clients with these `UniqueIDs`. This parameter cannot be used with `ClientIDs` or `SearchText`.  Default: **all UniqueIDs** that the authenticated user’s access level allows.
- * @property bool $IncludeInactive When `true`, indicates the results to include active and inactive clients.<br />  When `false`, indicates that only those clients who are marked as active should be returned.
+ * @property bool $IncludeInactive When `true`, indicates the results to include active and inactive clients.<br />  When `false`, indicates that only those clients who are marked as active should be returned.  Default: **false**
  * @property int $Limit Number of results to include, defaults to 100
  * @property int $Offset Page offset, defaults to 0.
  *
@@ -188,7 +188,7 @@ class GetClientsRequest extends BaseModel
     /**
      * Sets ClientIDs
      *
-     * @param string[] $ClientIDs The requested client IDs.  Default: **all IDs** that the authenticated user’s access level allows.
+     * @param string[] $ClientIDs The requested client IDs.  Default: **all IDs** that the authenticated user’s access level allows.<br />  Note: You can fetch information for maximum 20 clients at once.
      *
      * @return $this
      */
@@ -308,7 +308,7 @@ class GetClientsRequest extends BaseModel
     /**
      * Sets IncludeInactive
      *
-     * @param bool $IncludeInactive When `true`, indicates the results to include active and inactive clients.<br />  When `false`, indicates that only those clients who are marked as active should be returned.
+     * @param bool $IncludeInactive When `true`, indicates the results to include active and inactive clients.<br />  When `false`, indicates that only those clients who are marked as active should be returned.  Default: **false**
      *
      * @return $this
      */

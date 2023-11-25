@@ -3,10 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ActiveOnly** | **bool** | Filter only active, defaults to true | [optional] 
-**OnlineOnly** | **bool** | Filter only the ones that can be sold online | [optional] 
-**StartDate** | [**\DateTime**](\DateTime.md) | Filter by activation start date | [optional] 
-**EndDate** | [**\DateTime**](\DateTime.md) | Filter by activation end date | [optional] 
+**ActiveOnly** | **bool** | If true, filters results to show only promocodes that are active. If **false**, all promocodes are returned.  Default: **true** | [optional] 
+**OnlineOnly** | **bool** | If &#x60;true&#x60;, filters results to show only promocodes that can be used for online sale.  If &#x60;false&#x60;, all promocodes are returned.  Default: **false** | [optional] 
+**StartDate** | [**\DateTime**](\DateTime.md) | Filters results to promocodes that were activated after this date. | [optional] 
+**EndDate** | [**\DateTime**](\DateTime.md) | Filters results to promocodes that were activated before this date. | [optional] 
 **Limit** | **int** | Number of results to include, defaults to 100 | [optional] 
 **Offset** | **int** | Page offset, defaults to 0. | [optional] 
 

@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **LocationId** | **int** | When included, returns gift cards that are sold at the provided location ID. | [optional] 
 **SoldOnline** | **bool** | When &#x60;true&#x60;, only returns gift cards that are sold online.&lt;br /&gt;  Default: **false** | [optional] 
-**IncludeCustomLayouts** | **bool** | When &#x60;true&#x60;, includes custom gift card layouts.&lt;br /&gt;  Default: **false** | [optional] 
+**IncludeCustomLayouts** | **bool** | When &#x60;true&#x60;, includes custom gift card layouts.&lt;br /&gt;  When &#x60;false&#x60;, includes only system layouts.  Default: **false** | [optional] 
 **Ids** | **int[]** | Filters the results to the requested gift card IDs.&lt;br /&gt;  Default: **all** gift cards. | [optional] 
 **Limit** | **int** | Number of results to include, defaults to 100 | [optional] 
 **Offset** | **int** | Page offset, defaults to 0. | [optional] 

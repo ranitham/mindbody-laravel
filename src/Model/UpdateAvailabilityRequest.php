@@ -37,15 +37,15 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property int[] $AvailabilityIds Availability Ids that are to be updated
+ * @property int[] $AvailabilityIds Unique IDs for the availabilities or unavailabilities.
  * @property string $PublicDisplay Choice that decides whether the availablity should be publicly visible, masked or hidden.
- * @property string[] $DaysOfWeek The day of the week
- * @property int[] $ProgramIds The program Ids
- * @property \DateTime $StartDateTime StartDateTime
- * @property \DateTime $EndDateTime The end date and time
- * @property int $LocationId The location id
- * @property string $UnavailableDescription The description for the unavailability
- * @property bool $Test The test flag
+ * @property string[] $DaysOfWeek The days of week to update the availabilities or unavailabilities.<br />  Default: **All**
+ * @property int[] $ProgramIds The program Id to be set for the availabilities.  Default: **All**
+ * @property \DateTime $StartDateTime The start date and time for the availabilities or unavailabilities.
+ * @property \DateTime $EndDateTime The end date and time for the availabilities or unavailabilities.
+ * @property int $LocationId The location Id to be updated for the provided availability Ids.
+ * @property string $UnavailableDescription The description for unavailability.
+ * @property bool $Test When `true`, the request ensures that its parameters are valid without affecting real data.  When ``false`, the request performs as intended and may affect live client data.  Default: **false**
  *
  */
 class UpdateAvailabilityRequest extends BaseModel
@@ -246,7 +246,7 @@ class UpdateAvailabilityRequest extends BaseModel
     /**
      * Sets AvailabilityIds
      *
-     * @param int[] $AvailabilityIds Availability Ids that are to be updated
+     * @param int[] $AvailabilityIds Unique IDs for the availabilities or unavailabilities.
      *
      * @return $this
      */
@@ -303,7 +303,7 @@ class UpdateAvailabilityRequest extends BaseModel
     /**
      * Sets DaysOfWeek
      *
-     * @param string[] $DaysOfWeek The day of the week
+     * @param string[] $DaysOfWeek The days of week to update the availabilities or unavailabilities.<br />  Default: **All**
      *
      * @return $this
      */
@@ -336,7 +336,7 @@ class UpdateAvailabilityRequest extends BaseModel
     /**
      * Sets ProgramIds
      *
-     * @param int[] $ProgramIds The program Ids
+     * @param int[] $ProgramIds The program Id to be set for the availabilities.  Default: **All**
      *
      * @return $this
      */
@@ -360,7 +360,7 @@ class UpdateAvailabilityRequest extends BaseModel
     /**
      * Sets StartDateTime
      *
-     * @param \DateTime $StartDateTime StartDateTime
+     * @param \DateTime $StartDateTime The start date and time for the availabilities or unavailabilities.
      *
      * @return $this
      */
@@ -384,7 +384,7 @@ class UpdateAvailabilityRequest extends BaseModel
     /**
      * Sets EndDateTime
      *
-     * @param \DateTime $EndDateTime The end date and time
+     * @param \DateTime $EndDateTime The end date and time for the availabilities or unavailabilities.
      *
      * @return $this
      */
@@ -408,7 +408,7 @@ class UpdateAvailabilityRequest extends BaseModel
     /**
      * Sets LocationId
      *
-     * @param int $LocationId The location id
+     * @param int $LocationId The location Id to be updated for the provided availability Ids.
      *
      * @return $this
      */
@@ -432,7 +432,7 @@ class UpdateAvailabilityRequest extends BaseModel
     /**
      * Sets UnavailableDescription
      *
-     * @param string $UnavailableDescription The description for the unavailability
+     * @param string $UnavailableDescription The description for unavailability.
      *
      * @return $this
      */
@@ -456,7 +456,7 @@ class UpdateAvailabilityRequest extends BaseModel
     /**
      * Sets Test
      *
-     * @param bool $Test The test flag
+     * @param bool $Test When `true`, the request ensures that its parameters are valid without affecting real data.  When ``false`, the request performs as intended and may affect live client data.  Default: **false**
      *
      * @return $this
      */

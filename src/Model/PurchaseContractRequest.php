@@ -44,13 +44,14 @@ namespace Nlocascio\Mindbody\Model;
  * @property string $FirstPaymentOccurs The date on which the first payment is to occur. Possible values:  * Instant  * `StartDate`
  * @property string $ClientSignature A representation of the client’s signature. This value can take the form of Base64-encoded byte array. The file type should be PNG. The picture of the client’s signature is uploaded and viewable from the Client Documents page in the Core Business Mode software. The title of the document is:<br />  clientContractSignature-{uniquePurchasedClientContractID}-{contractName}-{contractStartDate}.{fileType}
  * @property string $PromotionCode A promotion code, if one applies. Promotion codes are applied to items that are both marked as pay now in a contract and are discounted by the promotion code. If a pay now item is an autopay item, its autopay price is the price at the time of checkout, so, if a promotion code was applied, all autopays are scheduled using that discounted price.
+ * @property string[] $PromotionCodes Promotion codes, if they apply. Promotion codes are applied to items that are both marked as pay now in a contract and are discounted by the promotion code. If a pay now item is an autopay item, its autopay price is the price at the time of checkout, so, if a promotion code was applied, all autopays are scheduled using that discounted price.
  * @property \Nlocascio\Mindbody\Model\CreditCardInfo $CreditCardInfo Contains credit card payment information.<br />  This is only required if `StoredCardInfo` is not passed and `UseDirectDebit` is `false`.
  * @property \Nlocascio\Mindbody\Model\StoredCardInfo $StoredCardInfo Contains information about the stored credit card payment.<br />  This is only required if `CreditCardInfo` is not passed and `UseDirectDebit` is `false`.
  * @property bool $SendNotifications When `true`, indicates that email and SMS notifications should be sent to the client after purchase.<br />  Default: **true**
- * @property int $SalesRepId The ID of the staff member who is to be marked as the sales rep for this contract purchase.
+ * @property int $SalesRepId The ID of the staff member to be marked as the sales rep for this contract sale.
  * @property bool $UseDirectDebit When `true`, indicates that the direct debit information stored on the client's account is to be used to pay for the contract.<br />  This is only required if both `CreditCardInfo` and `StoredCardInfo` are not passed.<br />  Default: **false**
- * @property bool $ConsumerPresent When `true`, indicates that the consumer is available to address any SCA challenge issued by the bank.  EU Only.<br />   Default: **false**
- * @property string $PaymentAuthenticationCallbackUrl This is the Url the consumer will be redirected back to after completion of the Banks SCA challenge.
+ * @property bool $ConsumerPresent When `true`, indicates that the consumer is present or otherwise able to successfully negotiate an SCA challenge. It is not a good idea to have this always be false as that could very likely lead to a bank declining all transactions for the merchant.  Defaults to **false**.
+ * @property string $PaymentAuthenticationCallbackUrl The URL consumer is redirected to if the bank requests SCA. This field is only needed if ConsumerPresent is true.
  *
  */
 class PurchaseContractRequest extends BaseModel
@@ -78,6 +79,7 @@ class PurchaseContractRequest extends BaseModel
         'FirstPaymentOccurs' => 'string',
         'ClientSignature' => 'string',
         'PromotionCode' => 'string',
+        'PromotionCodes' => 'string[]',
         'CreditCardInfo' => '\Nlocascio\Mindbody\Model\CreditCardInfo',
         'StoredCardInfo' => '\Nlocascio\Mindbody\Model\StoredCardInfo',
         'SendNotifications' => 'bool',
@@ -101,6 +103,7 @@ class PurchaseContractRequest extends BaseModel
         'FirstPaymentOccurs' => null,
         'ClientSignature' => 'byte',
         'PromotionCode' => null,
+        'PromotionCodes' => null,
         'CreditCardInfo' => null,
         'StoredCardInfo' => null,
         'SendNotifications' => null,
@@ -126,6 +129,7 @@ class PurchaseContractRequest extends BaseModel
         'FirstPaymentOccurs' => 'FirstPaymentOccurs',
         'ClientSignature' => 'ClientSignature',
         'PromotionCode' => 'PromotionCode',
+        'PromotionCodes' => 'PromotionCodes',
         'CreditCardInfo' => 'CreditCardInfo',
         'StoredCardInfo' => 'StoredCardInfo',
         'SendNotifications' => 'SendNotifications',
@@ -149,6 +153,7 @@ class PurchaseContractRequest extends BaseModel
         'FirstPaymentOccurs' => 'setFirstPaymentOccurs',
         'ClientSignature' => 'setClientSignature',
         'PromotionCode' => 'setPromotionCode',
+        'PromotionCodes' => 'setPromotionCodes',
         'CreditCardInfo' => 'setCreditCardInfo',
         'StoredCardInfo' => 'setStoredCardInfo',
         'SendNotifications' => 'setSendNotifications',
@@ -172,6 +177,7 @@ class PurchaseContractRequest extends BaseModel
         'FirstPaymentOccurs' => 'getFirstPaymentOccurs',
         'ClientSignature' => 'getClientSignature',
         'PromotionCode' => 'getPromotionCode',
+        'PromotionCodes' => 'getPromotionCodes',
         'CreditCardInfo' => 'getCreditCardInfo',
         'StoredCardInfo' => 'getStoredCardInfo',
         'SendNotifications' => 'getSendNotifications',
@@ -202,6 +208,7 @@ class PurchaseContractRequest extends BaseModel
         $this->container['FirstPaymentOccurs'] = isset($data['FirstPaymentOccurs']) ? $data['FirstPaymentOccurs'] : null;
         $this->container['ClientSignature'] = isset($data['ClientSignature']) ? $data['ClientSignature'] : null;
         $this->container['PromotionCode'] = isset($data['PromotionCode']) ? $data['PromotionCode'] : null;
+        $this->container['PromotionCodes'] = isset($data['PromotionCodes']) ? $data['PromotionCodes'] : null;
         $this->container['CreditCardInfo'] = isset($data['CreditCardInfo']) ? $data['CreditCardInfo'] : null;
         $this->container['StoredCardInfo'] = isset($data['StoredCardInfo']) ? $data['StoredCardInfo'] : null;
         $this->container['SendNotifications'] = isset($data['SendNotifications']) ? $data['SendNotifications'] : null;
@@ -432,6 +439,30 @@ class PurchaseContractRequest extends BaseModel
     }
 
     /**
+     * Gets PromotionCodes
+     *
+     * @return string[]
+     */
+    public function getPromotionCodes()
+    {
+        return $this->container['PromotionCodes'];
+    }
+
+    /**
+     * Sets PromotionCodes
+     *
+     * @param string[] $PromotionCodes Promotion codes, if they apply. Promotion codes are applied to items that are both marked as pay now in a contract and are discounted by the promotion code. If a pay now item is an autopay item, its autopay price is the price at the time of checkout, so, if a promotion code was applied, all autopays are scheduled using that discounted price.
+     *
+     * @return $this
+     */
+    public function setPromotionCodes($PromotionCodes): self
+    {
+        $this->container['PromotionCodes'] = $PromotionCodes;
+
+        return $this;
+    }
+
+    /**
      * Gets CreditCardInfo
      *
      * @return \Nlocascio\Mindbody\Model\CreditCardInfo
@@ -516,7 +547,7 @@ class PurchaseContractRequest extends BaseModel
     /**
      * Sets SalesRepId
      *
-     * @param int $SalesRepId The ID of the staff member who is to be marked as the sales rep for this contract purchase.
+     * @param int $SalesRepId The ID of the staff member to be marked as the sales rep for this contract sale.
      *
      * @return $this
      */
@@ -564,7 +595,7 @@ class PurchaseContractRequest extends BaseModel
     /**
      * Sets ConsumerPresent
      *
-     * @param bool $ConsumerPresent When `true`, indicates that the consumer is available to address any SCA challenge issued by the bank.  EU Only.<br />   Default: **false**
+     * @param bool $ConsumerPresent When `true`, indicates that the consumer is present or otherwise able to successfully negotiate an SCA challenge. It is not a good idea to have this always be false as that could very likely lead to a bank declining all transactions for the merchant.  Defaults to **false**.
      *
      * @return $this
      */
@@ -588,7 +619,7 @@ class PurchaseContractRequest extends BaseModel
     /**
      * Sets PaymentAuthenticationCallbackUrl
      *
-     * @param string $PaymentAuthenticationCallbackUrl This is the Url the consumer will be redirected back to after completion of the Banks SCA challenge.
+     * @param string $PaymentAuthenticationCallbackUrl The URL consumer is redirected to if the bank requests SCA. This field is only needed if ConsumerPresent is true.
      *
      * @return $this
      */

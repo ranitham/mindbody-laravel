@@ -37,13 +37,13 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property int $SaleId Filters results to the requested sale ID.
- * @property int $TransactionId Filters results to the requested transaction ID.
+ * @property int $SaleId Filters the transaction results with the ID number associated with the sale.
+ * @property int $TransactionId Filters the transaction results with the ID number generated when the sale is processed.
  * @property int $ClientId Filters results to the requested client ID.
- * @property int $LocationId Filters results to the requested location ID.
- * @property string $Status Filters results to the requested status.
- * @property \DateTime $TransactionStartDateTime Filters results to transactions that happened after this date and time.
- * @property \DateTime $TransactionEndDateTime Filters results to transactions that happened before this date and time.
+ * @property int $LocationId Filters the transaction results with the ID number associated with the location of the sale.
+ * @property string $Status Filters the transaction results by the estimated transaction status.
+ * @property \DateTime $TransactionStartDateTime Filters the transaction results that happpened after this date and time.   Default: **today’s date**
+ * @property \DateTime $TransactionEndDateTime Filters the transaction results that happpened before this date and time.   Default: **today’s date**
  * @property int $Limit Number of results to include, defaults to 100
  * @property int $Offset Page offset, defaults to 0.
  *
@@ -196,7 +196,7 @@ class GetTransactionsRequest extends BaseModel
     /**
      * Sets SaleId
      *
-     * @param int $SaleId Filters results to the requested sale ID.
+     * @param int $SaleId Filters the transaction results with the ID number associated with the sale.
      *
      * @return $this
      */
@@ -220,7 +220,7 @@ class GetTransactionsRequest extends BaseModel
     /**
      * Sets TransactionId
      *
-     * @param int $TransactionId Filters results to the requested transaction ID.
+     * @param int $TransactionId Filters the transaction results with the ID number generated when the sale is processed.
      *
      * @return $this
      */
@@ -268,7 +268,7 @@ class GetTransactionsRequest extends BaseModel
     /**
      * Sets LocationId
      *
-     * @param int $LocationId Filters results to the requested location ID.
+     * @param int $LocationId Filters the transaction results with the ID number associated with the location of the sale.
      *
      * @return $this
      */
@@ -292,7 +292,7 @@ class GetTransactionsRequest extends BaseModel
     /**
      * Sets Status
      *
-     * @param string $Status Filters results to the requested status.
+     * @param string $Status Filters the transaction results by the estimated transaction status.
      *
      * @return $this
      */
@@ -316,7 +316,7 @@ class GetTransactionsRequest extends BaseModel
     /**
      * Sets TransactionStartDateTime
      *
-     * @param \DateTime $TransactionStartDateTime Filters results to transactions that happened after this date and time.
+     * @param \DateTime $TransactionStartDateTime Filters the transaction results that happpened after this date and time.   Default: **today’s date**
      *
      * @return $this
      */
@@ -340,7 +340,7 @@ class GetTransactionsRequest extends BaseModel
     /**
      * Sets TransactionEndDateTime
      *
-     * @param \DateTime $TransactionEndDateTime Filters results to transactions that happened before this date and time.
+     * @param \DateTime $TransactionEndDateTime Filters the transaction results that happpened before this date and time.   Default: **today’s date**
      *
      * @return $this
      */

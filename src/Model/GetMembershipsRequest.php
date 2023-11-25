@@ -36,7 +36,7 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property int[] $MembershipIds Filters results to memberships that belong to one of the given membership IDs. If omitted, all memberships are returned.
+ * @property int[] $MembershipIds The requested membership IDs.<br />  Default: **all** IDs that the authenticated user’s access level allows.
  *
  */
 class GetMembershipsRequest extends BaseModel
@@ -139,7 +139,7 @@ class GetMembershipsRequest extends BaseModel
     /**
      * Sets MembershipIds
      *
-     * @param int[] $MembershipIds Filters results to memberships that belong to one of the given membership IDs. If omitted, all memberships are returned.
+     * @param int[] $MembershipIds The requested membership IDs.<br />  Default: **all** IDs that the authenticated user’s access level allows.
      *
      * @return $this
      */

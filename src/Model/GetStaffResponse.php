@@ -37,7 +37,7 @@ namespace Nlocascio\Mindbody\Model;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  * @property \Nlocascio\Mindbody\Model\PaginationResponse $PaginationResponse PaginationResponse
- * @property \Nlocascio\Mindbody\Model\Staff[] $StaffMembers A list of staff members.
+ * @property \Nlocascio\Mindbody\Model\Staff[] $StaffMembers A list of staff members. See Staff for a description of the 'Staff' information.
  *
  */
 class GetStaffResponse extends BaseModel
@@ -170,7 +170,7 @@ class GetStaffResponse extends BaseModel
     /**
      * Sets StaffMembers
      *
-     * @param \Nlocascio\Mindbody\Model\Staff[] $StaffMembers A list of staff members.
+     * @param \Nlocascio\Mindbody\Model\Staff[] $StaffMembers A list of staff members. See Staff for a description of the 'Staff' information.
      *
      * @return $this
      */

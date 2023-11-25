@@ -93,6 +93,8 @@ namespace Nlocascio\Mindbody\Model;
  * @property bool $SendScheduleTexts When `true`, indicates that the client opts to receive schedule texts.
  * @property bool $SendAccountTexts When `true`, indicates that the client opts to receive account texts.
  * @property bool $SendPromotionalTexts When `true`, indicates that the client opts to receive promotional texts.
+ * @property string $LockerNumber The clients locker number.
+ * @property bool $ReactivateInactiveClient When `true`, indicates that the client opts to reactive existing Inactive client.
  *
  */
 class AddClientRequest extends BaseModel
@@ -168,7 +170,9 @@ class AddClientRequest extends BaseModel
         'SendPromotionalEmails' => 'bool',
         'SendScheduleTexts' => 'bool',
         'SendAccountTexts' => 'bool',
-        'SendPromotionalTexts' => 'bool'
+        'SendPromotionalTexts' => 'bool',
+        'LockerNumber' => 'string',
+        'ReactivateInactiveClient' => 'bool'
     ];
 
     /**
@@ -233,7 +237,9 @@ class AddClientRequest extends BaseModel
         'SendPromotionalEmails' => null,
         'SendScheduleTexts' => null,
         'SendAccountTexts' => null,
-        'SendPromotionalTexts' => null
+        'SendPromotionalTexts' => null,
+        'LockerNumber' => null,
+        'ReactivateInactiveClient' => null
     ];
 
 
@@ -300,7 +306,9 @@ class AddClientRequest extends BaseModel
         'SendPromotionalEmails' => 'SendPromotionalEmails',
         'SendScheduleTexts' => 'SendScheduleTexts',
         'SendAccountTexts' => 'SendAccountTexts',
-        'SendPromotionalTexts' => 'SendPromotionalTexts'
+        'SendPromotionalTexts' => 'SendPromotionalTexts',
+        'LockerNumber' => 'LockerNumber',
+        'ReactivateInactiveClient' => 'ReactivateInactiveClient'
     ];
 
     /**
@@ -365,7 +373,9 @@ class AddClientRequest extends BaseModel
         'SendPromotionalEmails' => 'setSendPromotionalEmails',
         'SendScheduleTexts' => 'setSendScheduleTexts',
         'SendAccountTexts' => 'setSendAccountTexts',
-        'SendPromotionalTexts' => 'setSendPromotionalTexts'
+        'SendPromotionalTexts' => 'setSendPromotionalTexts',
+        'LockerNumber' => 'setLockerNumber',
+        'ReactivateInactiveClient' => 'setReactivateInactiveClient'
     ];
 
     /**
@@ -430,7 +440,9 @@ class AddClientRequest extends BaseModel
         'SendPromotionalEmails' => 'getSendPromotionalEmails',
         'SendScheduleTexts' => 'getSendScheduleTexts',
         'SendAccountTexts' => 'getSendAccountTexts',
-        'SendPromotionalTexts' => 'getSendPromotionalTexts'
+        'SendPromotionalTexts' => 'getSendPromotionalTexts',
+        'LockerNumber' => 'getLockerNumber',
+        'ReactivateInactiveClient' => 'getReactivateInactiveClient'
     ];
 
 
@@ -524,6 +536,8 @@ class AddClientRequest extends BaseModel
         $this->container['SendScheduleTexts'] = isset($data['SendScheduleTexts']) ? $data['SendScheduleTexts'] : null;
         $this->container['SendAccountTexts'] = isset($data['SendAccountTexts']) ? $data['SendAccountTexts'] : null;
         $this->container['SendPromotionalTexts'] = isset($data['SendPromotionalTexts']) ? $data['SendPromotionalTexts'] : null;
+        $this->container['LockerNumber'] = isset($data['LockerNumber']) ? $data['LockerNumber'] : null;
+        $this->container['ReactivateInactiveClient'] = isset($data['ReactivateInactiveClient']) ? $data['ReactivateInactiveClient'] : null;
     }
 
     /**
@@ -1926,6 +1940,54 @@ class AddClientRequest extends BaseModel
     public function setSendPromotionalTexts($SendPromotionalTexts): self
     {
         $this->container['SendPromotionalTexts'] = $SendPromotionalTexts;
+
+        return $this;
+    }
+
+    /**
+     * Gets LockerNumber
+     *
+     * @return string
+     */
+    public function getLockerNumber()
+    {
+        return $this->container['LockerNumber'];
+    }
+
+    /**
+     * Sets LockerNumber
+     *
+     * @param string $LockerNumber The clients locker number.
+     *
+     * @return $this
+     */
+    public function setLockerNumber($LockerNumber): self
+    {
+        $this->container['LockerNumber'] = $LockerNumber;
+
+        return $this;
+    }
+
+    /**
+     * Gets ReactivateInactiveClient
+     *
+     * @return bool
+     */
+    public function getReactivateInactiveClient()
+    {
+        return $this->container['ReactivateInactiveClient'];
+    }
+
+    /**
+     * Sets ReactivateInactiveClient
+     *
+     * @param bool $ReactivateInactiveClient When `true`, indicates that the client opts to reactive existing Inactive client.
+     *
+     * @return $this
+     */
+    public function setReactivateInactiveClient($ReactivateInactiveClient): self
+    {
+        $this->container['ReactivateInactiveClient'] = $ReactivateInactiveClient;
 
         return $this;
     }

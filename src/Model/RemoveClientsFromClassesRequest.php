@@ -37,9 +37,9 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property \Nlocascio\Mindbody\Model\ClassClientDetail[] $Details List of Class Client detail object to remove
+ * @property \Nlocascio\Mindbody\Model\ClassClientDetail[] $Details This object includes  `ClientIds`: List of the RSSID(string) of the clients to remove from the specified class.   `ClassId`: The ID(number) of the class that you want to remove the clients from.
  * @property bool $Test When `true`, the request ensures that its parameters are valid without affecting real data.<br />  When `false`, the request performs as intended and may affect live client data.<br />  Default: **false**
- * @property bool $SendEmail When `true`, indicates that the client should be sent an email. Depending on the site and client settings, an email may or may not be sent.<br />  Default: **false**
+ * @property bool $SendEmail When `true`, indicates that the client should be sent an email. Depending on the site and client settings, an email may or may not be sent.<br />  Default: **false**  **Note**: When the Authorization header is passed and the SendEmail is set to `true`, then an email will be sent.  When the Authorization header is passed and the SendEmail is set to `false`, then an email will not be sent.  When the Authorization header is not passed and the SendEmail is set to either `true` or `false`, then an email will not be sent.
  * @property bool $LateCancel When `true`, indicates that the client is to be late cancelled from the class.<br />  When `false`, indicates that the client is to be early cancelled from the class.<br />  Default: **false**
  * @property int $Limit Number of results to include, defaults to 100
  * @property int $Offset Page offset, defaults to 0.
@@ -175,7 +175,7 @@ class RemoveClientsFromClassesRequest extends BaseModel
     /**
      * Sets Details
      *
-     * @param \Nlocascio\Mindbody\Model\ClassClientDetail[] $Details List of Class Client detail object to remove
+     * @param \Nlocascio\Mindbody\Model\ClassClientDetail[] $Details This object includes  `ClientIds`: List of the RSSID(string) of the clients to remove from the specified class.   `ClassId`: The ID(number) of the class that you want to remove the clients from.
      *
      * @return $this
      */
@@ -223,7 +223,7 @@ class RemoveClientsFromClassesRequest extends BaseModel
     /**
      * Sets SendEmail
      *
-     * @param bool $SendEmail When `true`, indicates that the client should be sent an email. Depending on the site and client settings, an email may or may not be sent.<br />  Default: **false**
+     * @param bool $SendEmail When `true`, indicates that the client should be sent an email. Depending on the site and client settings, an email may or may not be sent.<br />  Default: **false**  **Note**: When the Authorization header is passed and the SendEmail is set to `true`, then an email will be sent.  When the Authorization header is passed and the SendEmail is set to `false`, then an email will not be sent.  When the Authorization header is not passed and the SendEmail is set to either `true` or `false`, then an email will not be sent.
      *
      * @return $this
      */

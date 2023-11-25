@@ -36,7 +36,7 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property bool $Test A value of true performs a dry run exectuion
+ * @property bool $Test When `true`, indicates that test mode is enabled. The information is to be validated, but no data will be added or updated.  Default: **false**
  * @property string $ClientId The ID of the client being updated
  * @property string $NameOnAccount The name on the bank account being added
  * @property string $RoutingNumber The routing number of the bank account being added
@@ -174,7 +174,7 @@ class AddClientDirectDebitInfoRequest extends BaseModel
     /**
      * Sets Test
      *
-     * @param bool $Test A value of true performs a dry run exectuion
+     * @param bool $Test When `true`, indicates that test mode is enabled. The information is to be validated, but no data will be added or updated.  Default: **false**
      *
      * @return $this
      */

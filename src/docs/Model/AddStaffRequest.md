@@ -3,16 +3,16 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FirstName** | **string** | The staff member’s first name. | 
-**LastName** | **string** | The staff member’s last name. | 
+**FirstName** | **string** | The staff member first name. You must specify a first name when you add a staff member. | 
+**LastName** | **string** | The staff member last name. You must specify a last name when you add a staff member. | 
 **Email** | **string** | The staff member’s email address. | [optional] 
 **IsMale** | **bool** | When &#x60;true&#x60;, indicates that the staff member is male.  When &#x60;false&#x60;, indicates that the staff member is female. | [optional] 
 **HomePhone** | **string** | The staff member’s home phone number. | [optional] 
 **WorkPhone** | **string** | The staff member’s work phone number. | [optional] 
 **MobilePhone** | **string** | The staff member’s mobile phone number. | [optional] 
 **Bio** | **string** | The staff member’s biography. This string contains HTML. | [optional] 
-**Address** | **string** | The address of the staff member. | [optional] 
-**Address2** | **string** | The address line2 of the staff member. | [optional] 
+**Address** | **string** | The first line of the staff member street address. | [optional] 
+**Address2** | **string** | The second line of the staff member street address, if needed. | [optional] 
 **City** | **string** | The staff member’s city. | [optional] 
 **State** | **string** | The staff member’s state. | [optional] 
 **Country** | **string** | The staff member’s country. | [optional] 
@@ -27,8 +27,8 @@ Name | Type | Description | Notes
 **EmploymentEnd** | [**\DateTime**](\DateTime.md) | The end date of employment | [optional] 
 **SortOrder** | **int** | If configured by the business owner, this field determines a staff member’s weight when sorting. Use this field to sort staff members on your interface. | [optional] 
 **ProviderIDs** | **string[]** | A list of providerIDs for the staff.  In the US it is one per staff and is numeric, otherwise it can be a list and is alpha-numeric  for more information see https://support.mindbodyonline.com/s/article/204075743-Provider-IDs?language&#x3D;en_US | [optional] 
-**Notes** | **string** | Staff Member Private Notes | [optional] 
-**EmpID** | **string** | The EmpID assigned to the staff member. | [optional] 
+**Notes** | **string** | The staff member private notes. | [optional] 
+**EmpID** | **string** | The custom staff ID assigned to the staff member. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

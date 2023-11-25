@@ -643,7 +643,7 @@ class SaleApi implements ApiInterface
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  string $RequestPromoCode PromoCode to apply (optional)
-     * @param  bool $RequestSoldOnline When &#x60;true&#x60;, the response only contains details about contracts and AutoPay options that can be sold online.&lt;br /&gt;  When &#x60;false&#x60;, only contracts that are not intended to be sold online are returned.&lt;br /&gt;  Default: **all contracts** (optional)
+     * @param  bool $RequestSoldOnline When &#x60;true&#x60;, the response only contains details about contracts and AutoPay options that can be sold online.   When &#x60;false&#x60;, all contracts are returned.  Default: **false** (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -666,7 +666,7 @@ class SaleApi implements ApiInterface
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  string $RequestPromoCode PromoCode to apply (optional)
-     * @param  bool $RequestSoldOnline When &#x60;true&#x60;, the response only contains details about contracts and AutoPay options that can be sold online.&lt;br /&gt;  When &#x60;false&#x60;, only contracts that are not intended to be sold online are returned.&lt;br /&gt;  Default: **all contracts** (optional)
+     * @param  bool $RequestSoldOnline When &#x60;true&#x60;, the response only contains details about contracts and AutoPay options that can be sold online.   When &#x60;false&#x60;, all contracts are returned.  Default: **false** (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -747,7 +747,7 @@ class SaleApi implements ApiInterface
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  string $RequestPromoCode PromoCode to apply (optional)
-     * @param  bool $RequestSoldOnline When &#x60;true&#x60;, the response only contains details about contracts and AutoPay options that can be sold online.&lt;br /&gt;  When &#x60;false&#x60;, only contracts that are not intended to be sold online are returned.&lt;br /&gt;  Default: **all contracts** (optional)
+     * @param  bool $RequestSoldOnline When &#x60;true&#x60;, the response only contains details about contracts and AutoPay options that can be sold online.   When &#x60;false&#x60;, all contracts are returned.  Default: **false** (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -773,7 +773,7 @@ class SaleApi implements ApiInterface
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  string $RequestPromoCode PromoCode to apply (optional)
-     * @param  bool $RequestSoldOnline When &#x60;true&#x60;, the response only contains details about contracts and AutoPay options that can be sold online.&lt;br /&gt;  When &#x60;false&#x60;, only contracts that are not intended to be sold online are returned.&lt;br /&gt;  Default: **all contracts** (optional)
+     * @param  bool $RequestSoldOnline When &#x60;true&#x60;, the response only contains details about contracts and AutoPay options that can be sold online.   When &#x60;false&#x60;, all contracts are returned.  Default: **false** (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -829,7 +829,7 @@ class SaleApi implements ApiInterface
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  string $RequestPromoCode PromoCode to apply (optional)
-     * @param  bool $RequestSoldOnline When &#x60;true&#x60;, the response only contains details about contracts and AutoPay options that can be sold online.&lt;br /&gt;  When &#x60;false&#x60;, only contracts that are not intended to be sold online are returned.&lt;br /&gt;  Default: **all contracts** (optional)
+     * @param  bool $RequestSoldOnline When &#x60;true&#x60;, the response only contains details about contracts and AutoPay options that can be sold online.   When &#x60;false&#x60;, all contracts are returned.  Default: **false** (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -850,10 +850,6 @@ class SaleApi implements ApiInterface
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        if ($RequestLocationId !== null) {
-            $queryParams['request.locationId'] = ObjectSerializer::toQueryValue($RequestLocationId);
-        }
         // query params
         if ($RequestConsumerId !== null) {
             $queryParams['request.consumerId'] = ObjectSerializer::toQueryValue($RequestConsumerId);
@@ -880,6 +876,10 @@ class SaleApi implements ApiInterface
         // query params
         if ($RequestSoldOnline !== null) {
             $queryParams['request.soldOnline'] = ObjectSerializer::toQueryValue($RequestSoldOnline);
+        }
+        // query params
+        if ($RequestLocationId !== null) {
+            $queryParams['request.locationId'] = ObjectSerializer::toQueryValue($RequestLocationId);
         }
 
 
@@ -1532,7 +1532,7 @@ class SaleApi implements ApiInterface
      * Get gift cards available for purchase at a site.
      *
      * @param  int[] $RequestIds Filters the results to the requested gift card IDs.&lt;br /&gt;  Default: **all** gift cards. (optional)
-     * @param  bool $RequestIncludeCustomLayouts When &#x60;true&#x60;, includes custom gift card layouts.&lt;br /&gt;  Default: **false** (optional)
+     * @param  bool $RequestIncludeCustomLayouts When &#x60;true&#x60;, includes custom gift card layouts.&lt;br /&gt;  When &#x60;false&#x60;, includes only system layouts.  Default: **false** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestLocationId When included, returns gift cards that are sold at the provided location ID. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
@@ -1554,7 +1554,7 @@ class SaleApi implements ApiInterface
      * Get gift cards available for purchase at a site.
      *
      * @param  int[] $RequestIds Filters the results to the requested gift card IDs.&lt;br /&gt;  Default: **all** gift cards. (optional)
-     * @param  bool $RequestIncludeCustomLayouts When &#x60;true&#x60;, includes custom gift card layouts.&lt;br /&gt;  Default: **false** (optional)
+     * @param  bool $RequestIncludeCustomLayouts When &#x60;true&#x60;, includes custom gift card layouts.&lt;br /&gt;  When &#x60;false&#x60;, includes only system layouts.  Default: **false** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestLocationId When included, returns gift cards that are sold at the provided location ID. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
@@ -1634,7 +1634,7 @@ class SaleApi implements ApiInterface
      * Get gift cards available for purchase at a site.
      *
      * @param  int[] $RequestIds Filters the results to the requested gift card IDs.&lt;br /&gt;  Default: **all** gift cards. (optional)
-     * @param  bool $RequestIncludeCustomLayouts When &#x60;true&#x60;, includes custom gift card layouts.&lt;br /&gt;  Default: **false** (optional)
+     * @param  bool $RequestIncludeCustomLayouts When &#x60;true&#x60;, includes custom gift card layouts.&lt;br /&gt;  When &#x60;false&#x60;, includes only system layouts.  Default: **false** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestLocationId When included, returns gift cards that are sold at the provided location ID. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
@@ -1659,7 +1659,7 @@ class SaleApi implements ApiInterface
      * Get gift cards available for purchase at a site.
      *
      * @param  int[] $RequestIds Filters the results to the requested gift card IDs.&lt;br /&gt;  Default: **all** gift cards. (optional)
-     * @param  bool $RequestIncludeCustomLayouts When &#x60;true&#x60;, includes custom gift card layouts.&lt;br /&gt;  Default: **false** (optional)
+     * @param  bool $RequestIncludeCustomLayouts When &#x60;true&#x60;, includes custom gift card layouts.&lt;br /&gt;  When &#x60;false&#x60;, includes only system layouts.  Default: **false** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestLocationId When included, returns gift cards that are sold at the provided location ID. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
@@ -1714,7 +1714,7 @@ class SaleApi implements ApiInterface
      * Create request for operation 'saleGetGiftCards'
      *
      * @param  int[] $RequestIds Filters the results to the requested gift card IDs.&lt;br /&gt;  Default: **all** gift cards. (optional)
-     * @param  bool $RequestIncludeCustomLayouts When &#x60;true&#x60;, includes custom gift card layouts.&lt;br /&gt;  Default: **false** (optional)
+     * @param  bool $RequestIncludeCustomLayouts When &#x60;true&#x60;, includes custom gift card layouts.&lt;br /&gt;  When &#x60;false&#x60;, includes only system layouts.  Default: **false** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestLocationId When included, returns gift cards that are sold at the provided location ID. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
@@ -2166,14 +2166,14 @@ class SaleApi implements ApiInterface
      *
      * Get retail products available for purchase at a site.
      *
-     * @param  int[] $RequestCategoryIds A list of category IDs to filter by. (optional)
+     * @param  int[] $RequestCategoryIds A list of revenue category IDs to filter by. Use this ID when calling the GET Categories endpoint.     ** Note:** The values for these are not currently retrievable through the API. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestLocationId The location ID to use to determine the tax for the products that this request returns.&lt;br /&gt;  Default: **online store** (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  string[] $RequestProductIds An ID filter for products. (optional)
+     * @param  string[] $RequestProductIds The barcode number of the product to be filter by. (optional)
      * @param  string $RequestSearchText A search filter, used for searching by term. (optional)
      * @param  bool $RequestSellOnline When &#x60;true&#x60;, only products that can be sold online are returned.&lt;br /&gt;  When &#x60;false&#x60;, all products are returned.&lt;br /&gt;  Default: **false** (optional)
-     * @param  int[] $RequestSubCategoryIds A list of subcategory IDs to filter by. (optional)
+     * @param  int[] $RequestSubCategoryIds A list of subcategory IDs to filter by. Use this ID when calling the GET Categories endpoint.    **Note:** The values for these are not currently retrievable through the API. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2190,14 +2190,14 @@ class SaleApi implements ApiInterface
      *
      * Get retail products available for purchase at a site.
      *
-     * @param  int[] $RequestCategoryIds A list of category IDs to filter by. (optional)
+     * @param  int[] $RequestCategoryIds A list of revenue category IDs to filter by. Use this ID when calling the GET Categories endpoint.     ** Note:** The values for these are not currently retrievable through the API. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestLocationId The location ID to use to determine the tax for the products that this request returns.&lt;br /&gt;  Default: **online store** (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  string[] $RequestProductIds An ID filter for products. (optional)
+     * @param  string[] $RequestProductIds The barcode number of the product to be filter by. (optional)
      * @param  string $RequestSearchText A search filter, used for searching by term. (optional)
      * @param  bool $RequestSellOnline When &#x60;true&#x60;, only products that can be sold online are returned.&lt;br /&gt;  When &#x60;false&#x60;, all products are returned.&lt;br /&gt;  Default: **false** (optional)
-     * @param  int[] $RequestSubCategoryIds A list of subcategory IDs to filter by. (optional)
+     * @param  int[] $RequestSubCategoryIds A list of subcategory IDs to filter by. Use this ID when calling the GET Categories endpoint.    **Note:** The values for these are not currently retrievable through the API. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2272,14 +2272,14 @@ class SaleApi implements ApiInterface
      *
      * Get retail products available for purchase at a site.
      *
-     * @param  int[] $RequestCategoryIds A list of category IDs to filter by. (optional)
+     * @param  int[] $RequestCategoryIds A list of revenue category IDs to filter by. Use this ID when calling the GET Categories endpoint.     ** Note:** The values for these are not currently retrievable through the API. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestLocationId The location ID to use to determine the tax for the products that this request returns.&lt;br /&gt;  Default: **online store** (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  string[] $RequestProductIds An ID filter for products. (optional)
+     * @param  string[] $RequestProductIds The barcode number of the product to be filter by. (optional)
      * @param  string $RequestSearchText A search filter, used for searching by term. (optional)
      * @param  bool $RequestSellOnline When &#x60;true&#x60;, only products that can be sold online are returned.&lt;br /&gt;  When &#x60;false&#x60;, all products are returned.&lt;br /&gt;  Default: **false** (optional)
-     * @param  int[] $RequestSubCategoryIds A list of subcategory IDs to filter by. (optional)
+     * @param  int[] $RequestSubCategoryIds A list of subcategory IDs to filter by. Use this ID when calling the GET Categories endpoint.    **Note:** The values for these are not currently retrievable through the API. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2299,14 +2299,14 @@ class SaleApi implements ApiInterface
      *
      * Get retail products available for purchase at a site.
      *
-     * @param  int[] $RequestCategoryIds A list of category IDs to filter by. (optional)
+     * @param  int[] $RequestCategoryIds A list of revenue category IDs to filter by. Use this ID when calling the GET Categories endpoint.     ** Note:** The values for these are not currently retrievable through the API. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestLocationId The location ID to use to determine the tax for the products that this request returns.&lt;br /&gt;  Default: **online store** (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  string[] $RequestProductIds An ID filter for products. (optional)
+     * @param  string[] $RequestProductIds The barcode number of the product to be filter by. (optional)
      * @param  string $RequestSearchText A search filter, used for searching by term. (optional)
      * @param  bool $RequestSellOnline When &#x60;true&#x60;, only products that can be sold online are returned.&lt;br /&gt;  When &#x60;false&#x60;, all products are returned.&lt;br /&gt;  Default: **false** (optional)
-     * @param  int[] $RequestSubCategoryIds A list of subcategory IDs to filter by. (optional)
+     * @param  int[] $RequestSubCategoryIds A list of subcategory IDs to filter by. Use this ID when calling the GET Categories endpoint.    **Note:** The values for these are not currently retrievable through the API. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2356,14 +2356,14 @@ class SaleApi implements ApiInterface
     /**
      * Create request for operation 'saleGetProducts'
      *
-     * @param  int[] $RequestCategoryIds A list of category IDs to filter by. (optional)
+     * @param  int[] $RequestCategoryIds A list of revenue category IDs to filter by. Use this ID when calling the GET Categories endpoint.     ** Note:** The values for these are not currently retrievable through the API. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestLocationId The location ID to use to determine the tax for the products that this request returns.&lt;br /&gt;  Default: **online store** (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  string[] $RequestProductIds An ID filter for products. (optional)
+     * @param  string[] $RequestProductIds The barcode number of the product to be filter by. (optional)
      * @param  string $RequestSearchText A search filter, used for searching by term. (optional)
      * @param  bool $RequestSellOnline When &#x60;true&#x60;, only products that can be sold online are returned.&lt;br /&gt;  When &#x60;false&#x60;, all products are returned.&lt;br /&gt;  Default: **false** (optional)
-     * @param  int[] $RequestSubCategoryIds A list of subcategory IDs to filter by. (optional)
+     * @param  int[] $RequestSubCategoryIds A list of subcategory IDs to filter by. Use this ID when calling the GET Categories endpoint.    **Note:** The values for these are not currently retrievable through the API. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2512,11 +2512,11 @@ class SaleApi implements ApiInterface
      *
      * Get retail products inventory data available at a site.
      *
-     * @param  string[] $RequestBarcodeIds An IDs is barcodeId to filter for products inventory data. (optional)
+     * @param  string[] $RequestBarcodeIds When included, the response only contains details about the specified Barcode Ids. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
-     * @param  int[] $RequestLocationIds The location IDs to use to determine the inventory data of the product of specific location.&lt;br /&gt;  Default: **online store** (optional)
+     * @param  int[] $RequestLocationIds When included, the response only contains details about the specified location Ids. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  string[] $RequestProductIds An IDs filter for products inventory data. (optional)
+     * @param  string[] $RequestProductIds When included, the response only contains details about the specified product Ids. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2533,11 +2533,11 @@ class SaleApi implements ApiInterface
      *
      * Get retail products inventory data available at a site.
      *
-     * @param  string[] $RequestBarcodeIds An IDs is barcodeId to filter for products inventory data. (optional)
+     * @param  string[] $RequestBarcodeIds When included, the response only contains details about the specified Barcode Ids. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
-     * @param  int[] $RequestLocationIds The location IDs to use to determine the inventory data of the product of specific location.&lt;br /&gt;  Default: **online store** (optional)
+     * @param  int[] $RequestLocationIds When included, the response only contains details about the specified location Ids. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  string[] $RequestProductIds An IDs filter for products inventory data. (optional)
+     * @param  string[] $RequestProductIds When included, the response only contains details about the specified product Ids. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2612,11 +2612,11 @@ class SaleApi implements ApiInterface
      *
      * Get retail products inventory data available at a site.
      *
-     * @param  string[] $RequestBarcodeIds An IDs is barcodeId to filter for products inventory data. (optional)
+     * @param  string[] $RequestBarcodeIds When included, the response only contains details about the specified Barcode Ids. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
-     * @param  int[] $RequestLocationIds The location IDs to use to determine the inventory data of the product of specific location.&lt;br /&gt;  Default: **online store** (optional)
+     * @param  int[] $RequestLocationIds When included, the response only contains details about the specified location Ids. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  string[] $RequestProductIds An IDs filter for products inventory data. (optional)
+     * @param  string[] $RequestProductIds When included, the response only contains details about the specified product Ids. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2636,11 +2636,11 @@ class SaleApi implements ApiInterface
      *
      * Get retail products inventory data available at a site.
      *
-     * @param  string[] $RequestBarcodeIds An IDs is barcodeId to filter for products inventory data. (optional)
+     * @param  string[] $RequestBarcodeIds When included, the response only contains details about the specified Barcode Ids. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
-     * @param  int[] $RequestLocationIds The location IDs to use to determine the inventory data of the product of specific location.&lt;br /&gt;  Default: **online store** (optional)
+     * @param  int[] $RequestLocationIds When included, the response only contains details about the specified location Ids. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  string[] $RequestProductIds An IDs filter for products inventory data. (optional)
+     * @param  string[] $RequestProductIds When included, the response only contains details about the specified product Ids. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2690,11 +2690,11 @@ class SaleApi implements ApiInterface
     /**
      * Create request for operation 'saleGetProductsInventory'
      *
-     * @param  string[] $RequestBarcodeIds An IDs is barcodeId to filter for products inventory data. (optional)
+     * @param  string[] $RequestBarcodeIds When included, the response only contains details about the specified Barcode Ids. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
-     * @param  int[] $RequestLocationIds The location IDs to use to determine the inventory data of the product of specific location.&lt;br /&gt;  Default: **online store** (optional)
+     * @param  int[] $RequestLocationIds When included, the response only contains details about the specified location Ids. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  string[] $RequestProductIds An IDs filter for products inventory data. (optional)
+     * @param  string[] $RequestProductIds When included, the response only contains details about the specified product Ids. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2834,8 +2834,8 @@ class SaleApi implements ApiInterface
      * @param  \DateTime $RequestEndSaleDateTime Filters results to sales that happened before this date and time. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  int $RequestPaymentMethodId Filters results to sales paid for by the given payment method ID. (optional)
-     * @param  int $RequestSaleId Filters results to the requested sale ID. (optional)
+     * @param  int $RequestPaymentMethodId Filters results to sales paid for by the given payment method ID which indicates payment method(s) (i.e. cash, VISA, AMEX, Check, etc.). (optional)
+     * @param  int $RequestSaleId The sale ID associated with the particular item. It Filters results to the requested sale ID. (optional)
      * @param  \DateTime $RequestStartSaleDateTime Filters results to sales that happened after this date and time. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
@@ -2856,8 +2856,8 @@ class SaleApi implements ApiInterface
      * @param  \DateTime $RequestEndSaleDateTime Filters results to sales that happened before this date and time. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  int $RequestPaymentMethodId Filters results to sales paid for by the given payment method ID. (optional)
-     * @param  int $RequestSaleId Filters results to the requested sale ID. (optional)
+     * @param  int $RequestPaymentMethodId Filters results to sales paid for by the given payment method ID which indicates payment method(s) (i.e. cash, VISA, AMEX, Check, etc.). (optional)
+     * @param  int $RequestSaleId The sale ID associated with the particular item. It Filters results to the requested sale ID. (optional)
      * @param  \DateTime $RequestStartSaleDateTime Filters results to sales that happened after this date and time. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
@@ -2936,8 +2936,8 @@ class SaleApi implements ApiInterface
      * @param  \DateTime $RequestEndSaleDateTime Filters results to sales that happened before this date and time. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  int $RequestPaymentMethodId Filters results to sales paid for by the given payment method ID. (optional)
-     * @param  int $RequestSaleId Filters results to the requested sale ID. (optional)
+     * @param  int $RequestPaymentMethodId Filters results to sales paid for by the given payment method ID which indicates payment method(s) (i.e. cash, VISA, AMEX, Check, etc.). (optional)
+     * @param  int $RequestSaleId The sale ID associated with the particular item. It Filters results to the requested sale ID. (optional)
      * @param  \DateTime $RequestStartSaleDateTime Filters results to sales that happened after this date and time. (optional)
      *
      * @throws \InvalidArgumentException
@@ -2961,8 +2961,8 @@ class SaleApi implements ApiInterface
      * @param  \DateTime $RequestEndSaleDateTime Filters results to sales that happened before this date and time. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  int $RequestPaymentMethodId Filters results to sales paid for by the given payment method ID. (optional)
-     * @param  int $RequestSaleId Filters results to the requested sale ID. (optional)
+     * @param  int $RequestPaymentMethodId Filters results to sales paid for by the given payment method ID which indicates payment method(s) (i.e. cash, VISA, AMEX, Check, etc.). (optional)
+     * @param  int $RequestSaleId The sale ID associated with the particular item. It Filters results to the requested sale ID. (optional)
      * @param  \DateTime $RequestStartSaleDateTime Filters results to sales that happened after this date and time. (optional)
      *
      * @throws \InvalidArgumentException
@@ -3016,8 +3016,8 @@ class SaleApi implements ApiInterface
      * @param  \DateTime $RequestEndSaleDateTime Filters results to sales that happened before this date and time. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  int $RequestPaymentMethodId Filters results to sales paid for by the given payment method ID. (optional)
-     * @param  int $RequestSaleId Filters results to the requested sale ID. (optional)
+     * @param  int $RequestPaymentMethodId Filters results to sales paid for by the given payment method ID which indicates payment method(s) (i.e. cash, VISA, AMEX, Check, etc.). (optional)
+     * @param  int $RequestSaleId The sale ID associated with the particular item. It Filters results to the requested sale ID. (optional)
      * @param  \DateTime $RequestStartSaleDateTime Filters results to sales that happened after this date and time. (optional)
      *
      * @throws \InvalidArgumentException
@@ -3160,7 +3160,7 @@ class SaleApi implements ApiInterface
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  int[] $RequestProgramIds Filters to pricing options with the specified program IDs. (optional)
      * @param  bool $RequestSellOnline When &#x60;true&#x60;, filters to the pricing options that can be sold online.&lt;br /&gt;  Default: **false** (optional)
-     * @param  string[] $RequestServiceIds Filters to the pricing options with the specified IDs. In this context, service and pricing option are used interchangeably. (optional)
+     * @param  string[] $RequestServiceIds Filters to the pricing options with the specified IDs. In this context, service and pricing option are used interchangeably. These are the &#x60;PurchasedItems[].Id&#x60; returned from GET Sales. (optional)
      * @param  int[] $RequestSessionTypeIds Filters to the pricing options with the specified session types IDs. (optional)
      * @param  int $RequestStaffId Sets &#x60;Price&#x60; and &#x60;OnlinePrice&#x60; to the particular pricing of a specific staff member, if allowed by the business. (optional)
      *
@@ -3189,7 +3189,7 @@ class SaleApi implements ApiInterface
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  int[] $RequestProgramIds Filters to pricing options with the specified program IDs. (optional)
      * @param  bool $RequestSellOnline When &#x60;true&#x60;, filters to the pricing options that can be sold online.&lt;br /&gt;  Default: **false** (optional)
-     * @param  string[] $RequestServiceIds Filters to the pricing options with the specified IDs. In this context, service and pricing option are used interchangeably. (optional)
+     * @param  string[] $RequestServiceIds Filters to the pricing options with the specified IDs. In this context, service and pricing option are used interchangeably. These are the &#x60;PurchasedItems[].Id&#x60; returned from GET Sales. (optional)
      * @param  int[] $RequestSessionTypeIds Filters to the pricing options with the specified session types IDs. (optional)
      * @param  int $RequestStaffId Sets &#x60;Price&#x60; and &#x60;OnlinePrice&#x60; to the particular pricing of a specific staff member, if allowed by the business. (optional)
      *
@@ -3276,7 +3276,7 @@ class SaleApi implements ApiInterface
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  int[] $RequestProgramIds Filters to pricing options with the specified program IDs. (optional)
      * @param  bool $RequestSellOnline When &#x60;true&#x60;, filters to the pricing options that can be sold online.&lt;br /&gt;  Default: **false** (optional)
-     * @param  string[] $RequestServiceIds Filters to the pricing options with the specified IDs. In this context, service and pricing option are used interchangeably. (optional)
+     * @param  string[] $RequestServiceIds Filters to the pricing options with the specified IDs. In this context, service and pricing option are used interchangeably. These are the &#x60;PurchasedItems[].Id&#x60; returned from GET Sales. (optional)
      * @param  int[] $RequestSessionTypeIds Filters to the pricing options with the specified session types IDs. (optional)
      * @param  int $RequestStaffId Sets &#x60;Price&#x60; and &#x60;OnlinePrice&#x60; to the particular pricing of a specific staff member, if allowed by the business. (optional)
      *
@@ -3308,7 +3308,7 @@ class SaleApi implements ApiInterface
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  int[] $RequestProgramIds Filters to pricing options with the specified program IDs. (optional)
      * @param  bool $RequestSellOnline When &#x60;true&#x60;, filters to the pricing options that can be sold online.&lt;br /&gt;  Default: **false** (optional)
-     * @param  string[] $RequestServiceIds Filters to the pricing options with the specified IDs. In this context, service and pricing option are used interchangeably. (optional)
+     * @param  string[] $RequestServiceIds Filters to the pricing options with the specified IDs. In this context, service and pricing option are used interchangeably. These are the &#x60;PurchasedItems[].Id&#x60; returned from GET Sales. (optional)
      * @param  int[] $RequestSessionTypeIds Filters to the pricing options with the specified session types IDs. (optional)
      * @param  int $RequestStaffId Sets &#x60;Price&#x60; and &#x60;OnlinePrice&#x60; to the particular pricing of a specific staff member, if allowed by the business. (optional)
      *
@@ -3370,7 +3370,7 @@ class SaleApi implements ApiInterface
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  int[] $RequestProgramIds Filters to pricing options with the specified program IDs. (optional)
      * @param  bool $RequestSellOnline When &#x60;true&#x60;, filters to the pricing options that can be sold online.&lt;br /&gt;  Default: **false** (optional)
-     * @param  string[] $RequestServiceIds Filters to the pricing options with the specified IDs. In this context, service and pricing option are used interchangeably. (optional)
+     * @param  string[] $RequestServiceIds Filters to the pricing options with the specified IDs. In this context, service and pricing option are used interchangeably. These are the &#x60;PurchasedItems[].Id&#x60; returned from GET Sales. (optional)
      * @param  int[] $RequestSessionTypeIds Filters to the pricing options with the specified session types IDs. (optional)
      * @param  int $RequestStaffId Sets &#x60;Price&#x60; and &#x60;OnlinePrice&#x60; to the particular pricing of a specific staff member, if allowed by the business. (optional)
      *
@@ -3543,13 +3543,13 @@ class SaleApi implements ApiInterface
      *
      * @param  int $RequestClientId Filters results to the requested client ID. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
-     * @param  int $RequestLocationId Filters results to the requested location ID. (optional)
+     * @param  int $RequestLocationId Filters the transaction results with the ID number associated with the location of the sale. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  int $RequestSaleId Filters results to the requested sale ID. (optional)
-     * @param  string $RequestStatus Filters results to the requested status. (optional)
-     * @param  \DateTime $RequestTransactionEndDateTime Filters results to transactions that happened before this date and time. (optional)
-     * @param  int $RequestTransactionId Filters results to the requested transaction ID. (optional)
-     * @param  \DateTime $RequestTransactionStartDateTime Filters results to transactions that happened after this date and time. (optional)
+     * @param  int $RequestSaleId Filters the transaction results with the ID number associated with the sale. (optional)
+     * @param  string $RequestStatus Filters the transaction results by the estimated transaction status. (optional)
+     * @param  \DateTime $RequestTransactionEndDateTime Filters the transaction results that happpened before this date and time.   Default: **today’s date** (optional)
+     * @param  int $RequestTransactionId Filters the transaction results with the ID number generated when the sale is processed. (optional)
+     * @param  \DateTime $RequestTransactionStartDateTime Filters the transaction results that happpened after this date and time.   Default: **today’s date** (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3568,13 +3568,13 @@ class SaleApi implements ApiInterface
      *
      * @param  int $RequestClientId Filters results to the requested client ID. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
-     * @param  int $RequestLocationId Filters results to the requested location ID. (optional)
+     * @param  int $RequestLocationId Filters the transaction results with the ID number associated with the location of the sale. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  int $RequestSaleId Filters results to the requested sale ID. (optional)
-     * @param  string $RequestStatus Filters results to the requested status. (optional)
-     * @param  \DateTime $RequestTransactionEndDateTime Filters results to transactions that happened before this date and time. (optional)
-     * @param  int $RequestTransactionId Filters results to the requested transaction ID. (optional)
-     * @param  \DateTime $RequestTransactionStartDateTime Filters results to transactions that happened after this date and time. (optional)
+     * @param  int $RequestSaleId Filters the transaction results with the ID number associated with the sale. (optional)
+     * @param  string $RequestStatus Filters the transaction results by the estimated transaction status. (optional)
+     * @param  \DateTime $RequestTransactionEndDateTime Filters the transaction results that happpened before this date and time.   Default: **today’s date** (optional)
+     * @param  int $RequestTransactionId Filters the transaction results with the ID number generated when the sale is processed. (optional)
+     * @param  \DateTime $RequestTransactionStartDateTime Filters the transaction results that happpened after this date and time.   Default: **today’s date** (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3651,13 +3651,13 @@ class SaleApi implements ApiInterface
      *
      * @param  int $RequestClientId Filters results to the requested client ID. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
-     * @param  int $RequestLocationId Filters results to the requested location ID. (optional)
+     * @param  int $RequestLocationId Filters the transaction results with the ID number associated with the location of the sale. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  int $RequestSaleId Filters results to the requested sale ID. (optional)
-     * @param  string $RequestStatus Filters results to the requested status. (optional)
-     * @param  \DateTime $RequestTransactionEndDateTime Filters results to transactions that happened before this date and time. (optional)
-     * @param  int $RequestTransactionId Filters results to the requested transaction ID. (optional)
-     * @param  \DateTime $RequestTransactionStartDateTime Filters results to transactions that happened after this date and time. (optional)
+     * @param  int $RequestSaleId Filters the transaction results with the ID number associated with the sale. (optional)
+     * @param  string $RequestStatus Filters the transaction results by the estimated transaction status. (optional)
+     * @param  \DateTime $RequestTransactionEndDateTime Filters the transaction results that happpened before this date and time.   Default: **today’s date** (optional)
+     * @param  int $RequestTransactionId Filters the transaction results with the ID number generated when the sale is processed. (optional)
+     * @param  \DateTime $RequestTransactionStartDateTime Filters the transaction results that happpened after this date and time.   Default: **today’s date** (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3679,13 +3679,13 @@ class SaleApi implements ApiInterface
      *
      * @param  int $RequestClientId Filters results to the requested client ID. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
-     * @param  int $RequestLocationId Filters results to the requested location ID. (optional)
+     * @param  int $RequestLocationId Filters the transaction results with the ID number associated with the location of the sale. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  int $RequestSaleId Filters results to the requested sale ID. (optional)
-     * @param  string $RequestStatus Filters results to the requested status. (optional)
-     * @param  \DateTime $RequestTransactionEndDateTime Filters results to transactions that happened before this date and time. (optional)
-     * @param  int $RequestTransactionId Filters results to the requested transaction ID. (optional)
-     * @param  \DateTime $RequestTransactionStartDateTime Filters results to transactions that happened after this date and time. (optional)
+     * @param  int $RequestSaleId Filters the transaction results with the ID number associated with the sale. (optional)
+     * @param  string $RequestStatus Filters the transaction results by the estimated transaction status. (optional)
+     * @param  \DateTime $RequestTransactionEndDateTime Filters the transaction results that happpened before this date and time.   Default: **today’s date** (optional)
+     * @param  int $RequestTransactionId Filters the transaction results with the ID number generated when the sale is processed. (optional)
+     * @param  \DateTime $RequestTransactionStartDateTime Filters the transaction results that happpened after this date and time.   Default: **today’s date** (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3737,13 +3737,13 @@ class SaleApi implements ApiInterface
      *
      * @param  int $RequestClientId Filters results to the requested client ID. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
-     * @param  int $RequestLocationId Filters results to the requested location ID. (optional)
+     * @param  int $RequestLocationId Filters the transaction results with the ID number associated with the location of the sale. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  int $RequestSaleId Filters results to the requested sale ID. (optional)
-     * @param  string $RequestStatus Filters results to the requested status. (optional)
-     * @param  \DateTime $RequestTransactionEndDateTime Filters results to transactions that happened before this date and time. (optional)
-     * @param  int $RequestTransactionId Filters results to the requested transaction ID. (optional)
-     * @param  \DateTime $RequestTransactionStartDateTime Filters results to transactions that happened after this date and time. (optional)
+     * @param  int $RequestSaleId Filters the transaction results with the ID number associated with the sale. (optional)
+     * @param  string $RequestStatus Filters the transaction results by the estimated transaction status. (optional)
+     * @param  \DateTime $RequestTransactionEndDateTime Filters the transaction results that happpened before this date and time.   Default: **today’s date** (optional)
+     * @param  int $RequestTransactionId Filters the transaction results with the ID number generated when the sale is processed. (optional)
+     * @param  \DateTime $RequestTransactionStartDateTime Filters the transaction results that happpened after this date and time.   Default: **today’s date** (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

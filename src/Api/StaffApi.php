@@ -879,10 +879,10 @@ class StaffApi implements ApiInterface
     /**
      * Operation staffGetSalesReps
      *
-     * @param  bool $RequestActiveOnly This is to filter out the active sales rep from the list (optional)
+     * @param  bool $RequestActiveOnly When &#x60;true&#x60;, will return only active reps data.  Default : **false** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  int[] $RequestSalesRepNumbers This is the list of rep numbers to be fetched (optional)
+     * @param  int[] $RequestSalesRepNumbers This is the list of the sales rep numbers for which the salesrep data will be fetched. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -897,10 +897,10 @@ class StaffApi implements ApiInterface
     /**
      * Operation staffGetSalesRepsWithHttpInfo
      *
-     * @param  bool $RequestActiveOnly This is to filter out the active sales rep from the list (optional)
+     * @param  bool $RequestActiveOnly When &#x60;true&#x60;, will return only active reps data.  Default : **false** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  int[] $RequestSalesRepNumbers This is the list of rep numbers to be fetched (optional)
+     * @param  int[] $RequestSalesRepNumbers This is the list of the sales rep numbers for which the salesrep data will be fetched. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -975,10 +975,10 @@ class StaffApi implements ApiInterface
      *
      * 
      *
-     * @param  bool $RequestActiveOnly This is to filter out the active sales rep from the list (optional)
+     * @param  bool $RequestActiveOnly When &#x60;true&#x60;, will return only active reps data.  Default : **false** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  int[] $RequestSalesRepNumbers This is the list of rep numbers to be fetched (optional)
+     * @param  int[] $RequestSalesRepNumbers This is the list of the sales rep numbers for which the salesrep data will be fetched. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -998,10 +998,10 @@ class StaffApi implements ApiInterface
      *
      * 
      *
-     * @param  bool $RequestActiveOnly This is to filter out the active sales rep from the list (optional)
+     * @param  bool $RequestActiveOnly When &#x60;true&#x60;, will return only active reps data.  Default : **false** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  int[] $RequestSalesRepNumbers This is the list of rep numbers to be fetched (optional)
+     * @param  int[] $RequestSalesRepNumbers This is the list of the sales rep numbers for which the salesrep data will be fetched. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1051,10 +1051,10 @@ class StaffApi implements ApiInterface
     /**
      * Create request for operation 'staffGetSalesReps'
      *
-     * @param  bool $RequestActiveOnly This is to filter out the active sales rep from the list (optional)
+     * @param  bool $RequestActiveOnly When &#x60;true&#x60;, will return only active reps data.  Default : **false** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  int[] $RequestSalesRepNumbers This is the list of rep numbers to be fetched (optional)
+     * @param  int[] $RequestSalesRepNumbers This is the list of the sales rep numbers for which the salesrep data will be fetched. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1515,7 +1515,7 @@ class StaffApi implements ApiInterface
      *
      * Get image URLs for the given staff ID in the request.
      *
-     * @param  int $RequestStaffId A requested staff ID. (optional)
+     * @param  int $RequestStaffId The ID of the staff member whose image URL details you want to retrieve. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1532,7 +1532,7 @@ class StaffApi implements ApiInterface
      *
      * Get image URLs for the given staff ID in the request.
      *
-     * @param  int $RequestStaffId A requested staff ID. (optional)
+     * @param  int $RequestStaffId The ID of the staff member whose image URL details you want to retrieve. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1607,7 +1607,7 @@ class StaffApi implements ApiInterface
      *
      * Get image URLs for the given staff ID in the request.
      *
-     * @param  int $RequestStaffId A requested staff ID. (optional)
+     * @param  int $RequestStaffId The ID of the staff member whose image URL details you want to retrieve. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1627,7 +1627,7 @@ class StaffApi implements ApiInterface
      *
      * Get image URLs for the given staff ID in the request.
      *
-     * @param  int $RequestStaffId A requested staff ID. (optional)
+     * @param  int $RequestStaffId The ID of the staff member whose image URL details you want to retrieve. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1677,7 +1677,7 @@ class StaffApi implements ApiInterface
     /**
      * Create request for operation 'staffGetStaffImageURL'
      *
-     * @param  int $RequestStaffId A requested staff ID. (optional)
+     * @param  int $RequestStaffId The ID of the staff member whose image URL details you want to retrieve. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2069,11 +2069,11 @@ class StaffApi implements ApiInterface
      *
      * Get the session types used at a site for a staff member.
      *
-     * @param  int $RequestStaffId Filters returned session types to only those the staff member performs.  Staff should be active. (required)
+     * @param  int $RequestStaffId The ID of the staff member whose session types you want to return. (required)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  bool $RequestOnlineOnly Only session types that can be booked online. (optional)
-     * @param  int[] $RequestProgramIds Filters results to session types that belong in program IDs. (optional)
+     * @param  bool $RequestOnlineOnly When &#x60;true&#x60;, indicates that only the session types that can be booked online should be returned.  Default: false (optional)
+     * @param  int[] $RequestProgramIds Filters results to session types that belong to one of the given program IDs. If omitted, all program IDs return. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2090,11 +2090,11 @@ class StaffApi implements ApiInterface
      *
      * Get the session types used at a site for a staff member.
      *
-     * @param  int $RequestStaffId Filters returned session types to only those the staff member performs.  Staff should be active. (required)
+     * @param  int $RequestStaffId The ID of the staff member whose session types you want to return. (required)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  bool $RequestOnlineOnly Only session types that can be booked online. (optional)
-     * @param  int[] $RequestProgramIds Filters results to session types that belong in program IDs. (optional)
+     * @param  bool $RequestOnlineOnly When &#x60;true&#x60;, indicates that only the session types that can be booked online should be returned.  Default: false (optional)
+     * @param  int[] $RequestProgramIds Filters results to session types that belong to one of the given program IDs. If omitted, all program IDs return. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2169,11 +2169,11 @@ class StaffApi implements ApiInterface
      *
      * Get the session types used at a site for a staff member.
      *
-     * @param  int $RequestStaffId Filters returned session types to only those the staff member performs.  Staff should be active. (required)
+     * @param  int $RequestStaffId The ID of the staff member whose session types you want to return. (required)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  bool $RequestOnlineOnly Only session types that can be booked online. (optional)
-     * @param  int[] $RequestProgramIds Filters results to session types that belong in program IDs. (optional)
+     * @param  bool $RequestOnlineOnly When &#x60;true&#x60;, indicates that only the session types that can be booked online should be returned.  Default: false (optional)
+     * @param  int[] $RequestProgramIds Filters results to session types that belong to one of the given program IDs. If omitted, all program IDs return. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2193,11 +2193,11 @@ class StaffApi implements ApiInterface
      *
      * Get the session types used at a site for a staff member.
      *
-     * @param  int $RequestStaffId Filters returned session types to only those the staff member performs.  Staff should be active. (required)
+     * @param  int $RequestStaffId The ID of the staff member whose session types you want to return. (required)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  bool $RequestOnlineOnly Only session types that can be booked online. (optional)
-     * @param  int[] $RequestProgramIds Filters results to session types that belong in program IDs. (optional)
+     * @param  bool $RequestOnlineOnly When &#x60;true&#x60;, indicates that only the session types that can be booked online should be returned.  Default: false (optional)
+     * @param  int[] $RequestProgramIds Filters results to session types that belong to one of the given program IDs. If omitted, all program IDs return. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2247,11 +2247,11 @@ class StaffApi implements ApiInterface
     /**
      * Create request for operation 'staffGetStaffSessionTypes'
      *
-     * @param  int $RequestStaffId Filters returned session types to only those the staff member performs.  Staff should be active. (required)
+     * @param  int $RequestStaffId The ID of the staff member whose session types you want to return. (required)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  bool $RequestOnlineOnly Only session types that can be booked online. (optional)
-     * @param  int[] $RequestProgramIds Filters results to session types that belong in program IDs. (optional)
+     * @param  bool $RequestOnlineOnly When &#x60;true&#x60;, indicates that only the session types that can be booked online should be returned.  Default: false (optional)
+     * @param  int[] $RequestProgramIds Filters results to session types that belong to one of the given program IDs. If omitted, all program IDs return. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2273,10 +2273,6 @@ class StaffApi implements ApiInterface
         $multipart = false;
 
         // query params
-        if ($RequestStaffId !== null) {
-            $queryParams['request.staffId'] = ObjectSerializer::toQueryValue($RequestStaffId);
-        }
-        // query params
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
@@ -2294,6 +2290,10 @@ class StaffApi implements ApiInterface
         } else
         if ($RequestProgramIds !== null) {
             $queryParams['request.programIds'] = ObjectSerializer::toQueryValue($RequestProgramIds);
+        }
+        // query params
+        if ($RequestStaffId !== null) {
+            $queryParams['request.staffId'] = ObjectSerializer::toQueryValue($RequestStaffId);
         }
 
 

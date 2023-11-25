@@ -36,7 +36,7 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property bool $IncludeInactive When `true`, filters the results to include subtypes and inactive referral types.<br />  When `false`, includes no subtypes and only active types.
+ * @property bool $IncludeInactive When `true`, filters the results to include subtypes and inactive referral types.<br />  When `false`, includes no subtypes and only active types.  Default:**false**
  *
  */
 class GetClientReferralTypesRequest extends BaseModel
@@ -139,7 +139,7 @@ class GetClientReferralTypesRequest extends BaseModel
     /**
      * Sets IncludeInactive
      *
-     * @param bool $IncludeInactive When `true`, filters the results to include subtypes and inactive referral types.<br />  When `false`, includes no subtypes and only active types.
+     * @param bool $IncludeInactive When `true`, filters the results to include subtypes and inactive referral types.<br />  When `false`, includes no subtypes and only active types.  Default:**false**
      *
      * @return $this
      */

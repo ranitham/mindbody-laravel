@@ -36,14 +36,14 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property int $StaffId Id of the staff memeber
- * @property int $SessionTypeId Id of the session type to assign to the staff
- * @property bool $Active Whether the the staff members association to this session type is active.
- * @property int $TimeLength TimeLength
+ * @property int $StaffId The ID of the staff member session type is getting assigned to. The staff member must be assignable to appointments or already be assigned to the session type in the request.
+ * @property int $SessionTypeId The ID of the session type that is getting assigned to the staff member. The session type must be an appointment.
+ * @property bool $Active Indicates if assignment is active. Passing `false` is equivalent to deleting the assignment.
+ * @property int $TimeLength The staff specific amount of time that a session of this type typically lasts.
  * @property int $PrepTime Prep time in minutes
  * @property int $FinishTime Finish time in minutes
- * @property string $PayRateType The pay rate type. Can be one of the following (case insensitive):     Percent     Flat     No Pay
- * @property double $PayRateAmount The pay rate amount. It's units are based on the PayRateType
+ * @property string $PayRateType The pay rate type. Can be one of the following (case insensitive):     Percent     Flat     No Pay     If PayRateType is not provided in the request and the request is creating a completely new assignment (not editing an existing active or inactive assignment), then the staff member default pay rate and pay rate amount are used to create the assignment. Otherwise, the existing assignment values are used for any optional request parameters not included in the request.
+ * @property double $PayRateAmount The pay rate amount for the specific staff member. It is parsed according to the PayRateType.
  *
  */
 class AssignStaffSessionTypeRequest extends BaseModel
@@ -209,7 +209,7 @@ class AssignStaffSessionTypeRequest extends BaseModel
     /**
      * Sets StaffId
      *
-     * @param int $StaffId Id of the staff memeber
+     * @param int $StaffId The ID of the staff member session type is getting assigned to. The staff member must be assignable to appointments or already be assigned to the session type in the request.
      *
      * @return $this
      */
@@ -238,7 +238,7 @@ class AssignStaffSessionTypeRequest extends BaseModel
     /**
      * Sets SessionTypeId
      *
-     * @param int $SessionTypeId Id of the session type to assign to the staff
+     * @param int $SessionTypeId The ID of the session type that is getting assigned to the staff member. The session type must be an appointment.
      *
      * @return $this
      */
@@ -270,7 +270,7 @@ class AssignStaffSessionTypeRequest extends BaseModel
     /**
      * Sets Active
      *
-     * @param bool $Active Whether the the staff members association to this session type is active.
+     * @param bool $Active Indicates if assignment is active. Passing `false` is equivalent to deleting the assignment.
      *
      * @return $this
      */
@@ -294,7 +294,7 @@ class AssignStaffSessionTypeRequest extends BaseModel
     /**
      * Sets TimeLength
      *
-     * @param int $TimeLength TimeLength
+     * @param int $TimeLength The staff specific amount of time that a session of this type typically lasts.
      *
      * @return $this
      */
@@ -366,7 +366,7 @@ class AssignStaffSessionTypeRequest extends BaseModel
     /**
      * Sets PayRateType
      *
-     * @param string $PayRateType The pay rate type. Can be one of the following (case insensitive):     Percent     Flat     No Pay
+     * @param string $PayRateType The pay rate type. Can be one of the following (case insensitive):     Percent     Flat     No Pay     If PayRateType is not provided in the request and the request is creating a completely new assignment (not editing an existing active or inactive assignment), then the staff member default pay rate and pay rate amount are used to create the assignment. Otherwise, the existing assignment values are used for any optional request parameters not included in the request.
      *
      * @return $this
      */
@@ -390,7 +390,7 @@ class AssignStaffSessionTypeRequest extends BaseModel
     /**
      * Sets PayRateAmount
      *
-     * @param double $PayRateAmount The pay rate amount. It's units are based on the PayRateType
+     * @param double $PayRateAmount The pay rate amount for the specific staff member. It is parsed according to the PayRateType.
      *
      * @return $this
      */

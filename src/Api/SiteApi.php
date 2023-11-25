@@ -632,12 +632,12 @@ class SiteApi implements ApiInterface
      *
      * Get categories for site.
      *
-     * @param  bool $RequestActive The requested Active type categories. true indicates for Active Categories and false indicates for Deactivated Categories. (optional)
-     * @param  int[] $RequestCategoryIds The requested category IDs. (optional)
+     * @param  bool $RequestActive When &#x60;true&#x60;, the response only contains categories which are activated.   When &#x60;false&#x60;, only deactivated categories are returned.  Default: **All Categories** (optional)
+     * @param  int[] $RequestCategoryIds When included, the response only contains details about the specified category Ids. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  bool $RequestService The requested Service type. true indicates for Revenue Categories and false indicates for Product Revenue Categories. (optional)
-     * @param  int[] $RequestSubCategoryIds The requested sub category IDs. (optional)
+     * @param  bool $RequestService When &#x60;true&#x60;, the response only contains details about Revenue Categories.  When &#x60;false&#x60;, only Product Revenue Categories are returned.  Default: **All Categories** (optional)
+     * @param  int[] $RequestSubCategoryIds When included, the response only contains details about the specified subcategory Ids. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -654,12 +654,12 @@ class SiteApi implements ApiInterface
      *
      * Get categories for site.
      *
-     * @param  bool $RequestActive The requested Active type categories. true indicates for Active Categories and false indicates for Deactivated Categories. (optional)
-     * @param  int[] $RequestCategoryIds The requested category IDs. (optional)
+     * @param  bool $RequestActive When &#x60;true&#x60;, the response only contains categories which are activated.   When &#x60;false&#x60;, only deactivated categories are returned.  Default: **All Categories** (optional)
+     * @param  int[] $RequestCategoryIds When included, the response only contains details about the specified category Ids. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  bool $RequestService The requested Service type. true indicates for Revenue Categories and false indicates for Product Revenue Categories. (optional)
-     * @param  int[] $RequestSubCategoryIds The requested sub category IDs. (optional)
+     * @param  bool $RequestService When &#x60;true&#x60;, the response only contains details about Revenue Categories.  When &#x60;false&#x60;, only Product Revenue Categories are returned.  Default: **All Categories** (optional)
+     * @param  int[] $RequestSubCategoryIds When included, the response only contains details about the specified subcategory Ids. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -734,12 +734,12 @@ class SiteApi implements ApiInterface
      *
      * Get categories for site.
      *
-     * @param  bool $RequestActive The requested Active type categories. true indicates for Active Categories and false indicates for Deactivated Categories. (optional)
-     * @param  int[] $RequestCategoryIds The requested category IDs. (optional)
+     * @param  bool $RequestActive When &#x60;true&#x60;, the response only contains categories which are activated.   When &#x60;false&#x60;, only deactivated categories are returned.  Default: **All Categories** (optional)
+     * @param  int[] $RequestCategoryIds When included, the response only contains details about the specified category Ids. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  bool $RequestService The requested Service type. true indicates for Revenue Categories and false indicates for Product Revenue Categories. (optional)
-     * @param  int[] $RequestSubCategoryIds The requested sub category IDs. (optional)
+     * @param  bool $RequestService When &#x60;true&#x60;, the response only contains details about Revenue Categories.  When &#x60;false&#x60;, only Product Revenue Categories are returned.  Default: **All Categories** (optional)
+     * @param  int[] $RequestSubCategoryIds When included, the response only contains details about the specified subcategory Ids. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -759,12 +759,12 @@ class SiteApi implements ApiInterface
      *
      * Get categories for site.
      *
-     * @param  bool $RequestActive The requested Active type categories. true indicates for Active Categories and false indicates for Deactivated Categories. (optional)
-     * @param  int[] $RequestCategoryIds The requested category IDs. (optional)
+     * @param  bool $RequestActive When &#x60;true&#x60;, the response only contains categories which are activated.   When &#x60;false&#x60;, only deactivated categories are returned.  Default: **All Categories** (optional)
+     * @param  int[] $RequestCategoryIds When included, the response only contains details about the specified category Ids. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  bool $RequestService The requested Service type. true indicates for Revenue Categories and false indicates for Product Revenue Categories. (optional)
-     * @param  int[] $RequestSubCategoryIds The requested sub category IDs. (optional)
+     * @param  bool $RequestService When &#x60;true&#x60;, the response only contains details about Revenue Categories.  When &#x60;false&#x60;, only Product Revenue Categories are returned.  Default: **All Categories** (optional)
+     * @param  int[] $RequestSubCategoryIds When included, the response only contains details about the specified subcategory Ids. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -814,12 +814,12 @@ class SiteApi implements ApiInterface
     /**
      * Create request for operation 'siteGetCategories'
      *
-     * @param  bool $RequestActive The requested Active type categories. true indicates for Active Categories and false indicates for Deactivated Categories. (optional)
-     * @param  int[] $RequestCategoryIds The requested category IDs. (optional)
+     * @param  bool $RequestActive When &#x60;true&#x60;, the response only contains categories which are activated.   When &#x60;false&#x60;, only deactivated categories are returned.  Default: **All Categories** (optional)
+     * @param  int[] $RequestCategoryIds When included, the response only contains details about the specified category Ids. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  bool $RequestService The requested Service type. true indicates for Revenue Categories and false indicates for Product Revenue Categories. (optional)
-     * @param  int[] $RequestSubCategoryIds The requested sub category IDs. (optional)
+     * @param  bool $RequestService When &#x60;true&#x60;, the response only contains details about Revenue Categories.  When &#x60;false&#x60;, only Product Revenue Categories are returned.  Default: **All Categories** (optional)
+     * @param  int[] $RequestSubCategoryIds When included, the response only contains details about the specified subcategory Ids. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1505,7 +1505,7 @@ class SiteApi implements ApiInterface
      *
      * Get the memberships at a site.
      *
-     * @param  int[] $RequestMembershipIds Filters results to memberships that belong to one of the given membership IDs. If omitted, all memberships are returned. (optional)
+     * @param  int[] $RequestMembershipIds The requested membership IDs.&lt;br /&gt;  Default: **all** IDs that the authenticated user’s access level allows. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1522,7 +1522,7 @@ class SiteApi implements ApiInterface
      *
      * Get the memberships at a site.
      *
-     * @param  int[] $RequestMembershipIds Filters results to memberships that belong to one of the given membership IDs. If omitted, all memberships are returned. (optional)
+     * @param  int[] $RequestMembershipIds The requested membership IDs.&lt;br /&gt;  Default: **all** IDs that the authenticated user’s access level allows. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1597,7 +1597,7 @@ class SiteApi implements ApiInterface
      *
      * Get the memberships at a site.
      *
-     * @param  int[] $RequestMembershipIds Filters results to memberships that belong to one of the given membership IDs. If omitted, all memberships are returned. (optional)
+     * @param  int[] $RequestMembershipIds The requested membership IDs.&lt;br /&gt;  Default: **all** IDs that the authenticated user’s access level allows. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1617,7 +1617,7 @@ class SiteApi implements ApiInterface
      *
      * Get the memberships at a site.
      *
-     * @param  int[] $RequestMembershipIds Filters results to memberships that belong to one of the given membership IDs. If omitted, all memberships are returned. (optional)
+     * @param  int[] $RequestMembershipIds The requested membership IDs.&lt;br /&gt;  Default: **all** IDs that the authenticated user’s access level allows. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1667,7 +1667,7 @@ class SiteApi implements ApiInterface
     /**
      * Create request for operation 'siteGetMemberships'
      *
-     * @param  int[] $RequestMembershipIds Filters results to memberships that belong to one of the given membership IDs. If omitted, all memberships are returned. (optional)
+     * @param  int[] $RequestMembershipIds The requested membership IDs.&lt;br /&gt;  Default: **all** IDs that the authenticated user’s access level allows. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1782,7 +1782,7 @@ class SiteApi implements ApiInterface
      *
      * Gets a list of active mobile providers for the site.
      *
-     * @param  bool $RequestActive When true, the response only contains mobile providers which are activated. When false, only deactivated mobile providers are returned. Default: All Mobile Providers (optional)
+     * @param  bool $RequestActive When &#x60;true&#x60;, the response only contains mobile providers which are activated.   When &#x60;false&#x60;, only deactivated mobile providers are returned.  Default: **All Mobile Providers** (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1799,7 +1799,7 @@ class SiteApi implements ApiInterface
      *
      * Gets a list of active mobile providers for the site.
      *
-     * @param  bool $RequestActive When true, the response only contains mobile providers which are activated. When false, only deactivated mobile providers are returned. Default: All Mobile Providers (optional)
+     * @param  bool $RequestActive When &#x60;true&#x60;, the response only contains mobile providers which are activated.   When &#x60;false&#x60;, only deactivated mobile providers are returned.  Default: **All Mobile Providers** (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1874,7 +1874,7 @@ class SiteApi implements ApiInterface
      *
      * Gets a list of active mobile providers for the site.
      *
-     * @param  bool $RequestActive When true, the response only contains mobile providers which are activated. When false, only deactivated mobile providers are returned. Default: All Mobile Providers (optional)
+     * @param  bool $RequestActive When &#x60;true&#x60;, the response only contains mobile providers which are activated.   When &#x60;false&#x60;, only deactivated mobile providers are returned.  Default: **All Mobile Providers** (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1894,7 +1894,7 @@ class SiteApi implements ApiInterface
      *
      * Gets a list of active mobile providers for the site.
      *
-     * @param  bool $RequestActive When true, the response only contains mobile providers which are activated. When false, only deactivated mobile providers are returned. Default: All Mobile Providers (optional)
+     * @param  bool $RequestActive When &#x60;true&#x60;, the response only contains mobile providers which are activated.   When &#x60;false&#x60;, only deactivated mobile providers are returned.  Default: **All Mobile Providers** (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1944,7 +1944,7 @@ class SiteApi implements ApiInterface
     /**
      * Create request for operation 'siteGetMobileProviders'
      *
-     * @param  bool $RequestActive When true, the response only contains mobile providers which are activated. When false, only deactivated mobile providers are returned. Default: All Mobile Providers (optional)
+     * @param  bool $RequestActive When &#x60;true&#x60;, the response only contains mobile providers which are activated.   When &#x60;false&#x60;, only deactivated mobile providers are returned.  Default: **All Mobile Providers** (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2056,7 +2056,7 @@ class SiteApi implements ApiInterface
      *
      * Get payment types for a site.
      *
-     * @param  bool $RequestActive The requested Active payment types. true indicates for Active payment types and false indicates for Deactivated payment types. (optional)
+     * @param  bool $RequestActive When &#x60;true&#x60;, the response only contains payment types which are activated.  When &#x60;false&#x60;, only deactivated payment types are returned.  Default: **All Payment Types** (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2073,7 +2073,7 @@ class SiteApi implements ApiInterface
      *
      * Get payment types for a site.
      *
-     * @param  bool $RequestActive The requested Active payment types. true indicates for Active payment types and false indicates for Deactivated payment types. (optional)
+     * @param  bool $RequestActive When &#x60;true&#x60;, the response only contains payment types which are activated.  When &#x60;false&#x60;, only deactivated payment types are returned.  Default: **All Payment Types** (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2148,7 +2148,7 @@ class SiteApi implements ApiInterface
      *
      * Get payment types for a site.
      *
-     * @param  bool $RequestActive The requested Active payment types. true indicates for Active payment types and false indicates for Deactivated payment types. (optional)
+     * @param  bool $RequestActive When &#x60;true&#x60;, the response only contains payment types which are activated.  When &#x60;false&#x60;, only deactivated payment types are returned.  Default: **All Payment Types** (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2168,7 +2168,7 @@ class SiteApi implements ApiInterface
      *
      * Get payment types for a site.
      *
-     * @param  bool $RequestActive The requested Active payment types. true indicates for Active payment types and false indicates for Deactivated payment types. (optional)
+     * @param  bool $RequestActive When &#x60;true&#x60;, the response only contains payment types which are activated.  When &#x60;false&#x60;, only deactivated payment types are returned.  Default: **All Payment Types** (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2218,7 +2218,7 @@ class SiteApi implements ApiInterface
     /**
      * Create request for operation 'siteGetPaymentTypes'
      *
-     * @param  bool $RequestActive The requested Active payment types. true indicates for Active payment types and false indicates for Deactivated payment types. (optional)
+     * @param  bool $RequestActive When &#x60;true&#x60;, the response only contains payment types which are activated.  When &#x60;false&#x60;, only deactivated payment types are returned.  Default: **All Payment Types** (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2333,7 +2333,7 @@ class SiteApi implements ApiInterface
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  bool $RequestOnlineOnly If &#x60;true&#x60;, filters results to show only those programs that are shown online.&lt;br /&gt;  If &#x60;false&#x60;, all programs are returned.&lt;br /&gt;  Default: **false** (optional)
-     * @param  string $RequestScheduleType A schedule type used to filter the returned results. (optional)
+     * @param  string $RequestScheduleType A schedule type used to filter the returned results. Possible values are:  * All  * Class  * Enrollment  * Appointment  * Resource  * Media  * Arrival (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2353,7 +2353,7 @@ class SiteApi implements ApiInterface
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  bool $RequestOnlineOnly If &#x60;true&#x60;, filters results to show only those programs that are shown online.&lt;br /&gt;  If &#x60;false&#x60;, all programs are returned.&lt;br /&gt;  Default: **false** (optional)
-     * @param  string $RequestScheduleType A schedule type used to filter the returned results. (optional)
+     * @param  string $RequestScheduleType A schedule type used to filter the returned results. Possible values are:  * All  * Class  * Enrollment  * Appointment  * Resource  * Media  * Arrival (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2431,7 +2431,7 @@ class SiteApi implements ApiInterface
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  bool $RequestOnlineOnly If &#x60;true&#x60;, filters results to show only those programs that are shown online.&lt;br /&gt;  If &#x60;false&#x60;, all programs are returned.&lt;br /&gt;  Default: **false** (optional)
-     * @param  string $RequestScheduleType A schedule type used to filter the returned results. (optional)
+     * @param  string $RequestScheduleType A schedule type used to filter the returned results. Possible values are:  * All  * Class  * Enrollment  * Appointment  * Resource  * Media  * Arrival (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2454,7 +2454,7 @@ class SiteApi implements ApiInterface
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  bool $RequestOnlineOnly If &#x60;true&#x60;, filters results to show only those programs that are shown online.&lt;br /&gt;  If &#x60;false&#x60;, all programs are returned.&lt;br /&gt;  Default: **false** (optional)
-     * @param  string $RequestScheduleType A schedule type used to filter the returned results. (optional)
+     * @param  string $RequestScheduleType A schedule type used to filter the returned results. Possible values are:  * All  * Class  * Enrollment  * Appointment  * Resource  * Media  * Arrival (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2507,7 +2507,7 @@ class SiteApi implements ApiInterface
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  bool $RequestOnlineOnly If &#x60;true&#x60;, filters results to show only those programs that are shown online.&lt;br /&gt;  If &#x60;false&#x60;, all programs are returned.&lt;br /&gt;  Default: **false** (optional)
-     * @param  string $RequestScheduleType A schedule type used to filter the returned results. (optional)
+     * @param  string $RequestScheduleType A schedule type used to filter the returned results. Possible values are:  * All  * Class  * Enrollment  * Appointment  * Resource  * Media  * Arrival (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2631,12 +2631,12 @@ class SiteApi implements ApiInterface
      *
      * Get promocodes for a site.
      *
-     * @param  bool $RequestActiveOnly Filter only active, defaults to true (optional)
-     * @param  \DateTime $RequestEndDate Filter by activation end date (optional)
+     * @param  bool $RequestActiveOnly If true, filters results to show only promocodes that are active. If **false**, all promocodes are returned.  Default: **true** (optional)
+     * @param  \DateTime $RequestEndDate Filters results to promocodes that were activated before this date. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  bool $RequestOnlineOnly Filter only the ones that can be sold online (optional)
-     * @param  \DateTime $RequestStartDate Filter by activation start date (optional)
+     * @param  bool $RequestOnlineOnly If &#x60;true&#x60;, filters results to show only promocodes that can be used for online sale.  If &#x60;false&#x60;, all promocodes are returned.  Default: **false** (optional)
+     * @param  \DateTime $RequestStartDate Filters results to promocodes that were activated after this date. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2653,12 +2653,12 @@ class SiteApi implements ApiInterface
      *
      * Get promocodes for a site.
      *
-     * @param  bool $RequestActiveOnly Filter only active, defaults to true (optional)
-     * @param  \DateTime $RequestEndDate Filter by activation end date (optional)
+     * @param  bool $RequestActiveOnly If true, filters results to show only promocodes that are active. If **false**, all promocodes are returned.  Default: **true** (optional)
+     * @param  \DateTime $RequestEndDate Filters results to promocodes that were activated before this date. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  bool $RequestOnlineOnly Filter only the ones that can be sold online (optional)
-     * @param  \DateTime $RequestStartDate Filter by activation start date (optional)
+     * @param  bool $RequestOnlineOnly If &#x60;true&#x60;, filters results to show only promocodes that can be used for online sale.  If &#x60;false&#x60;, all promocodes are returned.  Default: **false** (optional)
+     * @param  \DateTime $RequestStartDate Filters results to promocodes that were activated after this date. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2733,12 +2733,12 @@ class SiteApi implements ApiInterface
      *
      * Get promocodes for a site.
      *
-     * @param  bool $RequestActiveOnly Filter only active, defaults to true (optional)
-     * @param  \DateTime $RequestEndDate Filter by activation end date (optional)
+     * @param  bool $RequestActiveOnly If true, filters results to show only promocodes that are active. If **false**, all promocodes are returned.  Default: **true** (optional)
+     * @param  \DateTime $RequestEndDate Filters results to promocodes that were activated before this date. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  bool $RequestOnlineOnly Filter only the ones that can be sold online (optional)
-     * @param  \DateTime $RequestStartDate Filter by activation start date (optional)
+     * @param  bool $RequestOnlineOnly If &#x60;true&#x60;, filters results to show only promocodes that can be used for online sale.  If &#x60;false&#x60;, all promocodes are returned.  Default: **false** (optional)
+     * @param  \DateTime $RequestStartDate Filters results to promocodes that were activated after this date. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2758,12 +2758,12 @@ class SiteApi implements ApiInterface
      *
      * Get promocodes for a site.
      *
-     * @param  bool $RequestActiveOnly Filter only active, defaults to true (optional)
-     * @param  \DateTime $RequestEndDate Filter by activation end date (optional)
+     * @param  bool $RequestActiveOnly If true, filters results to show only promocodes that are active. If **false**, all promocodes are returned.  Default: **true** (optional)
+     * @param  \DateTime $RequestEndDate Filters results to promocodes that were activated before this date. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  bool $RequestOnlineOnly Filter only the ones that can be sold online (optional)
-     * @param  \DateTime $RequestStartDate Filter by activation start date (optional)
+     * @param  bool $RequestOnlineOnly If &#x60;true&#x60;, filters results to show only promocodes that can be used for online sale.  If &#x60;false&#x60;, all promocodes are returned.  Default: **false** (optional)
+     * @param  \DateTime $RequestStartDate Filters results to promocodes that were activated after this date. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2813,12 +2813,12 @@ class SiteApi implements ApiInterface
     /**
      * Create request for operation 'siteGetPromoCodes'
      *
-     * @param  bool $RequestActiveOnly Filter only active, defaults to true (optional)
-     * @param  \DateTime $RequestEndDate Filter by activation end date (optional)
+     * @param  bool $RequestActiveOnly If true, filters results to show only promocodes that are active. If **false**, all promocodes are returned.  Default: **true** (optional)
+     * @param  \DateTime $RequestEndDate Filters results to promocodes that were activated before this date. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  bool $RequestOnlineOnly Filter only the ones that can be sold online (optional)
-     * @param  \DateTime $RequestStartDate Filter by activation start date (optional)
+     * @param  bool $RequestOnlineOnly If &#x60;true&#x60;, filters results to show only promocodes that can be used for online sale.  If &#x60;false&#x60;, all promocodes are returned.  Default: **false** (optional)
+     * @param  \DateTime $RequestStartDate Filters results to promocodes that were activated after this date. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2950,7 +2950,7 @@ class SiteApi implements ApiInterface
      *
      * Gets a list of prospect stages for a site.
      *
-     * @param  bool $RequestActive The requested Active type Prospect Stages. true indicates for Active Prospect Stages and false indicates for Deactivated Prospect Stages. (optional)
+     * @param  bool $RequestActive When &#x60;true&#x60;, the response only contains prospect stages which are activated.  When &#x60;false&#x60;, only deactivated prospect stages are returned.  Default: **All Prospect Stages** (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2967,7 +2967,7 @@ class SiteApi implements ApiInterface
      *
      * Gets a list of prospect stages for a site.
      *
-     * @param  bool $RequestActive The requested Active type Prospect Stages. true indicates for Active Prospect Stages and false indicates for Deactivated Prospect Stages. (optional)
+     * @param  bool $RequestActive When &#x60;true&#x60;, the response only contains prospect stages which are activated.  When &#x60;false&#x60;, only deactivated prospect stages are returned.  Default: **All Prospect Stages** (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -3042,7 +3042,7 @@ class SiteApi implements ApiInterface
      *
      * Gets a list of prospect stages for a site.
      *
-     * @param  bool $RequestActive The requested Active type Prospect Stages. true indicates for Active Prospect Stages and false indicates for Deactivated Prospect Stages. (optional)
+     * @param  bool $RequestActive When &#x60;true&#x60;, the response only contains prospect stages which are activated.  When &#x60;false&#x60;, only deactivated prospect stages are returned.  Default: **All Prospect Stages** (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3062,7 +3062,7 @@ class SiteApi implements ApiInterface
      *
      * Gets a list of prospect stages for a site.
      *
-     * @param  bool $RequestActive The requested Active type Prospect Stages. true indicates for Active Prospect Stages and false indicates for Deactivated Prospect Stages. (optional)
+     * @param  bool $RequestActive When &#x60;true&#x60;, the response only contains prospect stages which are activated.  When &#x60;false&#x60;, only deactivated prospect stages are returned.  Default: **All Prospect Stages** (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -3112,7 +3112,7 @@ class SiteApi implements ApiInterface
     /**
      * Create request for operation 'siteGetProspectStages'
      *
-     * @param  bool $RequestActive The requested Active type Prospect Stages. true indicates for Active Prospect Stages and false indicates for Deactivated Prospect Stages. (optional)
+     * @param  bool $RequestActive When &#x60;true&#x60;, the response only contains prospect stages which are activated.  When &#x60;false&#x60;, only deactivated prospect stages are returned.  Default: **All Prospect Stages** (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3224,7 +3224,7 @@ class SiteApi implements ApiInterface
      *
      * Returns all active relationships of the site.
      *
-     * @param  bool $RequestActive The requested Active type Relationships. true indicates for Active Relationships and false indicates for Deactivated Relationships. (optional)
+     * @param  bool $RequestActive When &#x60;true&#x60;, the response only contains relationships which are activated.  When &#x60;false&#x60;, only deactivated relationships are returned.  Default: **All Relationships** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      *
@@ -3243,7 +3243,7 @@ class SiteApi implements ApiInterface
      *
      * Returns all active relationships of the site.
      *
-     * @param  bool $RequestActive The requested Active type Relationships. true indicates for Active Relationships and false indicates for Deactivated Relationships. (optional)
+     * @param  bool $RequestActive When &#x60;true&#x60;, the response only contains relationships which are activated.  When &#x60;false&#x60;, only deactivated relationships are returned.  Default: **All Relationships** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      *
@@ -3320,7 +3320,7 @@ class SiteApi implements ApiInterface
      *
      * Returns all active relationships of the site.
      *
-     * @param  bool $RequestActive The requested Active type Relationships. true indicates for Active Relationships and false indicates for Deactivated Relationships. (optional)
+     * @param  bool $RequestActive When &#x60;true&#x60;, the response only contains relationships which are activated.  When &#x60;false&#x60;, only deactivated relationships are returned.  Default: **All Relationships** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      *
@@ -3342,7 +3342,7 @@ class SiteApi implements ApiInterface
      *
      * Returns all active relationships of the site.
      *
-     * @param  bool $RequestActive The requested Active type Relationships. true indicates for Active Relationships and false indicates for Deactivated Relationships. (optional)
+     * @param  bool $RequestActive When &#x60;true&#x60;, the response only contains relationships which are activated.  When &#x60;false&#x60;, only deactivated relationships are returned.  Default: **All Relationships** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      *
@@ -3394,7 +3394,7 @@ class SiteApi implements ApiInterface
     /**
      * Create request for operation 'siteGetRelationships'
      *
-     * @param  bool $RequestActive The requested Active type Relationships. true indicates for Active Relationships and false indicates for Deactivated Relationships. (optional)
+     * @param  bool $RequestActive When &#x60;true&#x60;, the response only contains relationships which are activated.  When &#x60;false&#x60;, only deactivated relationships are returned.  Default: **All Relationships** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      *
@@ -4142,6 +4142,7 @@ class SiteApi implements ApiInterface
      *
      * Get all sites that can be accessed by an API Key.
      *
+     * @param  bool $RequestIncludeLeadChannels This is an optional parameter to get lead channels for a Site. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  int[] $RequestSiteIds List of the requested site IDs. When omitted, returns all sites that the source has access to. (optional)
@@ -4150,9 +4151,9 @@ class SiteApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetSitesResponse
      */
-    public function siteGetSites($RequestLimit = null, $RequestOffset = null, $RequestSiteIds = null): \Nlocascio\Mindbody\Model\GetSitesResponse
+    public function siteGetSites($RequestIncludeLeadChannels = null, $RequestLimit = null, $RequestOffset = null, $RequestSiteIds = null): \Nlocascio\Mindbody\Model\GetSitesResponse
     {
-        list($response) = $this->siteGetSitesWithHttpInfo($RequestLimit, $RequestOffset, $RequestSiteIds);
+        list($response) = $this->siteGetSitesWithHttpInfo($RequestIncludeLeadChannels, $RequestLimit, $RequestOffset, $RequestSiteIds);
         return $response;
     }
 
@@ -4161,6 +4162,7 @@ class SiteApi implements ApiInterface
      *
      * Get all sites that can be accessed by an API Key.
      *
+     * @param  bool $RequestIncludeLeadChannels This is an optional parameter to get lead channels for a Site. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  int[] $RequestSiteIds List of the requested site IDs. When omitted, returns all sites that the source has access to. (optional)
@@ -4169,10 +4171,10 @@ class SiteApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetSitesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function siteGetSitesWithHttpInfo($RequestLimit = null, $RequestOffset = null, $RequestSiteIds = null): array
+    public function siteGetSitesWithHttpInfo($RequestIncludeLeadChannels = null, $RequestLimit = null, $RequestOffset = null, $RequestSiteIds = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetSitesResponse';
-        $request = $this->siteGetSitesRequest($RequestLimit, $RequestOffset, $RequestSiteIds);
+        $request = $this->siteGetSitesRequest($RequestIncludeLeadChannels, $RequestLimit, $RequestOffset, $RequestSiteIds);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4238,6 +4240,7 @@ class SiteApi implements ApiInterface
      *
      * Get all sites that can be accessed by an API Key.
      *
+     * @param  bool $RequestIncludeLeadChannels This is an optional parameter to get lead channels for a Site. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  int[] $RequestSiteIds List of the requested site IDs. When omitted, returns all sites that the source has access to. (optional)
@@ -4245,9 +4248,9 @@ class SiteApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function siteGetSitesAsync($RequestLimit = null, $RequestOffset = null, $RequestSiteIds = null): \GuzzleHttp\Promise\PromiseInterface
+    public function siteGetSitesAsync($RequestIncludeLeadChannels = null, $RequestLimit = null, $RequestOffset = null, $RequestSiteIds = null): \GuzzleHttp\Promise\PromiseInterface
     {
-        return $this->siteGetSitesAsyncWithHttpInfo($RequestLimit, $RequestOffset, $RequestSiteIds)
+        return $this->siteGetSitesAsyncWithHttpInfo($RequestIncludeLeadChannels, $RequestLimit, $RequestOffset, $RequestSiteIds)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4260,6 +4263,7 @@ class SiteApi implements ApiInterface
      *
      * Get all sites that can be accessed by an API Key.
      *
+     * @param  bool $RequestIncludeLeadChannels This is an optional parameter to get lead channels for a Site. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  int[] $RequestSiteIds List of the requested site IDs. When omitted, returns all sites that the source has access to. (optional)
@@ -4267,10 +4271,10 @@ class SiteApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function siteGetSitesAsyncWithHttpInfo($RequestLimit = null, $RequestOffset = null, $RequestSiteIds = null): \GuzzleHttp\Promise\PromiseInterface
+    public function siteGetSitesAsyncWithHttpInfo($RequestIncludeLeadChannels = null, $RequestLimit = null, $RequestOffset = null, $RequestSiteIds = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetSitesResponse';
-        $request = $this->siteGetSitesRequest($RequestLimit, $RequestOffset, $RequestSiteIds);
+        $request = $this->siteGetSitesRequest($RequestIncludeLeadChannels, $RequestLimit, $RequestOffset, $RequestSiteIds);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4312,6 +4316,7 @@ class SiteApi implements ApiInterface
     /**
      * Create request for operation 'siteGetSites'
      *
+     * @param  bool $RequestIncludeLeadChannels This is an optional parameter to get lead channels for a Site. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  int[] $RequestSiteIds List of the requested site IDs. When omitted, returns all sites that the source has access to. (optional)
@@ -4319,7 +4324,7 @@ class SiteApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function siteGetSitesRequest($RequestLimit = null, $RequestOffset = null, $RequestSiteIds = null): \GuzzleHttp\Psr7\Request
+    protected function siteGetSitesRequest($RequestIncludeLeadChannels = null, $RequestLimit = null, $RequestOffset = null, $RequestSiteIds = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/site/sites';
@@ -4329,6 +4334,10 @@ class SiteApi implements ApiInterface
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($RequestIncludeLeadChannels !== null) {
+            $queryParams['request.includeLeadChannels'] = ObjectSerializer::toQueryValue($RequestIncludeLeadChannels);
+        }
         // query params
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);

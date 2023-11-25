@@ -37,8 +37,8 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property int $SaleID SaleID
- * @property \DateTime $SaleDate SaleDate
+ * @property int $SaleID The Sale ID for which saleDate needs to be updated. This is the `Sale[].Id` returned from GET Sales.
+ * @property \DateTime $SaleDate The sale date which needs to be modified.
  *
  */
 class UpdateSaleDateRequest extends BaseModel
@@ -147,7 +147,7 @@ class UpdateSaleDateRequest extends BaseModel
     /**
      * Sets SaleID
      *
-     * @param int $SaleID SaleID
+     * @param int $SaleID The Sale ID for which saleDate needs to be updated. This is the `Sale[].Id` returned from GET Sales.
      *
      * @return $this
      */
@@ -171,7 +171,7 @@ class UpdateSaleDateRequest extends BaseModel
     /**
      * Sets SaleDate
      *
-     * @param \DateTime $SaleDate SaleDate
+     * @param \DateTime $SaleDate The sale date which needs to be modified.
      *
      * @return $this
      */

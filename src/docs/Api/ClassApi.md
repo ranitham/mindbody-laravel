@@ -87,7 +87,7 @@ Name | Type | Description  | Notes
 
 Book a client into a class.
 
-This endpoint adds a client to a class or to a class waiting list. It is helpful to use this endpoint in the following situations:  * Use after calling `GET Clients` and `GET Classes` so that you are sure which client to book in which class.  * If adding a client to a class from a waiting list, use this call after you call `GET WaitlistEntries` and determine the ID of the waiting list from which you are moving the client.  * If adding a client to a class and using a pricing option that the client has already purchased, use this call after you call `GET ClientServices` to determine the ID of the pricing option that the client wants to use.    If you add a client to a class and the client purchases a new pricing option, use `GET Services`, `GET Classes`, and then `POST CheckoutShoppingCart` in place of this call.    This endpoint also supports cross-regional class bookings. If you want to perform a cross-regional class booking, set `CrossRegionalBooking` to `true`. This endpoint does not support adding a user to a waiting list using a cross-regional client pricing option(service). Cross-regional booking workflows do not support client service scheduling restrictions.    When performing a cross-regional class booking, this endpoint loops through the first ten sites that the client is associated with, looks for client pricing options at each of those sites, and then uses the oldest client pricing option found.It is important to note that this endpoint only loops through a maximum of ten associated client sites. If a `ClientID` is associated with more than ten sites in an organization, this endpoint only loops through the first ten.If you know that a client has a client service at another site, you can specify that site using the `CrossRegionalBookingClientServiceSiteId` query parameter.    If you perform a cross-regional booking, two additional fields are included in the `SessionType` object of the response:  * `SiteID`, which specifies where the client service is coming from  * `CrossRegionalBookingPerformed`, a Boolean field that is set to `true`    As a prerequisite to using this endpoint, your `SourceName` must have been granted access to the organization to which the site belongs.
+This endpoint adds a client to a class or to a class waiting list. To prevent overbooking a class or booking outside the schedule windows set forth by the business, it is necessary to first check the capacity level of the class (‘MaxCapacity’ and 'TotalBooked’) and the 'IsAvailable’ parameter by running the GetClasses REQUEST. It is helpful to use this endpoint in the following situations:  * Use after calling `GET Clients` and `GET Classes` so that you are sure which client to book in which class.  * If adding a client to a class from a waiting list, use this call after you call `GET WaitlistEntries` and determine the ID of the waiting list from which you are moving the client.  * If adding a client to a class and using a pricing option that the client has already purchased, use this call after you call `GET ClientServices` to determine the ID of the pricing option that the client wants to use.    If you add a client to a class and the client purchases a new pricing option, use `GET Services`, `GET Classes`, and then `POST CheckoutShoppingCart` in place of this call.    This endpoint also supports cross-regional class bookings. If you want to perform a cross-regional class booking, set `CrossRegionalBooking` to `true`. This endpoint does not support adding a user to a waiting list using a cross-regional client pricing option(service). Cross-regional booking workflows do not support client service scheduling restrictions.    When performing a cross-regional class booking, this endpoint loops through the first ten sites that the client is associated with, looks for client pricing options at each of those sites, and then uses the oldest client pricing option found.It is important to note that this endpoint only loops through a maximum of ten associated client sites. If a `ClientID` is associated with more than ten sites in an organization, this endpoint only loops through the first ten.If you know that a client has a client service at another site, you can specify that site using the `CrossRegionalBookingClientServiceSiteId` query parameter.    If you perform a cross-regional booking, two additional fields are included in the `SessionType` object of the response:  * `SiteID`, which specifies where the client service is coming from  * `CrossRegionalBookingPerformed`, a Boolean field that is set to `true`    As a prerequisite to using this endpoint, your `SourceName` must have been granted access to the organization to which the site belongs.
 
 ### Example
 ```php
@@ -149,6 +149,8 @@ Name | Type | Description  | Notes
 > \Nlocascio\Mindbody\Model\CancelSingleClassResponse classCancelSingleClass($Request)
 
 Cancels a single class instance.
+
+This endpoint will cancel a single class from studio.
 
 ### Example
 ```php
@@ -237,12 +239,12 @@ $apiInstance = new Nlocascio\Mindbody\Api\ClassApi(
     new GuzzleHttp\Client(),
     $config
 );
-$RequestClassDescriptionId = 56; // int | Filters to the single result with the given ID.
+$RequestClassDescriptionId = 56; // int | The ID of the requested client.
 $RequestEndClassDateTime = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filters the results to class descriptions for scheduled classes that happen before the given date and time.
 $RequestLimit = 56; // int | Number of results to include, defaults to 100
 $RequestLocationId = 56; // int | Filters results to classes descriptions for schedule classes as the given location.
 $RequestOffset = 56; // int | Page offset, defaults to 0.
-$RequestProgramIds = array(56); // int[] | Filters results to class descriptions belonging to the given programs.
+$RequestProgramIds = array(56); // int[] | A list of requested program IDs.
 $RequestStaffId = 789; // int | Filters results to class descriptions for scheduled classes taught by the given staff member.
 $RequestStartClassDateTime = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filters the results to class descriptions for scheduled classes that happen on or after the given date and time.
 
@@ -259,12 +261,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **RequestClassDescriptionId** | **int**| Filters to the single result with the given ID. | [optional]
+ **RequestClassDescriptionId** | **int**| The ID of the requested client. | [optional]
  **RequestEndClassDateTime** | **\DateTime**| Filters the results to class descriptions for scheduled classes that happen before the given date and time. | [optional]
  **RequestLimit** | **int**| Number of results to include, defaults to 100 | [optional]
  **RequestLocationId** | **int**| Filters results to classes descriptions for schedule classes as the given location. | [optional]
  **RequestOffset** | **int**| Page offset, defaults to 0. | [optional]
- **RequestProgramIds** | [**int[]**](../Model/int.md)| Filters results to class descriptions belonging to the given programs. | [optional]
+ **RequestProgramIds** | [**int[]**](../Model/int.md)| A list of requested program IDs. | [optional]
  **RequestStaffId** | **int**| Filters results to class descriptions for scheduled classes taught by the given staff member. | [optional]
  **RequestStartClassDateTime** | **\DateTime**| Filters the results to class descriptions for scheduled classes that happen on or after the given date and time. | [optional]
 
@@ -456,7 +458,7 @@ $apiInstance = new Nlocascio\Mindbody\Api\ClassApi(
 );
 $RequestClassDescriptionIds = array(56); // int[] | The requested class description IDs.
 $RequestClassIds = array(56); // int[] | The requested class IDs.
-$RequestClassScheduleIds = array(56); // int[] | The requested classScheduleIds.
+$RequestClassScheduleIds = array(56); // int[] | The requested classSchedule Ids.
 $RequestClientId = "RequestClientId_example"; // string | The client ID of the client who is viewing this class list. Based on identity, the client may be able to see additional information, such as membership specials.
 $RequestEndDateTime = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The requested end date for filtering.  <br />Default: **today’s date**
 $RequestHideCanceledClasses = true; // bool | When `true`, canceled classes are removed from the response.<br />  When `false`, canceled classes are included in the response.<br />  Default: **false**
@@ -469,7 +471,7 @@ $RequestSchedulingWindow = true; // bool | When `true`, classes outside scheduli
 $RequestSemesterIds = array(56); // int[] | A list of semester IDs on which to base the search.
 $RequestSessionTypeIds = array(56); // int[] | A list of session type IDs on which to base the search.
 $RequestStaffIds = array(56); // int[] | The requested IDs of the teaching staff members.
-$RequestStartDateTime = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The requested start date for filtering.   <br />Default: **today’s date**
+$RequestStartDateTime = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The requested start date for filtering. This also determines what you will see for the ‘BookingWindow’ StartDateTime in the response. For example, if you pass a StartDateTime that is on OR before the BookingWindow ‘Open’ days of the class, you will retrieve the actual ‘StartDateTime’ for the Booking Window. If you pass a StartDateTime that is after the BookingWindow ‘date’, then you will receive results based on that start date.
 
 try {
     $result = $apiInstance->classGetClasses($RequestClassDescriptionIds, $RequestClassIds, $RequestClassScheduleIds, $RequestClientId, $RequestEndDateTime, $RequestHideCanceledClasses, $RequestLastModifiedDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSchedulingWindow, $RequestSemesterIds, $RequestSessionTypeIds, $RequestStaffIds, $RequestStartDateTime);
@@ -486,7 +488,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **RequestClassDescriptionIds** | [**int[]**](../Model/int.md)| The requested class description IDs. | [optional]
  **RequestClassIds** | [**int[]**](../Model/int.md)| The requested class IDs. | [optional]
- **RequestClassScheduleIds** | [**int[]**](../Model/int.md)| The requested classScheduleIds. | [optional]
+ **RequestClassScheduleIds** | [**int[]**](../Model/int.md)| The requested classSchedule Ids. | [optional]
  **RequestClientId** | **string**| The client ID of the client who is viewing this class list. Based on identity, the client may be able to see additional information, such as membership specials. | [optional]
  **RequestEndDateTime** | **\DateTime**| The requested end date for filtering.  &lt;br /&gt;Default: **today’s date** | [optional]
  **RequestHideCanceledClasses** | **bool**| When &#x60;true&#x60;, canceled classes are removed from the response.&lt;br /&gt;  When &#x60;false&#x60;, canceled classes are included in the response.&lt;br /&gt;  Default: **false** | [optional]
@@ -499,7 +501,7 @@ Name | Type | Description  | Notes
  **RequestSemesterIds** | [**int[]**](../Model/int.md)| A list of semester IDs on which to base the search. | [optional]
  **RequestSessionTypeIds** | [**int[]**](../Model/int.md)| A list of session type IDs on which to base the search. | [optional]
  **RequestStaffIds** | [**int[]**](../Model/int.md)| The requested IDs of the teaching staff members. | [optional]
- **RequestStartDateTime** | **\DateTime**| The requested start date for filtering.   &lt;br /&gt;Default: **today’s date** | [optional]
+ **RequestStartDateTime** | **\DateTime**| The requested start date for filtering. This also determines what you will see for the ‘BookingWindow’ StartDateTime in the response. For example, if you pass a StartDateTime that is on OR before the BookingWindow ‘Open’ days of the class, you will retrieve the actual ‘StartDateTime’ for the Booking Window. If you pass a StartDateTime that is after the BookingWindow ‘date’, then you will receive results based on that start date. | [optional]
 
 ### Return type
 
@@ -520,6 +522,8 @@ Name | Type | Description  | Notes
 > \Nlocascio\Mindbody\Model\GetCoursesReponse classGetCourses($GetCoursesRequestCourseIDs, $GetCoursesRequestEndDate, $GetCoursesRequestLimit, $GetCoursesRequestLocationIDs, $GetCoursesRequestOffset, $GetCoursesRequestProgramIDs, $GetCoursesRequestSemesterIDs, $GetCoursesRequestStaffIDs, $GetCoursesRequestStartDate)
 
 Fetch the list of the course for a studio
+
+This endpoint will provide all the data related to courses depending on the access level.<br />  Note: The Authorization is an optional header.If Authorization header is not passed, the response will be masked else full response will be provided.
 
 ### Example
 ```php
@@ -545,14 +549,14 @@ $apiInstance = new Nlocascio\Mindbody\Api\ClassApi(
     new GuzzleHttp\Client(),
     $config
 );
-$GetCoursesRequestCourseIDs = array(56); // int[] | (optional) The requested course IDs.
+$GetCoursesRequestCourseIDs = array(56); // int[] | Return only courses that are available for the specified CourseIds.
 $GetCoursesRequestEndDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The end date range. Any active courses that are on or before this day.  <br />(optional) Defaults to StartDate.
 $GetCoursesRequestLimit = 56; // int | Number of results to include, defaults to 100
-$GetCoursesRequestLocationIDs = array(56); // int[] | (optional) The requested locations.
+$GetCoursesRequestLocationIDs = array(56); // int[] | Return only courses that are available for the specified LocationIds.
 $GetCoursesRequestOffset = 56; // int | Page offset, defaults to 0.
-$GetCoursesRequestProgramIDs = array(56); // int[] | (optional) The requested program IDs.
-$GetCoursesRequestSemesterIDs = array(56); // int[] | (optional) The requested semester IDs.
-$GetCoursesRequestStaffIDs = array(56); // int[] | (optional) The requested StaffIDs.
+$GetCoursesRequestProgramIDs = array(56); // int[] | Return only courses that are available for the specified ProgramIds.
+$GetCoursesRequestSemesterIDs = array(56); // int[] | Return only courses that are available for the specified SemesterIds.
+$GetCoursesRequestStaffIDs = array(56); // int[] | Return only courses that are available for the specified StaffIds.
 $GetCoursesRequestStartDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The start date range. Any active courses that are on or after this day.  <br />(optional) Defaults to today.
 
 try {
@@ -568,14 +572,14 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **GetCoursesRequestCourseIDs** | [**int[]**](../Model/int.md)| (optional) The requested course IDs. | [optional]
+ **GetCoursesRequestCourseIDs** | [**int[]**](../Model/int.md)| Return only courses that are available for the specified CourseIds. | [optional]
  **GetCoursesRequestEndDate** | **\DateTime**| The end date range. Any active courses that are on or before this day.  &lt;br /&gt;(optional) Defaults to StartDate. | [optional]
  **GetCoursesRequestLimit** | **int**| Number of results to include, defaults to 100 | [optional]
- **GetCoursesRequestLocationIDs** | [**int[]**](../Model/int.md)| (optional) The requested locations. | [optional]
+ **GetCoursesRequestLocationIDs** | [**int[]**](../Model/int.md)| Return only courses that are available for the specified LocationIds. | [optional]
  **GetCoursesRequestOffset** | **int**| Page offset, defaults to 0. | [optional]
- **GetCoursesRequestProgramIDs** | [**int[]**](../Model/int.md)| (optional) The requested program IDs. | [optional]
- **GetCoursesRequestSemesterIDs** | [**int[]**](../Model/int.md)| (optional) The requested semester IDs. | [optional]
- **GetCoursesRequestStaffIDs** | [**int[]**](../Model/int.md)| (optional) The requested StaffIDs. | [optional]
+ **GetCoursesRequestProgramIDs** | [**int[]**](../Model/int.md)| Return only courses that are available for the specified ProgramIds. | [optional]
+ **GetCoursesRequestSemesterIDs** | [**int[]**](../Model/int.md)| Return only courses that are available for the specified SemesterIds. | [optional]
+ **GetCoursesRequestStaffIDs** | [**int[]**](../Model/int.md)| Return only courses that are available for the specified StaffIds. | [optional]
  **GetCoursesRequestStartDate** | **\DateTime**| The start date range. Any active courses that are on or after this day.  &lt;br /&gt;(optional) Defaults to today. | [optional]
 
 ### Return type
@@ -598,6 +602,8 @@ Name | Type | Description  | Notes
 
 Fetch the list of the Semesters
 
+This endpoint retrieves the business class semesters.
+
 ### Example
 ```php
 <?php
@@ -622,12 +628,12 @@ $apiInstance = new Nlocascio\Mindbody\Api\ClassApi(
     new GuzzleHttp\Client(),
     $config
 );
-$RequestActive = true; // bool | Get Active semesters
-$RequestEndDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter semesters with end date
+$RequestActive = true; // bool | When true, the response only contains semesters which are activated. When false, only deactivated semesters are returned.  Default: **All semesters**
+$RequestEndDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The end date for the range. All semesters that are on or before this day.  Default: **StartDate**
 $RequestLimit = 56; // int | Number of results to include, defaults to 100
 $RequestOffset = 56; // int | Page offset, defaults to 0.
-$RequestSemesterIDs = array(56); // int[] | Get with semester ids
-$RequestStartDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filter semesters with start date
+$RequestSemesterIDs = array(56); // int[] | The requested semester IDs.
+$RequestStartDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The start date for the range. All semesters that are on or after this day.  Default: **today’s date**
 
 try {
     $result = $apiInstance->classGetSemestersAsync($RequestActive, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestSemesterIDs, $RequestStartDate);
@@ -642,12 +648,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **RequestActive** | **bool**| Get Active semesters | [optional]
- **RequestEndDate** | **\DateTime**| Filter semesters with end date | [optional]
+ **RequestActive** | **bool**| When true, the response only contains semesters which are activated. When false, only deactivated semesters are returned.  Default: **All semesters** | [optional]
+ **RequestEndDate** | **\DateTime**| The end date for the range. All semesters that are on or before this day.  Default: **StartDate** | [optional]
  **RequestLimit** | **int**| Number of results to include, defaults to 100 | [optional]
  **RequestOffset** | **int**| Page offset, defaults to 0. | [optional]
- **RequestSemesterIDs** | [**int[]**](../Model/int.md)| Get with semester ids | [optional]
- **RequestStartDate** | **\DateTime**| Filter semesters with start date | [optional]
+ **RequestSemesterIDs** | [**int[]**](../Model/int.md)| The requested semester IDs. | [optional]
+ **RequestStartDate** | **\DateTime**| The start date for the range. All semesters that are on or after this day.  Default: **today’s date** | [optional]
 
 ### Return type
 
@@ -805,6 +811,8 @@ Name | Type | Description  | Notes
 
 Remove a clients from a classes.
 
+This endpoint can be utilized for removing multiple clients from multiple classes in one request.
+
 ### Example
 ```php
 <?php
@@ -892,7 +900,7 @@ $apiInstance = new Nlocascio\Mindbody\Api\ClassApi(
     new GuzzleHttp\Client(),
     $config
 );
-$RequestWaitlistEntryIds = array(56); // int[] | A list of waiting list IDs to remove from waiting lists.
+$RequestWaitlistEntryIds = array(56); // int[] | A list of `WaitlistEntryIds` to remove from the waiting list.
 
 try {
     $result = $apiInstance->classRemoveFromWaitlist($RequestWaitlistEntryIds);
@@ -907,7 +915,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **RequestWaitlistEntryIds** | [**int[]**](../Model/int.md)| A list of waiting list IDs to remove from waiting lists. |
+ **RequestWaitlistEntryIds** | [**int[]**](../Model/int.md)| A list of &#x60;WaitlistEntryIds&#x60; to remove from the waiting list. |
 
 ### Return type
 

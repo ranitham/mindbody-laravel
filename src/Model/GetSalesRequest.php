@@ -36,10 +36,10 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property int $SaleId Filters results to the requested sale ID.
+ * @property int $SaleId The sale ID associated with the particular item. It Filters results to the requested sale ID.
  * @property \DateTime $StartSaleDateTime Filters results to sales that happened after this date and time.
  * @property \DateTime $EndSaleDateTime Filters results to sales that happened before this date and time.
- * @property int $PaymentMethodId Filters results to sales paid for by the given payment method ID.
+ * @property int $PaymentMethodId Filters results to sales paid for by the given payment method ID which indicates payment method(s) (i.e. cash, VISA, AMEX, Check, etc.).
  * @property int $Limit Number of results to include, defaults to 100
  * @property int $Offset Page offset, defaults to 0.
  *
@@ -174,7 +174,7 @@ class GetSalesRequest extends BaseModel
     /**
      * Sets SaleId
      *
-     * @param int $SaleId Filters results to the requested sale ID.
+     * @param int $SaleId The sale ID associated with the particular item. It Filters results to the requested sale ID.
      *
      * @return $this
      */
@@ -246,7 +246,7 @@ class GetSalesRequest extends BaseModel
     /**
      * Sets PaymentMethodId
      *
-     * @param int $PaymentMethodId Filters results to sales paid for by the given payment method ID.
+     * @param int $PaymentMethodId Filters results to sales paid for by the given payment method ID which indicates payment method(s) (i.e. cash, VISA, AMEX, Check, etc.).
      *
      * @return $this
      */

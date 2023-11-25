@@ -39,7 +39,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property int $SessionTypeId required requested session type ID.
  * @property int $LocationId optional requested location ID.
  * @property int $StaffId optional requested staff ID.
- * @property \DateTime $StartDate The start date of the requested date range.   <br />Default: **today’s date**
+ * @property \DateTime $StartDate The start date of the requested date range. If omitted, the default is used.  <br />Default: **today’s date**
  * @property \DateTime $EndDate The end date of the requested date range.   <br />Default: **StartDate**
  *
  */
@@ -242,7 +242,7 @@ class GetAvailableDatesRequest extends BaseModel
     /**
      * Sets StartDate
      *
-     * @param \DateTime $StartDate The start date of the requested date range.   <br />Default: **today’s date**
+     * @param \DateTime $StartDate The start date of the requested date range. If omitted, the default is used.  <br />Default: **today’s date**
      *
      * @return $this
      */

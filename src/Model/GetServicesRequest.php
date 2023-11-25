@@ -38,7 +38,7 @@ namespace Nlocascio\Mindbody\Model;
  * @link     https://github.com/swagger-api/swagger-codegen
  * @property int[] $ProgramIds Filters to pricing options with the specified program IDs.
  * @property int[] $SessionTypeIds Filters to the pricing options with the specified session types IDs.
- * @property string[] $ServiceIds Filters to the pricing options with the specified IDs. In this context, service and pricing option are used interchangeably.
+ * @property string[] $ServiceIds Filters to the pricing options with the specified IDs. In this context, service and pricing option are used interchangeably. These are the `PurchasedItems[].Id` returned from GET Sales.
  * @property int $ClassId Filters to the pricing options for the specified class ID.
  * @property int $ClassScheduleId Filters to the pricing options for the specified class schedule ID.
  * @property bool $SellOnline When `true`, filters to the pricing options that can be sold online.<br />  Default: **false**
@@ -271,7 +271,7 @@ class GetServicesRequest extends BaseModel
     /**
      * Sets ServiceIds
      *
-     * @param string[] $ServiceIds Filters to the pricing options with the specified IDs. In this context, service and pricing option are used interchangeably.
+     * @param string[] $ServiceIds Filters to the pricing options with the specified IDs. In this context, service and pricing option are used interchangeably. These are the `PurchasedItems[].Id` returned from GET Sales.
      *
      * @return $this
      */

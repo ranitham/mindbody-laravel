@@ -46,6 +46,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property string $Name The name of the pricing option.
  * @property int $Count The initial count of usages available for the pricing option.
  * @property bool $SellOnline A flag for whether or not the pricing option is sold online.
+ * @property bool $SaleInContractOnly A flag for whether or not the pricing option is contractonly.
  * @property string $Type Indicates if the pricing option is a drop-in, series, or unlimiited.
  * @property string $ExpirationType Indicates if the pricing option begins its activation on the date of sale or first usage.
  * @property string $ExpirationUnit The unit, either days or months, of ExpirationLength.
@@ -89,6 +90,7 @@ class Service extends BaseModel implements ModelWithId
         'Name' => 'string',
         'Count' => 'int',
         'SellOnline' => 'bool',
+        'SaleInContractOnly' => 'bool',
         'Type' => 'string',
         'ExpirationType' => 'string',
         'ExpirationUnit' => 'string',
@@ -121,6 +123,7 @@ class Service extends BaseModel implements ModelWithId
         'Name' => null,
         'Count' => 'int32',
         'SellOnline' => null,
+        'SaleInContractOnly' => null,
         'Type' => null,
         'ExpirationType' => null,
         'ExpirationUnit' => null,
@@ -155,6 +158,7 @@ class Service extends BaseModel implements ModelWithId
         'Name' => 'Name',
         'Count' => 'Count',
         'SellOnline' => 'SellOnline',
+        'SaleInContractOnly' => 'SaleInContractOnly',
         'Type' => 'Type',
         'ExpirationType' => 'ExpirationType',
         'ExpirationUnit' => 'ExpirationUnit',
@@ -187,6 +191,7 @@ class Service extends BaseModel implements ModelWithId
         'Name' => 'setName',
         'Count' => 'setCount',
         'SellOnline' => 'setSellOnline',
+        'SaleInContractOnly' => 'setSaleInContractOnly',
         'Type' => 'setType',
         'ExpirationType' => 'setExpirationType',
         'ExpirationUnit' => 'setExpirationUnit',
@@ -219,6 +224,7 @@ class Service extends BaseModel implements ModelWithId
         'Name' => 'getName',
         'Count' => 'getCount',
         'SellOnline' => 'getSellOnline',
+        'SaleInContractOnly' => 'getSaleInContractOnly',
         'Type' => 'getType',
         'ExpirationType' => 'getExpirationType',
         'ExpirationUnit' => 'getExpirationUnit',
@@ -258,6 +264,7 @@ class Service extends BaseModel implements ModelWithId
         $this->container['Name'] = isset($data['Name']) ? $data['Name'] : null;
         $this->container['Count'] = isset($data['Count']) ? $data['Count'] : null;
         $this->container['SellOnline'] = isset($data['SellOnline']) ? $data['SellOnline'] : null;
+        $this->container['SaleInContractOnly'] = isset($data['SaleInContractOnly']) ? $data['SaleInContractOnly'] : null;
         $this->container['Type'] = isset($data['Type']) ? $data['Type'] : null;
         $this->container['ExpirationType'] = isset($data['ExpirationType']) ? $data['ExpirationType'] : null;
         $this->container['ExpirationUnit'] = isset($data['ExpirationUnit']) ? $data['ExpirationUnit'] : null;
@@ -523,6 +530,30 @@ class Service extends BaseModel implements ModelWithId
     public function setSellOnline($SellOnline): self
     {
         $this->container['SellOnline'] = $SellOnline;
+
+        return $this;
+    }
+
+    /**
+     * Gets SaleInContractOnly
+     *
+     * @return bool
+     */
+    public function getSaleInContractOnly()
+    {
+        return $this->container['SaleInContractOnly'];
+    }
+
+    /**
+     * Sets SaleInContractOnly
+     *
+     * @param bool $SaleInContractOnly A flag for whether or not the pricing option is contractonly.
+     *
+     * @return $this
+     */
+    public function setSaleInContractOnly($SaleInContractOnly): self
+    {
+        $this->container['SaleInContractOnly'] = $SaleInContractOnly;
 
         return $this;
     }

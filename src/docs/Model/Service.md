@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **Name** | **string** | The name of the pricing option. | [optional] 
 **Count** | **int** | The initial count of usages available for the pricing option. | [optional] 
 **SellOnline** | **bool** | A flag for whether or not the pricing option is sold online. | [optional] 
+**SaleInContractOnly** | **bool** | A flag for whether or not the pricing option is contractonly. | [optional] 
 **Type** | **string** | Indicates if the pricing option is a drop-in, series, or unlimiited. | [optional] 
 **ExpirationType** | **string** | Indicates if the pricing option begins its activation on the date of sale or first usage. | [optional] 
 **ExpirationUnit** | **string** | The unit, either days or months, of ExpirationLength. | [optional] 

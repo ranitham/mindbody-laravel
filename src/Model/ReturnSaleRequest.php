@@ -37,8 +37,8 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property int $SaleId SaleId
- * @property string $ReturnReason ReturnReason
+ * @property int $SaleId The Sale ID of the sale item to be returned.
+ * @property string $ReturnReason The reason for the return.
  *
  */
 class ReturnSaleRequest extends BaseModel
@@ -147,7 +147,7 @@ class ReturnSaleRequest extends BaseModel
     /**
      * Sets SaleId
      *
-     * @param int $SaleId SaleId
+     * @param int $SaleId The Sale ID of the sale item to be returned.
      *
      * @return $this
      */
@@ -171,7 +171,7 @@ class ReturnSaleRequest extends BaseModel
     /**
      * Sets ReturnReason
      *
-     * @param string $ReturnReason ReturnReason
+     * @param string $ReturnReason The reason for the return.
      *
      * @return $this
      */

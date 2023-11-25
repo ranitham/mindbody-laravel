@@ -37,13 +37,13 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property int[] $LocationIDs (optional) The requested locations.
- * @property int[] $CourseIDs (optional) The requested course IDs.
- * @property int[] $StaffIDs (optional) The requested StaffIDs.
- * @property int[] $ProgramIDs (optional) The requested program IDs.
+ * @property int[] $LocationIDs Return only courses that are available for the specified LocationIds.
+ * @property int[] $CourseIDs Return only courses that are available for the specified CourseIds.
+ * @property int[] $StaffIDs Return only courses that are available for the specified StaffIds.
+ * @property int[] $ProgramIDs Return only courses that are available for the specified ProgramIds.
  * @property \DateTime $StartDate The start date range. Any active courses that are on or after this day.  <br />(optional) Defaults to today.
  * @property \DateTime $EndDate The end date range. Any active courses that are on or before this day.  <br />(optional) Defaults to StartDate.
- * @property int[] $SemesterIDs (optional) The requested semester IDs.
+ * @property int[] $SemesterIDs Return only courses that are available for the specified SemesterIds.
  * @property int $Limit Number of results to include, defaults to 100
  * @property int $Offset Page offset, defaults to 0.
  *
@@ -196,7 +196,7 @@ class GetCoursesRequest extends BaseModel
     /**
      * Sets LocationIDs
      *
-     * @param int[] $LocationIDs (optional) The requested locations.
+     * @param int[] $LocationIDs Return only courses that are available for the specified LocationIds.
      *
      * @return $this
      */
@@ -220,7 +220,7 @@ class GetCoursesRequest extends BaseModel
     /**
      * Sets CourseIDs
      *
-     * @param int[] $CourseIDs (optional) The requested course IDs.
+     * @param int[] $CourseIDs Return only courses that are available for the specified CourseIds.
      *
      * @return $this
      */
@@ -244,7 +244,7 @@ class GetCoursesRequest extends BaseModel
     /**
      * Sets StaffIDs
      *
-     * @param int[] $StaffIDs (optional) The requested StaffIDs.
+     * @param int[] $StaffIDs Return only courses that are available for the specified StaffIds.
      *
      * @return $this
      */
@@ -268,7 +268,7 @@ class GetCoursesRequest extends BaseModel
     /**
      * Sets ProgramIDs
      *
-     * @param int[] $ProgramIDs (optional) The requested program IDs.
+     * @param int[] $ProgramIDs Return only courses that are available for the specified ProgramIds.
      *
      * @return $this
      */
@@ -340,7 +340,7 @@ class GetCoursesRequest extends BaseModel
     /**
      * Sets SemesterIDs
      *
-     * @param int[] $SemesterIDs (optional) The requested semester IDs.
+     * @param int[] $SemesterIDs Return only courses that are available for the specified SemesterIds.
      *
      * @return $this
      */

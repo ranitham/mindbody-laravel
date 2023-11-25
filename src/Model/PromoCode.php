@@ -43,6 +43,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property \DateTime $ActivationDate Date activated
  * @property \DateTime $ExpirationDate Date expired
  * @property int $MaxUses How many times it can be used
+ * @property int $NumberOfAutopays Number of Autopays
  * @property int $DaysAfterCloseDate Days after close date
  * @property bool $AllowOnline Whether it can be used online
  * @property string[] $DaysValid What days the promo code can be used
@@ -73,6 +74,7 @@ class PromoCode extends BaseModel
         'ActivationDate' => '\DateTime',
         'ExpirationDate' => '\DateTime',
         'MaxUses' => 'int',
+        'NumberOfAutopays' => 'int',
         'DaysAfterCloseDate' => 'int',
         'AllowOnline' => 'bool',
         'DaysValid' => 'string[]',
@@ -92,6 +94,7 @@ class PromoCode extends BaseModel
         'ActivationDate' => 'date-time',
         'ExpirationDate' => 'date-time',
         'MaxUses' => 'int32',
+        'NumberOfAutopays' => 'int32',
         'DaysAfterCloseDate' => 'int32',
         'AllowOnline' => null,
         'DaysValid' => null,
@@ -113,6 +116,7 @@ class PromoCode extends BaseModel
         'ActivationDate' => 'ActivationDate',
         'ExpirationDate' => 'ExpirationDate',
         'MaxUses' => 'MaxUses',
+        'NumberOfAutopays' => 'NumberOfAutopays',
         'DaysAfterCloseDate' => 'DaysAfterCloseDate',
         'AllowOnline' => 'AllowOnline',
         'DaysValid' => 'DaysValid',
@@ -132,6 +136,7 @@ class PromoCode extends BaseModel
         'ActivationDate' => 'setActivationDate',
         'ExpirationDate' => 'setExpirationDate',
         'MaxUses' => 'setMaxUses',
+        'NumberOfAutopays' => 'setNumberOfAutopays',
         'DaysAfterCloseDate' => 'setDaysAfterCloseDate',
         'AllowOnline' => 'setAllowOnline',
         'DaysValid' => 'setDaysValid',
@@ -151,6 +156,7 @@ class PromoCode extends BaseModel
         'ActivationDate' => 'getActivationDate',
         'ExpirationDate' => 'getExpirationDate',
         'MaxUses' => 'getMaxUses',
+        'NumberOfAutopays' => 'getNumberOfAutopays',
         'DaysAfterCloseDate' => 'getDaysAfterCloseDate',
         'AllowOnline' => 'getAllowOnline',
         'DaysValid' => 'getDaysValid',
@@ -202,6 +208,7 @@ class PromoCode extends BaseModel
         $this->container['ActivationDate'] = isset($data['ActivationDate']) ? $data['ActivationDate'] : null;
         $this->container['ExpirationDate'] = isset($data['ExpirationDate']) ? $data['ExpirationDate'] : null;
         $this->container['MaxUses'] = isset($data['MaxUses']) ? $data['MaxUses'] : null;
+        $this->container['NumberOfAutopays'] = isset($data['NumberOfAutopays']) ? $data['NumberOfAutopays'] : null;
         $this->container['DaysAfterCloseDate'] = isset($data['DaysAfterCloseDate']) ? $data['DaysAfterCloseDate'] : null;
         $this->container['AllowOnline'] = isset($data['AllowOnline']) ? $data['AllowOnline'] : null;
         $this->container['DaysValid'] = isset($data['DaysValid']) ? $data['DaysValid'] : null;
@@ -385,6 +392,30 @@ class PromoCode extends BaseModel
     public function setMaxUses($MaxUses): self
     {
         $this->container['MaxUses'] = $MaxUses;
+
+        return $this;
+    }
+
+    /**
+     * Gets NumberOfAutopays
+     *
+     * @return int
+     */
+    public function getNumberOfAutopays()
+    {
+        return $this->container['NumberOfAutopays'];
+    }
+
+    /**
+     * Sets NumberOfAutopays
+     *
+     * @param int $NumberOfAutopays Number of Autopays
+     *
+     * @return $this
+     */
+    public function setNumberOfAutopays($NumberOfAutopays): self
+    {
+        $this->container['NumberOfAutopays'] = $NumberOfAutopays;
 
         return $this;
     }

@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **ActivationDate** | [**\DateTime**](\DateTime.md) | Date activated | [optional] 
 **ExpirationDate** | [**\DateTime**](\DateTime.md) | Date expired | [optional] 
 **MaxUses** | **int** | How many times it can be used | [optional] 
+**NumberOfAutopays** | **int** | Number of Autopays | [optional] 
 **DaysAfterCloseDate** | **int** | Days after close date | [optional] 
 **AllowOnline** | **bool** | Whether it can be used online | [optional] 
 **DaysValid** | **string[]** | What days the promo code can be used | [optional] 
