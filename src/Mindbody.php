@@ -329,7 +329,10 @@ class Mindbody
         try {
             return $this->call_user_func_array_with_audit($methodName, $methodCallback, $parameters);
         } catch (ApiException $e) {
-            if ($e->getCode() == 401 && \str_contains($e->getMessage(), 'Token expired')) {
+            if ($e->getCode() == 401 && (
+                \str_contains(($e->getMessage()), ('Token expired')) ||
+                \str_contains(($e->getMessage()), ('Invalid user token'))
+                )) {
                 $this->forgetAccessToken();
                 $this->updateAccessToken();
                 return $this->call_user_func_array_with_audit($methodName, $methodCallback, $parameters);
