@@ -4,7 +4,7 @@ All URIs are relative to *https://api.mindbodyonline.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**pricingOptionUpdatePricingOption**](PricingOptionApi.md#pricingOptionUpdatePricingOption) | **POST** /public/v6/PricingOption/UpdatePricingOption | Update Pricing Option data such as name, details, price, discontinued using PricingOptionId(product id)
+[**pricingOptionUpdatePricingOption**](PricingOptionApi.md#pricingOptionUpdatePricingOption) | **POST** /public/v6/pricingoption/updatepricingoption | Update Pricing Option data such as name, details, price, discontinued using PricingOptionId(product id)
 
 
 # **pricingOptionUpdatePricingOption**

@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 **EmploymentStart** | [**\DateTime**](\DateTime.md) | The start date of employment | [optional] 
 **EmploymentEnd** | [**\DateTime**](\DateTime.md) | The end date of employment | [optional] 
 **SortOrder** | **int** | If configured by the business owner, this field determines a staff member’s weight when sorting. Use this field to sort staff members on your interface. | [optional] 
-**ProviderIDs** | **string[]** | A list of providerIDs for the staff.  In the US it is one per staff and is numeric, otherwise it can be a list and is alpha-numeric  for more information see https://support.mindbodyonline.com/s/article/204075743-Provider-IDs?language&#x3D;en_US | [optional] 
+**ProviderIDs** | **string[]** | A list of providerIDs for the staff.  In the US it is one per staff and is numeric, otherwise it can be a list and is alpha-numeric  for more information see &lt;a href&#x3D;\&quot; https://support.mindbodyonline.com/s/article/204075743-Provider-IDs?language&#x3D;en_US\&quot; target&#x3D;\&quot;blank\&quot;&gt;Provider IDs&lt;/a&gt; | [optional] 
 **Notes** | **string** | The staff member private notes. | [optional] 
 **EmpID** | **string** | The custom staff ID assigned to the staff member. | [optional] 
 

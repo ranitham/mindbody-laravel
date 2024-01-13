@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **AutopayStatus** | **string** | The status of the client’s autopay. | [optional] 
 **ContractName** | **string** | The name of the contract. | [optional] 
 **EndDate** | [**\DateTime**](\DateTime.md) | The date that the contract expires. | [optional] 
-**Id** | **int** | The unique ID of the contract. | [optional] 
+**Id** | **int** | The unique ID of the sale of the contract. Each time a contract is sold, this ID increases sequentially. | [optional] 
 **OriginationLocationId** | **int** | The ID of the location where the contract was issued. | [optional] 
 **StartDate** | [**\DateTime**](\DateTime.md) | The date that the contract became active. | [optional] 
 **SiteId** | **int** | The ID of the site where the contract was issued. | [optional] 

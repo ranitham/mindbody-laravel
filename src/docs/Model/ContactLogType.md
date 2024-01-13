@@ -3,9 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int** | The contact log type’s ID. | [optional] 
-**Name** | **string** | The type&#39;s Name | [optional] 
-**SubTypes** | [**\Nlocascio\Mindbody\Model\ContactLogSubType[]**](ContactLogSubType.md) | A list of the subtypes being used to tag this contact log type. | [optional] 
+**Id** | **int** | The Id of the contactlog Type. | [optional] 
+**Name** | **string** | The name of the contactlog Type. | [optional] 
+**SubTypes** | [**\Nlocascio\Mindbody\Model\ContactLogSubType[]**](ContactLogSubType.md) | Contains the SubType objects, each of which describes the subtypes for a contactlog Type. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -7,6 +7,11 @@ Name | Type | Description | Notes
 **LocationId** | **int** | The location of the resource. This parameter is ignored if &#x60;EndDateTime&#x60; or &#x60;LocationID&#x60; is not set.&lt;br /&gt;  Default: **all** | [optional] 
 **StartDateTime** | [**\DateTime**](\DateTime.md) | The time the resource starts. This parameter is ignored if &#x60;EndDateTime&#x60; or &#x60;LocationID&#x60; is not set. | [optional] 
 **EndDateTime** | [**\DateTime**](\DateTime.md) | The time the resource ends. This parameter is ignored if &#x60;EndDateTime&#x60; or &#x60;LocationID&#x60; is not set. | [optional] 
+**ResourceIds** | **int[]** | Filter on resourceIds | [optional] 
+**LocationIds** | **int[]** | Filter by location ids (optional) | [optional] 
+**ScheduleTypes** | **string[]** | Filter by schedule types (optional) | [optional] 
+**ProgramIds** | **int[]** | Filter by program ids (optional) | [optional] 
+**IncludeInactive** | **bool** | Enable to include inactive | [optional] 
 **Limit** | **int** | Number of results to include, defaults to 100 | [optional] 
 **Offset** | **int** | Page offset, defaults to 0. | [optional] 
 

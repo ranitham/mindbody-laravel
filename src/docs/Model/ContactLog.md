@@ -12,8 +12,8 @@ Name | Type | Description | Notes
 **Client** | [**\Nlocascio\Mindbody\Model\Client**](Client.md) | Information about the client to whom the contact log belongs. | [optional] 
 **CreatedBy** | [**\Nlocascio\Mindbody\Model\Staff**](Staff.md) | Information about the staff member who created the contact log. | [optional] 
 **AssignedTo** | [**\Nlocascio\Mindbody\Model\Staff**](Staff.md) | Information about the staff member to whom the contact log is assigned for follow up. | [optional] 
-**Comments** | [**\Nlocascio\Mindbody\Model\ContactLogComment[]**](ContactLogComment.md) | The contact log’s comments. | [optional] 
-**Types** | [**\Nlocascio\Mindbody\Model\ContactLogType[]**](ContactLogType.md) | Contains information about contact log types. | [optional] 
+**Comments** | [**\Nlocascio\Mindbody\Model\ContactLogComment[]**](ContactLogComment.md) | Information about the comment. | [optional] 
+**Types** | [**\Nlocascio\Mindbody\Model\ContactLogType[]**](ContactLogType.md) | Information about the type of contact log. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

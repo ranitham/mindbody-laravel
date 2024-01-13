@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClientId** | **string** | Required. The ID of the client who needs to have a formula note added. | 
+**ClientId** | **string** | The ID of the client who needs to have a formula note added. | 
 **AppointmentId** | **int** | The appointment ID that the formula note is related to. | [optional] 
 **Note** | **string** | The new formula note text. | 
 

@@ -5,9 +5,9 @@ All URIs are relative to *https://api.mindbodyonline.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**enrollmentAddClientToEnrollment**](EnrollmentApi.md#enrollmentAddClientToEnrollment) | **POST** /public/v6/enrollment/addclienttoenrollment | Book a client into an enrollment.
-[**enrollmentAddEnrollmentSchedule**](EnrollmentApi.md#enrollmentAddEnrollmentSchedule) | **POST** /public/v6/enrollment/addenrollmentschedule | 
+[**enrollmentAddEnrollmentSchedule**](EnrollmentApi.md#enrollmentAddEnrollmentSchedule) | **POST** /public/v6/enrollment/addenrollmentschedule | This endpoint adds a enrollment schedule. You can require clients to sign up for the entire enrollment schedule or allow them to pick specific sessions using the AllowOpenEnrollment parameter.
 [**enrollmentGetEnrollments**](EnrollmentApi.md#enrollmentGetEnrollments) | **GET** /public/v6/enrollment/enrollments | Get enrollments scheduled at a site.
-[**enrollmentUpdateEnrollmentSchedule**](EnrollmentApi.md#enrollmentUpdateEnrollmentSchedule) | **POST** /public/v6/enrollment/updateenrollmentschedule | 
+[**enrollmentUpdateEnrollmentSchedule**](EnrollmentApi.md#enrollmentUpdateEnrollmentSchedule) | **POST** /public/v6/enrollment/updateenrollmentschedule | This endpoint update a enrollment schedule.
 
 
 # **enrollmentAddClientToEnrollment**
@@ -72,9 +72,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **enrollmentAddEnrollmentSchedule**
-> object enrollmentAddEnrollmentSchedule($Request)
+> \Nlocascio\Mindbody\Model\MindbodyPublicApiDataModelsWrittenClassSchedulesInfo enrollmentAddEnrollmentSchedule($Request)
 
-
+This endpoint adds a enrollment schedule. You can require clients to sign up for the entire enrollment schedule or allow them to pick specific sessions using the AllowOpenEnrollment parameter.
 
 ### Example
 ```php
@@ -119,7 +119,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**\Nlocascio\Mindbody\Model\MindbodyPublicApiDataModelsWrittenClassSchedulesInfo**](../Model/MindbodyPublicApiDataModelsWrittenClassSchedulesInfo.md)
 
 ### Authorization
 
@@ -212,9 +212,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **enrollmentUpdateEnrollmentSchedule**
-> object enrollmentUpdateEnrollmentSchedule($Request)
+> \Nlocascio\Mindbody\Model\MindbodyPublicApiDataModelsWrittenClassSchedulesInfo enrollmentUpdateEnrollmentSchedule($Request)
 
+This endpoint update a enrollment schedule.
 
+This endpoint update a enrollment schedule.
 
 ### Example
 ```php
@@ -259,7 +261,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**\Nlocascio\Mindbody\Model\MindbodyPublicApiDataModelsWrittenClassSchedulesInfo**](../Model/MindbodyPublicApiDataModelsWrittenClassSchedulesInfo.md)
 
 ### Authorization
 

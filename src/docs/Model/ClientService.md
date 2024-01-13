@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **Remaining** | **int** | The number of service sessions remaining in the pricing option that can still be used. | [optional] 
 **SiteId** | **int** | The ID of the subscriber site associated with this pricing option. | [optional] 
 **Action** | **string** | The action taken. | [optional] 
+**ClientID** | **string** | The Client ID assigned to this pricing option, specific to when it was purchased by the client. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

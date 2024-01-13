@@ -16,18 +16,19 @@ Method | HTTP request | Description
 [**saleGetSales**](SaleApi.md#saleGetSales) | **GET** /public/v6/sale/sales | Get sales completed at a site.
 [**saleGetServices**](SaleApi.md#saleGetServices) | **GET** /public/v6/sale/services | Get pricing options available for purchase at a site
 [**saleGetTransactions**](SaleApi.md#saleGetTransactions) | **GET** /public/v6/sale/transactions | Get transactions completed at a site.
-[**saleInitializeCreditCardEntry**](SaleApi.md#saleInitializeCreditCardEntry) | **POST** /public/v6/sale/initializecreditcardentry | 
+[**saleInitializeCreditCardEntry**](SaleApi.md#saleInitializeCreditCardEntry) | **POST** /public/v6/sale/initializecreditcardentry | This endpoint returns a Callback URL which is used to load Card Element UI with the help of which user will be able to enter the card details and initiate a transaction .  The documentation provides explanations of the request body and response.
 [**salePurchaseAccountCredit**](SaleApi.md#salePurchaseAccountCredit) | **POST** /public/v6/sale/purchaseaccountcredit | Purchases account credit for a client
 [**salePurchaseContract**](SaleApi.md#salePurchaseContract) | **POST** /public/v6/sale/purchasecontract | Purchase a contract for a client.
 [**salePurchaseGiftCard**](SaleApi.md#salePurchaseGiftCard) | **POST** /public/v6/sale/purchasegiftcard | Purchase a gift card for a client.
 [**saleReturnSale**](SaleApi.md#saleReturnSale) | **POST** /public/v6/sale/returnsale | Retunn sale
 [**saleUpdateProductPrice**](SaleApi.md#saleUpdateProductPrice) | **POST** /public/v6/sale/updateproductprice | Update retail product&#39;s unit and online price.
-[**saleUpdateSaleDate**](SaleApi.md#saleUpdateSaleDate) | **PUT** /public/v6/sale/updatesaledate | 
+[**saleUpdateProducts**](SaleApi.md#saleUpdateProducts) | **PUT** /public/v6/sale/products | Update retail products available for purchase at a site.
+[**saleUpdateSaleDate**](SaleApi.md#saleUpdateSaleDate) | **PUT** /public/v6/sale/updatesaledate | This endpoint updates the SaleDate and returns the details of the sale.
 [**saleUpdateServices**](SaleApi.md#saleUpdateServices) | **PUT** /public/v6/sale/services | Update unit price and online price of provided services.
 
 
 # **saleCheckoutShoppingCart**
-> object saleCheckoutShoppingCart($Request)
+> \Nlocascio\Mindbody\Model\CheckoutShoppingCartResponse saleCheckoutShoppingCart($Request)
 
 Purchase pricing options, packages, retail products, or tips for a client.
 
@@ -76,7 +77,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**\Nlocascio\Mindbody\Model\CheckoutShoppingCartResponse**](../Model/CheckoutShoppingCartResponse.md)
 
 ### Authorization
 
@@ -225,6 +226,8 @@ Name | Type | Description  | Notes
 
 # **saleGetCustomPaymentMethods**
 > \Nlocascio\Mindbody\Model\GetCustomPaymentMethodsResponse saleGetCustomPaymentMethods($RequestLimit, $RequestOffset)
+
+Get payment methods that can be used to pay for sales at a site.
 
 Get payment methods that can be used to pay for sales at a site.
 
@@ -522,7 +525,7 @@ $apiInstance = new Nlocascio\Mindbody\Api\SaleApi(
     new GuzzleHttp\Client(),
     $config
 );
-$RequestCategoryIds = array(56); // int[] | A list of revenue category IDs to filter by. Use this ID when calling the GET Categories endpoint.     ** Note:** The values for these are not currently retrievable through the API.
+$RequestCategoryIds = array(56); // int[] | A list of revenue category IDs to filter by. Use this ID when calling the GET Categories endpoint.    **Note:** The values for these are not currently retrievable through the API.
 $RequestLimit = 56; // int | Number of results to include, defaults to 100
 $RequestLocationId = 56; // int | The location ID to use to determine the tax for the products that this request returns.<br />  Default: **online store**
 $RequestOffset = 56; // int | Page offset, defaults to 0.
@@ -544,7 +547,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **RequestCategoryIds** | [**int[]**](../Model/int.md)| A list of revenue category IDs to filter by. Use this ID when calling the GET Categories endpoint.     ** Note:** The values for these are not currently retrievable through the API. | [optional]
+ **RequestCategoryIds** | [**int[]**](../Model/int.md)| A list of revenue category IDs to filter by. Use this ID when calling the GET Categories endpoint.    **Note:** The values for these are not currently retrievable through the API. | [optional]
  **RequestLimit** | **int**| Number of results to include, defaults to 100 | [optional]
  **RequestLocationId** | **int**| The location ID to use to determine the tax for the products that this request returns.&lt;br /&gt;  Default: **online store** | [optional]
  **RequestOffset** | **int**| Page offset, defaults to 0. | [optional]
@@ -642,6 +645,8 @@ Name | Type | Description  | Notes
 
 Get sales completed at a site.
 
+Get sales completed at a site.
+
 ### Example
 ```php
 <?php
@@ -710,6 +715,8 @@ Name | Type | Description  | Notes
 
 # **saleGetServices**
 > \Nlocascio\Mindbody\Model\GetServicesResponse saleGetServices($RequestClassId, $RequestClassScheduleId, $RequestHideRelatedPrograms, $RequestIncludeDiscontinued, $RequestIncludeSaleInContractOnly, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestProgramIds, $RequestSellOnline, $RequestServiceIds, $RequestSessionTypeIds, $RequestStaffId)
+
+Get pricing options available for purchase at a site
 
 Get pricing options available for purchase at a site
 
@@ -875,9 +882,9 @@ Name | Type | Description  | Notes
 # **saleInitializeCreditCardEntry**
 > \Nlocascio\Mindbody\Model\InitializeCreditCardEntryResponse saleInitializeCreditCardEntry($Request)
 
-
-
 This endpoint returns a Callback URL which is used to load Card Element UI with the help of which user will be able to enter the card details and initiate a transaction .  The documentation provides explanations of the request body and response.
+
+**Note**:          Referer is a DomainURL which will be automatically reflected if the Card UI is loaded via your application.  If you are using this endpoint via postman then you need to specify your domain URL under Referer.
 
 ### Example
 ```php
@@ -1066,7 +1073,7 @@ Name | Type | Description  | Notes
 
 Purchase a gift card for a client.
 
-Allows a client to purchase a gift card from a business in a variety of designs. The card can be emailed to the recipient on a specific day, and a card title and a personal message can be added.
+Allows a client to purchase a gift card from a business in a variety of designs. The card can be emailed to the recipient on a specific day, and a card title and a personal message can be added.   **Note**  Protect yourself from processor fees and credit card fraud.Remember to always protect your web forms that leverage POST CheckoutShoppingCart, POST PurchaseContract or POST PurchaseGiftCard with a CAPTCHA!
 
 ### Example
 ```php
@@ -1250,10 +1257,71 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **saleUpdateProducts**
+> \Nlocascio\Mindbody\Model\GetProductsResponse saleUpdateProducts($UpdateProductsRequests)
+
+Update retail products available for purchase at a site.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: API-Key
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'Bearer');
+// Configure API key authorization: authorization
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('authorization', 'Bearer');
+// Configure API key authorization: siteId
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('siteId', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('siteId', 'Bearer');
+
+$apiInstance = new Nlocascio\Mindbody\Api\SaleApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$UpdateProductsRequests = array(new \Nlocascio\Mindbody\Model\UpdateProductRequest()); // \Nlocascio\Mindbody\Model\UpdateProductRequest[] | 
+
+try {
+    $result = $apiInstance->saleUpdateProducts($UpdateProductsRequests);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SaleApi->saleUpdateProducts: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **UpdateProductsRequests** | [**\Nlocascio\Mindbody\Model\UpdateProductRequest[]**](../Model/UpdateProductRequest.md)|  |
+
+### Return type
+
+[**\Nlocascio\Mindbody\Model\GetProductsResponse**](../Model/GetProductsResponse.md)
+
+### Authorization
+
+[API-Key](../../README.md#API-Key), [authorization](../../README.md#authorization), [siteId](../../README.md#siteId)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml, multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **saleUpdateSaleDate**
 > \Nlocascio\Mindbody\Model\UpdateSaleDateResponse saleUpdateSaleDate($Request)
 
-
+This endpoint updates the SaleDate and returns the details of the sale.
 
 This endpoint updates the SaleDate and returns the details of the sale.
 
@@ -1315,6 +1383,8 @@ Name | Type | Description  | Notes
 
 # **saleUpdateServices**
 > \Nlocascio\Mindbody\Model\UpdateServiceResponse saleUpdateServices($UpdateServicesRequest)
+
+Update unit price and online price of provided services.
 
 Update unit price and online price of provided services.
 

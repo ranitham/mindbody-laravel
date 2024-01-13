@@ -3,9 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClientId** | **string** | The ID of the client whose reward information is being requested. | 
-**StartDate** | [**\DateTime**](\DateTime.md) | Filters the results to rewards transactions created on or after this date.&lt;br /&gt;  Default: **the current date** | [optional] 
-**EndDate** | [**\DateTime**](\DateTime.md) | Filters the results to rewards transactions created before this date.&lt;br /&gt;  Default: **the start date** | [optional] 
+**ClientId** | **string** | The ID of the client. | 
+**StartDate** | [**\DateTime**](\DateTime.md) | The start date of transaction.  Default: **today** | [optional] 
+**EndDate** | [**\DateTime**](\DateTime.md) | The end date of transaction.  Default: **StartDate** | [optional] 
 **Limit** | **int** | Number of results to include, defaults to 100 | [optional] 
 **Offset** | **int** | Page offset, defaults to 0. | [optional] 
 

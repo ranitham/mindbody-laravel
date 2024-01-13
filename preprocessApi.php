@@ -22,8 +22,8 @@ function fetchAPI(string $address): array
 
 function processJSONApiAsText(string $jsonAPI): string
 {
-    $find = ['/public/v{version}/', 'ExtensionModels.', 'CheckoutRequest.Items.','CheckoutRequest.Payments.', 'CheckoutRequest.'];
-    $replace = ['/public/v6/','','','',''];
+    $find = ['/public/v{version}/', 'ExtensionModels.', 'CheckoutRequest.Items.','CheckoutRequest.Payments.', 'CheckoutRequest.', 'System.Collections.Generic.KeyValuePair`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.Collections.Generic.IEnumerable`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]'];
+    $replace = ['/public/v6/','','','','','KeyValuePair'];
 
     $processedJSONAPI = str_replace($find, $replace, $jsonAPI);
 
@@ -79,11 +79,11 @@ function processAPI(array $api): array
         }
 
         if ($definitionName === 'CheckoutPaymentInfo') {
-            $definition['properties']['Metadata']['additionalProperties'] = true;
+            $definition['properties']['Metadata']['type'] = 'object';
+            unset($definition['properties']['Metadata']['additionalProperties']);
             $definition['properties']['Type']['enum'] = [
                 'CreditCard',
                 'StoredCard',
-                'DirectDebit',
                 'EncryptedTrackData',
                 'TrackData',
                 'DebitAccount',
@@ -93,11 +93,12 @@ function processAPI(array $api): array
                 'Check',
                 'GiftCard',
             ];
-
         }
 
         if ($definitionName === 'CheckoutItem') {
-            $definition['properties']['Metadata']['additionalProperties'] = true;
+            $definition['properties']['Metadata']['type'] = 'object';
+
+            unset($definition['properties']['Metadata']['additionalProperties']);
             $definition['properties']['Type']['enum'] = [
                 'Service',
                 'Product',
@@ -113,6 +114,8 @@ function processAPI(array $api): array
             if ($operationName === 'parameters') {
                 throw new Exception('Unexpected operation in MBO API');
             }
+
+            $operation['operationId'] = $operation['tags'][0] . '_' . $operation['operationId']; // update for latest form of schema that removed the endpoint name from the operation id
 
             $wantsSiteID = hasParameter($operation['parameters'], 'siteId');
             $wantsAuthorization = hasParameter($operation['parameters'], 'authorization');
@@ -156,7 +159,7 @@ function fetchSwaggerCodegen(bool $overwrite = false)
     $filename = 'swagger-codegen.jar';
 
     if (!file_exists($filename) || $overwrite) {
-        $swaggerURL = 'https://repo1.maven.org/maven2/io/swagger/swagger-codegen-cli/2.4.23/swagger-codegen-cli-2.4.23.jar';
+        $swaggerURL = 'https://repo1.maven.org/maven2/io/swagger/swagger-codegen-cli/2.4.39/swagger-codegen-cli-2.4.39.jar';
         if (file_put_contents($filename, file_get_contents($swaggerURL))) {
             echo "Downloaded the swagger-codegen binary\r\n";
         } else {

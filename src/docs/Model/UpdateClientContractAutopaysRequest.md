@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **ProductId** | **int** | Product Id to update (optional if contract has only one product) | [optional] 
 **ReplaceWithProductId** | **int** | (optional) - Replaces the product with this product | [optional] 
 **Amount** | **double** | Overrides autopay amount or amount that would come from ProductId | [optional] 
+**OverwriteAllProductIDs** | **bool** | (optional) - If true, will update autopays with any productID | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **BookingStatus** | **string** | One of: PaymentRequired, BookAndPayLater, Free | [optional] 
 **AllowOpenEnrollment** | **bool** | Allow clients to choose which sessions they&#39;d like to sign up for | [optional] 
 **AllowDateForwardEnrollment** | **bool** | Allow booking after the enrollment has started | [optional] 
+**RetainScheduleChanges** | **bool** | Whether or not to retain manual schedule changes within the date range | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

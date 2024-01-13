@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **ClientServiceId** | **int** | The ID of the pricing option on the client’s account that you want to use to pay for this booking, if payment is required at the time of the update. | [optional] 
 **CrossRegionalBooking** | **bool** | When &#x60;true&#x60;, cross regional series are checked and used if applicable. | [optional] 
 **CrossRegionalBookingClientServiceSiteId** | **int** | If the request is cross regional, use a purchased pricing option from this specified site. If omitted, an attempt is made to use an applicable pricing option from the local site. | [optional] 
+**UniqueId** | **int** | The UniqueID of the client who is being booked into the class | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

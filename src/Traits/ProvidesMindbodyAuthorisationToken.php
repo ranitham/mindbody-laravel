@@ -20,11 +20,11 @@ trait ProvidesMindbodyAuthorisationToken
      */
     protected function getAuthorisationToken(UserTokenApi $tokenApi, string $username, string $password): string
     {
-        return Cache::remember('MBO_Auth_Token_Key', CarbonInterval::days(6), function () use ($tokenApi, $username, $password) {
-            $issueRquest = new IssueRequest();
-            $issueRquest->setUsername($username);
-            $issueRquest->setPassword($password);
-            $tokenResponse = $tokenApi->userTokenIssue($issueRquest);
+        return Cache::remember('MBO_Auth_Token_Key', CarbonInterval::hours(23), function () use ($tokenApi, $username, $password) {
+            $issueRequest = new IssueRequest();
+            $issueRequest->setUsername($username);
+            $issueRequest->setPassword($password);
+            $tokenResponse = $tokenApi->userTokenIssueToken($issueRequest);
             return $tokenResponse->getAccessToken();
         });
     }
@@ -49,7 +49,7 @@ trait ProvidesMindbodyAuthorisationToken
     }
 
     /**
-     * Forget the toekn
+     * Forget the token
      *
      * @return boolean
      */

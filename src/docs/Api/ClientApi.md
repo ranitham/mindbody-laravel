@@ -22,24 +22,24 @@ Method | HTTP request | Description
 [**clientGetClientIndexes**](ClientApi.md#clientGetClientIndexes) | **GET** /public/v6/client/clientindexes | Get a site&#39;s configured client indexes and client index values.
 [**clientGetClientPurchases**](ClientApi.md#clientGetClientPurchases) | **GET** /public/v6/client/clientpurchases | Get a client&#39;s purchase history.
 [**clientGetClientReferralTypes**](ClientApi.md#clientGetClientReferralTypes) | **GET** /public/v6/client/clientreferraltypes | Get a site&#39;s configured client referral types.
-[**clientGetClientRewards**](ClientApi.md#clientGetClientRewards) | **GET** /public/v6/client/clientrewards | 
+[**clientGetClientRewards**](ClientApi.md#clientGetClientRewards) | **GET** /public/v6/client/clientrewards | Gets the client rewards.
 [**clientGetClientSchedule**](ClientApi.md#clientGetClientSchedule) | **GET** /public/v6/client/clientschedule | Gets a client&#39;s schedule history.
 [**clientGetClientServices**](ClientApi.md#clientGetClientServices) | **GET** /public/v6/client/clientservices | Get pricing options that a client has purchased.
 [**clientGetClientVisits**](ClientApi.md#clientGetClientVisits) | **GET** /public/v6/client/clientvisits | Get a client&#39;s visit history.
-[**clientGetClients**](ClientApi.md#clientGetClients) | **GET** /public/v6/client/clients | Get clients.
+[**clientGetClients**](ClientApi.md#clientGetClients) | **GET** /public/v6/client/clients | This endpoint requires staff user credentials. This endpoint supports pagination. See Pagination for a description of the Pagination information.
 [**clientGetContactLogTypes**](ClientApi.md#clientGetContactLogTypes) | **GET** /public/v6/client/contactlogtypes | Get All Active Contact Log Types
 [**clientGetContactLogs**](ClientApi.md#clientGetContactLogs) | **GET** /public/v6/client/contactlogs | Get contact logs on a client&#39;s account.
 [**clientGetCrossRegionalClientAssociations**](ClientApi.md#clientGetCrossRegionalClientAssociations) | **GET** /public/v6/client/crossregionalclientassociations | Get a client&#39;s cross regional site associations.
 [**clientGetCustomClientFields**](ClientApi.md#clientGetCustomClientFields) | **GET** /public/v6/client/customclientfields | Get a site&#39;s configured custom client fields.
 [**clientGetDirectDebitInfo**](ClientApi.md#clientGetDirectDebitInfo) | **GET** /public/v6/client/clientdirectdebitinfo | Get direct debit info for a client.
 [**clientGetRequiredClientFields**](ClientApi.md#clientGetRequiredClientFields) | **GET** /public/v6/client/requiredclientfields | Get client required fields for a site.
-[**clientMergeClient**](ClientApi.md#clientMergeClient) | **POST** /public/v6/client/mergeclients | 
+[**clientMergeClient**](ClientApi.md#clientMergeClient) | **POST** /public/v6/client/mergeclients | This endpoint helps to merge clients.
 [**clientSendAutoEmail**](ClientApi.md#clientSendAutoEmail) | **POST** /public/v6/client/sendautoemail | Send a client a supported auto email
 [**clientSendPasswordResetEmail**](ClientApi.md#clientSendPasswordResetEmail) | **POST** /public/v6/client/sendpasswordresetemail | Send a password reset email to a client.
 [**clientSuspendContract**](ClientApi.md#clientSuspendContract) | **POST** /public/v6/client/suspendcontract | Suspend client contract
 [**clientTerminateContract**](ClientApi.md#clientTerminateContract) | **POST** /public/v6/client/terminatecontract | Terminate client contract
 [**clientUpdateClient**](ClientApi.md#clientUpdateClient) | **POST** /public/v6/client/updateclient | Update a client at a site.
-[**clientUpdateClientContractAutopays**](ClientApi.md#clientUpdateClientContractAutopays) | **POST** /public/v6/client/updateclientcontractautopays | 
+[**clientUpdateClientContractAutopays**](ClientApi.md#clientUpdateClientContractAutopays) | **POST** /public/v6/client/updateclientcontractautopays | This endpoint can be used to update the amount and/or the item of a client’s autopay schedule.
 [**clientUpdateClientRewards**](ClientApi.md#clientUpdateClientRewards) | **POST** /public/v6/client/clientrewards | Update Client Reward
 [**clientUpdateClientService**](ClientApi.md#clientUpdateClientService) | **POST** /public/v6/client/updateclientservice | Update a client&#39;s purchase pricing option.
 [**clientUpdateClientVisit**](ClientApi.md#clientUpdateClientVisit) | **POST** /public/v6/client/updateclientvisit | Update a client&#39;s visit.
@@ -116,7 +116,7 @@ Name | Type | Description  | Notes
 
 Add a client to a site.
 
-Starting the week of May 11th, 2020 all versions of the Public API will no longer allow duplicate clients to be created. This applies to both adding a client and updating a client record. A duplicate client is created when two profiles have the same first name, last name and email.<br />  Creates a new client record at the specified business.Passing a User Token as Authorization will create a client and respect Business Mode required fields.Omitting the token will create a client and respect Consumer Mode required fi elds. To make sure you are collecting all required pieces of information, first run GetRequired ClientFields.<br />  If you have purchased an Ultimate tier then this endpoint will automatically start showing new opportunity on Sales Pipeline.Starting the week of May 11th, 2020 all versions of the Public API will no longer allow duplicate clients to be created.This applies to both adding a client and updating a client record. A duplicate client is created when two profiles have the same first name, last name and email.<br />  Creates a new client record at the specified business.Passing a User Token as Authorization will create a client and respect Business Mode required fields.Omitting the token will create a client and respect Consumer Mode required fi elds. To make sure you are collecting all required pieces of information, first run GetRequired ClientFields.<br />  If you have purchased an Ultimate tier then this endpoint will automatically start showing new opportunity on Sales Pipeline.  The `FirstName` and `LastName` parameters are always required in this request. All other parameters are optional, but note that any of the optional parameters could be required by a particular business, depending on how the business has configured the site settings.  Use after calling the `GetRequiredClientFields` endpoint to make sure you are collecting all required pieces of information.
+Starting the week of May 11th, 2020 all versions of the Public API will no longer allow duplicate clients to be created. This applies to both adding a client and updating a client record. A duplicate client is created when two profiles have the same first name, last name and email.<br />  Creates a new client record at the specified business.Passing a User Token as Authorization will create a client and respect Business Mode required fields.Omitting the token will create a client and respect Consumer Mode required fi elds. To make sure you are collecting all required pieces of information, first run GetRequired ClientFields.<br />  If you have purchased an Ultimate tier then this endpoint will automatically start showing new opportunity on Sales Pipeline.
 
 ### Example
 ```php
@@ -142,7 +142,7 @@ $apiInstance = new Nlocascio\Mindbody\Api\ClientApi(
     new GuzzleHttp\Client(),
     $config
 );
-$Request = new \Nlocascio\Mindbody\Model\AddClientRequest(); // \Nlocascio\Mindbody\Model\AddClientRequest | 
+$Request = new \Nlocascio\Mindbody\Model\AddClientRequest(); // \Nlocascio\Mindbody\Model\AddClientRequest | The `FirstName` and `LastName` parameters are always required in this request.               All other parameters are optional, but note that any of the optional parameters could be required by a particular business,              depending on how the business has configured the site settings. If `GetRequiredClientFields` returns `EmergContact` in the list of required fields,              then all emergency contact parameters are required, which includes `EmergencyContactInfoEmail`, `EmergencyContactInfoName`, `EmergencyContactInfoPhone`, and `EmergencyContactInfoRelationship`.
 
 try {
     $result = $apiInstance->clientAddClient($Request);
@@ -157,7 +157,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Request** | [**\Nlocascio\Mindbody\Model\AddClientRequest**](../Model/AddClientRequest.md)|  |
+ **Request** | [**\Nlocascio\Mindbody\Model\AddClientRequest**](../Model/AddClientRequest.md)| The &#x60;FirstName&#x60; and &#x60;LastName&#x60; parameters are always required in this request.               All other parameters are optional, but note that any of the optional parameters could be required by a particular business,              depending on how the business has configured the site settings. If &#x60;GetRequiredClientFields&#x60; returns &#x60;EmergContact&#x60; in the list of required fields,              then all emergency contact parameters are required, which includes &#x60;EmergencyContactInfoEmail&#x60;, &#x60;EmergencyContactInfoName&#x60;, &#x60;EmergencyContactInfoPhone&#x60;, and &#x60;EmergencyContactInfoRelationship&#x60;. |
 
 ### Return type
 
@@ -527,7 +527,7 @@ $apiInstance = new Nlocascio\Mindbody\Api\ClientApi(
     new GuzzleHttp\Client(),
     $config
 );
-$ClientId = "ClientId_example"; // string | 
+$ClientId = "ClientId_example"; // string | The ID of the client.
 
 try {
     $result = $apiInstance->clientDeleteDirectDebitInfo($ClientId);
@@ -542,7 +542,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ClientId** | **string**|  | [optional]
+ **ClientId** | **string**| The ID of the client. | [optional]
 
 ### Return type
 
@@ -591,7 +591,7 @@ $apiInstance = new Nlocascio\Mindbody\Api\ClientApi(
     $config
 );
 $RequestClientId = "RequestClientId_example"; // string | The ID of the client for whom memberships are returned.
-$RequestClientAssociatedSitesOffset = 56; // int | Used to retrieve a client’s memberships from multiple sites within an organization when the client is associated with more than ten sites. To change which ten sites are searched, change this offset value. A value of 0 means that no sites are skipped and the first ten sites are returned. You can use the `CrossRegionalClientAssociations` value from `GET CrossRegionalClientAssociations` to determine how many sites the client is associated with. Note that you must always have `CrossRegionalLookup` set to `true` to use this parameter.<br />  Default: **0**    For example, if a client is associated with 25 sites, you need to call `GetClientServices` three times, as follows:  * Use `GET CrossRegionalClientAssociations` to determine how many sites a client is associated with, which tells you how many additional calls you need to make.  * Either omit `ClientAssociatedSitesOffset` or set it to 0 to return the client’s services (pricing options) from sites 1-10.  * Set `ClientAssociatedSitesOffset` to 10 to return the client pricing options from sites 11-20  * Set `ClientAssociatedSitesOffset` to 20 to return the client pricing options from sites 21-25
+$RequestClientAssociatedSitesOffset = 56; // int | Used to retrieve a client’s memberships from multiple sites within an organization when the client is associated with more than ten sites. To change which ten sites are searched, change this offset value. A value of 0 means that no sites are skipped and the first ten sites are returned. You can use the `CrossRegionalClientAssociations` value from `GET CrossRegionalClientAssociations` to determine how many sites the client is associated with. Note that you must always have `CrossRegionalLookup` set to `true` to use this parameter.<br />  Default: **0**    For example, if a client is associated with 25 sites, you need to call GET `ActiveClientMemberships` three times, as follows:  * Use GET `CrossRegionalClientAssociations` to determine how many sites a client is associated with, which tells you how many additional calls you need to make.  * Either omit `ClientAssociatedSitesOffset` or set it to 0 to return the client’s memberships from sites 1-10  * Set `ClientAssociatedSitesOffset` to 10 to return the client’s memberships from sites 11-20  * Set `ClientAssociatedSitesOffset` to 20 to return the client’s memberships from sites 21-25
 $RequestCrossRegionalLookup = true; // bool | Used to retrieve a client’s memberships from multiple sites within an organization. When included and set to `true`, it searches a maximum of ten sites with which this client is associated. When a client is associated with more than ten sites, use `ClientAssociatedSitesOffset` as many times as needed to search the additional sites with which the client is associated. You can use the `CrossRegionalClientAssociations` value from `GET CrossRegionalClientAssociations` to determine how many sites the client is associated with. Note that a `SiteID` is returned and populated in the `ClientServices` response when `CrossRegionalLookup` is set to `true`.  Default: **false**
 $RequestLimit = 56; // int | Number of results to include, defaults to 100
 $RequestLocationId = 56; // int | Filters results to memberships that can be used to pay for scheduled services at that location. This parameter can not be passed when `CrossRegionalLookup` is `true`.
@@ -611,7 +611,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **RequestClientId** | **string**| The ID of the client for whom memberships are returned. |
- **RequestClientAssociatedSitesOffset** | **int**| Used to retrieve a client’s memberships from multiple sites within an organization when the client is associated with more than ten sites. To change which ten sites are searched, change this offset value. A value of 0 means that no sites are skipped and the first ten sites are returned. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that you must always have &#x60;CrossRegionalLookup&#x60; set to &#x60;true&#x60; to use this parameter.&lt;br /&gt;  Default: **0**    For example, if a client is associated with 25 sites, you need to call &#x60;GetClientServices&#x60; three times, as follows:  * Use &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites a client is associated with, which tells you how many additional calls you need to make.  * Either omit &#x60;ClientAssociatedSitesOffset&#x60; or set it to 0 to return the client’s services (pricing options) from sites 1-10.  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 10 to return the client pricing options from sites 11-20  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 20 to return the client pricing options from sites 21-25 | [optional]
+ **RequestClientAssociatedSitesOffset** | **int**| Used to retrieve a client’s memberships from multiple sites within an organization when the client is associated with more than ten sites. To change which ten sites are searched, change this offset value. A value of 0 means that no sites are skipped and the first ten sites are returned. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that you must always have &#x60;CrossRegionalLookup&#x60; set to &#x60;true&#x60; to use this parameter.&lt;br /&gt;  Default: **0**    For example, if a client is associated with 25 sites, you need to call GET &#x60;ActiveClientMemberships&#x60; three times, as follows:  * Use GET &#x60;CrossRegionalClientAssociations&#x60; to determine how many sites a client is associated with, which tells you how many additional calls you need to make.  * Either omit &#x60;ClientAssociatedSitesOffset&#x60; or set it to 0 to return the client’s memberships from sites 1-10  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 10 to return the client’s memberships from sites 11-20  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 20 to return the client’s memberships from sites 21-25 | [optional]
  **RequestCrossRegionalLookup** | **bool**| Used to retrieve a client’s memberships from multiple sites within an organization. When included and set to &#x60;true&#x60;, it searches a maximum of ten sites with which this client is associated. When a client is associated with more than ten sites, use &#x60;ClientAssociatedSitesOffset&#x60; as many times as needed to search the additional sites with which the client is associated. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that a &#x60;SiteID&#x60; is returned and populated in the &#x60;ClientServices&#x60; response when &#x60;CrossRegionalLookup&#x60; is set to &#x60;true&#x60;.  Default: **false** | [optional]
  **RequestLimit** | **int**| Number of results to include, defaults to 100 | [optional]
  **RequestLocationId** | **int**| Filters results to memberships that can be used to pay for scheduled services at that location. This parameter can not be passed when &#x60;CrossRegionalLookup&#x60; is &#x60;true&#x60;. | [optional]
@@ -805,11 +805,11 @@ $apiInstance = new Nlocascio\Mindbody\Api\ClientApi(
     new GuzzleHttp\Client(),
     $config
 );
-$RequestClientId = "RequestClientId_example"; // string | The ID of the client to query.
+$RequestClientId = "RequestClientId_example"; // string | Filters results to client with these ID.
 $RequestClientAssociatedSitesOffset = 56; // int | Used to retrieve a client’s pricing options from multiple sites within an organization when the client is associated with more than ten sites. To change which ten sites are searched, change this offset value. A value of 0 means that no sites are skipped and the first ten sites are returned. You can use the `CrossRegionalClientAssociations` value from `GET CrossRegionalClientAssociations` to determine how many sites the client is associated with. Note that you must always have `CrossRegionalLookup` set to `true` to use this parameter.<br />  Default: **0**    For example, if a client is associated with 25 sites, you need to call `GetClientServices` three times, as follows:  * Use `GET CrossRegionalClientAssociations` to determine how many sites a client is associated with, which tells you how many additional calls you need to make.  * Either omit `ClientAssociatedSitesOffset` or set it to 0 to return the client’s services (pricing options) from sites 1-10.  * Set `ClientAssociatedSitesOffset` to 10 to return the client pricing options from sites 11-20  * Set `ClientAssociatedSitesOffset` to 20 to return the client pricing options from sites 21-25
-$RequestCrossRegionalLookup = true; // bool | Used to retrieve a client’s data from multiple sites within an organization.  Default: **false**
+$RequestCrossRegionalLookup = true; // bool | Used to retrieve a clients pricing options from multiple sites within an organization.When included and set to `true`,  it searches a maximum of ten sites with which this client is associated.When a client is associated with more than ten sites, use `ClientAssociatedSitesOffset` as many times as needed to search the additional sites with which the client is associated.  You can use the `CrossRegionalClientAssociations` value from `GET CrossRegionalClientAssociations` to determine how many sites the client is associated with.   Note that a `SiteID` is returned and populated in the `ClientServices` response when `CrossRegionalLookup` is set to `true`.   Default: **false**
 $RequestEndDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filters results to pricing options that are valid on or before this date.
-$RequestRequiredClientData = array("RequestRequiredClientData_example"); // string[] | Used to store the required type of data for particular client
+$RequestRequiredClientData = array("RequestRequiredClientData_example"); // string[] | Used to retrieve list of purchased services, contract details, membership details and arrival programs for a specific client.   Default `ClientServices`, `ClientContracts`, `ClientMemberships` and `ClientArrivals` will be returned when `RequiredClientDatais` not set.   When `RequiredClientData` is set to `Contracts` then only `ClientContracts` will be returned in the response.   When `RequiredClientData` is set to Services then only `ClientServices` will be returned in the response.  When `RequiredClientData` is set to `Memberships` then only `ClientMemberships` will be returned in the response.   When `RequiredClientData` is set to `ArrivalPrograms` then only `ClientArrivals` will be returned in the response.
 $RequestStartDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filters results to pricing options that are valid on or after this date.
 
 try {
@@ -825,11 +825,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **RequestClientId** | **string**| The ID of the client to query. |
+ **RequestClientId** | **string**| Filters results to client with these ID. |
  **RequestClientAssociatedSitesOffset** | **int**| Used to retrieve a client’s pricing options from multiple sites within an organization when the client is associated with more than ten sites. To change which ten sites are searched, change this offset value. A value of 0 means that no sites are skipped and the first ten sites are returned. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that you must always have &#x60;CrossRegionalLookup&#x60; set to &#x60;true&#x60; to use this parameter.&lt;br /&gt;  Default: **0**    For example, if a client is associated with 25 sites, you need to call &#x60;GetClientServices&#x60; three times, as follows:  * Use &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites a client is associated with, which tells you how many additional calls you need to make.  * Either omit &#x60;ClientAssociatedSitesOffset&#x60; or set it to 0 to return the client’s services (pricing options) from sites 1-10.  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 10 to return the client pricing options from sites 11-20  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 20 to return the client pricing options from sites 21-25 | [optional]
- **RequestCrossRegionalLookup** | **bool**| Used to retrieve a client’s data from multiple sites within an organization.  Default: **false** | [optional]
+ **RequestCrossRegionalLookup** | **bool**| Used to retrieve a clients pricing options from multiple sites within an organization.When included and set to &#x60;true&#x60;,  it searches a maximum of ten sites with which this client is associated.When a client is associated with more than ten sites, use &#x60;ClientAssociatedSitesOffset&#x60; as many times as needed to search the additional sites with which the client is associated.  You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with.   Note that a &#x60;SiteID&#x60; is returned and populated in the &#x60;ClientServices&#x60; response when &#x60;CrossRegionalLookup&#x60; is set to &#x60;true&#x60;.   Default: **false** | [optional]
  **RequestEndDate** | **\DateTime**| Filters results to pricing options that are valid on or before this date. | [optional]
- **RequestRequiredClientData** | [**string[]**](../Model/string.md)| Used to store the required type of data for particular client | [optional]
+ **RequestRequiredClientData** | [**string[]**](../Model/string.md)| Used to retrieve list of purchased services, contract details, membership details and arrival programs for a specific client.   Default &#x60;ClientServices&#x60;, &#x60;ClientContracts&#x60;, &#x60;ClientMemberships&#x60; and &#x60;ClientArrivals&#x60; will be returned when &#x60;RequiredClientDatais&#x60; not set.   When &#x60;RequiredClientData&#x60; is set to &#x60;Contracts&#x60; then only &#x60;ClientContracts&#x60; will be returned in the response.   When &#x60;RequiredClientData&#x60; is set to Services then only &#x60;ClientServices&#x60; will be returned in the response.  When &#x60;RequiredClientData&#x60; is set to &#x60;Memberships&#x60; then only &#x60;ClientMemberships&#x60; will be returned in the response.   When &#x60;RequiredClientData&#x60; is set to &#x60;ArrivalPrograms&#x60; then only &#x60;ClientArrivals&#x60; will be returned in the response. | [optional]
  **RequestStartDate** | **\DateTime**| Filters results to pricing options that are valid on or after this date. | [optional]
 
 ### Return type
@@ -876,7 +876,7 @@ $apiInstance = new Nlocascio\Mindbody\Api\ClientApi(
     new GuzzleHttp\Client(),
     $config
 );
-$RequestClientId = "RequestClientId_example"; // string | The ID of the client.
+$RequestClientId = "RequestClientId_example"; // string | The ID of the client (RssId).
 $RequestClientAssociatedSitesOffset = 56; // int | Determines how many sites are skipped over when retrieving a client’s cross regional contracts. Used when a client ID is linked to more than ten sites in an organization. Only a maximum of ten site databases are queried when this call is made and `CrossRegionalLookup` is set to `true`. To change which sites are queried, change this offset value.  Default: **0**
 $RequestCrossRegionalLookup = true; // bool | When `true`, indicates that the requesting client’s cross regional contracts are returned, if any.<br />  When `false`, indicates that cross regional contracts are not returned.
 $RequestLimit = 56; // int | Number of results to include, defaults to 100
@@ -895,7 +895,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **RequestClientId** | **string**| The ID of the client. |
+ **RequestClientId** | **string**| The ID of the client (RssId). |
  **RequestClientAssociatedSitesOffset** | **int**| Determines how many sites are skipped over when retrieving a client’s cross regional contracts. Used when a client ID is linked to more than ten sites in an organization. Only a maximum of ten site databases are queried when this call is made and &#x60;CrossRegionalLookup&#x60; is set to &#x60;true&#x60;. To change which sites are queried, change this offset value.  Default: **0** | [optional]
  **RequestCrossRegionalLookup** | **bool**| When &#x60;true&#x60;, indicates that the requesting client’s cross regional contracts are returned, if any.&lt;br /&gt;  When &#x60;false&#x60;, indicates that cross regional contracts are not returned. | [optional]
  **RequestLimit** | **int**| Number of results to include, defaults to 100 | [optional]
@@ -991,6 +991,8 @@ Name | Type | Description  | Notes
 > \Nlocascio\Mindbody\Model\GetClientFormulaNotesResponse clientGetClientFormulaNotes($RequestAppointmentId, $RequestClientId, $RequestLimit, $RequestOffset)
 
 Get a client's formula notes.
+
+***QueryParams***: Enables to retrieve cross regional formula notes for a client, or for a specific appointment. The two parameters are optional, however at least one must be provided. This endpoint supports pagination.
 
 ### Example
 ```php
@@ -1256,7 +1258,7 @@ Name | Type | Description  | Notes
 # **clientGetClientRewards**
 > \Nlocascio\Mindbody\Model\GetClientRewardsResponse clientGetClientRewards($RequestClientId, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestStartDate)
 
-
+Gets the client rewards.
 
 ### Example
 ```php
@@ -1282,11 +1284,11 @@ $apiInstance = new Nlocascio\Mindbody\Api\ClientApi(
     new GuzzleHttp\Client(),
     $config
 );
-$RequestClientId = "RequestClientId_example"; // string | The ID of the client whose reward information is being requested.
-$RequestEndDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filters the results to rewards transactions created before this date.<br />  Default: **the start date**
+$RequestClientId = "RequestClientId_example"; // string | The ID of the client.
+$RequestEndDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The end date of transaction.  Default: **StartDate**
 $RequestLimit = 56; // int | Number of results to include, defaults to 100
 $RequestOffset = 56; // int | Page offset, defaults to 0.
-$RequestStartDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filters the results to rewards transactions created on or after this date.<br />  Default: **the current date**
+$RequestStartDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The start date of transaction.  Default: **today**
 
 try {
     $result = $apiInstance->clientGetClientRewards($RequestClientId, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestStartDate);
@@ -1301,11 +1303,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **RequestClientId** | **string**| The ID of the client whose reward information is being requested. |
- **RequestEndDate** | **\DateTime**| Filters the results to rewards transactions created before this date.&lt;br /&gt;  Default: **the start date** | [optional]
+ **RequestClientId** | **string**| The ID of the client. |
+ **RequestEndDate** | **\DateTime**| The end date of transaction.  Default: **StartDate** | [optional]
  **RequestLimit** | **int**| Number of results to include, defaults to 100 | [optional]
  **RequestOffset** | **int**| Page offset, defaults to 0. | [optional]
- **RequestStartDate** | **\DateTime**| Filters the results to rewards transactions created on or after this date.&lt;br /&gt;  Default: **the current date** | [optional]
+ **RequestStartDate** | **\DateTime**| The start date of transaction.  Default: **today** | [optional]
 
 ### Return type
 
@@ -1398,7 +1400,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **clientGetClientServices**
-> \Nlocascio\Mindbody\Model\GetClientServicesResponse clientGetClientServices($RequestClientId, $RequestClassId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestEndDate, $RequestIgnoreCrossRegionalSiteLimit, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSessionTypeId, $RequestShowActiveOnly, $RequestStartDate, $RequestVisitCount)
+> \Nlocascio\Mindbody\Model\GetClientServicesResponse clientGetClientServices($RequestClientId, $RequestClassId, $RequestClientAssociatedSitesOffset, $RequestClientIds, $RequestCrossRegionalLookup, $RequestEndDate, $RequestIgnoreCrossRegionalSiteLimit, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSessionTypeId, $RequestShowActiveOnly, $RequestStartDate, $RequestUseActivateDate, $RequestVisitCount)
 
 Get pricing options that a client has purchased.
 
@@ -1429,6 +1431,7 @@ $apiInstance = new Nlocascio\Mindbody\Api\ClientApi(
 $RequestClientId = "RequestClientId_example"; // string | The ID of the client to query. The results are a list of pricing options that the client has purchased. Note that “service” and “pricing option” are synonymous in this section of the documentation.
 $RequestClassId = 56; // int | Filters results to only those pricing options that can be used to pay for this class.
 $RequestClientAssociatedSitesOffset = 56; // int | Used to retrieve a client’s pricing options from multiple sites within an organization when the client is associated with more than ten sites. To change which ten sites are searched, change this offset value. A value of 0 means that no sites are skipped and the first ten sites are returned. You can use the `CrossRegionalClientAssociations` value from `GET CrossRegionalClientAssociations` to determine how many sites the client is associated with. Note that you must always have `CrossRegionalLookup` set to `true` to use this parameter.<br />  Default: **0**    For example, if a client is associated with 25 sites, you need to call `GetClientServices` three times, as follows:  * Use `GET CrossRegionalClientAssociations` to determine how many sites a client is associated with, which tells you how many additional calls you need to make.  * Either omit `ClientAssociatedSitesOffset` or set it to 0 to return the client’s services (pricing options) from sites 1-10.  * Set `ClientAssociatedSitesOffset` to 10 to return the client pricing options from sites 11-20  * Set `ClientAssociatedSitesOffset` to 20 to return the client pricing options from sites 21-25
+$RequestClientIds = array("RequestClientIds_example"); // string[] | The IDs of the clients to query. The results are a list of pricing options that the clients have purchased.  ClientId parameter takes priority over ClientIds due to backward compatibility.  So if you want to use ClientIds, then ClientId needs to be empty.  Either of ClientId or ClientIds need to be specified
 $RequestCrossRegionalLookup = true; // bool | Used to retrieve a client’s pricing options from multiple sites within an organization. When included and set to `true`, it searches a maximum of ten sites with which this client is associated. When a client is associated with more than ten sites, use `ClientAssociatedSitesOffset` as many times as needed to search the additional sites with which the client is associated. You can use the `CrossRegionalClientAssociations` value from `GET CrossRegionalClientAssociations` to determine how many sites the client is associated with. Note that a `SiteID` is returned and populated in the `ClientServices` response when `CrossRegionalLookup` is set to `true`.  Default: **false**
 $RequestEndDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filters results to pricing options that are valid on or before this date.  Default: **today’s date**
 $RequestIgnoreCrossRegionalSiteLimit = true; // bool | Used to specify if the number of cross regional sites used to search for client’s pricing options should be ignored.   Default: **false**
@@ -1439,10 +1442,11 @@ $RequestProgramIds = array(56); // int[] | Filters results to pricing options th
 $RequestSessionTypeId = 56; // int | Filters results to pricing options that will pay for the given session type ID. Use this to find pricing options that will pay for a specific appointment type.
 $RequestShowActiveOnly = true; // bool | When `true`, includes active services only.  Default: **false**
 $RequestStartDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filters results to pricing options that are valid on or after this date.  Default: **today’s date**
+$RequestUseActivateDate = true; // bool | When this flag is set to true the date filtering will use activate date to filter the pricing options  When this flag is set to false the date filtering will use purchase date to filter the pricing options [ Existing logic ]
 $RequestVisitCount = 56; // int | A filter on the minimum number of visits a service can pay for.
 
 try {
-    $result = $apiInstance->clientGetClientServices($RequestClientId, $RequestClassId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestEndDate, $RequestIgnoreCrossRegionalSiteLimit, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSessionTypeId, $RequestShowActiveOnly, $RequestStartDate, $RequestVisitCount);
+    $result = $apiInstance->clientGetClientServices($RequestClientId, $RequestClassId, $RequestClientAssociatedSitesOffset, $RequestClientIds, $RequestCrossRegionalLookup, $RequestEndDate, $RequestIgnoreCrossRegionalSiteLimit, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSessionTypeId, $RequestShowActiveOnly, $RequestStartDate, $RequestUseActivateDate, $RequestVisitCount);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ClientApi->clientGetClientServices: ', $e->getMessage(), PHP_EOL;
@@ -1457,6 +1461,7 @@ Name | Type | Description  | Notes
  **RequestClientId** | **string**| The ID of the client to query. The results are a list of pricing options that the client has purchased. Note that “service” and “pricing option” are synonymous in this section of the documentation. |
  **RequestClassId** | **int**| Filters results to only those pricing options that can be used to pay for this class. | [optional]
  **RequestClientAssociatedSitesOffset** | **int**| Used to retrieve a client’s pricing options from multiple sites within an organization when the client is associated with more than ten sites. To change which ten sites are searched, change this offset value. A value of 0 means that no sites are skipped and the first ten sites are returned. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that you must always have &#x60;CrossRegionalLookup&#x60; set to &#x60;true&#x60; to use this parameter.&lt;br /&gt;  Default: **0**    For example, if a client is associated with 25 sites, you need to call &#x60;GetClientServices&#x60; three times, as follows:  * Use &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites a client is associated with, which tells you how many additional calls you need to make.  * Either omit &#x60;ClientAssociatedSitesOffset&#x60; or set it to 0 to return the client’s services (pricing options) from sites 1-10.  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 10 to return the client pricing options from sites 11-20  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 20 to return the client pricing options from sites 21-25 | [optional]
+ **RequestClientIds** | [**string[]**](../Model/string.md)| The IDs of the clients to query. The results are a list of pricing options that the clients have purchased.  ClientId parameter takes priority over ClientIds due to backward compatibility.  So if you want to use ClientIds, then ClientId needs to be empty.  Either of ClientId or ClientIds need to be specified | [optional]
  **RequestCrossRegionalLookup** | **bool**| Used to retrieve a client’s pricing options from multiple sites within an organization. When included and set to &#x60;true&#x60;, it searches a maximum of ten sites with which this client is associated. When a client is associated with more than ten sites, use &#x60;ClientAssociatedSitesOffset&#x60; as many times as needed to search the additional sites with which the client is associated. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that a &#x60;SiteID&#x60; is returned and populated in the &#x60;ClientServices&#x60; response when &#x60;CrossRegionalLookup&#x60; is set to &#x60;true&#x60;.  Default: **false** | [optional]
  **RequestEndDate** | **\DateTime**| Filters results to pricing options that are valid on or before this date.  Default: **today’s date** | [optional]
  **RequestIgnoreCrossRegionalSiteLimit** | **bool**| Used to specify if the number of cross regional sites used to search for client’s pricing options should be ignored.   Default: **false** | [optional]
@@ -1467,6 +1472,7 @@ Name | Type | Description  | Notes
  **RequestSessionTypeId** | **int**| Filters results to pricing options that will pay for the given session type ID. Use this to find pricing options that will pay for a specific appointment type. | [optional]
  **RequestShowActiveOnly** | **bool**| When &#x60;true&#x60;, includes active services only.  Default: **false** | [optional]
  **RequestStartDate** | **\DateTime**| Filters results to pricing options that are valid on or after this date.  Default: **today’s date** | [optional]
+ **RequestUseActivateDate** | **bool**| When this flag is set to true the date filtering will use activate date to filter the pricing options  When this flag is set to false the date filtering will use purchase date to filter the pricing options [ Existing logic ] | [optional]
  **RequestVisitCount** | **int**| A filter on the minimum number of visits a service can pay for. | [optional]
 
 ### Return type
@@ -1564,7 +1570,7 @@ Name | Type | Description  | Notes
 # **clientGetClients**
 > \Nlocascio\Mindbody\Model\GetClientsResponse clientGetClients($RequestClientIDs, $RequestIncludeInactive, $RequestIsProspect, $RequestLastModifiedDate, $RequestLimit, $RequestOffset, $RequestSearchText, $RequestUniqueIds)
 
-Get clients.
+This endpoint requires staff user credentials. This endpoint supports pagination. See Pagination for a description of the Pagination information.
 
 ### Example
 ```php
@@ -1783,7 +1789,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **clientGetCrossRegionalClientAssociations**
-> \Nlocascio\Mindbody\Model\GetCrossRegionalClientAssociationsResponse clientGetCrossRegionalClientAssociations($RequestClientId, $RequestEmail, $RequestLimit, $RequestOffset)
+> \Nlocascio\Mindbody\Model\GetCrossRegionalClientAssociationsResponse clientGetCrossRegionalClientAssociations($RequestClientId, $RequestEmail, $RequestFirstName, $RequestLastName, $RequestLimit, $RequestOffset, $RequestV2)
 
 Get a client's cross regional site associations.
 
@@ -1815,11 +1821,14 @@ $apiInstance = new Nlocascio\Mindbody\Api\ClientApi(
 );
 $RequestClientId = "RequestClientId_example"; // string | Looks up the cross regional associations by the client’s ID. Either `ClientId` or `Email` must be provided. If both are provided, the `ClientId` is used by default.
 $RequestEmail = "RequestEmail_example"; // string | Looks up the cross regional associations by the client’s email address. Either `ClientId` or `Email` must be provided. If both are provided, the `ClientId` is used by default.
+$RequestFirstName = "RequestFirstName_example"; // string | First name (used for email queries)
+$RequestLastName = "RequestLastName_example"; // string | Last name (used for email queries)
 $RequestLimit = 56; // int | Number of results to include, defaults to 100
 $RequestOffset = 56; // int | Page offset, defaults to 0.
+$RequestV2 = true; // bool | Use newer method
 
 try {
-    $result = $apiInstance->clientGetCrossRegionalClientAssociations($RequestClientId, $RequestEmail, $RequestLimit, $RequestOffset);
+    $result = $apiInstance->clientGetCrossRegionalClientAssociations($RequestClientId, $RequestEmail, $RequestFirstName, $RequestLastName, $RequestLimit, $RequestOffset, $RequestV2);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ClientApi->clientGetCrossRegionalClientAssociations: ', $e->getMessage(), PHP_EOL;
@@ -1833,8 +1842,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **RequestClientId** | **string**| Looks up the cross regional associations by the client’s ID. Either &#x60;ClientId&#x60; or &#x60;Email&#x60; must be provided. If both are provided, the &#x60;ClientId&#x60; is used by default. | [optional]
  **RequestEmail** | **string**| Looks up the cross regional associations by the client’s email address. Either &#x60;ClientId&#x60; or &#x60;Email&#x60; must be provided. If both are provided, the &#x60;ClientId&#x60; is used by default. | [optional]
+ **RequestFirstName** | **string**| First name (used for email queries) | [optional]
+ **RequestLastName** | **string**| Last name (used for email queries) | [optional]
  **RequestLimit** | **int**| Number of results to include, defaults to 100 | [optional]
  **RequestOffset** | **int**| Page offset, defaults to 0. | [optional]
+ **RequestV2** | **bool**| Use newer method | [optional]
 
 ### Return type
 
@@ -1945,7 +1957,7 @@ $apiInstance = new Nlocascio\Mindbody\Api\ClientApi(
     new GuzzleHttp\Client(),
     $config
 );
-$ClientId = "ClientId_example"; // string | 
+$ClientId = "ClientId_example"; // string | The ID of the client.
 
 try {
     $result = $apiInstance->clientGetDirectDebitInfo($ClientId);
@@ -1960,7 +1972,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ClientId** | **string**|  | [optional]
+ **ClientId** | **string**| The ID of the client. | [optional]
 
 ### Return type
 
@@ -2039,7 +2051,9 @@ This endpoint does not need any parameter.
 # **clientMergeClient**
 > object clientMergeClient($Request)
 
+This endpoint helps to merge clients.
 
+This endpoint helps to merge clients.
 
 ### Example
 ```php
@@ -2350,7 +2364,7 @@ Name | Type | Description  | Notes
 
 Update a client at a site.
 
-Starting the week of May 11th, 2020 all versions of the Public API will no longer allow duplicate clients to be created. This applies to both adding a client and updating a client record. A duplicate client is created when two profiles have the same first name, last name and email.<br />   Updates an existing client for a specific subscriber.Passing a User Token as Authorization respects Business Mode required fields.Omitting the token respects Consumer Mode required fields.To make sure you are collecting all required pieces of information, first run GetRequiredClientFields..Use this endpoint as follows:   * If you need to update the `ReferredBy` parameter, use this endpoint after calling `GET ClientReferralTypes`.   * When updating a client’s home location, use after calling `GET Locations`.   * If you are updating a client’s stored credit card, use after calling `GET AcceptedCardTypes` so that you can make sure the card is a type that is accepted at the subscriber.   If this endpoint is used on a cross-regional site, passing in a client’s RSSID and email address creates a cross-regional link. This means that the client is created in cross-regional sites where the client does not exist and `GET CrossRegionalClientAssociations` returns all appropriate cross-regional sites. When `CrossRegionalUpdate` is omitted or set to `true`, the client’s updated information is propagated to all of the region’s sites. If `CrossRegionalUpdate` is set to `false`, only the local client is updated.      Note that the following items cannot be updated for a cross-regional client:   * `ClientIndexes`   * `ClientRelationships`   * `CustomClientFields`   * `SalesReps`   * `SendAccountEmails`   * `SendAccountTexts`   * `SendPromotionalEmails`   * `SendPromotionalTexts`   * `SendScheduleEmails`   * `SendScheduleTexts`   * `Gender` (for site custom values)  Custom client Gender options can only be created with non-cross-regional requests.     If you have purchased an Ultimate tier then this endpoint will automatically start showing a new opportunity on Sales Pipeline.It will create a new opportunity if the current request modify the contact as follows::     You need to update the `IsProspect` parameter, to `true`.<br />   You need to update the `ProspectStage`.`Description parameter`, to `New Lead`.<br />   Updates made to any inactive clients will automatically reactivate the client unless the `Acive` property is explicitly set to `false` in the request body.
+Starting the week of May 11th, 2020 all versions of the Public API will no longer allow duplicate clients to be created. This applies to both adding a client and updating a client record. A duplicate client is created when two profiles have the same first name, last name and email.<br />  Updates an existing client for a specific subscriber.Passing a User Token as Authorization respects Business Mode required fields.Omitting the token respects Consumer Mode required fields.To make sure you are collecting all required pieces of information, first run GetRequiredClientFields..Use this endpoint as follows:  * If you need to update the `ReferredBy` parameter, use this endpoint after calling `GET ClientReferralTypes`.  * When updating a client’s home location, use after calling `GET Locations`.  * If you are updating a client’s stored credit card, use after calling `GET AcceptedCardTypes` so that you can make sure the card is a type that is accepted at the subscriber.  If this endpoint is used on a cross-regional site, passing in a client’s RSSID and email address creates a cross-regional link. This means that the client is created in cross-regional sites where the client does not exist and `GET CrossRegionalClientAssociations` returns all appropriate cross-regional sites. When `CrossRegionalUpdate` is omitted or set to `true`, the client’s updated information is propagated to all of the region’s sites. If `CrossRegionalUpdate` is set to `false`, only the local client is updated.    Note that the following items cannot be updated for a cross-regional client:  * `ClientIndexes`  * `ClientRelationships`  * `CustomClientFields`  * `SalesReps`  * `SendAccountEmails`  * `SendAccountTexts`  * `SendPromotionalEmails`  * `SendPromotionalTexts`  * `SendScheduleEmails`  * `SendScheduleTexts`  * `Gender` (for site custom values)    Custom client Gender options can only be created with non-cross-regional requests.                If you have purchased an Ultimate tier then this endpoint will automatically start showing a new opportunity on Sales Pipeline.It will create a new opportunity if the current request modify the contact as follows::                * You need to update the `IsProspect` parameter, to `true`.<br />  * You need to update the `ProspectStage`.`Description parameter`, to `New Lead`.<br />    Updates made to any inactive clients will automatically reactivate the client unless the `Acive` property is explicitly set to `false` in the request body.
 
 ### Example
 ```php
@@ -2411,7 +2425,9 @@ Name | Type | Description  | Notes
 # **clientUpdateClientContractAutopays**
 > \Nlocascio\Mindbody\Model\Contract clientUpdateClientContractAutopays($Request)
 
+This endpoint can be used to update the amount and/or the item of a client’s autopay schedule.
 
+This endpoint can be used to update the amount and/or the item of a client’s autopay schedule.
 
 ### Example
 ```php

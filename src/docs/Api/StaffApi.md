@@ -4,22 +4,22 @@ All URIs are relative to *https://api.mindbodyonline.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**staffAddStaff**](StaffApi.md#staffAddStaff) | **POST** /public/v6/staff/addstaff | 
-[**staffAddStaffAvailability**](StaffApi.md#staffAddStaffAvailability) | **POST** /public/v6/staff/staffavailability | 
-[**staffAssignStaffSessionType**](StaffApi.md#staffAssignStaffSessionType) | **POST** /public/v6/staff/assignsessiontype | 
-[**staffGetSalesReps**](StaffApi.md#staffGetSalesReps) | **GET** /public/v6/staff/salesreps | 
+[**staffAddStaff**](StaffApi.md#staffAddStaff) | **POST** /public/v6/staff/addstaff | Creates a new staff member record at the specified business. The &#x60;FirstName&#x60; and &#x60;LastName&#x60; parameters are always required for this request.
+[**staffAddStaffAvailability**](StaffApi.md#staffAddStaffAvailability) | **POST** /public/v6/staff/staffavailability | Enables to add staff availability or unavailability for a given staff member.
+[**staffAssignStaffSessionType**](StaffApi.md#staffAssignStaffSessionType) | **POST** /public/v6/staff/assignsessiontype | Assigns a staff member to an appointment session type with staff specific properties such as time length and pay rate. A staff user token must be included with staff assigned the ManageStaffPayRates permission.
+[**staffGetSalesReps**](StaffApi.md#staffGetSalesReps) | **GET** /public/v6/staff/salesreps | This endpoint returns the basic details of the staffs that are marked as sales reps.
 [**staffGetStaff**](StaffApi.md#staffGetStaff) | **GET** /public/v6/staff/staff | Get staff members at a site.
 [**staffGetStaffImageURL**](StaffApi.md#staffGetStaffImageURL) | **GET** /public/v6/staff/imageurl | Get image URLs for the given staff ID in the request.
 [**staffGetStaffPermissions**](StaffApi.md#staffGetStaffPermissions) | **GET** /public/v6/staff/staffpermissions | Get configured staff permissions for a staff member.
 [**staffGetStaffSessionTypes**](StaffApi.md#staffGetStaffSessionTypes) | **GET** /public/v6/staff/sessiontypes | Get the session types used at a site for a staff member.
-[**staffUpdateStaff**](StaffApi.md#staffUpdateStaff) | **POST** /public/v6/staff/updatestaff | 
-[**staffUpdateStaffPermissions**](StaffApi.md#staffUpdateStaffPermissions) | **POST** /public/v6/staff/updatestaffpermissions | 
+[**staffUpdateStaff**](StaffApi.md#staffUpdateStaff) | **POST** /public/v6/staff/updatestaff | Updates an existing staff member record at the specified business. The ID is a required parameters for this request.
+[**staffUpdateStaffPermissions**](StaffApi.md#staffUpdateStaffPermissions) | **POST** /public/v6/staff/updatestaffpermissions | Assigns a permission group to a staff member. A staff user token must be included with staff assigned the ManageStaffPayRates permission.
 
 
 # **staffAddStaff**
 > \Nlocascio\Mindbody\Model\AddStaffResponse staffAddStaff($Request)
 
-
+Creates a new staff member record at the specified business. The `FirstName` and `LastName` parameters are always required for this request.
 
 Creates a new staff member record at the specified business. The `FirstName` and `LastName` parameters are always required for this request.
 
@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 # **staffAddStaffAvailability**
 > staffAddStaffAvailability($Request)
 
-
+Enables to add staff availability or unavailability for a given staff member.
 
 Enables to add staff availability or unavailability for a given staff member.
 
@@ -144,7 +144,7 @@ void (empty response body)
 # **staffAssignStaffSessionType**
 > \Nlocascio\Mindbody\Model\AssignStaffSessionTypeResponse staffAssignStaffSessionType($Request)
 
-
+Assigns a staff member to an appointment session type with staff specific properties such as time length and pay rate. A staff user token must be included with staff assigned the ManageStaffPayRates permission.
 
 Assigns a staff member to an appointment session type with staff specific properties such as time length and pay rate. A staff user token must be included with staff assigned the ManageStaffPayRates permission.
 
@@ -207,7 +207,7 @@ Name | Type | Description  | Notes
 # **staffGetSalesReps**
 > \Nlocascio\Mindbody\Model\GetSalesRepsResponse staffGetSalesReps($RequestActiveOnly, $RequestLimit, $RequestOffset, $RequestSalesRepNumbers)
 
-
+This endpoint returns the basic details of the staffs that are marked as sales reps.
 
 This endpoint returns the basic details of the staffs that are marked as sales reps.
 
@@ -416,6 +416,8 @@ Name | Type | Description  | Notes
 
 Get configured staff permissions for a staff member.
 
+Get configured staff permissions for a staff member.
+
 ### Example
 ```php
 <?php
@@ -506,7 +508,7 @@ $apiInstance = new Nlocascio\Mindbody\Api\StaffApi(
 $RequestStaffId = 789; // int | The ID of the staff member whose session types you want to return.
 $RequestLimit = 56; // int | Number of results to include, defaults to 100
 $RequestOffset = 56; // int | Page offset, defaults to 0.
-$RequestOnlineOnly = true; // bool | When `true`, indicates that only the session types that can be booked online should be returned.  Default: false
+$RequestOnlineOnly = true; // bool | When `true`, indicates that only the session types that can be booked online should be returned.  Default: **false**
 $RequestProgramIds = array(56); // int[] | Filters results to session types that belong to one of the given program IDs. If omitted, all program IDs return.
 
 try {
@@ -525,7 +527,7 @@ Name | Type | Description  | Notes
  **RequestStaffId** | **int**| The ID of the staff member whose session types you want to return. |
  **RequestLimit** | **int**| Number of results to include, defaults to 100 | [optional]
  **RequestOffset** | **int**| Page offset, defaults to 0. | [optional]
- **RequestOnlineOnly** | **bool**| When &#x60;true&#x60;, indicates that only the session types that can be booked online should be returned.  Default: false | [optional]
+ **RequestOnlineOnly** | **bool**| When &#x60;true&#x60;, indicates that only the session types that can be booked online should be returned.  Default: **false** | [optional]
  **RequestProgramIds** | [**int[]**](../Model/int.md)| Filters results to session types that belong to one of the given program IDs. If omitted, all program IDs return. | [optional]
 
 ### Return type
@@ -546,7 +548,7 @@ Name | Type | Description  | Notes
 # **staffUpdateStaff**
 > \Nlocascio\Mindbody\Model\UpdateStaffResponse staffUpdateStaff($Request)
 
-
+Updates an existing staff member record at the specified business. The ID is a required parameters for this request.
 
 Updates an existing staff member record at the specified business. The ID is a required parameters for this request.
 
@@ -609,7 +611,7 @@ Name | Type | Description  | Notes
 # **staffUpdateStaffPermissions**
 > \Nlocascio\Mindbody\Model\UpdateStaffPermissionsResponse staffUpdateStaffPermissions($Request)
 
-
+Assigns a permission group to a staff member. A staff user token must be included with staff assigned the ManageStaffPayRates permission.
 
 Assigns a permission group to a staff member. A staff user token must be included with staff assigned the ManageStaffPayRates permission.
 

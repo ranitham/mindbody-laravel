@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **DaysAfterCloseDate** | **int** | The number of days a client has to use a promocode after they are no longer a prospect. | [optional] 
 **AllowOnline** | **bool** | Indicates if promocode can be redeemed online in consumer mode. Default: **false** | [optional] 
 **DaysValid** | **string[]** | Indicates what days of the week promocode is valid. Defaults to 7 days of the week. Possible values are:  * Monday  * Tuesday  * Wednesday  * Thursday  * Friday  * Saturday  * Sunday | [optional] 
-**ApplicableItems** | [**\Nlocascio\Mindbody\Model\ApplicableItem[]**](ApplicableItem.md) | Contains information about appicable items.  See ApplicableItems for a details of the &#x60;ApplicableItems&#x60; object. | [optional] 
+**ApplicableItems** | [**\Nlocascio\Mindbody\Model\ApplicableItem[]**](ApplicableItem.md) | Contains information about a promocode applicable items.  See ApplicableItems for a details of the &#x60;ApplicableItems&#x60; object. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

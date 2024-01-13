@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Visits** | [**\Nlocascio\Mindbody\Model\Visit[]**](Visit.md) | Contains information about visits. | [optional] 
 **Clients** | [**\Nlocascio\Mindbody\Model\Client[]**](Client.md) | Contains information about clients. | [optional] 
 **Location** | [**\Nlocascio\Mindbody\Model\Location**](Location.md) | Contains information about a location. | [optional] 
-**Resource** | [**\Nlocascio\Mindbody\Model\Resource**](Resource.md) | Contains information about a resource, such as a room, assigned to a class. | [optional] 
+**Resource** | [**\Nlocascio\Mindbody\Model\ResourceSlim**](ResourceSlim.md) | Contains information about a resource, such as a room, assigned to a class. | [optional] 
 **MaxCapacity** | **int** | The maximum number of clients allowed in the class. | [optional] 
 **WebCapacity** | **int** | The maximum number of clients allowed to sign up online for the class. | [optional] 
 **TotalBooked** | **int** | The total number of clients booked in the class. | [optional] 
@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 **Staff** | [**\Nlocascio\Mindbody\Model\Staff**](Staff.md) | Contains information about the staff member. | [optional] 
 **BookingWindow** | [**\Nlocascio\Mindbody\Model\BookingWindow**](BookingWindow.md) | Contains information about the window for booking. | [optional] 
 **BookingStatus** | **string** | Contains the booking’s payment status. | [optional] 
-**VirtualStreamLink** | **string** | The URL for the live stream for the class if hosted on the mindbody virtual wellness platform | [optional] 
+**VirtualStreamLink** | **string** | The link to the Mindbody-hosted live stream for the class. This is &#x60;null&#x60; when no live stream is configured for the class. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

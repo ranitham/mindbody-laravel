@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **Sale** | [**\Nlocascio\Mindbody\Model\Sale**](Sale.md) | Contains details about the sale and payment for a purchase event. | [optional] 
 **Description** | **string** | The item name and description. | [optional] 
 **AccountPayment** | **bool** | If &#x60;true&#x60;, the item was a payment credited to an account. | [optional] 
-**Price** | **double** | The item&#39;s price before taxes and discounts. | [optional] 
+**Price** | **double** | The price paid for the item. | [optional] 
 **AmountPaid** | **double** | The amount paid for the item. | [optional] 
 **Discount** | **double** | The discount amount that was applied to the item. | [optional] 
 **Tax** | **double** | The amount of tax that was applied to the item. | [optional] 

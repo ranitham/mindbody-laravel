@@ -4,7 +4,7 @@ All URIs are relative to *https://api.mindbodyonline.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**classAddClassSchedule**](ClassApi.md#classAddClassSchedule) | **POST** /public/v6/class/addclassschedule | 
+[**classAddClassSchedule**](ClassApi.md#classAddClassSchedule) | **POST** /public/v6/class/addclassschedule | This endpoint adds a class schedule. For a single day schedule, the EndDate parameter can be omitted.
 [**classAddClientToClass**](ClassApi.md#classAddClientToClass) | **POST** /public/v6/class/addclienttoclass | Book a client into a class.
 [**classCancelSingleClass**](ClassApi.md#classCancelSingleClass) | **POST** /public/v6/class/cancelsingleclass | Cancels a single class instance.
 [**classGetClassDescriptions**](ClassApi.md#classGetClassDescriptions) | **GET** /public/v6/class/classdescriptions | Get class descriptions.
@@ -12,19 +12,19 @@ Method | HTTP request | Description
 [**classGetClassVisits**](ClassApi.md#classGetClassVisits) | **GET** /public/v6/class/classvisits | Get information about clients booked in a class.
 [**classGetClasses**](ClassApi.md#classGetClasses) | **GET** /public/v6/class/classes | Get scheduled classes.
 [**classGetCourses**](ClassApi.md#classGetCourses) | **GET** /public/v6/class/courses | Fetch the list of the course for a studio
-[**classGetSemestersAsync**](ClassApi.md#classGetSemestersAsync) | **GET** /public/v6/class/semesters | Fetch the list of the Semesters
+[**classGetSemesters**](ClassApi.md#classGetSemesters) | **GET** /public/v6/class/semesters | Fetch the list of the Semesters
 [**classGetWaitlistEntries**](ClassApi.md#classGetWaitlistEntries) | **GET** /public/v6/class/waitlistentries | Get waiting list entries.
 [**classRemoveClientFromClass**](ClassApi.md#classRemoveClientFromClass) | **POST** /public/v6/class/removeclientfromclass | Remove a client from a class.
 [**classRemoveClientsFromClasses**](ClassApi.md#classRemoveClientsFromClasses) | **POST** /public/v6/class/removeclientsfromclasses | Remove a clients from a classes.
 [**classRemoveFromWaitlist**](ClassApi.md#classRemoveFromWaitlist) | **POST** /public/v6/class/removefromwaitlist | Remove a client from a waiting list.
 [**classSubstituteClassTeacher**](ClassApi.md#classSubstituteClassTeacher) | **POST** /public/v6/class/substituteclassteacher | Substitute a class teacher.
-[**classUpdateClassSchedule**](ClassApi.md#classUpdateClassSchedule) | **POST** /public/v6/class/updateclassschedule | 
+[**classUpdateClassSchedule**](ClassApi.md#classUpdateClassSchedule) | **POST** /public/v6/class/updateclassschedule | This endpoint updates a class schedule.
 
 
 # **classAddClassSchedule**
-> object classAddClassSchedule($Request)
+> \Nlocascio\Mindbody\Model\MindbodyPublicApiDataModelsWrittenClassSchedulesInfo classAddClassSchedule($Request)
 
-
+This endpoint adds a class schedule. For a single day schedule, the EndDate parameter can be omitted.
 
 ### Example
 ```php
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**\Nlocascio\Mindbody\Model\MindbodyPublicApiDataModelsWrittenClassSchedulesInfo**](../Model/MindbodyPublicApiDataModelsWrittenClassSchedulesInfo.md)
 
 ### Authorization
 
@@ -290,6 +290,8 @@ Name | Type | Description  | Notes
 
 Get class schedules.
 
+Get class schedules.
+
 ### Example
 ```php
 <?php
@@ -409,7 +411,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **RequestClassID** | **int**| The class ID. | [optional]
+ **RequestClassID** | **int**| The class ID. |
  **RequestLastModifiedDate** | **\DateTime**| When included in the request, only records modified on or after the &#x60;LastModifiedDate&#x60; specified are included in the response. | [optional]
 
 ### Return type
@@ -597,8 +599,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **classGetSemestersAsync**
-> \Nlocascio\Mindbody\Model\GetSemestersResponse classGetSemestersAsync($RequestActive, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestSemesterIDs, $RequestStartDate)
+# **classGetSemesters**
+> \Nlocascio\Mindbody\Model\GetSemestersResponse classGetSemesters($RequestActive, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestSemesterIDs, $RequestStartDate)
 
 Fetch the list of the Semesters
 
@@ -636,10 +638,10 @@ $RequestSemesterIDs = array(56); // int[] | The requested semester IDs.
 $RequestStartDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The start date for the range. All semesters that are on or after this day.  Default: **today’s date**
 
 try {
-    $result = $apiInstance->classGetSemestersAsync($RequestActive, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestSemesterIDs, $RequestStartDate);
+    $result = $apiInstance->classGetSemesters($RequestActive, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestSemesterIDs, $RequestStartDate);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ClassApi->classGetSemestersAsync: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ClassApi->classGetSemesters: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -994,9 +996,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **classUpdateClassSchedule**
-> object classUpdateClassSchedule($Request)
+> \Nlocascio\Mindbody\Model\MindbodyPublicApiDataModelsWrittenClassSchedulesInfo classUpdateClassSchedule($Request)
 
+This endpoint updates a class schedule.
 
+This endpoint updates a class schedule.
 
 ### Example
 ```php
@@ -1041,7 +1045,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**\Nlocascio\Mindbody\Model\MindbodyPublicApiDataModelsWrittenClassSchedulesInfo**](../Model/MindbodyPublicApiDataModelsWrittenClassSchedulesInfo.md)
 
 ### Authorization
 

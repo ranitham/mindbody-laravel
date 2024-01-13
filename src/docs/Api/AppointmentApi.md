@@ -16,7 +16,7 @@ Method | HTTP request | Description
 [**appointmentGetBookableItems**](AppointmentApi.md#appointmentGetBookableItems) | **GET** /public/v6/appointment/bookableitems | Get staff appointment availability.
 [**appointmentGetScheduleItems**](AppointmentApi.md#appointmentGetScheduleItems) | **GET** /public/v6/appointment/scheduleitems | Get appointment schedule.
 [**appointmentGetStaffAppointments**](AppointmentApi.md#appointmentGetStaffAppointments) | **GET** /public/v6/appointment/staffappointments | Get appointments grouped by staff member.
-[**appointmentGetUnavailabilities**](AppointmentApi.md#appointmentGetUnavailabilities) | **GET** /public/v6/appointment/unavailabilities | Get unavailabilities.
+[**appointmentGetUnavailabilities**](AppointmentApi.md#appointmentGetUnavailabilities) | **GET** /public/v6/appointment/unavailabilities | Returns a list of unavailabilities. Unavailabilities are the times at which appointments cannot be booked, for example, on holidays or after hours when the business is closed.
 [**appointmentRemoveFromWaitlist**](AppointmentApi.md#appointmentRemoveFromWaitlist) | **DELETE** /public/v6/appointment/appointmentfromwaitlist | Remove an appointment from waitlist
 [**appointmentUpdateAppointment**](AppointmentApi.md#appointmentUpdateAppointment) | **POST** /public/v6/appointment/updateappointment | Update an existing appointment.
 [**appointmentUpdateAvailability**](AppointmentApi.md#appointmentUpdateAvailability) | **PUT** /public/v6/appointment/availabilities | Update availability/unavailability of the staff
@@ -798,7 +798,7 @@ $RequestEndDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The
 $RequestLimit = 56; // int | Number of results to include, defaults to 100
 $RequestLocationIds = array(56); // int[] | A list of the requested location IDs.
 $RequestOffset = 56; // int | Page offset, defaults to 0.
-$RequestStaffIds = array(56); // int[] | List of staff IDs to be returned. Use a value of zero to return all staff appointments.
+$RequestStaffIds = array(56); // int[] | List of staff IDs to be returned. Omit parameter to return staff appointments for all staff.
 $RequestStartDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The start date of the requested date range. If omitted, the default is used.   <br />Default: **today’s date**
 
 try {
@@ -820,7 +820,7 @@ Name | Type | Description  | Notes
  **RequestLimit** | **int**| Number of results to include, defaults to 100 | [optional]
  **RequestLocationIds** | [**int[]**](../Model/int.md)| A list of the requested location IDs. | [optional]
  **RequestOffset** | **int**| Page offset, defaults to 0. | [optional]
- **RequestStaffIds** | [**int[]**](../Model/int.md)| List of staff IDs to be returned. Use a value of zero to return all staff appointments. | [optional]
+ **RequestStaffIds** | [**int[]**](../Model/int.md)| List of staff IDs to be returned. Omit parameter to return staff appointments for all staff. | [optional]
  **RequestStartDate** | **\DateTime**| The start date of the requested date range. If omitted, the default is used.   &lt;br /&gt;Default: **today’s date** | [optional]
 
 ### Return type
@@ -841,7 +841,7 @@ Name | Type | Description  | Notes
 # **appointmentGetUnavailabilities**
 > \Nlocascio\Mindbody\Model\GetUnavailabilitiesResponse appointmentGetUnavailabilities($RequestEndDate, $RequestLimit, $RequestOffset, $RequestStaffIds, $RequestStartDate)
 
-Get unavailabilities.
+Returns a list of unavailabilities. Unavailabilities are the times at which appointments cannot be booked, for example, on holidays or after hours when the business is closed.
 
 ### Example
 ```php
@@ -908,7 +908,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **appointmentRemoveFromWaitlist**
-> \Nlocascio\Mindbody\Model\RemoveFromWaitlistResponse appointmentRemoveFromWaitlist($RequestWaitlistEntryIds)
+> appointmentRemoveFromWaitlist($RequestWaitlistEntryIds)
 
 Remove an appointment from waitlist
 
@@ -939,8 +939,7 @@ $apiInstance = new Nlocascio\Mindbody\Api\AppointmentApi(
 $RequestWaitlistEntryIds = array(56); // int[] | A list of `WaitlistEntryIds` to remove from the waiting list.
 
 try {
-    $result = $apiInstance->appointmentRemoveFromWaitlist($RequestWaitlistEntryIds);
-    print_r($result);
+    $apiInstance->appointmentRemoveFromWaitlist($RequestWaitlistEntryIds);
 } catch (Exception $e) {
     echo 'Exception when calling AppointmentApi->appointmentRemoveFromWaitlist: ', $e->getMessage(), PHP_EOL;
 }
@@ -955,7 +954,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Nlocascio\Mindbody\Model\RemoveFromWaitlistResponse**](../Model/RemoveFromWaitlistResponse.md)
+void (empty response body)
 
 ### Authorization
 

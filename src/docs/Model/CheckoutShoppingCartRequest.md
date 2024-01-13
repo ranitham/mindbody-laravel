@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **PaymentAuthenticationCallbackUrl** | **string** | The URL consumer is redirected to if the bank requests SCA. This field is only needed if ConsumerPresent is &#x60;true&#x60; | [optional] 
 **TransactionIds** | **int[]** | The list of TransactionIds provided with initial response containing SCA Challenge URLs for ConsumerPresent transactions | [optional] 
 **IsBillingPostalCodeRequired** | **bool** | the flag to check billing post code is required or not. | [optional] 
+**EnforceLocationRestrictions** | **bool** | When &#x60;true&#x60;, enforces \&quot;sell at\&quot; location restrictions on the cart items.  When &#x60;false&#x60;, \&quot;sell at\&quot; location restrictions are not enforced.  Default: **false** | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

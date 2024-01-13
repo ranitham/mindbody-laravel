@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RestrictedLocations** | [**\Nlocascio\Mindbody\Model\Location[]**](Location.md) | The locations that the membership is restricted to, if any. | [optional] 
+**RestrictedLocations** | [**\Nlocascio\Mindbody\Model\Location[]**](Location.md) | The locations that the membership is restricted to, if any.  Please note that client memberships with location restrictions can only be used to pay for scheduled services at the site to which they belong. Memberships with location restrictions can not be used to pay for scheduled services at other sites within an organization. | [optional] 
 **IconCode** | **string** | Text code that represents the &#x60;MembershipIcon&#x60;. | [optional] 
 **MembershipId** | **int** | The membership&#39;s ID. | [optional] 
 **ActiveDate** | [**\DateTime**](\DateTime.md) | The date that this pricing option became active and could be used to pay for services. | [optional] 
@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **Remaining** | **int** | The number of service sessions remaining in the pricing option that can still be used. | [optional] 
 **SiteId** | **int** | The ID of the subscriber site associated with this pricing option. | [optional] 
 **Action** | **string** | The action taken. | [optional] 
+**ClientID** | **string** | The Client ID assigned to this pricing option, specific to when it was purchased by the client. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

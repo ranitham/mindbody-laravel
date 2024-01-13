@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ScheduleType** | **string** | A schedule type used to filter the returned results. Possible values are:  * All  * Class  * Enrollment  * Appointment  * Resource  * Media  * Arrival | [optional] 
 **OnlineOnly** | **bool** | If &#x60;true&#x60;, filters results to show only those programs that are shown online.&lt;br /&gt;  If &#x60;false&#x60;, all programs are returned.&lt;br /&gt;  Default: **false** | [optional] 
+**ProgramIds** | **int[]** | Program Ids to filter for | [optional] 
 **Limit** | **int** | Number of results to include, defaults to 100 | [optional] 
 **Offset** | **int** | Page offset, defaults to 0. | [optional] 
 

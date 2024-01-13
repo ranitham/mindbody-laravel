@@ -105,11 +105,11 @@ Class | Method | HTTP request | Description
 *AppointmentApi* | [**appointmentGetBookableItems**](docs/Api/AppointmentApi.md#appointmentgetbookableitems) | **GET** /public/v6/appointment/bookableitems | Get staff appointment availability.
 *AppointmentApi* | [**appointmentGetScheduleItems**](docs/Api/AppointmentApi.md#appointmentgetscheduleitems) | **GET** /public/v6/appointment/scheduleitems | Get appointment schedule.
 *AppointmentApi* | [**appointmentGetStaffAppointments**](docs/Api/AppointmentApi.md#appointmentgetstaffappointments) | **GET** /public/v6/appointment/staffappointments | Get appointments grouped by staff member.
-*AppointmentApi* | [**appointmentGetUnavailabilities**](docs/Api/AppointmentApi.md#appointmentgetunavailabilities) | **GET** /public/v6/appointment/unavailabilities | Get unavailabilities.
+*AppointmentApi* | [**appointmentGetUnavailabilities**](docs/Api/AppointmentApi.md#appointmentgetunavailabilities) | **GET** /public/v6/appointment/unavailabilities | Returns a list of unavailabilities. Unavailabilities are the times at which appointments cannot be booked, for example, on holidays or after hours when the business is closed.
 *AppointmentApi* | [**appointmentRemoveFromWaitlist**](docs/Api/AppointmentApi.md#appointmentremovefromwaitlist) | **DELETE** /public/v6/appointment/appointmentfromwaitlist | Remove an appointment from waitlist
 *AppointmentApi* | [**appointmentUpdateAppointment**](docs/Api/AppointmentApi.md#appointmentupdateappointment) | **POST** /public/v6/appointment/updateappointment | Update an existing appointment.
 *AppointmentApi* | [**appointmentUpdateAvailability**](docs/Api/AppointmentApi.md#appointmentupdateavailability) | **PUT** /public/v6/appointment/availabilities | Update availability/unavailability of the staff
-*ClassApi* | [**classAddClassSchedule**](docs/Api/ClassApi.md#classaddclassschedule) | **POST** /public/v6/class/addclassschedule | 
+*ClassApi* | [**classAddClassSchedule**](docs/Api/ClassApi.md#classaddclassschedule) | **POST** /public/v6/class/addclassschedule | This endpoint adds a class schedule. For a single day schedule, the EndDate parameter can be omitted.
 *ClassApi* | [**classAddClientToClass**](docs/Api/ClassApi.md#classaddclienttoclass) | **POST** /public/v6/class/addclienttoclass | Book a client into a class.
 *ClassApi* | [**classCancelSingleClass**](docs/Api/ClassApi.md#classcancelsingleclass) | **POST** /public/v6/class/cancelsingleclass | Cancels a single class instance.
 *ClassApi* | [**classGetClassDescriptions**](docs/Api/ClassApi.md#classgetclassdescriptions) | **GET** /public/v6/class/classdescriptions | Get class descriptions.
@@ -117,13 +117,13 @@ Class | Method | HTTP request | Description
 *ClassApi* | [**classGetClassVisits**](docs/Api/ClassApi.md#classgetclassvisits) | **GET** /public/v6/class/classvisits | Get information about clients booked in a class.
 *ClassApi* | [**classGetClasses**](docs/Api/ClassApi.md#classgetclasses) | **GET** /public/v6/class/classes | Get scheduled classes.
 *ClassApi* | [**classGetCourses**](docs/Api/ClassApi.md#classgetcourses) | **GET** /public/v6/class/courses | Fetch the list of the course for a studio
-*ClassApi* | [**classGetSemestersAsync**](docs/Api/ClassApi.md#classgetsemestersasync) | **GET** /public/v6/class/semesters | Fetch the list of the Semesters
+*ClassApi* | [**classGetSemesters**](docs/Api/ClassApi.md#classgetsemesters) | **GET** /public/v6/class/semesters | Fetch the list of the Semesters
 *ClassApi* | [**classGetWaitlistEntries**](docs/Api/ClassApi.md#classgetwaitlistentries) | **GET** /public/v6/class/waitlistentries | Get waiting list entries.
 *ClassApi* | [**classRemoveClientFromClass**](docs/Api/ClassApi.md#classremoveclientfromclass) | **POST** /public/v6/class/removeclientfromclass | Remove a client from a class.
 *ClassApi* | [**classRemoveClientsFromClasses**](docs/Api/ClassApi.md#classremoveclientsfromclasses) | **POST** /public/v6/class/removeclientsfromclasses | Remove a clients from a classes.
 *ClassApi* | [**classRemoveFromWaitlist**](docs/Api/ClassApi.md#classremovefromwaitlist) | **POST** /public/v6/class/removefromwaitlist | Remove a client from a waiting list.
 *ClassApi* | [**classSubstituteClassTeacher**](docs/Api/ClassApi.md#classsubstituteclassteacher) | **POST** /public/v6/class/substituteclassteacher | Substitute a class teacher.
-*ClassApi* | [**classUpdateClassSchedule**](docs/Api/ClassApi.md#classupdateclassschedule) | **POST** /public/v6/class/updateclassschedule | 
+*ClassApi* | [**classUpdateClassSchedule**](docs/Api/ClassApi.md#classupdateclassschedule) | **POST** /public/v6/class/updateclassschedule | This endpoint updates a class schedule.
 *ClientApi* | [**clientAddArrival**](docs/Api/ClientApi.md#clientaddarrival) | **POST** /public/v6/client/addarrival | Add an arrival for a client.
 *ClientApi* | [**clientAddClient**](docs/Api/ClientApi.md#clientaddclient) | **POST** /public/v6/client/addclient | Add a client to a site.
 *ClientApi* | [**clientAddClientDirectDebitInfo**](docs/Api/ClientApi.md#clientaddclientdirectdebitinfo) | **POST** /public/v6/client/addclientdirectdebitinfo | Add client Direct debit info.
@@ -142,48 +142,47 @@ Class | Method | HTTP request | Description
 *ClientApi* | [**clientGetClientIndexes**](docs/Api/ClientApi.md#clientgetclientindexes) | **GET** /public/v6/client/clientindexes | Get a site&#39;s configured client indexes and client index values.
 *ClientApi* | [**clientGetClientPurchases**](docs/Api/ClientApi.md#clientgetclientpurchases) | **GET** /public/v6/client/clientpurchases | Get a client&#39;s purchase history.
 *ClientApi* | [**clientGetClientReferralTypes**](docs/Api/ClientApi.md#clientgetclientreferraltypes) | **GET** /public/v6/client/clientreferraltypes | Get a site&#39;s configured client referral types.
-*ClientApi* | [**clientGetClientRewards**](docs/Api/ClientApi.md#clientgetclientrewards) | **GET** /public/v6/client/clientrewards | 
+*ClientApi* | [**clientGetClientRewards**](docs/Api/ClientApi.md#clientgetclientrewards) | **GET** /public/v6/client/clientrewards | Gets the client rewards.
 *ClientApi* | [**clientGetClientSchedule**](docs/Api/ClientApi.md#clientgetclientschedule) | **GET** /public/v6/client/clientschedule | Gets a client&#39;s schedule history.
 *ClientApi* | [**clientGetClientServices**](docs/Api/ClientApi.md#clientgetclientservices) | **GET** /public/v6/client/clientservices | Get pricing options that a client has purchased.
 *ClientApi* | [**clientGetClientVisits**](docs/Api/ClientApi.md#clientgetclientvisits) | **GET** /public/v6/client/clientvisits | Get a client&#39;s visit history.
-*ClientApi* | [**clientGetClients**](docs/Api/ClientApi.md#clientgetclients) | **GET** /public/v6/client/clients | Get clients.
+*ClientApi* | [**clientGetClients**](docs/Api/ClientApi.md#clientgetclients) | **GET** /public/v6/client/clients | This endpoint requires staff user credentials. This endpoint supports pagination. See Pagination for a description of the Pagination information.
 *ClientApi* | [**clientGetContactLogTypes**](docs/Api/ClientApi.md#clientgetcontactlogtypes) | **GET** /public/v6/client/contactlogtypes | Get All Active Contact Log Types
 *ClientApi* | [**clientGetContactLogs**](docs/Api/ClientApi.md#clientgetcontactlogs) | **GET** /public/v6/client/contactlogs | Get contact logs on a client&#39;s account.
 *ClientApi* | [**clientGetCrossRegionalClientAssociations**](docs/Api/ClientApi.md#clientgetcrossregionalclientassociations) | **GET** /public/v6/client/crossregionalclientassociations | Get a client&#39;s cross regional site associations.
 *ClientApi* | [**clientGetCustomClientFields**](docs/Api/ClientApi.md#clientgetcustomclientfields) | **GET** /public/v6/client/customclientfields | Get a site&#39;s configured custom client fields.
 *ClientApi* | [**clientGetDirectDebitInfo**](docs/Api/ClientApi.md#clientgetdirectdebitinfo) | **GET** /public/v6/client/clientdirectdebitinfo | Get direct debit info for a client.
 *ClientApi* | [**clientGetRequiredClientFields**](docs/Api/ClientApi.md#clientgetrequiredclientfields) | **GET** /public/v6/client/requiredclientfields | Get client required fields for a site.
-*ClientApi* | [**clientMergeClient**](docs/Api/ClientApi.md#clientmergeclient) | **POST** /public/v6/client/mergeclients | 
+*ClientApi* | [**clientMergeClient**](docs/Api/ClientApi.md#clientmergeclient) | **POST** /public/v6/client/mergeclients | This endpoint helps to merge clients.
 *ClientApi* | [**clientSendAutoEmail**](docs/Api/ClientApi.md#clientsendautoemail) | **POST** /public/v6/client/sendautoemail | Send a client a supported auto email
 *ClientApi* | [**clientSendPasswordResetEmail**](docs/Api/ClientApi.md#clientsendpasswordresetemail) | **POST** /public/v6/client/sendpasswordresetemail | Send a password reset email to a client.
 *ClientApi* | [**clientSuspendContract**](docs/Api/ClientApi.md#clientsuspendcontract) | **POST** /public/v6/client/suspendcontract | Suspend client contract
 *ClientApi* | [**clientTerminateContract**](docs/Api/ClientApi.md#clientterminatecontract) | **POST** /public/v6/client/terminatecontract | Terminate client contract
 *ClientApi* | [**clientUpdateClient**](docs/Api/ClientApi.md#clientupdateclient) | **POST** /public/v6/client/updateclient | Update a client at a site.
-*ClientApi* | [**clientUpdateClientContractAutopays**](docs/Api/ClientApi.md#clientupdateclientcontractautopays) | **POST** /public/v6/client/updateclientcontractautopays | 
+*ClientApi* | [**clientUpdateClientContractAutopays**](docs/Api/ClientApi.md#clientupdateclientcontractautopays) | **POST** /public/v6/client/updateclientcontractautopays | This endpoint can be used to update the amount and/or the item of a client’s autopay schedule.
 *ClientApi* | [**clientUpdateClientRewards**](docs/Api/ClientApi.md#clientupdateclientrewards) | **POST** /public/v6/client/clientrewards | Update Client Reward
 *ClientApi* | [**clientUpdateClientService**](docs/Api/ClientApi.md#clientupdateclientservice) | **POST** /public/v6/client/updateclientservice | Update a client&#39;s purchase pricing option.
 *ClientApi* | [**clientUpdateClientVisit**](docs/Api/ClientApi.md#clientupdateclientvisit) | **POST** /public/v6/client/updateclientvisit | Update a client&#39;s visit.
 *ClientApi* | [**clientUpdateContactLog**](docs/Api/ClientApi.md#clientupdatecontactlog) | **POST** /public/v6/client/updatecontactlog | Update a contact log on a client&#39;s account.
 *ClientApi* | [**clientUploadClientDocument**](docs/Api/ClientApi.md#clientuploadclientdocument) | **POST** /public/v6/client/uploadclientdocument | Upload a document to a client&#39;s profile.
 *ClientApi* | [**clientUploadClientPhoto**](docs/Api/ClientApi.md#clientuploadclientphoto) | **POST** /public/v6/client/uploadclientphoto | Upload a profile photo to a client&#39;s profile.
+*CrossSiteApi* | [**crossSiteCopyCreditCard**](docs/Api/CrossSiteApi.md#crosssitecopycreditcard) | **POST** /public/v6/crossSite/copycreditcard | Copies the credit card information from one client to another, regardless of site.  The source and target clients must have the same email address.
 *EnrollmentApi* | [**enrollmentAddClientToEnrollment**](docs/Api/EnrollmentApi.md#enrollmentaddclienttoenrollment) | **POST** /public/v6/enrollment/addclienttoenrollment | Book a client into an enrollment.
-*EnrollmentApi* | [**enrollmentAddEnrollmentSchedule**](docs/Api/EnrollmentApi.md#enrollmentaddenrollmentschedule) | **POST** /public/v6/enrollment/addenrollmentschedule | 
+*EnrollmentApi* | [**enrollmentAddEnrollmentSchedule**](docs/Api/EnrollmentApi.md#enrollmentaddenrollmentschedule) | **POST** /public/v6/enrollment/addenrollmentschedule | This endpoint adds a enrollment schedule. You can require clients to sign up for the entire enrollment schedule or allow them to pick specific sessions using the AllowOpenEnrollment parameter.
 *EnrollmentApi* | [**enrollmentGetEnrollments**](docs/Api/EnrollmentApi.md#enrollmentgetenrollments) | **GET** /public/v6/enrollment/enrollments | Get enrollments scheduled at a site.
-*EnrollmentApi* | [**enrollmentUpdateEnrollmentSchedule**](docs/Api/EnrollmentApi.md#enrollmentupdateenrollmentschedule) | **POST** /public/v6/enrollment/updateenrollmentschedule | 
+*EnrollmentApi* | [**enrollmentUpdateEnrollmentSchedule**](docs/Api/EnrollmentApi.md#enrollmentupdateenrollmentschedule) | **POST** /public/v6/enrollment/updateenrollmentschedule | This endpoint update a enrollment schedule.
 *LiveStreamApi* | [**liveStreamGenerateSignedLiveStreamUrl**](docs/Api/LiveStreamApi.md#livestreamgeneratesignedlivestreamurl) | **POST** /public/v6/livestream/generateSignedUrl | Create an encrypted link to VWP live stream for third party integration customer.
 *PayrollApi* | [**payrollGetCommissions**](docs/Api/PayrollApi.md#payrollgetcommissions) | **GET** /public/v6/payroll/commissions | Get commission payroll for staff members.
 *PayrollApi* | [**payrollGetScheduledServiceEarnings**](docs/Api/PayrollApi.md#payrollgetscheduledserviceearnings) | **GET** /public/v6/payroll/scheduledserviceearnings | Get class payroll for staff members.
 *PayrollApi* | [**payrollGetTimeCards**](docs/Api/PayrollApi.md#payrollgettimecards) | **GET** /public/v6/payroll/timecards | Get time card payroll for staff members.
 *PayrollApi* | [**payrollGetTips**](docs/Api/PayrollApi.md#payrollgettips) | **GET** /public/v6/payroll/tips | Get tips for staff members.
-*PickASpotvApi* | [**pickASpotvClass**](docs/Api/PickASpotvApi.md#pickaspotvclass) | **GET** /public/v6/pickaspot/v1/class/{classId} | 
-*PickASpotvApi* | [**pickASpotvClassList**](docs/Api/PickASpotvApi.md#pickaspotvclasslist) | **GET** /public/v6/pickaspot/v1/class | 
-*PickASpotvApi* | [**pickASpotvReservationDelete**](docs/Api/PickASpotvApi.md#pickaspotvreservationdelete) | **DELETE** /public/v6/pickaspot/v1/reservation/{pathInfo} | 
-*PickASpotvApi* | [**pickASpotvReservationGet**](docs/Api/PickASpotvApi.md#pickaspotvreservationget) | **GET** /public/v6/pickaspot/v1/reservation/{pathInfo} | 
-*PickASpotvApi* | [**pickASpotvReservationPost**](docs/Api/PickASpotvApi.md#pickaspotvreservationpost) | **POST** /public/v6/pickaspot/v1/reservation/{pathInfo} | 
-*PickASpotvApi* | [**pickASpotvReservationPut**](docs/Api/PickASpotvApi.md#pickaspotvreservationput) | **PUT** /public/v6/pickaspot/v1/reservation/{pathInfo} | 
-*PricingOptionApi* | [**pricingOptionUpdatePricingOption**](docs/Api/PricingOptionApi.md#pricingoptionupdatepricingoption) | **POST** /public/v6/PricingOption/UpdatePricingOption | Update Pricing Option data such as name, details, price, discontinued using PricingOptionId(product id)
-*ProductApi* | [**productUpdateProducts**](docs/Api/ProductApi.md#productupdateproducts) | **PUT** /public/v6/sale/products | Update retail products available for purchase at a site.
-*PublicApi* | [**staffGetSalesReps**](docs/Api/PublicApi.md#staffgetsalesreps) | **GET** /public/v6/staff/salesreps | 
+*PickASpotApi* | [**pickASpotCreateReservation**](docs/Api/PickASpotApi.md#pickaspotcreatereservation) | **POST** /public/v6/pickaspot/v1/reservation/{pathInfo} | Creates a reservation for a given pick-a-spot class.
+*PickASpotApi* | [**pickASpotDeleteReservation**](docs/Api/PickASpotApi.md#pickaspotdeletereservation) | **DELETE** /public/v6/pickaspot/v1/reservation/{pathInfo} | This endpoint deletes a single reservation.
+*PickASpotApi* | [**pickASpotGetClass**](docs/Api/PickASpotApi.md#pickaspotgetclass) | **GET** /public/v6/pickaspot/v1/class/{classId} | Get a class filtered by classId.
+*PickASpotApi* | [**pickASpotGetClassList**](docs/Api/PickASpotApi.md#pickaspotgetclasslist) | **GET** /public/v6/pickaspot/v1/class | Get a list of classes as they relate to pick-a-spot.
+*PickASpotApi* | [**pickASpotGetReservation**](docs/Api/PickASpotApi.md#pickaspotgetreservation) | **GET** /public/v6/pickaspot/v1/reservation/{pathInfo} | Retrieves reservation for Pick a Spot.
+*PickASpotApi* | [**pickASpotUpdateReservation**](docs/Api/PickASpotApi.md#pickaspotupdatereservation) | **PUT** /public/v6/pickaspot/v1/reservation/{pathInfo} | This endpoint updates a single reservation.
+*PricingOptionApi* | [**pricingOptionUpdatePricingOption**](docs/Api/PricingOptionApi.md#pricingoptionupdatepricingoption) | **POST** /public/v6/pricingoption/updatepricingoption | Update Pricing Option data such as name, details, price, discontinued using PricingOptionId(product id)
 *SaleApi* | [**saleCheckoutShoppingCart**](docs/Api/SaleApi.md#salecheckoutshoppingcart) | **POST** /public/v6/sale/checkoutshoppingcart | Purchase pricing options, packages, retail products, or tips for a client.
 *SaleApi* | [**saleGetAcceptedCardTypes**](docs/Api/SaleApi.md#salegetacceptedcardtypes) | **GET** /public/v6/sale/acceptedcardtypes | Get credit cards types that a site accepts.
 *SaleApi* | [**saleGetContracts**](docs/Api/SaleApi.md#salegetcontracts) | **GET** /public/v6/sale/contracts | Get contracts available for purchase at a site.
@@ -196,18 +195,22 @@ Class | Method | HTTP request | Description
 *SaleApi* | [**saleGetSales**](docs/Api/SaleApi.md#salegetsales) | **GET** /public/v6/sale/sales | Get sales completed at a site.
 *SaleApi* | [**saleGetServices**](docs/Api/SaleApi.md#salegetservices) | **GET** /public/v6/sale/services | Get pricing options available for purchase at a site
 *SaleApi* | [**saleGetTransactions**](docs/Api/SaleApi.md#salegettransactions) | **GET** /public/v6/sale/transactions | Get transactions completed at a site.
-*SaleApi* | [**saleInitializeCreditCardEntry**](docs/Api/SaleApi.md#saleinitializecreditcardentry) | **POST** /public/v6/sale/initializecreditcardentry | 
+*SaleApi* | [**saleInitializeCreditCardEntry**](docs/Api/SaleApi.md#saleinitializecreditcardentry) | **POST** /public/v6/sale/initializecreditcardentry | This endpoint returns a Callback URL which is used to load Card Element UI with the help of which user will be able to enter the card details and initiate a transaction .  The documentation provides explanations of the request body and response.
 *SaleApi* | [**salePurchaseAccountCredit**](docs/Api/SaleApi.md#salepurchaseaccountcredit) | **POST** /public/v6/sale/purchaseaccountcredit | Purchases account credit for a client
 *SaleApi* | [**salePurchaseContract**](docs/Api/SaleApi.md#salepurchasecontract) | **POST** /public/v6/sale/purchasecontract | Purchase a contract for a client.
 *SaleApi* | [**salePurchaseGiftCard**](docs/Api/SaleApi.md#salepurchasegiftcard) | **POST** /public/v6/sale/purchasegiftcard | Purchase a gift card for a client.
 *SaleApi* | [**saleReturnSale**](docs/Api/SaleApi.md#salereturnsale) | **POST** /public/v6/sale/returnsale | Retunn sale
 *SaleApi* | [**saleUpdateProductPrice**](docs/Api/SaleApi.md#saleupdateproductprice) | **POST** /public/v6/sale/updateproductprice | Update retail product&#39;s unit and online price.
-*SaleApi* | [**saleUpdateSaleDate**](docs/Api/SaleApi.md#saleupdatesaledate) | **PUT** /public/v6/sale/updatesaledate | 
+*SaleApi* | [**saleUpdateProducts**](docs/Api/SaleApi.md#saleupdateproducts) | **PUT** /public/v6/sale/products | Update retail products available for purchase at a site.
+*SaleApi* | [**saleUpdateSaleDate**](docs/Api/SaleApi.md#saleupdatesaledate) | **PUT** /public/v6/sale/updatesaledate | This endpoint updates the SaleDate and returns the details of the sale.
 *SaleApi* | [**saleUpdateServices**](docs/Api/SaleApi.md#saleupdateservices) | **PUT** /public/v6/sale/services | Update unit price and online price of provided services.
+*SiteApi* | [**siteAddClientIndex**](docs/Api/SiteApi.md#siteaddclientindex) | **POST** /public/v6/site/addclientindex | Add client index to a site.
 *SiteApi* | [**siteAddPromoCode**](docs/Api/SiteApi.md#siteaddpromocode) | **POST** /public/v6/site/addpromocode | Add promo code to a site.
+*SiteApi* | [**siteDeactivatePromoCode**](docs/Api/SiteApi.md#sitedeactivatepromocode) | **POST** /public/v6/site/deactivatepromocode | Deactivate promo code to a site.
 *SiteApi* | [**siteGetActivationCode**](docs/Api/SiteApi.md#sitegetactivationcode) | **GET** /public/v6/site/activationcode | Get an activation code for a site.
-*SiteApi* | [**siteGetCategories**](docs/Api/SiteApi.md#sitegetcategories) | **GET** /public/v6/site/categories | Get categories for site.
+*SiteApi* | [**siteGetCategories**](docs/Api/SiteApi.md#sitegetcategories) | **GET** /public/v6/site/categories | Gets the categories.
 *SiteApi* | [**siteGetGenders**](docs/Api/SiteApi.md#sitegetgenders) | **GET** /public/v6/site/genders | Get the gender options at a site.
+*SiteApi* | [**siteGetLiabilityWaiver**](docs/Api/SiteApi.md#sitegetliabilitywaiver) | **GET** /public/v6/site/liabilitywaiver | Gets Liability Waiver content
 *SiteApi* | [**siteGetLocations**](docs/Api/SiteApi.md#sitegetlocations) | **GET** /public/v6/site/locations | Get locations for a site.
 *SiteApi* | [**siteGetMemberships**](docs/Api/SiteApi.md#sitegetmemberships) | **GET** /public/v6/site/memberships | Get the memberships at a site.
 *SiteApi* | [**siteGetMobileProviders**](docs/Api/SiteApi.md#sitegetmobileproviders) | **GET** /public/v6/site/mobileproviders | Gets a list of active mobile providers for the site.
@@ -219,18 +222,21 @@ Class | Method | HTTP request | Description
 *SiteApi* | [**siteGetResources**](docs/Api/SiteApi.md#sitegetresources) | **GET** /public/v6/site/resources | Get resources used at a site.
 *SiteApi* | [**siteGetSessionTypes**](docs/Api/SiteApi.md#sitegetsessiontypes) | **GET** /public/v6/site/sessiontypes | Get the session types used at a site.
 *SiteApi* | [**siteGetSites**](docs/Api/SiteApi.md#sitegetsites) | **GET** /public/v6/site/sites | Get all sites that can be accessed by an API Key.
-*StaffApi* | [**staffAddStaff**](docs/Api/StaffApi.md#staffaddstaff) | **POST** /public/v6/staff/addstaff | 
-*StaffApi* | [**staffAddStaffAvailability**](docs/Api/StaffApi.md#staffaddstaffavailability) | **POST** /public/v6/staff/staffavailability | 
-*StaffApi* | [**staffAssignStaffSessionType**](docs/Api/StaffApi.md#staffassignstaffsessiontype) | **POST** /public/v6/staff/assignsessiontype | 
-*StaffApi* | [**staffGetSalesReps**](docs/Api/StaffApi.md#staffgetsalesreps) | **GET** /public/v6/staff/salesreps | 
+*SiteApi* | [**siteSiteGetResourceAvailabilities**](docs/Api/SiteApi.md#sitesitegetresourceavailabilities) | **GET** /public/v6/site/resourceavailabilities | Get resource availabilities used at a site.
+*SiteApi* | [**siteUpdateClientIndex**](docs/Api/SiteApi.md#siteupdateclientindex) | **POST** /public/v6/site/updateclientindex | Update client index.
+*StaffApi* | [**staffAddStaff**](docs/Api/StaffApi.md#staffaddstaff) | **POST** /public/v6/staff/addstaff | Creates a new staff member record at the specified business. The &#x60;FirstName&#x60; and &#x60;LastName&#x60; parameters are always required for this request.
+*StaffApi* | [**staffAddStaffAvailability**](docs/Api/StaffApi.md#staffaddstaffavailability) | **POST** /public/v6/staff/staffavailability | Enables to add staff availability or unavailability for a given staff member.
+*StaffApi* | [**staffAssignStaffSessionType**](docs/Api/StaffApi.md#staffassignstaffsessiontype) | **POST** /public/v6/staff/assignsessiontype | Assigns a staff member to an appointment session type with staff specific properties such as time length and pay rate. A staff user token must be included with staff assigned the ManageStaffPayRates permission.
+*StaffApi* | [**staffGetSalesReps**](docs/Api/StaffApi.md#staffgetsalesreps) | **GET** /public/v6/staff/salesreps | This endpoint returns the basic details of the staffs that are marked as sales reps.
 *StaffApi* | [**staffGetStaff**](docs/Api/StaffApi.md#staffgetstaff) | **GET** /public/v6/staff/staff | Get staff members at a site.
 *StaffApi* | [**staffGetStaffImageURL**](docs/Api/StaffApi.md#staffgetstaffimageurl) | **GET** /public/v6/staff/imageurl | Get image URLs for the given staff ID in the request.
 *StaffApi* | [**staffGetStaffPermissions**](docs/Api/StaffApi.md#staffgetstaffpermissions) | **GET** /public/v6/staff/staffpermissions | Get configured staff permissions for a staff member.
 *StaffApi* | [**staffGetStaffSessionTypes**](docs/Api/StaffApi.md#staffgetstaffsessiontypes) | **GET** /public/v6/staff/sessiontypes | Get the session types used at a site for a staff member.
-*StaffApi* | [**staffUpdateStaff**](docs/Api/StaffApi.md#staffupdatestaff) | **POST** /public/v6/staff/updatestaff | 
-*StaffApi* | [**staffUpdateStaffPermissions**](docs/Api/StaffApi.md#staffupdatestaffpermissions) | **POST** /public/v6/staff/updatestaffpermissions | 
-*UserTokenApi* | [**userTokenIssue**](docs/Api/UserTokenApi.md#usertokenissue) | **POST** /public/v6/usertoken/issue | Get a staff user token.
-*UserTokenApi* | [**userTokenRevoke**](docs/Api/UserTokenApi.md#usertokenrevoke) | **DELETE** /public/v6/usertoken/revoke | Revoke a user token.
+*StaffApi* | [**staffUpdateStaff**](docs/Api/StaffApi.md#staffupdatestaff) | **POST** /public/v6/staff/updatestaff | Updates an existing staff member record at the specified business. The ID is a required parameters for this request.
+*StaffApi* | [**staffUpdateStaffPermissions**](docs/Api/StaffApi.md#staffupdatestaffpermissions) | **POST** /public/v6/staff/updatestaffpermissions | Assigns a permission group to a staff member. A staff user token must be included with staff assigned the ManageStaffPayRates permission.
+*UserTokenApi* | [**userTokenIssueToken**](docs/Api/UserTokenApi.md#usertokenissuetoken) | **POST** /public/v6/usertoken/issue | Get a staff user token. Current lifetime: 24hrs.
+*UserTokenApi* | [**userTokenRenewToken**](docs/Api/UserTokenApi.md#usertokenrenewtoken) | **POST** /public/v6/usertoken/renew | Renews a token. Can be used to extend the lifetime of a token.  Current lifetime expansion: 24hrs from current expiration, up to 7 renewals.
+*UserTokenApi* | [**userTokenRevokeToken**](docs/Api/UserTokenApi.md#usertokenrevoketoken) | **DELETE** /public/v6/usertoken/revoke | Revoke a user token.
 
 
 ## Documentation For Models
@@ -258,6 +264,8 @@ Class | Method | HTTP request | Description
  - [AddOnSmall](docs/Model/AddOnSmall.md)
  - [AddPromoCodeRequest](docs/Model/AddPromoCodeRequest.md)
  - [AddPromoCodeResponse](docs/Model/AddPromoCodeResponse.md)
+ - [AddSiteClientIndexRequest](docs/Model/AddSiteClientIndexRequest.md)
+ - [AddSiteClientIndexResponse](docs/Model/AddSiteClientIndexResponse.md)
  - [AddStaffAvailabilityRequest](docs/Model/AddStaffAvailabilityRequest.md)
  - [AddStaffRequest](docs/Model/AddStaffRequest.md)
  - [AddStaffResponse](docs/Model/AddStaffResponse.md)
@@ -281,6 +289,7 @@ Class | Method | HTTP request | Description
  - [CheckoutItemWrapper](docs/Model/CheckoutItemWrapper.md)
  - [CheckoutPaymentInfo](docs/Model/CheckoutPaymentInfo.md)
  - [CheckoutShoppingCartRequest](docs/Model/CheckoutShoppingCartRequest.md)
+ - [CheckoutShoppingCartResponse](docs/Model/CheckoutShoppingCartResponse.md)
  - [ClassClientDetail](docs/Model/ClassClientDetail.md)
  - [ClassDescription](docs/Model/ClassDescription.md)
  - [ClassSchedule](docs/Model/ClassSchedule.md)
@@ -303,18 +312,26 @@ Class | Method | HTTP request | Description
  - [Color](docs/Model/Color.md)
  - [CommissionDetail](docs/Model/CommissionDetail.md)
  - [CommissionPayrollPurchaseEvent](docs/Model/CommissionPayrollPurchaseEvent.md)
+ - [CompletedSaleCartItem](docs/Model/CompletedSaleCartItem.md)
+ - [CompletedSaleItemBase](docs/Model/CompletedSaleItemBase.md)
+ - [CompletedSaleShoppingCart](docs/Model/CompletedSaleShoppingCart.md)
+ - [CompletedSaleTransactionResponse](docs/Model/CompletedSaleTransactionResponse.md)
  - [ContactLog](docs/Model/ContactLog.md)
  - [ContactLogComment](docs/Model/ContactLogComment.md)
  - [ContactLogSubType](docs/Model/ContactLogSubType.md)
  - [ContactLogType](docs/Model/ContactLogType.md)
  - [Contract](docs/Model/Contract.md)
  - [ContractItem](docs/Model/ContractItem.md)
+ - [CopyCreditCardRequest](docs/Model/CopyCreditCardRequest.md)
+ - [CopyCreditCardResponse](docs/Model/CopyCreditCardResponse.md)
+ - [CopyCreditCardResponseClient](docs/Model/CopyCreditCardResponseClient.md)
  - [Course](docs/Model/Course.md)
  - [CreditCardInfo](docs/Model/CreditCardInfo.md)
  - [CrossRegionalClientAssociation](docs/Model/CrossRegionalClientAssociation.md)
  - [CustomClientField](docs/Model/CustomClientField.md)
  - [CustomClientFieldValue](docs/Model/CustomClientFieldValue.md)
  - [CustomPaymentMethod](docs/Model/CustomPaymentMethod.md)
+ - [DeactivatePromoCodeRequest](docs/Model/DeactivatePromoCodeRequest.md)
  - [DeleteAvailabilityRequest](docs/Model/DeleteAvailabilityRequest.md)
  - [DeleteClientFormulaNoteRequest](docs/Model/DeleteClientFormulaNoteRequest.md)
  - [DeleteContactLogRequest](docs/Model/DeleteContactLogRequest.md)
@@ -396,6 +413,7 @@ Class | Method | HTTP request | Description
  - [GetGiftCardBalanceResponse](docs/Model/GetGiftCardBalanceResponse.md)
  - [GetGiftCardResponse](docs/Model/GetGiftCardResponse.md)
  - [GetGiftCardsRequest](docs/Model/GetGiftCardsRequest.md)
+ - [GetLiabilityWaiverResponse](docs/Model/GetLiabilityWaiverResponse.md)
  - [GetLocationsRequest](docs/Model/GetLocationsRequest.md)
  - [GetLocationsResponse](docs/Model/GetLocationsResponse.md)
  - [GetMembershipsRequest](docs/Model/GetMembershipsRequest.md)
@@ -419,6 +437,7 @@ Class | Method | HTTP request | Description
  - [GetRelationshipsRequest](docs/Model/GetRelationshipsRequest.md)
  - [GetRelationshipsResponse](docs/Model/GetRelationshipsResponse.md)
  - [GetRequiredClientFieldsResponse](docs/Model/GetRequiredClientFieldsResponse.md)
+ - [GetResourceAvailabilitiesRequest](docs/Model/GetResourceAvailabilitiesRequest.md)
  - [GetResourcesRequest](docs/Model/GetResourcesRequest.md)
  - [GetResourcesResponse](docs/Model/GetResourcesResponse.md)
  - [GetSalesRepsRequest](docs/Model/GetSalesRepsRequest.md)
@@ -463,6 +482,7 @@ Class | Method | HTTP request | Description
  - [InitializeCreditCardEntryResponse](docs/Model/InitializeCreditCardEntryResponse.md)
  - [IssueRequest](docs/Model/IssueRequest.md)
  - [IssueResponse](docs/Model/IssueResponse.md)
+ - [KeyValuePair](docs/Model/KeyValuePair.md)
  - [LeadChannel](docs/Model/LeadChannel.md)
  - [Level](docs/Model/Level.md)
  - [Liability](docs/Model/Liability.md)
@@ -470,12 +490,23 @@ Class | Method | HTTP request | Description
  - [Membership](docs/Model/Membership.md)
  - [MembershipTypeRestriction](docs/Model/MembershipTypeRestriction.md)
  - [MergeClientsRequest](docs/Model/MergeClientsRequest.md)
+ - [MindbodyPublicApiDataModelsWrittenClassSchedulesInfo](docs/Model/MindbodyPublicApiDataModelsWrittenClassSchedulesInfo.md)
  - [MobileProvider](docs/Model/MobileProvider.md)
  - [ModelClass](docs/Model/ModelClass.md)
  - [Package](docs/Model/Package.md)
  - [PaginationResponse](docs/Model/PaginationResponse.md)
  - [PaymentProcessingFailure](docs/Model/PaymentProcessingFailure.md)
  - [PaymentType](docs/Model/PaymentType.md)
+ - [PickASpotCreateReservationResponse](docs/Model/PickASpotCreateReservationResponse.md)
+ - [PickASpotGetPickASpotClassResponse](docs/Model/PickASpotGetPickASpotClassResponse.md)
+ - [PickASpotGetReservationResponse](docs/Model/PickASpotGetReservationResponse.md)
+ - [PickASpotPagination](docs/Model/PickASpotPagination.md)
+ - [PickASpotPickASpotClass](docs/Model/PickASpotPickASpotClass.md)
+ - [PickASpotReservation](docs/Model/PickASpotReservation.md)
+ - [PickASpotResponseDetails](docs/Model/PickASpotResponseDetails.md)
+ - [PickASpotSpot](docs/Model/PickASpotSpot.md)
+ - [PickASpotUpdateReservationResponse](docs/Model/PickASpotUpdateReservationResponse.md)
+ - [PricingRelationships](docs/Model/PricingRelationships.md)
  - [Product](docs/Model/Product.md)
  - [ProductsInventory](docs/Model/ProductsInventory.md)
  - [Program](docs/Model/Program.md)
@@ -486,6 +517,7 @@ Class | Method | HTTP request | Description
  - [PurchaseAccountCreditResponse](docs/Model/PurchaseAccountCreditResponse.md)
  - [PurchaseContractRequest](docs/Model/PurchaseContractRequest.md)
  - [PurchaseContractResponse](docs/Model/PurchaseContractResponse.md)
+ - [PurchaseContractResponseTotals](docs/Model/PurchaseContractResponseTotals.md)
  - [PurchaseGiftCardRequest](docs/Model/PurchaseGiftCardRequest.md)
  - [PurchaseGiftCardResponse](docs/Model/PurchaseGiftCardResponse.md)
  - [PurchasedItem](docs/Model/PurchasedItem.md)
@@ -497,6 +529,7 @@ Class | Method | HTTP request | Description
  - [RemoveFromWaitlistRequest](docs/Model/RemoveFromWaitlistRequest.md)
  - [RemoveFromWaitlistResponse](docs/Model/RemoveFromWaitlistResponse.md)
  - [Resource](docs/Model/Resource.md)
+ - [ResourceSlim](docs/Model/ResourceSlim.md)
  - [ReturnSaleRequest](docs/Model/ReturnSaleRequest.md)
  - [ReturnSaleResponse](docs/Model/ReturnSaleResponse.md)
  - [Sale](docs/Model/Sale.md)
@@ -523,6 +556,7 @@ Class | Method | HTTP request | Description
  - [SubstituteTeacherClass](docs/Model/SubstituteTeacherClass.md)
  - [SuspendContractRequest](docs/Model/SuspendContractRequest.md)
  - [SuspendContractResponse](docs/Model/SuspendContractResponse.md)
+ - [SystemNetHttpHttpContent](docs/Model/SystemNetHttpHttpContent.md)
  - [TerminateContractRequest](docs/Model/TerminateContractRequest.md)
  - [TerminateContractResponse](docs/Model/TerminateContractResponse.md)
  - [TimeCardEvent](docs/Model/TimeCardEvent.md)
@@ -555,6 +589,8 @@ Class | Method | HTTP request | Description
  - [UpdateSaleDateResponse](docs/Model/UpdateSaleDateResponse.md)
  - [UpdateServiceRequest](docs/Model/UpdateServiceRequest.md)
  - [UpdateServiceResponse](docs/Model/UpdateServiceResponse.md)
+ - [UpdateSiteClientIndexRequest](docs/Model/UpdateSiteClientIndexRequest.md)
+ - [UpdateSiteClientIndexResponse](docs/Model/UpdateSiteClientIndexResponse.md)
  - [UpdateStaffPermissionsRequest](docs/Model/UpdateStaffPermissionsRequest.md)
  - [UpdateStaffPermissionsResponse](docs/Model/UpdateStaffPermissionsResponse.md)
  - [UpdateStaffRequest](docs/Model/UpdateStaffRequest.md)

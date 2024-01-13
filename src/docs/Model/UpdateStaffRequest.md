@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ID** | **int** | The unique id of the staff | 
+**ID** | **int** | The unique ID of the staff member. | 
 **FirstName** | **string** | The staff member first name. You must specify a first name when you add a staff member. | [optional] 
 **LastName** | **string** | The staff member last name. You must specify a last name when you add a staff member. | [optional] 
 **Email** | **string** | The staff member’s email address. | [optional] 
@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 **EmploymentStart** | [**\DateTime**](\DateTime.md) | The start date of employment | [optional] 
 **EmploymentEnd** | [**\DateTime**](\DateTime.md) | The end date of employment | [optional] 
 **SortOrder** | **int** | If configured by the business owner, this field determines a staff member’s weight when sorting. Use this field to sort staff members on your interface. | [optional] 
-**ProviderIDs** | **string[]** | A list of providerIDs for the staff.  In the US it is one per staff and is numeric, otherwise it can be a list and is alpha-numeric  for more information see https://support.mindbodyonline.com/s/article/204075743-Provider-IDs?language&#x3D;en_US | [optional] 
+**ProviderIDs** | **string[]** | A list of providerIDs for the staff.  In the US it is one per staff and is numeric, otherwise it can be a list and is alpha-numeric  for more information see &lt;a href&#x3D;\&quot; https://support.mindbodyonline.com/s/article/204075743-Provider-IDs?language&#x3D;en_US\&quot; target&#x3D;\&quot;blank\&quot;&gt;Provider IDs&lt;/a&gt; | [optional] 
 **Active** | **bool** | Indicates if the staff member is active. Staff member cannot be deactivated if they have future classes or appointments. | [optional] 
 **Notes** | **string** | Staff Member Private Notes | [optional] 
 **EmpID** | **string** | The custom staff ID assigned to the staff member. | [optional] 

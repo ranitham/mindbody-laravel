@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **SessionTypeId** | **int** | The session type associated with the new appointment. | [optional] 
 **StaffId** | **int** | The ID of the staff member who is adding the new appointment. | [optional] 
 **StartDateTime** | [**\DateTime**](\DateTime.md) | The start date and time of the new appointment. | [optional] 
+**ApplyPayment** | **bool** | When &#x60;true&#x60;, appointment will be updated with a current applicable client service from the clients account.   &lt;br /&gt;Default: **false** | [optional] 
 **Test** | **bool** | When &#x60;true&#x60;, indicates that the method is to be validated, but no new appointment data is added.   &lt;br /&gt;Default: **false** | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -31,21 +31,21 @@ trait ProvidesMethodToEndpointMap
             $publicEndpointMethods = $reflector->getMethods(ReflectionMethod::IS_PUBLIC);
 
             foreach ($publicEndpointMethods as $publicEndpointMethod) {
-                if (static::isSwaggerCodegenApiMethodName($publicEndpointMethod->name, $endpointName)) {
+                if (self::isSwaggerCodegenApiMethodName($publicEndpointMethod->name, $endpointName)) {
                     // Add the method to the map
                     /** @var callable */
                     $callable = [$endpointInstance, $publicEndpointMethod->name];
 
-                    static::$methodToEndpointMap[$publicEndpointMethod->name] = $callable;
+                    self::$methodToEndpointMap[$publicEndpointMethod->name] = $callable;
 
                     // Add the method to the Alias map
                     $shortMethodName = \substr($publicEndpointMethod->name, \strlen($endpointName)); // trim the endpoint name off the method name
-                    static::$methodToEndpointMap[$shortMethodName] = $callable;
+                    self::$methodToEndpointMap[$shortMethodName] = $callable;
                 }
             }
         }
 
-        return static::$methodToEndpointMap;
+        return self::$methodToEndpointMap;
     }
 
     /**
@@ -57,8 +57,8 @@ trait ProvidesMethodToEndpointMap
      */
     protected function getRestCallForMethod(string $methodName): callable
     {
-        if (\array_key_exists($methodName, static::$methodToEndpointMap)) {
-            return static::$methodToEndpointMap[$methodName];
+        if (\array_key_exists($methodName, self::$methodToEndpointMap)) {
+            return self::$methodToEndpointMap[$methodName];
         }
 
         throw new MindbodyErrorException("Called unknown MINDBODY API Method: $methodName");

@@ -11,9 +11,9 @@ Name | Type | Description | Notes
 **SalesRepId** | **int** | The sales representative ID | [optional] 
 **ClientId** | **string** | The ID of the client who made the purchase. | [optional] 
 **RecipientClientId** | **int** | Recipient Client Id | [optional] 
-**PurchasedItems** | [**\Nlocascio\Mindbody\Model\PurchasedItem[]**](PurchasedItem.md) | Contains information that describes the purchased items. | [optional] 
+**PurchasedItems** | [**\Nlocascio\Mindbody\Model\PurchasedItem[]**](PurchasedItem.md) | Contains the &#x60;PurchasedItem&#x60; objects that describe the purchased items. | [optional] 
 **LocationId** | **int** | The ID of the location where the sale takes place. | [optional] 
-**Payments** | [**\Nlocascio\Mindbody\Model\SalePayment[]**](SalePayment.md) | Contains information that describes the payments that contributed to this sale. | [optional] 
+**Payments** | [**\Nlocascio\Mindbody\Model\SalePayment[]**](SalePayment.md) | Contains the &#x60;SalePayment&#x60; objects that describe the payments that contributed to this sale. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

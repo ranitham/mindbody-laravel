@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Classes** | [**\Nlocascio\Mindbody\Model\ModelClass[]**](ModelClass.md) | Contains information about classes. | [optional] 
+**Classes** | [**\Nlocascio\Mindbody\Model\ModelClass[]**](ModelClass.md) | Contains information about a class. | [optional] 
 **Clients** | [**\Nlocascio\Mindbody\Model\Client[]**](Client.md) | Contains information about clients. | [optional] 
 **Course** | [**\Nlocascio\Mindbody\Model\Course**](Course.md) | Contains information about the course that the enrollment is a part of. | [optional] 
 **SemesterId** | **int** | The semester ID for the enrollment (if any). | [optional] 
@@ -25,6 +25,8 @@ Name | Type | Description | Notes
 **EndDate** | [**\DateTime**](\DateTime.md) | The date this class schedule ends. | [optional] 
 **Staff** | [**\Nlocascio\Mindbody\Model\Staff**](Staff.md) | Contains information about the staff member who is regularly scheduled to teach the class. | [optional] 
 **Location** | [**\Nlocascio\Mindbody\Model\Location**](Location.md) | Contains information about the regularly scheduled location of this class. | [optional] 
+**FrequencyType** | **string** | The class schedule recurrence type. | [optional] 
+**FrequencyInterval** | **int** | The interval between class schedule occurencies. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

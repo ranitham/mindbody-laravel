@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **UseDirectDebit** | **bool** | When &#x60;true&#x60;, indicates that the direct debit information stored on the client&#39;s account is to be used to pay for the contract.&lt;br /&gt;  This is only required if both &#x60;CreditCardInfo&#x60; and &#x60;StoredCardInfo&#x60; are not passed.&lt;br /&gt;  Default: **false** | [optional] 
 **ConsumerPresent** | **bool** | When &#x60;true&#x60;, indicates that the consumer is present or otherwise able to successfully negotiate an SCA challenge. It is not a good idea to have this always be false as that could very likely lead to a bank declining all transactions for the merchant.  Defaults to **false**. | [optional] 
 **PaymentAuthenticationCallbackUrl** | **string** | The URL consumer is redirected to if the bank requests SCA. This field is only needed if ConsumerPresent is true. | [optional] 
+**ProrateDate** | [**\DateTime**](\DateTime.md) | Optional, date to prorate contract | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
