@@ -106,6 +106,19 @@ function processAPI(array $api): array
                 'Tip',
             ];
         }
+        
+        if ($definitionName === 'Program') {
+            $definition['properties']['ScheduleType']['enum'] = [
+                'All',
+                'Class',
+                'DropIn',
+                'Enrollment',
+                'Appointment',
+                'Resource',
+                'Media',
+                'Arrival',
+            ];
+        }
     }
 
     foreach ($api['paths'] as &$path) {

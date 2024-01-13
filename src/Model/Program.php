@@ -135,6 +135,7 @@ class Program extends BaseModel implements ModelWithId
 
 
     const SCHEDULE_TYPE_ALL = 'All';
+    const SCHEDULE_TYPE__CLASS = 'Class';
     const SCHEDULE_TYPE_DROP_IN = 'DropIn';
     const SCHEDULE_TYPE_ENROLLMENT = 'Enrollment';
     const SCHEDULE_TYPE_APPOINTMENT = 'Appointment';
@@ -156,6 +157,7 @@ class Program extends BaseModel implements ModelWithId
     {
         return [
             self::SCHEDULE_TYPE_ALL,
+            self::SCHEDULE_TYPE__CLASS,
             self::SCHEDULE_TYPE_DROP_IN,
             self::SCHEDULE_TYPE_ENROLLMENT,
             self::SCHEDULE_TYPE_APPOINTMENT,

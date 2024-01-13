@@ -5427,7 +5427,7 @@
                 "CancelOffset": { "format": "int32", "type": "integer" },
                 "Id": { "format": "int32", "type": "integer" },
                 "Name": { "type": "string" },
-                "ScheduleType": { "enum": ["All", "DropIn", "Enrollment", "Appointment", "Resource", "Media", "Arrival"], "type": "string" },
+                "ScheduleType": { "enum": ["All", "Class", "DropIn", "Enrollment", "Appointment", "Resource", "Media", "Arrival"], "type": "string" },
                 "ContentFormat": { "enum": ["InPerson", "Mindbody", "Other"], "type": "string" },
                 "OnlineBookingDisabled": { "type": "boolean" },
                 "PricingRelationships": { "$ref": "#/definitions/PricingRelationships" }
