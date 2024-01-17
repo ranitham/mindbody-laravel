@@ -46,9 +46,9 @@ class ObjectSerializer
      * @param string $type   the SwaggerType of the data
      * @param string $format the format of the Swagger type of the data
      *
-     * @return string|object|array serialized form of $data
+     * @return mixed serialized form of $data
      */
-    public static function sanitizeForSerialization($data, $type = null, $format = null): string|object|array
+    public static function sanitizeForSerialization($data, $type = null, $format = null)
     {
         if (is_scalar($data) || null === $data) {
             return $data;
