@@ -3,10 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SessionTypeIds** | **int[]** | List of session type IDs.&lt;br /&gt;  Default: **all** | [optional] 
-**LocationId** | **int** | The location of the resource. This parameter is ignored if &#x60;EndDateTime&#x60; or &#x60;LocationID&#x60; is not set.&lt;br /&gt;  Default: **all** | [optional] 
-**StartDateTime** | [**\DateTime**](\DateTime.md) | The time the resource starts. This parameter is ignored if &#x60;EndDateTime&#x60; or &#x60;LocationID&#x60; is not set. | [optional] 
-**EndDateTime** | [**\DateTime**](\DateTime.md) | The time the resource ends. This parameter is ignored if &#x60;EndDateTime&#x60; or &#x60;LocationID&#x60; is not set. | [optional] 
 **ResourceIds** | **int[]** | Filter on resourceIds | [optional] 
 **LocationIds** | **int[]** | Filter by location ids (optional) | [optional] 
 **ScheduleTypes** | **string[]** | Filter by schedule types (optional) | [optional] 

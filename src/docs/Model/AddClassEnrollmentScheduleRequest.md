@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **AllowOpenEnrollment** | **bool** | Allow clients to choose which sessions they’d like to sign up for.  Default: **false** | [optional] 
 **AllowDateForwardEnrollment** | **bool** | Allow booking after the enrollment has started.  Default: **false** | [optional] 
 **PricingOptionsProductIds** | **int[]** | Pricing Options for this schedule | [optional] 
+**ShowToPublic** | **bool** | Allow clients to see this schedule  Default: **true** | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -37,6 +37,7 @@ namespace Nlocascio\Mindbody\Model;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  * @property string $ClientId The RSSID of the client to remove from the specified class.
+ * @property int $UniqueClientId The Unique Id of the client to remove from the specified class  Note: you need to provide the 'UniqueClientId' OR the 'ClientId'. If both are provided, the 'UniqueClientId' takes precedence.
  * @property int $ClassId The ID of the class that you want to remove the client from.
  * @property bool $Test When `true`, the request ensures that its parameters are valid without affecting real data.<br />  When `false`, the request performs as intended and may affect live client data.<br />  Default: **false**
  * @property bool $SendEmail When `true`, indicates that the client should be sent an email. Depending on the site and client settings, an email may or may not be sent.<br />  Default: **false**  Note: When the Authorization header is passed and the SendEmail is set to `true`, then an email will be sent.  When the Authorization header is passed and the SendEmail is set to `false`, then an email will not be sent.  When the Authorization header is not passed and the SendEmail is set to either `true` or `false`, then an email will not be sent.
@@ -62,6 +63,7 @@ class RemoveClientFromClassRequest extends BaseModel
       */
     protected static $swaggerTypes = [
         'ClientId' => 'string',
+        'UniqueClientId' => 'int',
         'ClassId' => 'int',
         'Test' => 'bool',
         'SendEmail' => 'bool',
@@ -76,6 +78,7 @@ class RemoveClientFromClassRequest extends BaseModel
       */
     protected static $swaggerFormats = [
         'ClientId' => null,
+        'UniqueClientId' => 'int64',
         'ClassId' => 'int32',
         'Test' => null,
         'SendEmail' => null,
@@ -92,6 +95,7 @@ class RemoveClientFromClassRequest extends BaseModel
      */
     protected static $attributeMap = [
         'ClientId' => 'ClientId',
+        'UniqueClientId' => 'UniqueClientId',
         'ClassId' => 'ClassId',
         'Test' => 'Test',
         'SendEmail' => 'SendEmail',
@@ -106,6 +110,7 @@ class RemoveClientFromClassRequest extends BaseModel
      */
     protected static $setters = [
         'ClientId' => 'setClientId',
+        'UniqueClientId' => 'setUniqueClientId',
         'ClassId' => 'setClassId',
         'Test' => 'setTest',
         'SendEmail' => 'setSendEmail',
@@ -120,6 +125,7 @@ class RemoveClientFromClassRequest extends BaseModel
      */
     protected static $getters = [
         'ClientId' => 'getClientId',
+        'UniqueClientId' => 'getUniqueClientId',
         'ClassId' => 'getClassId',
         'Test' => 'getTest',
         'SendEmail' => 'getSendEmail',
@@ -141,6 +147,7 @@ class RemoveClientFromClassRequest extends BaseModel
     public function __construct(array $data = null)
     {
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
+        $this->container['UniqueClientId'] = isset($data['UniqueClientId']) ? $data['UniqueClientId'] : null;
         $this->container['ClassId'] = isset($data['ClassId']) ? $data['ClassId'] : null;
         $this->container['Test'] = isset($data['Test']) ? $data['Test'] : null;
         $this->container['SendEmail'] = isset($data['SendEmail']) ? $data['SendEmail'] : null;
@@ -157,9 +164,6 @@ class RemoveClientFromClassRequest extends BaseModel
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['ClientId'] === null) {
-            $invalidProperties[] = "'ClientId' can't be null";
-        }
         if ($this->container['ClassId'] === null) {
             $invalidProperties[] = "'ClassId' can't be null";
         }
@@ -187,6 +191,30 @@ class RemoveClientFromClassRequest extends BaseModel
     public function setClientId($ClientId): self
     {
         $this->container['ClientId'] = $ClientId;
+
+        return $this;
+    }
+
+    /**
+     * Gets UniqueClientId
+     *
+     * @return int
+     */
+    public function getUniqueClientId()
+    {
+        return $this->container['UniqueClientId'];
+    }
+
+    /**
+     * Sets UniqueClientId
+     *
+     * @param int $UniqueClientId The Unique Id of the client to remove from the specified class  Note: you need to provide the 'UniqueClientId' OR the 'ClientId'. If both are provided, the 'UniqueClientId' takes precedence.
+     *
+     * @return $this
+     */
+    public function setUniqueClientId($UniqueClientId): self
+    {
+        $this->container['UniqueClientId'] = $UniqueClientId;
 
         return $this;
     }

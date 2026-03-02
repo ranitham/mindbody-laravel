@@ -2348,14 +2348,15 @@ class ClientApi implements ApiInterface
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestLocationId Filters results to memberships that can be used to pay for scheduled services at that location. This parameter can not be passed when &#x60;CrossRegionalLookup&#x60; is &#x60;true&#x60;. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
+     * @param  int $RequestUniqueClientId The Unique ID of the client for whom memberships are returned. Note that UniqueClientId takes precedence over ClientId if both are provided. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetActiveClientMembershipsResponse
      */
-    public function clientGetActiveClientMemberships($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null): \Nlocascio\Mindbody\Model\GetActiveClientMembershipsResponse
+    public function clientGetActiveClientMemberships($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestUniqueClientId = null): \Nlocascio\Mindbody\Model\GetActiveClientMembershipsResponse
     {
-        list($response) = $this->clientGetActiveClientMembershipsWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestLimit, $RequestLocationId, $RequestOffset);
+        list($response) = $this->clientGetActiveClientMembershipsWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestUniqueClientId);
         return $response;
     }
 
@@ -2370,15 +2371,16 @@ class ClientApi implements ApiInterface
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestLocationId Filters results to memberships that can be used to pay for scheduled services at that location. This parameter can not be passed when &#x60;CrossRegionalLookup&#x60; is &#x60;true&#x60;. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
+     * @param  int $RequestUniqueClientId The Unique ID of the client for whom memberships are returned. Note that UniqueClientId takes precedence over ClientId if both are provided. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetActiveClientMembershipsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientGetActiveClientMembershipsWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null): array
+    public function clientGetActiveClientMembershipsWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestUniqueClientId = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetActiveClientMembershipsResponse';
-        $request = $this->clientGetActiveClientMembershipsRequest($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestLimit, $RequestLocationId, $RequestOffset);
+        $request = $this->clientGetActiveClientMembershipsRequest($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestUniqueClientId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2450,13 +2452,14 @@ class ClientApi implements ApiInterface
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestLocationId Filters results to memberships that can be used to pay for scheduled services at that location. This parameter can not be passed when &#x60;CrossRegionalLookup&#x60; is &#x60;true&#x60;. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
+     * @param  int $RequestUniqueClientId The Unique ID of the client for whom memberships are returned. Note that UniqueClientId takes precedence over ClientId if both are provided. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetActiveClientMembershipsAsync($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null): \GuzzleHttp\Promise\PromiseInterface
+    public function clientGetActiveClientMembershipsAsync($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestUniqueClientId = null): \GuzzleHttp\Promise\PromiseInterface
     {
-        return $this->clientGetActiveClientMembershipsAsyncWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestLimit, $RequestLocationId, $RequestOffset)
+        return $this->clientGetActiveClientMembershipsAsyncWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestUniqueClientId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2475,14 +2478,15 @@ class ClientApi implements ApiInterface
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestLocationId Filters results to memberships that can be used to pay for scheduled services at that location. This parameter can not be passed when &#x60;CrossRegionalLookup&#x60; is &#x60;true&#x60;. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
+     * @param  int $RequestUniqueClientId The Unique ID of the client for whom memberships are returned. Note that UniqueClientId takes precedence over ClientId if both are provided. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetActiveClientMembershipsAsyncWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null): \GuzzleHttp\Promise\PromiseInterface
+    public function clientGetActiveClientMembershipsAsyncWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestUniqueClientId = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetActiveClientMembershipsResponse';
-        $request = $this->clientGetActiveClientMembershipsRequest($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestLimit, $RequestLocationId, $RequestOffset);
+        $request = $this->clientGetActiveClientMembershipsRequest($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestUniqueClientId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2530,11 +2534,12 @@ class ClientApi implements ApiInterface
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestLocationId Filters results to memberships that can be used to pay for scheduled services at that location. This parameter can not be passed when &#x60;CrossRegionalLookup&#x60; is &#x60;true&#x60;. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
+     * @param  int $RequestUniqueClientId The Unique ID of the client for whom memberships are returned. Note that UniqueClientId takes precedence over ClientId if both are provided. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientGetActiveClientMembershipsRequest($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null): \GuzzleHttp\Psr7\Request
+    protected function clientGetActiveClientMembershipsRequest($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestUniqueClientId = null): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'RequestClientId' is set
         if ($RequestClientId === null || (is_array($RequestClientId) && count($RequestClientId) === 0)) {
@@ -2569,6 +2574,10 @@ class ClientApi implements ApiInterface
         // query params
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
+        }
+        // query params
+        if ($RequestUniqueClientId !== null) {
+            $queryParams['request.uniqueClientId'] = ObjectSerializer::toQueryValue($RequestUniqueClientId);
         }
         // query params
         if ($RequestClientId !== null) {
@@ -3315,19 +3324,24 @@ class ClientApi implements ApiInterface
      * Get Services, Contracts, MemberShips and Arrivals for Client as per requirement
      *
      * @param  string $RequestClientId Filters results to client with these ID. (required)
+     * @param  string $ConsumerIdentityToken A consumers authorization token to replace the need of clientId in the request. (optional, default to )
      * @param  int $RequestClientAssociatedSitesOffset Used to retrieve a client’s pricing options from multiple sites within an organization when the client is associated with more than ten sites. To change which ten sites are searched, change this offset value. A value of 0 means that no sites are skipped and the first ten sites are returned. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that you must always have &#x60;CrossRegionalLookup&#x60; set to &#x60;true&#x60; to use this parameter.&lt;br /&gt;  Default: **0**    For example, if a client is associated with 25 sites, you need to call &#x60;GetClientServices&#x60; three times, as follows:  * Use &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites a client is associated with, which tells you how many additional calls you need to make.  * Either omit &#x60;ClientAssociatedSitesOffset&#x60; or set it to 0 to return the client’s services (pricing options) from sites 1-10.  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 10 to return the client pricing options from sites 11-20  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 20 to return the client pricing options from sites 21-25 (optional)
      * @param  bool $RequestCrossRegionalLookup Used to retrieve a clients pricing options from multiple sites within an organization.When included and set to &#x60;true&#x60;,  it searches a maximum of ten sites with which this client is associated.When a client is associated with more than ten sites, use &#x60;ClientAssociatedSitesOffset&#x60; as many times as needed to search the additional sites with which the client is associated.  You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with.   Note that a &#x60;SiteID&#x60; is returned and populated in the &#x60;ClientServices&#x60; response when &#x60;CrossRegionalLookup&#x60; is set to &#x60;true&#x60;.   Default: **false** (optional)
-     * @param  \DateTime $RequestEndDate Filters results to pricing options that are valid on or before this date. (optional)
+     * @param  \DateTime $RequestEndDate Filters results to pricing options that are purchased on or before this date.   Default: **today’s date**. (optional)
+     * @param  bool $RequestExcludeInactiveSites When this flag is set to &#x60;true&#x60;, will exclude inactive sites from the response  Default: **false** (optional)
      * @param  string[] $RequestRequiredClientData Used to retrieve list of purchased services, contract details, membership details and arrival programs for a specific client.   Default &#x60;ClientServices&#x60;, &#x60;ClientContracts&#x60;, &#x60;ClientMemberships&#x60; and &#x60;ClientArrivals&#x60; will be returned when &#x60;RequiredClientDatais&#x60; not set.   When &#x60;RequiredClientData&#x60; is set to &#x60;Contracts&#x60; then only &#x60;ClientContracts&#x60; will be returned in the response.   When &#x60;RequiredClientData&#x60; is set to Services then only &#x60;ClientServices&#x60; will be returned in the response.  When &#x60;RequiredClientData&#x60; is set to &#x60;Memberships&#x60; then only &#x60;ClientMemberships&#x60; will be returned in the response.   When &#x60;RequiredClientData&#x60; is set to &#x60;ArrivalPrograms&#x60; then only &#x60;ClientArrivals&#x60; will be returned in the response. (optional)
-     * @param  \DateTime $RequestStartDate Filters results to pricing options that are valid on or after this date. (optional)
+     * @param  bool $RequestShowActiveOnly When &#x60;true&#x60;, includes active services only. Set this field to &#x60;true&#x60; when trying to determine if a client has a   service that can pay for a class or appointment.  Default: **false** (optional)
+     * @param  \DateTime $RequestStartDate Filters results to pricing options that are purchased on or after this date.   Default: **today’s date**. (optional)
+     * @param  int $RequestUniqueClientId The unique ID of the client who is viewing this class list. (optional)
+     * @param  bool $RequestUseActivateDate When this flag is set to &#x60;true&#x60;, the date filtering will use activate date to filter the pricing options.  When this flag is set to &#x60;false&#x60;, the date filtering will use purchase date to filter the pricing options.  Default: **false** (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetClientCompleteInfoResponse
      */
-    public function clientGetClientCompleteInfo($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestRequiredClientData = null, $RequestStartDate = null): \Nlocascio\Mindbody\Model\GetClientCompleteInfoResponse
+    public function clientGetClientCompleteInfo($RequestClientId, $ConsumerIdentityToken = '', $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestExcludeInactiveSites = null, $RequestRequiredClientData = null, $RequestShowActiveOnly = null, $RequestStartDate = null, $RequestUniqueClientId = null, $RequestUseActivateDate = null): \Nlocascio\Mindbody\Model\GetClientCompleteInfoResponse
     {
-        list($response) = $this->clientGetClientCompleteInfoWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestEndDate, $RequestRequiredClientData, $RequestStartDate);
+        list($response) = $this->clientGetClientCompleteInfoWithHttpInfo($RequestClientId, $ConsumerIdentityToken, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestEndDate, $RequestExcludeInactiveSites, $RequestRequiredClientData, $RequestShowActiveOnly, $RequestStartDate, $RequestUniqueClientId, $RequestUseActivateDate);
         return $response;
     }
 
@@ -3337,20 +3351,25 @@ class ClientApi implements ApiInterface
      * Get Services, Contracts, MemberShips and Arrivals for Client as per requirement
      *
      * @param  string $RequestClientId Filters results to client with these ID. (required)
+     * @param  string $ConsumerIdentityToken A consumers authorization token to replace the need of clientId in the request. (optional, default to )
      * @param  int $RequestClientAssociatedSitesOffset Used to retrieve a client’s pricing options from multiple sites within an organization when the client is associated with more than ten sites. To change which ten sites are searched, change this offset value. A value of 0 means that no sites are skipped and the first ten sites are returned. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that you must always have &#x60;CrossRegionalLookup&#x60; set to &#x60;true&#x60; to use this parameter.&lt;br /&gt;  Default: **0**    For example, if a client is associated with 25 sites, you need to call &#x60;GetClientServices&#x60; three times, as follows:  * Use &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites a client is associated with, which tells you how many additional calls you need to make.  * Either omit &#x60;ClientAssociatedSitesOffset&#x60; or set it to 0 to return the client’s services (pricing options) from sites 1-10.  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 10 to return the client pricing options from sites 11-20  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 20 to return the client pricing options from sites 21-25 (optional)
      * @param  bool $RequestCrossRegionalLookup Used to retrieve a clients pricing options from multiple sites within an organization.When included and set to &#x60;true&#x60;,  it searches a maximum of ten sites with which this client is associated.When a client is associated with more than ten sites, use &#x60;ClientAssociatedSitesOffset&#x60; as many times as needed to search the additional sites with which the client is associated.  You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with.   Note that a &#x60;SiteID&#x60; is returned and populated in the &#x60;ClientServices&#x60; response when &#x60;CrossRegionalLookup&#x60; is set to &#x60;true&#x60;.   Default: **false** (optional)
-     * @param  \DateTime $RequestEndDate Filters results to pricing options that are valid on or before this date. (optional)
+     * @param  \DateTime $RequestEndDate Filters results to pricing options that are purchased on or before this date.   Default: **today’s date**. (optional)
+     * @param  bool $RequestExcludeInactiveSites When this flag is set to &#x60;true&#x60;, will exclude inactive sites from the response  Default: **false** (optional)
      * @param  string[] $RequestRequiredClientData Used to retrieve list of purchased services, contract details, membership details and arrival programs for a specific client.   Default &#x60;ClientServices&#x60;, &#x60;ClientContracts&#x60;, &#x60;ClientMemberships&#x60; and &#x60;ClientArrivals&#x60; will be returned when &#x60;RequiredClientDatais&#x60; not set.   When &#x60;RequiredClientData&#x60; is set to &#x60;Contracts&#x60; then only &#x60;ClientContracts&#x60; will be returned in the response.   When &#x60;RequiredClientData&#x60; is set to Services then only &#x60;ClientServices&#x60; will be returned in the response.  When &#x60;RequiredClientData&#x60; is set to &#x60;Memberships&#x60; then only &#x60;ClientMemberships&#x60; will be returned in the response.   When &#x60;RequiredClientData&#x60; is set to &#x60;ArrivalPrograms&#x60; then only &#x60;ClientArrivals&#x60; will be returned in the response. (optional)
-     * @param  \DateTime $RequestStartDate Filters results to pricing options that are valid on or after this date. (optional)
+     * @param  bool $RequestShowActiveOnly When &#x60;true&#x60;, includes active services only. Set this field to &#x60;true&#x60; when trying to determine if a client has a   service that can pay for a class or appointment.  Default: **false** (optional)
+     * @param  \DateTime $RequestStartDate Filters results to pricing options that are purchased on or after this date.   Default: **today’s date**. (optional)
+     * @param  int $RequestUniqueClientId The unique ID of the client who is viewing this class list. (optional)
+     * @param  bool $RequestUseActivateDate When this flag is set to &#x60;true&#x60;, the date filtering will use activate date to filter the pricing options.  When this flag is set to &#x60;false&#x60;, the date filtering will use purchase date to filter the pricing options.  Default: **false** (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetClientCompleteInfoResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientGetClientCompleteInfoWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestRequiredClientData = null, $RequestStartDate = null): array
+    public function clientGetClientCompleteInfoWithHttpInfo($RequestClientId, $ConsumerIdentityToken = '', $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestExcludeInactiveSites = null, $RequestRequiredClientData = null, $RequestShowActiveOnly = null, $RequestStartDate = null, $RequestUniqueClientId = null, $RequestUseActivateDate = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClientCompleteInfoResponse';
-        $request = $this->clientGetClientCompleteInfoRequest($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestEndDate, $RequestRequiredClientData, $RequestStartDate);
+        $request = $this->clientGetClientCompleteInfoRequest($RequestClientId, $ConsumerIdentityToken, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestEndDate, $RequestExcludeInactiveSites, $RequestRequiredClientData, $RequestShowActiveOnly, $RequestStartDate, $RequestUniqueClientId, $RequestUseActivateDate);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3417,18 +3436,23 @@ class ClientApi implements ApiInterface
      * Get Services, Contracts, MemberShips and Arrivals for Client as per requirement
      *
      * @param  string $RequestClientId Filters results to client with these ID. (required)
+     * @param  string $ConsumerIdentityToken A consumers authorization token to replace the need of clientId in the request. (optional, default to )
      * @param  int $RequestClientAssociatedSitesOffset Used to retrieve a client’s pricing options from multiple sites within an organization when the client is associated with more than ten sites. To change which ten sites are searched, change this offset value. A value of 0 means that no sites are skipped and the first ten sites are returned. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that you must always have &#x60;CrossRegionalLookup&#x60; set to &#x60;true&#x60; to use this parameter.&lt;br /&gt;  Default: **0**    For example, if a client is associated with 25 sites, you need to call &#x60;GetClientServices&#x60; three times, as follows:  * Use &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites a client is associated with, which tells you how many additional calls you need to make.  * Either omit &#x60;ClientAssociatedSitesOffset&#x60; or set it to 0 to return the client’s services (pricing options) from sites 1-10.  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 10 to return the client pricing options from sites 11-20  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 20 to return the client pricing options from sites 21-25 (optional)
      * @param  bool $RequestCrossRegionalLookup Used to retrieve a clients pricing options from multiple sites within an organization.When included and set to &#x60;true&#x60;,  it searches a maximum of ten sites with which this client is associated.When a client is associated with more than ten sites, use &#x60;ClientAssociatedSitesOffset&#x60; as many times as needed to search the additional sites with which the client is associated.  You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with.   Note that a &#x60;SiteID&#x60; is returned and populated in the &#x60;ClientServices&#x60; response when &#x60;CrossRegionalLookup&#x60; is set to &#x60;true&#x60;.   Default: **false** (optional)
-     * @param  \DateTime $RequestEndDate Filters results to pricing options that are valid on or before this date. (optional)
+     * @param  \DateTime $RequestEndDate Filters results to pricing options that are purchased on or before this date.   Default: **today’s date**. (optional)
+     * @param  bool $RequestExcludeInactiveSites When this flag is set to &#x60;true&#x60;, will exclude inactive sites from the response  Default: **false** (optional)
      * @param  string[] $RequestRequiredClientData Used to retrieve list of purchased services, contract details, membership details and arrival programs for a specific client.   Default &#x60;ClientServices&#x60;, &#x60;ClientContracts&#x60;, &#x60;ClientMemberships&#x60; and &#x60;ClientArrivals&#x60; will be returned when &#x60;RequiredClientDatais&#x60; not set.   When &#x60;RequiredClientData&#x60; is set to &#x60;Contracts&#x60; then only &#x60;ClientContracts&#x60; will be returned in the response.   When &#x60;RequiredClientData&#x60; is set to Services then only &#x60;ClientServices&#x60; will be returned in the response.  When &#x60;RequiredClientData&#x60; is set to &#x60;Memberships&#x60; then only &#x60;ClientMemberships&#x60; will be returned in the response.   When &#x60;RequiredClientData&#x60; is set to &#x60;ArrivalPrograms&#x60; then only &#x60;ClientArrivals&#x60; will be returned in the response. (optional)
-     * @param  \DateTime $RequestStartDate Filters results to pricing options that are valid on or after this date. (optional)
+     * @param  bool $RequestShowActiveOnly When &#x60;true&#x60;, includes active services only. Set this field to &#x60;true&#x60; when trying to determine if a client has a   service that can pay for a class or appointment.  Default: **false** (optional)
+     * @param  \DateTime $RequestStartDate Filters results to pricing options that are purchased on or after this date.   Default: **today’s date**. (optional)
+     * @param  int $RequestUniqueClientId The unique ID of the client who is viewing this class list. (optional)
+     * @param  bool $RequestUseActivateDate When this flag is set to &#x60;true&#x60;, the date filtering will use activate date to filter the pricing options.  When this flag is set to &#x60;false&#x60;, the date filtering will use purchase date to filter the pricing options.  Default: **false** (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetClientCompleteInfoAsync($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestRequiredClientData = null, $RequestStartDate = null): \GuzzleHttp\Promise\PromiseInterface
+    public function clientGetClientCompleteInfoAsync($RequestClientId, $ConsumerIdentityToken = '', $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestExcludeInactiveSites = null, $RequestRequiredClientData = null, $RequestShowActiveOnly = null, $RequestStartDate = null, $RequestUniqueClientId = null, $RequestUseActivateDate = null): \GuzzleHttp\Promise\PromiseInterface
     {
-        return $this->clientGetClientCompleteInfoAsyncWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestEndDate, $RequestRequiredClientData, $RequestStartDate)
+        return $this->clientGetClientCompleteInfoAsyncWithHttpInfo($RequestClientId, $ConsumerIdentityToken, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestEndDate, $RequestExcludeInactiveSites, $RequestRequiredClientData, $RequestShowActiveOnly, $RequestStartDate, $RequestUniqueClientId, $RequestUseActivateDate)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3442,19 +3466,24 @@ class ClientApi implements ApiInterface
      * Get Services, Contracts, MemberShips and Arrivals for Client as per requirement
      *
      * @param  string $RequestClientId Filters results to client with these ID. (required)
+     * @param  string $ConsumerIdentityToken A consumers authorization token to replace the need of clientId in the request. (optional, default to )
      * @param  int $RequestClientAssociatedSitesOffset Used to retrieve a client’s pricing options from multiple sites within an organization when the client is associated with more than ten sites. To change which ten sites are searched, change this offset value. A value of 0 means that no sites are skipped and the first ten sites are returned. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that you must always have &#x60;CrossRegionalLookup&#x60; set to &#x60;true&#x60; to use this parameter.&lt;br /&gt;  Default: **0**    For example, if a client is associated with 25 sites, you need to call &#x60;GetClientServices&#x60; three times, as follows:  * Use &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites a client is associated with, which tells you how many additional calls you need to make.  * Either omit &#x60;ClientAssociatedSitesOffset&#x60; or set it to 0 to return the client’s services (pricing options) from sites 1-10.  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 10 to return the client pricing options from sites 11-20  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 20 to return the client pricing options from sites 21-25 (optional)
      * @param  bool $RequestCrossRegionalLookup Used to retrieve a clients pricing options from multiple sites within an organization.When included and set to &#x60;true&#x60;,  it searches a maximum of ten sites with which this client is associated.When a client is associated with more than ten sites, use &#x60;ClientAssociatedSitesOffset&#x60; as many times as needed to search the additional sites with which the client is associated.  You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with.   Note that a &#x60;SiteID&#x60; is returned and populated in the &#x60;ClientServices&#x60; response when &#x60;CrossRegionalLookup&#x60; is set to &#x60;true&#x60;.   Default: **false** (optional)
-     * @param  \DateTime $RequestEndDate Filters results to pricing options that are valid on or before this date. (optional)
+     * @param  \DateTime $RequestEndDate Filters results to pricing options that are purchased on or before this date.   Default: **today’s date**. (optional)
+     * @param  bool $RequestExcludeInactiveSites When this flag is set to &#x60;true&#x60;, will exclude inactive sites from the response  Default: **false** (optional)
      * @param  string[] $RequestRequiredClientData Used to retrieve list of purchased services, contract details, membership details and arrival programs for a specific client.   Default &#x60;ClientServices&#x60;, &#x60;ClientContracts&#x60;, &#x60;ClientMemberships&#x60; and &#x60;ClientArrivals&#x60; will be returned when &#x60;RequiredClientDatais&#x60; not set.   When &#x60;RequiredClientData&#x60; is set to &#x60;Contracts&#x60; then only &#x60;ClientContracts&#x60; will be returned in the response.   When &#x60;RequiredClientData&#x60; is set to Services then only &#x60;ClientServices&#x60; will be returned in the response.  When &#x60;RequiredClientData&#x60; is set to &#x60;Memberships&#x60; then only &#x60;ClientMemberships&#x60; will be returned in the response.   When &#x60;RequiredClientData&#x60; is set to &#x60;ArrivalPrograms&#x60; then only &#x60;ClientArrivals&#x60; will be returned in the response. (optional)
-     * @param  \DateTime $RequestStartDate Filters results to pricing options that are valid on or after this date. (optional)
+     * @param  bool $RequestShowActiveOnly When &#x60;true&#x60;, includes active services only. Set this field to &#x60;true&#x60; when trying to determine if a client has a   service that can pay for a class or appointment.  Default: **false** (optional)
+     * @param  \DateTime $RequestStartDate Filters results to pricing options that are purchased on or after this date.   Default: **today’s date**. (optional)
+     * @param  int $RequestUniqueClientId The unique ID of the client who is viewing this class list. (optional)
+     * @param  bool $RequestUseActivateDate When this flag is set to &#x60;true&#x60;, the date filtering will use activate date to filter the pricing options.  When this flag is set to &#x60;false&#x60;, the date filtering will use purchase date to filter the pricing options.  Default: **false** (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetClientCompleteInfoAsyncWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestRequiredClientData = null, $RequestStartDate = null): \GuzzleHttp\Promise\PromiseInterface
+    public function clientGetClientCompleteInfoAsyncWithHttpInfo($RequestClientId, $ConsumerIdentityToken = '', $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestExcludeInactiveSites = null, $RequestRequiredClientData = null, $RequestShowActiveOnly = null, $RequestStartDate = null, $RequestUniqueClientId = null, $RequestUseActivateDate = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClientCompleteInfoResponse';
-        $request = $this->clientGetClientCompleteInfoRequest($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestEndDate, $RequestRequiredClientData, $RequestStartDate);
+        $request = $this->clientGetClientCompleteInfoRequest($RequestClientId, $ConsumerIdentityToken, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestEndDate, $RequestExcludeInactiveSites, $RequestRequiredClientData, $RequestShowActiveOnly, $RequestStartDate, $RequestUniqueClientId, $RequestUseActivateDate);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3497,16 +3526,21 @@ class ClientApi implements ApiInterface
      * Create request for operation 'clientGetClientCompleteInfo'
      *
      * @param  string $RequestClientId Filters results to client with these ID. (required)
+     * @param  string $ConsumerIdentityToken A consumers authorization token to replace the need of clientId in the request. (optional, default to )
      * @param  int $RequestClientAssociatedSitesOffset Used to retrieve a client’s pricing options from multiple sites within an organization when the client is associated with more than ten sites. To change which ten sites are searched, change this offset value. A value of 0 means that no sites are skipped and the first ten sites are returned. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that you must always have &#x60;CrossRegionalLookup&#x60; set to &#x60;true&#x60; to use this parameter.&lt;br /&gt;  Default: **0**    For example, if a client is associated with 25 sites, you need to call &#x60;GetClientServices&#x60; three times, as follows:  * Use &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites a client is associated with, which tells you how many additional calls you need to make.  * Either omit &#x60;ClientAssociatedSitesOffset&#x60; or set it to 0 to return the client’s services (pricing options) from sites 1-10.  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 10 to return the client pricing options from sites 11-20  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 20 to return the client pricing options from sites 21-25 (optional)
      * @param  bool $RequestCrossRegionalLookup Used to retrieve a clients pricing options from multiple sites within an organization.When included and set to &#x60;true&#x60;,  it searches a maximum of ten sites with which this client is associated.When a client is associated with more than ten sites, use &#x60;ClientAssociatedSitesOffset&#x60; as many times as needed to search the additional sites with which the client is associated.  You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with.   Note that a &#x60;SiteID&#x60; is returned and populated in the &#x60;ClientServices&#x60; response when &#x60;CrossRegionalLookup&#x60; is set to &#x60;true&#x60;.   Default: **false** (optional)
-     * @param  \DateTime $RequestEndDate Filters results to pricing options that are valid on or before this date. (optional)
+     * @param  \DateTime $RequestEndDate Filters results to pricing options that are purchased on or before this date.   Default: **today’s date**. (optional)
+     * @param  bool $RequestExcludeInactiveSites When this flag is set to &#x60;true&#x60;, will exclude inactive sites from the response  Default: **false** (optional)
      * @param  string[] $RequestRequiredClientData Used to retrieve list of purchased services, contract details, membership details and arrival programs for a specific client.   Default &#x60;ClientServices&#x60;, &#x60;ClientContracts&#x60;, &#x60;ClientMemberships&#x60; and &#x60;ClientArrivals&#x60; will be returned when &#x60;RequiredClientDatais&#x60; not set.   When &#x60;RequiredClientData&#x60; is set to &#x60;Contracts&#x60; then only &#x60;ClientContracts&#x60; will be returned in the response.   When &#x60;RequiredClientData&#x60; is set to Services then only &#x60;ClientServices&#x60; will be returned in the response.  When &#x60;RequiredClientData&#x60; is set to &#x60;Memberships&#x60; then only &#x60;ClientMemberships&#x60; will be returned in the response.   When &#x60;RequiredClientData&#x60; is set to &#x60;ArrivalPrograms&#x60; then only &#x60;ClientArrivals&#x60; will be returned in the response. (optional)
-     * @param  \DateTime $RequestStartDate Filters results to pricing options that are valid on or after this date. (optional)
+     * @param  bool $RequestShowActiveOnly When &#x60;true&#x60;, includes active services only. Set this field to &#x60;true&#x60; when trying to determine if a client has a   service that can pay for a class or appointment.  Default: **false** (optional)
+     * @param  \DateTime $RequestStartDate Filters results to pricing options that are purchased on or after this date.   Default: **today’s date**. (optional)
+     * @param  int $RequestUniqueClientId The unique ID of the client who is viewing this class list. (optional)
+     * @param  bool $RequestUseActivateDate When this flag is set to &#x60;true&#x60;, the date filtering will use activate date to filter the pricing options.  When this flag is set to &#x60;false&#x60;, the date filtering will use purchase date to filter the pricing options.  Default: **false** (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientGetClientCompleteInfoRequest($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestRequiredClientData = null, $RequestStartDate = null): \GuzzleHttp\Psr7\Request
+    protected function clientGetClientCompleteInfoRequest($RequestClientId, $ConsumerIdentityToken = '', $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestExcludeInactiveSites = null, $RequestRequiredClientData = null, $RequestShowActiveOnly = null, $RequestStartDate = null, $RequestUniqueClientId = null, $RequestUseActivateDate = null): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'RequestClientId' is set
         if ($RequestClientId === null || (is_array($RequestClientId) && count($RequestClientId) === 0)) {
@@ -3535,6 +3569,10 @@ class ClientApi implements ApiInterface
             $queryParams['request.endDate'] = ObjectSerializer::toQueryValue($RequestEndDate);
         }
         // query params
+        if ($RequestExcludeInactiveSites !== null) {
+            $queryParams['request.excludeInactiveSites'] = ObjectSerializer::toQueryValue($RequestExcludeInactiveSites);
+        }
+        // query params
         if (is_array($RequestRequiredClientData)) {
             $queryParams['request.requiredClientData'] = $RequestRequiredClientData;
         } else
@@ -3542,12 +3580,28 @@ class ClientApi implements ApiInterface
             $queryParams['request.requiredClientData'] = ObjectSerializer::toQueryValue($RequestRequiredClientData);
         }
         // query params
+        if ($RequestShowActiveOnly !== null) {
+            $queryParams['request.showActiveOnly'] = ObjectSerializer::toQueryValue($RequestShowActiveOnly);
+        }
+        // query params
         if ($RequestStartDate !== null) {
             $queryParams['request.startDate'] = ObjectSerializer::toQueryValue($RequestStartDate);
         }
         // query params
+        if ($RequestUniqueClientId !== null) {
+            $queryParams['request.uniqueClientId'] = ObjectSerializer::toQueryValue($RequestUniqueClientId);
+        }
+        // query params
+        if ($RequestUseActivateDate !== null) {
+            $queryParams['request.useActivateDate'] = ObjectSerializer::toQueryValue($RequestUseActivateDate);
+        }
+        // query params
         if ($RequestClientId !== null) {
             $queryParams['request.clientId'] = ObjectSerializer::toQueryValue($RequestClientId);
+        }
+        // header params
+        if ($ConsumerIdentityToken !== null) {
+            $headerParams['consumer-identity-token'] = ObjectSerializer::toHeaderValue($ConsumerIdentityToken);
         }
 
 
@@ -3647,14 +3701,15 @@ class ClientApi implements ApiInterface
      * @param  bool $RequestCrossRegionalLookup When &#x60;true&#x60;, indicates that the requesting client’s cross regional contracts are returned, if any.&lt;br /&gt;  When &#x60;false&#x60;, indicates that cross regional contracts are not returned. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
+     * @param  int $RequestUniqueClientId The unique ID of the requested client. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetClientContractsResponse
      */
-    public function clientGetClientContracts($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestOffset = null): \Nlocascio\Mindbody\Model\GetClientContractsResponse
+    public function clientGetClientContracts($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestOffset = null, $RequestUniqueClientId = null): \Nlocascio\Mindbody\Model\GetClientContractsResponse
     {
-        list($response) = $this->clientGetClientContractsWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestLimit, $RequestOffset);
+        list($response) = $this->clientGetClientContractsWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestLimit, $RequestOffset, $RequestUniqueClientId);
         return $response;
     }
 
@@ -3668,15 +3723,16 @@ class ClientApi implements ApiInterface
      * @param  bool $RequestCrossRegionalLookup When &#x60;true&#x60;, indicates that the requesting client’s cross regional contracts are returned, if any.&lt;br /&gt;  When &#x60;false&#x60;, indicates that cross regional contracts are not returned. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
+     * @param  int $RequestUniqueClientId The unique ID of the requested client. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetClientContractsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientGetClientContractsWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestOffset = null): array
+    public function clientGetClientContractsWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestOffset = null, $RequestUniqueClientId = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClientContractsResponse';
-        $request = $this->clientGetClientContractsRequest($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestLimit, $RequestOffset);
+        $request = $this->clientGetClientContractsRequest($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestLimit, $RequestOffset, $RequestUniqueClientId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3747,13 +3803,14 @@ class ClientApi implements ApiInterface
      * @param  bool $RequestCrossRegionalLookup When &#x60;true&#x60;, indicates that the requesting client’s cross regional contracts are returned, if any.&lt;br /&gt;  When &#x60;false&#x60;, indicates that cross regional contracts are not returned. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
+     * @param  int $RequestUniqueClientId The unique ID of the requested client. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetClientContractsAsync($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestOffset = null): \GuzzleHttp\Promise\PromiseInterface
+    public function clientGetClientContractsAsync($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestOffset = null, $RequestUniqueClientId = null): \GuzzleHttp\Promise\PromiseInterface
     {
-        return $this->clientGetClientContractsAsyncWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestLimit, $RequestOffset)
+        return $this->clientGetClientContractsAsyncWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestLimit, $RequestOffset, $RequestUniqueClientId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3771,14 +3828,15 @@ class ClientApi implements ApiInterface
      * @param  bool $RequestCrossRegionalLookup When &#x60;true&#x60;, indicates that the requesting client’s cross regional contracts are returned, if any.&lt;br /&gt;  When &#x60;false&#x60;, indicates that cross regional contracts are not returned. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
+     * @param  int $RequestUniqueClientId The unique ID of the requested client. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetClientContractsAsyncWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestOffset = null): \GuzzleHttp\Promise\PromiseInterface
+    public function clientGetClientContractsAsyncWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestOffset = null, $RequestUniqueClientId = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClientContractsResponse';
-        $request = $this->clientGetClientContractsRequest($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestLimit, $RequestOffset);
+        $request = $this->clientGetClientContractsRequest($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestLimit, $RequestOffset, $RequestUniqueClientId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3825,11 +3883,12 @@ class ClientApi implements ApiInterface
      * @param  bool $RequestCrossRegionalLookup When &#x60;true&#x60;, indicates that the requesting client’s cross regional contracts are returned, if any.&lt;br /&gt;  When &#x60;false&#x60;, indicates that cross regional contracts are not returned. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
+     * @param  int $RequestUniqueClientId The unique ID of the requested client. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientGetClientContractsRequest($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestOffset = null): \GuzzleHttp\Psr7\Request
+    protected function clientGetClientContractsRequest($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestLimit = null, $RequestOffset = null, $RequestUniqueClientId = null): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'RequestClientId' is set
         if ($RequestClientId === null || (is_array($RequestClientId) && count($RequestClientId) === 0)) {
@@ -3860,6 +3919,10 @@ class ClientApi implements ApiInterface
         // query params
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
+        }
+        // query params
+        if ($RequestUniqueClientId !== null) {
+            $queryParams['request.uniqueClientId'] = ObjectSerializer::toQueryValue($RequestUniqueClientId);
         }
         // query params
         if ($RequestClientId !== null) {
@@ -4849,14 +4912,15 @@ class ClientApi implements ApiInterface
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  int $RequestSaleId Filters results to the single record associated with this ID. (optional)
      * @param  \DateTime $RequestStartDate Filters results to purchases made on or after this timestamp.&lt;br /&gt;  Default: **now** (optional)
+     * @param  int $RequestUniqueClientId The unique ID of the requested client. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetClientPurchasesResponse
      */
-    public function clientGetClientPurchases($RequestClientId, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestSaleId = null, $RequestStartDate = null): \Nlocascio\Mindbody\Model\GetClientPurchasesResponse
+    public function clientGetClientPurchases($RequestClientId, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestSaleId = null, $RequestStartDate = null, $RequestUniqueClientId = null): \Nlocascio\Mindbody\Model\GetClientPurchasesResponse
     {
-        list($response) = $this->clientGetClientPurchasesWithHttpInfo($RequestClientId, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestSaleId, $RequestStartDate);
+        list($response) = $this->clientGetClientPurchasesWithHttpInfo($RequestClientId, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestSaleId, $RequestStartDate, $RequestUniqueClientId);
         return $response;
     }
 
@@ -4871,15 +4935,16 @@ class ClientApi implements ApiInterface
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  int $RequestSaleId Filters results to the single record associated with this ID. (optional)
      * @param  \DateTime $RequestStartDate Filters results to purchases made on or after this timestamp.&lt;br /&gt;  Default: **now** (optional)
+     * @param  int $RequestUniqueClientId The unique ID of the requested client. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetClientPurchasesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientGetClientPurchasesWithHttpInfo($RequestClientId, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestSaleId = null, $RequestStartDate = null): array
+    public function clientGetClientPurchasesWithHttpInfo($RequestClientId, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestSaleId = null, $RequestStartDate = null, $RequestUniqueClientId = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClientPurchasesResponse';
-        $request = $this->clientGetClientPurchasesRequest($RequestClientId, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestSaleId, $RequestStartDate);
+        $request = $this->clientGetClientPurchasesRequest($RequestClientId, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestSaleId, $RequestStartDate, $RequestUniqueClientId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4951,13 +5016,14 @@ class ClientApi implements ApiInterface
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  int $RequestSaleId Filters results to the single record associated with this ID. (optional)
      * @param  \DateTime $RequestStartDate Filters results to purchases made on or after this timestamp.&lt;br /&gt;  Default: **now** (optional)
+     * @param  int $RequestUniqueClientId The unique ID of the requested client. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetClientPurchasesAsync($RequestClientId, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestSaleId = null, $RequestStartDate = null): \GuzzleHttp\Promise\PromiseInterface
+    public function clientGetClientPurchasesAsync($RequestClientId, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestSaleId = null, $RequestStartDate = null, $RequestUniqueClientId = null): \GuzzleHttp\Promise\PromiseInterface
     {
-        return $this->clientGetClientPurchasesAsyncWithHttpInfo($RequestClientId, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestSaleId, $RequestStartDate)
+        return $this->clientGetClientPurchasesAsyncWithHttpInfo($RequestClientId, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestSaleId, $RequestStartDate, $RequestUniqueClientId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4976,14 +5042,15 @@ class ClientApi implements ApiInterface
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  int $RequestSaleId Filters results to the single record associated with this ID. (optional)
      * @param  \DateTime $RequestStartDate Filters results to purchases made on or after this timestamp.&lt;br /&gt;  Default: **now** (optional)
+     * @param  int $RequestUniqueClientId The unique ID of the requested client. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetClientPurchasesAsyncWithHttpInfo($RequestClientId, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestSaleId = null, $RequestStartDate = null): \GuzzleHttp\Promise\PromiseInterface
+    public function clientGetClientPurchasesAsyncWithHttpInfo($RequestClientId, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestSaleId = null, $RequestStartDate = null, $RequestUniqueClientId = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClientPurchasesResponse';
-        $request = $this->clientGetClientPurchasesRequest($RequestClientId, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestSaleId, $RequestStartDate);
+        $request = $this->clientGetClientPurchasesRequest($RequestClientId, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestSaleId, $RequestStartDate, $RequestUniqueClientId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5031,11 +5098,12 @@ class ClientApi implements ApiInterface
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  int $RequestSaleId Filters results to the single record associated with this ID. (optional)
      * @param  \DateTime $RequestStartDate Filters results to purchases made on or after this timestamp.&lt;br /&gt;  Default: **now** (optional)
+     * @param  int $RequestUniqueClientId The unique ID of the requested client. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientGetClientPurchasesRequest($RequestClientId, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestSaleId = null, $RequestStartDate = null): \GuzzleHttp\Psr7\Request
+    protected function clientGetClientPurchasesRequest($RequestClientId, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestSaleId = null, $RequestStartDate = null, $RequestUniqueClientId = null): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'RequestClientId' is set
         if ($RequestClientId === null || (is_array($RequestClientId) && count($RequestClientId) === 0)) {
@@ -5070,6 +5138,10 @@ class ClientApi implements ApiInterface
         // query params
         if ($RequestStartDate !== null) {
             $queryParams['request.startDate'] = ObjectSerializer::toQueryValue($RequestStartDate);
+        }
+        // query params
+        if ($RequestUniqueClientId !== null) {
+            $queryParams['request.uniqueClientId'] = ObjectSerializer::toQueryValue($RequestUniqueClientId);
         }
         // query params
         if ($RequestClientId !== null) {
@@ -5758,21 +5830,23 @@ class ClientApi implements ApiInterface
      *
      * Gets a client's schedule history.
      *
-     * @param  string $RequestClientId The ID of the requested client. (required)
      * @param  int $RequestClientAssociatedSitesOffset The number of sites to skip when returning the site associated with a client. (optional)
+     * @param  string $RequestClientId The ID of the requested client. (optional)
      * @param  bool $RequestCrossRegionalLookup When &#x60;true&#x60;, indicates that past and scheduled client visits across all sites in the region are returned.  When &#x60;false&#x60;, indicates that only visits at the current site are returned. (optional)
      * @param  \DateTime $RequestEndDate The date past which class visits are not returned.  Default is today’s date (optional)
+     * @param  bool $RequestIncludeWaitlistEntries When &#x60;true&#x60;, waitlist entries are included in the response.  When &#x60;false&#x60;, waitlist entries are removed from the response.  Default: **false** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  \DateTime $RequestStartDate The date before which class visits are not returned.  Default is the end date (optional)
+     * @param  int $RequestUniqueClientId The unique ID of the requested client.  Note: you need to provide the &#39;UniqueClientId&#39; OR the &#39;ClientId&#39;. If both are provided, the &#39;UniqueClientId&#39; takes precedence. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetClientScheduleResponse
      */
-    public function clientGetClientSchedule($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestStartDate = null): \Nlocascio\Mindbody\Model\GetClientScheduleResponse
+    public function clientGetClientSchedule($RequestClientAssociatedSitesOffset = null, $RequestClientId = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestIncludeWaitlistEntries = null, $RequestLimit = null, $RequestOffset = null, $RequestStartDate = null, $RequestUniqueClientId = null): \Nlocascio\Mindbody\Model\GetClientScheduleResponse
     {
-        list($response) = $this->clientGetClientScheduleWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestStartDate);
+        list($response) = $this->clientGetClientScheduleWithHttpInfo($RequestClientAssociatedSitesOffset, $RequestClientId, $RequestCrossRegionalLookup, $RequestEndDate, $RequestIncludeWaitlistEntries, $RequestLimit, $RequestOffset, $RequestStartDate, $RequestUniqueClientId);
         return $response;
     }
 
@@ -5781,22 +5855,24 @@ class ClientApi implements ApiInterface
      *
      * Gets a client's schedule history.
      *
-     * @param  string $RequestClientId The ID of the requested client. (required)
      * @param  int $RequestClientAssociatedSitesOffset The number of sites to skip when returning the site associated with a client. (optional)
+     * @param  string $RequestClientId The ID of the requested client. (optional)
      * @param  bool $RequestCrossRegionalLookup When &#x60;true&#x60;, indicates that past and scheduled client visits across all sites in the region are returned.  When &#x60;false&#x60;, indicates that only visits at the current site are returned. (optional)
      * @param  \DateTime $RequestEndDate The date past which class visits are not returned.  Default is today’s date (optional)
+     * @param  bool $RequestIncludeWaitlistEntries When &#x60;true&#x60;, waitlist entries are included in the response.  When &#x60;false&#x60;, waitlist entries are removed from the response.  Default: **false** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  \DateTime $RequestStartDate The date before which class visits are not returned.  Default is the end date (optional)
+     * @param  int $RequestUniqueClientId The unique ID of the requested client.  Note: you need to provide the &#39;UniqueClientId&#39; OR the &#39;ClientId&#39;. If both are provided, the &#39;UniqueClientId&#39; takes precedence. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetClientScheduleResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientGetClientScheduleWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestStartDate = null): array
+    public function clientGetClientScheduleWithHttpInfo($RequestClientAssociatedSitesOffset = null, $RequestClientId = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestIncludeWaitlistEntries = null, $RequestLimit = null, $RequestOffset = null, $RequestStartDate = null, $RequestUniqueClientId = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClientScheduleResponse';
-        $request = $this->clientGetClientScheduleRequest($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestStartDate);
+        $request = $this->clientGetClientScheduleRequest($RequestClientAssociatedSitesOffset, $RequestClientId, $RequestCrossRegionalLookup, $RequestEndDate, $RequestIncludeWaitlistEntries, $RequestLimit, $RequestOffset, $RequestStartDate, $RequestUniqueClientId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5862,20 +5938,22 @@ class ClientApi implements ApiInterface
      *
      * Gets a client's schedule history.
      *
-     * @param  string $RequestClientId The ID of the requested client. (required)
      * @param  int $RequestClientAssociatedSitesOffset The number of sites to skip when returning the site associated with a client. (optional)
+     * @param  string $RequestClientId The ID of the requested client. (optional)
      * @param  bool $RequestCrossRegionalLookup When &#x60;true&#x60;, indicates that past and scheduled client visits across all sites in the region are returned.  When &#x60;false&#x60;, indicates that only visits at the current site are returned. (optional)
      * @param  \DateTime $RequestEndDate The date past which class visits are not returned.  Default is today’s date (optional)
+     * @param  bool $RequestIncludeWaitlistEntries When &#x60;true&#x60;, waitlist entries are included in the response.  When &#x60;false&#x60;, waitlist entries are removed from the response.  Default: **false** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  \DateTime $RequestStartDate The date before which class visits are not returned.  Default is the end date (optional)
+     * @param  int $RequestUniqueClientId The unique ID of the requested client.  Note: you need to provide the &#39;UniqueClientId&#39; OR the &#39;ClientId&#39;. If both are provided, the &#39;UniqueClientId&#39; takes precedence. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetClientScheduleAsync($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestStartDate = null): \GuzzleHttp\Promise\PromiseInterface
+    public function clientGetClientScheduleAsync($RequestClientAssociatedSitesOffset = null, $RequestClientId = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestIncludeWaitlistEntries = null, $RequestLimit = null, $RequestOffset = null, $RequestStartDate = null, $RequestUniqueClientId = null): \GuzzleHttp\Promise\PromiseInterface
     {
-        return $this->clientGetClientScheduleAsyncWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestStartDate)
+        return $this->clientGetClientScheduleAsyncWithHttpInfo($RequestClientAssociatedSitesOffset, $RequestClientId, $RequestCrossRegionalLookup, $RequestEndDate, $RequestIncludeWaitlistEntries, $RequestLimit, $RequestOffset, $RequestStartDate, $RequestUniqueClientId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5888,21 +5966,23 @@ class ClientApi implements ApiInterface
      *
      * Gets a client's schedule history.
      *
-     * @param  string $RequestClientId The ID of the requested client. (required)
      * @param  int $RequestClientAssociatedSitesOffset The number of sites to skip when returning the site associated with a client. (optional)
+     * @param  string $RequestClientId The ID of the requested client. (optional)
      * @param  bool $RequestCrossRegionalLookup When &#x60;true&#x60;, indicates that past and scheduled client visits across all sites in the region are returned.  When &#x60;false&#x60;, indicates that only visits at the current site are returned. (optional)
      * @param  \DateTime $RequestEndDate The date past which class visits are not returned.  Default is today’s date (optional)
+     * @param  bool $RequestIncludeWaitlistEntries When &#x60;true&#x60;, waitlist entries are included in the response.  When &#x60;false&#x60;, waitlist entries are removed from the response.  Default: **false** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  \DateTime $RequestStartDate The date before which class visits are not returned.  Default is the end date (optional)
+     * @param  int $RequestUniqueClientId The unique ID of the requested client.  Note: you need to provide the &#39;UniqueClientId&#39; OR the &#39;ClientId&#39;. If both are provided, the &#39;UniqueClientId&#39; takes precedence. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetClientScheduleAsyncWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestStartDate = null): \GuzzleHttp\Promise\PromiseInterface
+    public function clientGetClientScheduleAsyncWithHttpInfo($RequestClientAssociatedSitesOffset = null, $RequestClientId = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestIncludeWaitlistEntries = null, $RequestLimit = null, $RequestOffset = null, $RequestStartDate = null, $RequestUniqueClientId = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClientScheduleResponse';
-        $request = $this->clientGetClientScheduleRequest($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestStartDate);
+        $request = $this->clientGetClientScheduleRequest($RequestClientAssociatedSitesOffset, $RequestClientId, $RequestCrossRegionalLookup, $RequestEndDate, $RequestIncludeWaitlistEntries, $RequestLimit, $RequestOffset, $RequestStartDate, $RequestUniqueClientId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5944,25 +6024,21 @@ class ClientApi implements ApiInterface
     /**
      * Create request for operation 'clientGetClientSchedule'
      *
-     * @param  string $RequestClientId The ID of the requested client. (required)
      * @param  int $RequestClientAssociatedSitesOffset The number of sites to skip when returning the site associated with a client. (optional)
+     * @param  string $RequestClientId The ID of the requested client. (optional)
      * @param  bool $RequestCrossRegionalLookup When &#x60;true&#x60;, indicates that past and scheduled client visits across all sites in the region are returned.  When &#x60;false&#x60;, indicates that only visits at the current site are returned. (optional)
      * @param  \DateTime $RequestEndDate The date past which class visits are not returned.  Default is today’s date (optional)
+     * @param  bool $RequestIncludeWaitlistEntries When &#x60;true&#x60;, waitlist entries are included in the response.  When &#x60;false&#x60;, waitlist entries are removed from the response.  Default: **false** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  \DateTime $RequestStartDate The date before which class visits are not returned.  Default is the end date (optional)
+     * @param  int $RequestUniqueClientId The unique ID of the requested client.  Note: you need to provide the &#39;UniqueClientId&#39; OR the &#39;ClientId&#39;. If both are provided, the &#39;UniqueClientId&#39; takes precedence. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientGetClientScheduleRequest($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestStartDate = null): \GuzzleHttp\Psr7\Request
+    protected function clientGetClientScheduleRequest($RequestClientAssociatedSitesOffset = null, $RequestClientId = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestIncludeWaitlistEntries = null, $RequestLimit = null, $RequestOffset = null, $RequestStartDate = null, $RequestUniqueClientId = null): \GuzzleHttp\Psr7\Request
     {
-        // verify the required parameter 'RequestClientId' is set
-        if ($RequestClientId === null || (is_array($RequestClientId) && count($RequestClientId) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $RequestClientId when calling clientGetClientSchedule'
-            );
-        }
 
         $resourcePath = '/public/v6/client/clientschedule';
         $formParams = [];
@@ -5976,12 +6052,20 @@ class ClientApi implements ApiInterface
             $queryParams['request.clientAssociatedSitesOffset'] = ObjectSerializer::toQueryValue($RequestClientAssociatedSitesOffset);
         }
         // query params
+        if ($RequestClientId !== null) {
+            $queryParams['request.clientId'] = ObjectSerializer::toQueryValue($RequestClientId);
+        }
+        // query params
         if ($RequestCrossRegionalLookup !== null) {
             $queryParams['request.crossRegionalLookup'] = ObjectSerializer::toQueryValue($RequestCrossRegionalLookup);
         }
         // query params
         if ($RequestEndDate !== null) {
             $queryParams['request.endDate'] = ObjectSerializer::toQueryValue($RequestEndDate);
+        }
+        // query params
+        if ($RequestIncludeWaitlistEntries !== null) {
+            $queryParams['request.includeWaitlistEntries'] = ObjectSerializer::toQueryValue($RequestIncludeWaitlistEntries);
         }
         // query params
         if ($RequestLimit !== null) {
@@ -5996,8 +6080,8 @@ class ClientApi implements ApiInterface
             $queryParams['request.startDate'] = ObjectSerializer::toQueryValue($RequestStartDate);
         }
         // query params
-        if ($RequestClientId !== null) {
-            $queryParams['request.clientId'] = ObjectSerializer::toQueryValue($RequestClientId);
+        if ($RequestUniqueClientId !== null) {
+            $queryParams['request.uniqueClientId'] = ObjectSerializer::toQueryValue($RequestUniqueClientId);
         }
 
 
@@ -6092,12 +6176,14 @@ class ClientApi implements ApiInterface
      *
      * Get pricing options that a client has purchased.
      *
-     * @param  string $RequestClientId The ID of the client to query. The results are a list of pricing options that the client has purchased. Note that “service” and “pricing option” are synonymous in this section of the documentation. (required)
      * @param  int $RequestClassId Filters results to only those pricing options that can be used to pay for this class. (optional)
+     * @param  int[] $RequestClassScheduleID Filters results to pricing options which are associated with one of the ClassScheduleIDs (optional)
      * @param  int $RequestClientAssociatedSitesOffset Used to retrieve a client’s pricing options from multiple sites within an organization when the client is associated with more than ten sites. To change which ten sites are searched, change this offset value. A value of 0 means that no sites are skipped and the first ten sites are returned. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that you must always have &#x60;CrossRegionalLookup&#x60; set to &#x60;true&#x60; to use this parameter.&lt;br /&gt;  Default: **0**    For example, if a client is associated with 25 sites, you need to call &#x60;GetClientServices&#x60; three times, as follows:  * Use &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites a client is associated with, which tells you how many additional calls you need to make.  * Either omit &#x60;ClientAssociatedSitesOffset&#x60; or set it to 0 to return the client’s services (pricing options) from sites 1-10.  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 10 to return the client pricing options from sites 11-20  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 20 to return the client pricing options from sites 21-25 (optional)
+     * @param  string $RequestClientId The ID of the client to query. The results are a list of pricing options that the client has purchased. Note that “service” and “pricing option” are synonymous in this section of the documentation. (optional)
      * @param  string[] $RequestClientIds The IDs of the clients to query. The results are a list of pricing options that the clients have purchased.  ClientId parameter takes priority over ClientIds due to backward compatibility.  So if you want to use ClientIds, then ClientId needs to be empty.  Either of ClientId or ClientIds need to be specified (optional)
      * @param  bool $RequestCrossRegionalLookup Used to retrieve a client’s pricing options from multiple sites within an organization. When included and set to &#x60;true&#x60;, it searches a maximum of ten sites with which this client is associated. When a client is associated with more than ten sites, use &#x60;ClientAssociatedSitesOffset&#x60; as many times as needed to search the additional sites with which the client is associated. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that a &#x60;SiteID&#x60; is returned and populated in the &#x60;ClientServices&#x60; response when &#x60;CrossRegionalLookup&#x60; is set to &#x60;true&#x60;.  Default: **false** (optional)
-     * @param  \DateTime $RequestEndDate Filters results to pricing options that are valid on or before this date.  Default: **today’s date** (optional)
+     * @param  \DateTime $RequestEndDate Filters results to pricing options that are purchased on or before this date.   Default: **today’s date** (optional)
+     * @param  bool $RequestExcludeInactiveSites When this flag is set to &#x60;true&#x60;, will exclude inactive sites from the response.  Default: **false** (optional)
      * @param  bool $RequestIgnoreCrossRegionalSiteLimit Used to specify if the number of cross regional sites used to search for client’s pricing options should be ignored.   Default: **false** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int[] $RequestLocationIds Filters results to pricing options that can be used at the listed location IDs. (optional)
@@ -6105,17 +6191,19 @@ class ClientApi implements ApiInterface
      * @param  int[] $RequestProgramIds Filters results to pricing options that belong to one of the given program IDs. (optional)
      * @param  int $RequestSessionTypeId Filters results to pricing options that will pay for the given session type ID. Use this to find pricing options that will pay for a specific appointment type. (optional)
      * @param  bool $RequestShowActiveOnly When &#x60;true&#x60;, includes active services only.  Default: **false** (optional)
-     * @param  \DateTime $RequestStartDate Filters results to pricing options that are valid on or after this date.  Default: **today’s date** (optional)
-     * @param  bool $RequestUseActivateDate When this flag is set to true the date filtering will use activate date to filter the pricing options  When this flag is set to false the date filtering will use purchase date to filter the pricing options [ Existing logic ] (optional)
+     * @param  \DateTime $RequestStartDate Filters results to pricing options that are purchased on or after this date.  Default: **today’s date** (optional)
+     * @param  int $RequestUniqueClientId The unique ID of the client to query. Note that UniqueClientId takes precedence over ClientId. (optional)
+     * @param  int[] $RequestUniqueClientIds The Unique IDs of the clients to query. Note that UniqueClientIds collection takes precedence over ClientIds collection. (optional)
+     * @param  bool $RequestUseActivateDate When this flag is set to &#x60;true&#x60;, the date filtering will use activate date to filter the pricing options.  When this flag is set to &#x60;false&#x60;, the date filtering will use purchase date to filter the pricing options.  Default: **false** (optional)
      * @param  int $RequestVisitCount A filter on the minimum number of visits a service can pay for. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetClientServicesResponse
      */
-    public function clientGetClientServices($RequestClientId, $RequestClassId = null, $RequestClientAssociatedSitesOffset = null, $RequestClientIds = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestIgnoreCrossRegionalSiteLimit = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSessionTypeId = null, $RequestShowActiveOnly = null, $RequestStartDate = null, $RequestUseActivateDate = null, $RequestVisitCount = null): \Nlocascio\Mindbody\Model\GetClientServicesResponse
+    public function clientGetClientServices($RequestClassId = null, $RequestClassScheduleID = null, $RequestClientAssociatedSitesOffset = null, $RequestClientId = null, $RequestClientIds = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestExcludeInactiveSites = null, $RequestIgnoreCrossRegionalSiteLimit = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSessionTypeId = null, $RequestShowActiveOnly = null, $RequestStartDate = null, $RequestUniqueClientId = null, $RequestUniqueClientIds = null, $RequestUseActivateDate = null, $RequestVisitCount = null): \Nlocascio\Mindbody\Model\GetClientServicesResponse
     {
-        list($response) = $this->clientGetClientServicesWithHttpInfo($RequestClientId, $RequestClassId, $RequestClientAssociatedSitesOffset, $RequestClientIds, $RequestCrossRegionalLookup, $RequestEndDate, $RequestIgnoreCrossRegionalSiteLimit, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSessionTypeId, $RequestShowActiveOnly, $RequestStartDate, $RequestUseActivateDate, $RequestVisitCount);
+        list($response) = $this->clientGetClientServicesWithHttpInfo($RequestClassId, $RequestClassScheduleID, $RequestClientAssociatedSitesOffset, $RequestClientId, $RequestClientIds, $RequestCrossRegionalLookup, $RequestEndDate, $RequestExcludeInactiveSites, $RequestIgnoreCrossRegionalSiteLimit, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSessionTypeId, $RequestShowActiveOnly, $RequestStartDate, $RequestUniqueClientId, $RequestUniqueClientIds, $RequestUseActivateDate, $RequestVisitCount);
         return $response;
     }
 
@@ -6124,12 +6212,14 @@ class ClientApi implements ApiInterface
      *
      * Get pricing options that a client has purchased.
      *
-     * @param  string $RequestClientId The ID of the client to query. The results are a list of pricing options that the client has purchased. Note that “service” and “pricing option” are synonymous in this section of the documentation. (required)
      * @param  int $RequestClassId Filters results to only those pricing options that can be used to pay for this class. (optional)
+     * @param  int[] $RequestClassScheduleID Filters results to pricing options which are associated with one of the ClassScheduleIDs (optional)
      * @param  int $RequestClientAssociatedSitesOffset Used to retrieve a client’s pricing options from multiple sites within an organization when the client is associated with more than ten sites. To change which ten sites are searched, change this offset value. A value of 0 means that no sites are skipped and the first ten sites are returned. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that you must always have &#x60;CrossRegionalLookup&#x60; set to &#x60;true&#x60; to use this parameter.&lt;br /&gt;  Default: **0**    For example, if a client is associated with 25 sites, you need to call &#x60;GetClientServices&#x60; three times, as follows:  * Use &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites a client is associated with, which tells you how many additional calls you need to make.  * Either omit &#x60;ClientAssociatedSitesOffset&#x60; or set it to 0 to return the client’s services (pricing options) from sites 1-10.  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 10 to return the client pricing options from sites 11-20  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 20 to return the client pricing options from sites 21-25 (optional)
+     * @param  string $RequestClientId The ID of the client to query. The results are a list of pricing options that the client has purchased. Note that “service” and “pricing option” are synonymous in this section of the documentation. (optional)
      * @param  string[] $RequestClientIds The IDs of the clients to query. The results are a list of pricing options that the clients have purchased.  ClientId parameter takes priority over ClientIds due to backward compatibility.  So if you want to use ClientIds, then ClientId needs to be empty.  Either of ClientId or ClientIds need to be specified (optional)
      * @param  bool $RequestCrossRegionalLookup Used to retrieve a client’s pricing options from multiple sites within an organization. When included and set to &#x60;true&#x60;, it searches a maximum of ten sites with which this client is associated. When a client is associated with more than ten sites, use &#x60;ClientAssociatedSitesOffset&#x60; as many times as needed to search the additional sites with which the client is associated. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that a &#x60;SiteID&#x60; is returned and populated in the &#x60;ClientServices&#x60; response when &#x60;CrossRegionalLookup&#x60; is set to &#x60;true&#x60;.  Default: **false** (optional)
-     * @param  \DateTime $RequestEndDate Filters results to pricing options that are valid on or before this date.  Default: **today’s date** (optional)
+     * @param  \DateTime $RequestEndDate Filters results to pricing options that are purchased on or before this date.   Default: **today’s date** (optional)
+     * @param  bool $RequestExcludeInactiveSites When this flag is set to &#x60;true&#x60;, will exclude inactive sites from the response.  Default: **false** (optional)
      * @param  bool $RequestIgnoreCrossRegionalSiteLimit Used to specify if the number of cross regional sites used to search for client’s pricing options should be ignored.   Default: **false** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int[] $RequestLocationIds Filters results to pricing options that can be used at the listed location IDs. (optional)
@@ -6137,18 +6227,20 @@ class ClientApi implements ApiInterface
      * @param  int[] $RequestProgramIds Filters results to pricing options that belong to one of the given program IDs. (optional)
      * @param  int $RequestSessionTypeId Filters results to pricing options that will pay for the given session type ID. Use this to find pricing options that will pay for a specific appointment type. (optional)
      * @param  bool $RequestShowActiveOnly When &#x60;true&#x60;, includes active services only.  Default: **false** (optional)
-     * @param  \DateTime $RequestStartDate Filters results to pricing options that are valid on or after this date.  Default: **today’s date** (optional)
-     * @param  bool $RequestUseActivateDate When this flag is set to true the date filtering will use activate date to filter the pricing options  When this flag is set to false the date filtering will use purchase date to filter the pricing options [ Existing logic ] (optional)
+     * @param  \DateTime $RequestStartDate Filters results to pricing options that are purchased on or after this date.  Default: **today’s date** (optional)
+     * @param  int $RequestUniqueClientId The unique ID of the client to query. Note that UniqueClientId takes precedence over ClientId. (optional)
+     * @param  int[] $RequestUniqueClientIds The Unique IDs of the clients to query. Note that UniqueClientIds collection takes precedence over ClientIds collection. (optional)
+     * @param  bool $RequestUseActivateDate When this flag is set to &#x60;true&#x60;, the date filtering will use activate date to filter the pricing options.  When this flag is set to &#x60;false&#x60;, the date filtering will use purchase date to filter the pricing options.  Default: **false** (optional)
      * @param  int $RequestVisitCount A filter on the minimum number of visits a service can pay for. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetClientServicesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientGetClientServicesWithHttpInfo($RequestClientId, $RequestClassId = null, $RequestClientAssociatedSitesOffset = null, $RequestClientIds = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestIgnoreCrossRegionalSiteLimit = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSessionTypeId = null, $RequestShowActiveOnly = null, $RequestStartDate = null, $RequestUseActivateDate = null, $RequestVisitCount = null): array
+    public function clientGetClientServicesWithHttpInfo($RequestClassId = null, $RequestClassScheduleID = null, $RequestClientAssociatedSitesOffset = null, $RequestClientId = null, $RequestClientIds = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestExcludeInactiveSites = null, $RequestIgnoreCrossRegionalSiteLimit = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSessionTypeId = null, $RequestShowActiveOnly = null, $RequestStartDate = null, $RequestUniqueClientId = null, $RequestUniqueClientIds = null, $RequestUseActivateDate = null, $RequestVisitCount = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClientServicesResponse';
-        $request = $this->clientGetClientServicesRequest($RequestClientId, $RequestClassId, $RequestClientAssociatedSitesOffset, $RequestClientIds, $RequestCrossRegionalLookup, $RequestEndDate, $RequestIgnoreCrossRegionalSiteLimit, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSessionTypeId, $RequestShowActiveOnly, $RequestStartDate, $RequestUseActivateDate, $RequestVisitCount);
+        $request = $this->clientGetClientServicesRequest($RequestClassId, $RequestClassScheduleID, $RequestClientAssociatedSitesOffset, $RequestClientId, $RequestClientIds, $RequestCrossRegionalLookup, $RequestEndDate, $RequestExcludeInactiveSites, $RequestIgnoreCrossRegionalSiteLimit, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSessionTypeId, $RequestShowActiveOnly, $RequestStartDate, $RequestUniqueClientId, $RequestUniqueClientIds, $RequestUseActivateDate, $RequestVisitCount);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6214,12 +6306,14 @@ class ClientApi implements ApiInterface
      *
      * Get pricing options that a client has purchased.
      *
-     * @param  string $RequestClientId The ID of the client to query. The results are a list of pricing options that the client has purchased. Note that “service” and “pricing option” are synonymous in this section of the documentation. (required)
      * @param  int $RequestClassId Filters results to only those pricing options that can be used to pay for this class. (optional)
+     * @param  int[] $RequestClassScheduleID Filters results to pricing options which are associated with one of the ClassScheduleIDs (optional)
      * @param  int $RequestClientAssociatedSitesOffset Used to retrieve a client’s pricing options from multiple sites within an organization when the client is associated with more than ten sites. To change which ten sites are searched, change this offset value. A value of 0 means that no sites are skipped and the first ten sites are returned. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that you must always have &#x60;CrossRegionalLookup&#x60; set to &#x60;true&#x60; to use this parameter.&lt;br /&gt;  Default: **0**    For example, if a client is associated with 25 sites, you need to call &#x60;GetClientServices&#x60; three times, as follows:  * Use &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites a client is associated with, which tells you how many additional calls you need to make.  * Either omit &#x60;ClientAssociatedSitesOffset&#x60; or set it to 0 to return the client’s services (pricing options) from sites 1-10.  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 10 to return the client pricing options from sites 11-20  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 20 to return the client pricing options from sites 21-25 (optional)
+     * @param  string $RequestClientId The ID of the client to query. The results are a list of pricing options that the client has purchased. Note that “service” and “pricing option” are synonymous in this section of the documentation. (optional)
      * @param  string[] $RequestClientIds The IDs of the clients to query. The results are a list of pricing options that the clients have purchased.  ClientId parameter takes priority over ClientIds due to backward compatibility.  So if you want to use ClientIds, then ClientId needs to be empty.  Either of ClientId or ClientIds need to be specified (optional)
      * @param  bool $RequestCrossRegionalLookup Used to retrieve a client’s pricing options from multiple sites within an organization. When included and set to &#x60;true&#x60;, it searches a maximum of ten sites with which this client is associated. When a client is associated with more than ten sites, use &#x60;ClientAssociatedSitesOffset&#x60; as many times as needed to search the additional sites with which the client is associated. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that a &#x60;SiteID&#x60; is returned and populated in the &#x60;ClientServices&#x60; response when &#x60;CrossRegionalLookup&#x60; is set to &#x60;true&#x60;.  Default: **false** (optional)
-     * @param  \DateTime $RequestEndDate Filters results to pricing options that are valid on or before this date.  Default: **today’s date** (optional)
+     * @param  \DateTime $RequestEndDate Filters results to pricing options that are purchased on or before this date.   Default: **today’s date** (optional)
+     * @param  bool $RequestExcludeInactiveSites When this flag is set to &#x60;true&#x60;, will exclude inactive sites from the response.  Default: **false** (optional)
      * @param  bool $RequestIgnoreCrossRegionalSiteLimit Used to specify if the number of cross regional sites used to search for client’s pricing options should be ignored.   Default: **false** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int[] $RequestLocationIds Filters results to pricing options that can be used at the listed location IDs. (optional)
@@ -6227,16 +6321,18 @@ class ClientApi implements ApiInterface
      * @param  int[] $RequestProgramIds Filters results to pricing options that belong to one of the given program IDs. (optional)
      * @param  int $RequestSessionTypeId Filters results to pricing options that will pay for the given session type ID. Use this to find pricing options that will pay for a specific appointment type. (optional)
      * @param  bool $RequestShowActiveOnly When &#x60;true&#x60;, includes active services only.  Default: **false** (optional)
-     * @param  \DateTime $RequestStartDate Filters results to pricing options that are valid on or after this date.  Default: **today’s date** (optional)
-     * @param  bool $RequestUseActivateDate When this flag is set to true the date filtering will use activate date to filter the pricing options  When this flag is set to false the date filtering will use purchase date to filter the pricing options [ Existing logic ] (optional)
+     * @param  \DateTime $RequestStartDate Filters results to pricing options that are purchased on or after this date.  Default: **today’s date** (optional)
+     * @param  int $RequestUniqueClientId The unique ID of the client to query. Note that UniqueClientId takes precedence over ClientId. (optional)
+     * @param  int[] $RequestUniqueClientIds The Unique IDs of the clients to query. Note that UniqueClientIds collection takes precedence over ClientIds collection. (optional)
+     * @param  bool $RequestUseActivateDate When this flag is set to &#x60;true&#x60;, the date filtering will use activate date to filter the pricing options.  When this flag is set to &#x60;false&#x60;, the date filtering will use purchase date to filter the pricing options.  Default: **false** (optional)
      * @param  int $RequestVisitCount A filter on the minimum number of visits a service can pay for. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetClientServicesAsync($RequestClientId, $RequestClassId = null, $RequestClientAssociatedSitesOffset = null, $RequestClientIds = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestIgnoreCrossRegionalSiteLimit = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSessionTypeId = null, $RequestShowActiveOnly = null, $RequestStartDate = null, $RequestUseActivateDate = null, $RequestVisitCount = null): \GuzzleHttp\Promise\PromiseInterface
+    public function clientGetClientServicesAsync($RequestClassId = null, $RequestClassScheduleID = null, $RequestClientAssociatedSitesOffset = null, $RequestClientId = null, $RequestClientIds = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestExcludeInactiveSites = null, $RequestIgnoreCrossRegionalSiteLimit = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSessionTypeId = null, $RequestShowActiveOnly = null, $RequestStartDate = null, $RequestUniqueClientId = null, $RequestUniqueClientIds = null, $RequestUseActivateDate = null, $RequestVisitCount = null): \GuzzleHttp\Promise\PromiseInterface
     {
-        return $this->clientGetClientServicesAsyncWithHttpInfo($RequestClientId, $RequestClassId, $RequestClientAssociatedSitesOffset, $RequestClientIds, $RequestCrossRegionalLookup, $RequestEndDate, $RequestIgnoreCrossRegionalSiteLimit, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSessionTypeId, $RequestShowActiveOnly, $RequestStartDate, $RequestUseActivateDate, $RequestVisitCount)
+        return $this->clientGetClientServicesAsyncWithHttpInfo($RequestClassId, $RequestClassScheduleID, $RequestClientAssociatedSitesOffset, $RequestClientId, $RequestClientIds, $RequestCrossRegionalLookup, $RequestEndDate, $RequestExcludeInactiveSites, $RequestIgnoreCrossRegionalSiteLimit, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSessionTypeId, $RequestShowActiveOnly, $RequestStartDate, $RequestUniqueClientId, $RequestUniqueClientIds, $RequestUseActivateDate, $RequestVisitCount)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6249,12 +6345,14 @@ class ClientApi implements ApiInterface
      *
      * Get pricing options that a client has purchased.
      *
-     * @param  string $RequestClientId The ID of the client to query. The results are a list of pricing options that the client has purchased. Note that “service” and “pricing option” are synonymous in this section of the documentation. (required)
      * @param  int $RequestClassId Filters results to only those pricing options that can be used to pay for this class. (optional)
+     * @param  int[] $RequestClassScheduleID Filters results to pricing options which are associated with one of the ClassScheduleIDs (optional)
      * @param  int $RequestClientAssociatedSitesOffset Used to retrieve a client’s pricing options from multiple sites within an organization when the client is associated with more than ten sites. To change which ten sites are searched, change this offset value. A value of 0 means that no sites are skipped and the first ten sites are returned. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that you must always have &#x60;CrossRegionalLookup&#x60; set to &#x60;true&#x60; to use this parameter.&lt;br /&gt;  Default: **0**    For example, if a client is associated with 25 sites, you need to call &#x60;GetClientServices&#x60; three times, as follows:  * Use &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites a client is associated with, which tells you how many additional calls you need to make.  * Either omit &#x60;ClientAssociatedSitesOffset&#x60; or set it to 0 to return the client’s services (pricing options) from sites 1-10.  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 10 to return the client pricing options from sites 11-20  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 20 to return the client pricing options from sites 21-25 (optional)
+     * @param  string $RequestClientId The ID of the client to query. The results are a list of pricing options that the client has purchased. Note that “service” and “pricing option” are synonymous in this section of the documentation. (optional)
      * @param  string[] $RequestClientIds The IDs of the clients to query. The results are a list of pricing options that the clients have purchased.  ClientId parameter takes priority over ClientIds due to backward compatibility.  So if you want to use ClientIds, then ClientId needs to be empty.  Either of ClientId or ClientIds need to be specified (optional)
      * @param  bool $RequestCrossRegionalLookup Used to retrieve a client’s pricing options from multiple sites within an organization. When included and set to &#x60;true&#x60;, it searches a maximum of ten sites with which this client is associated. When a client is associated with more than ten sites, use &#x60;ClientAssociatedSitesOffset&#x60; as many times as needed to search the additional sites with which the client is associated. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that a &#x60;SiteID&#x60; is returned and populated in the &#x60;ClientServices&#x60; response when &#x60;CrossRegionalLookup&#x60; is set to &#x60;true&#x60;.  Default: **false** (optional)
-     * @param  \DateTime $RequestEndDate Filters results to pricing options that are valid on or before this date.  Default: **today’s date** (optional)
+     * @param  \DateTime $RequestEndDate Filters results to pricing options that are purchased on or before this date.   Default: **today’s date** (optional)
+     * @param  bool $RequestExcludeInactiveSites When this flag is set to &#x60;true&#x60;, will exclude inactive sites from the response.  Default: **false** (optional)
      * @param  bool $RequestIgnoreCrossRegionalSiteLimit Used to specify if the number of cross regional sites used to search for client’s pricing options should be ignored.   Default: **false** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int[] $RequestLocationIds Filters results to pricing options that can be used at the listed location IDs. (optional)
@@ -6262,17 +6360,19 @@ class ClientApi implements ApiInterface
      * @param  int[] $RequestProgramIds Filters results to pricing options that belong to one of the given program IDs. (optional)
      * @param  int $RequestSessionTypeId Filters results to pricing options that will pay for the given session type ID. Use this to find pricing options that will pay for a specific appointment type. (optional)
      * @param  bool $RequestShowActiveOnly When &#x60;true&#x60;, includes active services only.  Default: **false** (optional)
-     * @param  \DateTime $RequestStartDate Filters results to pricing options that are valid on or after this date.  Default: **today’s date** (optional)
-     * @param  bool $RequestUseActivateDate When this flag is set to true the date filtering will use activate date to filter the pricing options  When this flag is set to false the date filtering will use purchase date to filter the pricing options [ Existing logic ] (optional)
+     * @param  \DateTime $RequestStartDate Filters results to pricing options that are purchased on or after this date.  Default: **today’s date** (optional)
+     * @param  int $RequestUniqueClientId The unique ID of the client to query. Note that UniqueClientId takes precedence over ClientId. (optional)
+     * @param  int[] $RequestUniqueClientIds The Unique IDs of the clients to query. Note that UniqueClientIds collection takes precedence over ClientIds collection. (optional)
+     * @param  bool $RequestUseActivateDate When this flag is set to &#x60;true&#x60;, the date filtering will use activate date to filter the pricing options.  When this flag is set to &#x60;false&#x60;, the date filtering will use purchase date to filter the pricing options.  Default: **false** (optional)
      * @param  int $RequestVisitCount A filter on the minimum number of visits a service can pay for. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetClientServicesAsyncWithHttpInfo($RequestClientId, $RequestClassId = null, $RequestClientAssociatedSitesOffset = null, $RequestClientIds = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestIgnoreCrossRegionalSiteLimit = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSessionTypeId = null, $RequestShowActiveOnly = null, $RequestStartDate = null, $RequestUseActivateDate = null, $RequestVisitCount = null): \GuzzleHttp\Promise\PromiseInterface
+    public function clientGetClientServicesAsyncWithHttpInfo($RequestClassId = null, $RequestClassScheduleID = null, $RequestClientAssociatedSitesOffset = null, $RequestClientId = null, $RequestClientIds = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestExcludeInactiveSites = null, $RequestIgnoreCrossRegionalSiteLimit = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSessionTypeId = null, $RequestShowActiveOnly = null, $RequestStartDate = null, $RequestUniqueClientId = null, $RequestUniqueClientIds = null, $RequestUseActivateDate = null, $RequestVisitCount = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClientServicesResponse';
-        $request = $this->clientGetClientServicesRequest($RequestClientId, $RequestClassId, $RequestClientAssociatedSitesOffset, $RequestClientIds, $RequestCrossRegionalLookup, $RequestEndDate, $RequestIgnoreCrossRegionalSiteLimit, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSessionTypeId, $RequestShowActiveOnly, $RequestStartDate, $RequestUseActivateDate, $RequestVisitCount);
+        $request = $this->clientGetClientServicesRequest($RequestClassId, $RequestClassScheduleID, $RequestClientAssociatedSitesOffset, $RequestClientId, $RequestClientIds, $RequestCrossRegionalLookup, $RequestEndDate, $RequestExcludeInactiveSites, $RequestIgnoreCrossRegionalSiteLimit, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSessionTypeId, $RequestShowActiveOnly, $RequestStartDate, $RequestUniqueClientId, $RequestUniqueClientIds, $RequestUseActivateDate, $RequestVisitCount);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6314,12 +6414,14 @@ class ClientApi implements ApiInterface
     /**
      * Create request for operation 'clientGetClientServices'
      *
-     * @param  string $RequestClientId The ID of the client to query. The results are a list of pricing options that the client has purchased. Note that “service” and “pricing option” are synonymous in this section of the documentation. (required)
      * @param  int $RequestClassId Filters results to only those pricing options that can be used to pay for this class. (optional)
+     * @param  int[] $RequestClassScheduleID Filters results to pricing options which are associated with one of the ClassScheduleIDs (optional)
      * @param  int $RequestClientAssociatedSitesOffset Used to retrieve a client’s pricing options from multiple sites within an organization when the client is associated with more than ten sites. To change which ten sites are searched, change this offset value. A value of 0 means that no sites are skipped and the first ten sites are returned. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that you must always have &#x60;CrossRegionalLookup&#x60; set to &#x60;true&#x60; to use this parameter.&lt;br /&gt;  Default: **0**    For example, if a client is associated with 25 sites, you need to call &#x60;GetClientServices&#x60; three times, as follows:  * Use &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites a client is associated with, which tells you how many additional calls you need to make.  * Either omit &#x60;ClientAssociatedSitesOffset&#x60; or set it to 0 to return the client’s services (pricing options) from sites 1-10.  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 10 to return the client pricing options from sites 11-20  * Set &#x60;ClientAssociatedSitesOffset&#x60; to 20 to return the client pricing options from sites 21-25 (optional)
+     * @param  string $RequestClientId The ID of the client to query. The results are a list of pricing options that the client has purchased. Note that “service” and “pricing option” are synonymous in this section of the documentation. (optional)
      * @param  string[] $RequestClientIds The IDs of the clients to query. The results are a list of pricing options that the clients have purchased.  ClientId parameter takes priority over ClientIds due to backward compatibility.  So if you want to use ClientIds, then ClientId needs to be empty.  Either of ClientId or ClientIds need to be specified (optional)
      * @param  bool $RequestCrossRegionalLookup Used to retrieve a client’s pricing options from multiple sites within an organization. When included and set to &#x60;true&#x60;, it searches a maximum of ten sites with which this client is associated. When a client is associated with more than ten sites, use &#x60;ClientAssociatedSitesOffset&#x60; as many times as needed to search the additional sites with which the client is associated. You can use the &#x60;CrossRegionalClientAssociations&#x60; value from &#x60;GET CrossRegionalClientAssociations&#x60; to determine how many sites the client is associated with. Note that a &#x60;SiteID&#x60; is returned and populated in the &#x60;ClientServices&#x60; response when &#x60;CrossRegionalLookup&#x60; is set to &#x60;true&#x60;.  Default: **false** (optional)
-     * @param  \DateTime $RequestEndDate Filters results to pricing options that are valid on or before this date.  Default: **today’s date** (optional)
+     * @param  \DateTime $RequestEndDate Filters results to pricing options that are purchased on or before this date.   Default: **today’s date** (optional)
+     * @param  bool $RequestExcludeInactiveSites When this flag is set to &#x60;true&#x60;, will exclude inactive sites from the response.  Default: **false** (optional)
      * @param  bool $RequestIgnoreCrossRegionalSiteLimit Used to specify if the number of cross regional sites used to search for client’s pricing options should be ignored.   Default: **false** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int[] $RequestLocationIds Filters results to pricing options that can be used at the listed location IDs. (optional)
@@ -6327,21 +6429,17 @@ class ClientApi implements ApiInterface
      * @param  int[] $RequestProgramIds Filters results to pricing options that belong to one of the given program IDs. (optional)
      * @param  int $RequestSessionTypeId Filters results to pricing options that will pay for the given session type ID. Use this to find pricing options that will pay for a specific appointment type. (optional)
      * @param  bool $RequestShowActiveOnly When &#x60;true&#x60;, includes active services only.  Default: **false** (optional)
-     * @param  \DateTime $RequestStartDate Filters results to pricing options that are valid on or after this date.  Default: **today’s date** (optional)
-     * @param  bool $RequestUseActivateDate When this flag is set to true the date filtering will use activate date to filter the pricing options  When this flag is set to false the date filtering will use purchase date to filter the pricing options [ Existing logic ] (optional)
+     * @param  \DateTime $RequestStartDate Filters results to pricing options that are purchased on or after this date.  Default: **today’s date** (optional)
+     * @param  int $RequestUniqueClientId The unique ID of the client to query. Note that UniqueClientId takes precedence over ClientId. (optional)
+     * @param  int[] $RequestUniqueClientIds The Unique IDs of the clients to query. Note that UniqueClientIds collection takes precedence over ClientIds collection. (optional)
+     * @param  bool $RequestUseActivateDate When this flag is set to &#x60;true&#x60;, the date filtering will use activate date to filter the pricing options.  When this flag is set to &#x60;false&#x60;, the date filtering will use purchase date to filter the pricing options.  Default: **false** (optional)
      * @param  int $RequestVisitCount A filter on the minimum number of visits a service can pay for. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientGetClientServicesRequest($RequestClientId, $RequestClassId = null, $RequestClientAssociatedSitesOffset = null, $RequestClientIds = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestIgnoreCrossRegionalSiteLimit = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSessionTypeId = null, $RequestShowActiveOnly = null, $RequestStartDate = null, $RequestUseActivateDate = null, $RequestVisitCount = null): \GuzzleHttp\Psr7\Request
+    protected function clientGetClientServicesRequest($RequestClassId = null, $RequestClassScheduleID = null, $RequestClientAssociatedSitesOffset = null, $RequestClientId = null, $RequestClientIds = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestExcludeInactiveSites = null, $RequestIgnoreCrossRegionalSiteLimit = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSessionTypeId = null, $RequestShowActiveOnly = null, $RequestStartDate = null, $RequestUniqueClientId = null, $RequestUniqueClientIds = null, $RequestUseActivateDate = null, $RequestVisitCount = null): \GuzzleHttp\Psr7\Request
     {
-        // verify the required parameter 'RequestClientId' is set
-        if ($RequestClientId === null || (is_array($RequestClientId) && count($RequestClientId) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $RequestClientId when calling clientGetClientServices'
-            );
-        }
 
         $resourcePath = '/public/v6/client/clientservices';
         $formParams = [];
@@ -6355,8 +6453,19 @@ class ClientApi implements ApiInterface
             $queryParams['request.classId'] = ObjectSerializer::toQueryValue($RequestClassId);
         }
         // query params
+        if (is_array($RequestClassScheduleID)) {
+            $queryParams['request.classScheduleID'] = $RequestClassScheduleID;
+        } else
+        if ($RequestClassScheduleID !== null) {
+            $queryParams['request.classScheduleID'] = ObjectSerializer::toQueryValue($RequestClassScheduleID);
+        }
+        // query params
         if ($RequestClientAssociatedSitesOffset !== null) {
             $queryParams['request.clientAssociatedSitesOffset'] = ObjectSerializer::toQueryValue($RequestClientAssociatedSitesOffset);
+        }
+        // query params
+        if ($RequestClientId !== null) {
+            $queryParams['request.clientId'] = ObjectSerializer::toQueryValue($RequestClientId);
         }
         // query params
         if (is_array($RequestClientIds)) {
@@ -6372,6 +6481,10 @@ class ClientApi implements ApiInterface
         // query params
         if ($RequestEndDate !== null) {
             $queryParams['request.endDate'] = ObjectSerializer::toQueryValue($RequestEndDate);
+        }
+        // query params
+        if ($RequestExcludeInactiveSites !== null) {
+            $queryParams['request.excludeInactiveSites'] = ObjectSerializer::toQueryValue($RequestExcludeInactiveSites);
         }
         // query params
         if ($RequestIgnoreCrossRegionalSiteLimit !== null) {
@@ -6412,16 +6525,23 @@ class ClientApi implements ApiInterface
             $queryParams['request.startDate'] = ObjectSerializer::toQueryValue($RequestStartDate);
         }
         // query params
+        if ($RequestUniqueClientId !== null) {
+            $queryParams['request.uniqueClientId'] = ObjectSerializer::toQueryValue($RequestUniqueClientId);
+        }
+        // query params
+        if (is_array($RequestUniqueClientIds)) {
+            $queryParams['request.uniqueClientIds'] = $RequestUniqueClientIds;
+        } else
+        if ($RequestUniqueClientIds !== null) {
+            $queryParams['request.uniqueClientIds'] = ObjectSerializer::toQueryValue($RequestUniqueClientIds);
+        }
+        // query params
         if ($RequestUseActivateDate !== null) {
             $queryParams['request.useActivateDate'] = ObjectSerializer::toQueryValue($RequestUseActivateDate);
         }
         // query params
         if ($RequestVisitCount !== null) {
             $queryParams['request.visitCount'] = ObjectSerializer::toQueryValue($RequestVisitCount);
-        }
-        // query params
-        if ($RequestClientId !== null) {
-            $queryParams['request.clientId'] = ObjectSerializer::toQueryValue($RequestClientId);
         }
 
 
@@ -6516,22 +6636,24 @@ class ClientApi implements ApiInterface
      *
      * Get a client's visit history.
      *
-     * @param  string $RequestClientId The ID of the requested client. (required)
      * @param  int $RequestClientAssociatedSitesOffset The number of sites to skip when returning the site associated with a client. (optional)
+     * @param  string $RequestClientId The ID of the requested client. (optional)
      * @param  bool $RequestCrossRegionalLookup When &#x60;true&#x60;, indicates that past and scheduled client visits across all sites in the region are returned.&lt;br /&gt;  When &#x60;false&#x60;, indicates that only visits at the current site are returned. (optional)
-     * @param  \DateTime $RequestEndDate The date past which class visits are not returned.  Default: **today’s date** (optional)
+     * @param  \DateTime $RequestEndDate The date past which class visits are not returned.  Default: **today&#39;s date** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
+     * @param  string $RequestOrder The sort order for the results.&lt;br /&gt;  When &#x60;desc&#x60;, results are returned in descending order (newest first).&lt;br /&gt;  When &#x60;asc&#x60;, results are returned in ascending order (oldest first). (optional)
      * @param  \DateTime $RequestStartDate The date before which class visits are not returned.  Default: **the end date** (optional)
+     * @param  int $RequestUniqueClientId The unique ID of the requested client.  Note: you need to provide the &#39;UniqueClientId&#39; OR the &#39;ClientId&#39;. If both are provided, the &#39;UniqueClientId&#39; takes precedence. (optional)
      * @param  bool $RequestUnpaidsOnly When &#x60;true&#x60;, indicates that only visits that have not been paid for are returned.&lt;br /&gt;  When &#x60;false&#x60;, indicates that all visits are returned, regardless of whether they have been paid for.&lt;br /&gt;  Default: **false** (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetClientVisitsResponse
      */
-    public function clientGetClientVisits($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestStartDate = null, $RequestUnpaidsOnly = null): \Nlocascio\Mindbody\Model\GetClientVisitsResponse
+    public function clientGetClientVisits($RequestClientAssociatedSitesOffset = null, $RequestClientId = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestOrder = null, $RequestStartDate = null, $RequestUniqueClientId = null, $RequestUnpaidsOnly = null): \Nlocascio\Mindbody\Model\GetClientVisitsResponse
     {
-        list($response) = $this->clientGetClientVisitsWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestStartDate, $RequestUnpaidsOnly);
+        list($response) = $this->clientGetClientVisitsWithHttpInfo($RequestClientAssociatedSitesOffset, $RequestClientId, $RequestCrossRegionalLookup, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestOrder, $RequestStartDate, $RequestUniqueClientId, $RequestUnpaidsOnly);
         return $response;
     }
 
@@ -6540,23 +6662,25 @@ class ClientApi implements ApiInterface
      *
      * Get a client's visit history.
      *
-     * @param  string $RequestClientId The ID of the requested client. (required)
      * @param  int $RequestClientAssociatedSitesOffset The number of sites to skip when returning the site associated with a client. (optional)
+     * @param  string $RequestClientId The ID of the requested client. (optional)
      * @param  bool $RequestCrossRegionalLookup When &#x60;true&#x60;, indicates that past and scheduled client visits across all sites in the region are returned.&lt;br /&gt;  When &#x60;false&#x60;, indicates that only visits at the current site are returned. (optional)
-     * @param  \DateTime $RequestEndDate The date past which class visits are not returned.  Default: **today’s date** (optional)
+     * @param  \DateTime $RequestEndDate The date past which class visits are not returned.  Default: **today&#39;s date** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
+     * @param  string $RequestOrder The sort order for the results.&lt;br /&gt;  When &#x60;desc&#x60;, results are returned in descending order (newest first).&lt;br /&gt;  When &#x60;asc&#x60;, results are returned in ascending order (oldest first). (optional)
      * @param  \DateTime $RequestStartDate The date before which class visits are not returned.  Default: **the end date** (optional)
+     * @param  int $RequestUniqueClientId The unique ID of the requested client.  Note: you need to provide the &#39;UniqueClientId&#39; OR the &#39;ClientId&#39;. If both are provided, the &#39;UniqueClientId&#39; takes precedence. (optional)
      * @param  bool $RequestUnpaidsOnly When &#x60;true&#x60;, indicates that only visits that have not been paid for are returned.&lt;br /&gt;  When &#x60;false&#x60;, indicates that all visits are returned, regardless of whether they have been paid for.&lt;br /&gt;  Default: **false** (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetClientVisitsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientGetClientVisitsWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestStartDate = null, $RequestUnpaidsOnly = null): array
+    public function clientGetClientVisitsWithHttpInfo($RequestClientAssociatedSitesOffset = null, $RequestClientId = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestOrder = null, $RequestStartDate = null, $RequestUniqueClientId = null, $RequestUnpaidsOnly = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClientVisitsResponse';
-        $request = $this->clientGetClientVisitsRequest($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestStartDate, $RequestUnpaidsOnly);
+        $request = $this->clientGetClientVisitsRequest($RequestClientAssociatedSitesOffset, $RequestClientId, $RequestCrossRegionalLookup, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestOrder, $RequestStartDate, $RequestUniqueClientId, $RequestUnpaidsOnly);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6622,21 +6746,23 @@ class ClientApi implements ApiInterface
      *
      * Get a client's visit history.
      *
-     * @param  string $RequestClientId The ID of the requested client. (required)
      * @param  int $RequestClientAssociatedSitesOffset The number of sites to skip when returning the site associated with a client. (optional)
+     * @param  string $RequestClientId The ID of the requested client. (optional)
      * @param  bool $RequestCrossRegionalLookup When &#x60;true&#x60;, indicates that past and scheduled client visits across all sites in the region are returned.&lt;br /&gt;  When &#x60;false&#x60;, indicates that only visits at the current site are returned. (optional)
-     * @param  \DateTime $RequestEndDate The date past which class visits are not returned.  Default: **today’s date** (optional)
+     * @param  \DateTime $RequestEndDate The date past which class visits are not returned.  Default: **today&#39;s date** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
+     * @param  string $RequestOrder The sort order for the results.&lt;br /&gt;  When &#x60;desc&#x60;, results are returned in descending order (newest first).&lt;br /&gt;  When &#x60;asc&#x60;, results are returned in ascending order (oldest first). (optional)
      * @param  \DateTime $RequestStartDate The date before which class visits are not returned.  Default: **the end date** (optional)
+     * @param  int $RequestUniqueClientId The unique ID of the requested client.  Note: you need to provide the &#39;UniqueClientId&#39; OR the &#39;ClientId&#39;. If both are provided, the &#39;UniqueClientId&#39; takes precedence. (optional)
      * @param  bool $RequestUnpaidsOnly When &#x60;true&#x60;, indicates that only visits that have not been paid for are returned.&lt;br /&gt;  When &#x60;false&#x60;, indicates that all visits are returned, regardless of whether they have been paid for.&lt;br /&gt;  Default: **false** (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetClientVisitsAsync($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestStartDate = null, $RequestUnpaidsOnly = null): \GuzzleHttp\Promise\PromiseInterface
+    public function clientGetClientVisitsAsync($RequestClientAssociatedSitesOffset = null, $RequestClientId = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestOrder = null, $RequestStartDate = null, $RequestUniqueClientId = null, $RequestUnpaidsOnly = null): \GuzzleHttp\Promise\PromiseInterface
     {
-        return $this->clientGetClientVisitsAsyncWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestStartDate, $RequestUnpaidsOnly)
+        return $this->clientGetClientVisitsAsyncWithHttpInfo($RequestClientAssociatedSitesOffset, $RequestClientId, $RequestCrossRegionalLookup, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestOrder, $RequestStartDate, $RequestUniqueClientId, $RequestUnpaidsOnly)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6649,22 +6775,24 @@ class ClientApi implements ApiInterface
      *
      * Get a client's visit history.
      *
-     * @param  string $RequestClientId The ID of the requested client. (required)
      * @param  int $RequestClientAssociatedSitesOffset The number of sites to skip when returning the site associated with a client. (optional)
+     * @param  string $RequestClientId The ID of the requested client. (optional)
      * @param  bool $RequestCrossRegionalLookup When &#x60;true&#x60;, indicates that past and scheduled client visits across all sites in the region are returned.&lt;br /&gt;  When &#x60;false&#x60;, indicates that only visits at the current site are returned. (optional)
-     * @param  \DateTime $RequestEndDate The date past which class visits are not returned.  Default: **today’s date** (optional)
+     * @param  \DateTime $RequestEndDate The date past which class visits are not returned.  Default: **today&#39;s date** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
+     * @param  string $RequestOrder The sort order for the results.&lt;br /&gt;  When &#x60;desc&#x60;, results are returned in descending order (newest first).&lt;br /&gt;  When &#x60;asc&#x60;, results are returned in ascending order (oldest first). (optional)
      * @param  \DateTime $RequestStartDate The date before which class visits are not returned.  Default: **the end date** (optional)
+     * @param  int $RequestUniqueClientId The unique ID of the requested client.  Note: you need to provide the &#39;UniqueClientId&#39; OR the &#39;ClientId&#39;. If both are provided, the &#39;UniqueClientId&#39; takes precedence. (optional)
      * @param  bool $RequestUnpaidsOnly When &#x60;true&#x60;, indicates that only visits that have not been paid for are returned.&lt;br /&gt;  When &#x60;false&#x60;, indicates that all visits are returned, regardless of whether they have been paid for.&lt;br /&gt;  Default: **false** (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetClientVisitsAsyncWithHttpInfo($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestStartDate = null, $RequestUnpaidsOnly = null): \GuzzleHttp\Promise\PromiseInterface
+    public function clientGetClientVisitsAsyncWithHttpInfo($RequestClientAssociatedSitesOffset = null, $RequestClientId = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestOrder = null, $RequestStartDate = null, $RequestUniqueClientId = null, $RequestUnpaidsOnly = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClientVisitsResponse';
-        $request = $this->clientGetClientVisitsRequest($RequestClientId, $RequestClientAssociatedSitesOffset, $RequestCrossRegionalLookup, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestStartDate, $RequestUnpaidsOnly);
+        $request = $this->clientGetClientVisitsRequest($RequestClientAssociatedSitesOffset, $RequestClientId, $RequestCrossRegionalLookup, $RequestEndDate, $RequestLimit, $RequestOffset, $RequestOrder, $RequestStartDate, $RequestUniqueClientId, $RequestUnpaidsOnly);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6706,26 +6834,22 @@ class ClientApi implements ApiInterface
     /**
      * Create request for operation 'clientGetClientVisits'
      *
-     * @param  string $RequestClientId The ID of the requested client. (required)
      * @param  int $RequestClientAssociatedSitesOffset The number of sites to skip when returning the site associated with a client. (optional)
+     * @param  string $RequestClientId The ID of the requested client. (optional)
      * @param  bool $RequestCrossRegionalLookup When &#x60;true&#x60;, indicates that past and scheduled client visits across all sites in the region are returned.&lt;br /&gt;  When &#x60;false&#x60;, indicates that only visits at the current site are returned. (optional)
-     * @param  \DateTime $RequestEndDate The date past which class visits are not returned.  Default: **today’s date** (optional)
+     * @param  \DateTime $RequestEndDate The date past which class visits are not returned.  Default: **today&#39;s date** (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
+     * @param  string $RequestOrder The sort order for the results.&lt;br /&gt;  When &#x60;desc&#x60;, results are returned in descending order (newest first).&lt;br /&gt;  When &#x60;asc&#x60;, results are returned in ascending order (oldest first). (optional)
      * @param  \DateTime $RequestStartDate The date before which class visits are not returned.  Default: **the end date** (optional)
+     * @param  int $RequestUniqueClientId The unique ID of the requested client.  Note: you need to provide the &#39;UniqueClientId&#39; OR the &#39;ClientId&#39;. If both are provided, the &#39;UniqueClientId&#39; takes precedence. (optional)
      * @param  bool $RequestUnpaidsOnly When &#x60;true&#x60;, indicates that only visits that have not been paid for are returned.&lt;br /&gt;  When &#x60;false&#x60;, indicates that all visits are returned, regardless of whether they have been paid for.&lt;br /&gt;  Default: **false** (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientGetClientVisitsRequest($RequestClientId, $RequestClientAssociatedSitesOffset = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestStartDate = null, $RequestUnpaidsOnly = null): \GuzzleHttp\Psr7\Request
+    protected function clientGetClientVisitsRequest($RequestClientAssociatedSitesOffset = null, $RequestClientId = null, $RequestCrossRegionalLookup = null, $RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestOrder = null, $RequestStartDate = null, $RequestUniqueClientId = null, $RequestUnpaidsOnly = null): \GuzzleHttp\Psr7\Request
     {
-        // verify the required parameter 'RequestClientId' is set
-        if ($RequestClientId === null || (is_array($RequestClientId) && count($RequestClientId) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $RequestClientId when calling clientGetClientVisits'
-            );
-        }
 
         $resourcePath = '/public/v6/client/clientvisits';
         $formParams = [];
@@ -6737,6 +6861,10 @@ class ClientApi implements ApiInterface
         // query params
         if ($RequestClientAssociatedSitesOffset !== null) {
             $queryParams['request.clientAssociatedSitesOffset'] = ObjectSerializer::toQueryValue($RequestClientAssociatedSitesOffset);
+        }
+        // query params
+        if ($RequestClientId !== null) {
+            $queryParams['request.clientId'] = ObjectSerializer::toQueryValue($RequestClientId);
         }
         // query params
         if ($RequestCrossRegionalLookup !== null) {
@@ -6755,16 +6883,20 @@ class ClientApi implements ApiInterface
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
         // query params
+        if ($RequestOrder !== null) {
+            $queryParams['request.order'] = ObjectSerializer::toQueryValue($RequestOrder);
+        }
+        // query params
         if ($RequestStartDate !== null) {
             $queryParams['request.startDate'] = ObjectSerializer::toQueryValue($RequestStartDate);
         }
         // query params
-        if ($RequestUnpaidsOnly !== null) {
-            $queryParams['request.unpaidsOnly'] = ObjectSerializer::toQueryValue($RequestUnpaidsOnly);
+        if ($RequestUniqueClientId !== null) {
+            $queryParams['request.uniqueClientId'] = ObjectSerializer::toQueryValue($RequestUniqueClientId);
         }
         // query params
-        if ($RequestClientId !== null) {
-            $queryParams['request.clientId'] = ObjectSerializer::toQueryValue($RequestClientId);
+        if ($RequestUnpaidsOnly !== null) {
+            $queryParams['request.unpaidsOnly'] = ObjectSerializer::toQueryValue($RequestUnpaidsOnly);
         }
 
 
@@ -7855,21 +7987,23 @@ class ClientApi implements ApiInterface
      *
      * Get a client's cross regional site associations.
      *
-     * @param  string $RequestClientId Looks up the cross regional associations by the client’s ID. Either &#x60;ClientId&#x60; or &#x60;Email&#x60; must be provided. If both are provided, the &#x60;ClientId&#x60; is used by default. (optional)
-     * @param  string $RequestEmail Looks up the cross regional associations by the client’s email address. Either &#x60;ClientId&#x60; or &#x60;Email&#x60; must be provided. If both are provided, the &#x60;ClientId&#x60; is used by default. (optional)
+     * @param  string $RequestClientId Looks up the cross regional associations by the client’s ID. (optional)
+     * @param  string $RequestEmail Looks up the cross regional associations by the client’s email address. (optional)
+     * @param  bool $RequestExcludeInactiveSites Used to exclude inactive and deleted sites from the results.  When this flag is set to &#x60;true&#x60;, client profiles associated with inactive and deleted sites are not getting returned.  When this flag is set to &#x60;false&#x60;,client profiles associated with inactive and deleted sites are getting returned.  Default: **true** (optional)
      * @param  string $RequestFirstName First name (used for email queries) (optional)
      * @param  string $RequestLastName Last name (used for email queries) (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
+     * @param  int $RequestUniqueClientId Looks up the cross regional associations by the unique client’s ID.  Note: you need to provide the &#39;UniqueClientId&#39; OR the &#39;ClientId&#39; OR the &#39;Email&#39;.   &#39;UniqueClientId&#39; takes precedence when provided. If not, but both &#39;ClientId&#39; and &#39;Email&#39; are provided, &#39;ClientId&#39; is used by default. (optional)
      * @param  bool $RequestV2 Use newer method (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetCrossRegionalClientAssociationsResponse
      */
-    public function clientGetCrossRegionalClientAssociations($RequestClientId = null, $RequestEmail = null, $RequestFirstName = null, $RequestLastName = null, $RequestLimit = null, $RequestOffset = null, $RequestV2 = null): \Nlocascio\Mindbody\Model\GetCrossRegionalClientAssociationsResponse
+    public function clientGetCrossRegionalClientAssociations($RequestClientId = null, $RequestEmail = null, $RequestExcludeInactiveSites = null, $RequestFirstName = null, $RequestLastName = null, $RequestLimit = null, $RequestOffset = null, $RequestUniqueClientId = null, $RequestV2 = null): \Nlocascio\Mindbody\Model\GetCrossRegionalClientAssociationsResponse
     {
-        list($response) = $this->clientGetCrossRegionalClientAssociationsWithHttpInfo($RequestClientId, $RequestEmail, $RequestFirstName, $RequestLastName, $RequestLimit, $RequestOffset, $RequestV2);
+        list($response) = $this->clientGetCrossRegionalClientAssociationsWithHttpInfo($RequestClientId, $RequestEmail, $RequestExcludeInactiveSites, $RequestFirstName, $RequestLastName, $RequestLimit, $RequestOffset, $RequestUniqueClientId, $RequestV2);
         return $response;
     }
 
@@ -7878,22 +8012,24 @@ class ClientApi implements ApiInterface
      *
      * Get a client's cross regional site associations.
      *
-     * @param  string $RequestClientId Looks up the cross regional associations by the client’s ID. Either &#x60;ClientId&#x60; or &#x60;Email&#x60; must be provided. If both are provided, the &#x60;ClientId&#x60; is used by default. (optional)
-     * @param  string $RequestEmail Looks up the cross regional associations by the client’s email address. Either &#x60;ClientId&#x60; or &#x60;Email&#x60; must be provided. If both are provided, the &#x60;ClientId&#x60; is used by default. (optional)
+     * @param  string $RequestClientId Looks up the cross regional associations by the client’s ID. (optional)
+     * @param  string $RequestEmail Looks up the cross regional associations by the client’s email address. (optional)
+     * @param  bool $RequestExcludeInactiveSites Used to exclude inactive and deleted sites from the results.  When this flag is set to &#x60;true&#x60;, client profiles associated with inactive and deleted sites are not getting returned.  When this flag is set to &#x60;false&#x60;,client profiles associated with inactive and deleted sites are getting returned.  Default: **true** (optional)
      * @param  string $RequestFirstName First name (used for email queries) (optional)
      * @param  string $RequestLastName Last name (used for email queries) (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
+     * @param  int $RequestUniqueClientId Looks up the cross regional associations by the unique client’s ID.  Note: you need to provide the &#39;UniqueClientId&#39; OR the &#39;ClientId&#39; OR the &#39;Email&#39;.   &#39;UniqueClientId&#39; takes precedence when provided. If not, but both &#39;ClientId&#39; and &#39;Email&#39; are provided, &#39;ClientId&#39; is used by default. (optional)
      * @param  bool $RequestV2 Use newer method (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetCrossRegionalClientAssociationsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function clientGetCrossRegionalClientAssociationsWithHttpInfo($RequestClientId = null, $RequestEmail = null, $RequestFirstName = null, $RequestLastName = null, $RequestLimit = null, $RequestOffset = null, $RequestV2 = null): array
+    public function clientGetCrossRegionalClientAssociationsWithHttpInfo($RequestClientId = null, $RequestEmail = null, $RequestExcludeInactiveSites = null, $RequestFirstName = null, $RequestLastName = null, $RequestLimit = null, $RequestOffset = null, $RequestUniqueClientId = null, $RequestV2 = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetCrossRegionalClientAssociationsResponse';
-        $request = $this->clientGetCrossRegionalClientAssociationsRequest($RequestClientId, $RequestEmail, $RequestFirstName, $RequestLastName, $RequestLimit, $RequestOffset, $RequestV2);
+        $request = $this->clientGetCrossRegionalClientAssociationsRequest($RequestClientId, $RequestEmail, $RequestExcludeInactiveSites, $RequestFirstName, $RequestLastName, $RequestLimit, $RequestOffset, $RequestUniqueClientId, $RequestV2);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7959,20 +8095,22 @@ class ClientApi implements ApiInterface
      *
      * Get a client's cross regional site associations.
      *
-     * @param  string $RequestClientId Looks up the cross regional associations by the client’s ID. Either &#x60;ClientId&#x60; or &#x60;Email&#x60; must be provided. If both are provided, the &#x60;ClientId&#x60; is used by default. (optional)
-     * @param  string $RequestEmail Looks up the cross regional associations by the client’s email address. Either &#x60;ClientId&#x60; or &#x60;Email&#x60; must be provided. If both are provided, the &#x60;ClientId&#x60; is used by default. (optional)
+     * @param  string $RequestClientId Looks up the cross regional associations by the client’s ID. (optional)
+     * @param  string $RequestEmail Looks up the cross regional associations by the client’s email address. (optional)
+     * @param  bool $RequestExcludeInactiveSites Used to exclude inactive and deleted sites from the results.  When this flag is set to &#x60;true&#x60;, client profiles associated with inactive and deleted sites are not getting returned.  When this flag is set to &#x60;false&#x60;,client profiles associated with inactive and deleted sites are getting returned.  Default: **true** (optional)
      * @param  string $RequestFirstName First name (used for email queries) (optional)
      * @param  string $RequestLastName Last name (used for email queries) (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
+     * @param  int $RequestUniqueClientId Looks up the cross regional associations by the unique client’s ID.  Note: you need to provide the &#39;UniqueClientId&#39; OR the &#39;ClientId&#39; OR the &#39;Email&#39;.   &#39;UniqueClientId&#39; takes precedence when provided. If not, but both &#39;ClientId&#39; and &#39;Email&#39; are provided, &#39;ClientId&#39; is used by default. (optional)
      * @param  bool $RequestV2 Use newer method (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetCrossRegionalClientAssociationsAsync($RequestClientId = null, $RequestEmail = null, $RequestFirstName = null, $RequestLastName = null, $RequestLimit = null, $RequestOffset = null, $RequestV2 = null): \GuzzleHttp\Promise\PromiseInterface
+    public function clientGetCrossRegionalClientAssociationsAsync($RequestClientId = null, $RequestEmail = null, $RequestExcludeInactiveSites = null, $RequestFirstName = null, $RequestLastName = null, $RequestLimit = null, $RequestOffset = null, $RequestUniqueClientId = null, $RequestV2 = null): \GuzzleHttp\Promise\PromiseInterface
     {
-        return $this->clientGetCrossRegionalClientAssociationsAsyncWithHttpInfo($RequestClientId, $RequestEmail, $RequestFirstName, $RequestLastName, $RequestLimit, $RequestOffset, $RequestV2)
+        return $this->clientGetCrossRegionalClientAssociationsAsyncWithHttpInfo($RequestClientId, $RequestEmail, $RequestExcludeInactiveSites, $RequestFirstName, $RequestLastName, $RequestLimit, $RequestOffset, $RequestUniqueClientId, $RequestV2)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7985,21 +8123,23 @@ class ClientApi implements ApiInterface
      *
      * Get a client's cross regional site associations.
      *
-     * @param  string $RequestClientId Looks up the cross regional associations by the client’s ID. Either &#x60;ClientId&#x60; or &#x60;Email&#x60; must be provided. If both are provided, the &#x60;ClientId&#x60; is used by default. (optional)
-     * @param  string $RequestEmail Looks up the cross regional associations by the client’s email address. Either &#x60;ClientId&#x60; or &#x60;Email&#x60; must be provided. If both are provided, the &#x60;ClientId&#x60; is used by default. (optional)
+     * @param  string $RequestClientId Looks up the cross regional associations by the client’s ID. (optional)
+     * @param  string $RequestEmail Looks up the cross regional associations by the client’s email address. (optional)
+     * @param  bool $RequestExcludeInactiveSites Used to exclude inactive and deleted sites from the results.  When this flag is set to &#x60;true&#x60;, client profiles associated with inactive and deleted sites are not getting returned.  When this flag is set to &#x60;false&#x60;,client profiles associated with inactive and deleted sites are getting returned.  Default: **true** (optional)
      * @param  string $RequestFirstName First name (used for email queries) (optional)
      * @param  string $RequestLastName Last name (used for email queries) (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
+     * @param  int $RequestUniqueClientId Looks up the cross regional associations by the unique client’s ID.  Note: you need to provide the &#39;UniqueClientId&#39; OR the &#39;ClientId&#39; OR the &#39;Email&#39;.   &#39;UniqueClientId&#39; takes precedence when provided. If not, but both &#39;ClientId&#39; and &#39;Email&#39; are provided, &#39;ClientId&#39; is used by default. (optional)
      * @param  bool $RequestV2 Use newer method (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function clientGetCrossRegionalClientAssociationsAsyncWithHttpInfo($RequestClientId = null, $RequestEmail = null, $RequestFirstName = null, $RequestLastName = null, $RequestLimit = null, $RequestOffset = null, $RequestV2 = null): \GuzzleHttp\Promise\PromiseInterface
+    public function clientGetCrossRegionalClientAssociationsAsyncWithHttpInfo($RequestClientId = null, $RequestEmail = null, $RequestExcludeInactiveSites = null, $RequestFirstName = null, $RequestLastName = null, $RequestLimit = null, $RequestOffset = null, $RequestUniqueClientId = null, $RequestV2 = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetCrossRegionalClientAssociationsResponse';
-        $request = $this->clientGetCrossRegionalClientAssociationsRequest($RequestClientId, $RequestEmail, $RequestFirstName, $RequestLastName, $RequestLimit, $RequestOffset, $RequestV2);
+        $request = $this->clientGetCrossRegionalClientAssociationsRequest($RequestClientId, $RequestEmail, $RequestExcludeInactiveSites, $RequestFirstName, $RequestLastName, $RequestLimit, $RequestOffset, $RequestUniqueClientId, $RequestV2);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -8041,18 +8181,20 @@ class ClientApi implements ApiInterface
     /**
      * Create request for operation 'clientGetCrossRegionalClientAssociations'
      *
-     * @param  string $RequestClientId Looks up the cross regional associations by the client’s ID. Either &#x60;ClientId&#x60; or &#x60;Email&#x60; must be provided. If both are provided, the &#x60;ClientId&#x60; is used by default. (optional)
-     * @param  string $RequestEmail Looks up the cross regional associations by the client’s email address. Either &#x60;ClientId&#x60; or &#x60;Email&#x60; must be provided. If both are provided, the &#x60;ClientId&#x60; is used by default. (optional)
+     * @param  string $RequestClientId Looks up the cross regional associations by the client’s ID. (optional)
+     * @param  string $RequestEmail Looks up the cross regional associations by the client’s email address. (optional)
+     * @param  bool $RequestExcludeInactiveSites Used to exclude inactive and deleted sites from the results.  When this flag is set to &#x60;true&#x60;, client profiles associated with inactive and deleted sites are not getting returned.  When this flag is set to &#x60;false&#x60;,client profiles associated with inactive and deleted sites are getting returned.  Default: **true** (optional)
      * @param  string $RequestFirstName First name (used for email queries) (optional)
      * @param  string $RequestLastName Last name (used for email queries) (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
+     * @param  int $RequestUniqueClientId Looks up the cross regional associations by the unique client’s ID.  Note: you need to provide the &#39;UniqueClientId&#39; OR the &#39;ClientId&#39; OR the &#39;Email&#39;.   &#39;UniqueClientId&#39; takes precedence when provided. If not, but both &#39;ClientId&#39; and &#39;Email&#39; are provided, &#39;ClientId&#39; is used by default. (optional)
      * @param  bool $RequestV2 Use newer method (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function clientGetCrossRegionalClientAssociationsRequest($RequestClientId = null, $RequestEmail = null, $RequestFirstName = null, $RequestLastName = null, $RequestLimit = null, $RequestOffset = null, $RequestV2 = null): \GuzzleHttp\Psr7\Request
+    protected function clientGetCrossRegionalClientAssociationsRequest($RequestClientId = null, $RequestEmail = null, $RequestExcludeInactiveSites = null, $RequestFirstName = null, $RequestLastName = null, $RequestLimit = null, $RequestOffset = null, $RequestUniqueClientId = null, $RequestV2 = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/client/crossregionalclientassociations';
@@ -8071,6 +8213,10 @@ class ClientApi implements ApiInterface
             $queryParams['request.email'] = ObjectSerializer::toQueryValue($RequestEmail);
         }
         // query params
+        if ($RequestExcludeInactiveSites !== null) {
+            $queryParams['request.excludeInactiveSites'] = ObjectSerializer::toQueryValue($RequestExcludeInactiveSites);
+        }
+        // query params
         if ($RequestFirstName !== null) {
             $queryParams['request.firstName'] = ObjectSerializer::toQueryValue($RequestFirstName);
         }
@@ -8085,6 +8231,10 @@ class ClientApi implements ApiInterface
         // query params
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
+        }
+        // query params
+        if ($RequestUniqueClientId !== null) {
+            $queryParams['request.uniqueClientId'] = ObjectSerializer::toQueryValue($RequestUniqueClientId);
         }
         // query params
         if ($RequestV2 !== null) {
@@ -10119,7 +10269,7 @@ class ClientApi implements ApiInterface
     /**
      * Operation clientTerminateContract
      *
-     * Terminate client contract
+     * Terminate client contract.
      *
      * @param  \Nlocascio\Mindbody\Model\TerminateContractRequest $Request Request (required)
      *
@@ -10136,7 +10286,7 @@ class ClientApi implements ApiInterface
     /**
      * Operation clientTerminateContractWithHttpInfo
      *
-     * Terminate client contract
+     * Terminate client contract.
      *
      * @param  \Nlocascio\Mindbody\Model\TerminateContractRequest $Request (required)
      *
@@ -10211,7 +10361,7 @@ class ClientApi implements ApiInterface
     /**
      * Operation clientTerminateContractAsync
      *
-     * Terminate client contract
+     * Terminate client contract.
      *
      * @param  \Nlocascio\Mindbody\Model\TerminateContractRequest $Request (required)
      *
@@ -10231,7 +10381,7 @@ class ClientApi implements ApiInterface
     /**
      * Operation clientTerminateContractAsyncWithHttpInfo
      *
-     * Terminate client contract
+     * Terminate client contract.
      *
      * @param  \Nlocascio\Mindbody\Model\TerminateContractRequest $Request (required)
      *

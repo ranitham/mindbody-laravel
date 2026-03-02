@@ -41,7 +41,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property string[] $ServiceIds Filters to the pricing options with the specified IDs. In this context, service and pricing option are used interchangeably. These are the `PurchasedItems[].Id` returned from GET Sales.
  * @property int $ClassId Filters to the pricing options for the specified class ID.
  * @property int $ClassScheduleId Filters to the pricing options for the specified class schedule ID.
- * @property bool $SellOnline When `true`, filters to the pricing options that can be sold online.<br />  Default: **false**
+ * @property bool $SellOnline When `true`, filters the pricing options to display only those available for online purchase.  This parameter is only applicable in Business Mode (when a staff authentication header is included) and ignored in Consumer Mode (when no authentication header is passed).  <br />Default: `false` (for staff users)  <br />Business Mode: This parameter controls the filtering behavior. Staff users can set this to `true`  to show only pricing options that can be sold online, or `false` to show all available pricing options.  <br />Consumer Mode: This value is automatically set to `true` and cannot be overridden,  ensuring consumers only see pricing options available for online purchase.
  * @property int $LocationId When specified, for each returned pricing option, `TaxRate` and `TaxIncluded` are calculated according to the specified location. Note that this does not filter results to only services provided at the given location, and for locations where Value-Added Tax (VAT) rules apply, the `TaxRate` is set to zero.
  * @property bool $HideRelatedPrograms When `true`, indicates that pricing options of related programs are omitted from the response.<br />  Default: **false**
  * @property int $StaffId Sets `Price` and `OnlinePrice` to the particular pricing of a specific staff member, if allowed by the business.
@@ -343,7 +343,7 @@ class GetServicesRequest extends BaseModel
     /**
      * Sets SellOnline
      *
-     * @param bool $SellOnline When `true`, filters to the pricing options that can be sold online.<br />  Default: **false**
+     * @param bool $SellOnline When `true`, filters the pricing options to display only those available for online purchase.  This parameter is only applicable in Business Mode (when a staff authentication header is included) and ignored in Consumer Mode (when no authentication header is passed).  <br />Default: `false` (for staff users)  <br />Business Mode: This parameter controls the filtering behavior. Staff users can set this to `true`  to show only pricing options that can be sold online, or `false` to show all available pricing options.  <br />Consumer Mode: This value is automatically set to `true` and cannot be overridden,  ensuring consumers only see pricing options available for online purchase.
      *
      * @return $this
      */

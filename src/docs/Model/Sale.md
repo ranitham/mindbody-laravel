@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **OriginalSaleDateTime** | [**\DateTime**](\DateTime.md) | The date and time the item was sold originally. | [optional] 
 **SalesRepId** | **int** | The sales representative ID | [optional] 
 **ClientId** | **string** | The ID of the client who made the purchase. | [optional] 
-**RecipientClientId** | **int** | Recipient Client Id | [optional] 
+**RecipientClientId** | **int** | Recipient Client Id.  Note: This field will be deprecated in a future release.  This information will live inside the &#x60;PurchasedItems&#x60; list instead, since items can be purchased to different recipients. | [optional] 
 **PurchasedItems** | [**\Nlocascio\Mindbody\Model\PurchasedItem[]**](PurchasedItem.md) | Contains the &#x60;PurchasedItem&#x60; objects that describe the purchased items. | [optional] 
 **LocationId** | **int** | The ID of the location where the sale takes place. | [optional] 
 **Payments** | [**\Nlocascio\Mindbody\Model\SalePayment[]**](SalePayment.md) | Contains the &#x60;SalePayment&#x60; objects that describe the payments that contributed to this sale. | [optional] 

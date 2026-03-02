@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **SiteId** | **int** | The ID of the subscriber site associated with this pricing option. | [optional] 
 **Action** | **string** | The action taken. | [optional] 
 **ClientID** | **string** | The Client ID assigned to this pricing option, specific to when it was purchased by the client. | [optional] 
+**Returned** | **bool** | Identification for purchased service is returned or not. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

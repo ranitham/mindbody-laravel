@@ -40,9 +40,10 @@ namespace Nlocascio\Mindbody\Model;
  * @property int[] $ClassIds The requested class IDs.
  * @property int[] $ClassScheduleIds The requested classSchedule Ids.
  * @property int[] $StaffIds The requested IDs of the teaching staff members.
- * @property \DateTime $StartDateTime The requested start date for filtering. This also determines what you will see for the ‘BookingWindow’ StartDateTime in the response. For example, if you pass a StartDateTime that is on OR before the BookingWindow ‘Open’ days of the class, you will retrieve the actual ‘StartDateTime’ for the Booking Window. If you pass a StartDateTime that is after the BookingWindow ‘date’, then you will receive results based on that start date.
- * @property \DateTime $EndDateTime The requested end date for filtering.  <br />Default: **today’s date**
+ * @property \DateTime $StartDateTime The requested start date for filtering. This also determines what you will see for the ‘BookingWindow’ StartDateTime in the response. For example, if you pass a StartDateTime that is on OR before the BookingWindow ‘Open’ days of the class, you will retrieve the actual ‘StartDateTime’ for the Booking Window. If you pass a StartDateTime that is after the BookingWindow ‘date’, then you will receive results based on that start date.  NOTE: ClassDate does not take Class Time into consideration.
+ * @property \DateTime $EndDateTime The requested end date for filtering.  NOTE: ClassDate does not take Class Time into consideration.  <br />Default: **today’s date**
  * @property string $ClientId The client ID of the client who is viewing this class list. Based on identity, the client may be able to see additional information, such as membership specials.
+ * @property int $UniqueClientId The unique ID of the client who is viewing this class list. Based on identity, the client may be able to see additional information, such as membership specials.  Note: you need to provide the 'UniqueClientId' OR the 'ClientId'. If both are provided, the 'UniqueClientId' takes precedence.
  * @property int[] $ProgramIds A list of program IDs on which to base the search.
  * @property int[] $SessionTypeIds A list of session type IDs on which to base the search.
  * @property int[] $LocationIds A list of location IDs on which to base the search.
@@ -78,6 +79,7 @@ class GetClassesRequest extends BaseModel
         'StartDateTime' => '\DateTime',
         'EndDateTime' => '\DateTime',
         'ClientId' => 'string',
+        'UniqueClientId' => 'int',
         'ProgramIds' => 'int[]',
         'SessionTypeIds' => 'int[]',
         'LocationIds' => 'int[]',
@@ -102,6 +104,7 @@ class GetClassesRequest extends BaseModel
         'StartDateTime' => 'date-time',
         'EndDateTime' => 'date-time',
         'ClientId' => null,
+        'UniqueClientId' => 'int64',
         'ProgramIds' => 'int32',
         'SessionTypeIds' => 'int32',
         'LocationIds' => 'int32',
@@ -128,6 +131,7 @@ class GetClassesRequest extends BaseModel
         'StartDateTime' => 'StartDateTime',
         'EndDateTime' => 'EndDateTime',
         'ClientId' => 'ClientId',
+        'UniqueClientId' => 'UniqueClientId',
         'ProgramIds' => 'ProgramIds',
         'SessionTypeIds' => 'SessionTypeIds',
         'LocationIds' => 'LocationIds',
@@ -152,6 +156,7 @@ class GetClassesRequest extends BaseModel
         'StartDateTime' => 'setStartDateTime',
         'EndDateTime' => 'setEndDateTime',
         'ClientId' => 'setClientId',
+        'UniqueClientId' => 'setUniqueClientId',
         'ProgramIds' => 'setProgramIds',
         'SessionTypeIds' => 'setSessionTypeIds',
         'LocationIds' => 'setLocationIds',
@@ -176,6 +181,7 @@ class GetClassesRequest extends BaseModel
         'StartDateTime' => 'getStartDateTime',
         'EndDateTime' => 'getEndDateTime',
         'ClientId' => 'getClientId',
+        'UniqueClientId' => 'getUniqueClientId',
         'ProgramIds' => 'getProgramIds',
         'SessionTypeIds' => 'getSessionTypeIds',
         'LocationIds' => 'getLocationIds',
@@ -207,6 +213,7 @@ class GetClassesRequest extends BaseModel
         $this->container['StartDateTime'] = isset($data['StartDateTime']) ? $data['StartDateTime'] : null;
         $this->container['EndDateTime'] = isset($data['EndDateTime']) ? $data['EndDateTime'] : null;
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
+        $this->container['UniqueClientId'] = isset($data['UniqueClientId']) ? $data['UniqueClientId'] : null;
         $this->container['ProgramIds'] = isset($data['ProgramIds']) ? $data['ProgramIds'] : null;
         $this->container['SessionTypeIds'] = isset($data['SessionTypeIds']) ? $data['SessionTypeIds'] : null;
         $this->container['LocationIds'] = isset($data['LocationIds']) ? $data['LocationIds'] : null;
@@ -340,7 +347,7 @@ class GetClassesRequest extends BaseModel
     /**
      * Sets StartDateTime
      *
-     * @param \DateTime $StartDateTime The requested start date for filtering. This also determines what you will see for the ‘BookingWindow’ StartDateTime in the response. For example, if you pass a StartDateTime that is on OR before the BookingWindow ‘Open’ days of the class, you will retrieve the actual ‘StartDateTime’ for the Booking Window. If you pass a StartDateTime that is after the BookingWindow ‘date’, then you will receive results based on that start date.
+     * @param \DateTime $StartDateTime The requested start date for filtering. This also determines what you will see for the ‘BookingWindow’ StartDateTime in the response. For example, if you pass a StartDateTime that is on OR before the BookingWindow ‘Open’ days of the class, you will retrieve the actual ‘StartDateTime’ for the Booking Window. If you pass a StartDateTime that is after the BookingWindow ‘date’, then you will receive results based on that start date.  NOTE: ClassDate does not take Class Time into consideration.
      *
      * @return $this
      */
@@ -364,7 +371,7 @@ class GetClassesRequest extends BaseModel
     /**
      * Sets EndDateTime
      *
-     * @param \DateTime $EndDateTime The requested end date for filtering.  <br />Default: **today’s date**
+     * @param \DateTime $EndDateTime The requested end date for filtering.  NOTE: ClassDate does not take Class Time into consideration.  <br />Default: **today’s date**
      *
      * @return $this
      */
@@ -395,6 +402,30 @@ class GetClassesRequest extends BaseModel
     public function setClientId($ClientId): self
     {
         $this->container['ClientId'] = $ClientId;
+
+        return $this;
+    }
+
+    /**
+     * Gets UniqueClientId
+     *
+     * @return int
+     */
+    public function getUniqueClientId()
+    {
+        return $this->container['UniqueClientId'];
+    }
+
+    /**
+     * Sets UniqueClientId
+     *
+     * @param int $UniqueClientId The unique ID of the client who is viewing this class list. Based on identity, the client may be able to see additional information, such as membership specials.  Note: you need to provide the 'UniqueClientId' OR the 'ClientId'. If both are provided, the 'UniqueClientId' takes precedence.
+     *
+     * @return $this
+     */
+    public function setUniqueClientId($UniqueClientId): self
+    {
+        $this->container['UniqueClientId'] = $UniqueClientId;
 
         return $this;
     }

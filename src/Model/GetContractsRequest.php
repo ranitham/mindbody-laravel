@@ -33,13 +33,14 @@ namespace Nlocascio\Mindbody\Model;
  * GetContractsRequest Class Doc Comment
  *
  * @category Class
+ * @description Request query information for GET sale/contracts endpoint
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  * @property int[] $ContractIds When included, the response only contains details about the specified contract IDs.
  * @property bool $SoldOnline When `true`, the response only contains details about contracts and AutoPay options that can be sold online.   When `false`, all contracts are returned.  Default: **false**
  * @property int $LocationId The ID of the location that has the requested contracts and AutoPay options.
- * @property int $ConsumerId The ID of the client.
+ * @property int $UniqueClientId The ID of the client.
  * @property string $PromoCode PromoCode to apply
  * @property int $Limit Number of results to include, defaults to 100
  * @property int $Offset Page offset, defaults to 0.
@@ -65,7 +66,7 @@ class GetContractsRequest extends BaseModel
         'ContractIds' => 'int[]',
         'SoldOnline' => 'bool',
         'LocationId' => 'int',
-        'ConsumerId' => 'int',
+        'UniqueClientId' => 'int',
         'PromoCode' => 'string',
         'Limit' => 'int',
         'Offset' => 'int'
@@ -80,7 +81,7 @@ class GetContractsRequest extends BaseModel
         'ContractIds' => 'int32',
         'SoldOnline' => null,
         'LocationId' => 'int32',
-        'ConsumerId' => 'int64',
+        'UniqueClientId' => 'int64',
         'PromoCode' => null,
         'Limit' => 'int32',
         'Offset' => 'int32'
@@ -97,7 +98,7 @@ class GetContractsRequest extends BaseModel
         'ContractIds' => 'ContractIds',
         'SoldOnline' => 'SoldOnline',
         'LocationId' => 'LocationId',
-        'ConsumerId' => 'ConsumerId',
+        'UniqueClientId' => 'UniqueClientId',
         'PromoCode' => 'PromoCode',
         'Limit' => 'Limit',
         'Offset' => 'Offset'
@@ -112,7 +113,7 @@ class GetContractsRequest extends BaseModel
         'ContractIds' => 'setContractIds',
         'SoldOnline' => 'setSoldOnline',
         'LocationId' => 'setLocationId',
-        'ConsumerId' => 'setConsumerId',
+        'UniqueClientId' => 'setUniqueClientId',
         'PromoCode' => 'setPromoCode',
         'Limit' => 'setLimit',
         'Offset' => 'setOffset'
@@ -127,7 +128,7 @@ class GetContractsRequest extends BaseModel
         'ContractIds' => 'getContractIds',
         'SoldOnline' => 'getSoldOnline',
         'LocationId' => 'getLocationId',
-        'ConsumerId' => 'getConsumerId',
+        'UniqueClientId' => 'getUniqueClientId',
         'PromoCode' => 'getPromoCode',
         'Limit' => 'getLimit',
         'Offset' => 'getOffset'
@@ -149,7 +150,7 @@ class GetContractsRequest extends BaseModel
         $this->container['ContractIds'] = isset($data['ContractIds']) ? $data['ContractIds'] : null;
         $this->container['SoldOnline'] = isset($data['SoldOnline']) ? $data['SoldOnline'] : null;
         $this->container['LocationId'] = isset($data['LocationId']) ? $data['LocationId'] : null;
-        $this->container['ConsumerId'] = isset($data['ConsumerId']) ? $data['ConsumerId'] : null;
+        $this->container['UniqueClientId'] = isset($data['UniqueClientId']) ? $data['UniqueClientId'] : null;
         $this->container['PromoCode'] = isset($data['PromoCode']) ? $data['PromoCode'] : null;
         $this->container['Limit'] = isset($data['Limit']) ? $data['Limit'] : null;
         $this->container['Offset'] = isset($data['Offset']) ? $data['Offset'] : null;
@@ -244,25 +245,25 @@ class GetContractsRequest extends BaseModel
     }
 
     /**
-     * Gets ConsumerId
+     * Gets UniqueClientId
      *
      * @return int
      */
-    public function getConsumerId()
+    public function getUniqueClientId()
     {
-        return $this->container['ConsumerId'];
+        return $this->container['UniqueClientId'];
     }
 
     /**
-     * Sets ConsumerId
+     * Sets UniqueClientId
      *
-     * @param int $ConsumerId The ID of the client.
+     * @param int $UniqueClientId The ID of the client.
      *
      * @return $this
      */
-    public function setConsumerId($ConsumerId): self
+    public function setUniqueClientId($UniqueClientId): self
     {
-        $this->container['ConsumerId'] = $ConsumerId;
+        $this->container['UniqueClientId'] = $UniqueClientId;
 
         return $this;
     }

@@ -37,7 +37,7 @@ namespace Nlocascio\Mindbody\Model;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  * @property \Nlocascio\Mindbody\Model\PaginationResponse $PaginationResponse Contains information about the pagination used.
- * @property \Nlocascio\Mindbody\Model\Visit[] $Visits Contains information about client visits.
+ * @property \Nlocascio\Mindbody\Model\VisitWithWaitlistInfo[] $Visits Contains information about client visits including waitlist entries info
  *
  */
 class GetClientScheduleResponse extends BaseModel
@@ -58,7 +58,7 @@ class GetClientScheduleResponse extends BaseModel
       */
     protected static $swaggerTypes = [
         'PaginationResponse' => '\Nlocascio\Mindbody\Model\PaginationResponse',
-        'Visits' => '\Nlocascio\Mindbody\Model\Visit[]'
+        'Visits' => '\Nlocascio\Mindbody\Model\VisitWithWaitlistInfo[]'
     ];
 
     /**
@@ -160,7 +160,7 @@ class GetClientScheduleResponse extends BaseModel
     /**
      * Gets Visits
      *
-     * @return \Nlocascio\Mindbody\Model\Visit[]
+     * @return \Nlocascio\Mindbody\Model\VisitWithWaitlistInfo[]
      */
     public function getVisits()
     {
@@ -170,7 +170,7 @@ class GetClientScheduleResponse extends BaseModel
     /**
      * Sets Visits
      *
-     * @param \Nlocascio\Mindbody\Model\Visit[] $Visits Contains information about client visits.
+     * @param \Nlocascio\Mindbody\Model\VisitWithWaitlistInfo[] $Visits Contains information about client visits including waitlist entries info
      *
      * @return $this
      */

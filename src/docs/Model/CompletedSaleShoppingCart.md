@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **TaxTotal** | **double** | The monetary amount paid in taxes, included in the cart’s &#x60;GrandTotal&#x60;. | [optional] 
 **GrandTotal** | **double** | The cart’s total cost, including taxes and discounts. | [optional] 
 **Transactions** | [**\Nlocascio\Mindbody\Model\CompletedSaleTransactionResponse[]**](CompletedSaleTransactionResponse.md) | Contains information returned from the first call to CheckoutShoppingCart. | [optional] 
+**SaleId** | **int** | The ID of the sale associated with the shopping cart. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

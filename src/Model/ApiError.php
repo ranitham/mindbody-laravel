@@ -38,6 +38,7 @@ namespace Nlocascio\Mindbody\Model;
  * @link     https://github.com/swagger-api/swagger-codegen
  * @property string $Message The text of the message. Each message is specific to the error that caused it.  For example, if the the error type is `InvalidFileFormat`,   the message could say \"The photo you attempted to upload is not a supported file type.\"
  * @property string $Code The type of error that occurred, for example, `ClientNotFound` or `InvalidClassId`.
+ * @property string $ReasonCode An optional reason code that provides additional context for the error.  For example, when Code is \"ClassRequiresPayment\", ReasonCode may be \"UnpaidLimitExceeded\"  to indicate the booking failed because the client exceeded their unpaid booking limit.  This field is only present for specific error scenarios and should be safely ignored  if not recognized by the client.
  *
  */
 class ApiError extends BaseModel
@@ -58,7 +59,8 @@ class ApiError extends BaseModel
       */
     protected static $swaggerTypes = [
         'Message' => 'string',
-        'Code' => 'string'
+        'Code' => 'string',
+        'ReasonCode' => 'string'
     ];
 
     /**
@@ -68,7 +70,8 @@ class ApiError extends BaseModel
       */
     protected static $swaggerFormats = [
         'Message' => null,
-        'Code' => null
+        'Code' => null,
+        'ReasonCode' => null
     ];
 
 
@@ -80,7 +83,8 @@ class ApiError extends BaseModel
      */
     protected static $attributeMap = [
         'Message' => 'Message',
-        'Code' => 'Code'
+        'Code' => 'Code',
+        'ReasonCode' => 'ReasonCode'
     ];
 
     /**
@@ -90,7 +94,8 @@ class ApiError extends BaseModel
      */
     protected static $setters = [
         'Message' => 'setMessage',
-        'Code' => 'setCode'
+        'Code' => 'setCode',
+        'ReasonCode' => 'setReasonCode'
     ];
 
     /**
@@ -100,7 +105,8 @@ class ApiError extends BaseModel
      */
     protected static $getters = [
         'Message' => 'getMessage',
-        'Code' => 'getCode'
+        'Code' => 'getCode',
+        'ReasonCode' => 'getReasonCode'
     ];
 
 
@@ -118,6 +124,7 @@ class ApiError extends BaseModel
     {
         $this->container['Message'] = isset($data['Message']) ? $data['Message'] : null;
         $this->container['Code'] = isset($data['Code']) ? $data['Code'] : null;
+        $this->container['ReasonCode'] = isset($data['ReasonCode']) ? $data['ReasonCode'] : null;
     }
 
     /**
@@ -177,6 +184,30 @@ class ApiError extends BaseModel
     public function setCode($Code): self
     {
         $this->container['Code'] = $Code;
+
+        return $this;
+    }
+
+    /**
+     * Gets ReasonCode
+     *
+     * @return string
+     */
+    public function getReasonCode()
+    {
+        return $this->container['ReasonCode'];
+    }
+
+    /**
+     * Sets ReasonCode
+     *
+     * @param string $ReasonCode An optional reason code that provides additional context for the error.  For example, when Code is \"ClassRequiresPayment\", ReasonCode may be \"UnpaidLimitExceeded\"  to indicate the booking failed because the client exceeded their unpaid booking limit.  This field is only present for specific error scenarios and should be safely ignored  if not recognized by the client.
+     *
+     * @return $this
+     */
+    public function setReasonCode($ReasonCode): self
+    {
+        $this->container['ReasonCode'] = $ReasonCode;
 
         return $this;
     }

@@ -39,6 +39,7 @@ namespace Nlocascio\Mindbody\Model;
  * @link     https://github.com/swagger-api/swagger-codegen
  * @property int $ClassID The class ID.
  * @property \DateTime $LastModifiedDate When included in the request, only records modified on or after the `LastModifiedDate` specified are included in the response.
+ * @property bool $UseSiteSettingsStaffName When `true`, the staff DisplayName will be populated based on site-level settings.  When `false` or omitted, the staff DisplayName will contain only the FirstName.
  *
  */
 class GetClassVisitsRequest extends BaseModel
@@ -59,7 +60,8 @@ class GetClassVisitsRequest extends BaseModel
       */
     protected static $swaggerTypes = [
         'ClassID' => 'int',
-        'LastModifiedDate' => '\DateTime'
+        'LastModifiedDate' => '\DateTime',
+        'UseSiteSettingsStaffName' => 'bool'
     ];
 
     /**
@@ -69,7 +71,8 @@ class GetClassVisitsRequest extends BaseModel
       */
     protected static $swaggerFormats = [
         'ClassID' => 'int64',
-        'LastModifiedDate' => 'date-time'
+        'LastModifiedDate' => 'date-time',
+        'UseSiteSettingsStaffName' => null
     ];
 
 
@@ -81,7 +84,8 @@ class GetClassVisitsRequest extends BaseModel
      */
     protected static $attributeMap = [
         'ClassID' => 'ClassID',
-        'LastModifiedDate' => 'LastModifiedDate'
+        'LastModifiedDate' => 'LastModifiedDate',
+        'UseSiteSettingsStaffName' => 'UseSiteSettingsStaffName'
     ];
 
     /**
@@ -91,7 +95,8 @@ class GetClassVisitsRequest extends BaseModel
      */
     protected static $setters = [
         'ClassID' => 'setClassID',
-        'LastModifiedDate' => 'setLastModifiedDate'
+        'LastModifiedDate' => 'setLastModifiedDate',
+        'UseSiteSettingsStaffName' => 'setUseSiteSettingsStaffName'
     ];
 
     /**
@@ -101,7 +106,8 @@ class GetClassVisitsRequest extends BaseModel
      */
     protected static $getters = [
         'ClassID' => 'getClassID',
-        'LastModifiedDate' => 'getLastModifiedDate'
+        'LastModifiedDate' => 'getLastModifiedDate',
+        'UseSiteSettingsStaffName' => 'getUseSiteSettingsStaffName'
     ];
 
 
@@ -119,6 +125,7 @@ class GetClassVisitsRequest extends BaseModel
     {
         $this->container['ClassID'] = isset($data['ClassID']) ? $data['ClassID'] : null;
         $this->container['LastModifiedDate'] = isset($data['LastModifiedDate']) ? $data['LastModifiedDate'] : null;
+        $this->container['UseSiteSettingsStaffName'] = isset($data['UseSiteSettingsStaffName']) ? $data['UseSiteSettingsStaffName'] : null;
     }
 
     /**
@@ -181,6 +188,30 @@ class GetClassVisitsRequest extends BaseModel
     public function setLastModifiedDate($LastModifiedDate): self
     {
         $this->container['LastModifiedDate'] = $LastModifiedDate;
+
+        return $this;
+    }
+
+    /**
+     * Gets UseSiteSettingsStaffName
+     *
+     * @return bool
+     */
+    public function getUseSiteSettingsStaffName()
+    {
+        return $this->container['UseSiteSettingsStaffName'];
+    }
+
+    /**
+     * Sets UseSiteSettingsStaffName
+     *
+     * @param bool $UseSiteSettingsStaffName When `true`, the staff DisplayName will be populated based on site-level settings.  When `false` or omitted, the staff DisplayName will contain only the FirstName.
+     *
+     * @return $this
+     */
+    public function setUseSiteSettingsStaffName($UseSiteSettingsStaffName): self
+    {
+        $this->container['UseSiteSettingsStaffName'] = $UseSiteSettingsStaffName;
 
         return $this;
     }

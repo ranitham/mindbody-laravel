@@ -37,6 +37,7 @@ namespace Nlocascio\Mindbody\Model;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  * @property string $ClientId ClientId
+ * @property int $UniqueId UniqeuId
  * @property int $SiteId SiteId
  * @property string $FirstName First name of ClientId
  * @property string $LastName Last name of ClientId
@@ -60,6 +61,7 @@ class CopyCreditCardResponseClient extends BaseModel
       */
     protected static $swaggerTypes = [
         'ClientId' => 'string',
+        'UniqueId' => 'int',
         'SiteId' => 'int',
         'FirstName' => 'string',
         'LastName' => 'string'
@@ -72,6 +74,7 @@ class CopyCreditCardResponseClient extends BaseModel
       */
     protected static $swaggerFormats = [
         'ClientId' => null,
+        'UniqueId' => 'int64',
         'SiteId' => 'int32',
         'FirstName' => null,
         'LastName' => null
@@ -86,6 +89,7 @@ class CopyCreditCardResponseClient extends BaseModel
      */
     protected static $attributeMap = [
         'ClientId' => 'ClientId',
+        'UniqueId' => 'UniqueId',
         'SiteId' => 'SiteId',
         'FirstName' => 'FirstName',
         'LastName' => 'LastName'
@@ -98,6 +102,7 @@ class CopyCreditCardResponseClient extends BaseModel
      */
     protected static $setters = [
         'ClientId' => 'setClientId',
+        'UniqueId' => 'setUniqueId',
         'SiteId' => 'setSiteId',
         'FirstName' => 'setFirstName',
         'LastName' => 'setLastName'
@@ -110,6 +115,7 @@ class CopyCreditCardResponseClient extends BaseModel
      */
     protected static $getters = [
         'ClientId' => 'getClientId',
+        'UniqueId' => 'getUniqueId',
         'SiteId' => 'getSiteId',
         'FirstName' => 'getFirstName',
         'LastName' => 'getLastName'
@@ -129,6 +135,7 @@ class CopyCreditCardResponseClient extends BaseModel
     public function __construct(array $data = null)
     {
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
+        $this->container['UniqueId'] = isset($data['UniqueId']) ? $data['UniqueId'] : null;
         $this->container['SiteId'] = isset($data['SiteId']) ? $data['SiteId'] : null;
         $this->container['FirstName'] = isset($data['FirstName']) ? $data['FirstName'] : null;
         $this->container['LastName'] = isset($data['LastName']) ? $data['LastName'] : null;
@@ -167,6 +174,30 @@ class CopyCreditCardResponseClient extends BaseModel
     public function setClientId($ClientId): self
     {
         $this->container['ClientId'] = $ClientId;
+
+        return $this;
+    }
+
+    /**
+     * Gets UniqueId
+     *
+     * @return int
+     */
+    public function getUniqueId()
+    {
+        return $this->container['UniqueId'];
+    }
+
+    /**
+     * Sets UniqueId
+     *
+     * @param int $UniqueId UniqeuId
+     *
+     * @return $this
+     */
+    public function setUniqueId($UniqueId): self
+    {
+        $this->container['UniqueId'] = $UniqueId;
 
         return $this;
     }

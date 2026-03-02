@@ -61,6 +61,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property \DateTime $ExpDate The expiration date of the pricing option purchased.
  * @property \DateTime $ActiveDate The activation date of pricing option purchased.
  * @property string $GiftCardBarcodeId Gift Card BarcodeId
+ * @property int $RecipientClientId The ClientId of the recipient for this purchased item.  This value may differ from the Sale’s ClientId when items are purchased for another client (e.g., gifting).   Used to attribute the entitlement/ownership of the item to a client other than the purchaser.
  *
  */
 class PurchasedItem extends BaseModel implements ModelWithId
@@ -104,7 +105,8 @@ class PurchasedItem extends BaseModel implements ModelWithId
         'PaymentRefId' => 'int',
         'ExpDate' => '\DateTime',
         'ActiveDate' => '\DateTime',
-        'GiftCardBarcodeId' => 'string'
+        'GiftCardBarcodeId' => 'string',
+        'RecipientClientId' => 'int'
     ];
 
     /**
@@ -137,7 +139,8 @@ class PurchasedItem extends BaseModel implements ModelWithId
         'PaymentRefId' => 'int32',
         'ExpDate' => 'date-time',
         'ActiveDate' => 'date-time',
-        'GiftCardBarcodeId' => null
+        'GiftCardBarcodeId' => null,
+        'RecipientClientId' => 'int64'
     ];
 
 
@@ -172,7 +175,8 @@ class PurchasedItem extends BaseModel implements ModelWithId
         'PaymentRefId' => 'PaymentRefId',
         'ExpDate' => 'ExpDate',
         'ActiveDate' => 'ActiveDate',
-        'GiftCardBarcodeId' => 'GiftCardBarcodeId'
+        'GiftCardBarcodeId' => 'GiftCardBarcodeId',
+        'RecipientClientId' => 'RecipientClientId'
     ];
 
     /**
@@ -205,7 +209,8 @@ class PurchasedItem extends BaseModel implements ModelWithId
         'PaymentRefId' => 'setPaymentRefId',
         'ExpDate' => 'setExpDate',
         'ActiveDate' => 'setActiveDate',
-        'GiftCardBarcodeId' => 'setGiftCardBarcodeId'
+        'GiftCardBarcodeId' => 'setGiftCardBarcodeId',
+        'RecipientClientId' => 'setRecipientClientId'
     ];
 
     /**
@@ -238,7 +243,8 @@ class PurchasedItem extends BaseModel implements ModelWithId
         'PaymentRefId' => 'getPaymentRefId',
         'ExpDate' => 'getExpDate',
         'ActiveDate' => 'getActiveDate',
-        'GiftCardBarcodeId' => 'getGiftCardBarcodeId'
+        'GiftCardBarcodeId' => 'getGiftCardBarcodeId',
+        'RecipientClientId' => 'getRecipientClientId'
     ];
 
 
@@ -279,6 +285,7 @@ class PurchasedItem extends BaseModel implements ModelWithId
         $this->container['ExpDate'] = isset($data['ExpDate']) ? $data['ExpDate'] : null;
         $this->container['ActiveDate'] = isset($data['ActiveDate']) ? $data['ActiveDate'] : null;
         $this->container['GiftCardBarcodeId'] = isset($data['GiftCardBarcodeId']) ? $data['GiftCardBarcodeId'] : null;
+        $this->container['RecipientClientId'] = isset($data['RecipientClientId']) ? $data['RecipientClientId'] : null;
     }
 
     /**
@@ -890,6 +897,30 @@ class PurchasedItem extends BaseModel implements ModelWithId
     public function setGiftCardBarcodeId($GiftCardBarcodeId): self
     {
         $this->container['GiftCardBarcodeId'] = $GiftCardBarcodeId;
+
+        return $this;
+    }
+
+    /**
+     * Gets RecipientClientId
+     *
+     * @return int
+     */
+    public function getRecipientClientId()
+    {
+        return $this->container['RecipientClientId'];
+    }
+
+    /**
+     * Sets RecipientClientId
+     *
+     * @param int $RecipientClientId The ClientId of the recipient for this purchased item.  This value may differ from the Sale’s ClientId when items are purchased for another client (e.g., gifting).   Used to attribute the entitlement/ownership of the item to a client other than the purchaser.
+     *
+     * @return $this
+     */
+    public function setRecipientClientId($RecipientClientId): self
+    {
+        $this->container['RecipientClientId'] = $RecipientClientId;
 
         return $this;
     }

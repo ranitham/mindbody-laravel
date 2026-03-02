@@ -37,6 +37,7 @@ namespace Nlocascio\Mindbody\Model;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  * @property string $ClientId The ID of the client you are querying for purchases.
+ * @property int $UniqueClientId The unique ID of the requested client.
  * @property \DateTime $StartDate Filters results to purchases made on or after this timestamp.<br />  Default: **now**
  * @property \DateTime $EndDate Filters results to purchases made before this timestamp.<br />  Default: **end of today**
  * @property int $SaleId Filters results to the single record associated with this ID.
@@ -62,6 +63,7 @@ class GetClientPurchasesRequest extends BaseModel
       */
     protected static $swaggerTypes = [
         'ClientId' => 'string',
+        'UniqueClientId' => 'int',
         'StartDate' => '\DateTime',
         'EndDate' => '\DateTime',
         'SaleId' => 'int',
@@ -76,6 +78,7 @@ class GetClientPurchasesRequest extends BaseModel
       */
     protected static $swaggerFormats = [
         'ClientId' => null,
+        'UniqueClientId' => 'int64',
         'StartDate' => 'date-time',
         'EndDate' => 'date-time',
         'SaleId' => 'int32',
@@ -92,6 +95,7 @@ class GetClientPurchasesRequest extends BaseModel
      */
     protected static $attributeMap = [
         'ClientId' => 'ClientId',
+        'UniqueClientId' => 'UniqueClientId',
         'StartDate' => 'StartDate',
         'EndDate' => 'EndDate',
         'SaleId' => 'SaleId',
@@ -106,6 +110,7 @@ class GetClientPurchasesRequest extends BaseModel
      */
     protected static $setters = [
         'ClientId' => 'setClientId',
+        'UniqueClientId' => 'setUniqueClientId',
         'StartDate' => 'setStartDate',
         'EndDate' => 'setEndDate',
         'SaleId' => 'setSaleId',
@@ -120,6 +125,7 @@ class GetClientPurchasesRequest extends BaseModel
      */
     protected static $getters = [
         'ClientId' => 'getClientId',
+        'UniqueClientId' => 'getUniqueClientId',
         'StartDate' => 'getStartDate',
         'EndDate' => 'getEndDate',
         'SaleId' => 'getSaleId',
@@ -141,6 +147,7 @@ class GetClientPurchasesRequest extends BaseModel
     public function __construct(array $data = null)
     {
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
+        $this->container['UniqueClientId'] = isset($data['UniqueClientId']) ? $data['UniqueClientId'] : null;
         $this->container['StartDate'] = isset($data['StartDate']) ? $data['StartDate'] : null;
         $this->container['EndDate'] = isset($data['EndDate']) ? $data['EndDate'] : null;
         $this->container['SaleId'] = isset($data['SaleId']) ? $data['SaleId'] : null;
@@ -184,6 +191,30 @@ class GetClientPurchasesRequest extends BaseModel
     public function setClientId($ClientId): self
     {
         $this->container['ClientId'] = $ClientId;
+
+        return $this;
+    }
+
+    /**
+     * Gets UniqueClientId
+     *
+     * @return int
+     */
+    public function getUniqueClientId()
+    {
+        return $this->container['UniqueClientId'];
+    }
+
+    /**
+     * Sets UniqueClientId
+     *
+     * @param int $UniqueClientId The unique ID of the requested client.
+     *
+     * @return $this
+     */
+    public function setUniqueClientId($UniqueClientId): self
+    {
+        $this->container['UniqueClientId'] = $UniqueClientId;
 
         return $this;
     }

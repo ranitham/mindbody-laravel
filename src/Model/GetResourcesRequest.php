@@ -36,10 +36,6 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property int[] $SessionTypeIds List of session type IDs.<br />  Default: **all**
- * @property int $LocationId The location of the resource. This parameter is ignored if `EndDateTime` or `LocationID` is not set.<br />  Default: **all**
- * @property \DateTime $StartDateTime The time the resource starts. This parameter is ignored if `EndDateTime` or `LocationID` is not set.
- * @property \DateTime $EndDateTime The time the resource ends. This parameter is ignored if `EndDateTime` or `LocationID` is not set.
  * @property int[] $ResourceIds Filter on resourceIds
  * @property int[] $LocationIds Filter by location ids (optional)
  * @property string[] $ScheduleTypes Filter by schedule types (optional)
@@ -66,10 +62,6 @@ class GetResourcesRequest extends BaseModel
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'SessionTypeIds' => 'int[]',
-        'LocationId' => 'int',
-        'StartDateTime' => '\DateTime',
-        'EndDateTime' => '\DateTime',
         'ResourceIds' => 'int[]',
         'LocationIds' => 'int[]',
         'ScheduleTypes' => 'string[]',
@@ -85,10 +77,6 @@ class GetResourcesRequest extends BaseModel
       * @var array<string, string|null>
       */
     protected static $swaggerFormats = [
-        'SessionTypeIds' => 'int32',
-        'LocationId' => 'int32',
-        'StartDateTime' => 'date-time',
-        'EndDateTime' => 'date-time',
         'ResourceIds' => 'int32',
         'LocationIds' => 'int32',
         'ScheduleTypes' => null,
@@ -106,10 +94,6 @@ class GetResourcesRequest extends BaseModel
      * @var string[]
      */
     protected static $attributeMap = [
-        'SessionTypeIds' => 'SessionTypeIds',
-        'LocationId' => 'LocationId',
-        'StartDateTime' => 'StartDateTime',
-        'EndDateTime' => 'EndDateTime',
         'ResourceIds' => 'ResourceIds',
         'LocationIds' => 'LocationIds',
         'ScheduleTypes' => 'ScheduleTypes',
@@ -125,10 +109,6 @@ class GetResourcesRequest extends BaseModel
      * @var string[]
      */
     protected static $setters = [
-        'SessionTypeIds' => 'setSessionTypeIds',
-        'LocationId' => 'setLocationId',
-        'StartDateTime' => 'setStartDateTime',
-        'EndDateTime' => 'setEndDateTime',
         'ResourceIds' => 'setResourceIds',
         'LocationIds' => 'setLocationIds',
         'ScheduleTypes' => 'setScheduleTypes',
@@ -144,10 +124,6 @@ class GetResourcesRequest extends BaseModel
      * @var string[]
      */
     protected static $getters = [
-        'SessionTypeIds' => 'getSessionTypeIds',
-        'LocationId' => 'getLocationId',
-        'StartDateTime' => 'getStartDateTime',
-        'EndDateTime' => 'getEndDateTime',
         'ResourceIds' => 'getResourceIds',
         'LocationIds' => 'getLocationIds',
         'ScheduleTypes' => 'getScheduleTypes',
@@ -195,10 +171,6 @@ class GetResourcesRequest extends BaseModel
      */
     public function __construct(array $data = null)
     {
-        $this->container['SessionTypeIds'] = isset($data['SessionTypeIds']) ? $data['SessionTypeIds'] : null;
-        $this->container['LocationId'] = isset($data['LocationId']) ? $data['LocationId'] : null;
-        $this->container['StartDateTime'] = isset($data['StartDateTime']) ? $data['StartDateTime'] : null;
-        $this->container['EndDateTime'] = isset($data['EndDateTime']) ? $data['EndDateTime'] : null;
         $this->container['ResourceIds'] = isset($data['ResourceIds']) ? $data['ResourceIds'] : null;
         $this->container['LocationIds'] = isset($data['LocationIds']) ? $data['LocationIds'] : null;
         $this->container['ScheduleTypes'] = isset($data['ScheduleTypes']) ? $data['ScheduleTypes'] : null;
@@ -220,102 +192,6 @@ class GetResourcesRequest extends BaseModel
         return $invalidProperties;
     }
 
-
-    /**
-     * Gets SessionTypeIds
-     *
-     * @return int[]
-     */
-    public function getSessionTypeIds()
-    {
-        return $this->container['SessionTypeIds'];
-    }
-
-    /**
-     * Sets SessionTypeIds
-     *
-     * @param int[] $SessionTypeIds List of session type IDs.<br />  Default: **all**
-     *
-     * @return $this
-     */
-    public function setSessionTypeIds($SessionTypeIds): self
-    {
-        $this->container['SessionTypeIds'] = $SessionTypeIds;
-
-        return $this;
-    }
-
-    /**
-     * Gets LocationId
-     *
-     * @return int
-     */
-    public function getLocationId()
-    {
-        return $this->container['LocationId'];
-    }
-
-    /**
-     * Sets LocationId
-     *
-     * @param int $LocationId The location of the resource. This parameter is ignored if `EndDateTime` or `LocationID` is not set.<br />  Default: **all**
-     *
-     * @return $this
-     */
-    public function setLocationId($LocationId): self
-    {
-        $this->container['LocationId'] = $LocationId;
-
-        return $this;
-    }
-
-    /**
-     * Gets StartDateTime
-     *
-     * @return \DateTime
-     */
-    public function getStartDateTime()
-    {
-        return $this->container['StartDateTime'];
-    }
-
-    /**
-     * Sets StartDateTime
-     *
-     * @param \DateTime $StartDateTime The time the resource starts. This parameter is ignored if `EndDateTime` or `LocationID` is not set.
-     *
-     * @return $this
-     */
-    public function setStartDateTime($StartDateTime): self
-    {
-        $this->container['StartDateTime'] = $StartDateTime;
-
-        return $this;
-    }
-
-    /**
-     * Gets EndDateTime
-     *
-     * @return \DateTime
-     */
-    public function getEndDateTime()
-    {
-        return $this->container['EndDateTime'];
-    }
-
-    /**
-     * Sets EndDateTime
-     *
-     * @param \DateTime $EndDateTime The time the resource ends. This parameter is ignored if `EndDateTime` or `LocationID` is not set.
-     *
-     * @return $this
-     */
-    public function setEndDateTime($EndDateTime): self
-    {
-        $this->container['EndDateTime'] = $EndDateTime;
-
-        return $this;
-    }
 
     /**
      * Gets ResourceIds

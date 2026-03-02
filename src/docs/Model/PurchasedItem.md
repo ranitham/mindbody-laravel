@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 **ExpDate** | [**\DateTime**](\DateTime.md) | The expiration date of the pricing option purchased. | [optional] 
 **ActiveDate** | [**\DateTime**](\DateTime.md) | The activation date of pricing option purchased. | [optional] 
 **GiftCardBarcodeId** | **string** | Gift Card BarcodeId | [optional] 
+**RecipientClientId** | **int** | The ClientId of the recipient for this purchased item.  This value may differ from the Sale’s ClientId when items are purchased for another client (e.g., gifting).   Used to attribute the entitlement/ownership of the item to a client other than the purchaser. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

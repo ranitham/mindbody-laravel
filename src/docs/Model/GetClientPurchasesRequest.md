@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ClientId** | **string** | The ID of the client you are querying for purchases. | 
+**UniqueClientId** | **int** | The unique ID of the requested client. | [optional] 
 **StartDate** | [**\DateTime**](\DateTime.md) | Filters results to purchases made on or after this timestamp.&lt;br /&gt;  Default: **now** | [optional] 
 **EndDate** | [**\DateTime**](\DateTime.md) | Filters results to purchases made before this timestamp.&lt;br /&gt;  Default: **end of today** | [optional] 
 **SaleId** | **int** | Filters results to the single record associated with this ID. | [optional] 

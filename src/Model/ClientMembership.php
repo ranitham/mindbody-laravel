@@ -52,6 +52,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property int $SiteId The ID of the subscriber site associated with this pricing option.
  * @property string $Action The action taken.
  * @property string $ClientID The Client ID assigned to this pricing option, specific to when it was purchased by the client.
+ * @property bool $Returned Identification for purchased service is returned or not.
  *
  */
 class ClientMembership extends BaseModel implements ModelWithId
@@ -86,7 +87,8 @@ class ClientMembership extends BaseModel implements ModelWithId
         'Remaining' => 'int',
         'SiteId' => 'int',
         'Action' => 'string',
-        'ClientID' => 'string'
+        'ClientID' => 'string',
+        'Returned' => 'bool'
     ];
 
     /**
@@ -110,7 +112,8 @@ class ClientMembership extends BaseModel implements ModelWithId
         'Remaining' => 'int32',
         'SiteId' => 'int32',
         'Action' => null,
-        'ClientID' => null
+        'ClientID' => null,
+        'Returned' => null
     ];
 
 
@@ -136,7 +139,8 @@ class ClientMembership extends BaseModel implements ModelWithId
         'Remaining' => 'Remaining',
         'SiteId' => 'SiteId',
         'Action' => 'Action',
-        'ClientID' => 'ClientID'
+        'ClientID' => 'ClientID',
+        'Returned' => 'Returned'
     ];
 
     /**
@@ -160,7 +164,8 @@ class ClientMembership extends BaseModel implements ModelWithId
         'Remaining' => 'setRemaining',
         'SiteId' => 'setSiteId',
         'Action' => 'setAction',
-        'ClientID' => 'setClientID'
+        'ClientID' => 'setClientID',
+        'Returned' => 'setReturned'
     ];
 
     /**
@@ -184,7 +189,8 @@ class ClientMembership extends BaseModel implements ModelWithId
         'Remaining' => 'getRemaining',
         'SiteId' => 'getSiteId',
         'Action' => 'getAction',
-        'ClientID' => 'getClientID'
+        'ClientID' => 'getClientID',
+        'Returned' => 'getReturned'
     ];
 
 
@@ -237,6 +243,7 @@ class ClientMembership extends BaseModel implements ModelWithId
         $this->container['SiteId'] = isset($data['SiteId']) ? $data['SiteId'] : null;
         $this->container['Action'] = isset($data['Action']) ? $data['Action'] : null;
         $this->container['ClientID'] = isset($data['ClientID']) ? $data['ClientID'] : null;
+        $this->container['Returned'] = isset($data['Returned']) ? $data['Returned'] : null;
     }
 
     /**
@@ -649,6 +656,30 @@ class ClientMembership extends BaseModel implements ModelWithId
     public function setClientID($ClientID): self
     {
         $this->container['ClientID'] = $ClientID;
+
+        return $this;
+    }
+
+    /**
+     * Gets Returned
+     *
+     * @return bool
+     */
+    public function getReturned()
+    {
+        return $this->container['Returned'];
+    }
+
+    /**
+     * Sets Returned
+     *
+     * @param bool $Returned Identification for purchased service is returned or not.
+     *
+     * @return $this
+     */
+    public function setReturned($Returned): self
+    {
+        $this->container['Returned'] = $Returned;
 
         return $this;
     }

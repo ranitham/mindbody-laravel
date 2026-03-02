@@ -94,6 +94,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property bool $SendScheduleTexts When `true`, indicates that the client has opted to receive schedule notifications by text message. This parameter cannot be updated by developers. If included in a request, it is ignored.
  * @property \Nlocascio\Mindbody\Model\Location $HomeLocation Information about the Home Location for this client
  * @property string $LockerNumber The clients locker number.
+ * @property \Nlocascio\Mindbody\Model\ClientType $ClientType The client's assigned client type.  Returns null if the client has no client type assigned.  For more information, see [Client Types](https://support.mindbodyonline.com/s/article/203259193-Client-Types).
  *
  */
 class Client extends BaseModel implements ModelWithId
@@ -169,7 +170,8 @@ class Client extends BaseModel implements ModelWithId
         'SendScheduleEmails' => 'bool',
         'SendScheduleTexts' => 'bool',
         'HomeLocation' => '\Nlocascio\Mindbody\Model\Location',
-        'LockerNumber' => 'string'
+        'LockerNumber' => 'string',
+        'ClientType' => '\Nlocascio\Mindbody\Model\ClientType'
     ];
 
     /**
@@ -234,7 +236,8 @@ class Client extends BaseModel implements ModelWithId
         'SendScheduleEmails' => null,
         'SendScheduleTexts' => null,
         'HomeLocation' => null,
-        'LockerNumber' => null
+        'LockerNumber' => null,
+        'ClientType' => null
     ];
 
 
@@ -301,7 +304,8 @@ class Client extends BaseModel implements ModelWithId
         'SendScheduleEmails' => 'SendScheduleEmails',
         'SendScheduleTexts' => 'SendScheduleTexts',
         'HomeLocation' => 'HomeLocation',
-        'LockerNumber' => 'LockerNumber'
+        'LockerNumber' => 'LockerNumber',
+        'ClientType' => 'ClientType'
     ];
 
     /**
@@ -366,7 +370,8 @@ class Client extends BaseModel implements ModelWithId
         'SendScheduleEmails' => 'setSendScheduleEmails',
         'SendScheduleTexts' => 'setSendScheduleTexts',
         'HomeLocation' => 'setHomeLocation',
-        'LockerNumber' => 'setLockerNumber'
+        'LockerNumber' => 'setLockerNumber',
+        'ClientType' => 'setClientType'
     ];
 
     /**
@@ -431,7 +436,8 @@ class Client extends BaseModel implements ModelWithId
         'SendScheduleEmails' => 'getSendScheduleEmails',
         'SendScheduleTexts' => 'getSendScheduleTexts',
         'HomeLocation' => 'getHomeLocation',
-        'LockerNumber' => 'getLockerNumber'
+        'LockerNumber' => 'getLockerNumber',
+        'ClientType' => 'getClientType'
     ];
 
 
@@ -542,6 +548,7 @@ class Client extends BaseModel implements ModelWithId
         $this->container['SendScheduleTexts'] = isset($data['SendScheduleTexts']) ? $data['SendScheduleTexts'] : null;
         $this->container['HomeLocation'] = isset($data['HomeLocation']) ? $data['HomeLocation'] : null;
         $this->container['LockerNumber'] = isset($data['LockerNumber']) ? $data['LockerNumber'] : null;
+        $this->container['ClientType'] = isset($data['ClientType']) ? $data['ClientType'] : null;
     }
 
     /**
@@ -1955,6 +1962,30 @@ class Client extends BaseModel implements ModelWithId
     public function setLockerNumber($LockerNumber): self
     {
         $this->container['LockerNumber'] = $LockerNumber;
+
+        return $this;
+    }
+
+    /**
+     * Gets ClientType
+     *
+     * @return \Nlocascio\Mindbody\Model\ClientType
+     */
+    public function getClientType()
+    {
+        return $this->container['ClientType'];
+    }
+
+    /**
+     * Sets ClientType
+     *
+     * @param \Nlocascio\Mindbody\Model\ClientType $ClientType The client's assigned client type.  Returns null if the client has no client type assigned.  For more information, see [Client Types](https://support.mindbodyonline.com/s/article/203259193-Client-Types).
+     *
+     * @return $this
+     */
+    public function setClientType($ClientType): self
+    {
+        $this->container['ClientType'] = $ClientType;
 
         return $this;
     }

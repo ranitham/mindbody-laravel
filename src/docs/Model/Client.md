@@ -60,6 +60,7 @@ Name | Type | Description | Notes
 **SendScheduleTexts** | **bool** | When &#x60;true&#x60;, indicates that the client has opted to receive schedule notifications by text message. This parameter cannot be updated by developers. If included in a request, it is ignored. | [optional] 
 **HomeLocation** | [**\Nlocascio\Mindbody\Model\Location**](Location.md) | Information about the Home Location for this client | [optional] 
 **LockerNumber** | **string** | The clients locker number. | [optional] 
+**ClientType** | [**\Nlocascio\Mindbody\Model\ClientType**](ClientType.md) | The client&#39;s assigned client type.  Returns null if the client has no client type assigned.  For more information, see [Client Types](https://support.mindbodyonline.com/s/article/203259193-Client-Types). | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

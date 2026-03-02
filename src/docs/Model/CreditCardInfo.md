@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **BillingPostalCode** | **string** |  | [optional] 
 **SaveInfo** | **bool** |  | [optional] 
 **CardId** | **string** | Card Id of a stored instruments card | [optional] 
+**CVV** | **string** | CVV of the card | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

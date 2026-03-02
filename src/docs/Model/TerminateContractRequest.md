@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClientId** | **string** | The ID of the client. | 
+**ClientId** | **string** | The ID of the client.  NOTE: this should be the PayerClientId (from GET ClientContracts and/or GET ClientCompleteInfo), which is the ID of the client who holds the contract. | 
 **ClientContractId** | **int** | The unique ID of the sale of the contract | 
 **TerminationDate** | [**\DateTime**](\DateTime.md) | The contract termination date. | 
 **TerminationCode** | **string** | ex. Illness, Injury, Moving, BreakingContract (Note this can be customized by each studio). | [optional] 

@@ -33,7 +33,7 @@ namespace Nlocascio\Mindbody\Model;
  * CreditCardInfo Class Doc Comment
  *
  * @category Class
- * @description INformation about an individual credit card
+ * @description Information about an individual credit card
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -47,6 +47,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property string $BillingPostalCode BillingPostalCode
  * @property bool $SaveInfo SaveInfo
  * @property string $CardId Card Id of a stored instruments card
+ * @property string $CVV CVV of the card
  *
  */
 class CreditCardInfo extends BaseModel
@@ -75,7 +76,8 @@ class CreditCardInfo extends BaseModel
         'BillingState' => 'string',
         'BillingPostalCode' => 'string',
         'SaveInfo' => 'bool',
-        'CardId' => 'string'
+        'CardId' => 'string',
+        'CVV' => 'string'
     ];
 
     /**
@@ -93,7 +95,8 @@ class CreditCardInfo extends BaseModel
         'BillingState' => null,
         'BillingPostalCode' => null,
         'SaveInfo' => null,
-        'CardId' => null
+        'CardId' => null,
+        'CVV' => null
     ];
 
 
@@ -113,7 +116,8 @@ class CreditCardInfo extends BaseModel
         'BillingState' => 'BillingState',
         'BillingPostalCode' => 'BillingPostalCode',
         'SaveInfo' => 'SaveInfo',
-        'CardId' => 'CardId'
+        'CardId' => 'CardId',
+        'CVV' => 'CVV'
     ];
 
     /**
@@ -131,7 +135,8 @@ class CreditCardInfo extends BaseModel
         'BillingState' => 'setBillingState',
         'BillingPostalCode' => 'setBillingPostalCode',
         'SaveInfo' => 'setSaveInfo',
-        'CardId' => 'setCardId'
+        'CardId' => 'setCardId',
+        'CVV' => 'setCVV'
     ];
 
     /**
@@ -149,7 +154,8 @@ class CreditCardInfo extends BaseModel
         'BillingState' => 'getBillingState',
         'BillingPostalCode' => 'getBillingPostalCode',
         'SaveInfo' => 'getSaveInfo',
-        'CardId' => 'getCardId'
+        'CardId' => 'getCardId',
+        'CVV' => 'getCVV'
     ];
 
 
@@ -175,6 +181,7 @@ class CreditCardInfo extends BaseModel
         $this->container['BillingPostalCode'] = isset($data['BillingPostalCode']) ? $data['BillingPostalCode'] : null;
         $this->container['SaveInfo'] = isset($data['SaveInfo']) ? $data['SaveInfo'] : null;
         $this->container['CardId'] = isset($data['CardId']) ? $data['CardId'] : null;
+        $this->container['CVV'] = isset($data['CVV']) ? $data['CVV'] : null;
     }
 
     /**
@@ -426,6 +433,30 @@ class CreditCardInfo extends BaseModel
     public function setCardId($CardId): self
     {
         $this->container['CardId'] = $CardId;
+
+        return $this;
+    }
+
+    /**
+     * Gets CVV
+     *
+     * @return string
+     */
+    public function getCVV()
+    {
+        return $this->container['CVV'];
+    }
+
+    /**
+     * Sets CVV
+     *
+     * @param string $CVV CVV of the card
+     *
+     * @return $this
+     */
+    public function setCVV($CVV): self
+    {
+        $this->container['CVV'] = $CVV;
 
         return $this;
     }

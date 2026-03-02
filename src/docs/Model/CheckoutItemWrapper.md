@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Item** | [**\Nlocascio\Mindbody\Model\CheckoutItem**](CheckoutItem.md) | Information about an item in the cart. | [optional] 
+**SalesNotes** | **string** | Sales Notes for the product | [optional] 
 **DiscountAmount** | **double** | The amount the item is discounted. This parameter is ignored for packages. | [optional] 
 **AppointmentBookingRequests** | [**\Nlocascio\Mindbody\Model\CheckoutAppointmentBookingRequest[]**](CheckoutAppointmentBookingRequest.md) | A list of appointments to be booked then paid for by this item. This parameter applies only to pricing option items. | [optional] 
 **EnrollmentIds** | **int[]** | A list of enrollment IDs that this item is to pay for. This parameter applies only to pricing option items. | [optional] 

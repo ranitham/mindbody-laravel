@@ -42,6 +42,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property \DateTime $EndClassDateTime Filters the results to class descriptions for scheduled classes that happen before the given date and time.
  * @property int $StaffId Filters results to class descriptions for scheduled classes taught by the given staff member.
  * @property int $LocationId Filters results to classes descriptions for schedule classes as the given location.
+ * @property bool $IncludeInactive Includes inactive class descriptions, defaulting to true. When set to false, it filters out inactive class descriptions.
  * @property int $Limit Number of results to include, defaults to 100
  * @property int $Offset Page offset, defaults to 0.
  *
@@ -69,6 +70,7 @@ class GetClassDescriptionsRequest extends BaseModel
         'EndClassDateTime' => '\DateTime',
         'StaffId' => 'int',
         'LocationId' => 'int',
+        'IncludeInactive' => 'bool',
         'Limit' => 'int',
         'Offset' => 'int'
     ];
@@ -85,6 +87,7 @@ class GetClassDescriptionsRequest extends BaseModel
         'EndClassDateTime' => 'date-time',
         'StaffId' => 'int64',
         'LocationId' => 'int32',
+        'IncludeInactive' => null,
         'Limit' => 'int32',
         'Offset' => 'int32'
     ];
@@ -103,6 +106,7 @@ class GetClassDescriptionsRequest extends BaseModel
         'EndClassDateTime' => 'EndClassDateTime',
         'StaffId' => 'StaffId',
         'LocationId' => 'LocationId',
+        'IncludeInactive' => 'IncludeInactive',
         'Limit' => 'Limit',
         'Offset' => 'Offset'
     ];
@@ -119,6 +123,7 @@ class GetClassDescriptionsRequest extends BaseModel
         'EndClassDateTime' => 'setEndClassDateTime',
         'StaffId' => 'setStaffId',
         'LocationId' => 'setLocationId',
+        'IncludeInactive' => 'setIncludeInactive',
         'Limit' => 'setLimit',
         'Offset' => 'setOffset'
     ];
@@ -135,6 +140,7 @@ class GetClassDescriptionsRequest extends BaseModel
         'EndClassDateTime' => 'getEndClassDateTime',
         'StaffId' => 'getStaffId',
         'LocationId' => 'getLocationId',
+        'IncludeInactive' => 'getIncludeInactive',
         'Limit' => 'getLimit',
         'Offset' => 'getOffset'
     ];
@@ -158,6 +164,7 @@ class GetClassDescriptionsRequest extends BaseModel
         $this->container['EndClassDateTime'] = isset($data['EndClassDateTime']) ? $data['EndClassDateTime'] : null;
         $this->container['StaffId'] = isset($data['StaffId']) ? $data['StaffId'] : null;
         $this->container['LocationId'] = isset($data['LocationId']) ? $data['LocationId'] : null;
+        $this->container['IncludeInactive'] = isset($data['IncludeInactive']) ? $data['IncludeInactive'] : null;
         $this->container['Limit'] = isset($data['Limit']) ? $data['Limit'] : null;
         $this->container['Offset'] = isset($data['Offset']) ? $data['Offset'] : null;
     }
@@ -315,6 +322,30 @@ class GetClassDescriptionsRequest extends BaseModel
     public function setLocationId($LocationId): self
     {
         $this->container['LocationId'] = $LocationId;
+
+        return $this;
+    }
+
+    /**
+     * Gets IncludeInactive
+     *
+     * @return bool
+     */
+    public function getIncludeInactive()
+    {
+        return $this->container['IncludeInactive'];
+    }
+
+    /**
+     * Sets IncludeInactive
+     *
+     * @param bool $IncludeInactive Includes inactive class descriptions, defaulting to true. When set to false, it filters out inactive class descriptions.
+     *
+     * @return $this
+     */
+    public function setIncludeInactive($IncludeInactive): self
+    {
+        $this->container['IncludeInactive'] = $IncludeInactive;
 
         return $this;
     }

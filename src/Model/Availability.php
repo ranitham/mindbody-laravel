@@ -49,6 +49,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property int $FinishTime Appointment finish time
  * @property bool $IsMasked IsMasked
  * @property bool $ShowPublic ShowPublic
+ * @property \Nlocascio\Mindbody\Model\ResourceAvailability[] $ResourceAvailabilities List of resource availabilities that can be booked with this session type.
  *
  */
 class Availability extends BaseModel implements ModelWithId
@@ -79,7 +80,8 @@ class Availability extends BaseModel implements ModelWithId
         'PrepTime' => 'int',
         'FinishTime' => 'int',
         'IsMasked' => 'bool',
-        'ShowPublic' => 'bool'
+        'ShowPublic' => 'bool',
+        'ResourceAvailabilities' => '\Nlocascio\Mindbody\Model\ResourceAvailability[]'
     ];
 
     /**
@@ -99,7 +101,8 @@ class Availability extends BaseModel implements ModelWithId
         'PrepTime' => 'int32',
         'FinishTime' => 'int32',
         'IsMasked' => null,
-        'ShowPublic' => null
+        'ShowPublic' => null,
+        'ResourceAvailabilities' => null
     ];
 
 
@@ -121,7 +124,8 @@ class Availability extends BaseModel implements ModelWithId
         'PrepTime' => 'PrepTime',
         'FinishTime' => 'FinishTime',
         'IsMasked' => 'IsMasked',
-        'ShowPublic' => 'ShowPublic'
+        'ShowPublic' => 'ShowPublic',
+        'ResourceAvailabilities' => 'ResourceAvailabilities'
     ];
 
     /**
@@ -141,7 +145,8 @@ class Availability extends BaseModel implements ModelWithId
         'PrepTime' => 'setPrepTime',
         'FinishTime' => 'setFinishTime',
         'IsMasked' => 'setIsMasked',
-        'ShowPublic' => 'setShowPublic'
+        'ShowPublic' => 'setShowPublic',
+        'ResourceAvailabilities' => 'setResourceAvailabilities'
     ];
 
     /**
@@ -161,7 +166,8 @@ class Availability extends BaseModel implements ModelWithId
         'PrepTime' => 'getPrepTime',
         'FinishTime' => 'getFinishTime',
         'IsMasked' => 'getIsMasked',
-        'ShowPublic' => 'getShowPublic'
+        'ShowPublic' => 'getShowPublic',
+        'ResourceAvailabilities' => 'getResourceAvailabilities'
     ];
 
 
@@ -189,6 +195,7 @@ class Availability extends BaseModel implements ModelWithId
         $this->container['FinishTime'] = isset($data['FinishTime']) ? $data['FinishTime'] : null;
         $this->container['IsMasked'] = isset($data['IsMasked']) ? $data['IsMasked'] : null;
         $this->container['ShowPublic'] = isset($data['ShowPublic']) ? $data['ShowPublic'] : null;
+        $this->container['ResourceAvailabilities'] = isset($data['ResourceAvailabilities']) ? $data['ResourceAvailabilities'] : null;
     }
 
     /**
@@ -488,6 +495,30 @@ class Availability extends BaseModel implements ModelWithId
     public function setShowPublic($ShowPublic): self
     {
         $this->container['ShowPublic'] = $ShowPublic;
+
+        return $this;
+    }
+
+    /**
+     * Gets ResourceAvailabilities
+     *
+     * @return \Nlocascio\Mindbody\Model\ResourceAvailability[]
+     */
+    public function getResourceAvailabilities()
+    {
+        return $this->container['ResourceAvailabilities'];
+    }
+
+    /**
+     * Sets ResourceAvailabilities
+     *
+     * @param \Nlocascio\Mindbody\Model\ResourceAvailability[] $ResourceAvailabilities List of resource availabilities that can be booked with this session type.
+     *
+     * @return $this
+     */
+    public function setResourceAvailabilities($ResourceAvailabilities): self
+    {
+        $this->container['ResourceAvailabilities'] = $ResourceAvailabilities;
 
         return $this;
     }

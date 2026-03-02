@@ -39,17 +39,19 @@ namespace Nlocascio\Mindbody\Model;
  * @property bool $Test When `true`, the Public API validates input information, but does not commit it, so no client data is affected.<br />  When `false` or omitted, the transaction is committed, and client data is affected.<br />  Default: **false**
  * @property int $LocationId The ID of the location where the client is purchasing the contract; used for AutoPays.
  * @property string $ClientId The ID of the client. Note that this is not the same as the client’s unique ID.
+ * @property int $UniqueClientId The unique ID of the client.  Note: you need to provide the 'UniqueClientId' OR the 'ClientId'. If both are provided, the 'UniqueClientId' takes precedence.
  * @property int $ContractId The ID of the contract being purchased.
  * @property \DateTime $StartDate The date that the contract starts.<br />  Default: **today’s date**
  * @property string $FirstPaymentOccurs The date on which the first payment is to occur. Possible values:  * Instant  * `StartDate`
  * @property string $ClientSignature A representation of the client’s signature. This value can take the form of Base64-encoded byte array. The file type should be PNG. The picture of the client’s signature is uploaded and viewable from the Client Documents page in the Core Business Mode software. The title of the document is:<br />  clientContractSignature-{uniquePurchasedClientContractID}-{contractName}-{contractStartDate}.{fileType}
  * @property string $PromotionCode A promotion code, if one applies. Promotion codes are applied to items that are both marked as pay now in a contract and are discounted by the promotion code. If a pay now item is an autopay item, its autopay price is the price at the time of checkout, so, if a promotion code was applied, all autopays are scheduled using that discounted price.
  * @property string[] $PromotionCodes Promotion codes, if they apply. Promotion codes are applied to items that are both marked as pay now in a contract and are discounted by the promotion code. If a pay now item is an autopay item, its autopay price is the price at the time of checkout, so, if a promotion code was applied, all autopays are scheduled using that discounted price.
- * @property \Nlocascio\Mindbody\Model\CreditCardInfo $CreditCardInfo Contains credit card payment information.<br />  This is only required if `StoredCardInfo` is not passed and `UseDirectDebit` is `false`.
- * @property \Nlocascio\Mindbody\Model\StoredCardInfo $StoredCardInfo Contains information about the stored credit card payment.<br />  This is only required if `CreditCardInfo` is not passed and `UseDirectDebit` is `false`.
+ * @property \Nlocascio\Mindbody\Model\CreditCardInfo $CreditCardInfo Contains credit card payment information.<br />  This is only required if `StoredCardInfo` is not passed and both `UseDirectDebit` and `UseAccountCredit` are `false`.
+ * @property \Nlocascio\Mindbody\Model\StoredCardInfo $StoredCardInfo Contains information about the stored credit card payment.<br />  This is only required if `CreditCardInfo` is not passed and both `UseDirectDebit` and `UseAccountCredit` and are `false`.
  * @property bool $SendNotifications When `true`, indicates that email and SMS notifications should be sent to the client after purchase.<br />  Default: **true**
  * @property int $SalesRepId The ID of the staff member to be marked as the sales rep for this contract sale.
- * @property bool $UseDirectDebit When `true`, indicates that the direct debit information stored on the client's account is to be used to pay for the contract.<br />  This is only required if both `CreditCardInfo` and `StoredCardInfo` are not passed.<br />  Default: **false**
+ * @property bool $UseDirectDebit When `true`, indicates that the direct debit information stored on the client's account is to be used to pay for the contract.<br />  This is only required if both `CreditCardInfo` and `StoredCardInfo` are not passed and `UseAccountCredit` is false.<br />  Default: **false**
+ * @property bool $UseAccountCredit When `true`, indicates that the account credit of the client's account is to be used to pay for the contract.<br />  This is only required if both `CreditCardInfo` and `StoredCardInfo` are not passed and `UseDirectDebit` is false. <br />  Default: **false**
  * @property bool $ConsumerPresent When `true`, indicates that the consumer is present or otherwise able to successfully negotiate an SCA challenge. It is not a good idea to have this always be false as that could very likely lead to a bank declining all transactions for the merchant.  Defaults to **false**.
  * @property string $PaymentAuthenticationCallbackUrl The URL consumer is redirected to if the bank requests SCA. This field is only needed if ConsumerPresent is true.
  * @property \DateTime $ProrateDate Optional, date to prorate contract
@@ -75,6 +77,7 @@ class PurchaseContractRequest extends BaseModel
         'Test' => 'bool',
         'LocationId' => 'int',
         'ClientId' => 'string',
+        'UniqueClientId' => 'int',
         'ContractId' => 'int',
         'StartDate' => '\DateTime',
         'FirstPaymentOccurs' => 'string',
@@ -86,6 +89,7 @@ class PurchaseContractRequest extends BaseModel
         'SendNotifications' => 'bool',
         'SalesRepId' => 'int',
         'UseDirectDebit' => 'bool',
+        'UseAccountCredit' => 'bool',
         'ConsumerPresent' => 'bool',
         'PaymentAuthenticationCallbackUrl' => 'string',
         'ProrateDate' => '\DateTime'
@@ -100,6 +104,7 @@ class PurchaseContractRequest extends BaseModel
         'Test' => null,
         'LocationId' => 'int32',
         'ClientId' => null,
+        'UniqueClientId' => 'int64',
         'ContractId' => 'int32',
         'StartDate' => 'date-time',
         'FirstPaymentOccurs' => null,
@@ -111,6 +116,7 @@ class PurchaseContractRequest extends BaseModel
         'SendNotifications' => null,
         'SalesRepId' => 'int64',
         'UseDirectDebit' => null,
+        'UseAccountCredit' => null,
         'ConsumerPresent' => null,
         'PaymentAuthenticationCallbackUrl' => null,
         'ProrateDate' => 'date-time'
@@ -127,6 +133,7 @@ class PurchaseContractRequest extends BaseModel
         'Test' => 'Test',
         'LocationId' => 'LocationId',
         'ClientId' => 'ClientId',
+        'UniqueClientId' => 'UniqueClientId',
         'ContractId' => 'ContractId',
         'StartDate' => 'StartDate',
         'FirstPaymentOccurs' => 'FirstPaymentOccurs',
@@ -138,6 +145,7 @@ class PurchaseContractRequest extends BaseModel
         'SendNotifications' => 'SendNotifications',
         'SalesRepId' => 'SalesRepId',
         'UseDirectDebit' => 'UseDirectDebit',
+        'UseAccountCredit' => 'UseAccountCredit',
         'ConsumerPresent' => 'ConsumerPresent',
         'PaymentAuthenticationCallbackUrl' => 'PaymentAuthenticationCallbackUrl',
         'ProrateDate' => 'ProrateDate'
@@ -152,6 +160,7 @@ class PurchaseContractRequest extends BaseModel
         'Test' => 'setTest',
         'LocationId' => 'setLocationId',
         'ClientId' => 'setClientId',
+        'UniqueClientId' => 'setUniqueClientId',
         'ContractId' => 'setContractId',
         'StartDate' => 'setStartDate',
         'FirstPaymentOccurs' => 'setFirstPaymentOccurs',
@@ -163,6 +172,7 @@ class PurchaseContractRequest extends BaseModel
         'SendNotifications' => 'setSendNotifications',
         'SalesRepId' => 'setSalesRepId',
         'UseDirectDebit' => 'setUseDirectDebit',
+        'UseAccountCredit' => 'setUseAccountCredit',
         'ConsumerPresent' => 'setConsumerPresent',
         'PaymentAuthenticationCallbackUrl' => 'setPaymentAuthenticationCallbackUrl',
         'ProrateDate' => 'setProrateDate'
@@ -177,6 +187,7 @@ class PurchaseContractRequest extends BaseModel
         'Test' => 'getTest',
         'LocationId' => 'getLocationId',
         'ClientId' => 'getClientId',
+        'UniqueClientId' => 'getUniqueClientId',
         'ContractId' => 'getContractId',
         'StartDate' => 'getStartDate',
         'FirstPaymentOccurs' => 'getFirstPaymentOccurs',
@@ -188,6 +199,7 @@ class PurchaseContractRequest extends BaseModel
         'SendNotifications' => 'getSendNotifications',
         'SalesRepId' => 'getSalesRepId',
         'UseDirectDebit' => 'getUseDirectDebit',
+        'UseAccountCredit' => 'getUseAccountCredit',
         'ConsumerPresent' => 'getConsumerPresent',
         'PaymentAuthenticationCallbackUrl' => 'getPaymentAuthenticationCallbackUrl',
         'ProrateDate' => 'getProrateDate'
@@ -209,6 +221,7 @@ class PurchaseContractRequest extends BaseModel
         $this->container['Test'] = isset($data['Test']) ? $data['Test'] : null;
         $this->container['LocationId'] = isset($data['LocationId']) ? $data['LocationId'] : null;
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
+        $this->container['UniqueClientId'] = isset($data['UniqueClientId']) ? $data['UniqueClientId'] : null;
         $this->container['ContractId'] = isset($data['ContractId']) ? $data['ContractId'] : null;
         $this->container['StartDate'] = isset($data['StartDate']) ? $data['StartDate'] : null;
         $this->container['FirstPaymentOccurs'] = isset($data['FirstPaymentOccurs']) ? $data['FirstPaymentOccurs'] : null;
@@ -220,6 +233,7 @@ class PurchaseContractRequest extends BaseModel
         $this->container['SendNotifications'] = isset($data['SendNotifications']) ? $data['SendNotifications'] : null;
         $this->container['SalesRepId'] = isset($data['SalesRepId']) ? $data['SalesRepId'] : null;
         $this->container['UseDirectDebit'] = isset($data['UseDirectDebit']) ? $data['UseDirectDebit'] : null;
+        $this->container['UseAccountCredit'] = isset($data['UseAccountCredit']) ? $data['UseAccountCredit'] : null;
         $this->container['ConsumerPresent'] = isset($data['ConsumerPresent']) ? $data['ConsumerPresent'] : null;
         $this->container['PaymentAuthenticationCallbackUrl'] = isset($data['PaymentAuthenticationCallbackUrl']) ? $data['PaymentAuthenticationCallbackUrl'] : null;
         $this->container['ProrateDate'] = isset($data['ProrateDate']) ? $data['ProrateDate'] : null;
@@ -234,9 +248,6 @@ class PurchaseContractRequest extends BaseModel
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['ClientId'] === null) {
-            $invalidProperties[] = "'ClientId' can't be null";
-        }
         if ($this->container['ContractId'] === null) {
             $invalidProperties[] = "'ContractId' can't be null";
         }
@@ -316,6 +327,30 @@ class PurchaseContractRequest extends BaseModel
     public function setClientId($ClientId): self
     {
         $this->container['ClientId'] = $ClientId;
+
+        return $this;
+    }
+
+    /**
+     * Gets UniqueClientId
+     *
+     * @return int
+     */
+    public function getUniqueClientId()
+    {
+        return $this->container['UniqueClientId'];
+    }
+
+    /**
+     * Sets UniqueClientId
+     *
+     * @param int $UniqueClientId The unique ID of the client.  Note: you need to provide the 'UniqueClientId' OR the 'ClientId'. If both are provided, the 'UniqueClientId' takes precedence.
+     *
+     * @return $this
+     */
+    public function setUniqueClientId($UniqueClientId): self
+    {
+        $this->container['UniqueClientId'] = $UniqueClientId;
 
         return $this;
     }
@@ -482,7 +517,7 @@ class PurchaseContractRequest extends BaseModel
     /**
      * Sets CreditCardInfo
      *
-     * @param \Nlocascio\Mindbody\Model\CreditCardInfo $CreditCardInfo Contains credit card payment information.<br />  This is only required if `StoredCardInfo` is not passed and `UseDirectDebit` is `false`.
+     * @param \Nlocascio\Mindbody\Model\CreditCardInfo $CreditCardInfo Contains credit card payment information.<br />  This is only required if `StoredCardInfo` is not passed and both `UseDirectDebit` and `UseAccountCredit` are `false`.
      *
      * @return $this
      */
@@ -506,7 +541,7 @@ class PurchaseContractRequest extends BaseModel
     /**
      * Sets StoredCardInfo
      *
-     * @param \Nlocascio\Mindbody\Model\StoredCardInfo $StoredCardInfo Contains information about the stored credit card payment.<br />  This is only required if `CreditCardInfo` is not passed and `UseDirectDebit` is `false`.
+     * @param \Nlocascio\Mindbody\Model\StoredCardInfo $StoredCardInfo Contains information about the stored credit card payment.<br />  This is only required if `CreditCardInfo` is not passed and both `UseDirectDebit` and `UseAccountCredit` and are `false`.
      *
      * @return $this
      */
@@ -578,13 +613,37 @@ class PurchaseContractRequest extends BaseModel
     /**
      * Sets UseDirectDebit
      *
-     * @param bool $UseDirectDebit When `true`, indicates that the direct debit information stored on the client's account is to be used to pay for the contract.<br />  This is only required if both `CreditCardInfo` and `StoredCardInfo` are not passed.<br />  Default: **false**
+     * @param bool $UseDirectDebit When `true`, indicates that the direct debit information stored on the client's account is to be used to pay for the contract.<br />  This is only required if both `CreditCardInfo` and `StoredCardInfo` are not passed and `UseAccountCredit` is false.<br />  Default: **false**
      *
      * @return $this
      */
     public function setUseDirectDebit($UseDirectDebit): self
     {
         $this->container['UseDirectDebit'] = $UseDirectDebit;
+
+        return $this;
+    }
+
+    /**
+     * Gets UseAccountCredit
+     *
+     * @return bool
+     */
+    public function getUseAccountCredit()
+    {
+        return $this->container['UseAccountCredit'];
+    }
+
+    /**
+     * Sets UseAccountCredit
+     *
+     * @param bool $UseAccountCredit When `true`, indicates that the account credit of the client's account is to be used to pay for the contract.<br />  This is only required if both `CreditCardInfo` and `StoredCardInfo` are not passed and `UseDirectDebit` is false. <br />  Default: **false**
+     *
+     * @return $this
+     */
+    public function setUseAccountCredit($UseAccountCredit): self
+    {
+        $this->container['UseAccountCredit'] = $UseAccountCredit;
 
         return $this;
     }

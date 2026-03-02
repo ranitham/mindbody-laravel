@@ -36,7 +36,7 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property string $ClientId The ID of the client.
+ * @property string $ClientId The ID of the client.  NOTE: this should be the PayerClientId (from GET ClientContracts and/or GET ClientCompleteInfo), which is the ID of the client who holds the contract.
  * @property int $ClientContractId The unique ID of the sale of the contract
  * @property \DateTime $TerminationDate The contract termination date.
  * @property string $TerminationCode ex. Illness, Injury, Moving, BreakingContract (Note this can be customized by each studio).
@@ -176,7 +176,7 @@ class TerminateContractRequest extends BaseModel
     /**
      * Sets ClientId
      *
-     * @param string $ClientId The ID of the client.
+     * @param string $ClientId The ID of the client.  NOTE: this should be the PayerClientId (from GET ClientContracts and/or GET ClientCompleteInfo), which is the ID of the client who holds the contract.
      *
      * @return $this
      */

@@ -37,10 +37,12 @@ namespace Nlocascio\Mindbody\Model;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  * @property string $ClientId The ID of the requested client.
+ * @property int $UniqueClientId The unique ID of the requested client.  Note: you need to provide the 'UniqueClientId' OR the 'ClientId'. If both are provided, the 'UniqueClientId' takes precedence.
  * @property int $ClientAssociatedSitesOffset The number of sites to skip when returning the site associated with a client.
  * @property bool $CrossRegionalLookup When `true`, indicates that past and scheduled client visits across all sites in the region are returned.  When `false`, indicates that only visits at the current site are returned.
  * @property \DateTime $EndDate The date past which class visits are not returned.  Default is today’s date
  * @property \DateTime $StartDate The date before which class visits are not returned.  Default is the end date
+ * @property bool $IncludeWaitlistEntries When `true`, waitlist entries are included in the response.  When `false`, waitlist entries are removed from the response.  Default: **false**
  * @property int $Limit Number of results to include, defaults to 100
  * @property int $Offset Page offset, defaults to 0.
  *
@@ -63,10 +65,12 @@ class GetClientScheduleRequest extends BaseModel
       */
     protected static $swaggerTypes = [
         'ClientId' => 'string',
+        'UniqueClientId' => 'int',
         'ClientAssociatedSitesOffset' => 'int',
         'CrossRegionalLookup' => 'bool',
         'EndDate' => '\DateTime',
         'StartDate' => '\DateTime',
+        'IncludeWaitlistEntries' => 'bool',
         'Limit' => 'int',
         'Offset' => 'int'
     ];
@@ -78,10 +82,12 @@ class GetClientScheduleRequest extends BaseModel
       */
     protected static $swaggerFormats = [
         'ClientId' => null,
+        'UniqueClientId' => 'int64',
         'ClientAssociatedSitesOffset' => 'int32',
         'CrossRegionalLookup' => null,
         'EndDate' => 'date-time',
         'StartDate' => 'date-time',
+        'IncludeWaitlistEntries' => null,
         'Limit' => 'int32',
         'Offset' => 'int32'
     ];
@@ -95,10 +101,12 @@ class GetClientScheduleRequest extends BaseModel
      */
     protected static $attributeMap = [
         'ClientId' => 'ClientId',
+        'UniqueClientId' => 'UniqueClientId',
         'ClientAssociatedSitesOffset' => 'ClientAssociatedSitesOffset',
         'CrossRegionalLookup' => 'CrossRegionalLookup',
         'EndDate' => 'EndDate',
         'StartDate' => 'StartDate',
+        'IncludeWaitlistEntries' => 'IncludeWaitlistEntries',
         'Limit' => 'Limit',
         'Offset' => 'Offset'
     ];
@@ -110,10 +118,12 @@ class GetClientScheduleRequest extends BaseModel
      */
     protected static $setters = [
         'ClientId' => 'setClientId',
+        'UniqueClientId' => 'setUniqueClientId',
         'ClientAssociatedSitesOffset' => 'setClientAssociatedSitesOffset',
         'CrossRegionalLookup' => 'setCrossRegionalLookup',
         'EndDate' => 'setEndDate',
         'StartDate' => 'setStartDate',
+        'IncludeWaitlistEntries' => 'setIncludeWaitlistEntries',
         'Limit' => 'setLimit',
         'Offset' => 'setOffset'
     ];
@@ -125,10 +135,12 @@ class GetClientScheduleRequest extends BaseModel
      */
     protected static $getters = [
         'ClientId' => 'getClientId',
+        'UniqueClientId' => 'getUniqueClientId',
         'ClientAssociatedSitesOffset' => 'getClientAssociatedSitesOffset',
         'CrossRegionalLookup' => 'getCrossRegionalLookup',
         'EndDate' => 'getEndDate',
         'StartDate' => 'getStartDate',
+        'IncludeWaitlistEntries' => 'getIncludeWaitlistEntries',
         'Limit' => 'getLimit',
         'Offset' => 'getOffset'
     ];
@@ -147,10 +159,12 @@ class GetClientScheduleRequest extends BaseModel
     public function __construct(array $data = null)
     {
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
+        $this->container['UniqueClientId'] = isset($data['UniqueClientId']) ? $data['UniqueClientId'] : null;
         $this->container['ClientAssociatedSitesOffset'] = isset($data['ClientAssociatedSitesOffset']) ? $data['ClientAssociatedSitesOffset'] : null;
         $this->container['CrossRegionalLookup'] = isset($data['CrossRegionalLookup']) ? $data['CrossRegionalLookup'] : null;
         $this->container['EndDate'] = isset($data['EndDate']) ? $data['EndDate'] : null;
         $this->container['StartDate'] = isset($data['StartDate']) ? $data['StartDate'] : null;
+        $this->container['IncludeWaitlistEntries'] = isset($data['IncludeWaitlistEntries']) ? $data['IncludeWaitlistEntries'] : null;
         $this->container['Limit'] = isset($data['Limit']) ? $data['Limit'] : null;
         $this->container['Offset'] = isset($data['Offset']) ? $data['Offset'] : null;
     }
@@ -164,9 +178,6 @@ class GetClientScheduleRequest extends BaseModel
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['ClientId'] === null) {
-            $invalidProperties[] = "'ClientId' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -191,6 +202,30 @@ class GetClientScheduleRequest extends BaseModel
     public function setClientId($ClientId): self
     {
         $this->container['ClientId'] = $ClientId;
+
+        return $this;
+    }
+
+    /**
+     * Gets UniqueClientId
+     *
+     * @return int
+     */
+    public function getUniqueClientId()
+    {
+        return $this->container['UniqueClientId'];
+    }
+
+    /**
+     * Sets UniqueClientId
+     *
+     * @param int $UniqueClientId The unique ID of the requested client.  Note: you need to provide the 'UniqueClientId' OR the 'ClientId'. If both are provided, the 'UniqueClientId' takes precedence.
+     *
+     * @return $this
+     */
+    public function setUniqueClientId($UniqueClientId): self
+    {
+        $this->container['UniqueClientId'] = $UniqueClientId;
 
         return $this;
     }
@@ -287,6 +322,30 @@ class GetClientScheduleRequest extends BaseModel
     public function setStartDate($StartDate): self
     {
         $this->container['StartDate'] = $StartDate;
+
+        return $this;
+    }
+
+    /**
+     * Gets IncludeWaitlistEntries
+     *
+     * @return bool
+     */
+    public function getIncludeWaitlistEntries()
+    {
+        return $this->container['IncludeWaitlistEntries'];
+    }
+
+    /**
+     * Sets IncludeWaitlistEntries
+     *
+     * @param bool $IncludeWaitlistEntries When `true`, waitlist entries are included in the response.  When `false`, waitlist entries are removed from the response.  Default: **false**
+     *
+     * @return $this
+     */
+    public function setIncludeWaitlistEntries($IncludeWaitlistEntries): self
+    {
+        $this->container['IncludeWaitlistEntries'] = $IncludeWaitlistEntries;
 
         return $this;
     }

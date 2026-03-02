@@ -38,7 +38,7 @@ namespace Nlocascio\Mindbody\Model;
  * @link     https://github.com/swagger-api/swagger-codegen
  * @property int $AppointmentId A unique ID for the appointment.
  * @property \DateTime $EndDateTime The end date and time of the new appointment.   <br />Default: **StartDateTime**, offset by the staff member’s default appointment duration.
- * @property string $Execute The action taken to add this appointment.
+ * @property string $Execute The action taken to add this appointment. Possible values are: confirm, unconfirm, arrive, unarrive, cancel, latecancel, complete.
  * @property string $GenderPreference The client’s service provider gender preference.
  * @property string $Notes Any general notes about this appointment.
  * @property string $PartnerExternalId Optional external key for api partners.
@@ -281,7 +281,7 @@ class UpdateAppointmentRequest extends BaseModel
     /**
      * Sets Execute
      *
-     * @param string $Execute The action taken to add this appointment.
+     * @param string $Execute The action taken to add this appointment. Possible values are: confirm, unconfirm, arrive, unarrive, cancel, latecancel, complete.
      *
      * @return $this
      */

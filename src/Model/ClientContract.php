@@ -33,12 +33,21 @@ namespace Nlocascio\Mindbody\Model;
  * ClientContract Class Doc Comment
  *
  * @category Class
- * @description A client contract
+ * @description A client contract.
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property int $PayerClientId The ID of the client who holds the contract.
  * @property \DateTime $AgreementDate The date on which the contract was signed.
  * @property string $AutopayStatus The status of the client’s autopay.
+ * @property bool $AutoRenewing Determines if the contract is auto-renewing.
+ * @property double $FirstAutoPay The amount of the first autopay transaction.
+ * @property double $LastAutoPay The amount of the last autopay transaction.
+ * @property double $NormalAutoPay The amount of the normal recurring autopay transaction.
+ * @property bool $IsMonthToMonth Indicates if the contract renews on a month-to-month basis.
+ * @property int $AutoRenewClientContractID The ID of the contract that this one auto-renews from.
+ * @property string $ContractText The full text of the contract.
+ * @property bool $ContractAutoRenewed Indicates whether the contract was auto-renewed from a previous one.
  * @property string $ContractName The name of the contract.
  * @property \DateTime $EndDate The date that the contract expires.
  * @property int $Id The unique ID of the sale of the contract. Each time a contract is sold, this ID increases sequentially.
@@ -46,8 +55,11 @@ namespace Nlocascio\Mindbody\Model;
  * @property \DateTime $StartDate The date that the contract became active.
  * @property int $SiteId The ID of the site where the contract was issued.
  * @property \Nlocascio\Mindbody\Model\UpcomingAutopayEvent[] $UpcomingAutopayEvents Contains details of the autopay events.
- * @property int $ContractID The ID of the contract
+ * @property int $ContractID The ID of the contract.
  * @property \DateTime $TerminationDate The date that the contract was terminated.
+ * @property int $MinimumCommitmentValue Minimum commitment value.
+ * @property string $MinimumCommitmentUnit Minimum commitment unit type.
+ * @property \DateTime $MinimumCommitmentEndDate The earliest date a contract termination can take effect if a minimum commitment applies.  This represents the last day the client is obligated to remain on the contract.  Returned even if the commitment has already been fulfilled.
  *
  */
 class ClientContract extends BaseModel implements ModelWithId
@@ -67,8 +79,17 @@ class ClientContract extends BaseModel implements ModelWithId
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'PayerClientId' => 'int',
         'AgreementDate' => '\DateTime',
         'AutopayStatus' => 'string',
+        'AutoRenewing' => 'bool',
+        'FirstAutoPay' => 'double',
+        'LastAutoPay' => 'double',
+        'NormalAutoPay' => 'double',
+        'IsMonthToMonth' => 'bool',
+        'AutoRenewClientContractID' => 'int',
+        'ContractText' => 'string',
+        'ContractAutoRenewed' => 'bool',
         'ContractName' => 'string',
         'EndDate' => '\DateTime',
         'Id' => 'int',
@@ -77,7 +98,10 @@ class ClientContract extends BaseModel implements ModelWithId
         'SiteId' => 'int',
         'UpcomingAutopayEvents' => '\Nlocascio\Mindbody\Model\UpcomingAutopayEvent[]',
         'ContractID' => 'int',
-        'TerminationDate' => '\DateTime'
+        'TerminationDate' => '\DateTime',
+        'MinimumCommitmentValue' => 'int',
+        'MinimumCommitmentUnit' => 'string',
+        'MinimumCommitmentEndDate' => '\DateTime'
     ];
 
     /**
@@ -86,8 +110,17 @@ class ClientContract extends BaseModel implements ModelWithId
       * @var array<string, string|null>
       */
     protected static $swaggerFormats = [
+        'PayerClientId' => 'int64',
         'AgreementDate' => 'date-time',
         'AutopayStatus' => null,
+        'AutoRenewing' => null,
+        'FirstAutoPay' => 'double',
+        'LastAutoPay' => 'double',
+        'NormalAutoPay' => 'double',
+        'IsMonthToMonth' => null,
+        'AutoRenewClientContractID' => 'int32',
+        'ContractText' => null,
+        'ContractAutoRenewed' => null,
         'ContractName' => null,
         'EndDate' => 'date-time',
         'Id' => 'int32',
@@ -96,7 +129,10 @@ class ClientContract extends BaseModel implements ModelWithId
         'SiteId' => 'int32',
         'UpcomingAutopayEvents' => null,
         'ContractID' => 'int32',
-        'TerminationDate' => 'date-time'
+        'TerminationDate' => 'date-time',
+        'MinimumCommitmentValue' => 'int32',
+        'MinimumCommitmentUnit' => null,
+        'MinimumCommitmentEndDate' => 'date-time'
     ];
 
 
@@ -107,8 +143,17 @@ class ClientContract extends BaseModel implements ModelWithId
      * @var string[]
      */
     protected static $attributeMap = [
+        'PayerClientId' => 'PayerClientId',
         'AgreementDate' => 'AgreementDate',
         'AutopayStatus' => 'AutopayStatus',
+        'AutoRenewing' => 'AutoRenewing',
+        'FirstAutoPay' => 'FirstAutoPay',
+        'LastAutoPay' => 'LastAutoPay',
+        'NormalAutoPay' => 'NormalAutoPay',
+        'IsMonthToMonth' => 'IsMonthToMonth',
+        'AutoRenewClientContractID' => 'AutoRenewClientContractID',
+        'ContractText' => 'ContractText',
+        'ContractAutoRenewed' => 'ContractAutoRenewed',
         'ContractName' => 'ContractName',
         'EndDate' => 'EndDate',
         'Id' => 'Id',
@@ -117,7 +162,10 @@ class ClientContract extends BaseModel implements ModelWithId
         'SiteId' => 'SiteId',
         'UpcomingAutopayEvents' => 'UpcomingAutopayEvents',
         'ContractID' => 'ContractID',
-        'TerminationDate' => 'TerminationDate'
+        'TerminationDate' => 'TerminationDate',
+        'MinimumCommitmentValue' => 'MinimumCommitmentValue',
+        'MinimumCommitmentUnit' => 'MinimumCommitmentUnit',
+        'MinimumCommitmentEndDate' => 'MinimumCommitmentEndDate'
     ];
 
     /**
@@ -126,8 +174,17 @@ class ClientContract extends BaseModel implements ModelWithId
      * @var string[]
      */
     protected static $setters = [
+        'PayerClientId' => 'setPayerClientId',
         'AgreementDate' => 'setAgreementDate',
         'AutopayStatus' => 'setAutopayStatus',
+        'AutoRenewing' => 'setAutoRenewing',
+        'FirstAutoPay' => 'setFirstAutoPay',
+        'LastAutoPay' => 'setLastAutoPay',
+        'NormalAutoPay' => 'setNormalAutoPay',
+        'IsMonthToMonth' => 'setIsMonthToMonth',
+        'AutoRenewClientContractID' => 'setAutoRenewClientContractID',
+        'ContractText' => 'setContractText',
+        'ContractAutoRenewed' => 'setContractAutoRenewed',
         'ContractName' => 'setContractName',
         'EndDate' => 'setEndDate',
         'Id' => 'setId',
@@ -136,7 +193,10 @@ class ClientContract extends BaseModel implements ModelWithId
         'SiteId' => 'setSiteId',
         'UpcomingAutopayEvents' => 'setUpcomingAutopayEvents',
         'ContractID' => 'setContractID',
-        'TerminationDate' => 'setTerminationDate'
+        'TerminationDate' => 'setTerminationDate',
+        'MinimumCommitmentValue' => 'setMinimumCommitmentValue',
+        'MinimumCommitmentUnit' => 'setMinimumCommitmentUnit',
+        'MinimumCommitmentEndDate' => 'setMinimumCommitmentEndDate'
     ];
 
     /**
@@ -145,8 +205,17 @@ class ClientContract extends BaseModel implements ModelWithId
      * @var string[]
      */
     protected static $getters = [
+        'PayerClientId' => 'getPayerClientId',
         'AgreementDate' => 'getAgreementDate',
         'AutopayStatus' => 'getAutopayStatus',
+        'AutoRenewing' => 'getAutoRenewing',
+        'FirstAutoPay' => 'getFirstAutoPay',
+        'LastAutoPay' => 'getLastAutoPay',
+        'NormalAutoPay' => 'getNormalAutoPay',
+        'IsMonthToMonth' => 'getIsMonthToMonth',
+        'AutoRenewClientContractID' => 'getAutoRenewClientContractID',
+        'ContractText' => 'getContractText',
+        'ContractAutoRenewed' => 'getContractAutoRenewed',
         'ContractName' => 'getContractName',
         'EndDate' => 'getEndDate',
         'Id' => 'getId',
@@ -155,13 +224,19 @@ class ClientContract extends BaseModel implements ModelWithId
         'SiteId' => 'getSiteId',
         'UpcomingAutopayEvents' => 'getUpcomingAutopayEvents',
         'ContractID' => 'getContractID',
-        'TerminationDate' => 'getTerminationDate'
+        'TerminationDate' => 'getTerminationDate',
+        'MinimumCommitmentValue' => 'getMinimumCommitmentValue',
+        'MinimumCommitmentUnit' => 'getMinimumCommitmentUnit',
+        'MinimumCommitmentEndDate' => 'getMinimumCommitmentEndDate'
     ];
 
 
     const AUTOPAY_STATUS_ACTIVE = 'Active';
     const AUTOPAY_STATUS_INACTIVE = 'Inactive';
     const AUTOPAY_STATUS_SUSPENDED = 'Suspended';
+    const MINIMUM_COMMITMENT_UNIT_WEEKS = 'Weeks';
+    const MINIMUM_COMMITMENT_UNIT_MONTHS = 'Months';
+    const MINIMUM_COMMITMENT_UNIT_YEARS = 'Years';
     
 
     
@@ -179,6 +254,20 @@ class ClientContract extends BaseModel implements ModelWithId
         ];
     }
     
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getMinimumCommitmentUnitAllowableValues(): array
+    {
+        return [
+            self::MINIMUM_COMMITMENT_UNIT_WEEKS,
+            self::MINIMUM_COMMITMENT_UNIT_MONTHS,
+            self::MINIMUM_COMMITMENT_UNIT_YEARS,
+        ];
+    }
+    
 
     /**
      * Constructor
@@ -188,8 +277,17 @@ class ClientContract extends BaseModel implements ModelWithId
      */
     public function __construct(array $data = null)
     {
+        $this->container['PayerClientId'] = isset($data['PayerClientId']) ? $data['PayerClientId'] : null;
         $this->container['AgreementDate'] = isset($data['AgreementDate']) ? $data['AgreementDate'] : null;
         $this->container['AutopayStatus'] = isset($data['AutopayStatus']) ? $data['AutopayStatus'] : null;
+        $this->container['AutoRenewing'] = isset($data['AutoRenewing']) ? $data['AutoRenewing'] : null;
+        $this->container['FirstAutoPay'] = isset($data['FirstAutoPay']) ? $data['FirstAutoPay'] : null;
+        $this->container['LastAutoPay'] = isset($data['LastAutoPay']) ? $data['LastAutoPay'] : null;
+        $this->container['NormalAutoPay'] = isset($data['NormalAutoPay']) ? $data['NormalAutoPay'] : null;
+        $this->container['IsMonthToMonth'] = isset($data['IsMonthToMonth']) ? $data['IsMonthToMonth'] : null;
+        $this->container['AutoRenewClientContractID'] = isset($data['AutoRenewClientContractID']) ? $data['AutoRenewClientContractID'] : null;
+        $this->container['ContractText'] = isset($data['ContractText']) ? $data['ContractText'] : null;
+        $this->container['ContractAutoRenewed'] = isset($data['ContractAutoRenewed']) ? $data['ContractAutoRenewed'] : null;
         $this->container['ContractName'] = isset($data['ContractName']) ? $data['ContractName'] : null;
         $this->container['EndDate'] = isset($data['EndDate']) ? $data['EndDate'] : null;
         $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
@@ -199,6 +297,9 @@ class ClientContract extends BaseModel implements ModelWithId
         $this->container['UpcomingAutopayEvents'] = isset($data['UpcomingAutopayEvents']) ? $data['UpcomingAutopayEvents'] : null;
         $this->container['ContractID'] = isset($data['ContractID']) ? $data['ContractID'] : null;
         $this->container['TerminationDate'] = isset($data['TerminationDate']) ? $data['TerminationDate'] : null;
+        $this->container['MinimumCommitmentValue'] = isset($data['MinimumCommitmentValue']) ? $data['MinimumCommitmentValue'] : null;
+        $this->container['MinimumCommitmentUnit'] = isset($data['MinimumCommitmentUnit']) ? $data['MinimumCommitmentUnit'] : null;
+        $this->container['MinimumCommitmentEndDate'] = isset($data['MinimumCommitmentEndDate']) ? $data['MinimumCommitmentEndDate'] : null;
     }
 
     /**
@@ -218,9 +319,41 @@ class ClientContract extends BaseModel implements ModelWithId
             );
         }
 
+        $allowedValues = $this->getMinimumCommitmentUnitAllowableValues();
+        if (!is_null($this->container['MinimumCommitmentUnit']) && !in_array($this->container['MinimumCommitmentUnit'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'MinimumCommitmentUnit', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
+
+    /**
+     * Gets PayerClientId
+     *
+     * @return int
+     */
+    public function getPayerClientId()
+    {
+        return $this->container['PayerClientId'];
+    }
+
+    /**
+     * Sets PayerClientId
+     *
+     * @param int $PayerClientId The ID of the client who holds the contract.
+     *
+     * @return $this
+     */
+    public function setPayerClientId($PayerClientId): self
+    {
+        $this->container['PayerClientId'] = $PayerClientId;
+
+        return $this;
+    }
 
     /**
      * Gets AgreementDate
@@ -275,6 +408,198 @@ class ClientContract extends BaseModel implements ModelWithId
             );
         }
         $this->container['AutopayStatus'] = $AutopayStatus;
+
+        return $this;
+    }
+
+    /**
+     * Gets AutoRenewing
+     *
+     * @return bool
+     */
+    public function getAutoRenewing()
+    {
+        return $this->container['AutoRenewing'];
+    }
+
+    /**
+     * Sets AutoRenewing
+     *
+     * @param bool $AutoRenewing Determines if the contract is auto-renewing.
+     *
+     * @return $this
+     */
+    public function setAutoRenewing($AutoRenewing): self
+    {
+        $this->container['AutoRenewing'] = $AutoRenewing;
+
+        return $this;
+    }
+
+    /**
+     * Gets FirstAutoPay
+     *
+     * @return double
+     */
+    public function getFirstAutoPay()
+    {
+        return $this->container['FirstAutoPay'];
+    }
+
+    /**
+     * Sets FirstAutoPay
+     *
+     * @param double $FirstAutoPay The amount of the first autopay transaction.
+     *
+     * @return $this
+     */
+    public function setFirstAutoPay($FirstAutoPay): self
+    {
+        $this->container['FirstAutoPay'] = $FirstAutoPay;
+
+        return $this;
+    }
+
+    /**
+     * Gets LastAutoPay
+     *
+     * @return double
+     */
+    public function getLastAutoPay()
+    {
+        return $this->container['LastAutoPay'];
+    }
+
+    /**
+     * Sets LastAutoPay
+     *
+     * @param double $LastAutoPay The amount of the last autopay transaction.
+     *
+     * @return $this
+     */
+    public function setLastAutoPay($LastAutoPay): self
+    {
+        $this->container['LastAutoPay'] = $LastAutoPay;
+
+        return $this;
+    }
+
+    /**
+     * Gets NormalAutoPay
+     *
+     * @return double
+     */
+    public function getNormalAutoPay()
+    {
+        return $this->container['NormalAutoPay'];
+    }
+
+    /**
+     * Sets NormalAutoPay
+     *
+     * @param double $NormalAutoPay The amount of the normal recurring autopay transaction.
+     *
+     * @return $this
+     */
+    public function setNormalAutoPay($NormalAutoPay): self
+    {
+        $this->container['NormalAutoPay'] = $NormalAutoPay;
+
+        return $this;
+    }
+
+    /**
+     * Gets IsMonthToMonth
+     *
+     * @return bool
+     */
+    public function getIsMonthToMonth()
+    {
+        return $this->container['IsMonthToMonth'];
+    }
+
+    /**
+     * Sets IsMonthToMonth
+     *
+     * @param bool $IsMonthToMonth Indicates if the contract renews on a month-to-month basis.
+     *
+     * @return $this
+     */
+    public function setIsMonthToMonth($IsMonthToMonth): self
+    {
+        $this->container['IsMonthToMonth'] = $IsMonthToMonth;
+
+        return $this;
+    }
+
+    /**
+     * Gets AutoRenewClientContractID
+     *
+     * @return int
+     */
+    public function getAutoRenewClientContractID()
+    {
+        return $this->container['AutoRenewClientContractID'];
+    }
+
+    /**
+     * Sets AutoRenewClientContractID
+     *
+     * @param int $AutoRenewClientContractID The ID of the contract that this one auto-renews from.
+     *
+     * @return $this
+     */
+    public function setAutoRenewClientContractID($AutoRenewClientContractID): self
+    {
+        $this->container['AutoRenewClientContractID'] = $AutoRenewClientContractID;
+
+        return $this;
+    }
+
+    /**
+     * Gets ContractText
+     *
+     * @return string
+     */
+    public function getContractText()
+    {
+        return $this->container['ContractText'];
+    }
+
+    /**
+     * Sets ContractText
+     *
+     * @param string $ContractText The full text of the contract.
+     *
+     * @return $this
+     */
+    public function setContractText($ContractText): self
+    {
+        $this->container['ContractText'] = $ContractText;
+
+        return $this;
+    }
+
+    /**
+     * Gets ContractAutoRenewed
+     *
+     * @return bool
+     */
+    public function getContractAutoRenewed()
+    {
+        return $this->container['ContractAutoRenewed'];
+    }
+
+    /**
+     * Sets ContractAutoRenewed
+     *
+     * @param bool $ContractAutoRenewed Indicates whether the contract was auto-renewed from a previous one.
+     *
+     * @return $this
+     */
+    public function setContractAutoRenewed($ContractAutoRenewed): self
+    {
+        $this->container['ContractAutoRenewed'] = $ContractAutoRenewed;
 
         return $this;
     }
@@ -460,7 +785,7 @@ class ClientContract extends BaseModel implements ModelWithId
     /**
      * Sets ContractID
      *
-     * @param int $ContractID The ID of the contract
+     * @param int $ContractID The ID of the contract.
      *
      * @return $this
      */
@@ -491,6 +816,87 @@ class ClientContract extends BaseModel implements ModelWithId
     public function setTerminationDate($TerminationDate): self
     {
         $this->container['TerminationDate'] = $TerminationDate;
+
+        return $this;
+    }
+
+    /**
+     * Gets MinimumCommitmentValue
+     *
+     * @return int
+     */
+    public function getMinimumCommitmentValue()
+    {
+        return $this->container['MinimumCommitmentValue'];
+    }
+
+    /**
+     * Sets MinimumCommitmentValue
+     *
+     * @param int $MinimumCommitmentValue Minimum commitment value.
+     *
+     * @return $this
+     */
+    public function setMinimumCommitmentValue($MinimumCommitmentValue): self
+    {
+        $this->container['MinimumCommitmentValue'] = $MinimumCommitmentValue;
+
+        return $this;
+    }
+
+    /**
+     * Gets MinimumCommitmentUnit
+     *
+     * @return string
+     */
+    public function getMinimumCommitmentUnit()
+    {
+        return $this->container['MinimumCommitmentUnit'];
+    }
+
+    /**
+     * Sets MinimumCommitmentUnit
+     *
+     * @param string $MinimumCommitmentUnit Minimum commitment unit type.
+     *
+     * @return $this
+     */
+    public function setMinimumCommitmentUnit($MinimumCommitmentUnit): self
+    {
+        $allowedValues = $this->getMinimumCommitmentUnitAllowableValues();
+        if (!is_null($MinimumCommitmentUnit) && !in_array($MinimumCommitmentUnit, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'MinimumCommitmentUnit', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['MinimumCommitmentUnit'] = $MinimumCommitmentUnit;
+
+        return $this;
+    }
+
+    /**
+     * Gets MinimumCommitmentEndDate
+     *
+     * @return \DateTime
+     */
+    public function getMinimumCommitmentEndDate()
+    {
+        return $this->container['MinimumCommitmentEndDate'];
+    }
+
+    /**
+     * Sets MinimumCommitmentEndDate
+     *
+     * @param \DateTime $MinimumCommitmentEndDate The earliest date a contract termination can take effect if a minimum commitment applies.  This represents the last day the client is obligated to remain on the contract.  Returned even if the commitment has already been fulfilled.
+     *
+     * @return $this
+     */
+    public function setMinimumCommitmentEndDate($MinimumCommitmentEndDate): self
+    {
+        $this->container['MinimumCommitmentEndDate'] = $MinimumCommitmentEndDate;
 
         return $this;
     }

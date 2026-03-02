@@ -926,6 +926,285 @@ class AppointmentApi implements ApiInterface
     }
 
     /**
+     * Operation appointmentAddMultipleAppointments
+     *
+     * Book multiple appointments (deprecated).
+     *
+     * @param  \Nlocascio\Mindbody\Model\AddMultipleAppointmentsRequest $Request Request (required)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Nlocascio\Mindbody\Model\AddMultipleAppointmentsResponse
+     */
+    public function appointmentAddMultipleAppointments($Request): \Nlocascio\Mindbody\Model\AddMultipleAppointmentsResponse
+    {
+        list($response) = $this->appointmentAddMultipleAppointmentsWithHttpInfo($Request);
+        return $response;
+    }
+
+    /**
+     * Operation appointmentAddMultipleAppointmentsWithHttpInfo
+     *
+     * Book multiple appointments (deprecated).
+     *
+     * @param  \Nlocascio\Mindbody\Model\AddMultipleAppointmentsRequest $Request (required)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Nlocascio\Mindbody\Model\AddMultipleAppointmentsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function appointmentAddMultipleAppointmentsWithHttpInfo($Request): array
+    {
+        $returnType = '\Nlocascio\Mindbody\Model\AddMultipleAppointmentsResponse';
+        $request = $this->appointmentAddMultipleAppointmentsRequest($Request);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Nlocascio\Mindbody\Model\AddMultipleAppointmentsResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation appointmentAddMultipleAppointmentsAsync
+     *
+     * Book multiple appointments (deprecated).
+     *
+     * @param  \Nlocascio\Mindbody\Model\AddMultipleAppointmentsRequest $Request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function appointmentAddMultipleAppointmentsAsync($Request): \GuzzleHttp\Promise\PromiseInterface
+    {
+        return $this->appointmentAddMultipleAppointmentsAsyncWithHttpInfo($Request)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation appointmentAddMultipleAppointmentsAsyncWithHttpInfo
+     *
+     * Book multiple appointments (deprecated).
+     *
+     * @param  \Nlocascio\Mindbody\Model\AddMultipleAppointmentsRequest $Request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function appointmentAddMultipleAppointmentsAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
+    {
+        $returnType = '\Nlocascio\Mindbody\Model\AddMultipleAppointmentsResponse';
+        $request = $this->appointmentAddMultipleAppointmentsRequest($Request);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'appointmentAddMultipleAppointments'
+     *
+     * @param  \Nlocascio\Mindbody\Model\AddMultipleAppointmentsRequest $Request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function appointmentAddMultipleAppointmentsRequest($Request): \GuzzleHttp\Psr7\Request
+    {
+        // verify the required parameter 'Request' is set
+        if ($Request === null || (is_array($Request) && count($Request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $Request when calling appointmentAddMultipleAppointments'
+            );
+        }
+
+        $resourcePath = '/public/v6/appointment/addmultipleappointments';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // body params
+        $_tempBody = null;
+        if (isset($Request)) {
+            $_tempBody = $Request;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = Utils::jsonEncode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = Utils::jsonEncode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
+        if ($apiKey !== null) {
+            $headers['API-Key'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('authorization');
+        if ($apiKey !== null) {
+            $headers['authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('siteId');
+        if ($apiKey !== null) {
+            $headers['siteId'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation appointmentDeleteAppointmentAddOn
      *
      * Early Cancel/Remove an Appointment Add-On
@@ -2618,6 +2897,7 @@ class AppointmentApi implements ApiInterface
      * @param  int $RequestAppointmentId If provided, filters out the appointment with this ID. (optional)
      * @param  \DateTime $RequestEndDate The end date of the requested date range.   &lt;br /&gt;Default: **StartDate** (optional)
      * @param  bool $RequestIgnoreDefaultSessionLength When &#x60;true&#x60;, availabilities that are non-default return, for example, a 30-minute availability with a 60-minute default session length.&lt;br /&gt;  When &#x60;false&#x60;, only availabilities that have the default session length return. (optional)
+     * @param  bool $RequestIncludeResourceAvailability When &#x60;true&#x60;, resource availabilities for the session type are returned.&lt;br /&gt;  When &#x60;false&#x60;, resource availabilities are not returned default. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int[] $RequestLocationIds A list of the requested location IDs. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
@@ -2628,9 +2908,9 @@ class AppointmentApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetBookableItemsResponse
      */
-    public function appointmentGetBookableItems($RequestSessionTypeIds, $RequestAppointmentId = null, $RequestEndDate = null, $RequestIgnoreDefaultSessionLength = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null): \Nlocascio\Mindbody\Model\GetBookableItemsResponse
+    public function appointmentGetBookableItems($RequestSessionTypeIds, $RequestAppointmentId = null, $RequestEndDate = null, $RequestIgnoreDefaultSessionLength = null, $RequestIncludeResourceAvailability = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null): \Nlocascio\Mindbody\Model\GetBookableItemsResponse
     {
-        list($response) = $this->appointmentGetBookableItemsWithHttpInfo($RequestSessionTypeIds, $RequestAppointmentId, $RequestEndDate, $RequestIgnoreDefaultSessionLength, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestStaffIds, $RequestStartDate);
+        list($response) = $this->appointmentGetBookableItemsWithHttpInfo($RequestSessionTypeIds, $RequestAppointmentId, $RequestEndDate, $RequestIgnoreDefaultSessionLength, $RequestIncludeResourceAvailability, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestStaffIds, $RequestStartDate);
         return $response;
     }
 
@@ -2643,6 +2923,7 @@ class AppointmentApi implements ApiInterface
      * @param  int $RequestAppointmentId If provided, filters out the appointment with this ID. (optional)
      * @param  \DateTime $RequestEndDate The end date of the requested date range.   &lt;br /&gt;Default: **StartDate** (optional)
      * @param  bool $RequestIgnoreDefaultSessionLength When &#x60;true&#x60;, availabilities that are non-default return, for example, a 30-minute availability with a 60-minute default session length.&lt;br /&gt;  When &#x60;false&#x60;, only availabilities that have the default session length return. (optional)
+     * @param  bool $RequestIncludeResourceAvailability When &#x60;true&#x60;, resource availabilities for the session type are returned.&lt;br /&gt;  When &#x60;false&#x60;, resource availabilities are not returned default. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int[] $RequestLocationIds A list of the requested location IDs. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
@@ -2653,10 +2934,10 @@ class AppointmentApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetBookableItemsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function appointmentGetBookableItemsWithHttpInfo($RequestSessionTypeIds, $RequestAppointmentId = null, $RequestEndDate = null, $RequestIgnoreDefaultSessionLength = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null): array
+    public function appointmentGetBookableItemsWithHttpInfo($RequestSessionTypeIds, $RequestAppointmentId = null, $RequestEndDate = null, $RequestIgnoreDefaultSessionLength = null, $RequestIncludeResourceAvailability = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetBookableItemsResponse';
-        $request = $this->appointmentGetBookableItemsRequest($RequestSessionTypeIds, $RequestAppointmentId, $RequestEndDate, $RequestIgnoreDefaultSessionLength, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestStaffIds, $RequestStartDate);
+        $request = $this->appointmentGetBookableItemsRequest($RequestSessionTypeIds, $RequestAppointmentId, $RequestEndDate, $RequestIgnoreDefaultSessionLength, $RequestIncludeResourceAvailability, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestStaffIds, $RequestStartDate);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2726,6 +3007,7 @@ class AppointmentApi implements ApiInterface
      * @param  int $RequestAppointmentId If provided, filters out the appointment with this ID. (optional)
      * @param  \DateTime $RequestEndDate The end date of the requested date range.   &lt;br /&gt;Default: **StartDate** (optional)
      * @param  bool $RequestIgnoreDefaultSessionLength When &#x60;true&#x60;, availabilities that are non-default return, for example, a 30-minute availability with a 60-minute default session length.&lt;br /&gt;  When &#x60;false&#x60;, only availabilities that have the default session length return. (optional)
+     * @param  bool $RequestIncludeResourceAvailability When &#x60;true&#x60;, resource availabilities for the session type are returned.&lt;br /&gt;  When &#x60;false&#x60;, resource availabilities are not returned default. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int[] $RequestLocationIds A list of the requested location IDs. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
@@ -2735,9 +3017,9 @@ class AppointmentApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function appointmentGetBookableItemsAsync($RequestSessionTypeIds, $RequestAppointmentId = null, $RequestEndDate = null, $RequestIgnoreDefaultSessionLength = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null): \GuzzleHttp\Promise\PromiseInterface
+    public function appointmentGetBookableItemsAsync($RequestSessionTypeIds, $RequestAppointmentId = null, $RequestEndDate = null, $RequestIgnoreDefaultSessionLength = null, $RequestIncludeResourceAvailability = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null): \GuzzleHttp\Promise\PromiseInterface
     {
-        return $this->appointmentGetBookableItemsAsyncWithHttpInfo($RequestSessionTypeIds, $RequestAppointmentId, $RequestEndDate, $RequestIgnoreDefaultSessionLength, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestStaffIds, $RequestStartDate)
+        return $this->appointmentGetBookableItemsAsyncWithHttpInfo($RequestSessionTypeIds, $RequestAppointmentId, $RequestEndDate, $RequestIgnoreDefaultSessionLength, $RequestIncludeResourceAvailability, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestStaffIds, $RequestStartDate)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2754,6 +3036,7 @@ class AppointmentApi implements ApiInterface
      * @param  int $RequestAppointmentId If provided, filters out the appointment with this ID. (optional)
      * @param  \DateTime $RequestEndDate The end date of the requested date range.   &lt;br /&gt;Default: **StartDate** (optional)
      * @param  bool $RequestIgnoreDefaultSessionLength When &#x60;true&#x60;, availabilities that are non-default return, for example, a 30-minute availability with a 60-minute default session length.&lt;br /&gt;  When &#x60;false&#x60;, only availabilities that have the default session length return. (optional)
+     * @param  bool $RequestIncludeResourceAvailability When &#x60;true&#x60;, resource availabilities for the session type are returned.&lt;br /&gt;  When &#x60;false&#x60;, resource availabilities are not returned default. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int[] $RequestLocationIds A list of the requested location IDs. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
@@ -2763,10 +3046,10 @@ class AppointmentApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function appointmentGetBookableItemsAsyncWithHttpInfo($RequestSessionTypeIds, $RequestAppointmentId = null, $RequestEndDate = null, $RequestIgnoreDefaultSessionLength = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null): \GuzzleHttp\Promise\PromiseInterface
+    public function appointmentGetBookableItemsAsyncWithHttpInfo($RequestSessionTypeIds, $RequestAppointmentId = null, $RequestEndDate = null, $RequestIgnoreDefaultSessionLength = null, $RequestIncludeResourceAvailability = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetBookableItemsResponse';
-        $request = $this->appointmentGetBookableItemsRequest($RequestSessionTypeIds, $RequestAppointmentId, $RequestEndDate, $RequestIgnoreDefaultSessionLength, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestStaffIds, $RequestStartDate);
+        $request = $this->appointmentGetBookableItemsRequest($RequestSessionTypeIds, $RequestAppointmentId, $RequestEndDate, $RequestIgnoreDefaultSessionLength, $RequestIncludeResourceAvailability, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestStaffIds, $RequestStartDate);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2812,6 +3095,7 @@ class AppointmentApi implements ApiInterface
      * @param  int $RequestAppointmentId If provided, filters out the appointment with this ID. (optional)
      * @param  \DateTime $RequestEndDate The end date of the requested date range.   &lt;br /&gt;Default: **StartDate** (optional)
      * @param  bool $RequestIgnoreDefaultSessionLength When &#x60;true&#x60;, availabilities that are non-default return, for example, a 30-minute availability with a 60-minute default session length.&lt;br /&gt;  When &#x60;false&#x60;, only availabilities that have the default session length return. (optional)
+     * @param  bool $RequestIncludeResourceAvailability When &#x60;true&#x60;, resource availabilities for the session type are returned.&lt;br /&gt;  When &#x60;false&#x60;, resource availabilities are not returned default. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int[] $RequestLocationIds A list of the requested location IDs. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
@@ -2821,7 +3105,7 @@ class AppointmentApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function appointmentGetBookableItemsRequest($RequestSessionTypeIds, $RequestAppointmentId = null, $RequestEndDate = null, $RequestIgnoreDefaultSessionLength = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null): \GuzzleHttp\Psr7\Request
+    protected function appointmentGetBookableItemsRequest($RequestSessionTypeIds, $RequestAppointmentId = null, $RequestEndDate = null, $RequestIgnoreDefaultSessionLength = null, $RequestIncludeResourceAvailability = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'RequestSessionTypeIds' is set
         if ($RequestSessionTypeIds === null || (is_array($RequestSessionTypeIds) && count($RequestSessionTypeIds) === 0)) {
@@ -2848,6 +3132,10 @@ class AppointmentApi implements ApiInterface
         // query params
         if ($RequestIgnoreDefaultSessionLength !== null) {
             $queryParams['request.ignoreDefaultSessionLength'] = ObjectSerializer::toQueryValue($RequestIgnoreDefaultSessionLength);
+        }
+        // query params
+        if ($RequestIncludeResourceAvailability !== null) {
+            $queryParams['request.includeResourceAvailability'] = ObjectSerializer::toQueryValue($RequestIncludeResourceAvailability);
         }
         // query params
         if ($RequestLimit !== null) {
@@ -3316,15 +3604,16 @@ class AppointmentApi implements ApiInterface
      * @param  int[] $RequestLocationIds A list of the requested location IDs. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  int[] $RequestStaffIds List of staff IDs to be returned. Omit parameter to return staff appointments for all staff. (optional)
-     * @param  \DateTime $RequestStartDate The start date of the requested date range. If omitted, the default is used.   &lt;br /&gt;Default: **today’s date** (optional)
+     * @param  \DateTime $RequestStartDate The start date of the requested date range. If omitted, the default is used.   &lt;br /&gt;Default: **today&#39;s date** (optional)
+     * @param  bool $RequestUseSiteSettingsStaffName When &#x60;true&#x60;, the staff DisplayName will be populated based on site-level settings.  When &#x60;false&#x60; or omitted, the staff DisplayName will contain only the FirstName. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetStaffAppointmentsResponse
      */
-    public function appointmentGetStaffAppointments($RequestAppointmentIds = null, $RequestClientId = null, $RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null): \Nlocascio\Mindbody\Model\GetStaffAppointmentsResponse
+    public function appointmentGetStaffAppointments($RequestAppointmentIds = null, $RequestClientId = null, $RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null, $RequestUseSiteSettingsStaffName = null): \Nlocascio\Mindbody\Model\GetStaffAppointmentsResponse
     {
-        list($response) = $this->appointmentGetStaffAppointmentsWithHttpInfo($RequestAppointmentIds, $RequestClientId, $RequestEndDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestStaffIds, $RequestStartDate);
+        list($response) = $this->appointmentGetStaffAppointmentsWithHttpInfo($RequestAppointmentIds, $RequestClientId, $RequestEndDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestStaffIds, $RequestStartDate, $RequestUseSiteSettingsStaffName);
         return $response;
     }
 
@@ -3340,16 +3629,17 @@ class AppointmentApi implements ApiInterface
      * @param  int[] $RequestLocationIds A list of the requested location IDs. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  int[] $RequestStaffIds List of staff IDs to be returned. Omit parameter to return staff appointments for all staff. (optional)
-     * @param  \DateTime $RequestStartDate The start date of the requested date range. If omitted, the default is used.   &lt;br /&gt;Default: **today’s date** (optional)
+     * @param  \DateTime $RequestStartDate The start date of the requested date range. If omitted, the default is used.   &lt;br /&gt;Default: **today&#39;s date** (optional)
+     * @param  bool $RequestUseSiteSettingsStaffName When &#x60;true&#x60;, the staff DisplayName will be populated based on site-level settings.  When &#x60;false&#x60; or omitted, the staff DisplayName will contain only the FirstName. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetStaffAppointmentsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function appointmentGetStaffAppointmentsWithHttpInfo($RequestAppointmentIds = null, $RequestClientId = null, $RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null): array
+    public function appointmentGetStaffAppointmentsWithHttpInfo($RequestAppointmentIds = null, $RequestClientId = null, $RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null, $RequestUseSiteSettingsStaffName = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetStaffAppointmentsResponse';
-        $request = $this->appointmentGetStaffAppointmentsRequest($RequestAppointmentIds, $RequestClientId, $RequestEndDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestStaffIds, $RequestStartDate);
+        $request = $this->appointmentGetStaffAppointmentsRequest($RequestAppointmentIds, $RequestClientId, $RequestEndDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestStaffIds, $RequestStartDate, $RequestUseSiteSettingsStaffName);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3422,14 +3712,15 @@ class AppointmentApi implements ApiInterface
      * @param  int[] $RequestLocationIds A list of the requested location IDs. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  int[] $RequestStaffIds List of staff IDs to be returned. Omit parameter to return staff appointments for all staff. (optional)
-     * @param  \DateTime $RequestStartDate The start date of the requested date range. If omitted, the default is used.   &lt;br /&gt;Default: **today’s date** (optional)
+     * @param  \DateTime $RequestStartDate The start date of the requested date range. If omitted, the default is used.   &lt;br /&gt;Default: **today&#39;s date** (optional)
+     * @param  bool $RequestUseSiteSettingsStaffName When &#x60;true&#x60;, the staff DisplayName will be populated based on site-level settings.  When &#x60;false&#x60; or omitted, the staff DisplayName will contain only the FirstName. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function appointmentGetStaffAppointmentsAsync($RequestAppointmentIds = null, $RequestClientId = null, $RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null): \GuzzleHttp\Promise\PromiseInterface
+    public function appointmentGetStaffAppointmentsAsync($RequestAppointmentIds = null, $RequestClientId = null, $RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null, $RequestUseSiteSettingsStaffName = null): \GuzzleHttp\Promise\PromiseInterface
     {
-        return $this->appointmentGetStaffAppointmentsAsyncWithHttpInfo($RequestAppointmentIds, $RequestClientId, $RequestEndDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestStaffIds, $RequestStartDate)
+        return $this->appointmentGetStaffAppointmentsAsyncWithHttpInfo($RequestAppointmentIds, $RequestClientId, $RequestEndDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestStaffIds, $RequestStartDate, $RequestUseSiteSettingsStaffName)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3449,15 +3740,16 @@ class AppointmentApi implements ApiInterface
      * @param  int[] $RequestLocationIds A list of the requested location IDs. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  int[] $RequestStaffIds List of staff IDs to be returned. Omit parameter to return staff appointments for all staff. (optional)
-     * @param  \DateTime $RequestStartDate The start date of the requested date range. If omitted, the default is used.   &lt;br /&gt;Default: **today’s date** (optional)
+     * @param  \DateTime $RequestStartDate The start date of the requested date range. If omitted, the default is used.   &lt;br /&gt;Default: **today&#39;s date** (optional)
+     * @param  bool $RequestUseSiteSettingsStaffName When &#x60;true&#x60;, the staff DisplayName will be populated based on site-level settings.  When &#x60;false&#x60; or omitted, the staff DisplayName will contain only the FirstName. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function appointmentGetStaffAppointmentsAsyncWithHttpInfo($RequestAppointmentIds = null, $RequestClientId = null, $RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null): \GuzzleHttp\Promise\PromiseInterface
+    public function appointmentGetStaffAppointmentsAsyncWithHttpInfo($RequestAppointmentIds = null, $RequestClientId = null, $RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null, $RequestUseSiteSettingsStaffName = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetStaffAppointmentsResponse';
-        $request = $this->appointmentGetStaffAppointmentsRequest($RequestAppointmentIds, $RequestClientId, $RequestEndDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestStaffIds, $RequestStartDate);
+        $request = $this->appointmentGetStaffAppointmentsRequest($RequestAppointmentIds, $RequestClientId, $RequestEndDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestStaffIds, $RequestStartDate, $RequestUseSiteSettingsStaffName);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3506,12 +3798,13 @@ class AppointmentApi implements ApiInterface
      * @param  int[] $RequestLocationIds A list of the requested location IDs. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  int[] $RequestStaffIds List of staff IDs to be returned. Omit parameter to return staff appointments for all staff. (optional)
-     * @param  \DateTime $RequestStartDate The start date of the requested date range. If omitted, the default is used.   &lt;br /&gt;Default: **today’s date** (optional)
+     * @param  \DateTime $RequestStartDate The start date of the requested date range. If omitted, the default is used.   &lt;br /&gt;Default: **today&#39;s date** (optional)
+     * @param  bool $RequestUseSiteSettingsStaffName When &#x60;true&#x60;, the staff DisplayName will be populated based on site-level settings.  When &#x60;false&#x60; or omitted, the staff DisplayName will contain only the FirstName. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function appointmentGetStaffAppointmentsRequest($RequestAppointmentIds = null, $RequestClientId = null, $RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null): \GuzzleHttp\Psr7\Request
+    protected function appointmentGetStaffAppointmentsRequest($RequestAppointmentIds = null, $RequestClientId = null, $RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null, $RequestUseSiteSettingsStaffName = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/appointment/staffappointments';
@@ -3561,6 +3854,10 @@ class AppointmentApi implements ApiInterface
         // query params
         if ($RequestStartDate !== null) {
             $queryParams['request.startDate'] = ObjectSerializer::toQueryValue($RequestStartDate);
+        }
+        // query params
+        if ($RequestUseSiteSettingsStaffName !== null) {
+            $queryParams['request.useSiteSettingsStaffName'] = ObjectSerializer::toQueryValue($RequestUseSiteSettingsStaffName);
         }
 
 

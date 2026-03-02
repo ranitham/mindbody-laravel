@@ -44,7 +44,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property \DateTime $OriginalSaleDateTime The date and time the item was sold originally.
  * @property int $SalesRepId The sales representative ID
  * @property string $ClientId The ID of the client who made the purchase.
- * @property int $RecipientClientId Recipient Client Id
+ * @property int $RecipientClientId Recipient Client Id.  Note: This field will be deprecated in a future release.  This information will live inside the `PurchasedItems` list instead, since items can be purchased to different recipients.
  * @property \Nlocascio\Mindbody\Model\PurchasedItem[] $PurchasedItems Contains the `PurchasedItem` objects that describe the purchased items.
  * @property int $LocationId The ID of the location where the sale takes place.
  * @property \Nlocascio\Mindbody\Model\SalePayment[] $Payments Contains the `SalePayment` objects that describe the payments that contributed to this sale.
@@ -378,7 +378,7 @@ class Sale extends BaseModel implements ModelWithId
     /**
      * Sets RecipientClientId
      *
-     * @param int $RecipientClientId Recipient Client Id
+     * @param int $RecipientClientId Recipient Client Id.  Note: This field will be deprecated in a future release.  This information will live inside the `PurchasedItems` list instead, since items can be purchased to different recipients.
      *
      * @return $this
      */

@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ClientId** | **string** | ClientId | [optional] 
+**UniqueId** | **int** | UniqeuId | [optional] 
 **SiteId** | **int** | SiteId | [optional] 
 **FirstName** | **string** | First name of ClientId | [optional] 
 **LastName** | **string** | Last name of ClientId | [optional] 

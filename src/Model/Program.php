@@ -42,6 +42,8 @@ namespace Nlocascio\Mindbody\Model;
  * @property string $ScheduleType ScheduleType
  * @property string $ContentFormat ContentFormat
  * @property bool $OnlineBookingDisabled OnlineBookingDisabled
+ * @property int $ScheduleOffset ScheduleOffset
+ * @property int $ScheduleOffsetEnd ScheduleOffsetEnd
  * @property \Nlocascio\Mindbody\Model\PricingRelationships $PricingRelationships PricingRelationships
  *
  */
@@ -68,6 +70,8 @@ class Program extends BaseModel implements ModelWithId
         'ScheduleType' => 'string',
         'ContentFormat' => 'string',
         'OnlineBookingDisabled' => 'bool',
+        'ScheduleOffset' => 'int',
+        'ScheduleOffsetEnd' => 'int',
         'PricingRelationships' => '\Nlocascio\Mindbody\Model\PricingRelationships'
     ];
 
@@ -83,6 +87,8 @@ class Program extends BaseModel implements ModelWithId
         'ScheduleType' => null,
         'ContentFormat' => null,
         'OnlineBookingDisabled' => null,
+        'ScheduleOffset' => 'int32',
+        'ScheduleOffsetEnd' => 'int32',
         'PricingRelationships' => null
     ];
 
@@ -100,6 +106,8 @@ class Program extends BaseModel implements ModelWithId
         'ScheduleType' => 'ScheduleType',
         'ContentFormat' => 'ContentFormat',
         'OnlineBookingDisabled' => 'OnlineBookingDisabled',
+        'ScheduleOffset' => 'ScheduleOffset',
+        'ScheduleOffsetEnd' => 'ScheduleOffsetEnd',
         'PricingRelationships' => 'PricingRelationships'
     ];
 
@@ -115,6 +123,8 @@ class Program extends BaseModel implements ModelWithId
         'ScheduleType' => 'setScheduleType',
         'ContentFormat' => 'setContentFormat',
         'OnlineBookingDisabled' => 'setOnlineBookingDisabled',
+        'ScheduleOffset' => 'setScheduleOffset',
+        'ScheduleOffsetEnd' => 'setScheduleOffsetEnd',
         'PricingRelationships' => 'setPricingRelationships'
     ];
 
@@ -130,6 +140,8 @@ class Program extends BaseModel implements ModelWithId
         'ScheduleType' => 'getScheduleType',
         'ContentFormat' => 'getContentFormat',
         'OnlineBookingDisabled' => 'getOnlineBookingDisabled',
+        'ScheduleOffset' => 'getScheduleOffset',
+        'ScheduleOffsetEnd' => 'getScheduleOffsetEnd',
         'PricingRelationships' => 'getPricingRelationships'
     ];
 
@@ -196,6 +208,8 @@ class Program extends BaseModel implements ModelWithId
         $this->container['ScheduleType'] = isset($data['ScheduleType']) ? $data['ScheduleType'] : null;
         $this->container['ContentFormat'] = isset($data['ContentFormat']) ? $data['ContentFormat'] : null;
         $this->container['OnlineBookingDisabled'] = isset($data['OnlineBookingDisabled']) ? $data['OnlineBookingDisabled'] : null;
+        $this->container['ScheduleOffset'] = isset($data['ScheduleOffset']) ? $data['ScheduleOffset'] : null;
+        $this->container['ScheduleOffsetEnd'] = isset($data['ScheduleOffsetEnd']) ? $data['ScheduleOffsetEnd'] : null;
         $this->container['PricingRelationships'] = isset($data['PricingRelationships']) ? $data['PricingRelationships'] : null;
     }
 
@@ -386,6 +400,54 @@ class Program extends BaseModel implements ModelWithId
     public function setOnlineBookingDisabled($OnlineBookingDisabled): self
     {
         $this->container['OnlineBookingDisabled'] = $OnlineBookingDisabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets ScheduleOffset
+     *
+     * @return int
+     */
+    public function getScheduleOffset()
+    {
+        return $this->container['ScheduleOffset'];
+    }
+
+    /**
+     * Sets ScheduleOffset
+     *
+     * @param int $ScheduleOffset ScheduleOffset
+     *
+     * @return $this
+     */
+    public function setScheduleOffset($ScheduleOffset): self
+    {
+        $this->container['ScheduleOffset'] = $ScheduleOffset;
+
+        return $this;
+    }
+
+    /**
+     * Gets ScheduleOffsetEnd
+     *
+     * @return int
+     */
+    public function getScheduleOffsetEnd()
+    {
+        return $this->container['ScheduleOffsetEnd'];
+    }
+
+    /**
+     * Sets ScheduleOffsetEnd
+     *
+     * @param int $ScheduleOffsetEnd ScheduleOffsetEnd
+     *
+     * @return $this
+     */
+    public function setScheduleOffsetEnd($ScheduleOffsetEnd): self
+    {
+        $this->container['ScheduleOffsetEnd'] = $ScheduleOffsetEnd;
 
         return $this;
     }

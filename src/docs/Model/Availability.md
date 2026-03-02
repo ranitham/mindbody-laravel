@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **FinishTime** | **int** | Appointment finish time | [optional] 
 **IsMasked** | **bool** |  | [optional] 
 **ShowPublic** | **bool** |  | [optional] 
+**ResourceAvailabilities** | [**\Nlocascio\Mindbody\Model\ResourceAvailability[]**](ResourceAvailability.md) | List of resource availabilities that can be booked with this session type. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

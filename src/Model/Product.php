@@ -33,6 +33,7 @@ namespace Nlocascio\Mindbody\Model;
  * Product Class Doc Comment
  *
  * @category Class
+ * @description Represents a product.
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -40,6 +41,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property string $Id The barcode number of the product. This is the `PurchasedItems[].BarcodeId` returned from GET Sales.
  * @property int $CategoryId The revenue category ID of the product. Use this ID when calling the GET Categories endpoint.
  * @property int $SubCategoryId The SubCategory ID of the product. Use this ID when calling the GET Categories endpoint.
+ * @property int $SecondaryCategoryId The SecondaryCategory ID of the product. Use this ID when calling the GET Categories endpoint.
  * @property double $Price The price of the product.
  * @property double $TaxIncluded If tax inclusive-pricing is enabled, this field shows how much tax was added to the price. To fetch this value `LocationId` must be passed as a query parameter.
  * @property double $TaxRate The tax rate that was applied to this purchase. To fetch this value `LocationId` must be passed as a query parameter.
@@ -78,6 +80,7 @@ class Product extends BaseModel implements ModelWithId
         'Id' => 'string',
         'CategoryId' => 'int',
         'SubCategoryId' => 'int',
+        'SecondaryCategoryId' => 'int',
         'Price' => 'double',
         'TaxIncluded' => 'double',
         'TaxRate' => 'double',
@@ -105,6 +108,7 @@ class Product extends BaseModel implements ModelWithId
         'Id' => null,
         'CategoryId' => 'int32',
         'SubCategoryId' => 'int32',
+        'SecondaryCategoryId' => 'int32',
         'Price' => 'double',
         'TaxIncluded' => 'double',
         'TaxRate' => 'double',
@@ -134,6 +138,7 @@ class Product extends BaseModel implements ModelWithId
         'Id' => 'Id',
         'CategoryId' => 'CategoryId',
         'SubCategoryId' => 'SubCategoryId',
+        'SecondaryCategoryId' => 'SecondaryCategoryId',
         'Price' => 'Price',
         'TaxIncluded' => 'TaxIncluded',
         'TaxRate' => 'TaxRate',
@@ -161,6 +166,7 @@ class Product extends BaseModel implements ModelWithId
         'Id' => 'setId',
         'CategoryId' => 'setCategoryId',
         'SubCategoryId' => 'setSubCategoryId',
+        'SecondaryCategoryId' => 'setSecondaryCategoryId',
         'Price' => 'setPrice',
         'TaxIncluded' => 'setTaxIncluded',
         'TaxRate' => 'setTaxRate',
@@ -188,6 +194,7 @@ class Product extends BaseModel implements ModelWithId
         'Id' => 'getId',
         'CategoryId' => 'getCategoryId',
         'SubCategoryId' => 'getSubCategoryId',
+        'SecondaryCategoryId' => 'getSecondaryCategoryId',
         'Price' => 'getPrice',
         'TaxIncluded' => 'getTaxIncluded',
         'TaxRate' => 'getTaxRate',
@@ -222,6 +229,7 @@ class Product extends BaseModel implements ModelWithId
         $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
         $this->container['CategoryId'] = isset($data['CategoryId']) ? $data['CategoryId'] : null;
         $this->container['SubCategoryId'] = isset($data['SubCategoryId']) ? $data['SubCategoryId'] : null;
+        $this->container['SecondaryCategoryId'] = isset($data['SecondaryCategoryId']) ? $data['SecondaryCategoryId'] : null;
         $this->container['Price'] = isset($data['Price']) ? $data['Price'] : null;
         $this->container['TaxIncluded'] = isset($data['TaxIncluded']) ? $data['TaxIncluded'] : null;
         $this->container['TaxRate'] = isset($data['TaxRate']) ? $data['TaxRate'] : null;
@@ -344,6 +352,30 @@ class Product extends BaseModel implements ModelWithId
     public function setSubCategoryId($SubCategoryId): self
     {
         $this->container['SubCategoryId'] = $SubCategoryId;
+
+        return $this;
+    }
+
+    /**
+     * Gets SecondaryCategoryId
+     *
+     * @return int
+     */
+    public function getSecondaryCategoryId()
+    {
+        return $this->container['SecondaryCategoryId'];
+    }
+
+    /**
+     * Sets SecondaryCategoryId
+     *
+     * @param int $SecondaryCategoryId The SecondaryCategory ID of the product. Use this ID when calling the GET Categories endpoint.
+     *
+     * @return $this
+     */
+    public function setSecondaryCategoryId($SecondaryCategoryId): self
+    {
+        $this->container['SecondaryCategoryId'] = $SecondaryCategoryId;
 
         return $this;
     }

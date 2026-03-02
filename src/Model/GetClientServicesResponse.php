@@ -33,11 +33,12 @@ namespace Nlocascio\Mindbody\Model;
  * GetClientServicesResponse Class Doc Comment
  *
  * @category Class
+ * @description Contains the response for the GetClientServices endpoint.
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  * @property \Nlocascio\Mindbody\Model\PaginationResponse $PaginationResponse Contains information about the pagination used.
- * @property \Nlocascio\Mindbody\Model\ClientService[] $ClientServices Contains information about client pricing options.
+ * @property \Nlocascio\Mindbody\Model\ClientServiceWithActivationType[] $ClientServices Contains information about client pricing options, including activation behavior details.  Each item includes ActivationType and CannotPayForClassesBeforeActivation fields  to help determine booking eligibility based on the pricing option's activation configuration.
  *
  */
 class GetClientServicesResponse extends BaseModel
@@ -58,7 +59,7 @@ class GetClientServicesResponse extends BaseModel
       */
     protected static $swaggerTypes = [
         'PaginationResponse' => '\Nlocascio\Mindbody\Model\PaginationResponse',
-        'ClientServices' => '\Nlocascio\Mindbody\Model\ClientService[]'
+        'ClientServices' => '\Nlocascio\Mindbody\Model\ClientServiceWithActivationType[]'
     ];
 
     /**
@@ -160,7 +161,7 @@ class GetClientServicesResponse extends BaseModel
     /**
      * Gets ClientServices
      *
-     * @return \Nlocascio\Mindbody\Model\ClientService[]
+     * @return \Nlocascio\Mindbody\Model\ClientServiceWithActivationType[]
      */
     public function getClientServices()
     {
@@ -170,7 +171,7 @@ class GetClientServicesResponse extends BaseModel
     /**
      * Sets ClientServices
      *
-     * @param \Nlocascio\Mindbody\Model\ClientService[] $ClientServices Contains information about client pricing options.
+     * @param \Nlocascio\Mindbody\Model\ClientServiceWithActivationType[] $ClientServices Contains information about client pricing options, including activation behavior details.  Each item includes ActivationType and CannotPayForClassesBeforeActivation fields  to help determine booking eligibility based on the pricing option's activation configuration.
      *
      * @return $this
      */

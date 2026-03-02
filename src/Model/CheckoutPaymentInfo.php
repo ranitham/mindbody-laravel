@@ -36,8 +36,8 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property string $Type The type of payment. Possible values are:  * CreditCard - Indicates that this payment item is a credit card.  * StoredCard - Indicates that this payment item is a credit card stored on the client’s account.  * EncryptedTrackData - Indicates that this payment item is a swiped credit card.  * TrackData - Indicates that this payment item is a swiped credit card.  * DebitAccount - Indicates that funds should be debited from the client’s account.  * Custom - Indicates that this payment item is a custom payment method configured by the business.  * Comp - Indicates that this payment item is making all or part of the cart’s total complementary.  * Cash - Indicates that this payment item is cash.  * Check - Indicates that this payment item is a check.  * GiftCard - Indicates that this payment item is a gift card.
- * @property object $Metadata Contains information about the cart’s payments. See [Payment Item Metadata](https://developers.mindbodyonline.com/PublicDocumentation/V6#payment-item-metadata) for more information.
+ * @property string $Type The type of payment. Possible values are:  * CreditCard - Indicates that this payment item is a credit card.  * StoredCard - Indicates that this payment item is a credit card stored on the client’s account.  * DirectDebit - Indicates that this payment item is a direct debit.  * EncryptedTrackData - Indicates that this payment item is a swiped credit card.  * TrackData - Indicates that this payment item is a swiped credit card.  * DebitAccount - Indicates that funds should be debited from the client’s account.  * Custom - Indicates that this payment item is a custom payment method configured by the business.  * Comp - Indicates that this payment item is making all or part of the cart’s total complementary.  * Cash - Indicates that this payment item is cash.  * Check - Indicates that this payment item is a check.  * GiftCard - Indicates that this payment item is a gift card.
+ * @property object $Metadata Contains information about the cart’s payments. Possible values vary according to the Type property, as below:  * CreditCard Keys - amount, creditCardNumber, expMonth, expYear, cvv, billingName, billingAddress, billingCity, billingState, billingPostalCode, saveInfo, cardId  * StoredCard Keys - amount, lastFour  * DirectDebit Keys - amount  * EncryptedTrackData Keys - amount, trackData  * TrackData Keys - amount, trackData  * DebitAccount Keys - amount  * Custom Keys - amount, id  * Comp Keys - amount  * Cash Keys - amount, notes  * Check Keys - amount, notes  * GiftCard - amount, notes, cardNumber
  *
  */
 class CheckoutPaymentInfo extends BaseModel
@@ -185,7 +185,7 @@ class CheckoutPaymentInfo extends BaseModel
     /**
      * Sets Type
      *
-     * @param string $Type The type of payment. Possible values are:  * CreditCard - Indicates that this payment item is a credit card.  * StoredCard - Indicates that this payment item is a credit card stored on the client’s account.  * EncryptedTrackData - Indicates that this payment item is a swiped credit card.  * TrackData - Indicates that this payment item is a swiped credit card.  * DebitAccount - Indicates that funds should be debited from the client’s account.  * Custom - Indicates that this payment item is a custom payment method configured by the business.  * Comp - Indicates that this payment item is making all or part of the cart’s total complementary.  * Cash - Indicates that this payment item is cash.  * Check - Indicates that this payment item is a check.  * GiftCard - Indicates that this payment item is a gift card.
+     * @param string $Type The type of payment. Possible values are:  * CreditCard - Indicates that this payment item is a credit card.  * StoredCard - Indicates that this payment item is a credit card stored on the client’s account.  * DirectDebit - Indicates that this payment item is a direct debit.  * EncryptedTrackData - Indicates that this payment item is a swiped credit card.  * TrackData - Indicates that this payment item is a swiped credit card.  * DebitAccount - Indicates that funds should be debited from the client’s account.  * Custom - Indicates that this payment item is a custom payment method configured by the business.  * Comp - Indicates that this payment item is making all or part of the cart’s total complementary.  * Cash - Indicates that this payment item is cash.  * Check - Indicates that this payment item is a check.  * GiftCard - Indicates that this payment item is a gift card.
      *
      * @return $this
      */
@@ -218,7 +218,7 @@ class CheckoutPaymentInfo extends BaseModel
     /**
      * Sets Metadata
      *
-     * @param object $Metadata Contains information about the cart’s payments. See [Payment Item Metadata](https://developers.mindbodyonline.com/PublicDocumentation/V6#payment-item-metadata) for more information.
+     * @param object $Metadata Contains information about the cart’s payments. Possible values vary according to the Type property, as below:  * CreditCard Keys - amount, creditCardNumber, expMonth, expYear, cvv, billingName, billingAddress, billingCity, billingState, billingPostalCode, saveInfo, cardId  * StoredCard Keys - amount, lastFour  * DirectDebit Keys - amount  * EncryptedTrackData Keys - amount, trackData  * TrackData Keys - amount, trackData  * DebitAccount Keys - amount  * Custom Keys - amount, id  * Comp Keys - amount  * Cash Keys - amount, notes  * Check Keys - amount, notes  * GiftCard - amount, notes, cardNumber
      *
      * @return $this
      */

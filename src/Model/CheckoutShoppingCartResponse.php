@@ -33,6 +33,7 @@ namespace Nlocascio\Mindbody\Model;
  * CheckoutShoppingCartResponse Class Doc Comment
  *
  * @category Class
+ * @description The API Response model for Checkout Shopping Cart APIs
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen

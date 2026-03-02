@@ -58,6 +58,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property string $TimeZone The time zone the site is located in.
  * @property bool $AcceptsDirectDebit When `true`, indicates that direct debit can be used by clients at this site.<br />  When `false`, indicates that direct debit can not by used by clients at this site.
  * @property \Nlocascio\Mindbody\Model\LeadChannel[] $LeadChannels The list of lead channels available for a subscriber/studio.
+ * @property bool $PerStaffPricing When `true`, indicates that per-staff pricing is enabled at this site.<br />  When `false`, indicates that per-staff pricing is not enabled at this site.
  *
  */
 class Site extends BaseModel implements ModelWithId
@@ -98,7 +99,8 @@ class Site extends BaseModel implements ModelWithId
         'CountryCode' => 'string',
         'TimeZone' => 'string',
         'AcceptsDirectDebit' => 'bool',
-        'LeadChannels' => '\Nlocascio\Mindbody\Model\LeadChannel[]'
+        'LeadChannels' => '\Nlocascio\Mindbody\Model\LeadChannel[]',
+        'PerStaffPricing' => 'bool'
     ];
 
     /**
@@ -128,7 +130,8 @@ class Site extends BaseModel implements ModelWithId
         'CountryCode' => null,
         'TimeZone' => null,
         'AcceptsDirectDebit' => null,
-        'LeadChannels' => null
+        'LeadChannels' => null,
+        'PerStaffPricing' => null
     ];
 
 
@@ -160,7 +163,8 @@ class Site extends BaseModel implements ModelWithId
         'CountryCode' => 'CountryCode',
         'TimeZone' => 'TimeZone',
         'AcceptsDirectDebit' => 'AcceptsDirectDebit',
-        'LeadChannels' => 'LeadChannels'
+        'LeadChannels' => 'LeadChannels',
+        'PerStaffPricing' => 'PerStaffPricing'
     ];
 
     /**
@@ -190,7 +194,8 @@ class Site extends BaseModel implements ModelWithId
         'CountryCode' => 'setCountryCode',
         'TimeZone' => 'setTimeZone',
         'AcceptsDirectDebit' => 'setAcceptsDirectDebit',
-        'LeadChannels' => 'setLeadChannels'
+        'LeadChannels' => 'setLeadChannels',
+        'PerStaffPricing' => 'setPerStaffPricing'
     ];
 
     /**
@@ -220,7 +225,8 @@ class Site extends BaseModel implements ModelWithId
         'CountryCode' => 'getCountryCode',
         'TimeZone' => 'getTimeZone',
         'AcceptsDirectDebit' => 'getAcceptsDirectDebit',
-        'LeadChannels' => 'getLeadChannels'
+        'LeadChannels' => 'getLeadChannels',
+        'PerStaffPricing' => 'getPerStaffPricing'
     ];
 
 
@@ -258,6 +264,7 @@ class Site extends BaseModel implements ModelWithId
         $this->container['TimeZone'] = isset($data['TimeZone']) ? $data['TimeZone'] : null;
         $this->container['AcceptsDirectDebit'] = isset($data['AcceptsDirectDebit']) ? $data['AcceptsDirectDebit'] : null;
         $this->container['LeadChannels'] = isset($data['LeadChannels']) ? $data['LeadChannels'] : null;
+        $this->container['PerStaffPricing'] = isset($data['PerStaffPricing']) ? $data['PerStaffPricing'] : null;
     }
 
     /**
@@ -797,6 +804,30 @@ class Site extends BaseModel implements ModelWithId
     public function setLeadChannels($LeadChannels): self
     {
         $this->container['LeadChannels'] = $LeadChannels;
+
+        return $this;
+    }
+
+    /**
+     * Gets PerStaffPricing
+     *
+     * @return bool
+     */
+    public function getPerStaffPricing()
+    {
+        return $this->container['PerStaffPricing'];
+    }
+
+    /**
+     * Sets PerStaffPricing
+     *
+     * @param bool $PerStaffPricing When `true`, indicates that per-staff pricing is enabled at this site.<br />  When `false`, indicates that per-staff pricing is not enabled at this site.
+     *
+     * @return $this
+     */
+    public function setPerStaffPricing($PerStaffPricing): self
+    {
+        $this->container['PerStaffPricing'] = $PerStaffPricing;
 
         return $this;
     }

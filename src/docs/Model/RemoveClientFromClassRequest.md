@@ -3,7 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ClientId** | **string** | The RSSID of the client to remove from the specified class. | 
+**ClientId** | **string** | The RSSID of the client to remove from the specified class. | [optional] 
+**UniqueClientId** | **int** | The Unique Id of the client to remove from the specified class  Note: you need to provide the &#39;UniqueClientId&#39; OR the &#39;ClientId&#39;. If both are provided, the &#39;UniqueClientId&#39; takes precedence. | [optional] 
 **ClassId** | **int** | The ID of the class that you want to remove the client from. | 
 **Test** | **bool** | When &#x60;true&#x60;, the request ensures that its parameters are valid without affecting real data.&lt;br /&gt;  When &#x60;false&#x60;, the request performs as intended and may affect live client data.&lt;br /&gt;  Default: **false** | [optional] 
 **SendEmail** | **bool** | When &#x60;true&#x60;, indicates that the client should be sent an email. Depending on the site and client settings, an email may or may not be sent.&lt;br /&gt;  Default: **false**  Note: When the Authorization header is passed and the SendEmail is set to &#x60;true&#x60;, then an email will be sent.  When the Authorization header is passed and the SendEmail is set to &#x60;false&#x60;, then an email will not be sent.  When the Authorization header is not passed and the SendEmail is set to either &#x60;true&#x60; or &#x60;false&#x60;, then an email will not be sent. | [optional] 

@@ -5,7 +5,9 @@ All URIs are relative to *https://api.mindbodyonline.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**saleCheckoutShoppingCart**](SaleApi.md#saleCheckoutShoppingCart) | **POST** /public/v6/sale/checkoutshoppingcart | Purchase pricing options, packages, retail products, or tips for a client.
+[**saleCompleteCheckoutShoppingCartUsingAlternativePayments**](SaleApi.md#saleCompleteCheckoutShoppingCartUsingAlternativePayments) | **POST** /public/v6/sale/completecheckoutshoppingcart | Complete the Checkout Shopping Cart process, after the payments have been made by the client.
 [**saleGetAcceptedCardTypes**](SaleApi.md#saleGetAcceptedCardTypes) | **GET** /public/v6/sale/acceptedcardtypes | Get credit cards types that a site accepts.
+[**saleGetAlternativePaymentMethods**](SaleApi.md#saleGetAlternativePaymentMethods) | **GET** /public/v6/sale/alternativepaymentmethods | Get alternative and local payment methods that are allowed for a site.
 [**saleGetContracts**](SaleApi.md#saleGetContracts) | **GET** /public/v6/sale/contracts | Get contracts available for purchase at a site.
 [**saleGetCustomPaymentMethods**](SaleApi.md#saleGetCustomPaymentMethods) | **GET** /public/v6/sale/custompaymentmethods | Get payment methods that can be used to pay for sales at a site.
 [**saleGetGiftCardBalance**](SaleApi.md#saleGetGiftCardBalance) | **GET** /public/v6/sale/giftcardbalance | Get a gift card&#39;s remaining balance.
@@ -13,10 +15,12 @@ Method | HTTP request | Description
 [**saleGetPackages**](SaleApi.md#saleGetPackages) | **GET** /public/v6/sale/packages | Get packages available for purchase at a site.
 [**saleGetProducts**](SaleApi.md#saleGetProducts) | **GET** /public/v6/sale/products | Get retail products available for purchase at a site.
 [**saleGetProductsInventory**](SaleApi.md#saleGetProductsInventory) | **GET** /public/v6/sale/productsinventory | Get retail products inventory data available at a site.
+[**saleGetPurchaseContractStatus**](SaleApi.md#saleGetPurchaseContractStatus) | **GET** /public/v6/sale/purchasecontractstatus | Fetches the status of an initiate purchase contract given accessToken.
 [**saleGetSales**](SaleApi.md#saleGetSales) | **GET** /public/v6/sale/sales | Get sales completed at a site.
 [**saleGetServices**](SaleApi.md#saleGetServices) | **GET** /public/v6/sale/services | Get pricing options available for purchase at a site
 [**saleGetTransactions**](SaleApi.md#saleGetTransactions) | **GET** /public/v6/sale/transactions | Get transactions completed at a site.
-[**saleInitializeCreditCardEntry**](SaleApi.md#saleInitializeCreditCardEntry) | **POST** /public/v6/sale/initializecreditcardentry | This endpoint returns a Callback URL which is used to load Card Element UI with the help of which user will be able to enter the card details and initiate a transaction .  The documentation provides explanations of the request body and response.
+[**saleInitiateCheckoutShoppingCartUsingAlternativePayments**](SaleApi.md#saleInitiateCheckoutShoppingCartUsingAlternativePayments) | **POST** /public/v6/sale/initiatecheckoutshoppingcart | Initiate the Checkout Shopping Cart process, for payments to be made directly by the client.
+[**saleInitiatePurchaseContractUsingAlternativePayments**](SaleApi.md#saleInitiatePurchaseContractUsingAlternativePayments) | **POST** /public/v6/sale/initiatepurchasecontract | Purchase a contract for a client using apm/lpm.
 [**salePurchaseAccountCredit**](SaleApi.md#salePurchaseAccountCredit) | **POST** /public/v6/sale/purchaseaccountcredit | Purchases account credit for a client
 [**salePurchaseContract**](SaleApi.md#salePurchaseContract) | **POST** /public/v6/sale/purchasecontract | Purchase a contract for a client.
 [**salePurchaseGiftCard**](SaleApi.md#salePurchaseGiftCard) | **POST** /public/v6/sale/purchasegiftcard | Purchase a gift card for a client.
@@ -74,6 +78,69 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **Request** | [**\Nlocascio\Mindbody\Model\CheckoutShoppingCartRequest**](../Model/CheckoutShoppingCartRequest.md)|  |
+
+### Return type
+
+[**\Nlocascio\Mindbody\Model\CheckoutShoppingCartResponse**](../Model/CheckoutShoppingCartResponse.md)
+
+### Authorization
+
+[API-Key](../../README.md#API-Key), [authorization](../../README.md#authorization), [siteId](../../README.md#siteId)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml, multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **saleCompleteCheckoutShoppingCartUsingAlternativePayments**
+> \Nlocascio\Mindbody\Model\CheckoutShoppingCartResponse saleCompleteCheckoutShoppingCartUsingAlternativePayments($Request)
+
+Complete the Checkout Shopping Cart process, after the payments have been made by the client.
+
+This endpoint complements the InitiateCheckoutShoppintCart endpoint. Please visit its documentation to understand further.    The currently supported alternative payments are:  - iDEAL | Wero  - Apple Pay    **How to use :**  InitiateCheckoutShoppingCart and CompleteCheckoutShoppingCart endpoints work together. InitiateCheckoutShoppingCart endpoint will capture the intent to perform a checkout, and return a redirect URL for the end user to make the payment. Once the payment concludes, the end user will be redirected back to the PaymentAuthenticationCallbackUrl, which was provided while invoking the InitiateCheckoutShoppingCart endpoint. You can then invoke the CompleteCheckoutShoppingCart endpoint to complete the remaining checkout activities and obtain the CheckoutShoppingCartResponse.    **For a comprehensive guide, follow this tutorial:** [Checkout Shopping Cart Using Alternative Payments](https://developers.mindbodyonline.com/ui/documentation/public-api#/http/tutorials/checkout-shopping-cart-using-alternative-payments)    **Notes:**  - This endpoint is only available for Studios on MBPS (Mindbody Payments) with Stripe payment processor.  - Protect yourself from processor fees. Remember to always protect your web forms that leverage POST InitiateCheckoutShoppingCart or POST CompleteCheckoutShoppingCart with a CAPTCHA!
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: API-Key
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'Bearer');
+// Configure API key authorization: authorization
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('authorization', 'Bearer');
+// Configure API key authorization: siteId
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('siteId', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('siteId', 'Bearer');
+
+$apiInstance = new Nlocascio\Mindbody\Api\SaleApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$Request = new \Nlocascio\Mindbody\Model\CompleteCheckoutShoppingCartUsingAlternativePaymentsRequest(); // \Nlocascio\Mindbody\Model\CompleteCheckoutShoppingCartUsingAlternativePaymentsRequest | 
+
+try {
+    $result = $apiInstance->saleCompleteCheckoutShoppingCartUsingAlternativePayments($Request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SaleApi->saleCompleteCheckoutShoppingCartUsingAlternativePayments: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Request** | [**\Nlocascio\Mindbody\Model\CompleteCheckoutShoppingCartUsingAlternativePaymentsRequest**](../Model/CompleteCheckoutShoppingCartUsingAlternativePaymentsRequest.md)|  |
 
 ### Return type
 
@@ -149,8 +216,73 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **saleGetAlternativePaymentMethods**
+> \Nlocascio\Mindbody\Model\GetAlternativePaymentMethodsResponse saleGetAlternativePaymentMethods($RequestClientId, $RequestLocationId)
+
+Get alternative and local payment methods that are allowed for a site.
+
+Get alternative and local payment methods that are allowed for a site.  These payment methods can later be used in `Initiate Checkout Shopping Cart Using Alternative Payments`   and `Initiate Purchase Contract Using Alternative Payments` to make the payment.                The currently supported alternative payments are:  - iDEAL | Wero  - Apple Pay    **Notes:**  - This endpoint is only available for Studios on MBPS (Mindbody Payments) with Stripe payment processor.  - This endpoint only supports the online store location (LocationId = 98). If LocationId is not provided, it will default to 98.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: API-Key
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'Bearer');
+// Configure API key authorization: authorization
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('authorization', 'Bearer');
+// Configure API key authorization: siteId
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('siteId', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('siteId', 'Bearer');
+
+$apiInstance = new Nlocascio\Mindbody\Api\SaleApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$RequestClientId = "RequestClientId_example"; // string | The client ID
+$RequestLocationId = 56; // int | The location ID  Default: **null** (Online store location)
+
+try {
+    $result = $apiInstance->saleGetAlternativePaymentMethods($RequestClientId, $RequestLocationId);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SaleApi->saleGetAlternativePaymentMethods: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **RequestClientId** | **string**| The client ID | [optional]
+ **RequestLocationId** | **int**| The location ID  Default: **null** (Online store location) | [optional]
+
+### Return type
+
+[**\Nlocascio\Mindbody\Model\GetAlternativePaymentMethodsResponse**](../Model/GetAlternativePaymentMethodsResponse.md)
+
+### Authorization
+
+[API-Key](../../README.md#API-Key), [authorization](../../README.md#authorization), [siteId](../../README.md#siteId)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, text/json, application/xml, text/xml, multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **saleGetContracts**
-> \Nlocascio\Mindbody\Model\GetContractsResponse saleGetContracts($RequestLocationId, $RequestConsumerId, $RequestContractIds, $RequestLimit, $RequestOffset, $RequestPromoCode, $RequestSoldOnline)
+> \Nlocascio\Mindbody\Model\GetContractsResponse saleGetContracts($RequestLocationId, $RequestContractIds, $RequestLimit, $RequestOffset, $RequestPromoCode, $RequestSoldOnline, $RequestUniqueClientId)
 
 Get contracts available for purchase at a site.
 
@@ -181,15 +313,15 @@ $apiInstance = new Nlocascio\Mindbody\Api\SaleApi(
     $config
 );
 $RequestLocationId = 56; // int | The ID of the location that has the requested contracts and AutoPay options.
-$RequestConsumerId = 789; // int | The ID of the client.
 $RequestContractIds = array(56); // int[] | When included, the response only contains details about the specified contract IDs.
 $RequestLimit = 56; // int | Number of results to include, defaults to 100
 $RequestOffset = 56; // int | Page offset, defaults to 0.
 $RequestPromoCode = "RequestPromoCode_example"; // string | PromoCode to apply
 $RequestSoldOnline = true; // bool | When `true`, the response only contains details about contracts and AutoPay options that can be sold online.   When `false`, all contracts are returned.  Default: **false**
+$RequestUniqueClientId = 789; // int | The ID of the client.
 
 try {
-    $result = $apiInstance->saleGetContracts($RequestLocationId, $RequestConsumerId, $RequestContractIds, $RequestLimit, $RequestOffset, $RequestPromoCode, $RequestSoldOnline);
+    $result = $apiInstance->saleGetContracts($RequestLocationId, $RequestContractIds, $RequestLimit, $RequestOffset, $RequestPromoCode, $RequestSoldOnline, $RequestUniqueClientId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SaleApi->saleGetContracts: ', $e->getMessage(), PHP_EOL;
@@ -202,12 +334,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **RequestLocationId** | **int**| The ID of the location that has the requested contracts and AutoPay options. |
- **RequestConsumerId** | **int**| The ID of the client. | [optional]
  **RequestContractIds** | [**int[]**](../Model/int.md)| When included, the response only contains details about the specified contract IDs. | [optional]
  **RequestLimit** | **int**| Number of results to include, defaults to 100 | [optional]
  **RequestOffset** | **int**| Page offset, defaults to 0. | [optional]
  **RequestPromoCode** | **string**| PromoCode to apply | [optional]
  **RequestSoldOnline** | **bool**| When &#x60;true&#x60;, the response only contains details about contracts and AutoPay options that can be sold online.   When &#x60;false&#x60;, all contracts are returned.  Default: **false** | [optional]
+ **RequestUniqueClientId** | **int**| The ID of the client. | [optional]
 
 ### Return type
 
@@ -497,7 +629,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **saleGetProducts**
-> \Nlocascio\Mindbody\Model\GetProductsResponse saleGetProducts($RequestCategoryIds, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestProductIds, $RequestSearchText, $RequestSellOnline, $RequestSubCategoryIds)
+> \Nlocascio\Mindbody\Model\GetProductsResponse saleGetProducts($RequestCategoryIds, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestProductIds, $RequestSearchText, $RequestSecondaryCategoryIds, $RequestSellOnline, $RequestSubCategoryIds)
 
 Get retail products available for purchase at a site.
 
@@ -525,17 +657,18 @@ $apiInstance = new Nlocascio\Mindbody\Api\SaleApi(
     new GuzzleHttp\Client(),
     $config
 );
-$RequestCategoryIds = array(56); // int[] | A list of revenue category IDs to filter by. Use this ID when calling the GET Categories endpoint.    **Note:** The values for these are not currently retrievable through the API.
+$RequestCategoryIds = array(56); // int[] | A list of revenue category IDs to filter by. Use this ID when calling the GET Categories endpoint.
 $RequestLimit = 56; // int | Number of results to include, defaults to 100
 $RequestLocationId = 56; // int | The location ID to use to determine the tax for the products that this request returns.<br />  Default: **online store**
 $RequestOffset = 56; // int | Page offset, defaults to 0.
 $RequestProductIds = array("RequestProductIds_example"); // string[] | The barcode number of the product to be filter by.
 $RequestSearchText = "RequestSearchText_example"; // string | A search filter, used for searching by term.
+$RequestSecondaryCategoryIds = array(56); // int[] | A list of secondary categories to filter by. Use this ID when calling the GET Categories endpoint.
 $RequestSellOnline = true; // bool | When `true`, only products that can be sold online are returned.<br />  When `false`, all products are returned.<br />  Default: **false**
-$RequestSubCategoryIds = array(56); // int[] | A list of subcategory IDs to filter by. Use this ID when calling the GET Categories endpoint.    **Note:** The values for these are not currently retrievable through the API.
+$RequestSubCategoryIds = array(56); // int[] | A list of subcategory IDs to filter by. Use this ID when calling the GET Categories endpoint.
 
 try {
-    $result = $apiInstance->saleGetProducts($RequestCategoryIds, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestProductIds, $RequestSearchText, $RequestSellOnline, $RequestSubCategoryIds);
+    $result = $apiInstance->saleGetProducts($RequestCategoryIds, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestProductIds, $RequestSearchText, $RequestSecondaryCategoryIds, $RequestSellOnline, $RequestSubCategoryIds);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SaleApi->saleGetProducts: ', $e->getMessage(), PHP_EOL;
@@ -547,14 +680,15 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **RequestCategoryIds** | [**int[]**](../Model/int.md)| A list of revenue category IDs to filter by. Use this ID when calling the GET Categories endpoint.    **Note:** The values for these are not currently retrievable through the API. | [optional]
+ **RequestCategoryIds** | [**int[]**](../Model/int.md)| A list of revenue category IDs to filter by. Use this ID when calling the GET Categories endpoint. | [optional]
  **RequestLimit** | **int**| Number of results to include, defaults to 100 | [optional]
  **RequestLocationId** | **int**| The location ID to use to determine the tax for the products that this request returns.&lt;br /&gt;  Default: **online store** | [optional]
  **RequestOffset** | **int**| Page offset, defaults to 0. | [optional]
  **RequestProductIds** | [**string[]**](../Model/string.md)| The barcode number of the product to be filter by. | [optional]
  **RequestSearchText** | **string**| A search filter, used for searching by term. | [optional]
+ **RequestSecondaryCategoryIds** | [**int[]**](../Model/int.md)| A list of secondary categories to filter by. Use this ID when calling the GET Categories endpoint. | [optional]
  **RequestSellOnline** | **bool**| When &#x60;true&#x60;, only products that can be sold online are returned.&lt;br /&gt;  When &#x60;false&#x60;, all products are returned.&lt;br /&gt;  Default: **false** | [optional]
- **RequestSubCategoryIds** | [**int[]**](../Model/int.md)| A list of subcategory IDs to filter by. Use this ID when calling the GET Categories endpoint.    **Note:** The values for these are not currently retrievable through the API. | [optional]
+ **RequestSubCategoryIds** | [**int[]**](../Model/int.md)| A list of subcategory IDs to filter by. Use this ID when calling the GET Categories endpoint. | [optional]
 
 ### Return type
 
@@ -628,6 +762,69 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Nlocascio\Mindbody\Model\GetProductsInventoryResponse**](../Model/GetProductsInventoryResponse.md)
+
+### Authorization
+
+[API-Key](../../README.md#API-Key), [authorization](../../README.md#authorization), [siteId](../../README.md#siteId)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, text/json, application/xml, text/xml, multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **saleGetPurchaseContractStatus**
+> \Nlocascio\Mindbody\Model\PurchaseContractResponse saleGetPurchaseContractStatus($AccessToken)
+
+Fetches the status of an initiate purchase contract given accessToken.
+
+Fetches the status of an initiate purchase contract given accessToken.  This endpoint complements the `Initiate Purchase Contract Using Alternative Payments` endpoint. `Initiate Purchase Contract Using Alternative Payments` endpoint will capture the intent to purchase a contract, and return a redirect URL for the end user to make the payment. Once the payment concludes, the end user will be redirected back to the PaymentAuthenticationCallbackUrl, which was provided while invoking the `Initiate Purchase Contract Using Alternative Payments` endpoint. You can then invoke this endpoint to obtain the `PurchaseContractResponse`.                **For a comprehensive guide, follow this tutorial:** [Purchase a Contract](https://developers.mindbodyonline.com/ui/documentation/public-api#/http/tutorials/purchase-a-contract)                The currently supported alternative payments are:  - iDEAL | Wero  - Apple Pay
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: API-Key
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'Bearer');
+// Configure API key authorization: authorization
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('authorization', 'Bearer');
+// Configure API key authorization: siteId
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('siteId', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('siteId', 'Bearer');
+
+$apiInstance = new Nlocascio\Mindbody\Api\SaleApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$AccessToken = "AccessToken_example"; // string | 
+
+try {
+    $result = $apiInstance->saleGetPurchaseContractStatus($AccessToken);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SaleApi->saleGetPurchaseContractStatus: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **AccessToken** | **string**|  |
+
+### Return type
+
+[**\Nlocascio\Mindbody\Model\PurchaseContractResponse**](../Model/PurchaseContractResponse.md)
 
 ### Authorization
 
@@ -753,7 +950,7 @@ $RequestLimit = 56; // int | Number of results to include, defaults to 100
 $RequestLocationId = 56; // int | When specified, for each returned pricing option, `TaxRate` and `TaxIncluded` are calculated according to the specified location. Note that this does not filter results to only services provided at the given location, and for locations where Value-Added Tax (VAT) rules apply, the `TaxRate` is set to zero.
 $RequestOffset = 56; // int | Page offset, defaults to 0.
 $RequestProgramIds = array(56); // int[] | Filters to pricing options with the specified program IDs.
-$RequestSellOnline = true; // bool | When `true`, filters to the pricing options that can be sold online.<br />  Default: **false**
+$RequestSellOnline = true; // bool | When `true`, filters the pricing options to display only those available for online purchase.  This parameter is only applicable in Business Mode (when a staff authentication header is included) and ignored in Consumer Mode (when no authentication header is passed).  <br />Default: `false` (for staff users)  <br />Business Mode: This parameter controls the filtering behavior. Staff users can set this to `true`  to show only pricing options that can be sold online, or `false` to show all available pricing options.  <br />Consumer Mode: This value is automatically set to `true` and cannot be overridden,  ensuring consumers only see pricing options available for online purchase.
 $RequestServiceIds = array("RequestServiceIds_example"); // string[] | Filters to the pricing options with the specified IDs. In this context, service and pricing option are used interchangeably. These are the `PurchasedItems[].Id` returned from GET Sales.
 $RequestSessionTypeIds = array(56); // int[] | Filters to the pricing options with the specified session types IDs.
 $RequestStaffId = 789; // int | Sets `Price` and `OnlinePrice` to the particular pricing of a specific staff member, if allowed by the business.
@@ -780,7 +977,7 @@ Name | Type | Description  | Notes
  **RequestLocationId** | **int**| When specified, for each returned pricing option, &#x60;TaxRate&#x60; and &#x60;TaxIncluded&#x60; are calculated according to the specified location. Note that this does not filter results to only services provided at the given location, and for locations where Value-Added Tax (VAT) rules apply, the &#x60;TaxRate&#x60; is set to zero. | [optional]
  **RequestOffset** | **int**| Page offset, defaults to 0. | [optional]
  **RequestProgramIds** | [**int[]**](../Model/int.md)| Filters to pricing options with the specified program IDs. | [optional]
- **RequestSellOnline** | **bool**| When &#x60;true&#x60;, filters to the pricing options that can be sold online.&lt;br /&gt;  Default: **false** | [optional]
+ **RequestSellOnline** | **bool**| When &#x60;true&#x60;, filters the pricing options to display only those available for online purchase.  This parameter is only applicable in Business Mode (when a staff authentication header is included) and ignored in Consumer Mode (when no authentication header is passed).  &lt;br /&gt;Default: &#x60;false&#x60; (for staff users)  &lt;br /&gt;Business Mode: This parameter controls the filtering behavior. Staff users can set this to &#x60;true&#x60;  to show only pricing options that can be sold online, or &#x60;false&#x60; to show all available pricing options.  &lt;br /&gt;Consumer Mode: This value is automatically set to &#x60;true&#x60; and cannot be overridden,  ensuring consumers only see pricing options available for online purchase. | [optional]
  **RequestServiceIds** | [**string[]**](../Model/string.md)| Filters to the pricing options with the specified IDs. In this context, service and pricing option are used interchangeably. These are the &#x60;PurchasedItems[].Id&#x60; returned from GET Sales. | [optional]
  **RequestSessionTypeIds** | [**int[]**](../Model/int.md)| Filters to the pricing options with the specified session types IDs. | [optional]
  **RequestStaffId** | **int**| Sets &#x60;Price&#x60; and &#x60;OnlinePrice&#x60; to the particular pricing of a specific staff member, if allowed by the business. | [optional]
@@ -879,12 +1076,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **saleInitializeCreditCardEntry**
-> \Nlocascio\Mindbody\Model\InitializeCreditCardEntryResponse saleInitializeCreditCardEntry($Request)
+# **saleInitiateCheckoutShoppingCartUsingAlternativePayments**
+> object saleInitiateCheckoutShoppingCartUsingAlternativePayments($Request)
 
-This endpoint returns a Callback URL which is used to load Card Element UI with the help of which user will be able to enter the card details and initiate a transaction .  The documentation provides explanations of the request body and response.
+Initiate the Checkout Shopping Cart process, for payments to be made directly by the client.
 
-**Note**:          Referer is a DomainURL which will be automatically reflected if the Card UI is loaded via your application.  If you are using this endpoint via postman then you need to specify your domain URL under Referer.
+This endpoint provides a wide range of functionality. For example, you can use it when a client purchases new pricing options, retail products, packages, and tips. You can also combine purchasing a new pricing option and many other functions, such as booking a client into a class, booking a new appointment for a client, enrolling a client into an enrollment or course, or reconciling an unpaid, already booked appointment or class. Use this call when a client purchases:  * a pricing option, after calling `GET Services` and choosing a specific pricing option’s ID  * a retail product, after calling `GET Products` and choosing a specific retail product’s ID  * a package, after calling `GET Packages` and choosing a specific package’s ID  * a tip to give to a staff member, after calling `GET Staff` and choosing a specific staff member ID, and the amount that the client wants to tip  The documentation provides explanations of the request body and response, as well as the cart item metadata, payment item metadata, and purchased cart items.    The currently supported alternative payments are:  - iDEAL | Wero  - Apple Pay                **How to use :**  InitiateCheckoutShoppingCart and CompleteCheckoutShoppingCart endpoints work together. InitiateCheckoutShoppingCart endpoint will capture the intent to perform a checkout, and return a redirect URL for the end user to make the payment. Once the payment concludes, the end user will be redirected back to the PaymentAuthenticationCallbackUrl, which was provided while invoking the InitiateCheckoutShoppingCart endpoint. You can then invoke the CompleteCheckoutShoppingCart endpoint to complete the remaining checkout activities and obtain the CheckoutShoppingCartResponse.    **For a comprehensive guide, follow this tutorial:** [Checkout Shopping Cart Using Alternative Payments](https://developers.mindbodyonline.com/ui/documentation/public-api#/http/tutorials/checkout-shopping-cart-using-alternative-payments)    **Notes:**  - This endpoint is only available for Studios on MBPS (Mindbody Payments) with Stripe payment processor.  - This endpoint only supports the online store location (LocationId = 98). If LocationId is not provided, it will default to 98.  - Product purchases are currently not supported on the online store location.  - This endpoint only supports those payment methods as obtained from the GetAlternativePaymentMethods endpoint.  - Protect yourself from processor fees. Remember to always protect your web forms that leverage POST InitiateCheckoutShoppingCart or POST CompleteCheckoutShoppingCart with a CAPTCHA!
 
 ### Example
 ```php
@@ -910,13 +1107,13 @@ $apiInstance = new Nlocascio\Mindbody\Api\SaleApi(
     new GuzzleHttp\Client(),
     $config
 );
-$Request = new \Nlocascio\Mindbody\Model\InitializeCreditCardEntryRequest(); // \Nlocascio\Mindbody\Model\InitializeCreditCardEntryRequest | 
+$Request = new \Nlocascio\Mindbody\Model\InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest(); // \Nlocascio\Mindbody\Model\InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest | 
 
 try {
-    $result = $apiInstance->saleInitializeCreditCardEntry($Request);
+    $result = $apiInstance->saleInitiateCheckoutShoppingCartUsingAlternativePayments($Request);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling SaleApi->saleInitializeCreditCardEntry: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling SaleApi->saleInitiateCheckoutShoppingCartUsingAlternativePayments: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -925,11 +1122,74 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **Request** | [**\Nlocascio\Mindbody\Model\InitializeCreditCardEntryRequest**](../Model/InitializeCreditCardEntryRequest.md)|  |
+ **Request** | [**\Nlocascio\Mindbody\Model\InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest**](../Model/InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest.md)|  |
 
 ### Return type
 
-[**\Nlocascio\Mindbody\Model\InitializeCreditCardEntryResponse**](../Model/InitializeCreditCardEntryResponse.md)
+**object**
+
+### Authorization
+
+[API-Key](../../README.md#API-Key), [authorization](../../README.md#authorization), [siteId](../../README.md#siteId)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml, multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **saleInitiatePurchaseContractUsingAlternativePayments**
+> object saleInitiatePurchaseContractUsingAlternativePayments($Request)
+
+Purchase a contract for a client using apm/lpm.
+
+Allows a client to sign up for a contract or autopay using the information returned from the `GET Contracts` endpoint. The client can pay with allowed alternative and local payment methods returned from `Get Alternative Payment Method`. The client must exist at the site specified before this call is made.                The currently supported alternative payments are:  - iDEAL | Wero  - Apple Pay                **For a comprehensive guide, follow this tutorial:** [Purchase a Contract](https://developers.mindbodyonline.com/ui/documentation/public-api#/http/tutorials/purchase-a-contract)                **Notes:**  - This endpoint is only available for Studios on MBPS (Mindbody Payments) with Stripe payment processor.  - This endpoint only supports the online store location (LocationId = 98). If LocationId is not provided, it will default to 98.  - This endpoint only supports those payment methods as obtained from the GetAlternativePaymentMethods endpoint.  - Protect yourself from processor fees and credit card fraud. Remember to always protect your web forms that leverage POST CheckoutShoppingCart, POST PurchaseContract or POST PurchaseGiftCard with a CAPTCHA!
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: API-Key
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'Bearer');
+// Configure API key authorization: authorization
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('authorization', 'Bearer');
+// Configure API key authorization: siteId
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('siteId', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('siteId', 'Bearer');
+
+$apiInstance = new Nlocascio\Mindbody\Api\SaleApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$Request = new \Nlocascio\Mindbody\Model\InitiatePurchaseContractRequest(); // \Nlocascio\Mindbody\Model\InitiatePurchaseContractRequest | 
+
+try {
+    $result = $apiInstance->saleInitiatePurchaseContractUsingAlternativePayments($Request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SaleApi->saleInitiatePurchaseContractUsingAlternativePayments: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Request** | [**\Nlocascio\Mindbody\Model\InitiatePurchaseContractRequest**](../Model/InitiatePurchaseContractRequest.md)|  |
+
+### Return type
+
+**object**
 
 ### Authorization
 
@@ -1010,7 +1270,7 @@ Name | Type | Description  | Notes
 
 Purchase a contract for a client.
 
-Allows a client to sign up for a contract or autopay using the information returned from the `GET Contracts` endpoint. The client can pay with a new credit card or with a stored credit card. The client must exist at the site specified before this call is made.    This endpoint allows a developer to specify whether a client pays now or pays on the `StartDate`.If you are building a client-facing experience, you should talk with the business owner to understand the owner’s policies before you give clients a choice of the two payment types.  This endpoint had been updated to support Strong Customer Authentication (SCA).    **Note**  Protect yourself from processor fees and credit card fraud. Remember to always protect your web forms that leverage POST CheckoutShoppingCart, POST PurchaseContract or POST PurchaseGiftCard with a CAPTCHA!
+Allows a client to sign up for a contract or autopay using the information returned from the `GET Contracts` endpoint. The client can pay with a new credit card or with a stored credit card. The client must exist at the site specified before this call is made.    This endpoint allows a developer to specify whether a client pays now or pays on the `StartDate`. If you are building a client-facing experience, you should talk with the business owner to understand the owner’s policies before you give clients a choice of the two payment types.  This endpoint also allows a developer to specify a `ProrateDate`. If the date is passed, the Totals returned will always include the pro-rate amount for instant payment, like:  - `FirstPaymentOccurs` = `Instant` =&gt; returns instant payment total for the contract + pro-rate amount.  - `FirstPaymentOccurs` = `StartDate` =&gt; returns pro-rate amount + contract amount requiring instant payment. The rest of the contract will be due on `StartDate`.  - Pro-rate amount payment on `StartDate` is not supported by this endpoint.  This endpoint has been updated to support Strong Customer Authentication (SCA).    **Note:**  Protect yourself from processor fees and credit card fraud. Remember to always protect your web forms that leverage POST CheckoutShoppingCart, POST PurchaseContract or POST PurchaseGiftCard with a CAPTCHA!
 
 ### Example
 ```php

@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AppointmentId** | **int** | A unique ID for the appointment. | 
 **EndDateTime** | [**\DateTime**](\DateTime.md) | The end date and time of the new appointment.   &lt;br /&gt;Default: **StartDateTime**, offset by the staff member’s default appointment duration. | [optional] 
-**Execute** | **string** | The action taken to add this appointment. | [optional] 
+**Execute** | **string** | The action taken to add this appointment. Possible values are: confirm, unconfirm, arrive, unarrive, cancel, latecancel, complete. | [optional] 
 **GenderPreference** | **string** | The client’s service provider gender preference. | [optional] 
 **Notes** | **string** | Any general notes about this appointment. | [optional] 
 **PartnerExternalId** | **string** | Optional external key for api partners. | [optional] 

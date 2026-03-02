@@ -36,11 +36,13 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property string $ClientId Looks up the cross regional associations by the client’s ID. Either `ClientId` or `Email` must be provided. If both are provided, the `ClientId` is used by default.
- * @property string $Email Looks up the cross regional associations by the client’s email address. Either `ClientId` or `Email` must be provided. If both are provided, the `ClientId` is used by default.
+ * @property int $UniqueClientId Looks up the cross regional associations by the unique client’s ID.  Note: you need to provide the 'UniqueClientId' OR the 'ClientId' OR the 'Email'.   'UniqueClientId' takes precedence when provided. If not, but both 'ClientId' and 'Email' are provided, 'ClientId' is used by default.
+ * @property string $ClientId Looks up the cross regional associations by the client’s ID.
+ * @property string $Email Looks up the cross regional associations by the client’s email address.
  * @property string $FirstName First name (used for email queries)
  * @property string $LastName Last name (used for email queries)
  * @property bool $V2 Use newer method
+ * @property bool $ExcludeInactiveSites Used to exclude inactive and deleted sites from the results.  When this flag is set to `true`, client profiles associated with inactive and deleted sites are not getting returned.  When this flag is set to `false`,client profiles associated with inactive and deleted sites are getting returned.  Default: **true**
  * @property int $Limit Number of results to include, defaults to 100
  * @property int $Offset Page offset, defaults to 0.
  *
@@ -62,11 +64,13 @@ class GetCrossRegionalClientAssociationsRequest extends BaseModel
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'UniqueClientId' => 'int',
         'ClientId' => 'string',
         'Email' => 'string',
         'FirstName' => 'string',
         'LastName' => 'string',
         'V2' => 'bool',
+        'ExcludeInactiveSites' => 'bool',
         'Limit' => 'int',
         'Offset' => 'int'
     ];
@@ -77,11 +81,13 @@ class GetCrossRegionalClientAssociationsRequest extends BaseModel
       * @var array<string, string|null>
       */
     protected static $swaggerFormats = [
+        'UniqueClientId' => 'int64',
         'ClientId' => null,
         'Email' => null,
         'FirstName' => null,
         'LastName' => null,
         'V2' => null,
+        'ExcludeInactiveSites' => null,
         'Limit' => 'int32',
         'Offset' => 'int32'
     ];
@@ -94,11 +100,13 @@ class GetCrossRegionalClientAssociationsRequest extends BaseModel
      * @var string[]
      */
     protected static $attributeMap = [
+        'UniqueClientId' => 'UniqueClientId',
         'ClientId' => 'ClientId',
         'Email' => 'Email',
         'FirstName' => 'FirstName',
         'LastName' => 'LastName',
         'V2' => 'V2',
+        'ExcludeInactiveSites' => 'ExcludeInactiveSites',
         'Limit' => 'Limit',
         'Offset' => 'Offset'
     ];
@@ -109,11 +117,13 @@ class GetCrossRegionalClientAssociationsRequest extends BaseModel
      * @var string[]
      */
     protected static $setters = [
+        'UniqueClientId' => 'setUniqueClientId',
         'ClientId' => 'setClientId',
         'Email' => 'setEmail',
         'FirstName' => 'setFirstName',
         'LastName' => 'setLastName',
         'V2' => 'setV2',
+        'ExcludeInactiveSites' => 'setExcludeInactiveSites',
         'Limit' => 'setLimit',
         'Offset' => 'setOffset'
     ];
@@ -124,11 +134,13 @@ class GetCrossRegionalClientAssociationsRequest extends BaseModel
      * @var string[]
      */
     protected static $getters = [
+        'UniqueClientId' => 'getUniqueClientId',
         'ClientId' => 'getClientId',
         'Email' => 'getEmail',
         'FirstName' => 'getFirstName',
         'LastName' => 'getLastName',
         'V2' => 'getV2',
+        'ExcludeInactiveSites' => 'getExcludeInactiveSites',
         'Limit' => 'getLimit',
         'Offset' => 'getOffset'
     ];
@@ -146,11 +158,13 @@ class GetCrossRegionalClientAssociationsRequest extends BaseModel
      */
     public function __construct(array $data = null)
     {
+        $this->container['UniqueClientId'] = isset($data['UniqueClientId']) ? $data['UniqueClientId'] : null;
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
         $this->container['Email'] = isset($data['Email']) ? $data['Email'] : null;
         $this->container['FirstName'] = isset($data['FirstName']) ? $data['FirstName'] : null;
         $this->container['LastName'] = isset($data['LastName']) ? $data['LastName'] : null;
         $this->container['V2'] = isset($data['V2']) ? $data['V2'] : null;
+        $this->container['ExcludeInactiveSites'] = isset($data['ExcludeInactiveSites']) ? $data['ExcludeInactiveSites'] : null;
         $this->container['Limit'] = isset($data['Limit']) ? $data['Limit'] : null;
         $this->container['Offset'] = isset($data['Offset']) ? $data['Offset'] : null;
     }
@@ -169,6 +183,30 @@ class GetCrossRegionalClientAssociationsRequest extends BaseModel
 
 
     /**
+     * Gets UniqueClientId
+     *
+     * @return int
+     */
+    public function getUniqueClientId()
+    {
+        return $this->container['UniqueClientId'];
+    }
+
+    /**
+     * Sets UniqueClientId
+     *
+     * @param int $UniqueClientId Looks up the cross regional associations by the unique client’s ID.  Note: you need to provide the 'UniqueClientId' OR the 'ClientId' OR the 'Email'.   'UniqueClientId' takes precedence when provided. If not, but both 'ClientId' and 'Email' are provided, 'ClientId' is used by default.
+     *
+     * @return $this
+     */
+    public function setUniqueClientId($UniqueClientId): self
+    {
+        $this->container['UniqueClientId'] = $UniqueClientId;
+
+        return $this;
+    }
+
+    /**
      * Gets ClientId
      *
      * @return string
@@ -181,7 +219,7 @@ class GetCrossRegionalClientAssociationsRequest extends BaseModel
     /**
      * Sets ClientId
      *
-     * @param string $ClientId Looks up the cross regional associations by the client’s ID. Either `ClientId` or `Email` must be provided. If both are provided, the `ClientId` is used by default.
+     * @param string $ClientId Looks up the cross regional associations by the client’s ID.
      *
      * @return $this
      */
@@ -205,7 +243,7 @@ class GetCrossRegionalClientAssociationsRequest extends BaseModel
     /**
      * Sets Email
      *
-     * @param string $Email Looks up the cross regional associations by the client’s email address. Either `ClientId` or `Email` must be provided. If both are provided, the `ClientId` is used by default.
+     * @param string $Email Looks up the cross regional associations by the client’s email address.
      *
      * @return $this
      */
@@ -284,6 +322,30 @@ class GetCrossRegionalClientAssociationsRequest extends BaseModel
     public function setV2($V2): self
     {
         $this->container['V2'] = $V2;
+
+        return $this;
+    }
+
+    /**
+     * Gets ExcludeInactiveSites
+     *
+     * @return bool
+     */
+    public function getExcludeInactiveSites()
+    {
+        return $this->container['ExcludeInactiveSites'];
+    }
+
+    /**
+     * Sets ExcludeInactiveSites
+     *
+     * @param bool $ExcludeInactiveSites Used to exclude inactive and deleted sites from the results.  When this flag is set to `true`, client profiles associated with inactive and deleted sites are not getting returned.  When this flag is set to `false`,client profiles associated with inactive and deleted sites are getting returned.  Default: **true**
+     *
+     * @return $this
+     */
+    public function setExcludeInactiveSites($ExcludeInactiveSites): self
+    {
+        $this->container['ExcludeInactiveSites'] = $ExcludeInactiveSites;
 
         return $this;
     }

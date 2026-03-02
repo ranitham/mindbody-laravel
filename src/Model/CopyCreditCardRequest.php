@@ -39,8 +39,10 @@ namespace Nlocascio\Mindbody\Model;
  * @link     https://github.com/swagger-api/swagger-codegen
  * @property int $SourceSiteId The siteId of the source clientId.
  * @property string $SourceClientId The clientId at the source siteId.
+ * @property int $SourceUniqueClientId The unique clidnetId at the source siteId.
  * @property int $TargetSiteId The siteId of the target clientId.
  * @property string $TargetClientId The clientId at the target siteId.
+ * @property int $TargetUniqueClientId The unique clidnetId at the target siteId.
  *
  */
 class CopyCreditCardRequest extends BaseModel
@@ -62,8 +64,10 @@ class CopyCreditCardRequest extends BaseModel
     protected static $swaggerTypes = [
         'SourceSiteId' => 'int',
         'SourceClientId' => 'string',
+        'SourceUniqueClientId' => 'int',
         'TargetSiteId' => 'int',
-        'TargetClientId' => 'string'
+        'TargetClientId' => 'string',
+        'TargetUniqueClientId' => 'int'
     ];
 
     /**
@@ -74,8 +78,10 @@ class CopyCreditCardRequest extends BaseModel
     protected static $swaggerFormats = [
         'SourceSiteId' => 'int32',
         'SourceClientId' => null,
+        'SourceUniqueClientId' => 'int64',
         'TargetSiteId' => 'int32',
-        'TargetClientId' => null
+        'TargetClientId' => null,
+        'TargetUniqueClientId' => 'int64'
     ];
 
 
@@ -88,8 +94,10 @@ class CopyCreditCardRequest extends BaseModel
     protected static $attributeMap = [
         'SourceSiteId' => 'SourceSiteId',
         'SourceClientId' => 'SourceClientId',
+        'SourceUniqueClientId' => 'SourceUniqueClientId',
         'TargetSiteId' => 'TargetSiteId',
-        'TargetClientId' => 'TargetClientId'
+        'TargetClientId' => 'TargetClientId',
+        'TargetUniqueClientId' => 'TargetUniqueClientId'
     ];
 
     /**
@@ -100,8 +108,10 @@ class CopyCreditCardRequest extends BaseModel
     protected static $setters = [
         'SourceSiteId' => 'setSourceSiteId',
         'SourceClientId' => 'setSourceClientId',
+        'SourceUniqueClientId' => 'setSourceUniqueClientId',
         'TargetSiteId' => 'setTargetSiteId',
-        'TargetClientId' => 'setTargetClientId'
+        'TargetClientId' => 'setTargetClientId',
+        'TargetUniqueClientId' => 'setTargetUniqueClientId'
     ];
 
     /**
@@ -112,8 +122,10 @@ class CopyCreditCardRequest extends BaseModel
     protected static $getters = [
         'SourceSiteId' => 'getSourceSiteId',
         'SourceClientId' => 'getSourceClientId',
+        'SourceUniqueClientId' => 'getSourceUniqueClientId',
         'TargetSiteId' => 'getTargetSiteId',
-        'TargetClientId' => 'getTargetClientId'
+        'TargetClientId' => 'getTargetClientId',
+        'TargetUniqueClientId' => 'getTargetUniqueClientId'
     ];
 
 
@@ -131,8 +143,10 @@ class CopyCreditCardRequest extends BaseModel
     {
         $this->container['SourceSiteId'] = isset($data['SourceSiteId']) ? $data['SourceSiteId'] : null;
         $this->container['SourceClientId'] = isset($data['SourceClientId']) ? $data['SourceClientId'] : null;
+        $this->container['SourceUniqueClientId'] = isset($data['SourceUniqueClientId']) ? $data['SourceUniqueClientId'] : null;
         $this->container['TargetSiteId'] = isset($data['TargetSiteId']) ? $data['TargetSiteId'] : null;
         $this->container['TargetClientId'] = isset($data['TargetClientId']) ? $data['TargetClientId'] : null;
+        $this->container['TargetUniqueClientId'] = isset($data['TargetUniqueClientId']) ? $data['TargetUniqueClientId'] : null;
     }
 
     /**
@@ -197,6 +211,30 @@ class CopyCreditCardRequest extends BaseModel
     }
 
     /**
+     * Gets SourceUniqueClientId
+     *
+     * @return int
+     */
+    public function getSourceUniqueClientId()
+    {
+        return $this->container['SourceUniqueClientId'];
+    }
+
+    /**
+     * Sets SourceUniqueClientId
+     *
+     * @param int $SourceUniqueClientId The unique clidnetId at the source siteId.
+     *
+     * @return $this
+     */
+    public function setSourceUniqueClientId($SourceUniqueClientId): self
+    {
+        $this->container['SourceUniqueClientId'] = $SourceUniqueClientId;
+
+        return $this;
+    }
+
+    /**
      * Gets TargetSiteId
      *
      * @return int
@@ -240,6 +278,30 @@ class CopyCreditCardRequest extends BaseModel
     public function setTargetClientId($TargetClientId): self
     {
         $this->container['TargetClientId'] = $TargetClientId;
+
+        return $this;
+    }
+
+    /**
+     * Gets TargetUniqueClientId
+     *
+     * @return int
+     */
+    public function getTargetUniqueClientId()
+    {
+        return $this->container['TargetUniqueClientId'];
+    }
+
+    /**
+     * Sets TargetUniqueClientId
+     *
+     * @param int $TargetUniqueClientId The unique clidnetId at the target siteId.
+     *
+     * @return $this
+     */
+    public function setTargetUniqueClientId($TargetUniqueClientId): self
+    {
+        $this->container['TargetUniqueClientId'] = $TargetUniqueClientId;
 
         return $this;
     }

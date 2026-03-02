@@ -38,7 +38,7 @@ namespace Nlocascio\Mindbody\Model;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  * @property \Nlocascio\Mindbody\Model\ClientWithSuspensionInfo $Client Contains information about the requested client.
- * @property \Nlocascio\Mindbody\Model\ClientService[] $ClientServices Contains information about client pricing options.
+ * @property \Nlocascio\Mindbody\Model\ClientServiceWithActivationType[] $ClientServices Contains information about client pricing options, including activation behavior details.  Each item includes ActivationType and CannotPayForClassesBeforeActivation fields  to help determine booking eligibility based on the pricing option's activation configuration.
  * @property \Nlocascio\Mindbody\Model\ClientContract[] $ClientContracts Contains information about client contract.
  * @property \Nlocascio\Mindbody\Model\ClientMembership[] $ClientMemberships Contains information about client Memberships.
  * @property \Nlocascio\Mindbody\Model\ClientArrival[] $ClientArrivals Contains information about client arrival services.
@@ -62,7 +62,7 @@ class GetClientCompleteInfoResponse extends BaseModel
       */
     protected static $swaggerTypes = [
         'Client' => '\Nlocascio\Mindbody\Model\ClientWithSuspensionInfo',
-        'ClientServices' => '\Nlocascio\Mindbody\Model\ClientService[]',
+        'ClientServices' => '\Nlocascio\Mindbody\Model\ClientServiceWithActivationType[]',
         'ClientContracts' => '\Nlocascio\Mindbody\Model\ClientContract[]',
         'ClientMemberships' => '\Nlocascio\Mindbody\Model\ClientMembership[]',
         'ClientArrivals' => '\Nlocascio\Mindbody\Model\ClientArrival[]'
@@ -182,7 +182,7 @@ class GetClientCompleteInfoResponse extends BaseModel
     /**
      * Gets ClientServices
      *
-     * @return \Nlocascio\Mindbody\Model\ClientService[]
+     * @return \Nlocascio\Mindbody\Model\ClientServiceWithActivationType[]
      */
     public function getClientServices()
     {
@@ -192,7 +192,7 @@ class GetClientCompleteInfoResponse extends BaseModel
     /**
      * Sets ClientServices
      *
-     * @param \Nlocascio\Mindbody\Model\ClientService[] $ClientServices Contains information about client pricing options.
+     * @param \Nlocascio\Mindbody\Model\ClientServiceWithActivationType[] $ClientServices Contains information about client pricing options, including activation behavior details.  Each item includes ActivationType and CannotPayForClassesBeforeActivation fields  to help determine booking eligibility based on the pricing option's activation configuration.
      *
      * @return $this
      */

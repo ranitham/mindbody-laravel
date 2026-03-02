@@ -4356,29 +4356,374 @@ class SiteApi implements ApiInterface
     }
 
     /**
-     * Operation siteGetResources
+     * Operation siteGetResourceAvailabilities
      *
-     * Get resources used at a site.
+     * Get resource availabilities used at a site.
      *
-     * @param  \DateTime $RequestEndDateTime The time the resource ends. This parameter is ignored if &#x60;EndDateTime&#x60; or &#x60;LocationID&#x60; is not set. (optional)
-     * @param  bool $RequestIncludeInactive Enable to include inactive (optional)
+     * @param  \DateTime $RequestEndDate End date. If default, StartDate is used. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
-     * @param  int $RequestLocationId The location of the resource. This parameter is ignored if &#x60;EndDateTime&#x60; or &#x60;LocationID&#x60; is not set.&lt;br /&gt;  Default: **all** (optional)
      * @param  int[] $RequestLocationIds Filter by location ids (optional) (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  int[] $RequestProgramIds Filter by program ids (optional) (optional)
      * @param  int[] $RequestResourceIds Filter on resourceIds (optional)
      * @param  string[] $RequestScheduleTypes Filter by schedule types (optional) (optional)
-     * @param  int[] $RequestSessionTypeIds List of session type IDs.&lt;br /&gt;  Default: **all** (optional)
-     * @param  \DateTime $RequestStartDateTime The time the resource starts. This parameter is ignored if &#x60;EndDateTime&#x60; or &#x60;LocationID&#x60; is not set. (optional)
+     * @param  \DateTime $RequestStartDate Start time (optional)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Nlocascio\Mindbody\Model\GetResourceAvailabilitiesResponse
+     */
+    public function siteGetResourceAvailabilities($RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestResourceIds = null, $RequestScheduleTypes = null, $RequestStartDate = null): \Nlocascio\Mindbody\Model\GetResourceAvailabilitiesResponse
+    {
+        list($response) = $this->siteGetResourceAvailabilitiesWithHttpInfo($RequestEndDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestResourceIds, $RequestScheduleTypes, $RequestStartDate);
+        return $response;
+    }
+
+    /**
+     * Operation siteGetResourceAvailabilitiesWithHttpInfo
+     *
+     * Get resource availabilities used at a site.
+     *
+     * @param  \DateTime $RequestEndDate End date. If default, StartDate is used. (optional)
+     * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
+     * @param  int[] $RequestLocationIds Filter by location ids (optional) (optional)
+     * @param  int $RequestOffset Page offset, defaults to 0. (optional)
+     * @param  int[] $RequestProgramIds Filter by program ids (optional) (optional)
+     * @param  int[] $RequestResourceIds Filter on resourceIds (optional)
+     * @param  string[] $RequestScheduleTypes Filter by schedule types (optional) (optional)
+     * @param  \DateTime $RequestStartDate Start time (optional)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Nlocascio\Mindbody\Model\GetResourceAvailabilitiesResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function siteGetResourceAvailabilitiesWithHttpInfo($RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestResourceIds = null, $RequestScheduleTypes = null, $RequestStartDate = null): array
+    {
+        $returnType = '\Nlocascio\Mindbody\Model\GetResourceAvailabilitiesResponse';
+        $request = $this->siteGetResourceAvailabilitiesRequest($RequestEndDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestResourceIds, $RequestScheduleTypes, $RequestStartDate);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Nlocascio\Mindbody\Model\GetResourceAvailabilitiesResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation siteGetResourceAvailabilitiesAsync
+     *
+     * Get resource availabilities used at a site.
+     *
+     * @param  \DateTime $RequestEndDate End date. If default, StartDate is used. (optional)
+     * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
+     * @param  int[] $RequestLocationIds Filter by location ids (optional) (optional)
+     * @param  int $RequestOffset Page offset, defaults to 0. (optional)
+     * @param  int[] $RequestProgramIds Filter by program ids (optional) (optional)
+     * @param  int[] $RequestResourceIds Filter on resourceIds (optional)
+     * @param  string[] $RequestScheduleTypes Filter by schedule types (optional) (optional)
+     * @param  \DateTime $RequestStartDate Start time (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function siteGetResourceAvailabilitiesAsync($RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestResourceIds = null, $RequestScheduleTypes = null, $RequestStartDate = null): \GuzzleHttp\Promise\PromiseInterface
+    {
+        return $this->siteGetResourceAvailabilitiesAsyncWithHttpInfo($RequestEndDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestResourceIds, $RequestScheduleTypes, $RequestStartDate)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation siteGetResourceAvailabilitiesAsyncWithHttpInfo
+     *
+     * Get resource availabilities used at a site.
+     *
+     * @param  \DateTime $RequestEndDate End date. If default, StartDate is used. (optional)
+     * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
+     * @param  int[] $RequestLocationIds Filter by location ids (optional) (optional)
+     * @param  int $RequestOffset Page offset, defaults to 0. (optional)
+     * @param  int[] $RequestProgramIds Filter by program ids (optional) (optional)
+     * @param  int[] $RequestResourceIds Filter on resourceIds (optional)
+     * @param  string[] $RequestScheduleTypes Filter by schedule types (optional) (optional)
+     * @param  \DateTime $RequestStartDate Start time (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function siteGetResourceAvailabilitiesAsyncWithHttpInfo($RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestResourceIds = null, $RequestScheduleTypes = null, $RequestStartDate = null): \GuzzleHttp\Promise\PromiseInterface
+    {
+        $returnType = '\Nlocascio\Mindbody\Model\GetResourceAvailabilitiesResponse';
+        $request = $this->siteGetResourceAvailabilitiesRequest($RequestEndDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestResourceIds, $RequestScheduleTypes, $RequestStartDate);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'siteGetResourceAvailabilities'
+     *
+     * @param  \DateTime $RequestEndDate End date. If default, StartDate is used. (optional)
+     * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
+     * @param  int[] $RequestLocationIds Filter by location ids (optional) (optional)
+     * @param  int $RequestOffset Page offset, defaults to 0. (optional)
+     * @param  int[] $RequestProgramIds Filter by program ids (optional) (optional)
+     * @param  int[] $RequestResourceIds Filter on resourceIds (optional)
+     * @param  string[] $RequestScheduleTypes Filter by schedule types (optional) (optional)
+     * @param  \DateTime $RequestStartDate Start time (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function siteGetResourceAvailabilitiesRequest($RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestResourceIds = null, $RequestScheduleTypes = null, $RequestStartDate = null): \GuzzleHttp\Psr7\Request
+    {
+
+        $resourcePath = '/public/v6/site/resourceavailabilities';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($RequestEndDate !== null) {
+            $queryParams['request.endDate'] = ObjectSerializer::toQueryValue($RequestEndDate);
+        }
+        // query params
+        if ($RequestLimit !== null) {
+            $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
+        }
+        // query params
+        if (is_array($RequestLocationIds)) {
+            $queryParams['request.locationIds'] = $RequestLocationIds;
+        } else
+        if ($RequestLocationIds !== null) {
+            $queryParams['request.locationIds'] = ObjectSerializer::toQueryValue($RequestLocationIds);
+        }
+        // query params
+        if ($RequestOffset !== null) {
+            $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
+        }
+        // query params
+        if (is_array($RequestProgramIds)) {
+            $queryParams['request.programIds'] = $RequestProgramIds;
+        } else
+        if ($RequestProgramIds !== null) {
+            $queryParams['request.programIds'] = ObjectSerializer::toQueryValue($RequestProgramIds);
+        }
+        // query params
+        if (is_array($RequestResourceIds)) {
+            $queryParams['request.resourceIds'] = $RequestResourceIds;
+        } else
+        if ($RequestResourceIds !== null) {
+            $queryParams['request.resourceIds'] = ObjectSerializer::toQueryValue($RequestResourceIds);
+        }
+        // query params
+        if (is_array($RequestScheduleTypes)) {
+            $queryParams['request.scheduleTypes'] = $RequestScheduleTypes;
+        } else
+        if ($RequestScheduleTypes !== null) {
+            $queryParams['request.scheduleTypes'] = ObjectSerializer::toQueryValue($RequestScheduleTypes);
+        }
+        // query params
+        if ($RequestStartDate !== null) {
+            $queryParams['request.startDate'] = ObjectSerializer::toQueryValue($RequestStartDate);
+        }
+
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = Utils::jsonEncode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = Utils::jsonEncode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
+        if ($apiKey !== null) {
+            $headers['API-Key'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('authorization');
+        if ($apiKey !== null) {
+            $headers['authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('siteId');
+        if ($apiKey !== null) {
+            $headers['siteId'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation siteGetResources
+     *
+     * Get resources used at a site.
+     *
+     * @param  bool $RequestIncludeInactive Enable to include inactive (optional)
+     * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
+     * @param  int[] $RequestLocationIds Filter by location ids (optional) (optional)
+     * @param  int $RequestOffset Page offset, defaults to 0. (optional)
+     * @param  int[] $RequestProgramIds Filter by program ids (optional) (optional)
+     * @param  int[] $RequestResourceIds Filter on resourceIds (optional)
+     * @param  string[] $RequestScheduleTypes Filter by schedule types (optional) (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function siteGetResources($RequestEndDateTime = null, $RequestIncludeInactive = null, $RequestLimit = null, $RequestLocationId = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestResourceIds = null, $RequestScheduleTypes = null, $RequestSessionTypeIds = null, $RequestStartDateTime = null): array
+    public function siteGetResources($RequestIncludeInactive = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestResourceIds = null, $RequestScheduleTypes = null): array
     {
-        list($response) = $this->siteGetResourcesWithHttpInfo($RequestEndDateTime, $RequestIncludeInactive, $RequestLimit, $RequestLocationId, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestResourceIds, $RequestScheduleTypes, $RequestSessionTypeIds, $RequestStartDateTime);
+        list($response) = $this->siteGetResourcesWithHttpInfo($RequestIncludeInactive, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestResourceIds, $RequestScheduleTypes);
         return $response;
     }
 
@@ -4387,26 +4732,22 @@ class SiteApi implements ApiInterface
      *
      * Get resources used at a site.
      *
-     * @param  \DateTime $RequestEndDateTime The time the resource ends. This parameter is ignored if &#x60;EndDateTime&#x60; or &#x60;LocationID&#x60; is not set. (optional)
      * @param  bool $RequestIncludeInactive Enable to include inactive (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
-     * @param  int $RequestLocationId The location of the resource. This parameter is ignored if &#x60;EndDateTime&#x60; or &#x60;LocationID&#x60; is not set.&lt;br /&gt;  Default: **all** (optional)
      * @param  int[] $RequestLocationIds Filter by location ids (optional) (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  int[] $RequestProgramIds Filter by program ids (optional) (optional)
      * @param  int[] $RequestResourceIds Filter on resourceIds (optional)
      * @param  string[] $RequestScheduleTypes Filter by schedule types (optional) (optional)
-     * @param  int[] $RequestSessionTypeIds List of session type IDs.&lt;br /&gt;  Default: **all** (optional)
-     * @param  \DateTime $RequestStartDateTime The time the resource starts. This parameter is ignored if &#x60;EndDateTime&#x60; or &#x60;LocationID&#x60; is not set. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function siteGetResourcesWithHttpInfo($RequestEndDateTime = null, $RequestIncludeInactive = null, $RequestLimit = null, $RequestLocationId = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestResourceIds = null, $RequestScheduleTypes = null, $RequestSessionTypeIds = null, $RequestStartDateTime = null): array
+    public function siteGetResourcesWithHttpInfo($RequestIncludeInactive = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestResourceIds = null, $RequestScheduleTypes = null): array
     {
         $returnType = 'object';
-        $request = $this->siteGetResourcesRequest($RequestEndDateTime, $RequestIncludeInactive, $RequestLimit, $RequestLocationId, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestResourceIds, $RequestScheduleTypes, $RequestSessionTypeIds, $RequestStartDateTime);
+        $request = $this->siteGetResourcesRequest($RequestIncludeInactive, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestResourceIds, $RequestScheduleTypes);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4472,24 +4813,20 @@ class SiteApi implements ApiInterface
      *
      * Get resources used at a site.
      *
-     * @param  \DateTime $RequestEndDateTime The time the resource ends. This parameter is ignored if &#x60;EndDateTime&#x60; or &#x60;LocationID&#x60; is not set. (optional)
      * @param  bool $RequestIncludeInactive Enable to include inactive (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
-     * @param  int $RequestLocationId The location of the resource. This parameter is ignored if &#x60;EndDateTime&#x60; or &#x60;LocationID&#x60; is not set.&lt;br /&gt;  Default: **all** (optional)
      * @param  int[] $RequestLocationIds Filter by location ids (optional) (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  int[] $RequestProgramIds Filter by program ids (optional) (optional)
      * @param  int[] $RequestResourceIds Filter on resourceIds (optional)
      * @param  string[] $RequestScheduleTypes Filter by schedule types (optional) (optional)
-     * @param  int[] $RequestSessionTypeIds List of session type IDs.&lt;br /&gt;  Default: **all** (optional)
-     * @param  \DateTime $RequestStartDateTime The time the resource starts. This parameter is ignored if &#x60;EndDateTime&#x60; or &#x60;LocationID&#x60; is not set. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function siteGetResourcesAsync($RequestEndDateTime = null, $RequestIncludeInactive = null, $RequestLimit = null, $RequestLocationId = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestResourceIds = null, $RequestScheduleTypes = null, $RequestSessionTypeIds = null, $RequestStartDateTime = null): \GuzzleHttp\Promise\PromiseInterface
+    public function siteGetResourcesAsync($RequestIncludeInactive = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestResourceIds = null, $RequestScheduleTypes = null): \GuzzleHttp\Promise\PromiseInterface
     {
-        return $this->siteGetResourcesAsyncWithHttpInfo($RequestEndDateTime, $RequestIncludeInactive, $RequestLimit, $RequestLocationId, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestResourceIds, $RequestScheduleTypes, $RequestSessionTypeIds, $RequestStartDateTime)
+        return $this->siteGetResourcesAsyncWithHttpInfo($RequestIncludeInactive, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestResourceIds, $RequestScheduleTypes)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4502,25 +4839,21 @@ class SiteApi implements ApiInterface
      *
      * Get resources used at a site.
      *
-     * @param  \DateTime $RequestEndDateTime The time the resource ends. This parameter is ignored if &#x60;EndDateTime&#x60; or &#x60;LocationID&#x60; is not set. (optional)
      * @param  bool $RequestIncludeInactive Enable to include inactive (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
-     * @param  int $RequestLocationId The location of the resource. This parameter is ignored if &#x60;EndDateTime&#x60; or &#x60;LocationID&#x60; is not set.&lt;br /&gt;  Default: **all** (optional)
      * @param  int[] $RequestLocationIds Filter by location ids (optional) (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  int[] $RequestProgramIds Filter by program ids (optional) (optional)
      * @param  int[] $RequestResourceIds Filter on resourceIds (optional)
      * @param  string[] $RequestScheduleTypes Filter by schedule types (optional) (optional)
-     * @param  int[] $RequestSessionTypeIds List of session type IDs.&lt;br /&gt;  Default: **all** (optional)
-     * @param  \DateTime $RequestStartDateTime The time the resource starts. This parameter is ignored if &#x60;EndDateTime&#x60; or &#x60;LocationID&#x60; is not set. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function siteGetResourcesAsyncWithHttpInfo($RequestEndDateTime = null, $RequestIncludeInactive = null, $RequestLimit = null, $RequestLocationId = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestResourceIds = null, $RequestScheduleTypes = null, $RequestSessionTypeIds = null, $RequestStartDateTime = null): \GuzzleHttp\Promise\PromiseInterface
+    public function siteGetResourcesAsyncWithHttpInfo($RequestIncludeInactive = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestResourceIds = null, $RequestScheduleTypes = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = 'object';
-        $request = $this->siteGetResourcesRequest($RequestEndDateTime, $RequestIncludeInactive, $RequestLimit, $RequestLocationId, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestResourceIds, $RequestScheduleTypes, $RequestSessionTypeIds, $RequestStartDateTime);
+        $request = $this->siteGetResourcesRequest($RequestIncludeInactive, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestResourceIds, $RequestScheduleTypes);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4562,22 +4895,18 @@ class SiteApi implements ApiInterface
     /**
      * Create request for operation 'siteGetResources'
      *
-     * @param  \DateTime $RequestEndDateTime The time the resource ends. This parameter is ignored if &#x60;EndDateTime&#x60; or &#x60;LocationID&#x60; is not set. (optional)
      * @param  bool $RequestIncludeInactive Enable to include inactive (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
-     * @param  int $RequestLocationId The location of the resource. This parameter is ignored if &#x60;EndDateTime&#x60; or &#x60;LocationID&#x60; is not set.&lt;br /&gt;  Default: **all** (optional)
      * @param  int[] $RequestLocationIds Filter by location ids (optional) (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  int[] $RequestProgramIds Filter by program ids (optional) (optional)
      * @param  int[] $RequestResourceIds Filter on resourceIds (optional)
      * @param  string[] $RequestScheduleTypes Filter by schedule types (optional) (optional)
-     * @param  int[] $RequestSessionTypeIds List of session type IDs.&lt;br /&gt;  Default: **all** (optional)
-     * @param  \DateTime $RequestStartDateTime The time the resource starts. This parameter is ignored if &#x60;EndDateTime&#x60; or &#x60;LocationID&#x60; is not set. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function siteGetResourcesRequest($RequestEndDateTime = null, $RequestIncludeInactive = null, $RequestLimit = null, $RequestLocationId = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestResourceIds = null, $RequestScheduleTypes = null, $RequestSessionTypeIds = null, $RequestStartDateTime = null): \GuzzleHttp\Psr7\Request
+    protected function siteGetResourcesRequest($RequestIncludeInactive = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestResourceIds = null, $RequestScheduleTypes = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/site/resources';
@@ -4588,20 +4917,12 @@ class SiteApi implements ApiInterface
         $multipart = false;
 
         // query params
-        if ($RequestEndDateTime !== null) {
-            $queryParams['request.endDateTime'] = ObjectSerializer::toQueryValue($RequestEndDateTime);
-        }
-        // query params
         if ($RequestIncludeInactive !== null) {
             $queryParams['request.includeInactive'] = ObjectSerializer::toQueryValue($RequestIncludeInactive);
         }
         // query params
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
-        }
-        // query params
-        if ($RequestLocationId !== null) {
-            $queryParams['request.locationId'] = ObjectSerializer::toQueryValue($RequestLocationId);
         }
         // query params
         if (is_array($RequestLocationIds)) {
@@ -4634,17 +4955,6 @@ class SiteApi implements ApiInterface
         } else
         if ($RequestScheduleTypes !== null) {
             $queryParams['request.scheduleTypes'] = ObjectSerializer::toQueryValue($RequestScheduleTypes);
-        }
-        // query params
-        if (is_array($RequestSessionTypeIds)) {
-            $queryParams['request.sessionTypeIds'] = $RequestSessionTypeIds;
-        } else
-        if ($RequestSessionTypeIds !== null) {
-            $queryParams['request.sessionTypeIds'] = ObjectSerializer::toQueryValue($RequestSessionTypeIds);
-        }
-        // query params
-        if ($RequestStartDateTime !== null) {
-            $queryParams['request.startDateTime'] = ObjectSerializer::toQueryValue($RequestStartDateTime);
         }
 
 
@@ -5044,6 +5354,7 @@ class SiteApi implements ApiInterface
      * Get all sites that can be accessed by an API Key.
      *
      * @param  bool $RequestIncludeLeadChannels This is an optional parameter to get lead channels for a Site. (optional)
+     * @param  bool $RequestIncludePerStaffPricing Include whether or not studios have per staff pricing enabled. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  int[] $RequestSiteIds List of the requested site IDs. When omitted, returns all sites that the source has access to. (optional)
@@ -5052,9 +5363,9 @@ class SiteApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetSitesResponse
      */
-    public function siteGetSites($RequestIncludeLeadChannels = null, $RequestLimit = null, $RequestOffset = null, $RequestSiteIds = null): \Nlocascio\Mindbody\Model\GetSitesResponse
+    public function siteGetSites($RequestIncludeLeadChannels = null, $RequestIncludePerStaffPricing = null, $RequestLimit = null, $RequestOffset = null, $RequestSiteIds = null): \Nlocascio\Mindbody\Model\GetSitesResponse
     {
-        list($response) = $this->siteGetSitesWithHttpInfo($RequestIncludeLeadChannels, $RequestLimit, $RequestOffset, $RequestSiteIds);
+        list($response) = $this->siteGetSitesWithHttpInfo($RequestIncludeLeadChannels, $RequestIncludePerStaffPricing, $RequestLimit, $RequestOffset, $RequestSiteIds);
         return $response;
     }
 
@@ -5064,6 +5375,7 @@ class SiteApi implements ApiInterface
      * Get all sites that can be accessed by an API Key.
      *
      * @param  bool $RequestIncludeLeadChannels This is an optional parameter to get lead channels for a Site. (optional)
+     * @param  bool $RequestIncludePerStaffPricing Include whether or not studios have per staff pricing enabled. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  int[] $RequestSiteIds List of the requested site IDs. When omitted, returns all sites that the source has access to. (optional)
@@ -5072,10 +5384,10 @@ class SiteApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetSitesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function siteGetSitesWithHttpInfo($RequestIncludeLeadChannels = null, $RequestLimit = null, $RequestOffset = null, $RequestSiteIds = null): array
+    public function siteGetSitesWithHttpInfo($RequestIncludeLeadChannels = null, $RequestIncludePerStaffPricing = null, $RequestLimit = null, $RequestOffset = null, $RequestSiteIds = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetSitesResponse';
-        $request = $this->siteGetSitesRequest($RequestIncludeLeadChannels, $RequestLimit, $RequestOffset, $RequestSiteIds);
+        $request = $this->siteGetSitesRequest($RequestIncludeLeadChannels, $RequestIncludePerStaffPricing, $RequestLimit, $RequestOffset, $RequestSiteIds);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5142,6 +5454,7 @@ class SiteApi implements ApiInterface
      * Get all sites that can be accessed by an API Key.
      *
      * @param  bool $RequestIncludeLeadChannels This is an optional parameter to get lead channels for a Site. (optional)
+     * @param  bool $RequestIncludePerStaffPricing Include whether or not studios have per staff pricing enabled. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  int[] $RequestSiteIds List of the requested site IDs. When omitted, returns all sites that the source has access to. (optional)
@@ -5149,9 +5462,9 @@ class SiteApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function siteGetSitesAsync($RequestIncludeLeadChannels = null, $RequestLimit = null, $RequestOffset = null, $RequestSiteIds = null): \GuzzleHttp\Promise\PromiseInterface
+    public function siteGetSitesAsync($RequestIncludeLeadChannels = null, $RequestIncludePerStaffPricing = null, $RequestLimit = null, $RequestOffset = null, $RequestSiteIds = null): \GuzzleHttp\Promise\PromiseInterface
     {
-        return $this->siteGetSitesAsyncWithHttpInfo($RequestIncludeLeadChannels, $RequestLimit, $RequestOffset, $RequestSiteIds)
+        return $this->siteGetSitesAsyncWithHttpInfo($RequestIncludeLeadChannels, $RequestIncludePerStaffPricing, $RequestLimit, $RequestOffset, $RequestSiteIds)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5165,6 +5478,7 @@ class SiteApi implements ApiInterface
      * Get all sites that can be accessed by an API Key.
      *
      * @param  bool $RequestIncludeLeadChannels This is an optional parameter to get lead channels for a Site. (optional)
+     * @param  bool $RequestIncludePerStaffPricing Include whether or not studios have per staff pricing enabled. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  int[] $RequestSiteIds List of the requested site IDs. When omitted, returns all sites that the source has access to. (optional)
@@ -5172,10 +5486,10 @@ class SiteApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function siteGetSitesAsyncWithHttpInfo($RequestIncludeLeadChannels = null, $RequestLimit = null, $RequestOffset = null, $RequestSiteIds = null): \GuzzleHttp\Promise\PromiseInterface
+    public function siteGetSitesAsyncWithHttpInfo($RequestIncludeLeadChannels = null, $RequestIncludePerStaffPricing = null, $RequestLimit = null, $RequestOffset = null, $RequestSiteIds = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetSitesResponse';
-        $request = $this->siteGetSitesRequest($RequestIncludeLeadChannels, $RequestLimit, $RequestOffset, $RequestSiteIds);
+        $request = $this->siteGetSitesRequest($RequestIncludeLeadChannels, $RequestIncludePerStaffPricing, $RequestLimit, $RequestOffset, $RequestSiteIds);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5218,6 +5532,7 @@ class SiteApi implements ApiInterface
      * Create request for operation 'siteGetSites'
      *
      * @param  bool $RequestIncludeLeadChannels This is an optional parameter to get lead channels for a Site. (optional)
+     * @param  bool $RequestIncludePerStaffPricing Include whether or not studios have per staff pricing enabled. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  int[] $RequestSiteIds List of the requested site IDs. When omitted, returns all sites that the source has access to. (optional)
@@ -5225,7 +5540,7 @@ class SiteApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function siteGetSitesRequest($RequestIncludeLeadChannels = null, $RequestLimit = null, $RequestOffset = null, $RequestSiteIds = null): \GuzzleHttp\Psr7\Request
+    protected function siteGetSitesRequest($RequestIncludeLeadChannels = null, $RequestIncludePerStaffPricing = null, $RequestLimit = null, $RequestOffset = null, $RequestSiteIds = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/site/sites';
@@ -5238,6 +5553,10 @@ class SiteApi implements ApiInterface
         // query params
         if ($RequestIncludeLeadChannels !== null) {
             $queryParams['request.includeLeadChannels'] = ObjectSerializer::toQueryValue($RequestIncludeLeadChannels);
+        }
+        // query params
+        if ($RequestIncludePerStaffPricing !== null) {
+            $queryParams['request.includePerStaffPricing'] = ObjectSerializer::toQueryValue($RequestIncludePerStaffPricing);
         }
         // query params
         if ($RequestLimit !== null) {
@@ -5315,355 +5634,6 @@ class SiteApi implements ApiInterface
         $apiKey = $this->config->getApiKeyWithPrefix('authorization');
         if ($apiKey !== null) {
             $headers['authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation siteSiteGetResourceAvailabilities
-     *
-     * Get resource availabilities used at a site.
-     *
-     * @param  \DateTime $RequestEndDate End date. If default, StartDate is used. (optional)
-     * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
-     * @param  int[] $RequestLocationIds Filter by location ids (optional) (optional)
-     * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  int[] $RequestProgramIds Filter by program ids (optional) (optional)
-     * @param  int[] $RequestResourceIds Filter on resourceIds (optional)
-     * @param  string[] $RequestScheduleTypes Filter by schedule types (optional) (optional)
-     * @param  \DateTime $RequestStartDate Start time (optional)
-     *
-     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Nlocascio\Mindbody\Model\GetResourcesResponse
-     */
-    public function siteSiteGetResourceAvailabilities($RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestResourceIds = null, $RequestScheduleTypes = null, $RequestStartDate = null): \Nlocascio\Mindbody\Model\GetResourcesResponse
-    {
-        list($response) = $this->siteSiteGetResourceAvailabilitiesWithHttpInfo($RequestEndDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestResourceIds, $RequestScheduleTypes, $RequestStartDate);
-        return $response;
-    }
-
-    /**
-     * Operation siteSiteGetResourceAvailabilitiesWithHttpInfo
-     *
-     * Get resource availabilities used at a site.
-     *
-     * @param  \DateTime $RequestEndDate End date. If default, StartDate is used. (optional)
-     * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
-     * @param  int[] $RequestLocationIds Filter by location ids (optional) (optional)
-     * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  int[] $RequestProgramIds Filter by program ids (optional) (optional)
-     * @param  int[] $RequestResourceIds Filter on resourceIds (optional)
-     * @param  string[] $RequestScheduleTypes Filter by schedule types (optional) (optional)
-     * @param  \DateTime $RequestStartDate Start time (optional)
-     *
-     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\GetResourcesResponse, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function siteSiteGetResourceAvailabilitiesWithHttpInfo($RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestResourceIds = null, $RequestScheduleTypes = null, $RequestStartDate = null): array
-    {
-        $returnType = '\Nlocascio\Mindbody\Model\GetResourcesResponse';
-        $request = $this->siteSiteGetResourceAvailabilitiesRequest($RequestEndDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestResourceIds, $RequestScheduleTypes, $RequestStartDate);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\GetResourcesResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation siteSiteGetResourceAvailabilitiesAsync
-     *
-     * Get resource availabilities used at a site.
-     *
-     * @param  \DateTime $RequestEndDate End date. If default, StartDate is used. (optional)
-     * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
-     * @param  int[] $RequestLocationIds Filter by location ids (optional) (optional)
-     * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  int[] $RequestProgramIds Filter by program ids (optional) (optional)
-     * @param  int[] $RequestResourceIds Filter on resourceIds (optional)
-     * @param  string[] $RequestScheduleTypes Filter by schedule types (optional) (optional)
-     * @param  \DateTime $RequestStartDate Start time (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function siteSiteGetResourceAvailabilitiesAsync($RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestResourceIds = null, $RequestScheduleTypes = null, $RequestStartDate = null): \GuzzleHttp\Promise\PromiseInterface
-    {
-        return $this->siteSiteGetResourceAvailabilitiesAsyncWithHttpInfo($RequestEndDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestResourceIds, $RequestScheduleTypes, $RequestStartDate)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation siteSiteGetResourceAvailabilitiesAsyncWithHttpInfo
-     *
-     * Get resource availabilities used at a site.
-     *
-     * @param  \DateTime $RequestEndDate End date. If default, StartDate is used. (optional)
-     * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
-     * @param  int[] $RequestLocationIds Filter by location ids (optional) (optional)
-     * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  int[] $RequestProgramIds Filter by program ids (optional) (optional)
-     * @param  int[] $RequestResourceIds Filter on resourceIds (optional)
-     * @param  string[] $RequestScheduleTypes Filter by schedule types (optional) (optional)
-     * @param  \DateTime $RequestStartDate Start time (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function siteSiteGetResourceAvailabilitiesAsyncWithHttpInfo($RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestResourceIds = null, $RequestScheduleTypes = null, $RequestStartDate = null): \GuzzleHttp\Promise\PromiseInterface
-    {
-        $returnType = '\Nlocascio\Mindbody\Model\GetResourcesResponse';
-        $request = $this->siteSiteGetResourceAvailabilitiesRequest($RequestEndDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestResourceIds, $RequestScheduleTypes, $RequestStartDate);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'siteSiteGetResourceAvailabilities'
-     *
-     * @param  \DateTime $RequestEndDate End date. If default, StartDate is used. (optional)
-     * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
-     * @param  int[] $RequestLocationIds Filter by location ids (optional) (optional)
-     * @param  int $RequestOffset Page offset, defaults to 0. (optional)
-     * @param  int[] $RequestProgramIds Filter by program ids (optional) (optional)
-     * @param  int[] $RequestResourceIds Filter on resourceIds (optional)
-     * @param  string[] $RequestScheduleTypes Filter by schedule types (optional) (optional)
-     * @param  \DateTime $RequestStartDate Start time (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function siteSiteGetResourceAvailabilitiesRequest($RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestResourceIds = null, $RequestScheduleTypes = null, $RequestStartDate = null): \GuzzleHttp\Psr7\Request
-    {
-
-        $resourcePath = '/public/v6/site/resourceavailabilities';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if ($RequestEndDate !== null) {
-            $queryParams['request.endDate'] = ObjectSerializer::toQueryValue($RequestEndDate);
-        }
-        // query params
-        if ($RequestLimit !== null) {
-            $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
-        }
-        // query params
-        if (is_array($RequestLocationIds)) {
-            $queryParams['request.locationIds'] = $RequestLocationIds;
-        } else
-        if ($RequestLocationIds !== null) {
-            $queryParams['request.locationIds'] = ObjectSerializer::toQueryValue($RequestLocationIds);
-        }
-        // query params
-        if ($RequestOffset !== null) {
-            $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
-        }
-        // query params
-        if (is_array($RequestProgramIds)) {
-            $queryParams['request.programIds'] = $RequestProgramIds;
-        } else
-        if ($RequestProgramIds !== null) {
-            $queryParams['request.programIds'] = ObjectSerializer::toQueryValue($RequestProgramIds);
-        }
-        // query params
-        if (is_array($RequestResourceIds)) {
-            $queryParams['request.resourceIds'] = $RequestResourceIds;
-        } else
-        if ($RequestResourceIds !== null) {
-            $queryParams['request.resourceIds'] = ObjectSerializer::toQueryValue($RequestResourceIds);
-        }
-        // query params
-        if (is_array($RequestScheduleTypes)) {
-            $queryParams['request.scheduleTypes'] = $RequestScheduleTypes;
-        } else
-        if ($RequestScheduleTypes !== null) {
-            $queryParams['request.scheduleTypes'] = ObjectSerializer::toQueryValue($RequestScheduleTypes);
-        }
-        // query params
-        if ($RequestStartDate !== null) {
-            $queryParams['request.startDate'] = ObjectSerializer::toQueryValue($RequestStartDate);
-        }
-
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            
-            if($headers['Content-Type'] === 'application/json') {
-                // \stdClass has no __toString(), so we should encode it manually
-                if ($httpBody instanceof \stdClass) {
-                    $httpBody = Utils::jsonEncode($httpBody);
-                }
-                // array has no __toString(), so we should encode it manually
-                if(is_array($httpBody)) {
-                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
-                }
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = Utils::jsonEncode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
-        if ($apiKey !== null) {
-            $headers['API-Key'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('authorization');
-        if ($apiKey !== null) {
-            $headers['authorization'] = $apiKey;
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('siteId');
-        if ($apiKey !== null) {
-            $headers['siteId'] = $apiKey;
         }
 
         $defaultHeaders = [];

@@ -33,10 +33,12 @@ namespace Nlocascio\Mindbody\Model;
  * PurchaseContractResponse Class Doc Comment
  *
  * @category Class
+ * @description Response model for POST PurchaseContract endpoint
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  * @property string $ClientId The ID of the client who is purchasing the contract.
+ * @property int $UniqueClientId The Unique ID of the client who is purchasing the contract.
  * @property int $LocationId The ID of the location where the contract is being purchased.
  * @property int $ContractId The ID of the general contract being purchased.
  * @property int $ClientContractId The ID of the specific contract being purchased by this specific client, not to be confused with the `ContractId`, which refers to a general contract that the business offers.
@@ -62,6 +64,7 @@ class PurchaseContractResponse extends BaseModel
       */
     protected static $swaggerTypes = [
         'ClientId' => 'string',
+        'UniqueClientId' => 'int',
         'LocationId' => 'int',
         'ContractId' => 'int',
         'ClientContractId' => 'int',
@@ -76,6 +79,7 @@ class PurchaseContractResponse extends BaseModel
       */
     protected static $swaggerFormats = [
         'ClientId' => null,
+        'UniqueClientId' => 'int64',
         'LocationId' => 'int32',
         'ContractId' => 'int32',
         'ClientContractId' => 'int32',
@@ -92,6 +96,7 @@ class PurchaseContractResponse extends BaseModel
      */
     protected static $attributeMap = [
         'ClientId' => 'ClientId',
+        'UniqueClientId' => 'UniqueClientId',
         'LocationId' => 'LocationId',
         'ContractId' => 'ContractId',
         'ClientContractId' => 'ClientContractId',
@@ -106,6 +111,7 @@ class PurchaseContractResponse extends BaseModel
      */
     protected static $setters = [
         'ClientId' => 'setClientId',
+        'UniqueClientId' => 'setUniqueClientId',
         'LocationId' => 'setLocationId',
         'ContractId' => 'setContractId',
         'ClientContractId' => 'setClientContractId',
@@ -120,6 +126,7 @@ class PurchaseContractResponse extends BaseModel
      */
     protected static $getters = [
         'ClientId' => 'getClientId',
+        'UniqueClientId' => 'getUniqueClientId',
         'LocationId' => 'getLocationId',
         'ContractId' => 'getContractId',
         'ClientContractId' => 'getClientContractId',
@@ -141,6 +148,7 @@ class PurchaseContractResponse extends BaseModel
     public function __construct(array $data = null)
     {
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
+        $this->container['UniqueClientId'] = isset($data['UniqueClientId']) ? $data['UniqueClientId'] : null;
         $this->container['LocationId'] = isset($data['LocationId']) ? $data['LocationId'] : null;
         $this->container['ContractId'] = isset($data['ContractId']) ? $data['ContractId'] : null;
         $this->container['ClientContractId'] = isset($data['ClientContractId']) ? $data['ClientContractId'] : null;
@@ -181,6 +189,30 @@ class PurchaseContractResponse extends BaseModel
     public function setClientId($ClientId): self
     {
         $this->container['ClientId'] = $ClientId;
+
+        return $this;
+    }
+
+    /**
+     * Gets UniqueClientId
+     *
+     * @return int
+     */
+    public function getUniqueClientId()
+    {
+        return $this->container['UniqueClientId'];
+    }
+
+    /**
+     * Sets UniqueClientId
+     *
+     * @param int $UniqueClientId The Unique ID of the client who is purchasing the contract.
+     *
+     * @return $this
+     */
+    public function setUniqueClientId($UniqueClientId): self
+    {
+        $this->container['UniqueClientId'] = $UniqueClientId;
 
         return $this;
     }

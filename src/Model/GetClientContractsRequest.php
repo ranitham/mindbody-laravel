@@ -37,6 +37,7 @@ namespace Nlocascio\Mindbody\Model;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  * @property string $ClientId The ID of the client (RssId).
+ * @property int $UniqueClientId The unique ID of the requested client.
  * @property bool $CrossRegionalLookup When `true`, indicates that the requesting client’s cross regional contracts are returned, if any.<br />  When `false`, indicates that cross regional contracts are not returned.
  * @property int $ClientAssociatedSitesOffset Determines how many sites are skipped over when retrieving a client’s cross regional contracts. Used when a client ID is linked to more than ten sites in an organization. Only a maximum of ten site databases are queried when this call is made and `CrossRegionalLookup` is set to `true`. To change which sites are queried, change this offset value.  Default: **0**
  * @property int $Limit Number of results to include, defaults to 100
@@ -61,6 +62,7 @@ class GetClientContractsRequest extends BaseModel
       */
     protected static $swaggerTypes = [
         'ClientId' => 'string',
+        'UniqueClientId' => 'int',
         'CrossRegionalLookup' => 'bool',
         'ClientAssociatedSitesOffset' => 'int',
         'Limit' => 'int',
@@ -74,6 +76,7 @@ class GetClientContractsRequest extends BaseModel
       */
     protected static $swaggerFormats = [
         'ClientId' => null,
+        'UniqueClientId' => 'int64',
         'CrossRegionalLookup' => null,
         'ClientAssociatedSitesOffset' => 'int32',
         'Limit' => 'int32',
@@ -89,6 +92,7 @@ class GetClientContractsRequest extends BaseModel
      */
     protected static $attributeMap = [
         'ClientId' => 'ClientId',
+        'UniqueClientId' => 'UniqueClientId',
         'CrossRegionalLookup' => 'CrossRegionalLookup',
         'ClientAssociatedSitesOffset' => 'ClientAssociatedSitesOffset',
         'Limit' => 'Limit',
@@ -102,6 +106,7 @@ class GetClientContractsRequest extends BaseModel
      */
     protected static $setters = [
         'ClientId' => 'setClientId',
+        'UniqueClientId' => 'setUniqueClientId',
         'CrossRegionalLookup' => 'setCrossRegionalLookup',
         'ClientAssociatedSitesOffset' => 'setClientAssociatedSitesOffset',
         'Limit' => 'setLimit',
@@ -115,6 +120,7 @@ class GetClientContractsRequest extends BaseModel
      */
     protected static $getters = [
         'ClientId' => 'getClientId',
+        'UniqueClientId' => 'getUniqueClientId',
         'CrossRegionalLookup' => 'getCrossRegionalLookup',
         'ClientAssociatedSitesOffset' => 'getClientAssociatedSitesOffset',
         'Limit' => 'getLimit',
@@ -135,6 +141,7 @@ class GetClientContractsRequest extends BaseModel
     public function __construct(array $data = null)
     {
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
+        $this->container['UniqueClientId'] = isset($data['UniqueClientId']) ? $data['UniqueClientId'] : null;
         $this->container['CrossRegionalLookup'] = isset($data['CrossRegionalLookup']) ? $data['CrossRegionalLookup'] : null;
         $this->container['ClientAssociatedSitesOffset'] = isset($data['ClientAssociatedSitesOffset']) ? $data['ClientAssociatedSitesOffset'] : null;
         $this->container['Limit'] = isset($data['Limit']) ? $data['Limit'] : null;
@@ -177,6 +184,30 @@ class GetClientContractsRequest extends BaseModel
     public function setClientId($ClientId): self
     {
         $this->container['ClientId'] = $ClientId;
+
+        return $this;
+    }
+
+    /**
+     * Gets UniqueClientId
+     *
+     * @return int
+     */
+    public function getUniqueClientId()
+    {
+        return $this->container['UniqueClientId'];
+    }
+
+    /**
+     * Sets UniqueClientId
+     *
+     * @param int $UniqueClientId The unique ID of the requested client.
+     *
+     * @return $this
+     */
+    public function setUniqueClientId($UniqueClientId): self
+    {
+        $this->container['UniqueClientId'] = $UniqueClientId;
 
         return $this;
     }

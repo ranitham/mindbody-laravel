@@ -37,7 +37,10 @@ namespace Nlocascio\Mindbody\Model;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  * @property string $CartId The unique ID of the shopping cart to be processed. You can use this value to maintain a persistent cart. If you do not specify a cart ID, the MINDBODY software generates one.
- * @property string $ClientId The RSSID of the client making the purchase. A cart can be validated without a client ID, but a client ID must be specified to complete a sale.
+ * @property string $ClientId The RSSID of the client making the purchase. A 'ClientId' OR 'UniqueClientId' must be specified to complete a sale.
+ * @property int $UniqueClientId The UniqueId of the client making the purchase. A 'ClientId' OR 'UniqueClientId' must be specified to complete a sale.  Note: you need to provide the 'UniqueClientId' OR the 'ClientId'. If both are provided, the 'UniqueClientId' takes precedence.
+ * @property string $PayerClientId The RSSID of the client paying for the purchase. This client needs to have a relationship of type \"Pays for\" with the client specified in the 'ClientId' or 'UniqueClientId' fields.
+ * @property int $UniquePayerClientId The UniqueId of the client paying for the purchase. This client needs to have a relationship of type \"Pays for\" with the client specified in the 'ClientId' or 'UniqueClientId' field.  Note: you need to provide the 'UniquePayerClientId' OR the 'PayerClientId'. If both are provided, the 'UniquePayerClientId' takes precedence.
  * @property bool $Test When `true`, indicates that the contents of the cart are validated, but the transaction does not take place. You should use this parameter during testing and when checking the calculated totals of the items in the cart.<br />  When `false`, the transaction takes place and the database is affected.<br />  Default: **false**
  * @property \Nlocascio\Mindbody\Model\CheckoutItemWrapper[] $Items A list of the items in the cart.
  * @property bool $InStore When `true`, indicates that the cart is to be completed by a staff member and is to take place at one of the business’ physical locations.<br />  When `false`, indicates that the cart is to be completed by a client from the business’ online store.<br />  Default: **false**
@@ -74,6 +77,9 @@ class CheckoutShoppingCartRequest extends BaseModel
     protected static $swaggerTypes = [
         'CartId' => 'string',
         'ClientId' => 'string',
+        'UniqueClientId' => 'int',
+        'PayerClientId' => 'string',
+        'UniquePayerClientId' => 'int',
         'Test' => 'bool',
         'Items' => '\Nlocascio\Mindbody\Model\CheckoutItemWrapper[]',
         'InStore' => 'bool',
@@ -99,6 +105,9 @@ class CheckoutShoppingCartRequest extends BaseModel
     protected static $swaggerFormats = [
         'CartId' => null,
         'ClientId' => null,
+        'UniqueClientId' => 'int64',
+        'PayerClientId' => null,
+        'UniquePayerClientId' => 'int64',
         'Test' => null,
         'Items' => null,
         'InStore' => null,
@@ -126,6 +135,9 @@ class CheckoutShoppingCartRequest extends BaseModel
     protected static $attributeMap = [
         'CartId' => 'CartId',
         'ClientId' => 'ClientId',
+        'UniqueClientId' => 'UniqueClientId',
+        'PayerClientId' => 'PayerClientId',
+        'UniquePayerClientId' => 'UniquePayerClientId',
         'Test' => 'Test',
         'Items' => 'Items',
         'InStore' => 'InStore',
@@ -151,6 +163,9 @@ class CheckoutShoppingCartRequest extends BaseModel
     protected static $setters = [
         'CartId' => 'setCartId',
         'ClientId' => 'setClientId',
+        'UniqueClientId' => 'setUniqueClientId',
+        'PayerClientId' => 'setPayerClientId',
+        'UniquePayerClientId' => 'setUniquePayerClientId',
         'Test' => 'setTest',
         'Items' => 'setItems',
         'InStore' => 'setInStore',
@@ -176,6 +191,9 @@ class CheckoutShoppingCartRequest extends BaseModel
     protected static $getters = [
         'CartId' => 'getCartId',
         'ClientId' => 'getClientId',
+        'UniqueClientId' => 'getUniqueClientId',
+        'PayerClientId' => 'getPayerClientId',
+        'UniquePayerClientId' => 'getUniquePayerClientId',
         'Test' => 'getTest',
         'Items' => 'getItems',
         'InStore' => 'getInStore',
@@ -208,6 +226,9 @@ class CheckoutShoppingCartRequest extends BaseModel
     {
         $this->container['CartId'] = isset($data['CartId']) ? $data['CartId'] : null;
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
+        $this->container['UniqueClientId'] = isset($data['UniqueClientId']) ? $data['UniqueClientId'] : null;
+        $this->container['PayerClientId'] = isset($data['PayerClientId']) ? $data['PayerClientId'] : null;
+        $this->container['UniquePayerClientId'] = isset($data['UniquePayerClientId']) ? $data['UniquePayerClientId'] : null;
         $this->container['Test'] = isset($data['Test']) ? $data['Test'] : null;
         $this->container['Items'] = isset($data['Items']) ? $data['Items'] : null;
         $this->container['InStore'] = isset($data['InStore']) ? $data['InStore'] : null;
@@ -234,9 +255,6 @@ class CheckoutShoppingCartRequest extends BaseModel
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['ClientId'] === null) {
-            $invalidProperties[] = "'ClientId' can't be null";
-        }
         if ($this->container['Items'] === null) {
             $invalidProperties[] = "'Items' can't be null";
         }
@@ -288,13 +306,85 @@ class CheckoutShoppingCartRequest extends BaseModel
     /**
      * Sets ClientId
      *
-     * @param string $ClientId The RSSID of the client making the purchase. A cart can be validated without a client ID, but a client ID must be specified to complete a sale.
+     * @param string $ClientId The RSSID of the client making the purchase. A 'ClientId' OR 'UniqueClientId' must be specified to complete a sale.
      *
      * @return $this
      */
     public function setClientId($ClientId): self
     {
         $this->container['ClientId'] = $ClientId;
+
+        return $this;
+    }
+
+    /**
+     * Gets UniqueClientId
+     *
+     * @return int
+     */
+    public function getUniqueClientId()
+    {
+        return $this->container['UniqueClientId'];
+    }
+
+    /**
+     * Sets UniqueClientId
+     *
+     * @param int $UniqueClientId The UniqueId of the client making the purchase. A 'ClientId' OR 'UniqueClientId' must be specified to complete a sale.  Note: you need to provide the 'UniqueClientId' OR the 'ClientId'. If both are provided, the 'UniqueClientId' takes precedence.
+     *
+     * @return $this
+     */
+    public function setUniqueClientId($UniqueClientId): self
+    {
+        $this->container['UniqueClientId'] = $UniqueClientId;
+
+        return $this;
+    }
+
+    /**
+     * Gets PayerClientId
+     *
+     * @return string
+     */
+    public function getPayerClientId()
+    {
+        return $this->container['PayerClientId'];
+    }
+
+    /**
+     * Sets PayerClientId
+     *
+     * @param string $PayerClientId The RSSID of the client paying for the purchase. This client needs to have a relationship of type \"Pays for\" with the client specified in the 'ClientId' or 'UniqueClientId' fields.
+     *
+     * @return $this
+     */
+    public function setPayerClientId($PayerClientId): self
+    {
+        $this->container['PayerClientId'] = $PayerClientId;
+
+        return $this;
+    }
+
+    /**
+     * Gets UniquePayerClientId
+     *
+     * @return int
+     */
+    public function getUniquePayerClientId()
+    {
+        return $this->container['UniquePayerClientId'];
+    }
+
+    /**
+     * Sets UniquePayerClientId
+     *
+     * @param int $UniquePayerClientId The UniqueId of the client paying for the purchase. This client needs to have a relationship of type \"Pays for\" with the client specified in the 'ClientId' or 'UniqueClientId' field.  Note: you need to provide the 'UniquePayerClientId' OR the 'PayerClientId'. If both are provided, the 'UniquePayerClientId' takes precedence.
+     *
+     * @return $this
+     */
+    public function setUniquePayerClientId($UniquePayerClientId): self
+    {
+        $this->container['UniquePayerClientId'] = $UniquePayerClientId;
 
         return $this;
     }

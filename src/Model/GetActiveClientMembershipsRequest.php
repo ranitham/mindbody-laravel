@@ -37,6 +37,7 @@ namespace Nlocascio\Mindbody\Model;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  * @property string $ClientId The ID of the client for whom memberships are returned.
+ * @property int $UniqueClientId The Unique ID of the client for whom memberships are returned. Note that UniqueClientId takes precedence over ClientId if both are provided.
  * @property int $LocationId Filters results to memberships that can be used to pay for scheduled services at that location. This parameter can not be passed when `CrossRegionalLookup` is `true`.
  * @property bool $CrossRegionalLookup Used to retrieve a client’s memberships from multiple sites within an organization. When included and set to `true`, it searches a maximum of ten sites with which this client is associated. When a client is associated with more than ten sites, use `ClientAssociatedSitesOffset` as many times as needed to search the additional sites with which the client is associated. You can use the `CrossRegionalClientAssociations` value from `GET CrossRegionalClientAssociations` to determine how many sites the client is associated with. Note that a `SiteID` is returned and populated in the `ClientServices` response when `CrossRegionalLookup` is set to `true`.  Default: **false**
  * @property int $ClientAssociatedSitesOffset Used to retrieve a client’s memberships from multiple sites within an organization when the client is associated with more than ten sites. To change which ten sites are searched, change this offset value. A value of 0 means that no sites are skipped and the first ten sites are returned. You can use the `CrossRegionalClientAssociations` value from `GET CrossRegionalClientAssociations` to determine how many sites the client is associated with. Note that you must always have `CrossRegionalLookup` set to `true` to use this parameter.<br />  Default: **0**    For example, if a client is associated with 25 sites, you need to call GET `ActiveClientMemberships` three times, as follows:  * Use GET `CrossRegionalClientAssociations` to determine how many sites a client is associated with, which tells you how many additional calls you need to make.  * Either omit `ClientAssociatedSitesOffset` or set it to 0 to return the client’s memberships from sites 1-10  * Set `ClientAssociatedSitesOffset` to 10 to return the client’s memberships from sites 11-20  * Set `ClientAssociatedSitesOffset` to 20 to return the client’s memberships from sites 21-25
@@ -62,6 +63,7 @@ class GetActiveClientMembershipsRequest extends BaseModel
       */
     protected static $swaggerTypes = [
         'ClientId' => 'string',
+        'UniqueClientId' => 'int',
         'LocationId' => 'int',
         'CrossRegionalLookup' => 'bool',
         'ClientAssociatedSitesOffset' => 'int',
@@ -76,6 +78,7 @@ class GetActiveClientMembershipsRequest extends BaseModel
       */
     protected static $swaggerFormats = [
         'ClientId' => null,
+        'UniqueClientId' => 'int64',
         'LocationId' => 'int32',
         'CrossRegionalLookup' => null,
         'ClientAssociatedSitesOffset' => 'int32',
@@ -92,6 +95,7 @@ class GetActiveClientMembershipsRequest extends BaseModel
      */
     protected static $attributeMap = [
         'ClientId' => 'ClientId',
+        'UniqueClientId' => 'UniqueClientId',
         'LocationId' => 'LocationId',
         'CrossRegionalLookup' => 'CrossRegionalLookup',
         'ClientAssociatedSitesOffset' => 'ClientAssociatedSitesOffset',
@@ -106,6 +110,7 @@ class GetActiveClientMembershipsRequest extends BaseModel
      */
     protected static $setters = [
         'ClientId' => 'setClientId',
+        'UniqueClientId' => 'setUniqueClientId',
         'LocationId' => 'setLocationId',
         'CrossRegionalLookup' => 'setCrossRegionalLookup',
         'ClientAssociatedSitesOffset' => 'setClientAssociatedSitesOffset',
@@ -120,6 +125,7 @@ class GetActiveClientMembershipsRequest extends BaseModel
      */
     protected static $getters = [
         'ClientId' => 'getClientId',
+        'UniqueClientId' => 'getUniqueClientId',
         'LocationId' => 'getLocationId',
         'CrossRegionalLookup' => 'getCrossRegionalLookup',
         'ClientAssociatedSitesOffset' => 'getClientAssociatedSitesOffset',
@@ -141,6 +147,7 @@ class GetActiveClientMembershipsRequest extends BaseModel
     public function __construct(array $data = null)
     {
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
+        $this->container['UniqueClientId'] = isset($data['UniqueClientId']) ? $data['UniqueClientId'] : null;
         $this->container['LocationId'] = isset($data['LocationId']) ? $data['LocationId'] : null;
         $this->container['CrossRegionalLookup'] = isset($data['CrossRegionalLookup']) ? $data['CrossRegionalLookup'] : null;
         $this->container['ClientAssociatedSitesOffset'] = isset($data['ClientAssociatedSitesOffset']) ? $data['ClientAssociatedSitesOffset'] : null;
@@ -184,6 +191,30 @@ class GetActiveClientMembershipsRequest extends BaseModel
     public function setClientId($ClientId): self
     {
         $this->container['ClientId'] = $ClientId;
+
+        return $this;
+    }
+
+    /**
+     * Gets UniqueClientId
+     *
+     * @return int
+     */
+    public function getUniqueClientId()
+    {
+        return $this->container['UniqueClientId'];
+    }
+
+    /**
+     * Sets UniqueClientId
+     *
+     * @param int $UniqueClientId The Unique ID of the client for whom memberships are returned. Note that UniqueClientId takes precedence over ClientId if both are provided.
+     *
+     * @return $this
+     */
+    public function setUniqueClientId($UniqueClientId): self
+    {
+        $this->container['UniqueClientId'] = $UniqueClientId;
 
         return $this;
     }

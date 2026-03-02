@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Item** | [**\Nlocascio\Mindbody\Model\CompletedSaleItemBase**](CompletedSaleItemBase.md) | A purchased item; either a pricing option or a retail product. | [optional] 
+**SalesNotes** | **string** | Sales Notes for the Product Purcahsed | [optional] 
 **DiscountAmount** | **double** | The amount of the discount applied to the item. | [optional] 
 **VisitIds** | **int[]** | The IDs of the booked classes, enrollments, or courses that were reconciled by this cart item. This list is only returned if a valid visit ID was passed in the request’s &#x60;VisitIds&#x60; list. | [optional] 
 **AppointmentIds** | **int[]** | Gets or sets the item. | [optional] 

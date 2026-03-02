@@ -37,6 +37,7 @@ namespace Nlocascio\Mindbody\Model;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  * @property \Nlocascio\Mindbody\Model\CompletedSaleItemBase $Item A purchased item; either a pricing option or a retail product.
+ * @property string $SalesNotes Sales Notes for the Product Purcahsed
  * @property double $DiscountAmount The amount of the discount applied to the item.
  * @property int[] $VisitIds The IDs of the booked classes, enrollments, or courses that were reconciled by this cart item. This list is only returned if a valid visit ID was passed in the request’s `VisitIds` list.
  * @property int[] $AppointmentIds Gets or sets the item.
@@ -63,6 +64,7 @@ class CompletedSaleCartItem extends BaseModel implements ModelWithId
       */
     protected static $swaggerTypes = [
         'Item' => '\Nlocascio\Mindbody\Model\CompletedSaleItemBase',
+        'SalesNotes' => 'string',
         'DiscountAmount' => 'double',
         'VisitIds' => 'int[]',
         'AppointmentIds' => 'int[]',
@@ -78,6 +80,7 @@ class CompletedSaleCartItem extends BaseModel implements ModelWithId
       */
     protected static $swaggerFormats = [
         'Item' => null,
+        'SalesNotes' => null,
         'DiscountAmount' => 'double',
         'VisitIds' => 'int64',
         'AppointmentIds' => 'int64',
@@ -95,6 +98,7 @@ class CompletedSaleCartItem extends BaseModel implements ModelWithId
      */
     protected static $attributeMap = [
         'Item' => 'Item',
+        'SalesNotes' => 'SalesNotes',
         'DiscountAmount' => 'DiscountAmount',
         'VisitIds' => 'VisitIds',
         'AppointmentIds' => 'AppointmentIds',
@@ -110,6 +114,7 @@ class CompletedSaleCartItem extends BaseModel implements ModelWithId
      */
     protected static $setters = [
         'Item' => 'setItem',
+        'SalesNotes' => 'setSalesNotes',
         'DiscountAmount' => 'setDiscountAmount',
         'VisitIds' => 'setVisitIds',
         'AppointmentIds' => 'setAppointmentIds',
@@ -125,6 +130,7 @@ class CompletedSaleCartItem extends BaseModel implements ModelWithId
      */
     protected static $getters = [
         'Item' => 'getItem',
+        'SalesNotes' => 'getSalesNotes',
         'DiscountAmount' => 'getDiscountAmount',
         'VisitIds' => 'getVisitIds',
         'AppointmentIds' => 'getAppointmentIds',
@@ -147,6 +153,7 @@ class CompletedSaleCartItem extends BaseModel implements ModelWithId
     public function __construct(array $data = null)
     {
         $this->container['Item'] = isset($data['Item']) ? $data['Item'] : null;
+        $this->container['SalesNotes'] = isset($data['SalesNotes']) ? $data['SalesNotes'] : null;
         $this->container['DiscountAmount'] = isset($data['DiscountAmount']) ? $data['DiscountAmount'] : null;
         $this->container['VisitIds'] = isset($data['VisitIds']) ? $data['VisitIds'] : null;
         $this->container['AppointmentIds'] = isset($data['AppointmentIds']) ? $data['AppointmentIds'] : null;
@@ -188,6 +195,30 @@ class CompletedSaleCartItem extends BaseModel implements ModelWithId
     public function setItem($Item): self
     {
         $this->container['Item'] = $Item;
+
+        return $this;
+    }
+
+    /**
+     * Gets SalesNotes
+     *
+     * @return string
+     */
+    public function getSalesNotes()
+    {
+        return $this->container['SalesNotes'];
+    }
+
+    /**
+     * Sets SalesNotes
+     *
+     * @param string $SalesNotes Sales Notes for the Product Purcahsed
+     *
+     * @return $this
+     */
+    public function setSalesNotes($SalesNotes): self
+    {
+        $this->container['SalesNotes'] = $SalesNotes;
 
         return $this;
     }

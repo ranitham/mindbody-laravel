@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **EndClassDateTime** | [**\DateTime**](\DateTime.md) | Filters the results to class descriptions for scheduled classes that happen before the given date and time. | [optional] 
 **StaffId** | **int** | Filters results to class descriptions for scheduled classes taught by the given staff member. | [optional] 
 **LocationId** | **int** | Filters results to classes descriptions for schedule classes as the given location. | [optional] 
+**IncludeInactive** | **bool** | Includes inactive class descriptions, defaulting to true. When set to false, it filters out inactive class descriptions. | [optional] 
 **Limit** | **int** | Number of results to include, defaults to 100 | [optional] 
 **Offset** | **int** | Page offset, defaults to 0. | [optional] 
 

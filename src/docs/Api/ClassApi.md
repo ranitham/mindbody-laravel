@@ -18,7 +18,9 @@ Method | HTTP request | Description
 [**classRemoveClientsFromClasses**](ClassApi.md#classRemoveClientsFromClasses) | **POST** /public/v6/class/removeclientsfromclasses | Remove a clients from a classes.
 [**classRemoveFromWaitlist**](ClassApi.md#classRemoveFromWaitlist) | **POST** /public/v6/class/removefromwaitlist | Remove a client from a waiting list.
 [**classSubstituteClassTeacher**](ClassApi.md#classSubstituteClassTeacher) | **POST** /public/v6/class/substituteclassteacher | Substitute a class teacher.
+[**classUpdateClass**](ClassApi.md#classUpdateClass) | **POST** /public/v6/class/updateclass | Update properties of an existing class.
 [**classUpdateClassSchedule**](ClassApi.md#classUpdateClassSchedule) | **POST** /public/v6/class/updateclassschedule | This endpoint updates a class schedule.
+[**classUpdateClassScheduleNotes**](ClassApi.md#classUpdateClassScheduleNotes) | **PATCH** /public/v6/class/updateclassschedulenotes/{classScheduleId} | This endpoint updates a class schedule notes.
 
 
 # **classAddClassSchedule**
@@ -87,7 +89,7 @@ Name | Type | Description  | Notes
 
 Book a client into a class.
 
-This endpoint adds a client to a class or to a class waiting list. To prevent overbooking a class or booking outside the schedule windows set forth by the business, it is necessary to first check the capacity level of the class (‘MaxCapacity’ and 'TotalBooked’) and the 'IsAvailable’ parameter by running the GetClasses REQUEST. It is helpful to use this endpoint in the following situations:  * Use after calling `GET Clients` and `GET Classes` so that you are sure which client to book in which class.  * If adding a client to a class from a waiting list, use this call after you call `GET WaitlistEntries` and determine the ID of the waiting list from which you are moving the client.  * If adding a client to a class and using a pricing option that the client has already purchased, use this call after you call `GET ClientServices` to determine the ID of the pricing option that the client wants to use.    If you add a client to a class and the client purchases a new pricing option, use `GET Services`, `GET Classes`, and then `POST CheckoutShoppingCart` in place of this call.    This endpoint also supports cross-regional class bookings. If you want to perform a cross-regional class booking, set `CrossRegionalBooking` to `true`. This endpoint does not support adding a user to a waiting list using a cross-regional client pricing option(service). Cross-regional booking workflows do not support client service scheduling restrictions.    When performing a cross-regional class booking, this endpoint loops through the first ten sites that the client is associated with, looks for client pricing options at each of those sites, and then uses the oldest client pricing option found.It is important to note that this endpoint only loops through a maximum of ten associated client sites. If a `ClientID` is associated with more than ten sites in an organization, this endpoint only loops through the first ten.If you know that a client has a client service at another site, you can specify that site using the `CrossRegionalBookingClientServiceSiteId` query parameter.    If you perform a cross-regional booking, two additional fields are included in the `SessionType` object of the response:  * `SiteID`, which specifies where the client service is coming from  * `CrossRegionalBookingPerformed`, a Boolean field that is set to `true`    As a prerequisite to using this endpoint, your `SourceName` must have been granted access to the organization to which the site belongs.
+This endpoint adds a client to a class or to a class waiting list. To prevent overbooking a class or booking outside the schedule windows set forth by the business, it is necessary to first check the capacity level of the class (‘MaxCapacity’ and 'TotalBooked’) and the 'IsAvailable’ parameter by running the GetClasses REQUEST. It is helpful to use this endpoint in the following situations:  * Use after calling `GET Clients` and `GET Classes` so that you are sure which client to book in which class.  * If adding a client to a class from a waiting list, use this call after you call `GET WaitlistEntries` and determine the ID of the waiting list from which you are moving the client.  * If adding a client to a class and using a pricing option that the client has already purchased, use this call after you call `GET ClientServices` to determine the ID of the pricing option that the client wants to use.    If you add a client to a class and the client purchases a new pricing option, use `GET Services`, `GET Classes`, and then `POST CheckoutShoppingCart` in place of this call.    This endpoint also supports cross-regional class bookings. If you want to perform a cross-regional class booking, set `CrossRegionalBooking` to `true`. This endpoint does not support adding a user to a waiting list using a cross-regional client pricing option(service). Cross-regional booking workflows do not support client service scheduling restrictions.    When performing a cross-regional class booking, this endpoint loops through the first ten sites that the client is associated with, looks for client pricing options at each of those sites, and then uses the oldest client pricing option found.It is important to note that this endpoint only loops through a maximum of ten associated client sites. If a `ClientID` is associated with more than ten sites in an organization, this endpoint only loops through the first ten.If you know that a client has a client service at another site, you can specify that site using the `CrossRegionalBookingClientServiceSiteId` query parameter.    If you perform a cross-regional booking, two additional fields are included in the `SessionType` object of the response:  * `SiteID`, which specifies where the client service is coming from  * `CrossRegionalBookingPerformed`, a Boolean field that is set to `true`    As a prerequisite to using this endpoint, your `SourceName` must have been granted access to the organization to which the site belongs.                Note: Request deduplication is enabled for this endpoint. More information can be found in the [Request Deduplication Page](https://developers.mindbodyonline.com/ui/documentation/public-api#/net-standard-library/mindbody-public-api-v6-0/request-deduplication).  Use the `X-RequestDeduplication-Skip` header to bypass deduplication if necessary. This may be useful in scenarios where you want to ensure a new appointment is created regardless of previous identical requests.
 
 ### Example
 ```php
@@ -209,7 +211,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **classGetClassDescriptions**
-> \Nlocascio\Mindbody\Model\GetClassDescriptionsResponse classGetClassDescriptions($RequestClassDescriptionId, $RequestEndClassDateTime, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestProgramIds, $RequestStaffId, $RequestStartClassDateTime)
+> \Nlocascio\Mindbody\Model\GetClassDescriptionsResponse classGetClassDescriptions($RequestClassDescriptionId, $RequestEndClassDateTime, $RequestIncludeInactive, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestProgramIds, $RequestStaffId, $RequestStartClassDateTime)
 
 Get class descriptions.
 
@@ -241,6 +243,7 @@ $apiInstance = new Nlocascio\Mindbody\Api\ClassApi(
 );
 $RequestClassDescriptionId = 56; // int | The ID of the requested client.
 $RequestEndClassDateTime = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filters the results to class descriptions for scheduled classes that happen before the given date and time.
+$RequestIncludeInactive = true; // bool | Includes inactive class descriptions, defaulting to true. When set to false, it filters out inactive class descriptions.
 $RequestLimit = 56; // int | Number of results to include, defaults to 100
 $RequestLocationId = 56; // int | Filters results to classes descriptions for schedule classes as the given location.
 $RequestOffset = 56; // int | Page offset, defaults to 0.
@@ -249,7 +252,7 @@ $RequestStaffId = 789; // int | Filters results to class descriptions for schedu
 $RequestStartClassDateTime = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Filters the results to class descriptions for scheduled classes that happen on or after the given date and time.
 
 try {
-    $result = $apiInstance->classGetClassDescriptions($RequestClassDescriptionId, $RequestEndClassDateTime, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestProgramIds, $RequestStaffId, $RequestStartClassDateTime);
+    $result = $apiInstance->classGetClassDescriptions($RequestClassDescriptionId, $RequestEndClassDateTime, $RequestIncludeInactive, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestProgramIds, $RequestStaffId, $RequestStartClassDateTime);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ClassApi->classGetClassDescriptions: ', $e->getMessage(), PHP_EOL;
@@ -263,6 +266,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **RequestClassDescriptionId** | **int**| The ID of the requested client. | [optional]
  **RequestEndClassDateTime** | **\DateTime**| Filters the results to class descriptions for scheduled classes that happen before the given date and time. | [optional]
+ **RequestIncludeInactive** | **bool**| Includes inactive class descriptions, defaulting to true. When set to false, it filters out inactive class descriptions. | [optional]
  **RequestLimit** | **int**| Number of results to include, defaults to 100 | [optional]
  **RequestLocationId** | **int**| Filters results to classes descriptions for schedule classes as the given location. | [optional]
  **RequestOffset** | **int**| Page offset, defaults to 0. | [optional]
@@ -365,7 +369,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **classGetClassVisits**
-> \Nlocascio\Mindbody\Model\GetClassVisitsResponse classGetClassVisits($RequestClassID, $RequestLastModifiedDate)
+> \Nlocascio\Mindbody\Model\GetClassVisitsResponse classGetClassVisits($RequestClassID, $RequestLastModifiedDate, $RequestUseSiteSettingsStaffName)
 
 Get information about clients booked in a class.
 
@@ -397,9 +401,10 @@ $apiInstance = new Nlocascio\Mindbody\Api\ClassApi(
 );
 $RequestClassID = 789; // int | The class ID.
 $RequestLastModifiedDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | When included in the request, only records modified on or after the `LastModifiedDate` specified are included in the response.
+$RequestUseSiteSettingsStaffName = true; // bool | When `true`, the staff DisplayName will be populated based on site-level settings.  When `false` or omitted, the staff DisplayName will contain only the FirstName.
 
 try {
-    $result = $apiInstance->classGetClassVisits($RequestClassID, $RequestLastModifiedDate);
+    $result = $apiInstance->classGetClassVisits($RequestClassID, $RequestLastModifiedDate, $RequestUseSiteSettingsStaffName);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ClassApi->classGetClassVisits: ', $e->getMessage(), PHP_EOL;
@@ -413,6 +418,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **RequestClassID** | **int**| The class ID. |
  **RequestLastModifiedDate** | **\DateTime**| When included in the request, only records modified on or after the &#x60;LastModifiedDate&#x60; specified are included in the response. | [optional]
+ **RequestUseSiteSettingsStaffName** | **bool**| When &#x60;true&#x60;, the staff DisplayName will be populated based on site-level settings.  When &#x60;false&#x60; or omitted, the staff DisplayName will contain only the FirstName. | [optional]
 
 ### Return type
 
@@ -430,7 +436,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **classGetClasses**
-> \Nlocascio\Mindbody\Model\GetClassesResponse classGetClasses($RequestClassDescriptionIds, $RequestClassIds, $RequestClassScheduleIds, $RequestClientId, $RequestEndDateTime, $RequestHideCanceledClasses, $RequestLastModifiedDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSchedulingWindow, $RequestSemesterIds, $RequestSessionTypeIds, $RequestStaffIds, $RequestStartDateTime)
+> \Nlocascio\Mindbody\Model\GetClassesResponse classGetClasses($RequestClassDescriptionIds, $RequestClassIds, $RequestClassScheduleIds, $RequestClientId, $RequestEndDateTime, $RequestHideCanceledClasses, $RequestLastModifiedDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSchedulingWindow, $RequestSemesterIds, $RequestSessionTypeIds, $RequestStaffIds, $RequestStartDateTime, $RequestUniqueClientId)
 
 Get scheduled classes.
 
@@ -462,7 +468,7 @@ $RequestClassDescriptionIds = array(56); // int[] | The requested class descript
 $RequestClassIds = array(56); // int[] | The requested class IDs.
 $RequestClassScheduleIds = array(56); // int[] | The requested classSchedule Ids.
 $RequestClientId = "RequestClientId_example"; // string | The client ID of the client who is viewing this class list. Based on identity, the client may be able to see additional information, such as membership specials.
-$RequestEndDateTime = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The requested end date for filtering.  <br />Default: **today’s date**
+$RequestEndDateTime = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The requested end date for filtering.  NOTE: ClassDate does not take Class Time into consideration.  <br />Default: **today’s date**
 $RequestHideCanceledClasses = true; // bool | When `true`, canceled classes are removed from the response.<br />  When `false`, canceled classes are included in the response.<br />  Default: **false**
 $RequestLastModifiedDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | When included in the request, only records modified on or after the `LastModifiedDate` specified are included in the response.
 $RequestLimit = 56; // int | Number of results to include, defaults to 100
@@ -473,10 +479,11 @@ $RequestSchedulingWindow = true; // bool | When `true`, classes outside scheduli
 $RequestSemesterIds = array(56); // int[] | A list of semester IDs on which to base the search.
 $RequestSessionTypeIds = array(56); // int[] | A list of session type IDs on which to base the search.
 $RequestStaffIds = array(56); // int[] | The requested IDs of the teaching staff members.
-$RequestStartDateTime = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The requested start date for filtering. This also determines what you will see for the ‘BookingWindow’ StartDateTime in the response. For example, if you pass a StartDateTime that is on OR before the BookingWindow ‘Open’ days of the class, you will retrieve the actual ‘StartDateTime’ for the Booking Window. If you pass a StartDateTime that is after the BookingWindow ‘date’, then you will receive results based on that start date.
+$RequestStartDateTime = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The requested start date for filtering. This also determines what you will see for the ‘BookingWindow’ StartDateTime in the response. For example, if you pass a StartDateTime that is on OR before the BookingWindow ‘Open’ days of the class, you will retrieve the actual ‘StartDateTime’ for the Booking Window. If you pass a StartDateTime that is after the BookingWindow ‘date’, then you will receive results based on that start date.  NOTE: ClassDate does not take Class Time into consideration.
+$RequestUniqueClientId = 789; // int | The unique ID of the client who is viewing this class list. Based on identity, the client may be able to see additional information, such as membership specials.  Note: you need to provide the 'UniqueClientId' OR the 'ClientId'. If both are provided, the 'UniqueClientId' takes precedence.
 
 try {
-    $result = $apiInstance->classGetClasses($RequestClassDescriptionIds, $RequestClassIds, $RequestClassScheduleIds, $RequestClientId, $RequestEndDateTime, $RequestHideCanceledClasses, $RequestLastModifiedDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSchedulingWindow, $RequestSemesterIds, $RequestSessionTypeIds, $RequestStaffIds, $RequestStartDateTime);
+    $result = $apiInstance->classGetClasses($RequestClassDescriptionIds, $RequestClassIds, $RequestClassScheduleIds, $RequestClientId, $RequestEndDateTime, $RequestHideCanceledClasses, $RequestLastModifiedDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSchedulingWindow, $RequestSemesterIds, $RequestSessionTypeIds, $RequestStaffIds, $RequestStartDateTime, $RequestUniqueClientId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ClassApi->classGetClasses: ', $e->getMessage(), PHP_EOL;
@@ -492,7 +499,7 @@ Name | Type | Description  | Notes
  **RequestClassIds** | [**int[]**](../Model/int.md)| The requested class IDs. | [optional]
  **RequestClassScheduleIds** | [**int[]**](../Model/int.md)| The requested classSchedule Ids. | [optional]
  **RequestClientId** | **string**| The client ID of the client who is viewing this class list. Based on identity, the client may be able to see additional information, such as membership specials. | [optional]
- **RequestEndDateTime** | **\DateTime**| The requested end date for filtering.  &lt;br /&gt;Default: **today’s date** | [optional]
+ **RequestEndDateTime** | **\DateTime**| The requested end date for filtering.  NOTE: ClassDate does not take Class Time into consideration.  &lt;br /&gt;Default: **today’s date** | [optional]
  **RequestHideCanceledClasses** | **bool**| When &#x60;true&#x60;, canceled classes are removed from the response.&lt;br /&gt;  When &#x60;false&#x60;, canceled classes are included in the response.&lt;br /&gt;  Default: **false** | [optional]
  **RequestLastModifiedDate** | **\DateTime**| When included in the request, only records modified on or after the &#x60;LastModifiedDate&#x60; specified are included in the response. | [optional]
  **RequestLimit** | **int**| Number of results to include, defaults to 100 | [optional]
@@ -503,7 +510,8 @@ Name | Type | Description  | Notes
  **RequestSemesterIds** | [**int[]**](../Model/int.md)| A list of semester IDs on which to base the search. | [optional]
  **RequestSessionTypeIds** | [**int[]**](../Model/int.md)| A list of session type IDs on which to base the search. | [optional]
  **RequestStaffIds** | [**int[]**](../Model/int.md)| The requested IDs of the teaching staff members. | [optional]
- **RequestStartDateTime** | **\DateTime**| The requested start date for filtering. This also determines what you will see for the ‘BookingWindow’ StartDateTime in the response. For example, if you pass a StartDateTime that is on OR before the BookingWindow ‘Open’ days of the class, you will retrieve the actual ‘StartDateTime’ for the Booking Window. If you pass a StartDateTime that is after the BookingWindow ‘date’, then you will receive results based on that start date. | [optional]
+ **RequestStartDateTime** | **\DateTime**| The requested start date for filtering. This also determines what you will see for the ‘BookingWindow’ StartDateTime in the response. For example, if you pass a StartDateTime that is on OR before the BookingWindow ‘Open’ days of the class, you will retrieve the actual ‘StartDateTime’ for the Booking Window. If you pass a StartDateTime that is after the BookingWindow ‘date’, then you will receive results based on that start date.  NOTE: ClassDate does not take Class Time into consideration. | [optional]
+ **RequestUniqueClientId** | **int**| The unique ID of the client who is viewing this class list. Based on identity, the client may be able to see additional information, such as membership specials.  Note: you need to provide the &#39;UniqueClientId&#39; OR the &#39;ClientId&#39;. If both are provided, the &#39;UniqueClientId&#39; takes precedence. | [optional]
 
 ### Return type
 
@@ -995,6 +1003,68 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **classUpdateClass**
+> classUpdateClass($Request)
+
+Update properties of an existing class.
+
+This endpoint updates one or more editable properties of a class identified by the provided ClassId.  Supported properties include class-level attributes such as the theme name and other configurable values  supplied in the request payload.    It is recommended to use this endpoint in the following scenarios:  * When an existing class needs to be updated without creating a new class.  * When modifying class metadata that affects how the class is displayed or categorized.    The request must include a valid ClassId. If the ClassId is missing or less than or equal to zero,  the request is rejected with a validation error.    The request body is mapped into an internal update model and processed by the class engine. Only the properties  provided in the request are updated. All other class attributes remain unchanged, subject to business rules  and validation constraints.    A successful request returns HTTP 202 Accepted, indicating that the update request has been accepted  for processing. No response body is returned.    As a prerequisite to calling this endpoint, the caller’s SourceName must be authorized to update class  data for the site associated with the specified class.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: API-Key
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'Bearer');
+// Configure API key authorization: authorization
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('authorization', 'Bearer');
+// Configure API key authorization: siteId
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('siteId', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('siteId', 'Bearer');
+
+$apiInstance = new Nlocascio\Mindbody\Api\ClassApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$Request = new \Nlocascio\Mindbody\Model\UpdateClassRequest(); // \Nlocascio\Mindbody\Model\UpdateClassRequest | 
+
+try {
+    $apiInstance->classUpdateClass($Request);
+} catch (Exception $e) {
+    echo 'Exception when calling ClassApi->classUpdateClass: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **Request** | [**\Nlocascio\Mindbody\Model\UpdateClassRequest**](../Model/UpdateClassRequest.md)|  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[API-Key](../../README.md#API-Key), [authorization](../../README.md#authorization), [siteId](../../README.md#siteId)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **classUpdateClassSchedule**
 > \Nlocascio\Mindbody\Model\MindbodyPublicApiDataModelsWrittenClassSchedulesInfo classUpdateClassSchedule($Request)
 
@@ -1055,6 +1125,70 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded, multipart/form-data
  - **Accept**: application/json, text/json, application/xml, text/xml, multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **classUpdateClassScheduleNotes**
+> classUpdateClassScheduleNotes($ClassScheduleId, $Request)
+
+This endpoint updates a class schedule notes.
+
+This endpoint updates the notes of class instances based on the schedule's schedule ID.  Note: Every coming class instance for the given ScheduleID will have the notes updated the same way.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: API-Key
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'Bearer');
+// Configure API key authorization: authorization
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('authorization', 'Bearer');
+// Configure API key authorization: siteId
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('siteId', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('siteId', 'Bearer');
+
+$apiInstance = new Nlocascio\Mindbody\Api\ClassApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$ClassScheduleId = 56; // int | 
+$Request = new \Nlocascio\Mindbody\Model\UpdateClassScheduleNotesRequest(); // \Nlocascio\Mindbody\Model\UpdateClassScheduleNotesRequest | 
+
+try {
+    $apiInstance->classUpdateClassScheduleNotes($ClassScheduleId, $Request);
+} catch (Exception $e) {
+    echo 'Exception when calling ClassApi->classUpdateClassScheduleNotes: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ClassScheduleId** | **int**|  |
+ **Request** | [**\Nlocascio\Mindbody\Model\UpdateClassScheduleNotesRequest**](../Model/UpdateClassScheduleNotesRequest.md)|  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[API-Key](../../README.md#API-Key), [authorization](../../README.md#authorization), [siteId](../../README.md#siteId)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/x-www-form-urlencoded, multipart/form-data
+ - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 

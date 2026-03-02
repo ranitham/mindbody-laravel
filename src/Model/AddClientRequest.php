@@ -36,66 +36,66 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property double $AccountBalance The client’s current [account balance](https://mindbody-online-support.force.com/support/s/article/203262013-Adding-account-payments-video-tutorial?language=en_US).
- * @property string $Action The action taken.
- * @property bool $Active When `true`, indicates that the client is active at the site.<br />  When `false`, indicates that the client is not active at the site.
- * @property string $AddressLine1 The first line of the client’s street address.
+ * @property double $AccountBalance Deprecated. This parameter is accepted for backward compatibility but is ignored by this endpoint and will be removed in a future API version.
+ * @property string $Action Deprecated. This parameter is accepted for backward compatibility but is ignored by this endpoint and will be removed in a future API version.
+ * @property bool $Active Deprecated. This parameter is accepted for backward compatibility but is ignored by this endpoint and will be removed in a future API version.
+ * @property string $AddressLine1 The first line of the client’s street address.  Used for the client’s primary address on file.
  * @property string $AddressLine2 The second line of the client’s street address, if needed.
- * @property bool $ApptGenderPrefMale When `true`, indicates that the client prefers services to be provided by a male service provider.<br />  When `false`, indicates that the client prefers services to be provided by a female service provider.<br />  When `null`, indicates that the client has no preference.  Default: **null**
+ * @property bool $ApptGenderPrefMale Deprecated. This parameter is accepted for backward compatibility but is ignored by this endpoint and will be removed in a future API version.
  * @property \DateTime $BirthDate The client’s date of birth.
- * @property string $City The client’s city.
- * @property \Nlocascio\Mindbody\Model\ClientCreditCard $ClientCreditCard Contains information about the client’s credit card.
- * @property \Nlocascio\Mindbody\Model\AssignedClientIndex[] $ClientIndexes Contains a list of the indexes and client index values to be assigned to the client.    If an index is already assigned to the client, it is overwritten with the passed index value. You cannot currently remove client indexes using the Public API. Only the indexes passed in the request are returned in the response.
- * @property \Nlocascio\Mindbody\Model\ClientRelationship[] $ClientRelationships Contains information about client relationships that were added or updated for the client. This parameter does not include all of the relationships assigned to the client, only the ones passed in the request.
- * @property string $Country The country in which the client is located.
- * @property \DateTime $CreationDate The date when the client was added to the business, either by the client from the online store or by a staff member at the subscriber’s business. This value always returns in the format yyyy-mm-ddThh:mm:ss:ms.
- * @property \Nlocascio\Mindbody\Model\CustomClientFieldValue[] $CustomClientFields Contains information about the custom fields used for clients in the business.
- * @property string $Email The client’s email address.
+ * @property string $City The client’s city for the primary address.
+ * @property \Nlocascio\Mindbody\Model\ClientCreditCard $ClientCreditCard Contains information about the client’s credit card.  This operation is performed after the client is created and may fail independently, resulting in a `PartialSuccess` response.
+ * @property \Nlocascio\Mindbody\Model\AssignedClientIndex[] $ClientIndexes Contains a list of the indexes and client index values to be assigned to the client.  If an index is already assigned to the client, it is overwritten with the passed index value. You cannot currently remove client indexes using the Public API.  This operation is performed after the client is created and may fail independently, resulting in a `PartialSuccess` response.
+ * @property \Nlocascio\Mindbody\Model\ClientRelationship[] $ClientRelationships Contains information about client relationships that were added or updated for the client. This parameter does not include all of the relationships assigned to the client, only the ones passed in the request.  This operation is performed after the client is created and may fail independently, resulting in a `PartialSuccess` response.
+ * @property string $Country The country for the client’s primary address.
+ * @property \DateTime $CreationDate Deprecated. This parameter is accepted for backward compatibility but is ignored by this endpoint and will be removed in a future API version.
+ * @property \Nlocascio\Mindbody\Model\CustomClientFieldValue[] $CustomClientFields Contains information about the custom fields used for clients in the business.  Only the fields passed in the request are set.
+ * @property string $Email The client’s email address.  This value is used for communications and duplicate detection.
  * @property string $EmergencyContactInfoEmail The email address of the client’s emergency contact.<br />  For more information, see [Children’s program features(emergency contact information)](https://support.mindbodyonline.com/s/article/203259283-Children-s-program-features-emergency-contact-information?language=en_US).
  * @property string $EmergencyContactInfoName The name of the client’s emergency contact.
  * @property string $EmergencyContactInfoPhone The phone number of the client’s emergency contact.
  * @property string $EmergencyContactInfoRelationship The client’s relationship with the emergency contact, for example, mother or spouse.
- * @property \DateTime $FirstAppointmentDate The date of the client’s first booked appointment at the business.
+ * @property \DateTime $FirstAppointmentDate Deprecated. This parameter is accepted for backward compatibility but is ignored by this endpoint and will be removed in a future API version.
  * @property string $FirstName The client’s first name. You must specify a first name when you add a client.
- * @property string $Gender The client’s gender.
- * @property \Nlocascio\Mindbody\Model\Location $HomeLocation Sets the client’s home location to the passed location, based on its ID.
+ * @property string $Gender The client’s gender. This value is matched against the site’s gender options and mapped to `GenderOptionId`.  If the gender does not exist, a new option is created when the caller has the ManageClientGender permission; otherwise, an error is returned.  If the gender exists but is inactive, an error is returned.
+ * @property \Nlocascio\Mindbody\Model\Location $HomeLocation Sets the client’s home location to the passed location, based on its ID.  If omitted, the site’s default location is used.
  * @property string $HomePhone The client’s home phone number.
  * @property bool $IsCompany When `true`, indicates that the client should be marked as a company at the business.<br />  When `false`, indicates the client is an individual and does not represent a company.
  * @property bool $IsProspect This value is set only if the business owner allows individuals to be prospects.<br />  If the business owner has enabled the setting to default new client as a Prospect, the isProspect value will always be true. Otherwise,<br />  When `true`, indicates that the client should be marked as a prospect for the business.<br />  When `false`, indicates that the client should not be marked as a prospect for the business.
- * @property string $LastFormulaNotes The last [formula note](https://support.mindbodyonline.com/s/article/203259903-Appointments-Formula-notes?language=en_US) entered for the client.
- * @property \DateTime $LastModifiedDateTime The UTC date and time when the client’s information was last modified.
+ * @property string $LastFormulaNotes Deprecated. This parameter is accepted for backward compatibility but is ignored by this endpoint and will be removed in a future API version.
+ * @property \DateTime $LastModifiedDateTime Deprecated. This parameter is accepted for backward compatibility but is ignored by this endpoint and will be removed in a future API version.
  * @property string $LastName The client’s last name. You must specify a last name when you add a client.
  * @property \Nlocascio\Mindbody\Model\Liability $Liability Contains the client’s liability agreement information for the business.
  * @property bool $LiabilityRelease When `true`, sets the client’s liability information as follows:  * `IsReleased` is set to true.  * `AgreementDate` is set to the time zone of the business when the call was processed.  * `ReleasedBy` is set to `null` if the call is made by the client, `0` if the call was made by the business owner, or to a specific staff member’s ID if a staff member made the call.  When `false`, sets the client’s liability information as follows:  * `IsReleased` is set to `false`.  * `AgreementDate` is set to `null`.  * `ReleasedBy` is set to `null`.
- * @property int $MembershipIcon The ID of the membership icon displayed next to the client’s name, if the client has a membership on their account.
+ * @property int $MembershipIcon Deprecated. This parameter is accepted for backward compatibility but is ignored by this endpoint and will be removed in a future API version.
  * @property string $MiddleName The client’s middle name.
  * @property string $MobilePhone The client’s mobile phone number.
  * @property int $MobileProvider The client's mobile provider.
- * @property string $NewId The new RSSID to be used for the client. Use `NewId` to assign a specific alphanumeric value to be a client’s ID. This RSSID must be unique within the subscriber’s site. If this is a cross-regional update, the RSSID must be unique across the region. If the requested value is already in use, the call returns an error.
+ * @property string $NewId The new RSSID to be used for the client. Use `NewId` to assign a specific alphanumeric value to be a client’s ID. This RSSID must be unique within the subscriber’s site. If this is a cross-regional update, the RSSID must be unique across the region. If the requested value is already in use, the call returns an error.  Note: NewId value cannot fall within the reserved default ID range (100000000 -&gt; 101000000)
  * @property string $Notes Any notes entered on the client’s account by staff members. This value should never be shown to clients unless the business owner has a specific reason for showing them.
- * @property string $PhotoUrl The URL for the client’s photo, if one has been uploaded.
- * @property string $PostalCode The client’s postal code.
- * @property \Nlocascio\Mindbody\Model\ProspectStage $ProspectStage Contains information about the client [prospect stage](https://support.mindbodyonline.com/s/article/206176457-Prospect-Stages?language=en_US).
+ * @property string $PhotoUrl Deprecated. This parameter is accepted for backward compatibility but is ignored by this endpoint and will be removed in a future API version.  If you need to set a client photo URL, you can update it later using the `UpdateClient` endpoint.
+ * @property string $PostalCode The client’s postal code for the primary address.
+ * @property \Nlocascio\Mindbody\Model\ProspectStage $ProspectStage Deprecated. This parameter is accepted for backward compatibility but is ignored by this endpoint and will be removed in a future API version.
  * @property string $RedAlert Contains any red alert information entered by the business owner for the client.
  * @property string $ReferredBy Specifies how the client was referred to the business. You can get a list of possible strings using the `GET ClientReferralTypes` endpoint.<br />  For more information, see [Referral types and referral subtypes](https://support.mindbodyonline.com/s/article/203259393-Referral-types-and-referral-subtypes?language=en_US).
  * @property \Nlocascio\Mindbody\Model\SalesRep[] $SalesReps Contains information about the sales representatives to be assigned to the new client.
- * @property int $SiteId The ID of the site.
- * @property string $State The client’s state.
- * @property string $Status The client’s status.
- * @property bool $Test When `true`, indicates that test mode is enabled. The method is validated, but no client data is added or updated.<br />  Default: **false**
- * @property int $UniqueId The client’s system-generated ID at the business. This value cannot be changed by business owners and is always unique across all clients at the business. This ID is not widely used in the Public API, but can be used by your application to uniquely identify clients.
+ * @property int $SiteId Deprecated. This parameter is accepted for backward compatibility but is ignored by this endpoint and will be removed in a future API version.
+ * @property string $State The client’s state or region for the primary address.
+ * @property string $Status Deprecated. This parameter is accepted for backward compatibility but is ignored by this endpoint and will be removed in a future API version.
+ * @property bool $Test Deprecated. This parameter is accepted for backward compatibility but will return an error for this endpoint.  If passed as `true`, the request will fail to prevent unintended client creation.
+ * @property int $UniqueId Deprecated. This parameter is accepted for backward compatibility but is ignored by this endpoint and will be removed in a future API version.
  * @property string $WorkExtension The client’s work phone extension number.
  * @property string $WorkPhone The client’s work phone number.
  * @property string $YellowAlert Contains any yellow alert information entered by the business owner for the client.
- * @property bool $SendScheduleEmails When `true`, indicates that the client opts to receive schedule emails.  Default : **false**
- * @property bool $SendAccountEmails When `true`, indicates that the client opts to receive account emails.  Default : **false**
- * @property bool $SendPromotionalEmails When `true`, indicates that the client opts to receive promotional emails.  Default : **false**
- * @property bool $SendScheduleTexts When `true`, indicates that the client opts to receive schedule texts.
- * @property bool $SendAccountTexts When `true`, indicates that the client opts to receive account texts.
- * @property bool $SendPromotionalTexts When `true`, indicates that the client opts to receive promotional texts.
- * @property string $LockerNumber The clients locker number.
- * @property bool $ReactivateInactiveClient When `true`, indicates that the client opts to reactive existing Inactive client.
- * @property int $LeadChannelId The ID of the LeadChannel from LeadManagement. This parameter is required by LeadManagement to track the LeadChannel from where the new client is added.  If this value is not supplied then it won't save anything.
+ * @property bool $SendScheduleEmails When `true`, indicates that the client opts to receive schedule emails.  Default: **false**
+ * @property bool $SendAccountEmails When `true`, indicates that the client opts to receive account emails.  Default: **false**
+ * @property bool $SendPromotionalEmails When `true`, indicates that the client opts to receive promotional emails.  Default: **false**
+ * @property bool $SendScheduleTexts When `true`, indicates that the client opts to receive schedule texts.  This value is applied only when the caller is permitted to set SMS preferences; otherwise it is ignored.
+ * @property bool $SendAccountTexts When `true`, indicates that the client opts to receive account texts.  This value is applied only when the caller is permitted to set SMS preferences; otherwise it is ignored.
+ * @property bool $SendPromotionalTexts When `true`, indicates that the client opts to receive promotional texts.  This value is applied only when the caller is permitted to set SMS preferences; otherwise it is ignored.
+ * @property string $LockerNumber The client’s locker number.
+ * @property bool $ReactivateInactiveClient When `true`, indicates that the request should reactivate an existing inactive client if a duplicate is found.
+ * @property int $LeadChannelId The ID of the LeadChannel from Lead Management. This parameter is required by Lead Management to track the lead source for the new client.  If not supplied, Lead Management tracking is not applied.
  *
  */
 class AddClientRequest extends BaseModel
@@ -587,7 +587,7 @@ class AddClientRequest extends BaseModel
     /**
      * Sets AccountBalance
      *
-     * @param double $AccountBalance The client’s current [account balance](https://mindbody-online-support.force.com/support/s/article/203262013-Adding-account-payments-video-tutorial?language=en_US).
+     * @param double $AccountBalance Deprecated. This parameter is accepted for backward compatibility but is ignored by this endpoint and will be removed in a future API version.
      *
      * @return $this
      */
@@ -611,7 +611,7 @@ class AddClientRequest extends BaseModel
     /**
      * Sets Action
      *
-     * @param string $Action The action taken.
+     * @param string $Action Deprecated. This parameter is accepted for backward compatibility but is ignored by this endpoint and will be removed in a future API version.
      *
      * @return $this
      */
@@ -644,7 +644,7 @@ class AddClientRequest extends BaseModel
     /**
      * Sets Active
      *
-     * @param bool $Active When `true`, indicates that the client is active at the site.<br />  When `false`, indicates that the client is not active at the site.
+     * @param bool $Active Deprecated. This parameter is accepted for backward compatibility but is ignored by this endpoint and will be removed in a future API version.
      *
      * @return $this
      */
@@ -668,7 +668,7 @@ class AddClientRequest extends BaseModel
     /**
      * Sets AddressLine1
      *
-     * @param string $AddressLine1 The first line of the client’s street address.
+     * @param string $AddressLine1 The first line of the client’s street address.  Used for the client’s primary address on file.
      *
      * @return $this
      */
@@ -716,7 +716,7 @@ class AddClientRequest extends BaseModel
     /**
      * Sets ApptGenderPrefMale
      *
-     * @param bool $ApptGenderPrefMale When `true`, indicates that the client prefers services to be provided by a male service provider.<br />  When `false`, indicates that the client prefers services to be provided by a female service provider.<br />  When `null`, indicates that the client has no preference.  Default: **null**
+     * @param bool $ApptGenderPrefMale Deprecated. This parameter is accepted for backward compatibility but is ignored by this endpoint and will be removed in a future API version.
      *
      * @return $this
      */
@@ -764,7 +764,7 @@ class AddClientRequest extends BaseModel
     /**
      * Sets City
      *
-     * @param string $City The client’s city.
+     * @param string $City The client’s city for the primary address.
      *
      * @return $this
      */
@@ -788,7 +788,7 @@ class AddClientRequest extends BaseModel
     /**
      * Sets ClientCreditCard
      *
-     * @param \Nlocascio\Mindbody\Model\ClientCreditCard $ClientCreditCard Contains information about the client’s credit card.
+     * @param \Nlocascio\Mindbody\Model\ClientCreditCard $ClientCreditCard Contains information about the client’s credit card.  This operation is performed after the client is created and may fail independently, resulting in a `PartialSuccess` response.
      *
      * @return $this
      */
@@ -812,7 +812,7 @@ class AddClientRequest extends BaseModel
     /**
      * Sets ClientIndexes
      *
-     * @param \Nlocascio\Mindbody\Model\AssignedClientIndex[] $ClientIndexes Contains a list of the indexes and client index values to be assigned to the client.    If an index is already assigned to the client, it is overwritten with the passed index value. You cannot currently remove client indexes using the Public API. Only the indexes passed in the request are returned in the response.
+     * @param \Nlocascio\Mindbody\Model\AssignedClientIndex[] $ClientIndexes Contains a list of the indexes and client index values to be assigned to the client.  If an index is already assigned to the client, it is overwritten with the passed index value. You cannot currently remove client indexes using the Public API.  This operation is performed after the client is created and may fail independently, resulting in a `PartialSuccess` response.
      *
      * @return $this
      */
@@ -836,7 +836,7 @@ class AddClientRequest extends BaseModel
     /**
      * Sets ClientRelationships
      *
-     * @param \Nlocascio\Mindbody\Model\ClientRelationship[] $ClientRelationships Contains information about client relationships that were added or updated for the client. This parameter does not include all of the relationships assigned to the client, only the ones passed in the request.
+     * @param \Nlocascio\Mindbody\Model\ClientRelationship[] $ClientRelationships Contains information about client relationships that were added or updated for the client. This parameter does not include all of the relationships assigned to the client, only the ones passed in the request.  This operation is performed after the client is created and may fail independently, resulting in a `PartialSuccess` response.
      *
      * @return $this
      */
@@ -860,7 +860,7 @@ class AddClientRequest extends BaseModel
     /**
      * Sets Country
      *
-     * @param string $Country The country in which the client is located.
+     * @param string $Country The country for the client’s primary address.
      *
      * @return $this
      */
@@ -884,7 +884,7 @@ class AddClientRequest extends BaseModel
     /**
      * Sets CreationDate
      *
-     * @param \DateTime $CreationDate The date when the client was added to the business, either by the client from the online store or by a staff member at the subscriber’s business. This value always returns in the format yyyy-mm-ddThh:mm:ss:ms.
+     * @param \DateTime $CreationDate Deprecated. This parameter is accepted for backward compatibility but is ignored by this endpoint and will be removed in a future API version.
      *
      * @return $this
      */
@@ -908,7 +908,7 @@ class AddClientRequest extends BaseModel
     /**
      * Sets CustomClientFields
      *
-     * @param \Nlocascio\Mindbody\Model\CustomClientFieldValue[] $CustomClientFields Contains information about the custom fields used for clients in the business.
+     * @param \Nlocascio\Mindbody\Model\CustomClientFieldValue[] $CustomClientFields Contains information about the custom fields used for clients in the business.  Only the fields passed in the request are set.
      *
      * @return $this
      */
@@ -932,7 +932,7 @@ class AddClientRequest extends BaseModel
     /**
      * Sets Email
      *
-     * @param string $Email The client’s email address.
+     * @param string $Email The client’s email address.  This value is used for communications and duplicate detection.
      *
      * @return $this
      */
@@ -1052,7 +1052,7 @@ class AddClientRequest extends BaseModel
     /**
      * Sets FirstAppointmentDate
      *
-     * @param \DateTime $FirstAppointmentDate The date of the client’s first booked appointment at the business.
+     * @param \DateTime $FirstAppointmentDate Deprecated. This parameter is accepted for backward compatibility but is ignored by this endpoint and will be removed in a future API version.
      *
      * @return $this
      */
@@ -1100,7 +1100,7 @@ class AddClientRequest extends BaseModel
     /**
      * Sets Gender
      *
-     * @param string $Gender The client’s gender.
+     * @param string $Gender The client’s gender. This value is matched against the site’s gender options and mapped to `GenderOptionId`.  If the gender does not exist, a new option is created when the caller has the ManageClientGender permission; otherwise, an error is returned.  If the gender exists but is inactive, an error is returned.
      *
      * @return $this
      */
@@ -1124,7 +1124,7 @@ class AddClientRequest extends BaseModel
     /**
      * Sets HomeLocation
      *
-     * @param \Nlocascio\Mindbody\Model\Location $HomeLocation Sets the client’s home location to the passed location, based on its ID.
+     * @param \Nlocascio\Mindbody\Model\Location $HomeLocation Sets the client’s home location to the passed location, based on its ID.  If omitted, the site’s default location is used.
      *
      * @return $this
      */
@@ -1220,7 +1220,7 @@ class AddClientRequest extends BaseModel
     /**
      * Sets LastFormulaNotes
      *
-     * @param string $LastFormulaNotes The last [formula note](https://support.mindbodyonline.com/s/article/203259903-Appointments-Formula-notes?language=en_US) entered for the client.
+     * @param string $LastFormulaNotes Deprecated. This parameter is accepted for backward compatibility but is ignored by this endpoint and will be removed in a future API version.
      *
      * @return $this
      */
@@ -1244,7 +1244,7 @@ class AddClientRequest extends BaseModel
     /**
      * Sets LastModifiedDateTime
      *
-     * @param \DateTime $LastModifiedDateTime The UTC date and time when the client’s information was last modified.
+     * @param \DateTime $LastModifiedDateTime Deprecated. This parameter is accepted for backward compatibility but is ignored by this endpoint and will be removed in a future API version.
      *
      * @return $this
      */
@@ -1340,7 +1340,7 @@ class AddClientRequest extends BaseModel
     /**
      * Sets MembershipIcon
      *
-     * @param int $MembershipIcon The ID of the membership icon displayed next to the client’s name, if the client has a membership on their account.
+     * @param int $MembershipIcon Deprecated. This parameter is accepted for backward compatibility but is ignored by this endpoint and will be removed in a future API version.
      *
      * @return $this
      */
@@ -1436,7 +1436,7 @@ class AddClientRequest extends BaseModel
     /**
      * Sets NewId
      *
-     * @param string $NewId The new RSSID to be used for the client. Use `NewId` to assign a specific alphanumeric value to be a client’s ID. This RSSID must be unique within the subscriber’s site. If this is a cross-regional update, the RSSID must be unique across the region. If the requested value is already in use, the call returns an error.
+     * @param string $NewId The new RSSID to be used for the client. Use `NewId` to assign a specific alphanumeric value to be a client’s ID. This RSSID must be unique within the subscriber’s site. If this is a cross-regional update, the RSSID must be unique across the region. If the requested value is already in use, the call returns an error.  Note: NewId value cannot fall within the reserved default ID range (100000000 -&gt; 101000000)
      *
      * @return $this
      */
@@ -1484,7 +1484,7 @@ class AddClientRequest extends BaseModel
     /**
      * Sets PhotoUrl
      *
-     * @param string $PhotoUrl The URL for the client’s photo, if one has been uploaded.
+     * @param string $PhotoUrl Deprecated. This parameter is accepted for backward compatibility but is ignored by this endpoint and will be removed in a future API version.  If you need to set a client photo URL, you can update it later using the `UpdateClient` endpoint.
      *
      * @return $this
      */
@@ -1508,7 +1508,7 @@ class AddClientRequest extends BaseModel
     /**
      * Sets PostalCode
      *
-     * @param string $PostalCode The client’s postal code.
+     * @param string $PostalCode The client’s postal code for the primary address.
      *
      * @return $this
      */
@@ -1532,7 +1532,7 @@ class AddClientRequest extends BaseModel
     /**
      * Sets ProspectStage
      *
-     * @param \Nlocascio\Mindbody\Model\ProspectStage $ProspectStage Contains information about the client [prospect stage](https://support.mindbodyonline.com/s/article/206176457-Prospect-Stages?language=en_US).
+     * @param \Nlocascio\Mindbody\Model\ProspectStage $ProspectStage Deprecated. This parameter is accepted for backward compatibility but is ignored by this endpoint and will be removed in a future API version.
      *
      * @return $this
      */
@@ -1628,7 +1628,7 @@ class AddClientRequest extends BaseModel
     /**
      * Sets SiteId
      *
-     * @param int $SiteId The ID of the site.
+     * @param int $SiteId Deprecated. This parameter is accepted for backward compatibility but is ignored by this endpoint and will be removed in a future API version.
      *
      * @return $this
      */
@@ -1652,7 +1652,7 @@ class AddClientRequest extends BaseModel
     /**
      * Sets State
      *
-     * @param string $State The client’s state.
+     * @param string $State The client’s state or region for the primary address.
      *
      * @return $this
      */
@@ -1676,7 +1676,7 @@ class AddClientRequest extends BaseModel
     /**
      * Sets Status
      *
-     * @param string $Status The client’s status.
+     * @param string $Status Deprecated. This parameter is accepted for backward compatibility but is ignored by this endpoint and will be removed in a future API version.
      *
      * @return $this
      */
@@ -1700,7 +1700,7 @@ class AddClientRequest extends BaseModel
     /**
      * Sets Test
      *
-     * @param bool $Test When `true`, indicates that test mode is enabled. The method is validated, but no client data is added or updated.<br />  Default: **false**
+     * @param bool $Test Deprecated. This parameter is accepted for backward compatibility but will return an error for this endpoint.  If passed as `true`, the request will fail to prevent unintended client creation.
      *
      * @return $this
      */
@@ -1724,7 +1724,7 @@ class AddClientRequest extends BaseModel
     /**
      * Sets UniqueId
      *
-     * @param int $UniqueId The client’s system-generated ID at the business. This value cannot be changed by business owners and is always unique across all clients at the business. This ID is not widely used in the Public API, but can be used by your application to uniquely identify clients.
+     * @param int $UniqueId Deprecated. This parameter is accepted for backward compatibility but is ignored by this endpoint and will be removed in a future API version.
      *
      * @return $this
      */
@@ -1820,7 +1820,7 @@ class AddClientRequest extends BaseModel
     /**
      * Sets SendScheduleEmails
      *
-     * @param bool $SendScheduleEmails When `true`, indicates that the client opts to receive schedule emails.  Default : **false**
+     * @param bool $SendScheduleEmails When `true`, indicates that the client opts to receive schedule emails.  Default: **false**
      *
      * @return $this
      */
@@ -1844,7 +1844,7 @@ class AddClientRequest extends BaseModel
     /**
      * Sets SendAccountEmails
      *
-     * @param bool $SendAccountEmails When `true`, indicates that the client opts to receive account emails.  Default : **false**
+     * @param bool $SendAccountEmails When `true`, indicates that the client opts to receive account emails.  Default: **false**
      *
      * @return $this
      */
@@ -1868,7 +1868,7 @@ class AddClientRequest extends BaseModel
     /**
      * Sets SendPromotionalEmails
      *
-     * @param bool $SendPromotionalEmails When `true`, indicates that the client opts to receive promotional emails.  Default : **false**
+     * @param bool $SendPromotionalEmails When `true`, indicates that the client opts to receive promotional emails.  Default: **false**
      *
      * @return $this
      */
@@ -1892,7 +1892,7 @@ class AddClientRequest extends BaseModel
     /**
      * Sets SendScheduleTexts
      *
-     * @param bool $SendScheduleTexts When `true`, indicates that the client opts to receive schedule texts.
+     * @param bool $SendScheduleTexts When `true`, indicates that the client opts to receive schedule texts.  This value is applied only when the caller is permitted to set SMS preferences; otherwise it is ignored.
      *
      * @return $this
      */
@@ -1916,7 +1916,7 @@ class AddClientRequest extends BaseModel
     /**
      * Sets SendAccountTexts
      *
-     * @param bool $SendAccountTexts When `true`, indicates that the client opts to receive account texts.
+     * @param bool $SendAccountTexts When `true`, indicates that the client opts to receive account texts.  This value is applied only when the caller is permitted to set SMS preferences; otherwise it is ignored.
      *
      * @return $this
      */
@@ -1940,7 +1940,7 @@ class AddClientRequest extends BaseModel
     /**
      * Sets SendPromotionalTexts
      *
-     * @param bool $SendPromotionalTexts When `true`, indicates that the client opts to receive promotional texts.
+     * @param bool $SendPromotionalTexts When `true`, indicates that the client opts to receive promotional texts.  This value is applied only when the caller is permitted to set SMS preferences; otherwise it is ignored.
      *
      * @return $this
      */
@@ -1964,7 +1964,7 @@ class AddClientRequest extends BaseModel
     /**
      * Sets LockerNumber
      *
-     * @param string $LockerNumber The clients locker number.
+     * @param string $LockerNumber The client’s locker number.
      *
      * @return $this
      */
@@ -1988,7 +1988,7 @@ class AddClientRequest extends BaseModel
     /**
      * Sets ReactivateInactiveClient
      *
-     * @param bool $ReactivateInactiveClient When `true`, indicates that the client opts to reactive existing Inactive client.
+     * @param bool $ReactivateInactiveClient When `true`, indicates that the request should reactivate an existing inactive client if a duplicate is found.
      *
      * @return $this
      */
@@ -2012,7 +2012,7 @@ class AddClientRequest extends BaseModel
     /**
      * Sets LeadChannelId
      *
-     * @param int $LeadChannelId The ID of the LeadChannel from LeadManagement. This parameter is required by LeadManagement to track the LeadChannel from where the new client is added.  If this value is not supplied then it won't save anything.
+     * @param int $LeadChannelId The ID of the LeadChannel from Lead Management. This parameter is required by Lead Management to track the lead source for the new client.  If not supplied, Lead Management tracking is not applied.
      *
      * @return $this
      */

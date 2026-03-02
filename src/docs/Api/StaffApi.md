@@ -353,7 +353,7 @@ Name | Type | Description  | Notes
 
 Get image URLs for the given staff ID in the request.
 
-This endpoint can be utilized to retrieve image urls for requested staff member.
+Retrieves the available image URLs for a specified staff member, including desktop and mobile versions.  <br />  The resolution of these images is determined by the Mindbody product at the time the image is uploaded. Staff images are automatically resized within Core (typically around 200×151 pixels), and this endpoint surfaces only the stored versions. The API does not resize or limit the images itself .  <br />  For more information about how image sizes are managed in Mindbody product, refer to the related support article: [link here](https://support.mindbodyonline.com/s/article/203253783-Staff-profiles-Creating-logins-updating-info-and-enabling-settings?language=en_US).
 
 ### Example
 ```php

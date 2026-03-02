@@ -38,10 +38,11 @@ namespace Nlocascio\Mindbody\Model;
  * @link     https://github.com/swagger-api/swagger-codegen
  * @property int[] $AppointmentIds A list of the requested appointment IDs.
  * @property int[] $LocationIds A list of the requested location IDs.
- * @property \DateTime $StartDate The start date of the requested date range. If omitted, the default is used.   <br />Default: **today’s date**
+ * @property \DateTime $StartDate The start date of the requested date range. If omitted, the default is used.   <br />Default: **today's date**
  * @property \DateTime $EndDate The end date of the requested date range.   <br />Default: **StartDate**
  * @property int[] $StaffIds List of staff IDs to be returned. Omit parameter to return staff appointments for all staff.
  * @property string $ClientId The client ID to be returned.
+ * @property bool $UseSiteSettingsStaffName When `true`, the staff DisplayName will be populated based on site-level settings.  When `false` or omitted, the staff DisplayName will contain only the FirstName.
  * @property int $Limit Number of results to include, defaults to 100
  * @property int $Offset Page offset, defaults to 0.
  *
@@ -69,6 +70,7 @@ class GetStaffAppointmentsRequest extends BaseModel
         'EndDate' => '\DateTime',
         'StaffIds' => 'int[]',
         'ClientId' => 'string',
+        'UseSiteSettingsStaffName' => 'bool',
         'Limit' => 'int',
         'Offset' => 'int'
     ];
@@ -85,6 +87,7 @@ class GetStaffAppointmentsRequest extends BaseModel
         'EndDate' => 'date-time',
         'StaffIds' => 'int64',
         'ClientId' => null,
+        'UseSiteSettingsStaffName' => null,
         'Limit' => 'int32',
         'Offset' => 'int32'
     ];
@@ -103,6 +106,7 @@ class GetStaffAppointmentsRequest extends BaseModel
         'EndDate' => 'EndDate',
         'StaffIds' => 'StaffIds',
         'ClientId' => 'ClientId',
+        'UseSiteSettingsStaffName' => 'UseSiteSettingsStaffName',
         'Limit' => 'Limit',
         'Offset' => 'Offset'
     ];
@@ -119,6 +123,7 @@ class GetStaffAppointmentsRequest extends BaseModel
         'EndDate' => 'setEndDate',
         'StaffIds' => 'setStaffIds',
         'ClientId' => 'setClientId',
+        'UseSiteSettingsStaffName' => 'setUseSiteSettingsStaffName',
         'Limit' => 'setLimit',
         'Offset' => 'setOffset'
     ];
@@ -135,6 +140,7 @@ class GetStaffAppointmentsRequest extends BaseModel
         'EndDate' => 'getEndDate',
         'StaffIds' => 'getStaffIds',
         'ClientId' => 'getClientId',
+        'UseSiteSettingsStaffName' => 'getUseSiteSettingsStaffName',
         'Limit' => 'getLimit',
         'Offset' => 'getOffset'
     ];
@@ -158,6 +164,7 @@ class GetStaffAppointmentsRequest extends BaseModel
         $this->container['EndDate'] = isset($data['EndDate']) ? $data['EndDate'] : null;
         $this->container['StaffIds'] = isset($data['StaffIds']) ? $data['StaffIds'] : null;
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
+        $this->container['UseSiteSettingsStaffName'] = isset($data['UseSiteSettingsStaffName']) ? $data['UseSiteSettingsStaffName'] : null;
         $this->container['Limit'] = isset($data['Limit']) ? $data['Limit'] : null;
         $this->container['Offset'] = isset($data['Offset']) ? $data['Offset'] : null;
     }
@@ -236,7 +243,7 @@ class GetStaffAppointmentsRequest extends BaseModel
     /**
      * Sets StartDate
      *
-     * @param \DateTime $StartDate The start date of the requested date range. If omitted, the default is used.   <br />Default: **today’s date**
+     * @param \DateTime $StartDate The start date of the requested date range. If omitted, the default is used.   <br />Default: **today's date**
      *
      * @return $this
      */
@@ -315,6 +322,30 @@ class GetStaffAppointmentsRequest extends BaseModel
     public function setClientId($ClientId): self
     {
         $this->container['ClientId'] = $ClientId;
+
+        return $this;
+    }
+
+    /**
+     * Gets UseSiteSettingsStaffName
+     *
+     * @return bool
+     */
+    public function getUseSiteSettingsStaffName()
+    {
+        return $this->container['UseSiteSettingsStaffName'];
+    }
+
+    /**
+     * Sets UseSiteSettingsStaffName
+     *
+     * @param bool $UseSiteSettingsStaffName When `true`, the staff DisplayName will be populated based on site-level settings.  When `false` or omitted, the staff DisplayName will contain only the FirstName.
+     *
+     * @return $this
+     */
+    public function setUseSiteSettingsStaffName($UseSiteSettingsStaffName): self
+    {
+        $this->container['UseSiteSettingsStaffName'] = $UseSiteSettingsStaffName;
 
         return $this;
     }

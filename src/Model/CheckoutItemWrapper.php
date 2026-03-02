@@ -37,6 +37,7 @@ namespace Nlocascio\Mindbody\Model;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  * @property \Nlocascio\Mindbody\Model\CheckoutItem $Item Information about an item in the cart.
+ * @property string $SalesNotes Sales Notes for the product
  * @property double $DiscountAmount The amount the item is discounted. This parameter is ignored for packages.
  * @property \Nlocascio\Mindbody\Model\CheckoutAppointmentBookingRequest[] $AppointmentBookingRequests A list of appointments to be booked then paid for by this item. This parameter applies only to pricing option items.
  * @property int[] $EnrollmentIds A list of enrollment IDs that this item is to pay for. This parameter applies only to pricing option items.
@@ -66,6 +67,7 @@ class CheckoutItemWrapper extends BaseModel implements ModelWithId
       */
     protected static $swaggerTypes = [
         'Item' => '\Nlocascio\Mindbody\Model\CheckoutItem',
+        'SalesNotes' => 'string',
         'DiscountAmount' => 'double',
         'AppointmentBookingRequests' => '\Nlocascio\Mindbody\Model\CheckoutAppointmentBookingRequest[]',
         'EnrollmentIds' => 'int[]',
@@ -84,6 +86,7 @@ class CheckoutItemWrapper extends BaseModel implements ModelWithId
       */
     protected static $swaggerFormats = [
         'Item' => null,
+        'SalesNotes' => null,
         'DiscountAmount' => 'double',
         'AppointmentBookingRequests' => null,
         'EnrollmentIds' => 'int32',
@@ -104,6 +107,7 @@ class CheckoutItemWrapper extends BaseModel implements ModelWithId
      */
     protected static $attributeMap = [
         'Item' => 'Item',
+        'SalesNotes' => 'SalesNotes',
         'DiscountAmount' => 'DiscountAmount',
         'AppointmentBookingRequests' => 'AppointmentBookingRequests',
         'EnrollmentIds' => 'EnrollmentIds',
@@ -122,6 +126,7 @@ class CheckoutItemWrapper extends BaseModel implements ModelWithId
      */
     protected static $setters = [
         'Item' => 'setItem',
+        'SalesNotes' => 'setSalesNotes',
         'DiscountAmount' => 'setDiscountAmount',
         'AppointmentBookingRequests' => 'setAppointmentBookingRequests',
         'EnrollmentIds' => 'setEnrollmentIds',
@@ -140,6 +145,7 @@ class CheckoutItemWrapper extends BaseModel implements ModelWithId
      */
     protected static $getters = [
         'Item' => 'getItem',
+        'SalesNotes' => 'getSalesNotes',
         'DiscountAmount' => 'getDiscountAmount',
         'AppointmentBookingRequests' => 'getAppointmentBookingRequests',
         'EnrollmentIds' => 'getEnrollmentIds',
@@ -165,6 +171,7 @@ class CheckoutItemWrapper extends BaseModel implements ModelWithId
     public function __construct(array $data = null)
     {
         $this->container['Item'] = isset($data['Item']) ? $data['Item'] : null;
+        $this->container['SalesNotes'] = isset($data['SalesNotes']) ? $data['SalesNotes'] : null;
         $this->container['DiscountAmount'] = isset($data['DiscountAmount']) ? $data['DiscountAmount'] : null;
         $this->container['AppointmentBookingRequests'] = isset($data['AppointmentBookingRequests']) ? $data['AppointmentBookingRequests'] : null;
         $this->container['EnrollmentIds'] = isset($data['EnrollmentIds']) ? $data['EnrollmentIds'] : null;
@@ -209,6 +216,30 @@ class CheckoutItemWrapper extends BaseModel implements ModelWithId
     public function setItem($Item): self
     {
         $this->container['Item'] = $Item;
+
+        return $this;
+    }
+
+    /**
+     * Gets SalesNotes
+     *
+     * @return string
+     */
+    public function getSalesNotes()
+    {
+        return $this->container['SalesNotes'];
+    }
+
+    /**
+     * Sets SalesNotes
+     *
+     * @param string $SalesNotes Sales Notes for the product
+     *
+     * @return $this
+     */
+    public function setSalesNotes($SalesNotes): self
+    {
+        $this->container['SalesNotes'] = $SalesNotes;
 
         return $this;
     }

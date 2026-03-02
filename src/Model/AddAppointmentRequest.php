@@ -33,13 +33,14 @@ namespace Nlocascio\Mindbody\Model;
  * AddAppointmentRequest Class Doc Comment
  *
  * @category Class
+ * @description Represents a request to add a new appointment, including details such as client information, appointment timing, location, and additional preferences.  Supports two models: the legacy model (using SessionTypeId, StaffId, StartDateTime at the root level) or the itinerary model (using ItineraryEvents).  Only one model can be used per request.
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
+ * @property \Nlocascio\Mindbody\Model\ItineraryEventRequest[] $ItineraryEvents A list of events (services) to be booked as part of an itinerary.   When provided, the legacy parameters (SessionTypeId, StaffId, StartDateTime) at the root level should not be used.  Each event can have its own add-ons attached.
  * @property bool $ApplyPayment When `true`, indicates that a payment should be applied to the appointment.   <br />Default: **true**
  * @property string $ClientId The RRSID of the client for whom the new appointment is being made.
  * @property int $Duration The duration of the appointment. This parameter is used to change the default duration of an appointment.
- * @property string $Execute The action taken to add this appointment.
  * @property \DateTime $EndDateTime The end date and time of the new appointment. <br />  Default: **StartDateTime**, offset by the staff member’s default appointment duration.
  * @property string $GenderPreference The client’s service provider gender preference.
  * @property int $LocationId The ID of the location where the new appointment is to take place.
@@ -47,13 +48,14 @@ namespace Nlocascio\Mindbody\Model;
  * @property string $ProviderId If a user has Complementary and Alternative Medicine features enabled, this parameter assigns a provider ID to the appointment.
  * @property int[] $ResourceIds A list of resource IDs to associate with the new appointment.
  * @property bool $SendEmail Whether to send client an email for cancellations. An email is sent only if the client has an email address and automatic emails have been set up.   <br />Default: **false**
- * @property int $SessionTypeId The session type associated with the new appointment.
- * @property int $StaffId The ID of the staff member who is adding the new appointment.
+ * @property int $SessionTypeId The session type associated with the new appointment.  Required when using the legacy model (without ItineraryEvents).
+ * @property int $StaffId The ID of the staff member who is adding the new appointment.  Required when using the legacy model (without ItineraryEvents), unless IsWaitlist is true.
  * @property bool $StaffRequested When `true`, indicates that the staff member was requested specifically by the client.
- * @property \DateTime $StartDateTime The start date and time of the new appointment.
+ * @property \DateTime $StartDateTime The start date and time of the new appointment.  Required when using the legacy model (without ItineraryEvents).
  * @property bool $Test When true, indicates that the method is to be validated, but no new appointment data is added.   <br />Default: **false**
  * @property bool $IsWaitlist When `true`, indicates that the client should be added to a specific appointment waiting list.  When `false`, the client should not be added to the waiting list.  Default: **false**
  * @property string $PartnerExternalId Optional external key for api partners.
+ * @property int $AddAppointmentRequestId A unique identifier for tracking the AddAppointmentRequest. This ID is not stored and is used to match each request with its corresponding response.  The request object will also be returned in the response, with the same ID value.  - For single requests, this value will be ignored.  - For multiple requests, if no value is provided, the system will generate an identifier ranging from 0 to (number of requests - 1).
  *
  */
 class AddAppointmentRequest extends BaseModel
@@ -73,10 +75,10 @@ class AddAppointmentRequest extends BaseModel
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'ItineraryEvents' => '\Nlocascio\Mindbody\Model\ItineraryEventRequest[]',
         'ApplyPayment' => 'bool',
         'ClientId' => 'string',
         'Duration' => 'int',
-        'Execute' => 'string',
         'EndDateTime' => '\DateTime',
         'GenderPreference' => 'string',
         'LocationId' => 'int',
@@ -90,7 +92,8 @@ class AddAppointmentRequest extends BaseModel
         'StartDateTime' => '\DateTime',
         'Test' => 'bool',
         'IsWaitlist' => 'bool',
-        'PartnerExternalId' => 'string'
+        'PartnerExternalId' => 'string',
+        'AddAppointmentRequestId' => 'int'
     ];
 
     /**
@@ -99,10 +102,10 @@ class AddAppointmentRequest extends BaseModel
       * @var array<string, string|null>
       */
     protected static $swaggerFormats = [
+        'ItineraryEvents' => null,
         'ApplyPayment' => null,
         'ClientId' => null,
         'Duration' => 'int32',
-        'Execute' => null,
         'EndDateTime' => 'date-time',
         'GenderPreference' => null,
         'LocationId' => 'int32',
@@ -116,7 +119,8 @@ class AddAppointmentRequest extends BaseModel
         'StartDateTime' => 'date-time',
         'Test' => null,
         'IsWaitlist' => null,
-        'PartnerExternalId' => null
+        'PartnerExternalId' => null,
+        'AddAppointmentRequestId' => 'int32'
     ];
 
 
@@ -127,10 +131,10 @@ class AddAppointmentRequest extends BaseModel
      * @var string[]
      */
     protected static $attributeMap = [
+        'ItineraryEvents' => 'ItineraryEvents',
         'ApplyPayment' => 'ApplyPayment',
         'ClientId' => 'ClientId',
         'Duration' => 'Duration',
-        'Execute' => 'Execute',
         'EndDateTime' => 'EndDateTime',
         'GenderPreference' => 'GenderPreference',
         'LocationId' => 'LocationId',
@@ -144,7 +148,8 @@ class AddAppointmentRequest extends BaseModel
         'StartDateTime' => 'StartDateTime',
         'Test' => 'Test',
         'IsWaitlist' => 'IsWaitlist',
-        'PartnerExternalId' => 'PartnerExternalId'
+        'PartnerExternalId' => 'PartnerExternalId',
+        'AddAppointmentRequestId' => 'AddAppointmentRequestId'
     ];
 
     /**
@@ -153,10 +158,10 @@ class AddAppointmentRequest extends BaseModel
      * @var string[]
      */
     protected static $setters = [
+        'ItineraryEvents' => 'setItineraryEvents',
         'ApplyPayment' => 'setApplyPayment',
         'ClientId' => 'setClientId',
         'Duration' => 'setDuration',
-        'Execute' => 'setExecute',
         'EndDateTime' => 'setEndDateTime',
         'GenderPreference' => 'setGenderPreference',
         'LocationId' => 'setLocationId',
@@ -170,7 +175,8 @@ class AddAppointmentRequest extends BaseModel
         'StartDateTime' => 'setStartDateTime',
         'Test' => 'setTest',
         'IsWaitlist' => 'setIsWaitlist',
-        'PartnerExternalId' => 'setPartnerExternalId'
+        'PartnerExternalId' => 'setPartnerExternalId',
+        'AddAppointmentRequestId' => 'setAddAppointmentRequestId'
     ];
 
     /**
@@ -179,10 +185,10 @@ class AddAppointmentRequest extends BaseModel
      * @var string[]
      */
     protected static $getters = [
+        'ItineraryEvents' => 'getItineraryEvents',
         'ApplyPayment' => 'getApplyPayment',
         'ClientId' => 'getClientId',
         'Duration' => 'getDuration',
-        'Execute' => 'getExecute',
         'EndDateTime' => 'getEndDateTime',
         'GenderPreference' => 'getGenderPreference',
         'LocationId' => 'getLocationId',
@@ -196,7 +202,8 @@ class AddAppointmentRequest extends BaseModel
         'StartDateTime' => 'getStartDateTime',
         'Test' => 'getTest',
         'IsWaitlist' => 'getIsWaitlist',
-        'PartnerExternalId' => 'getPartnerExternalId'
+        'PartnerExternalId' => 'getPartnerExternalId',
+        'AddAppointmentRequestId' => 'getAddAppointmentRequestId'
     ];
 
 
@@ -212,10 +219,10 @@ class AddAppointmentRequest extends BaseModel
      */
     public function __construct(array $data = null)
     {
+        $this->container['ItineraryEvents'] = isset($data['ItineraryEvents']) ? $data['ItineraryEvents'] : null;
         $this->container['ApplyPayment'] = isset($data['ApplyPayment']) ? $data['ApplyPayment'] : null;
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
         $this->container['Duration'] = isset($data['Duration']) ? $data['Duration'] : null;
-        $this->container['Execute'] = isset($data['Execute']) ? $data['Execute'] : null;
         $this->container['EndDateTime'] = isset($data['EndDateTime']) ? $data['EndDateTime'] : null;
         $this->container['GenderPreference'] = isset($data['GenderPreference']) ? $data['GenderPreference'] : null;
         $this->container['LocationId'] = isset($data['LocationId']) ? $data['LocationId'] : null;
@@ -230,6 +237,7 @@ class AddAppointmentRequest extends BaseModel
         $this->container['Test'] = isset($data['Test']) ? $data['Test'] : null;
         $this->container['IsWaitlist'] = isset($data['IsWaitlist']) ? $data['IsWaitlist'] : null;
         $this->container['PartnerExternalId'] = isset($data['PartnerExternalId']) ? $data['PartnerExternalId'] : null;
+        $this->container['AddAppointmentRequestId'] = isset($data['AddAppointmentRequestId']) ? $data['AddAppointmentRequestId'] : null;
     }
 
     /**
@@ -247,18 +255,33 @@ class AddAppointmentRequest extends BaseModel
         if ($this->container['LocationId'] === null) {
             $invalidProperties[] = "'LocationId' can't be null";
         }
-        if ($this->container['SessionTypeId'] === null) {
-            $invalidProperties[] = "'SessionTypeId' can't be null";
-        }
-        if ($this->container['StaffId'] === null) {
-            $invalidProperties[] = "'StaffId' can't be null";
-        }
-        if ($this->container['StartDateTime'] === null) {
-            $invalidProperties[] = "'StartDateTime' can't be null";
-        }
         return $invalidProperties;
     }
 
+
+    /**
+     * Gets ItineraryEvents
+     *
+     * @return \Nlocascio\Mindbody\Model\ItineraryEventRequest[]
+     */
+    public function getItineraryEvents()
+    {
+        return $this->container['ItineraryEvents'];
+    }
+
+    /**
+     * Sets ItineraryEvents
+     *
+     * @param \Nlocascio\Mindbody\Model\ItineraryEventRequest[] $ItineraryEvents A list of events (services) to be booked as part of an itinerary.   When provided, the legacy parameters (SessionTypeId, StaffId, StartDateTime) at the root level should not be used.  Each event can have its own add-ons attached.
+     *
+     * @return $this
+     */
+    public function setItineraryEvents($ItineraryEvents): self
+    {
+        $this->container['ItineraryEvents'] = $ItineraryEvents;
+
+        return $this;
+    }
 
     /**
      * Gets ApplyPayment
@@ -328,30 +351,6 @@ class AddAppointmentRequest extends BaseModel
     public function setDuration($Duration): self
     {
         $this->container['Duration'] = $Duration;
-
-        return $this;
-    }
-
-    /**
-     * Gets Execute
-     *
-     * @return string
-     */
-    public function getExecute()
-    {
-        return $this->container['Execute'];
-    }
-
-    /**
-     * Sets Execute
-     *
-     * @param string $Execute The action taken to add this appointment.
-     *
-     * @return $this
-     */
-    public function setExecute($Execute): self
-    {
-        $this->container['Execute'] = $Execute;
 
         return $this;
     }
@@ -537,7 +536,7 @@ class AddAppointmentRequest extends BaseModel
     /**
      * Sets SessionTypeId
      *
-     * @param int $SessionTypeId The session type associated with the new appointment.
+     * @param int $SessionTypeId The session type associated with the new appointment.  Required when using the legacy model (without ItineraryEvents).
      *
      * @return $this
      */
@@ -561,7 +560,7 @@ class AddAppointmentRequest extends BaseModel
     /**
      * Sets StaffId
      *
-     * @param int $StaffId The ID of the staff member who is adding the new appointment.
+     * @param int $StaffId The ID of the staff member who is adding the new appointment.  Required when using the legacy model (without ItineraryEvents), unless IsWaitlist is true.
      *
      * @return $this
      */
@@ -609,7 +608,7 @@ class AddAppointmentRequest extends BaseModel
     /**
      * Sets StartDateTime
      *
-     * @param \DateTime $StartDateTime The start date and time of the new appointment.
+     * @param \DateTime $StartDateTime The start date and time of the new appointment.  Required when using the legacy model (without ItineraryEvents).
      *
      * @return $this
      */
@@ -688,6 +687,30 @@ class AddAppointmentRequest extends BaseModel
     public function setPartnerExternalId($PartnerExternalId): self
     {
         $this->container['PartnerExternalId'] = $PartnerExternalId;
+
+        return $this;
+    }
+
+    /**
+     * Gets AddAppointmentRequestId
+     *
+     * @return int
+     */
+    public function getAddAppointmentRequestId()
+    {
+        return $this->container['AddAppointmentRequestId'];
+    }
+
+    /**
+     * Sets AddAppointmentRequestId
+     *
+     * @param int $AddAppointmentRequestId A unique identifier for tracking the AddAppointmentRequest. This ID is not stored and is used to match each request with its corresponding response.  The request object will also be returned in the response, with the same ID value.  - For single requests, this value will be ignored.  - For multiple requests, if no value is provided, the system will generate an identifier ranging from 0 to (number of requests - 1).
+     *
+     * @return $this
+     */
+    public function setAddAppointmentRequestId($AddAppointmentRequestId): self
+    {
+        $this->container['AddAppointmentRequestId'] = $AddAppointmentRequestId;
 
         return $this;
     }

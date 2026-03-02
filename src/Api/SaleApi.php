@@ -368,6 +368,285 @@ class SaleApi implements ApiInterface
     }
 
     /**
+     * Operation saleCompleteCheckoutShoppingCartUsingAlternativePayments
+     *
+     * Complete the Checkout Shopping Cart process, after the payments have been made by the client.
+     *
+     * @param  \Nlocascio\Mindbody\Model\CompleteCheckoutShoppingCartUsingAlternativePaymentsRequest $Request Request (required)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Nlocascio\Mindbody\Model\CheckoutShoppingCartResponse
+     */
+    public function saleCompleteCheckoutShoppingCartUsingAlternativePayments($Request): \Nlocascio\Mindbody\Model\CheckoutShoppingCartResponse
+    {
+        list($response) = $this->saleCompleteCheckoutShoppingCartUsingAlternativePaymentsWithHttpInfo($Request);
+        return $response;
+    }
+
+    /**
+     * Operation saleCompleteCheckoutShoppingCartUsingAlternativePaymentsWithHttpInfo
+     *
+     * Complete the Checkout Shopping Cart process, after the payments have been made by the client.
+     *
+     * @param  \Nlocascio\Mindbody\Model\CompleteCheckoutShoppingCartUsingAlternativePaymentsRequest $Request (required)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Nlocascio\Mindbody\Model\CheckoutShoppingCartResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function saleCompleteCheckoutShoppingCartUsingAlternativePaymentsWithHttpInfo($Request): array
+    {
+        $returnType = '\Nlocascio\Mindbody\Model\CheckoutShoppingCartResponse';
+        $request = $this->saleCompleteCheckoutShoppingCartUsingAlternativePaymentsRequest($Request);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Nlocascio\Mindbody\Model\CheckoutShoppingCartResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation saleCompleteCheckoutShoppingCartUsingAlternativePaymentsAsync
+     *
+     * Complete the Checkout Shopping Cart process, after the payments have been made by the client.
+     *
+     * @param  \Nlocascio\Mindbody\Model\CompleteCheckoutShoppingCartUsingAlternativePaymentsRequest $Request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function saleCompleteCheckoutShoppingCartUsingAlternativePaymentsAsync($Request): \GuzzleHttp\Promise\PromiseInterface
+    {
+        return $this->saleCompleteCheckoutShoppingCartUsingAlternativePaymentsAsyncWithHttpInfo($Request)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation saleCompleteCheckoutShoppingCartUsingAlternativePaymentsAsyncWithHttpInfo
+     *
+     * Complete the Checkout Shopping Cart process, after the payments have been made by the client.
+     *
+     * @param  \Nlocascio\Mindbody\Model\CompleteCheckoutShoppingCartUsingAlternativePaymentsRequest $Request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function saleCompleteCheckoutShoppingCartUsingAlternativePaymentsAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
+    {
+        $returnType = '\Nlocascio\Mindbody\Model\CheckoutShoppingCartResponse';
+        $request = $this->saleCompleteCheckoutShoppingCartUsingAlternativePaymentsRequest($Request);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'saleCompleteCheckoutShoppingCartUsingAlternativePayments'
+     *
+     * @param  \Nlocascio\Mindbody\Model\CompleteCheckoutShoppingCartUsingAlternativePaymentsRequest $Request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function saleCompleteCheckoutShoppingCartUsingAlternativePaymentsRequest($Request): \GuzzleHttp\Psr7\Request
+    {
+        // verify the required parameter 'Request' is set
+        if ($Request === null || (is_array($Request) && count($Request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $Request when calling saleCompleteCheckoutShoppingCartUsingAlternativePayments'
+            );
+        }
+
+        $resourcePath = '/public/v6/sale/completecheckoutshoppingcart';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // body params
+        $_tempBody = null;
+        if (isset($Request)) {
+            $_tempBody = $Request;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = Utils::jsonEncode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = Utils::jsonEncode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
+        if ($apiKey !== null) {
+            $headers['API-Key'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('authorization');
+        if ($apiKey !== null) {
+            $headers['authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('siteId');
+        if ($apiKey !== null) {
+            $headers['siteId'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation saleGetAcceptedCardTypes
      *
      * Get credit cards types that a site accepts.
@@ -633,25 +912,308 @@ class SaleApi implements ApiInterface
     }
 
     /**
+     * Operation saleGetAlternativePaymentMethods
+     *
+     * Get alternative and local payment methods that are allowed for a site.
+     *
+     * @param  string $RequestClientId The client ID (optional)
+     * @param  int $RequestLocationId The location ID  Default: **null** (Online store location) (optional)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Nlocascio\Mindbody\Model\GetAlternativePaymentMethodsResponse
+     */
+    public function saleGetAlternativePaymentMethods($RequestClientId = null, $RequestLocationId = null): \Nlocascio\Mindbody\Model\GetAlternativePaymentMethodsResponse
+    {
+        list($response) = $this->saleGetAlternativePaymentMethodsWithHttpInfo($RequestClientId, $RequestLocationId);
+        return $response;
+    }
+
+    /**
+     * Operation saleGetAlternativePaymentMethodsWithHttpInfo
+     *
+     * Get alternative and local payment methods that are allowed for a site.
+     *
+     * @param  string $RequestClientId The client ID (optional)
+     * @param  int $RequestLocationId The location ID  Default: **null** (Online store location) (optional)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Nlocascio\Mindbody\Model\GetAlternativePaymentMethodsResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function saleGetAlternativePaymentMethodsWithHttpInfo($RequestClientId = null, $RequestLocationId = null): array
+    {
+        $returnType = '\Nlocascio\Mindbody\Model\GetAlternativePaymentMethodsResponse';
+        $request = $this->saleGetAlternativePaymentMethodsRequest($RequestClientId, $RequestLocationId);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Nlocascio\Mindbody\Model\GetAlternativePaymentMethodsResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation saleGetAlternativePaymentMethodsAsync
+     *
+     * Get alternative and local payment methods that are allowed for a site.
+     *
+     * @param  string $RequestClientId The client ID (optional)
+     * @param  int $RequestLocationId The location ID  Default: **null** (Online store location) (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function saleGetAlternativePaymentMethodsAsync($RequestClientId = null, $RequestLocationId = null): \GuzzleHttp\Promise\PromiseInterface
+    {
+        return $this->saleGetAlternativePaymentMethodsAsyncWithHttpInfo($RequestClientId, $RequestLocationId)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation saleGetAlternativePaymentMethodsAsyncWithHttpInfo
+     *
+     * Get alternative and local payment methods that are allowed for a site.
+     *
+     * @param  string $RequestClientId The client ID (optional)
+     * @param  int $RequestLocationId The location ID  Default: **null** (Online store location) (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function saleGetAlternativePaymentMethodsAsyncWithHttpInfo($RequestClientId = null, $RequestLocationId = null): \GuzzleHttp\Promise\PromiseInterface
+    {
+        $returnType = '\Nlocascio\Mindbody\Model\GetAlternativePaymentMethodsResponse';
+        $request = $this->saleGetAlternativePaymentMethodsRequest($RequestClientId, $RequestLocationId);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'saleGetAlternativePaymentMethods'
+     *
+     * @param  string $RequestClientId The client ID (optional)
+     * @param  int $RequestLocationId The location ID  Default: **null** (Online store location) (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function saleGetAlternativePaymentMethodsRequest($RequestClientId = null, $RequestLocationId = null): \GuzzleHttp\Psr7\Request
+    {
+
+        $resourcePath = '/public/v6/sale/alternativepaymentmethods';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($RequestClientId !== null) {
+            $queryParams['request.clientId'] = ObjectSerializer::toQueryValue($RequestClientId);
+        }
+        // query params
+        if ($RequestLocationId !== null) {
+            $queryParams['request.locationId'] = ObjectSerializer::toQueryValue($RequestLocationId);
+        }
+
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = Utils::jsonEncode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = Utils::jsonEncode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
+        if ($apiKey !== null) {
+            $headers['API-Key'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('authorization');
+        if ($apiKey !== null) {
+            $headers['authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('siteId');
+        if ($apiKey !== null) {
+            $headers['siteId'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation saleGetContracts
      *
      * Get contracts available for purchase at a site.
      *
      * @param  int $RequestLocationId The ID of the location that has the requested contracts and AutoPay options. (required)
-     * @param  int $RequestConsumerId The ID of the client. (optional)
      * @param  int[] $RequestContractIds When included, the response only contains details about the specified contract IDs. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  string $RequestPromoCode PromoCode to apply (optional)
      * @param  bool $RequestSoldOnline When &#x60;true&#x60;, the response only contains details about contracts and AutoPay options that can be sold online.   When &#x60;false&#x60;, all contracts are returned.  Default: **false** (optional)
+     * @param  int $RequestUniqueClientId The ID of the client. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetContractsResponse
      */
-    public function saleGetContracts($RequestLocationId, $RequestConsumerId = null, $RequestContractIds = null, $RequestLimit = null, $RequestOffset = null, $RequestPromoCode = null, $RequestSoldOnline = null): \Nlocascio\Mindbody\Model\GetContractsResponse
+    public function saleGetContracts($RequestLocationId, $RequestContractIds = null, $RequestLimit = null, $RequestOffset = null, $RequestPromoCode = null, $RequestSoldOnline = null, $RequestUniqueClientId = null): \Nlocascio\Mindbody\Model\GetContractsResponse
     {
-        list($response) = $this->saleGetContractsWithHttpInfo($RequestLocationId, $RequestConsumerId, $RequestContractIds, $RequestLimit, $RequestOffset, $RequestPromoCode, $RequestSoldOnline);
+        list($response) = $this->saleGetContractsWithHttpInfo($RequestLocationId, $RequestContractIds, $RequestLimit, $RequestOffset, $RequestPromoCode, $RequestSoldOnline, $RequestUniqueClientId);
         return $response;
     }
 
@@ -661,21 +1223,21 @@ class SaleApi implements ApiInterface
      * Get contracts available for purchase at a site.
      *
      * @param  int $RequestLocationId The ID of the location that has the requested contracts and AutoPay options. (required)
-     * @param  int $RequestConsumerId The ID of the client. (optional)
      * @param  int[] $RequestContractIds When included, the response only contains details about the specified contract IDs. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  string $RequestPromoCode PromoCode to apply (optional)
      * @param  bool $RequestSoldOnline When &#x60;true&#x60;, the response only contains details about contracts and AutoPay options that can be sold online.   When &#x60;false&#x60;, all contracts are returned.  Default: **false** (optional)
+     * @param  int $RequestUniqueClientId The ID of the client. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetContractsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function saleGetContractsWithHttpInfo($RequestLocationId, $RequestConsumerId = null, $RequestContractIds = null, $RequestLimit = null, $RequestOffset = null, $RequestPromoCode = null, $RequestSoldOnline = null): array
+    public function saleGetContractsWithHttpInfo($RequestLocationId, $RequestContractIds = null, $RequestLimit = null, $RequestOffset = null, $RequestPromoCode = null, $RequestSoldOnline = null, $RequestUniqueClientId = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetContractsResponse';
-        $request = $this->saleGetContractsRequest($RequestLocationId, $RequestConsumerId, $RequestContractIds, $RequestLimit, $RequestOffset, $RequestPromoCode, $RequestSoldOnline);
+        $request = $this->saleGetContractsRequest($RequestLocationId, $RequestContractIds, $RequestLimit, $RequestOffset, $RequestPromoCode, $RequestSoldOnline, $RequestUniqueClientId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -742,19 +1304,19 @@ class SaleApi implements ApiInterface
      * Get contracts available for purchase at a site.
      *
      * @param  int $RequestLocationId The ID of the location that has the requested contracts and AutoPay options. (required)
-     * @param  int $RequestConsumerId The ID of the client. (optional)
      * @param  int[] $RequestContractIds When included, the response only contains details about the specified contract IDs. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  string $RequestPromoCode PromoCode to apply (optional)
      * @param  bool $RequestSoldOnline When &#x60;true&#x60;, the response only contains details about contracts and AutoPay options that can be sold online.   When &#x60;false&#x60;, all contracts are returned.  Default: **false** (optional)
+     * @param  int $RequestUniqueClientId The ID of the client. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function saleGetContractsAsync($RequestLocationId, $RequestConsumerId = null, $RequestContractIds = null, $RequestLimit = null, $RequestOffset = null, $RequestPromoCode = null, $RequestSoldOnline = null): \GuzzleHttp\Promise\PromiseInterface
+    public function saleGetContractsAsync($RequestLocationId, $RequestContractIds = null, $RequestLimit = null, $RequestOffset = null, $RequestPromoCode = null, $RequestSoldOnline = null, $RequestUniqueClientId = null): \GuzzleHttp\Promise\PromiseInterface
     {
-        return $this->saleGetContractsAsyncWithHttpInfo($RequestLocationId, $RequestConsumerId, $RequestContractIds, $RequestLimit, $RequestOffset, $RequestPromoCode, $RequestSoldOnline)
+        return $this->saleGetContractsAsyncWithHttpInfo($RequestLocationId, $RequestContractIds, $RequestLimit, $RequestOffset, $RequestPromoCode, $RequestSoldOnline, $RequestUniqueClientId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -768,20 +1330,20 @@ class SaleApi implements ApiInterface
      * Get contracts available for purchase at a site.
      *
      * @param  int $RequestLocationId The ID of the location that has the requested contracts and AutoPay options. (required)
-     * @param  int $RequestConsumerId The ID of the client. (optional)
      * @param  int[] $RequestContractIds When included, the response only contains details about the specified contract IDs. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  string $RequestPromoCode PromoCode to apply (optional)
      * @param  bool $RequestSoldOnline When &#x60;true&#x60;, the response only contains details about contracts and AutoPay options that can be sold online.   When &#x60;false&#x60;, all contracts are returned.  Default: **false** (optional)
+     * @param  int $RequestUniqueClientId The ID of the client. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function saleGetContractsAsyncWithHttpInfo($RequestLocationId, $RequestConsumerId = null, $RequestContractIds = null, $RequestLimit = null, $RequestOffset = null, $RequestPromoCode = null, $RequestSoldOnline = null): \GuzzleHttp\Promise\PromiseInterface
+    public function saleGetContractsAsyncWithHttpInfo($RequestLocationId, $RequestContractIds = null, $RequestLimit = null, $RequestOffset = null, $RequestPromoCode = null, $RequestSoldOnline = null, $RequestUniqueClientId = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetContractsResponse';
-        $request = $this->saleGetContractsRequest($RequestLocationId, $RequestConsumerId, $RequestContractIds, $RequestLimit, $RequestOffset, $RequestPromoCode, $RequestSoldOnline);
+        $request = $this->saleGetContractsRequest($RequestLocationId, $RequestContractIds, $RequestLimit, $RequestOffset, $RequestPromoCode, $RequestSoldOnline, $RequestUniqueClientId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -824,17 +1386,17 @@ class SaleApi implements ApiInterface
      * Create request for operation 'saleGetContracts'
      *
      * @param  int $RequestLocationId The ID of the location that has the requested contracts and AutoPay options. (required)
-     * @param  int $RequestConsumerId The ID of the client. (optional)
      * @param  int[] $RequestContractIds When included, the response only contains details about the specified contract IDs. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  string $RequestPromoCode PromoCode to apply (optional)
      * @param  bool $RequestSoldOnline When &#x60;true&#x60;, the response only contains details about contracts and AutoPay options that can be sold online.   When &#x60;false&#x60;, all contracts are returned.  Default: **false** (optional)
+     * @param  int $RequestUniqueClientId The ID of the client. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function saleGetContractsRequest($RequestLocationId, $RequestConsumerId = null, $RequestContractIds = null, $RequestLimit = null, $RequestOffset = null, $RequestPromoCode = null, $RequestSoldOnline = null): \GuzzleHttp\Psr7\Request
+    protected function saleGetContractsRequest($RequestLocationId, $RequestContractIds = null, $RequestLimit = null, $RequestOffset = null, $RequestPromoCode = null, $RequestSoldOnline = null, $RequestUniqueClientId = null): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'RequestLocationId' is set
         if ($RequestLocationId === null || (is_array($RequestLocationId) && count($RequestLocationId) === 0)) {
@@ -850,10 +1412,6 @@ class SaleApi implements ApiInterface
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        if ($RequestConsumerId !== null) {
-            $queryParams['request.consumerId'] = ObjectSerializer::toQueryValue($RequestConsumerId);
-        }
         // query params
         if (is_array($RequestContractIds)) {
             $queryParams['request.contractIds'] = $RequestContractIds;
@@ -876,6 +1434,10 @@ class SaleApi implements ApiInterface
         // query params
         if ($RequestSoldOnline !== null) {
             $queryParams['request.soldOnline'] = ObjectSerializer::toQueryValue($RequestSoldOnline);
+        }
+        // query params
+        if ($RequestUniqueClientId !== null) {
+            $queryParams['request.uniqueClientId'] = ObjectSerializer::toQueryValue($RequestUniqueClientId);
         }
         // query params
         if ($RequestLocationId !== null) {
@@ -2166,22 +2728,23 @@ class SaleApi implements ApiInterface
      *
      * Get retail products available for purchase at a site.
      *
-     * @param  int[] $RequestCategoryIds A list of revenue category IDs to filter by. Use this ID when calling the GET Categories endpoint.    **Note:** The values for these are not currently retrievable through the API. (optional)
+     * @param  int[] $RequestCategoryIds A list of revenue category IDs to filter by. Use this ID when calling the GET Categories endpoint. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestLocationId The location ID to use to determine the tax for the products that this request returns.&lt;br /&gt;  Default: **online store** (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  string[] $RequestProductIds The barcode number of the product to be filter by. (optional)
      * @param  string $RequestSearchText A search filter, used for searching by term. (optional)
+     * @param  int[] $RequestSecondaryCategoryIds A list of secondary categories to filter by. Use this ID when calling the GET Categories endpoint. (optional)
      * @param  bool $RequestSellOnline When &#x60;true&#x60;, only products that can be sold online are returned.&lt;br /&gt;  When &#x60;false&#x60;, all products are returned.&lt;br /&gt;  Default: **false** (optional)
-     * @param  int[] $RequestSubCategoryIds A list of subcategory IDs to filter by. Use this ID when calling the GET Categories endpoint.    **Note:** The values for these are not currently retrievable through the API. (optional)
+     * @param  int[] $RequestSubCategoryIds A list of subcategory IDs to filter by. Use this ID when calling the GET Categories endpoint. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetProductsResponse
      */
-    public function saleGetProducts($RequestCategoryIds = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProductIds = null, $RequestSearchText = null, $RequestSellOnline = null, $RequestSubCategoryIds = null): \Nlocascio\Mindbody\Model\GetProductsResponse
+    public function saleGetProducts($RequestCategoryIds = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProductIds = null, $RequestSearchText = null, $RequestSecondaryCategoryIds = null, $RequestSellOnline = null, $RequestSubCategoryIds = null): \Nlocascio\Mindbody\Model\GetProductsResponse
     {
-        list($response) = $this->saleGetProductsWithHttpInfo($RequestCategoryIds, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestProductIds, $RequestSearchText, $RequestSellOnline, $RequestSubCategoryIds);
+        list($response) = $this->saleGetProductsWithHttpInfo($RequestCategoryIds, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestProductIds, $RequestSearchText, $RequestSecondaryCategoryIds, $RequestSellOnline, $RequestSubCategoryIds);
         return $response;
     }
 
@@ -2190,23 +2753,24 @@ class SaleApi implements ApiInterface
      *
      * Get retail products available for purchase at a site.
      *
-     * @param  int[] $RequestCategoryIds A list of revenue category IDs to filter by. Use this ID when calling the GET Categories endpoint.    **Note:** The values for these are not currently retrievable through the API. (optional)
+     * @param  int[] $RequestCategoryIds A list of revenue category IDs to filter by. Use this ID when calling the GET Categories endpoint. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestLocationId The location ID to use to determine the tax for the products that this request returns.&lt;br /&gt;  Default: **online store** (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  string[] $RequestProductIds The barcode number of the product to be filter by. (optional)
      * @param  string $RequestSearchText A search filter, used for searching by term. (optional)
+     * @param  int[] $RequestSecondaryCategoryIds A list of secondary categories to filter by. Use this ID when calling the GET Categories endpoint. (optional)
      * @param  bool $RequestSellOnline When &#x60;true&#x60;, only products that can be sold online are returned.&lt;br /&gt;  When &#x60;false&#x60;, all products are returned.&lt;br /&gt;  Default: **false** (optional)
-     * @param  int[] $RequestSubCategoryIds A list of subcategory IDs to filter by. Use this ID when calling the GET Categories endpoint.    **Note:** The values for these are not currently retrievable through the API. (optional)
+     * @param  int[] $RequestSubCategoryIds A list of subcategory IDs to filter by. Use this ID when calling the GET Categories endpoint. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetProductsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function saleGetProductsWithHttpInfo($RequestCategoryIds = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProductIds = null, $RequestSearchText = null, $RequestSellOnline = null, $RequestSubCategoryIds = null): array
+    public function saleGetProductsWithHttpInfo($RequestCategoryIds = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProductIds = null, $RequestSearchText = null, $RequestSecondaryCategoryIds = null, $RequestSellOnline = null, $RequestSubCategoryIds = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetProductsResponse';
-        $request = $this->saleGetProductsRequest($RequestCategoryIds, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestProductIds, $RequestSearchText, $RequestSellOnline, $RequestSubCategoryIds);
+        $request = $this->saleGetProductsRequest($RequestCategoryIds, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestProductIds, $RequestSearchText, $RequestSecondaryCategoryIds, $RequestSellOnline, $RequestSubCategoryIds);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2272,21 +2836,22 @@ class SaleApi implements ApiInterface
      *
      * Get retail products available for purchase at a site.
      *
-     * @param  int[] $RequestCategoryIds A list of revenue category IDs to filter by. Use this ID when calling the GET Categories endpoint.    **Note:** The values for these are not currently retrievable through the API. (optional)
+     * @param  int[] $RequestCategoryIds A list of revenue category IDs to filter by. Use this ID when calling the GET Categories endpoint. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestLocationId The location ID to use to determine the tax for the products that this request returns.&lt;br /&gt;  Default: **online store** (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  string[] $RequestProductIds The barcode number of the product to be filter by. (optional)
      * @param  string $RequestSearchText A search filter, used for searching by term. (optional)
+     * @param  int[] $RequestSecondaryCategoryIds A list of secondary categories to filter by. Use this ID when calling the GET Categories endpoint. (optional)
      * @param  bool $RequestSellOnline When &#x60;true&#x60;, only products that can be sold online are returned.&lt;br /&gt;  When &#x60;false&#x60;, all products are returned.&lt;br /&gt;  Default: **false** (optional)
-     * @param  int[] $RequestSubCategoryIds A list of subcategory IDs to filter by. Use this ID when calling the GET Categories endpoint.    **Note:** The values for these are not currently retrievable through the API. (optional)
+     * @param  int[] $RequestSubCategoryIds A list of subcategory IDs to filter by. Use this ID when calling the GET Categories endpoint. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function saleGetProductsAsync($RequestCategoryIds = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProductIds = null, $RequestSearchText = null, $RequestSellOnline = null, $RequestSubCategoryIds = null): \GuzzleHttp\Promise\PromiseInterface
+    public function saleGetProductsAsync($RequestCategoryIds = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProductIds = null, $RequestSearchText = null, $RequestSecondaryCategoryIds = null, $RequestSellOnline = null, $RequestSubCategoryIds = null): \GuzzleHttp\Promise\PromiseInterface
     {
-        return $this->saleGetProductsAsyncWithHttpInfo($RequestCategoryIds, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestProductIds, $RequestSearchText, $RequestSellOnline, $RequestSubCategoryIds)
+        return $this->saleGetProductsAsyncWithHttpInfo($RequestCategoryIds, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestProductIds, $RequestSearchText, $RequestSecondaryCategoryIds, $RequestSellOnline, $RequestSubCategoryIds)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2299,22 +2864,23 @@ class SaleApi implements ApiInterface
      *
      * Get retail products available for purchase at a site.
      *
-     * @param  int[] $RequestCategoryIds A list of revenue category IDs to filter by. Use this ID when calling the GET Categories endpoint.    **Note:** The values for these are not currently retrievable through the API. (optional)
+     * @param  int[] $RequestCategoryIds A list of revenue category IDs to filter by. Use this ID when calling the GET Categories endpoint. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestLocationId The location ID to use to determine the tax for the products that this request returns.&lt;br /&gt;  Default: **online store** (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  string[] $RequestProductIds The barcode number of the product to be filter by. (optional)
      * @param  string $RequestSearchText A search filter, used for searching by term. (optional)
+     * @param  int[] $RequestSecondaryCategoryIds A list of secondary categories to filter by. Use this ID when calling the GET Categories endpoint. (optional)
      * @param  bool $RequestSellOnline When &#x60;true&#x60;, only products that can be sold online are returned.&lt;br /&gt;  When &#x60;false&#x60;, all products are returned.&lt;br /&gt;  Default: **false** (optional)
-     * @param  int[] $RequestSubCategoryIds A list of subcategory IDs to filter by. Use this ID when calling the GET Categories endpoint.    **Note:** The values for these are not currently retrievable through the API. (optional)
+     * @param  int[] $RequestSubCategoryIds A list of subcategory IDs to filter by. Use this ID when calling the GET Categories endpoint. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function saleGetProductsAsyncWithHttpInfo($RequestCategoryIds = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProductIds = null, $RequestSearchText = null, $RequestSellOnline = null, $RequestSubCategoryIds = null): \GuzzleHttp\Promise\PromiseInterface
+    public function saleGetProductsAsyncWithHttpInfo($RequestCategoryIds = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProductIds = null, $RequestSearchText = null, $RequestSecondaryCategoryIds = null, $RequestSellOnline = null, $RequestSubCategoryIds = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetProductsResponse';
-        $request = $this->saleGetProductsRequest($RequestCategoryIds, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestProductIds, $RequestSearchText, $RequestSellOnline, $RequestSubCategoryIds);
+        $request = $this->saleGetProductsRequest($RequestCategoryIds, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestProductIds, $RequestSearchText, $RequestSecondaryCategoryIds, $RequestSellOnline, $RequestSubCategoryIds);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2356,19 +2922,20 @@ class SaleApi implements ApiInterface
     /**
      * Create request for operation 'saleGetProducts'
      *
-     * @param  int[] $RequestCategoryIds A list of revenue category IDs to filter by. Use this ID when calling the GET Categories endpoint.    **Note:** The values for these are not currently retrievable through the API. (optional)
+     * @param  int[] $RequestCategoryIds A list of revenue category IDs to filter by. Use this ID when calling the GET Categories endpoint. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestLocationId The location ID to use to determine the tax for the products that this request returns.&lt;br /&gt;  Default: **online store** (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  string[] $RequestProductIds The barcode number of the product to be filter by. (optional)
      * @param  string $RequestSearchText A search filter, used for searching by term. (optional)
+     * @param  int[] $RequestSecondaryCategoryIds A list of secondary categories to filter by. Use this ID when calling the GET Categories endpoint. (optional)
      * @param  bool $RequestSellOnline When &#x60;true&#x60;, only products that can be sold online are returned.&lt;br /&gt;  When &#x60;false&#x60;, all products are returned.&lt;br /&gt;  Default: **false** (optional)
-     * @param  int[] $RequestSubCategoryIds A list of subcategory IDs to filter by. Use this ID when calling the GET Categories endpoint.    **Note:** The values for these are not currently retrievable through the API. (optional)
+     * @param  int[] $RequestSubCategoryIds A list of subcategory IDs to filter by. Use this ID when calling the GET Categories endpoint. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function saleGetProductsRequest($RequestCategoryIds = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProductIds = null, $RequestSearchText = null, $RequestSellOnline = null, $RequestSubCategoryIds = null): \GuzzleHttp\Psr7\Request
+    protected function saleGetProductsRequest($RequestCategoryIds = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProductIds = null, $RequestSearchText = null, $RequestSecondaryCategoryIds = null, $RequestSellOnline = null, $RequestSubCategoryIds = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/sale/products';
@@ -2407,6 +2974,13 @@ class SaleApi implements ApiInterface
         // query params
         if ($RequestSearchText !== null) {
             $queryParams['request.searchText'] = ObjectSerializer::toQueryValue($RequestSearchText);
+        }
+        // query params
+        if (is_array($RequestSecondaryCategoryIds)) {
+            $queryParams['request.secondaryCategoryIds'] = $RequestSecondaryCategoryIds;
+        } else
+        if ($RequestSecondaryCategoryIds !== null) {
+            $queryParams['request.secondaryCategoryIds'] = ObjectSerializer::toQueryValue($RequestSecondaryCategoryIds);
         }
         // query params
         if ($RequestSellOnline !== null) {
@@ -2737,6 +3311,286 @@ class SaleApi implements ApiInterface
         } else
         if ($RequestProductIds !== null) {
             $queryParams['request.productIds'] = ObjectSerializer::toQueryValue($RequestProductIds);
+        }
+
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = Utils::jsonEncode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = Utils::jsonEncode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
+        if ($apiKey !== null) {
+            $headers['API-Key'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('authorization');
+        if ($apiKey !== null) {
+            $headers['authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('siteId');
+        if ($apiKey !== null) {
+            $headers['siteId'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation saleGetPurchaseContractStatus
+     *
+     * Fetches the status of an initiate purchase contract given accessToken.
+     *
+     * @param  string $AccessToken AccessToken (required)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Nlocascio\Mindbody\Model\PurchaseContractResponse
+     */
+    public function saleGetPurchaseContractStatus($AccessToken): \Nlocascio\Mindbody\Model\PurchaseContractResponse
+    {
+        list($response) = $this->saleGetPurchaseContractStatusWithHttpInfo($AccessToken);
+        return $response;
+    }
+
+    /**
+     * Operation saleGetPurchaseContractStatusWithHttpInfo
+     *
+     * Fetches the status of an initiate purchase contract given accessToken.
+     *
+     * @param  string $AccessToken (required)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Nlocascio\Mindbody\Model\PurchaseContractResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function saleGetPurchaseContractStatusWithHttpInfo($AccessToken): array
+    {
+        $returnType = '\Nlocascio\Mindbody\Model\PurchaseContractResponse';
+        $request = $this->saleGetPurchaseContractStatusRequest($AccessToken);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Nlocascio\Mindbody\Model\PurchaseContractResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation saleGetPurchaseContractStatusAsync
+     *
+     * Fetches the status of an initiate purchase contract given accessToken.
+     *
+     * @param  string $AccessToken (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function saleGetPurchaseContractStatusAsync($AccessToken): \GuzzleHttp\Promise\PromiseInterface
+    {
+        return $this->saleGetPurchaseContractStatusAsyncWithHttpInfo($AccessToken)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation saleGetPurchaseContractStatusAsyncWithHttpInfo
+     *
+     * Fetches the status of an initiate purchase contract given accessToken.
+     *
+     * @param  string $AccessToken (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function saleGetPurchaseContractStatusAsyncWithHttpInfo($AccessToken): \GuzzleHttp\Promise\PromiseInterface
+    {
+        $returnType = '\Nlocascio\Mindbody\Model\PurchaseContractResponse';
+        $request = $this->saleGetPurchaseContractStatusRequest($AccessToken);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'saleGetPurchaseContractStatus'
+     *
+     * @param  string $AccessToken (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function saleGetPurchaseContractStatusRequest($AccessToken): \GuzzleHttp\Psr7\Request
+    {
+        // verify the required parameter 'AccessToken' is set
+        if ($AccessToken === null || (is_array($AccessToken) && count($AccessToken) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $AccessToken when calling saleGetPurchaseContractStatus'
+            );
+        }
+
+        $resourcePath = '/public/v6/sale/purchasecontractstatus';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($AccessToken !== null) {
+            $queryParams['accessToken'] = ObjectSerializer::toQueryValue($AccessToken);
         }
 
 
@@ -3159,7 +4013,7 @@ class SaleApi implements ApiInterface
      * @param  int $RequestLocationId When specified, for each returned pricing option, &#x60;TaxRate&#x60; and &#x60;TaxIncluded&#x60; are calculated according to the specified location. Note that this does not filter results to only services provided at the given location, and for locations where Value-Added Tax (VAT) rules apply, the &#x60;TaxRate&#x60; is set to zero. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  int[] $RequestProgramIds Filters to pricing options with the specified program IDs. (optional)
-     * @param  bool $RequestSellOnline When &#x60;true&#x60;, filters to the pricing options that can be sold online.&lt;br /&gt;  Default: **false** (optional)
+     * @param  bool $RequestSellOnline When &#x60;true&#x60;, filters the pricing options to display only those available for online purchase.  This parameter is only applicable in Business Mode (when a staff authentication header is included) and ignored in Consumer Mode (when no authentication header is passed).  &lt;br /&gt;Default: &#x60;false&#x60; (for staff users)  &lt;br /&gt;Business Mode: This parameter controls the filtering behavior. Staff users can set this to &#x60;true&#x60;  to show only pricing options that can be sold online, or &#x60;false&#x60; to show all available pricing options.  &lt;br /&gt;Consumer Mode: This value is automatically set to &#x60;true&#x60; and cannot be overridden,  ensuring consumers only see pricing options available for online purchase. (optional)
      * @param  string[] $RequestServiceIds Filters to the pricing options with the specified IDs. In this context, service and pricing option are used interchangeably. These are the &#x60;PurchasedItems[].Id&#x60; returned from GET Sales. (optional)
      * @param  int[] $RequestSessionTypeIds Filters to the pricing options with the specified session types IDs. (optional)
      * @param  int $RequestStaffId Sets &#x60;Price&#x60; and &#x60;OnlinePrice&#x60; to the particular pricing of a specific staff member, if allowed by the business. (optional)
@@ -3188,7 +4042,7 @@ class SaleApi implements ApiInterface
      * @param  int $RequestLocationId When specified, for each returned pricing option, &#x60;TaxRate&#x60; and &#x60;TaxIncluded&#x60; are calculated according to the specified location. Note that this does not filter results to only services provided at the given location, and for locations where Value-Added Tax (VAT) rules apply, the &#x60;TaxRate&#x60; is set to zero. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  int[] $RequestProgramIds Filters to pricing options with the specified program IDs. (optional)
-     * @param  bool $RequestSellOnline When &#x60;true&#x60;, filters to the pricing options that can be sold online.&lt;br /&gt;  Default: **false** (optional)
+     * @param  bool $RequestSellOnline When &#x60;true&#x60;, filters the pricing options to display only those available for online purchase.  This parameter is only applicable in Business Mode (when a staff authentication header is included) and ignored in Consumer Mode (when no authentication header is passed).  &lt;br /&gt;Default: &#x60;false&#x60; (for staff users)  &lt;br /&gt;Business Mode: This parameter controls the filtering behavior. Staff users can set this to &#x60;true&#x60;  to show only pricing options that can be sold online, or &#x60;false&#x60; to show all available pricing options.  &lt;br /&gt;Consumer Mode: This value is automatically set to &#x60;true&#x60; and cannot be overridden,  ensuring consumers only see pricing options available for online purchase. (optional)
      * @param  string[] $RequestServiceIds Filters to the pricing options with the specified IDs. In this context, service and pricing option are used interchangeably. These are the &#x60;PurchasedItems[].Id&#x60; returned from GET Sales. (optional)
      * @param  int[] $RequestSessionTypeIds Filters to the pricing options with the specified session types IDs. (optional)
      * @param  int $RequestStaffId Sets &#x60;Price&#x60; and &#x60;OnlinePrice&#x60; to the particular pricing of a specific staff member, if allowed by the business. (optional)
@@ -3275,7 +4129,7 @@ class SaleApi implements ApiInterface
      * @param  int $RequestLocationId When specified, for each returned pricing option, &#x60;TaxRate&#x60; and &#x60;TaxIncluded&#x60; are calculated according to the specified location. Note that this does not filter results to only services provided at the given location, and for locations where Value-Added Tax (VAT) rules apply, the &#x60;TaxRate&#x60; is set to zero. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  int[] $RequestProgramIds Filters to pricing options with the specified program IDs. (optional)
-     * @param  bool $RequestSellOnline When &#x60;true&#x60;, filters to the pricing options that can be sold online.&lt;br /&gt;  Default: **false** (optional)
+     * @param  bool $RequestSellOnline When &#x60;true&#x60;, filters the pricing options to display only those available for online purchase.  This parameter is only applicable in Business Mode (when a staff authentication header is included) and ignored in Consumer Mode (when no authentication header is passed).  &lt;br /&gt;Default: &#x60;false&#x60; (for staff users)  &lt;br /&gt;Business Mode: This parameter controls the filtering behavior. Staff users can set this to &#x60;true&#x60;  to show only pricing options that can be sold online, or &#x60;false&#x60; to show all available pricing options.  &lt;br /&gt;Consumer Mode: This value is automatically set to &#x60;true&#x60; and cannot be overridden,  ensuring consumers only see pricing options available for online purchase. (optional)
      * @param  string[] $RequestServiceIds Filters to the pricing options with the specified IDs. In this context, service and pricing option are used interchangeably. These are the &#x60;PurchasedItems[].Id&#x60; returned from GET Sales. (optional)
      * @param  int[] $RequestSessionTypeIds Filters to the pricing options with the specified session types IDs. (optional)
      * @param  int $RequestStaffId Sets &#x60;Price&#x60; and &#x60;OnlinePrice&#x60; to the particular pricing of a specific staff member, if allowed by the business. (optional)
@@ -3307,7 +4161,7 @@ class SaleApi implements ApiInterface
      * @param  int $RequestLocationId When specified, for each returned pricing option, &#x60;TaxRate&#x60; and &#x60;TaxIncluded&#x60; are calculated according to the specified location. Note that this does not filter results to only services provided at the given location, and for locations where Value-Added Tax (VAT) rules apply, the &#x60;TaxRate&#x60; is set to zero. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  int[] $RequestProgramIds Filters to pricing options with the specified program IDs. (optional)
-     * @param  bool $RequestSellOnline When &#x60;true&#x60;, filters to the pricing options that can be sold online.&lt;br /&gt;  Default: **false** (optional)
+     * @param  bool $RequestSellOnline When &#x60;true&#x60;, filters the pricing options to display only those available for online purchase.  This parameter is only applicable in Business Mode (when a staff authentication header is included) and ignored in Consumer Mode (when no authentication header is passed).  &lt;br /&gt;Default: &#x60;false&#x60; (for staff users)  &lt;br /&gt;Business Mode: This parameter controls the filtering behavior. Staff users can set this to &#x60;true&#x60;  to show only pricing options that can be sold online, or &#x60;false&#x60; to show all available pricing options.  &lt;br /&gt;Consumer Mode: This value is automatically set to &#x60;true&#x60; and cannot be overridden,  ensuring consumers only see pricing options available for online purchase. (optional)
      * @param  string[] $RequestServiceIds Filters to the pricing options with the specified IDs. In this context, service and pricing option are used interchangeably. These are the &#x60;PurchasedItems[].Id&#x60; returned from GET Sales. (optional)
      * @param  int[] $RequestSessionTypeIds Filters to the pricing options with the specified session types IDs. (optional)
      * @param  int $RequestStaffId Sets &#x60;Price&#x60; and &#x60;OnlinePrice&#x60; to the particular pricing of a specific staff member, if allowed by the business. (optional)
@@ -3369,7 +4223,7 @@ class SaleApi implements ApiInterface
      * @param  int $RequestLocationId When specified, for each returned pricing option, &#x60;TaxRate&#x60; and &#x60;TaxIncluded&#x60; are calculated according to the specified location. Note that this does not filter results to only services provided at the given location, and for locations where Value-Added Tax (VAT) rules apply, the &#x60;TaxRate&#x60; is set to zero. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
      * @param  int[] $RequestProgramIds Filters to pricing options with the specified program IDs. (optional)
-     * @param  bool $RequestSellOnline When &#x60;true&#x60;, filters to the pricing options that can be sold online.&lt;br /&gt;  Default: **false** (optional)
+     * @param  bool $RequestSellOnline When &#x60;true&#x60;, filters the pricing options to display only those available for online purchase.  This parameter is only applicable in Business Mode (when a staff authentication header is included) and ignored in Consumer Mode (when no authentication header is passed).  &lt;br /&gt;Default: &#x60;false&#x60; (for staff users)  &lt;br /&gt;Business Mode: This parameter controls the filtering behavior. Staff users can set this to &#x60;true&#x60;  to show only pricing options that can be sold online, or &#x60;false&#x60; to show all available pricing options.  &lt;br /&gt;Consumer Mode: This value is automatically set to &#x60;true&#x60; and cannot be overridden,  ensuring consumers only see pricing options available for online purchase. (optional)
      * @param  string[] $RequestServiceIds Filters to the pricing options with the specified IDs. In this context, service and pricing option are used interchangeably. These are the &#x60;PurchasedItems[].Id&#x60; returned from GET Sales. (optional)
      * @param  int[] $RequestSessionTypeIds Filters to the pricing options with the specified session types IDs. (optional)
      * @param  int $RequestStaffId Sets &#x60;Price&#x60; and &#x60;OnlinePrice&#x60; to the particular pricing of a specific staff member, if allowed by the business. (optional)
@@ -3883,37 +4737,37 @@ class SaleApi implements ApiInterface
     }
 
     /**
-     * Operation saleInitializeCreditCardEntry
+     * Operation saleInitiateCheckoutShoppingCartUsingAlternativePayments
      *
-     * This endpoint returns a Callback URL which is used to load Card Element UI with the help of which user will be able to enter the card details and initiate a transaction .  The documentation provides explanations of the request body and response.
+     * Initiate the Checkout Shopping Cart process, for payments to be made directly by the client.
      *
-     * @param  \Nlocascio\Mindbody\Model\InitializeCreditCardEntryRequest $Request Request (required)
+     * @param  \Nlocascio\Mindbody\Model\InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest $Request Request (required)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Nlocascio\Mindbody\Model\InitializeCreditCardEntryResponse
+     * @return object
      */
-    public function saleInitializeCreditCardEntry($Request): \Nlocascio\Mindbody\Model\InitializeCreditCardEntryResponse
+    public function saleInitiateCheckoutShoppingCartUsingAlternativePayments($Request): array
     {
-        list($response) = $this->saleInitializeCreditCardEntryWithHttpInfo($Request);
+        list($response) = $this->saleInitiateCheckoutShoppingCartUsingAlternativePaymentsWithHttpInfo($Request);
         return $response;
     }
 
     /**
-     * Operation saleInitializeCreditCardEntryWithHttpInfo
+     * Operation saleInitiateCheckoutShoppingCartUsingAlternativePaymentsWithHttpInfo
      *
-     * This endpoint returns a Callback URL which is used to load Card Element UI with the help of which user will be able to enter the card details and initiate a transaction .  The documentation provides explanations of the request body and response.
+     * Initiate the Checkout Shopping Cart process, for payments to be made directly by the client.
      *
-     * @param  \Nlocascio\Mindbody\Model\InitializeCreditCardEntryRequest $Request (required)
+     * @param  \Nlocascio\Mindbody\Model\InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest $Request (required)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\InitializeCreditCardEntryResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
      */
-    public function saleInitializeCreditCardEntryWithHttpInfo($Request): array
+    public function saleInitiateCheckoutShoppingCartUsingAlternativePaymentsWithHttpInfo($Request): array
     {
-        $returnType = '\Nlocascio\Mindbody\Model\InitializeCreditCardEntryResponse';
-        $request = $this->saleInitializeCreditCardEntryRequest($Request);
+        $returnType = 'object';
+        $request = $this->saleInitiateCheckoutShoppingCartUsingAlternativePaymentsRequest($Request);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3964,7 +4818,7 @@ class SaleApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\InitializeCreditCardEntryResponse',
+                        'object',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3975,18 +4829,18 @@ class SaleApi implements ApiInterface
     }
 
     /**
-     * Operation saleInitializeCreditCardEntryAsync
+     * Operation saleInitiateCheckoutShoppingCartUsingAlternativePaymentsAsync
      *
-     * This endpoint returns a Callback URL which is used to load Card Element UI with the help of which user will be able to enter the card details and initiate a transaction .  The documentation provides explanations of the request body and response.
+     * Initiate the Checkout Shopping Cart process, for payments to be made directly by the client.
      *
-     * @param  \Nlocascio\Mindbody\Model\InitializeCreditCardEntryRequest $Request (required)
+     * @param  \Nlocascio\Mindbody\Model\InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest $Request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function saleInitializeCreditCardEntryAsync($Request): \GuzzleHttp\Promise\PromiseInterface
+    public function saleInitiateCheckoutShoppingCartUsingAlternativePaymentsAsync($Request): \GuzzleHttp\Promise\PromiseInterface
     {
-        return $this->saleInitializeCreditCardEntryAsyncWithHttpInfo($Request)
+        return $this->saleInitiateCheckoutShoppingCartUsingAlternativePaymentsAsyncWithHttpInfo($Request)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3995,19 +4849,19 @@ class SaleApi implements ApiInterface
     }
 
     /**
-     * Operation saleInitializeCreditCardEntryAsyncWithHttpInfo
+     * Operation saleInitiateCheckoutShoppingCartUsingAlternativePaymentsAsyncWithHttpInfo
      *
-     * This endpoint returns a Callback URL which is used to load Card Element UI with the help of which user will be able to enter the card details and initiate a transaction .  The documentation provides explanations of the request body and response.
+     * Initiate the Checkout Shopping Cart process, for payments to be made directly by the client.
      *
-     * @param  \Nlocascio\Mindbody\Model\InitializeCreditCardEntryRequest $Request (required)
+     * @param  \Nlocascio\Mindbody\Model\InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest $Request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function saleInitializeCreditCardEntryAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
+    public function saleInitiateCheckoutShoppingCartUsingAlternativePaymentsAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
     {
-        $returnType = '\Nlocascio\Mindbody\Model\InitializeCreditCardEntryResponse';
-        $request = $this->saleInitializeCreditCardEntryRequest($Request);
+        $returnType = 'object';
+        $request = $this->saleInitiateCheckoutShoppingCartUsingAlternativePaymentsRequest($Request);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4047,23 +4901,302 @@ class SaleApi implements ApiInterface
     }
 
     /**
-     * Create request for operation 'saleInitializeCreditCardEntry'
+     * Create request for operation 'saleInitiateCheckoutShoppingCartUsingAlternativePayments'
      *
-     * @param  \Nlocascio\Mindbody\Model\InitializeCreditCardEntryRequest $Request (required)
+     * @param  \Nlocascio\Mindbody\Model\InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest $Request (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function saleInitializeCreditCardEntryRequest($Request): \GuzzleHttp\Psr7\Request
+    protected function saleInitiateCheckoutShoppingCartUsingAlternativePaymentsRequest($Request): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'Request' is set
         if ($Request === null || (is_array($Request) && count($Request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $Request when calling saleInitializeCreditCardEntry'
+                'Missing the required parameter $Request when calling saleInitiateCheckoutShoppingCartUsingAlternativePayments'
             );
         }
 
-        $resourcePath = '/public/v6/sale/initializecreditcardentry';
+        $resourcePath = '/public/v6/sale/initiatecheckoutshoppingcart';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // body params
+        $_tempBody = null;
+        if (isset($Request)) {
+            $_tempBody = $Request;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = Utils::jsonEncode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = Utils::jsonEncode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
+        if ($apiKey !== null) {
+            $headers['API-Key'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('authorization');
+        if ($apiKey !== null) {
+            $headers['authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('siteId');
+        if ($apiKey !== null) {
+            $headers['siteId'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation saleInitiatePurchaseContractUsingAlternativePayments
+     *
+     * Purchase a contract for a client using apm/lpm.
+     *
+     * @param  \Nlocascio\Mindbody\Model\InitiatePurchaseContractRequest $Request Request (required)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return object
+     */
+    public function saleInitiatePurchaseContractUsingAlternativePayments($Request): array
+    {
+        list($response) = $this->saleInitiatePurchaseContractUsingAlternativePaymentsWithHttpInfo($Request);
+        return $response;
+    }
+
+    /**
+     * Operation saleInitiatePurchaseContractUsingAlternativePaymentsWithHttpInfo
+     *
+     * Purchase a contract for a client using apm/lpm.
+     *
+     * @param  \Nlocascio\Mindbody\Model\InitiatePurchaseContractRequest $Request (required)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function saleInitiatePurchaseContractUsingAlternativePaymentsWithHttpInfo($Request): array
+    {
+        $returnType = 'object';
+        $request = $this->saleInitiatePurchaseContractUsingAlternativePaymentsRequest($Request);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation saleInitiatePurchaseContractUsingAlternativePaymentsAsync
+     *
+     * Purchase a contract for a client using apm/lpm.
+     *
+     * @param  \Nlocascio\Mindbody\Model\InitiatePurchaseContractRequest $Request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function saleInitiatePurchaseContractUsingAlternativePaymentsAsync($Request): \GuzzleHttp\Promise\PromiseInterface
+    {
+        return $this->saleInitiatePurchaseContractUsingAlternativePaymentsAsyncWithHttpInfo($Request)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation saleInitiatePurchaseContractUsingAlternativePaymentsAsyncWithHttpInfo
+     *
+     * Purchase a contract for a client using apm/lpm.
+     *
+     * @param  \Nlocascio\Mindbody\Model\InitiatePurchaseContractRequest $Request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function saleInitiatePurchaseContractUsingAlternativePaymentsAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
+    {
+        $returnType = 'object';
+        $request = $this->saleInitiatePurchaseContractUsingAlternativePaymentsRequest($Request);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'saleInitiatePurchaseContractUsingAlternativePayments'
+     *
+     * @param  \Nlocascio\Mindbody\Model\InitiatePurchaseContractRequest $Request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function saleInitiatePurchaseContractUsingAlternativePaymentsRequest($Request): \GuzzleHttp\Psr7\Request
+    {
+        // verify the required parameter 'Request' is set
+        if ($Request === null || (is_array($Request) && count($Request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $Request when calling saleInitiatePurchaseContractUsingAlternativePayments'
+            );
+        }
+
+        $resourcePath = '/public/v6/sale/initiatepurchasecontract';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

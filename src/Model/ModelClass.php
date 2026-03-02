@@ -65,6 +65,9 @@ namespace Nlocascio\Mindbody\Model;
  * @property \Nlocascio\Mindbody\Model\BookingWindow $BookingWindow Contains information about the window for booking.
  * @property string $BookingStatus Contains the booking’s payment status.
  * @property string $VirtualStreamLink The link to the Mindbody-hosted live stream for the class. This is `null` when no live stream is configured for the class.
+ * @property int $WaitListSize The maximum number allowed on the waiting list for the class.
+ * @property string $ClassNotes Notes for the class
+ * @property string $ThemeName The class instance theme name.<br />  The theme name is free optional custom name suffix which can be added to highlight the class instance.
  *
  */
 class ModelClass extends BaseModel implements ModelWithId
@@ -111,7 +114,10 @@ class ModelClass extends BaseModel implements ModelWithId
         'Staff' => '\Nlocascio\Mindbody\Model\Staff',
         'BookingWindow' => '\Nlocascio\Mindbody\Model\BookingWindow',
         'BookingStatus' => 'string',
-        'VirtualStreamLink' => 'string'
+        'VirtualStreamLink' => 'string',
+        'WaitListSize' => 'int',
+        'ClassNotes' => 'string',
+        'ThemeName' => 'string'
     ];
 
     /**
@@ -147,7 +153,10 @@ class ModelClass extends BaseModel implements ModelWithId
         'Staff' => null,
         'BookingWindow' => null,
         'BookingStatus' => null,
-        'VirtualStreamLink' => null
+        'VirtualStreamLink' => null,
+        'WaitListSize' => 'int32',
+        'ClassNotes' => null,
+        'ThemeName' => null
     ];
 
 
@@ -185,7 +194,10 @@ class ModelClass extends BaseModel implements ModelWithId
         'Staff' => 'Staff',
         'BookingWindow' => 'BookingWindow',
         'BookingStatus' => 'BookingStatus',
-        'VirtualStreamLink' => 'VirtualStreamLink'
+        'VirtualStreamLink' => 'VirtualStreamLink',
+        'WaitListSize' => 'WaitListSize',
+        'ClassNotes' => 'ClassNotes',
+        'ThemeName' => 'ThemeName'
     ];
 
     /**
@@ -221,7 +233,10 @@ class ModelClass extends BaseModel implements ModelWithId
         'Staff' => 'setStaff',
         'BookingWindow' => 'setBookingWindow',
         'BookingStatus' => 'setBookingStatus',
-        'VirtualStreamLink' => 'setVirtualStreamLink'
+        'VirtualStreamLink' => 'setVirtualStreamLink',
+        'WaitListSize' => 'setWaitListSize',
+        'ClassNotes' => 'setClassNotes',
+        'ThemeName' => 'setThemeName'
     ];
 
     /**
@@ -257,7 +272,10 @@ class ModelClass extends BaseModel implements ModelWithId
         'Staff' => 'getStaff',
         'BookingWindow' => 'getBookingWindow',
         'BookingStatus' => 'getBookingStatus',
-        'VirtualStreamLink' => 'getVirtualStreamLink'
+        'VirtualStreamLink' => 'getVirtualStreamLink',
+        'WaitListSize' => 'getWaitListSize',
+        'ClassNotes' => 'getClassNotes',
+        'ThemeName' => 'getThemeName'
     ];
 
 
@@ -318,6 +336,9 @@ class ModelClass extends BaseModel implements ModelWithId
         $this->container['BookingWindow'] = isset($data['BookingWindow']) ? $data['BookingWindow'] : null;
         $this->container['BookingStatus'] = isset($data['BookingStatus']) ? $data['BookingStatus'] : null;
         $this->container['VirtualStreamLink'] = isset($data['VirtualStreamLink']) ? $data['VirtualStreamLink'] : null;
+        $this->container['WaitListSize'] = isset($data['WaitListSize']) ? $data['WaitListSize'] : null;
+        $this->container['ClassNotes'] = isset($data['ClassNotes']) ? $data['ClassNotes'] : null;
+        $this->container['ThemeName'] = isset($data['ThemeName']) ? $data['ThemeName'] : null;
     }
 
     /**
@@ -1018,6 +1039,78 @@ class ModelClass extends BaseModel implements ModelWithId
     public function setVirtualStreamLink($VirtualStreamLink): self
     {
         $this->container['VirtualStreamLink'] = $VirtualStreamLink;
+
+        return $this;
+    }
+
+    /**
+     * Gets WaitListSize
+     *
+     * @return int
+     */
+    public function getWaitListSize()
+    {
+        return $this->container['WaitListSize'];
+    }
+
+    /**
+     * Sets WaitListSize
+     *
+     * @param int $WaitListSize The maximum number allowed on the waiting list for the class.
+     *
+     * @return $this
+     */
+    public function setWaitListSize($WaitListSize): self
+    {
+        $this->container['WaitListSize'] = $WaitListSize;
+
+        return $this;
+    }
+
+    /**
+     * Gets ClassNotes
+     *
+     * @return string
+     */
+    public function getClassNotes()
+    {
+        return $this->container['ClassNotes'];
+    }
+
+    /**
+     * Sets ClassNotes
+     *
+     * @param string $ClassNotes Notes for the class
+     *
+     * @return $this
+     */
+    public function setClassNotes($ClassNotes): self
+    {
+        $this->container['ClassNotes'] = $ClassNotes;
+
+        return $this;
+    }
+
+    /**
+     * Gets ThemeName
+     *
+     * @return string
+     */
+    public function getThemeName()
+    {
+        return $this->container['ThemeName'];
+    }
+
+    /**
+     * Sets ThemeName
+     *
+     * @param string $ThemeName The class instance theme name.<br />  The theme name is free optional custom name suffix which can be added to highlight the class instance.
+     *
+     * @return $this
+     */
+    public function setThemeName($ThemeName): self
+    {
+        $this->container['ThemeName'] = $ThemeName;
 
         return $this;
     }

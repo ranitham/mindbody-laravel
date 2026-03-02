@@ -33,6 +33,7 @@ namespace Nlocascio\Mindbody\Model;
  * CompletedSaleShoppingCart Class Doc Comment
  *
  * @category Class
+ * @description Represents a shopping cart.
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
@@ -43,6 +44,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property double $TaxTotal The monetary amount paid in taxes, included in the cart’s `GrandTotal`.
  * @property double $GrandTotal The cart’s total cost, including taxes and discounts.
  * @property \Nlocascio\Mindbody\Model\CompletedSaleTransactionResponse[] $Transactions Contains information returned from the first call to CheckoutShoppingCart.
+ * @property int $SaleId The ID of the sale associated with the shopping cart.
  *
  */
 class CompletedSaleShoppingCart extends BaseModel implements ModelWithId
@@ -68,7 +70,8 @@ class CompletedSaleShoppingCart extends BaseModel implements ModelWithId
         'DiscountTotal' => 'double',
         'TaxTotal' => 'double',
         'GrandTotal' => 'double',
-        'Transactions' => '\Nlocascio\Mindbody\Model\CompletedSaleTransactionResponse[]'
+        'Transactions' => '\Nlocascio\Mindbody\Model\CompletedSaleTransactionResponse[]',
+        'SaleId' => 'int'
     ];
 
     /**
@@ -83,7 +86,8 @@ class CompletedSaleShoppingCart extends BaseModel implements ModelWithId
         'DiscountTotal' => 'double',
         'TaxTotal' => 'double',
         'GrandTotal' => 'double',
-        'Transactions' => null
+        'Transactions' => null,
+        'SaleId' => 'int64'
     ];
 
 
@@ -100,7 +104,8 @@ class CompletedSaleShoppingCart extends BaseModel implements ModelWithId
         'DiscountTotal' => 'DiscountTotal',
         'TaxTotal' => 'TaxTotal',
         'GrandTotal' => 'GrandTotal',
-        'Transactions' => 'Transactions'
+        'Transactions' => 'Transactions',
+        'SaleId' => 'SaleId'
     ];
 
     /**
@@ -115,7 +120,8 @@ class CompletedSaleShoppingCart extends BaseModel implements ModelWithId
         'DiscountTotal' => 'setDiscountTotal',
         'TaxTotal' => 'setTaxTotal',
         'GrandTotal' => 'setGrandTotal',
-        'Transactions' => 'setTransactions'
+        'Transactions' => 'setTransactions',
+        'SaleId' => 'setSaleId'
     ];
 
     /**
@@ -130,7 +136,8 @@ class CompletedSaleShoppingCart extends BaseModel implements ModelWithId
         'DiscountTotal' => 'getDiscountTotal',
         'TaxTotal' => 'getTaxTotal',
         'GrandTotal' => 'getGrandTotal',
-        'Transactions' => 'getTransactions'
+        'Transactions' => 'getTransactions',
+        'SaleId' => 'getSaleId'
     ];
 
 
@@ -153,6 +160,7 @@ class CompletedSaleShoppingCart extends BaseModel implements ModelWithId
         $this->container['TaxTotal'] = isset($data['TaxTotal']) ? $data['TaxTotal'] : null;
         $this->container['GrandTotal'] = isset($data['GrandTotal']) ? $data['GrandTotal'] : null;
         $this->container['Transactions'] = isset($data['Transactions']) ? $data['Transactions'] : null;
+        $this->container['SaleId'] = isset($data['SaleId']) ? $data['SaleId'] : null;
     }
 
     /**
@@ -332,6 +340,30 @@ class CompletedSaleShoppingCart extends BaseModel implements ModelWithId
     public function setTransactions($Transactions): self
     {
         $this->container['Transactions'] = $Transactions;
+
+        return $this;
+    }
+
+    /**
+     * Gets SaleId
+     *
+     * @return int
+     */
+    public function getSaleId()
+    {
+        return $this->container['SaleId'];
+    }
+
+    /**
+     * Sets SaleId
+     *
+     * @param int $SaleId The ID of the sale associated with the shopping cart.
+     *
+     * @return $this
+     */
+    public function setSaleId($SaleId): self
+    {
+        $this->container['SaleId'] = $SaleId;
 
         return $this;
     }

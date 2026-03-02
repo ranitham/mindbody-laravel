@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **AllowMembersToPurchaseNonMembersServices** | **bool** | Allow members to purchase non-members services. | [optional] 
 **AllowMembersToPurchaseNonMembersProducts** | **bool** | Allow members to purchase non-members products. | [optional] 
 **IsActive** | **bool** | Indicates if the membership is active. | [optional] 
+**EarlyAccessDaysBeforeSchedulingWindow** | **int** | Number of days before the scheduling window that members with this membership get early access. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

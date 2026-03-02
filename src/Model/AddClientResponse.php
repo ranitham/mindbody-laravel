@@ -36,7 +36,9 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property \Nlocascio\Mindbody\Model\Client $Client Contains information about the client.
+ * @property \Nlocascio\Mindbody\Model\Client $Client Contains information about the client.  Several properties in the returned Client object were deprecated in the AddClient request and were never persisted to the database.  The API previously echoed request values back as if they had been stored; it now returns the actual stored state (typically defaults such as null, 0, or empty).  Affected properties include: PhotoUrl, ProspectStage, AccountBalance, Action, Active, ApptGenderPrefMale, CreationDate, FirstAppointmentDate, LastFormulaNotes, LastModifiedDateTime, MembershipIcon, Status, UniqueId.  Additionally, post-creation operations (ClientCreditCard, ClientIndexes, ClientRelationships, SalesReps) are performed after the client is created and may not be included in the immediate response; use GetClient or GetClientCompleteInfo to retrieve the current state.
+ * @property string $Status The overall status of the operation.  \"Success\" indicates the client was created and all non-critical operations completed successfully.  \"PartialSuccess\" indicates the client was created but one or more non-critical operations failed.  When status is \"PartialSuccess\", retry only the failed operations, not the client creation itself.
+ * @property \Nlocascio\Mindbody\Model\OperationErrorResponse[] $Errors List of errors from non-critical operations that failed.  Only populated when Status is \"PartialSuccess\".  Each error includes the operation name and a message suitable for logging or retry decisions.
  *
  */
 class AddClientResponse extends BaseModel
@@ -56,7 +58,9 @@ class AddClientResponse extends BaseModel
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'Client' => '\Nlocascio\Mindbody\Model\Client'
+        'Client' => '\Nlocascio\Mindbody\Model\Client',
+        'Status' => 'string',
+        'Errors' => '\Nlocascio\Mindbody\Model\OperationErrorResponse[]'
     ];
 
     /**
@@ -65,7 +69,9 @@ class AddClientResponse extends BaseModel
       * @var array<string, string|null>
       */
     protected static $swaggerFormats = [
-        'Client' => null
+        'Client' => null,
+        'Status' => null,
+        'Errors' => null
     ];
 
 
@@ -76,7 +82,9 @@ class AddClientResponse extends BaseModel
      * @var string[]
      */
     protected static $attributeMap = [
-        'Client' => 'Client'
+        'Client' => 'Client',
+        'Status' => 'Status',
+        'Errors' => 'Errors'
     ];
 
     /**
@@ -85,7 +93,9 @@ class AddClientResponse extends BaseModel
      * @var string[]
      */
     protected static $setters = [
-        'Client' => 'setClient'
+        'Client' => 'setClient',
+        'Status' => 'setStatus',
+        'Errors' => 'setErrors'
     ];
 
     /**
@@ -94,7 +104,9 @@ class AddClientResponse extends BaseModel
      * @var string[]
      */
     protected static $getters = [
-        'Client' => 'getClient'
+        'Client' => 'getClient',
+        'Status' => 'getStatus',
+        'Errors' => 'getErrors'
     ];
 
 
@@ -111,6 +123,8 @@ class AddClientResponse extends BaseModel
     public function __construct(array $data = null)
     {
         $this->container['Client'] = isset($data['Client']) ? $data['Client'] : null;
+        $this->container['Status'] = isset($data['Status']) ? $data['Status'] : null;
+        $this->container['Errors'] = isset($data['Errors']) ? $data['Errors'] : null;
     }
 
     /**
@@ -139,13 +153,61 @@ class AddClientResponse extends BaseModel
     /**
      * Sets Client
      *
-     * @param \Nlocascio\Mindbody\Model\Client $Client Contains information about the client.
+     * @param \Nlocascio\Mindbody\Model\Client $Client Contains information about the client.  Several properties in the returned Client object were deprecated in the AddClient request and were never persisted to the database.  The API previously echoed request values back as if they had been stored; it now returns the actual stored state (typically defaults such as null, 0, or empty).  Affected properties include: PhotoUrl, ProspectStage, AccountBalance, Action, Active, ApptGenderPrefMale, CreationDate, FirstAppointmentDate, LastFormulaNotes, LastModifiedDateTime, MembershipIcon, Status, UniqueId.  Additionally, post-creation operations (ClientCreditCard, ClientIndexes, ClientRelationships, SalesReps) are performed after the client is created and may not be included in the immediate response; use GetClient or GetClientCompleteInfo to retrieve the current state.
      *
      * @return $this
      */
     public function setClient($Client): self
     {
         $this->container['Client'] = $Client;
+
+        return $this;
+    }
+
+    /**
+     * Gets Status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->container['Status'];
+    }
+
+    /**
+     * Sets Status
+     *
+     * @param string $Status The overall status of the operation.  \"Success\" indicates the client was created and all non-critical operations completed successfully.  \"PartialSuccess\" indicates the client was created but one or more non-critical operations failed.  When status is \"PartialSuccess\", retry only the failed operations, not the client creation itself.
+     *
+     * @return $this
+     */
+    public function setStatus($Status): self
+    {
+        $this->container['Status'] = $Status;
+
+        return $this;
+    }
+
+    /**
+     * Gets Errors
+     *
+     * @return \Nlocascio\Mindbody\Model\OperationErrorResponse[]
+     */
+    public function getErrors()
+    {
+        return $this->container['Errors'];
+    }
+
+    /**
+     * Sets Errors
+     *
+     * @param \Nlocascio\Mindbody\Model\OperationErrorResponse[] $Errors List of errors from non-critical operations that failed.  Only populated when Status is \"PartialSuccess\".  Each error includes the operation name and a message suitable for logging or retry decisions.
+     *
+     * @return $this
+     */
+    public function setErrors($Errors): self
+    {
+        $this->container['Errors'] = $Errors;
 
         return $this;
     }

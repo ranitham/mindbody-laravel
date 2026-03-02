@@ -33,6 +33,7 @@ namespace Nlocascio\Mindbody\Model;
  * GetProductsResponse Class Doc Comment
  *
  * @category Class
+ * @description Represents the response object for retrieving products.
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen

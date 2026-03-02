@@ -38,6 +38,7 @@ namespace Nlocascio\Mindbody\Model;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  * @property string $RelatedClientId The RSSID of the related client.
+ * @property int $RelatedUniqueId The UniqueId of the related client.
  * @property \Nlocascio\Mindbody\Model\Relationship $Relationship Contains details about the relationship between two clients.
  * @property string $RelationshipName The name of the relationship of the related client.
  * @property bool $Delete When true, the associated relationship is removed from the client’s list of relationships.  This property is ignored in all other use cases.  Default: *false*
@@ -61,6 +62,7 @@ class ClientRelationship extends BaseModel
       */
     protected static $swaggerTypes = [
         'RelatedClientId' => 'string',
+        'RelatedUniqueId' => 'int',
         'Relationship' => '\Nlocascio\Mindbody\Model\Relationship',
         'RelationshipName' => 'string',
         'Delete' => 'bool'
@@ -73,6 +75,7 @@ class ClientRelationship extends BaseModel
       */
     protected static $swaggerFormats = [
         'RelatedClientId' => null,
+        'RelatedUniqueId' => 'int64',
         'Relationship' => null,
         'RelationshipName' => null,
         'Delete' => null
@@ -87,6 +90,7 @@ class ClientRelationship extends BaseModel
      */
     protected static $attributeMap = [
         'RelatedClientId' => 'RelatedClientId',
+        'RelatedUniqueId' => 'RelatedUniqueId',
         'Relationship' => 'Relationship',
         'RelationshipName' => 'RelationshipName',
         'Delete' => 'Delete'
@@ -99,6 +103,7 @@ class ClientRelationship extends BaseModel
      */
     protected static $setters = [
         'RelatedClientId' => 'setRelatedClientId',
+        'RelatedUniqueId' => 'setRelatedUniqueId',
         'Relationship' => 'setRelationship',
         'RelationshipName' => 'setRelationshipName',
         'Delete' => 'setDelete'
@@ -111,6 +116,7 @@ class ClientRelationship extends BaseModel
      */
     protected static $getters = [
         'RelatedClientId' => 'getRelatedClientId',
+        'RelatedUniqueId' => 'getRelatedUniqueId',
         'Relationship' => 'getRelationship',
         'RelationshipName' => 'getRelationshipName',
         'Delete' => 'getDelete'
@@ -130,6 +136,7 @@ class ClientRelationship extends BaseModel
     public function __construct(array $data = null)
     {
         $this->container['RelatedClientId'] = isset($data['RelatedClientId']) ? $data['RelatedClientId'] : null;
+        $this->container['RelatedUniqueId'] = isset($data['RelatedUniqueId']) ? $data['RelatedUniqueId'] : null;
         $this->container['Relationship'] = isset($data['Relationship']) ? $data['Relationship'] : null;
         $this->container['RelationshipName'] = isset($data['RelationshipName']) ? $data['RelationshipName'] : null;
         $this->container['Delete'] = isset($data['Delete']) ? $data['Delete'] : null;
@@ -168,6 +175,30 @@ class ClientRelationship extends BaseModel
     public function setRelatedClientId($RelatedClientId): self
     {
         $this->container['RelatedClientId'] = $RelatedClientId;
+
+        return $this;
+    }
+
+    /**
+     * Gets RelatedUniqueId
+     *
+     * @return int
+     */
+    public function getRelatedUniqueId()
+    {
+        return $this->container['RelatedUniqueId'];
+    }
+
+    /**
+     * Sets RelatedUniqueId
+     *
+     * @param int $RelatedUniqueId The UniqueId of the related client.
+     *
+     * @return $this
+     */
+    public function setRelatedUniqueId($RelatedUniqueId): self
+    {
+        $this->container['RelatedUniqueId'] = $RelatedUniqueId;
 
         return $this;
     }

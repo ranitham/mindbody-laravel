@@ -40,6 +40,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property int $SiteId The ID of the site to which the client belongs.
  * @property string $ClientId The client’s RSSID.
  * @property int $UniqueId The client’s unique ID.
+ * @property bool $SiteIsActive Indicates if site is active
  *
  */
 class CrossRegionalClientAssociation extends BaseModel
@@ -61,7 +62,8 @@ class CrossRegionalClientAssociation extends BaseModel
     protected static $swaggerTypes = [
         'SiteId' => 'int',
         'ClientId' => 'string',
-        'UniqueId' => 'int'
+        'UniqueId' => 'int',
+        'SiteIsActive' => 'bool'
     ];
 
     /**
@@ -72,7 +74,8 @@ class CrossRegionalClientAssociation extends BaseModel
     protected static $swaggerFormats = [
         'SiteId' => 'int32',
         'ClientId' => null,
-        'UniqueId' => 'int64'
+        'UniqueId' => 'int64',
+        'SiteIsActive' => null
     ];
 
 
@@ -85,7 +88,8 @@ class CrossRegionalClientAssociation extends BaseModel
     protected static $attributeMap = [
         'SiteId' => 'SiteId',
         'ClientId' => 'ClientId',
-        'UniqueId' => 'UniqueId'
+        'UniqueId' => 'UniqueId',
+        'SiteIsActive' => 'SiteIsActive'
     ];
 
     /**
@@ -96,7 +100,8 @@ class CrossRegionalClientAssociation extends BaseModel
     protected static $setters = [
         'SiteId' => 'setSiteId',
         'ClientId' => 'setClientId',
-        'UniqueId' => 'setUniqueId'
+        'UniqueId' => 'setUniqueId',
+        'SiteIsActive' => 'setSiteIsActive'
     ];
 
     /**
@@ -107,7 +112,8 @@ class CrossRegionalClientAssociation extends BaseModel
     protected static $getters = [
         'SiteId' => 'getSiteId',
         'ClientId' => 'getClientId',
-        'UniqueId' => 'getUniqueId'
+        'UniqueId' => 'getUniqueId',
+        'SiteIsActive' => 'getSiteIsActive'
     ];
 
 
@@ -126,6 +132,7 @@ class CrossRegionalClientAssociation extends BaseModel
         $this->container['SiteId'] = isset($data['SiteId']) ? $data['SiteId'] : null;
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
         $this->container['UniqueId'] = isset($data['UniqueId']) ? $data['UniqueId'] : null;
+        $this->container['SiteIsActive'] = isset($data['SiteIsActive']) ? $data['SiteIsActive'] : null;
     }
 
     /**
@@ -209,6 +216,30 @@ class CrossRegionalClientAssociation extends BaseModel
     public function setUniqueId($UniqueId): self
     {
         $this->container['UniqueId'] = $UniqueId;
+
+        return $this;
+    }
+
+    /**
+     * Gets SiteIsActive
+     *
+     * @return bool
+     */
+    public function getSiteIsActive()
+    {
+        return $this->container['SiteIsActive'];
+    }
+
+    /**
+     * Sets SiteIsActive
+     *
+     * @param bool $SiteIsActive Indicates if site is active
+     *
+     * @return $this
+     */
+    public function setSiteIsActive($SiteIsActive): self
+    {
+        $this->container['SiteIsActive'] = $SiteIsActive;
 
         return $this;
     }

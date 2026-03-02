@@ -33,7 +33,7 @@ namespace Nlocascio\Mindbody\Model;
  * ClientSuspensionInfo Class Doc Comment
  *
  * @category Class
- * @description A Client DTO with Suspension Informatoin
+ * @description A Client DTO with Suspension Information
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen

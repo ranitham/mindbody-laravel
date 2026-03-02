@@ -31,6 +31,9 @@ Name | Type | Description | Notes
 **BookingWindow** | [**\Nlocascio\Mindbody\Model\BookingWindow**](BookingWindow.md) | Contains information about the window for booking. | [optional] 
 **BookingStatus** | **string** | Contains the booking’s payment status. | [optional] 
 **VirtualStreamLink** | **string** | The link to the Mindbody-hosted live stream for the class. This is &#x60;null&#x60; when no live stream is configured for the class. | [optional] 
+**WaitListSize** | **int** | The maximum number allowed on the waiting list for the class. | [optional] 
+**ClassNotes** | **string** | Notes for the class | [optional] 
+**ThemeName** | **string** | The class instance theme name.&lt;br /&gt;  The theme name is free optional custom name suffix which can be added to highlight the class instance. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

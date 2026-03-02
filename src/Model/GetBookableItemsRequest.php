@@ -43,6 +43,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property \DateTime $EndDate The end date of the requested date range.   <br />Default: **StartDate**
  * @property int $AppointmentId If provided, filters out the appointment with this ID.
  * @property bool $IgnoreDefaultSessionLength When `true`, availabilities that are non-default return, for example, a 30-minute availability with a 60-minute default session length.<br />  When `false`, only availabilities that have the default session length return.
+ * @property bool $IncludeResourceAvailability When `true`, resource availabilities for the session type are returned.<br />  When `false`, resource availabilities are not returned default.
  * @property int $Limit Number of results to include, defaults to 100
  * @property int $Offset Page offset, defaults to 0.
  *
@@ -71,6 +72,7 @@ class GetBookableItemsRequest extends BaseModel
         'EndDate' => '\DateTime',
         'AppointmentId' => 'int',
         'IgnoreDefaultSessionLength' => 'bool',
+        'IncludeResourceAvailability' => 'bool',
         'Limit' => 'int',
         'Offset' => 'int'
     ];
@@ -88,6 +90,7 @@ class GetBookableItemsRequest extends BaseModel
         'EndDate' => 'date-time',
         'AppointmentId' => 'int64',
         'IgnoreDefaultSessionLength' => null,
+        'IncludeResourceAvailability' => null,
         'Limit' => 'int32',
         'Offset' => 'int32'
     ];
@@ -107,6 +110,7 @@ class GetBookableItemsRequest extends BaseModel
         'EndDate' => 'EndDate',
         'AppointmentId' => 'AppointmentId',
         'IgnoreDefaultSessionLength' => 'IgnoreDefaultSessionLength',
+        'IncludeResourceAvailability' => 'IncludeResourceAvailability',
         'Limit' => 'Limit',
         'Offset' => 'Offset'
     ];
@@ -124,6 +128,7 @@ class GetBookableItemsRequest extends BaseModel
         'EndDate' => 'setEndDate',
         'AppointmentId' => 'setAppointmentId',
         'IgnoreDefaultSessionLength' => 'setIgnoreDefaultSessionLength',
+        'IncludeResourceAvailability' => 'setIncludeResourceAvailability',
         'Limit' => 'setLimit',
         'Offset' => 'setOffset'
     ];
@@ -141,6 +146,7 @@ class GetBookableItemsRequest extends BaseModel
         'EndDate' => 'getEndDate',
         'AppointmentId' => 'getAppointmentId',
         'IgnoreDefaultSessionLength' => 'getIgnoreDefaultSessionLength',
+        'IncludeResourceAvailability' => 'getIncludeResourceAvailability',
         'Limit' => 'getLimit',
         'Offset' => 'getOffset'
     ];
@@ -165,6 +171,7 @@ class GetBookableItemsRequest extends BaseModel
         $this->container['EndDate'] = isset($data['EndDate']) ? $data['EndDate'] : null;
         $this->container['AppointmentId'] = isset($data['AppointmentId']) ? $data['AppointmentId'] : null;
         $this->container['IgnoreDefaultSessionLength'] = isset($data['IgnoreDefaultSessionLength']) ? $data['IgnoreDefaultSessionLength'] : null;
+        $this->container['IncludeResourceAvailability'] = isset($data['IncludeResourceAvailability']) ? $data['IncludeResourceAvailability'] : null;
         $this->container['Limit'] = isset($data['Limit']) ? $data['Limit'] : null;
         $this->container['Offset'] = isset($data['Offset']) ? $data['Offset'] : null;
     }
@@ -349,6 +356,30 @@ class GetBookableItemsRequest extends BaseModel
     public function setIgnoreDefaultSessionLength($IgnoreDefaultSessionLength): self
     {
         $this->container['IgnoreDefaultSessionLength'] = $IgnoreDefaultSessionLength;
+
+        return $this;
+    }
+
+    /**
+     * Gets IncludeResourceAvailability
+     *
+     * @return bool
+     */
+    public function getIncludeResourceAvailability()
+    {
+        return $this->container['IncludeResourceAvailability'];
+    }
+
+    /**
+     * Sets IncludeResourceAvailability
+     *
+     * @param bool $IncludeResourceAvailability When `true`, resource availabilities for the session type are returned.<br />  When `false`, resource availabilities are not returned default.
+     *
+     * @return $this
+     */
+    public function setIncludeResourceAvailability($IncludeResourceAvailability): self
+    {
+        $this->container['IncludeResourceAvailability'] = $IncludeResourceAvailability;
 
         return $this;
     }

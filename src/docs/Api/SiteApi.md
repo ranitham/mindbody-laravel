@@ -19,10 +19,10 @@ Method | HTTP request | Description
 [**siteGetPromoCodes**](SiteApi.md#siteGetPromoCodes) | **GET** /public/v6/site/promocodes | Get promocodes for a site.
 [**siteGetProspectStages**](SiteApi.md#siteGetProspectStages) | **GET** /public/v6/site/prospectstages | Gets a list of prospect stages for a site.
 [**siteGetRelationships**](SiteApi.md#siteGetRelationships) | **GET** /public/v6/site/relationships | Returns all active relationships of the site.
+[**siteGetResourceAvailabilities**](SiteApi.md#siteGetResourceAvailabilities) | **GET** /public/v6/site/resourceavailabilities | Get resource availabilities used at a site.
 [**siteGetResources**](SiteApi.md#siteGetResources) | **GET** /public/v6/site/resources | Get resources used at a site.
 [**siteGetSessionTypes**](SiteApi.md#siteGetSessionTypes) | **GET** /public/v6/site/sessiontypes | Get the session types used at a site.
 [**siteGetSites**](SiteApi.md#siteGetSites) | **GET** /public/v6/site/sites | Get all sites that can be accessed by an API Key.
-[**siteSiteGetResourceAvailabilities**](SiteApi.md#siteSiteGetResourceAvailabilities) | **GET** /public/v6/site/resourceavailabilities | Get resource availabilities used at a site.
 [**siteUpdateClientIndex**](SiteApi.md#siteUpdateClientIndex) | **POST** /public/v6/site/updateclientindex | Update client index.
 
 
@@ -981,8 +981,83 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **siteGetResourceAvailabilities**
+> \Nlocascio\Mindbody\Model\GetResourceAvailabilitiesResponse siteGetResourceAvailabilities($RequestEndDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestResourceIds, $RequestScheduleTypes, $RequestStartDate)
+
+Get resource availabilities used at a site.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: API-Key
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'Bearer');
+// Configure API key authorization: authorization
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('authorization', 'Bearer');
+// Configure API key authorization: siteId
+$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('siteId', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('siteId', 'Bearer');
+
+$apiInstance = new Nlocascio\Mindbody\Api\SiteApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$RequestEndDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | End date. If default, StartDate is used.
+$RequestLimit = 56; // int | Number of results to include, defaults to 100
+$RequestLocationIds = array(56); // int[] | Filter by location ids (optional)
+$RequestOffset = 56; // int | Page offset, defaults to 0.
+$RequestProgramIds = array(56); // int[] | Filter by program ids (optional)
+$RequestResourceIds = array(56); // int[] | Filter on resourceIds
+$RequestScheduleTypes = array("RequestScheduleTypes_example"); // string[] | Filter by schedule types (optional)
+$RequestStartDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Start time
+
+try {
+    $result = $apiInstance->siteGetResourceAvailabilities($RequestEndDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestResourceIds, $RequestScheduleTypes, $RequestStartDate);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SiteApi->siteGetResourceAvailabilities: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **RequestEndDate** | **\DateTime**| End date. If default, StartDate is used. | [optional]
+ **RequestLimit** | **int**| Number of results to include, defaults to 100 | [optional]
+ **RequestLocationIds** | [**int[]**](../Model/int.md)| Filter by location ids (optional) | [optional]
+ **RequestOffset** | **int**| Page offset, defaults to 0. | [optional]
+ **RequestProgramIds** | [**int[]**](../Model/int.md)| Filter by program ids (optional) | [optional]
+ **RequestResourceIds** | [**int[]**](../Model/int.md)| Filter on resourceIds | [optional]
+ **RequestScheduleTypes** | [**string[]**](../Model/string.md)| Filter by schedule types (optional) | [optional]
+ **RequestStartDate** | **\DateTime**| Start time | [optional]
+
+### Return type
+
+[**\Nlocascio\Mindbody\Model\GetResourceAvailabilitiesResponse**](../Model/GetResourceAvailabilitiesResponse.md)
+
+### Authorization
+
+[API-Key](../../README.md#API-Key), [authorization](../../README.md#authorization), [siteId](../../README.md#siteId)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, text/json, application/xml, text/xml, multipart/form-data
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **siteGetResources**
-> object siteGetResources($RequestEndDateTime, $RequestIncludeInactive, $RequestLimit, $RequestLocationId, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestResourceIds, $RequestScheduleTypes, $RequestSessionTypeIds, $RequestStartDateTime)
+> object siteGetResources($RequestIncludeInactive, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestResourceIds, $RequestScheduleTypes)
 
 Get resources used at a site.
 
@@ -1010,20 +1085,16 @@ $apiInstance = new Nlocascio\Mindbody\Api\SiteApi(
     new GuzzleHttp\Client(),
     $config
 );
-$RequestEndDateTime = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The time the resource ends. This parameter is ignored if `EndDateTime` or `LocationID` is not set.
 $RequestIncludeInactive = true; // bool | Enable to include inactive
 $RequestLimit = 56; // int | Number of results to include, defaults to 100
-$RequestLocationId = 56; // int | The location of the resource. This parameter is ignored if `EndDateTime` or `LocationID` is not set.<br />  Default: **all**
 $RequestLocationIds = array(56); // int[] | Filter by location ids (optional)
 $RequestOffset = 56; // int | Page offset, defaults to 0.
 $RequestProgramIds = array(56); // int[] | Filter by program ids (optional)
 $RequestResourceIds = array(56); // int[] | Filter on resourceIds
 $RequestScheduleTypes = array("RequestScheduleTypes_example"); // string[] | Filter by schedule types (optional)
-$RequestSessionTypeIds = array(56); // int[] | List of session type IDs.<br />  Default: **all**
-$RequestStartDateTime = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | The time the resource starts. This parameter is ignored if `EndDateTime` or `LocationID` is not set.
 
 try {
-    $result = $apiInstance->siteGetResources($RequestEndDateTime, $RequestIncludeInactive, $RequestLimit, $RequestLocationId, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestResourceIds, $RequestScheduleTypes, $RequestSessionTypeIds, $RequestStartDateTime);
+    $result = $apiInstance->siteGetResources($RequestIncludeInactive, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestResourceIds, $RequestScheduleTypes);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SiteApi->siteGetResources: ', $e->getMessage(), PHP_EOL;
@@ -1035,17 +1106,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **RequestEndDateTime** | **\DateTime**| The time the resource ends. This parameter is ignored if &#x60;EndDateTime&#x60; or &#x60;LocationID&#x60; is not set. | [optional]
  **RequestIncludeInactive** | **bool**| Enable to include inactive | [optional]
  **RequestLimit** | **int**| Number of results to include, defaults to 100 | [optional]
- **RequestLocationId** | **int**| The location of the resource. This parameter is ignored if &#x60;EndDateTime&#x60; or &#x60;LocationID&#x60; is not set.&lt;br /&gt;  Default: **all** | [optional]
  **RequestLocationIds** | [**int[]**](../Model/int.md)| Filter by location ids (optional) | [optional]
  **RequestOffset** | **int**| Page offset, defaults to 0. | [optional]
  **RequestProgramIds** | [**int[]**](../Model/int.md)| Filter by program ids (optional) | [optional]
  **RequestResourceIds** | [**int[]**](../Model/int.md)| Filter on resourceIds | [optional]
  **RequestScheduleTypes** | [**string[]**](../Model/string.md)| Filter by schedule types (optional) | [optional]
- **RequestSessionTypeIds** | [**int[]**](../Model/int.md)| List of session type IDs.&lt;br /&gt;  Default: **all** | [optional]
- **RequestStartDateTime** | **\DateTime**| The time the resource starts. This parameter is ignored if &#x60;EndDateTime&#x60; or &#x60;LocationID&#x60; is not set. | [optional]
 
 ### Return type
 
@@ -1130,11 +1197,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **siteGetSites**
-> \Nlocascio\Mindbody\Model\GetSitesResponse siteGetSites($RequestIncludeLeadChannels, $RequestLimit, $RequestOffset, $RequestSiteIds)
+> \Nlocascio\Mindbody\Model\GetSitesResponse siteGetSites($RequestIncludeLeadChannels, $RequestIncludePerStaffPricing, $RequestLimit, $RequestOffset, $RequestSiteIds)
 
 Get all sites that can be accessed by an API Key.
 
-Gets a list of sites that the developer has permission to view.  * Passing in no `SiteIds` returns all sites that the developer has access to.  * Passing in one `SiteIds` returns more detailed information about the specified site.
+Gets a list of sites that the developer has permission to view.  * Passing in no `SiteIds` returns all sites that the developer has access to.  * Passing in one `SiteIds` returns more detailed information about the specified site.    Important Behavior Notice:  When calling GetSites without specifying a SiteId, or when passing multiple SiteIds, the response will include only limited data for each site. This is expected behavior designed to help identify accessible sites without returning full site-level configuration details.  To retrieve complete information for a specific site, please make a separate GetSites request using a single SiteId.    This design helps reduce payload size for multi-site queries, but we recognize it may require additional requests when full detail is needed. If your integration depends on full site-level data, we recommend retrieving the list of site IDs first, then querying each one individually as needed.
 
 ### Example
 ```php
@@ -1157,12 +1224,13 @@ $apiInstance = new Nlocascio\Mindbody\Api\SiteApi(
     $config
 );
 $RequestIncludeLeadChannels = true; // bool | This is an optional parameter to get lead channels for a Site.
+$RequestIncludePerStaffPricing = true; // bool | Include whether or not studios have per staff pricing enabled.
 $RequestLimit = 56; // int | Number of results to include, defaults to 100
 $RequestOffset = 56; // int | Page offset, defaults to 0.
 $RequestSiteIds = array(56); // int[] | List of the requested site IDs. When omitted, returns all sites that the source has access to.
 
 try {
-    $result = $apiInstance->siteGetSites($RequestIncludeLeadChannels, $RequestLimit, $RequestOffset, $RequestSiteIds);
+    $result = $apiInstance->siteGetSites($RequestIncludeLeadChannels, $RequestIncludePerStaffPricing, $RequestLimit, $RequestOffset, $RequestSiteIds);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SiteApi->siteGetSites: ', $e->getMessage(), PHP_EOL;
@@ -1175,6 +1243,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **RequestIncludeLeadChannels** | **bool**| This is an optional parameter to get lead channels for a Site. | [optional]
+ **RequestIncludePerStaffPricing** | **bool**| Include whether or not studios have per staff pricing enabled. | [optional]
  **RequestLimit** | **int**| Number of results to include, defaults to 100 | [optional]
  **RequestOffset** | **int**| Page offset, defaults to 0. | [optional]
  **RequestSiteIds** | [**int[]**](../Model/int.md)| List of the requested site IDs. When omitted, returns all sites that the source has access to. | [optional]
@@ -1186,81 +1255,6 @@ Name | Type | Description  | Notes
 ### Authorization
 
 [API-Key](../../README.md#API-Key), [authorization](../../README.md#authorization)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json, text/json, application/xml, text/xml, multipart/form-data
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **siteSiteGetResourceAvailabilities**
-> \Nlocascio\Mindbody\Model\GetResourcesResponse siteSiteGetResourceAvailabilities($RequestEndDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestResourceIds, $RequestScheduleTypes, $RequestStartDate)
-
-Get resource availabilities used at a site.
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: API-Key
-$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('API-Key', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('API-Key', 'Bearer');
-// Configure API key authorization: authorization
-$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('authorization', 'Bearer');
-// Configure API key authorization: siteId
-$config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKey('siteId', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Nlocascio\Mindbody\Configuration::getDefaultConfiguration()->setApiKeyPrefix('siteId', 'Bearer');
-
-$apiInstance = new Nlocascio\Mindbody\Api\SiteApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$RequestEndDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | End date. If default, StartDate is used.
-$RequestLimit = 56; // int | Number of results to include, defaults to 100
-$RequestLocationIds = array(56); // int[] | Filter by location ids (optional)
-$RequestOffset = 56; // int | Page offset, defaults to 0.
-$RequestProgramIds = array(56); // int[] | Filter by program ids (optional)
-$RequestResourceIds = array(56); // int[] | Filter on resourceIds
-$RequestScheduleTypes = array("RequestScheduleTypes_example"); // string[] | Filter by schedule types (optional)
-$RequestStartDate = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | Start time
-
-try {
-    $result = $apiInstance->siteSiteGetResourceAvailabilities($RequestEndDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestResourceIds, $RequestScheduleTypes, $RequestStartDate);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling SiteApi->siteSiteGetResourceAvailabilities: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **RequestEndDate** | **\DateTime**| End date. If default, StartDate is used. | [optional]
- **RequestLimit** | **int**| Number of results to include, defaults to 100 | [optional]
- **RequestLocationIds** | [**int[]**](../Model/int.md)| Filter by location ids (optional) | [optional]
- **RequestOffset** | **int**| Page offset, defaults to 0. | [optional]
- **RequestProgramIds** | [**int[]**](../Model/int.md)| Filter by program ids (optional) | [optional]
- **RequestResourceIds** | [**int[]**](../Model/int.md)| Filter on resourceIds | [optional]
- **RequestScheduleTypes** | [**string[]**](../Model/string.md)| Filter by schedule types (optional) | [optional]
- **RequestStartDate** | **\DateTime**| Start time | [optional]
-
-### Return type
-
-[**\Nlocascio\Mindbody\Model\GetResourcesResponse**](../Model/GetResourcesResponse.md)
-
-### Authorization
-
-[API-Key](../../README.md#API-Key), [authorization](../../README.md#authorization), [siteId](../../README.md#siteId)
 
 ### HTTP request headers
 

@@ -932,6 +932,7 @@ class ClassApi implements ApiInterface
      *
      * @param  int $RequestClassDescriptionId The ID of the requested client. (optional)
      * @param  \DateTime $RequestEndClassDateTime Filters the results to class descriptions for scheduled classes that happen before the given date and time. (optional)
+     * @param  bool $RequestIncludeInactive Includes inactive class descriptions, defaulting to true. When set to false, it filters out inactive class descriptions. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestLocationId Filters results to classes descriptions for schedule classes as the given location. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
@@ -943,9 +944,9 @@ class ClassApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetClassDescriptionsResponse
      */
-    public function classGetClassDescriptions($RequestClassDescriptionId = null, $RequestEndClassDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProgramIds = null, $RequestStaffId = null, $RequestStartClassDateTime = null): \Nlocascio\Mindbody\Model\GetClassDescriptionsResponse
+    public function classGetClassDescriptions($RequestClassDescriptionId = null, $RequestEndClassDateTime = null, $RequestIncludeInactive = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProgramIds = null, $RequestStaffId = null, $RequestStartClassDateTime = null): \Nlocascio\Mindbody\Model\GetClassDescriptionsResponse
     {
-        list($response) = $this->classGetClassDescriptionsWithHttpInfo($RequestClassDescriptionId, $RequestEndClassDateTime, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestProgramIds, $RequestStaffId, $RequestStartClassDateTime);
+        list($response) = $this->classGetClassDescriptionsWithHttpInfo($RequestClassDescriptionId, $RequestEndClassDateTime, $RequestIncludeInactive, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestProgramIds, $RequestStaffId, $RequestStartClassDateTime);
         return $response;
     }
 
@@ -956,6 +957,7 @@ class ClassApi implements ApiInterface
      *
      * @param  int $RequestClassDescriptionId The ID of the requested client. (optional)
      * @param  \DateTime $RequestEndClassDateTime Filters the results to class descriptions for scheduled classes that happen before the given date and time. (optional)
+     * @param  bool $RequestIncludeInactive Includes inactive class descriptions, defaulting to true. When set to false, it filters out inactive class descriptions. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestLocationId Filters results to classes descriptions for schedule classes as the given location. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
@@ -967,10 +969,10 @@ class ClassApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetClassDescriptionsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function classGetClassDescriptionsWithHttpInfo($RequestClassDescriptionId = null, $RequestEndClassDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProgramIds = null, $RequestStaffId = null, $RequestStartClassDateTime = null): array
+    public function classGetClassDescriptionsWithHttpInfo($RequestClassDescriptionId = null, $RequestEndClassDateTime = null, $RequestIncludeInactive = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProgramIds = null, $RequestStaffId = null, $RequestStartClassDateTime = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClassDescriptionsResponse';
-        $request = $this->classGetClassDescriptionsRequest($RequestClassDescriptionId, $RequestEndClassDateTime, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestProgramIds, $RequestStaffId, $RequestStartClassDateTime);
+        $request = $this->classGetClassDescriptionsRequest($RequestClassDescriptionId, $RequestEndClassDateTime, $RequestIncludeInactive, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestProgramIds, $RequestStaffId, $RequestStartClassDateTime);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1038,6 +1040,7 @@ class ClassApi implements ApiInterface
      *
      * @param  int $RequestClassDescriptionId The ID of the requested client. (optional)
      * @param  \DateTime $RequestEndClassDateTime Filters the results to class descriptions for scheduled classes that happen before the given date and time. (optional)
+     * @param  bool $RequestIncludeInactive Includes inactive class descriptions, defaulting to true. When set to false, it filters out inactive class descriptions. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestLocationId Filters results to classes descriptions for schedule classes as the given location. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
@@ -1048,9 +1051,9 @@ class ClassApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function classGetClassDescriptionsAsync($RequestClassDescriptionId = null, $RequestEndClassDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProgramIds = null, $RequestStaffId = null, $RequestStartClassDateTime = null): \GuzzleHttp\Promise\PromiseInterface
+    public function classGetClassDescriptionsAsync($RequestClassDescriptionId = null, $RequestEndClassDateTime = null, $RequestIncludeInactive = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProgramIds = null, $RequestStaffId = null, $RequestStartClassDateTime = null): \GuzzleHttp\Promise\PromiseInterface
     {
-        return $this->classGetClassDescriptionsAsyncWithHttpInfo($RequestClassDescriptionId, $RequestEndClassDateTime, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestProgramIds, $RequestStaffId, $RequestStartClassDateTime)
+        return $this->classGetClassDescriptionsAsyncWithHttpInfo($RequestClassDescriptionId, $RequestEndClassDateTime, $RequestIncludeInactive, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestProgramIds, $RequestStaffId, $RequestStartClassDateTime)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1065,6 +1068,7 @@ class ClassApi implements ApiInterface
      *
      * @param  int $RequestClassDescriptionId The ID of the requested client. (optional)
      * @param  \DateTime $RequestEndClassDateTime Filters the results to class descriptions for scheduled classes that happen before the given date and time. (optional)
+     * @param  bool $RequestIncludeInactive Includes inactive class descriptions, defaulting to true. When set to false, it filters out inactive class descriptions. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestLocationId Filters results to classes descriptions for schedule classes as the given location. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
@@ -1075,10 +1079,10 @@ class ClassApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function classGetClassDescriptionsAsyncWithHttpInfo($RequestClassDescriptionId = null, $RequestEndClassDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProgramIds = null, $RequestStaffId = null, $RequestStartClassDateTime = null): \GuzzleHttp\Promise\PromiseInterface
+    public function classGetClassDescriptionsAsyncWithHttpInfo($RequestClassDescriptionId = null, $RequestEndClassDateTime = null, $RequestIncludeInactive = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProgramIds = null, $RequestStaffId = null, $RequestStartClassDateTime = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClassDescriptionsResponse';
-        $request = $this->classGetClassDescriptionsRequest($RequestClassDescriptionId, $RequestEndClassDateTime, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestProgramIds, $RequestStaffId, $RequestStartClassDateTime);
+        $request = $this->classGetClassDescriptionsRequest($RequestClassDescriptionId, $RequestEndClassDateTime, $RequestIncludeInactive, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestProgramIds, $RequestStaffId, $RequestStartClassDateTime);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1122,6 +1126,7 @@ class ClassApi implements ApiInterface
      *
      * @param  int $RequestClassDescriptionId The ID of the requested client. (optional)
      * @param  \DateTime $RequestEndClassDateTime Filters the results to class descriptions for scheduled classes that happen before the given date and time. (optional)
+     * @param  bool $RequestIncludeInactive Includes inactive class descriptions, defaulting to true. When set to false, it filters out inactive class descriptions. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
      * @param  int $RequestLocationId Filters results to classes descriptions for schedule classes as the given location. (optional)
      * @param  int $RequestOffset Page offset, defaults to 0. (optional)
@@ -1132,7 +1137,7 @@ class ClassApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function classGetClassDescriptionsRequest($RequestClassDescriptionId = null, $RequestEndClassDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProgramIds = null, $RequestStaffId = null, $RequestStartClassDateTime = null): \GuzzleHttp\Psr7\Request
+    protected function classGetClassDescriptionsRequest($RequestClassDescriptionId = null, $RequestEndClassDateTime = null, $RequestIncludeInactive = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProgramIds = null, $RequestStaffId = null, $RequestStartClassDateTime = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/class/classdescriptions';
@@ -1149,6 +1154,10 @@ class ClassApi implements ApiInterface
         // query params
         if ($RequestEndClassDateTime !== null) {
             $queryParams['request.endClassDateTime'] = ObjectSerializer::toQueryValue($RequestEndClassDateTime);
+        }
+        // query params
+        if ($RequestIncludeInactive !== null) {
+            $queryParams['request.includeInactive'] = ObjectSerializer::toQueryValue($RequestIncludeInactive);
         }
         // query params
         if ($RequestLimit !== null) {
@@ -1633,14 +1642,15 @@ class ClassApi implements ApiInterface
      *
      * @param  int $RequestClassID The class ID. (required)
      * @param  \DateTime $RequestLastModifiedDate When included in the request, only records modified on or after the &#x60;LastModifiedDate&#x60; specified are included in the response. (optional)
+     * @param  bool $RequestUseSiteSettingsStaffName When &#x60;true&#x60;, the staff DisplayName will be populated based on site-level settings.  When &#x60;false&#x60; or omitted, the staff DisplayName will contain only the FirstName. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetClassVisitsResponse
      */
-    public function classGetClassVisits($RequestClassID, $RequestLastModifiedDate = null): \Nlocascio\Mindbody\Model\GetClassVisitsResponse
+    public function classGetClassVisits($RequestClassID, $RequestLastModifiedDate = null, $RequestUseSiteSettingsStaffName = null): \Nlocascio\Mindbody\Model\GetClassVisitsResponse
     {
-        list($response) = $this->classGetClassVisitsWithHttpInfo($RequestClassID, $RequestLastModifiedDate);
+        list($response) = $this->classGetClassVisitsWithHttpInfo($RequestClassID, $RequestLastModifiedDate, $RequestUseSiteSettingsStaffName);
         return $response;
     }
 
@@ -1651,15 +1661,16 @@ class ClassApi implements ApiInterface
      *
      * @param  int $RequestClassID The class ID. (required)
      * @param  \DateTime $RequestLastModifiedDate When included in the request, only records modified on or after the &#x60;LastModifiedDate&#x60; specified are included in the response. (optional)
+     * @param  bool $RequestUseSiteSettingsStaffName When &#x60;true&#x60;, the staff DisplayName will be populated based on site-level settings.  When &#x60;false&#x60; or omitted, the staff DisplayName will contain only the FirstName. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetClassVisitsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function classGetClassVisitsWithHttpInfo($RequestClassID, $RequestLastModifiedDate = null): array
+    public function classGetClassVisitsWithHttpInfo($RequestClassID, $RequestLastModifiedDate = null, $RequestUseSiteSettingsStaffName = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClassVisitsResponse';
-        $request = $this->classGetClassVisitsRequest($RequestClassID, $RequestLastModifiedDate);
+        $request = $this->classGetClassVisitsRequest($RequestClassID, $RequestLastModifiedDate, $RequestUseSiteSettingsStaffName);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1727,13 +1738,14 @@ class ClassApi implements ApiInterface
      *
      * @param  int $RequestClassID The class ID. (required)
      * @param  \DateTime $RequestLastModifiedDate When included in the request, only records modified on or after the &#x60;LastModifiedDate&#x60; specified are included in the response. (optional)
+     * @param  bool $RequestUseSiteSettingsStaffName When &#x60;true&#x60;, the staff DisplayName will be populated based on site-level settings.  When &#x60;false&#x60; or omitted, the staff DisplayName will contain only the FirstName. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function classGetClassVisitsAsync($RequestClassID, $RequestLastModifiedDate = null): \GuzzleHttp\Promise\PromiseInterface
+    public function classGetClassVisitsAsync($RequestClassID, $RequestLastModifiedDate = null, $RequestUseSiteSettingsStaffName = null): \GuzzleHttp\Promise\PromiseInterface
     {
-        return $this->classGetClassVisitsAsyncWithHttpInfo($RequestClassID, $RequestLastModifiedDate)
+        return $this->classGetClassVisitsAsyncWithHttpInfo($RequestClassID, $RequestLastModifiedDate, $RequestUseSiteSettingsStaffName)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1748,14 +1760,15 @@ class ClassApi implements ApiInterface
      *
      * @param  int $RequestClassID The class ID. (required)
      * @param  \DateTime $RequestLastModifiedDate When included in the request, only records modified on or after the &#x60;LastModifiedDate&#x60; specified are included in the response. (optional)
+     * @param  bool $RequestUseSiteSettingsStaffName When &#x60;true&#x60;, the staff DisplayName will be populated based on site-level settings.  When &#x60;false&#x60; or omitted, the staff DisplayName will contain only the FirstName. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function classGetClassVisitsAsyncWithHttpInfo($RequestClassID, $RequestLastModifiedDate = null): \GuzzleHttp\Promise\PromiseInterface
+    public function classGetClassVisitsAsyncWithHttpInfo($RequestClassID, $RequestLastModifiedDate = null, $RequestUseSiteSettingsStaffName = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClassVisitsResponse';
-        $request = $this->classGetClassVisitsRequest($RequestClassID, $RequestLastModifiedDate);
+        $request = $this->classGetClassVisitsRequest($RequestClassID, $RequestLastModifiedDate, $RequestUseSiteSettingsStaffName);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1799,11 +1812,12 @@ class ClassApi implements ApiInterface
      *
      * @param  int $RequestClassID The class ID. (required)
      * @param  \DateTime $RequestLastModifiedDate When included in the request, only records modified on or after the &#x60;LastModifiedDate&#x60; specified are included in the response. (optional)
+     * @param  bool $RequestUseSiteSettingsStaffName When &#x60;true&#x60;, the staff DisplayName will be populated based on site-level settings.  When &#x60;false&#x60; or omitted, the staff DisplayName will contain only the FirstName. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function classGetClassVisitsRequest($RequestClassID, $RequestLastModifiedDate = null): \GuzzleHttp\Psr7\Request
+    protected function classGetClassVisitsRequest($RequestClassID, $RequestLastModifiedDate = null, $RequestUseSiteSettingsStaffName = null): \GuzzleHttp\Psr7\Request
     {
         // verify the required parameter 'RequestClassID' is set
         if ($RequestClassID === null || (is_array($RequestClassID) && count($RequestClassID) === 0)) {
@@ -1822,6 +1836,10 @@ class ClassApi implements ApiInterface
         // query params
         if ($RequestLastModifiedDate !== null) {
             $queryParams['request.lastModifiedDate'] = ObjectSerializer::toQueryValue($RequestLastModifiedDate);
+        }
+        // query params
+        if ($RequestUseSiteSettingsStaffName !== null) {
+            $queryParams['request.useSiteSettingsStaffName'] = ObjectSerializer::toQueryValue($RequestUseSiteSettingsStaffName);
         }
         // query params
         if ($RequestClassID !== null) {
@@ -1924,7 +1942,7 @@ class ClassApi implements ApiInterface
      * @param  int[] $RequestClassIds The requested class IDs. (optional)
      * @param  int[] $RequestClassScheduleIds The requested classSchedule Ids. (optional)
      * @param  string $RequestClientId The client ID of the client who is viewing this class list. Based on identity, the client may be able to see additional information, such as membership specials. (optional)
-     * @param  \DateTime $RequestEndDateTime The requested end date for filtering.  &lt;br /&gt;Default: **today’s date** (optional)
+     * @param  \DateTime $RequestEndDateTime The requested end date for filtering.  NOTE: ClassDate does not take Class Time into consideration.  &lt;br /&gt;Default: **today’s date** (optional)
      * @param  bool $RequestHideCanceledClasses When &#x60;true&#x60;, canceled classes are removed from the response.&lt;br /&gt;  When &#x60;false&#x60;, canceled classes are included in the response.&lt;br /&gt;  Default: **false** (optional)
      * @param  \DateTime $RequestLastModifiedDate When included in the request, only records modified on or after the &#x60;LastModifiedDate&#x60; specified are included in the response. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
@@ -1935,15 +1953,16 @@ class ClassApi implements ApiInterface
      * @param  int[] $RequestSemesterIds A list of semester IDs on which to base the search. (optional)
      * @param  int[] $RequestSessionTypeIds A list of session type IDs on which to base the search. (optional)
      * @param  int[] $RequestStaffIds The requested IDs of the teaching staff members. (optional)
-     * @param  \DateTime $RequestStartDateTime The requested start date for filtering. This also determines what you will see for the ‘BookingWindow’ StartDateTime in the response. For example, if you pass a StartDateTime that is on OR before the BookingWindow ‘Open’ days of the class, you will retrieve the actual ‘StartDateTime’ for the Booking Window. If you pass a StartDateTime that is after the BookingWindow ‘date’, then you will receive results based on that start date. (optional)
+     * @param  \DateTime $RequestStartDateTime The requested start date for filtering. This also determines what you will see for the ‘BookingWindow’ StartDateTime in the response. For example, if you pass a StartDateTime that is on OR before the BookingWindow ‘Open’ days of the class, you will retrieve the actual ‘StartDateTime’ for the Booking Window. If you pass a StartDateTime that is after the BookingWindow ‘date’, then you will receive results based on that start date.  NOTE: ClassDate does not take Class Time into consideration. (optional)
+     * @param  int $RequestUniqueClientId The unique ID of the client who is viewing this class list. Based on identity, the client may be able to see additional information, such as membership specials.  Note: you need to provide the &#39;UniqueClientId&#39; OR the &#39;ClientId&#39;. If both are provided, the &#39;UniqueClientId&#39; takes precedence. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Nlocascio\Mindbody\Model\GetClassesResponse
      */
-    public function classGetClasses($RequestClassDescriptionIds = null, $RequestClassIds = null, $RequestClassScheduleIds = null, $RequestClientId = null, $RequestEndDateTime = null, $RequestHideCanceledClasses = null, $RequestLastModifiedDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSchedulingWindow = null, $RequestSemesterIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDateTime = null): \Nlocascio\Mindbody\Model\GetClassesResponse
+    public function classGetClasses($RequestClassDescriptionIds = null, $RequestClassIds = null, $RequestClassScheduleIds = null, $RequestClientId = null, $RequestEndDateTime = null, $RequestHideCanceledClasses = null, $RequestLastModifiedDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSchedulingWindow = null, $RequestSemesterIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDateTime = null, $RequestUniqueClientId = null): \Nlocascio\Mindbody\Model\GetClassesResponse
     {
-        list($response) = $this->classGetClassesWithHttpInfo($RequestClassDescriptionIds, $RequestClassIds, $RequestClassScheduleIds, $RequestClientId, $RequestEndDateTime, $RequestHideCanceledClasses, $RequestLastModifiedDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSchedulingWindow, $RequestSemesterIds, $RequestSessionTypeIds, $RequestStaffIds, $RequestStartDateTime);
+        list($response) = $this->classGetClassesWithHttpInfo($RequestClassDescriptionIds, $RequestClassIds, $RequestClassScheduleIds, $RequestClientId, $RequestEndDateTime, $RequestHideCanceledClasses, $RequestLastModifiedDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSchedulingWindow, $RequestSemesterIds, $RequestSessionTypeIds, $RequestStaffIds, $RequestStartDateTime, $RequestUniqueClientId);
         return $response;
     }
 
@@ -1956,7 +1975,7 @@ class ClassApi implements ApiInterface
      * @param  int[] $RequestClassIds The requested class IDs. (optional)
      * @param  int[] $RequestClassScheduleIds The requested classSchedule Ids. (optional)
      * @param  string $RequestClientId The client ID of the client who is viewing this class list. Based on identity, the client may be able to see additional information, such as membership specials. (optional)
-     * @param  \DateTime $RequestEndDateTime The requested end date for filtering.  &lt;br /&gt;Default: **today’s date** (optional)
+     * @param  \DateTime $RequestEndDateTime The requested end date for filtering.  NOTE: ClassDate does not take Class Time into consideration.  &lt;br /&gt;Default: **today’s date** (optional)
      * @param  bool $RequestHideCanceledClasses When &#x60;true&#x60;, canceled classes are removed from the response.&lt;br /&gt;  When &#x60;false&#x60;, canceled classes are included in the response.&lt;br /&gt;  Default: **false** (optional)
      * @param  \DateTime $RequestLastModifiedDate When included in the request, only records modified on or after the &#x60;LastModifiedDate&#x60; specified are included in the response. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
@@ -1967,16 +1986,17 @@ class ClassApi implements ApiInterface
      * @param  int[] $RequestSemesterIds A list of semester IDs on which to base the search. (optional)
      * @param  int[] $RequestSessionTypeIds A list of session type IDs on which to base the search. (optional)
      * @param  int[] $RequestStaffIds The requested IDs of the teaching staff members. (optional)
-     * @param  \DateTime $RequestStartDateTime The requested start date for filtering. This also determines what you will see for the ‘BookingWindow’ StartDateTime in the response. For example, if you pass a StartDateTime that is on OR before the BookingWindow ‘Open’ days of the class, you will retrieve the actual ‘StartDateTime’ for the Booking Window. If you pass a StartDateTime that is after the BookingWindow ‘date’, then you will receive results based on that start date. (optional)
+     * @param  \DateTime $RequestStartDateTime The requested start date for filtering. This also determines what you will see for the ‘BookingWindow’ StartDateTime in the response. For example, if you pass a StartDateTime that is on OR before the BookingWindow ‘Open’ days of the class, you will retrieve the actual ‘StartDateTime’ for the Booking Window. If you pass a StartDateTime that is after the BookingWindow ‘date’, then you will receive results based on that start date.  NOTE: ClassDate does not take Class Time into consideration. (optional)
+     * @param  int $RequestUniqueClientId The unique ID of the client who is viewing this class list. Based on identity, the client may be able to see additional information, such as membership specials.  Note: you need to provide the &#39;UniqueClientId&#39; OR the &#39;ClientId&#39;. If both are provided, the &#39;UniqueClientId&#39; takes precedence. (optional)
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Nlocascio\Mindbody\Model\GetClassesResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function classGetClassesWithHttpInfo($RequestClassDescriptionIds = null, $RequestClassIds = null, $RequestClassScheduleIds = null, $RequestClientId = null, $RequestEndDateTime = null, $RequestHideCanceledClasses = null, $RequestLastModifiedDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSchedulingWindow = null, $RequestSemesterIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDateTime = null): array
+    public function classGetClassesWithHttpInfo($RequestClassDescriptionIds = null, $RequestClassIds = null, $RequestClassScheduleIds = null, $RequestClientId = null, $RequestEndDateTime = null, $RequestHideCanceledClasses = null, $RequestLastModifiedDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSchedulingWindow = null, $RequestSemesterIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDateTime = null, $RequestUniqueClientId = null): array
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClassesResponse';
-        $request = $this->classGetClassesRequest($RequestClassDescriptionIds, $RequestClassIds, $RequestClassScheduleIds, $RequestClientId, $RequestEndDateTime, $RequestHideCanceledClasses, $RequestLastModifiedDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSchedulingWindow, $RequestSemesterIds, $RequestSessionTypeIds, $RequestStaffIds, $RequestStartDateTime);
+        $request = $this->classGetClassesRequest($RequestClassDescriptionIds, $RequestClassIds, $RequestClassScheduleIds, $RequestClientId, $RequestEndDateTime, $RequestHideCanceledClasses, $RequestLastModifiedDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSchedulingWindow, $RequestSemesterIds, $RequestSessionTypeIds, $RequestStaffIds, $RequestStartDateTime, $RequestUniqueClientId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2046,7 +2066,7 @@ class ClassApi implements ApiInterface
      * @param  int[] $RequestClassIds The requested class IDs. (optional)
      * @param  int[] $RequestClassScheduleIds The requested classSchedule Ids. (optional)
      * @param  string $RequestClientId The client ID of the client who is viewing this class list. Based on identity, the client may be able to see additional information, such as membership specials. (optional)
-     * @param  \DateTime $RequestEndDateTime The requested end date for filtering.  &lt;br /&gt;Default: **today’s date** (optional)
+     * @param  \DateTime $RequestEndDateTime The requested end date for filtering.  NOTE: ClassDate does not take Class Time into consideration.  &lt;br /&gt;Default: **today’s date** (optional)
      * @param  bool $RequestHideCanceledClasses When &#x60;true&#x60;, canceled classes are removed from the response.&lt;br /&gt;  When &#x60;false&#x60;, canceled classes are included in the response.&lt;br /&gt;  Default: **false** (optional)
      * @param  \DateTime $RequestLastModifiedDate When included in the request, only records modified on or after the &#x60;LastModifiedDate&#x60; specified are included in the response. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
@@ -2057,14 +2077,15 @@ class ClassApi implements ApiInterface
      * @param  int[] $RequestSemesterIds A list of semester IDs on which to base the search. (optional)
      * @param  int[] $RequestSessionTypeIds A list of session type IDs on which to base the search. (optional)
      * @param  int[] $RequestStaffIds The requested IDs of the teaching staff members. (optional)
-     * @param  \DateTime $RequestStartDateTime The requested start date for filtering. This also determines what you will see for the ‘BookingWindow’ StartDateTime in the response. For example, if you pass a StartDateTime that is on OR before the BookingWindow ‘Open’ days of the class, you will retrieve the actual ‘StartDateTime’ for the Booking Window. If you pass a StartDateTime that is after the BookingWindow ‘date’, then you will receive results based on that start date. (optional)
+     * @param  \DateTime $RequestStartDateTime The requested start date for filtering. This also determines what you will see for the ‘BookingWindow’ StartDateTime in the response. For example, if you pass a StartDateTime that is on OR before the BookingWindow ‘Open’ days of the class, you will retrieve the actual ‘StartDateTime’ for the Booking Window. If you pass a StartDateTime that is after the BookingWindow ‘date’, then you will receive results based on that start date.  NOTE: ClassDate does not take Class Time into consideration. (optional)
+     * @param  int $RequestUniqueClientId The unique ID of the client who is viewing this class list. Based on identity, the client may be able to see additional information, such as membership specials.  Note: you need to provide the &#39;UniqueClientId&#39; OR the &#39;ClientId&#39;. If both are provided, the &#39;UniqueClientId&#39; takes precedence. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function classGetClassesAsync($RequestClassDescriptionIds = null, $RequestClassIds = null, $RequestClassScheduleIds = null, $RequestClientId = null, $RequestEndDateTime = null, $RequestHideCanceledClasses = null, $RequestLastModifiedDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSchedulingWindow = null, $RequestSemesterIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDateTime = null): \GuzzleHttp\Promise\PromiseInterface
+    public function classGetClassesAsync($RequestClassDescriptionIds = null, $RequestClassIds = null, $RequestClassScheduleIds = null, $RequestClientId = null, $RequestEndDateTime = null, $RequestHideCanceledClasses = null, $RequestLastModifiedDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSchedulingWindow = null, $RequestSemesterIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDateTime = null, $RequestUniqueClientId = null): \GuzzleHttp\Promise\PromiseInterface
     {
-        return $this->classGetClassesAsyncWithHttpInfo($RequestClassDescriptionIds, $RequestClassIds, $RequestClassScheduleIds, $RequestClientId, $RequestEndDateTime, $RequestHideCanceledClasses, $RequestLastModifiedDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSchedulingWindow, $RequestSemesterIds, $RequestSessionTypeIds, $RequestStaffIds, $RequestStartDateTime)
+        return $this->classGetClassesAsyncWithHttpInfo($RequestClassDescriptionIds, $RequestClassIds, $RequestClassScheduleIds, $RequestClientId, $RequestEndDateTime, $RequestHideCanceledClasses, $RequestLastModifiedDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSchedulingWindow, $RequestSemesterIds, $RequestSessionTypeIds, $RequestStaffIds, $RequestStartDateTime, $RequestUniqueClientId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2081,7 +2102,7 @@ class ClassApi implements ApiInterface
      * @param  int[] $RequestClassIds The requested class IDs. (optional)
      * @param  int[] $RequestClassScheduleIds The requested classSchedule Ids. (optional)
      * @param  string $RequestClientId The client ID of the client who is viewing this class list. Based on identity, the client may be able to see additional information, such as membership specials. (optional)
-     * @param  \DateTime $RequestEndDateTime The requested end date for filtering.  &lt;br /&gt;Default: **today’s date** (optional)
+     * @param  \DateTime $RequestEndDateTime The requested end date for filtering.  NOTE: ClassDate does not take Class Time into consideration.  &lt;br /&gt;Default: **today’s date** (optional)
      * @param  bool $RequestHideCanceledClasses When &#x60;true&#x60;, canceled classes are removed from the response.&lt;br /&gt;  When &#x60;false&#x60;, canceled classes are included in the response.&lt;br /&gt;  Default: **false** (optional)
      * @param  \DateTime $RequestLastModifiedDate When included in the request, only records modified on or after the &#x60;LastModifiedDate&#x60; specified are included in the response. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
@@ -2092,15 +2113,16 @@ class ClassApi implements ApiInterface
      * @param  int[] $RequestSemesterIds A list of semester IDs on which to base the search. (optional)
      * @param  int[] $RequestSessionTypeIds A list of session type IDs on which to base the search. (optional)
      * @param  int[] $RequestStaffIds The requested IDs of the teaching staff members. (optional)
-     * @param  \DateTime $RequestStartDateTime The requested start date for filtering. This also determines what you will see for the ‘BookingWindow’ StartDateTime in the response. For example, if you pass a StartDateTime that is on OR before the BookingWindow ‘Open’ days of the class, you will retrieve the actual ‘StartDateTime’ for the Booking Window. If you pass a StartDateTime that is after the BookingWindow ‘date’, then you will receive results based on that start date. (optional)
+     * @param  \DateTime $RequestStartDateTime The requested start date for filtering. This also determines what you will see for the ‘BookingWindow’ StartDateTime in the response. For example, if you pass a StartDateTime that is on OR before the BookingWindow ‘Open’ days of the class, you will retrieve the actual ‘StartDateTime’ for the Booking Window. If you pass a StartDateTime that is after the BookingWindow ‘date’, then you will receive results based on that start date.  NOTE: ClassDate does not take Class Time into consideration. (optional)
+     * @param  int $RequestUniqueClientId The unique ID of the client who is viewing this class list. Based on identity, the client may be able to see additional information, such as membership specials.  Note: you need to provide the &#39;UniqueClientId&#39; OR the &#39;ClientId&#39;. If both are provided, the &#39;UniqueClientId&#39; takes precedence. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function classGetClassesAsyncWithHttpInfo($RequestClassDescriptionIds = null, $RequestClassIds = null, $RequestClassScheduleIds = null, $RequestClientId = null, $RequestEndDateTime = null, $RequestHideCanceledClasses = null, $RequestLastModifiedDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSchedulingWindow = null, $RequestSemesterIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDateTime = null): \GuzzleHttp\Promise\PromiseInterface
+    public function classGetClassesAsyncWithHttpInfo($RequestClassDescriptionIds = null, $RequestClassIds = null, $RequestClassScheduleIds = null, $RequestClientId = null, $RequestEndDateTime = null, $RequestHideCanceledClasses = null, $RequestLastModifiedDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSchedulingWindow = null, $RequestSemesterIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDateTime = null, $RequestUniqueClientId = null): \GuzzleHttp\Promise\PromiseInterface
     {
         $returnType = '\Nlocascio\Mindbody\Model\GetClassesResponse';
-        $request = $this->classGetClassesRequest($RequestClassDescriptionIds, $RequestClassIds, $RequestClassScheduleIds, $RequestClientId, $RequestEndDateTime, $RequestHideCanceledClasses, $RequestLastModifiedDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSchedulingWindow, $RequestSemesterIds, $RequestSessionTypeIds, $RequestStaffIds, $RequestStartDateTime);
+        $request = $this->classGetClassesRequest($RequestClassDescriptionIds, $RequestClassIds, $RequestClassScheduleIds, $RequestClientId, $RequestEndDateTime, $RequestHideCanceledClasses, $RequestLastModifiedDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestSchedulingWindow, $RequestSemesterIds, $RequestSessionTypeIds, $RequestStaffIds, $RequestStartDateTime, $RequestUniqueClientId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2146,7 +2168,7 @@ class ClassApi implements ApiInterface
      * @param  int[] $RequestClassIds The requested class IDs. (optional)
      * @param  int[] $RequestClassScheduleIds The requested classSchedule Ids. (optional)
      * @param  string $RequestClientId The client ID of the client who is viewing this class list. Based on identity, the client may be able to see additional information, such as membership specials. (optional)
-     * @param  \DateTime $RequestEndDateTime The requested end date for filtering.  &lt;br /&gt;Default: **today’s date** (optional)
+     * @param  \DateTime $RequestEndDateTime The requested end date for filtering.  NOTE: ClassDate does not take Class Time into consideration.  &lt;br /&gt;Default: **today’s date** (optional)
      * @param  bool $RequestHideCanceledClasses When &#x60;true&#x60;, canceled classes are removed from the response.&lt;br /&gt;  When &#x60;false&#x60;, canceled classes are included in the response.&lt;br /&gt;  Default: **false** (optional)
      * @param  \DateTime $RequestLastModifiedDate When included in the request, only records modified on or after the &#x60;LastModifiedDate&#x60; specified are included in the response. (optional)
      * @param  int $RequestLimit Number of results to include, defaults to 100 (optional)
@@ -2157,12 +2179,13 @@ class ClassApi implements ApiInterface
      * @param  int[] $RequestSemesterIds A list of semester IDs on which to base the search. (optional)
      * @param  int[] $RequestSessionTypeIds A list of session type IDs on which to base the search. (optional)
      * @param  int[] $RequestStaffIds The requested IDs of the teaching staff members. (optional)
-     * @param  \DateTime $RequestStartDateTime The requested start date for filtering. This also determines what you will see for the ‘BookingWindow’ StartDateTime in the response. For example, if you pass a StartDateTime that is on OR before the BookingWindow ‘Open’ days of the class, you will retrieve the actual ‘StartDateTime’ for the Booking Window. If you pass a StartDateTime that is after the BookingWindow ‘date’, then you will receive results based on that start date. (optional)
+     * @param  \DateTime $RequestStartDateTime The requested start date for filtering. This also determines what you will see for the ‘BookingWindow’ StartDateTime in the response. For example, if you pass a StartDateTime that is on OR before the BookingWindow ‘Open’ days of the class, you will retrieve the actual ‘StartDateTime’ for the Booking Window. If you pass a StartDateTime that is after the BookingWindow ‘date’, then you will receive results based on that start date.  NOTE: ClassDate does not take Class Time into consideration. (optional)
+     * @param  int $RequestUniqueClientId The unique ID of the client who is viewing this class list. Based on identity, the client may be able to see additional information, such as membership specials.  Note: you need to provide the &#39;UniqueClientId&#39; OR the &#39;ClientId&#39;. If both are provided, the &#39;UniqueClientId&#39; takes precedence. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function classGetClassesRequest($RequestClassDescriptionIds = null, $RequestClassIds = null, $RequestClassScheduleIds = null, $RequestClientId = null, $RequestEndDateTime = null, $RequestHideCanceledClasses = null, $RequestLastModifiedDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSchedulingWindow = null, $RequestSemesterIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDateTime = null): \GuzzleHttp\Psr7\Request
+    protected function classGetClassesRequest($RequestClassDescriptionIds = null, $RequestClassIds = null, $RequestClassScheduleIds = null, $RequestClientId = null, $RequestEndDateTime = null, $RequestHideCanceledClasses = null, $RequestLastModifiedDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSchedulingWindow = null, $RequestSemesterIds = null, $RequestSessionTypeIds = null, $RequestStaffIds = null, $RequestStartDateTime = null, $RequestUniqueClientId = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/class/classes';
@@ -2259,6 +2282,10 @@ class ClassApi implements ApiInterface
         // query params
         if ($RequestStartDateTime !== null) {
             $queryParams['request.startDateTime'] = ObjectSerializer::toQueryValue($RequestStartDateTime);
+        }
+        // query params
+        if ($RequestUniqueClientId !== null) {
+            $queryParams['request.uniqueClientId'] = ObjectSerializer::toQueryValue($RequestUniqueClientId);
         }
 
 
@@ -4492,6 +4519,248 @@ class ClassApi implements ApiInterface
     }
 
     /**
+     * Operation classUpdateClass
+     *
+     * Update properties of an existing class.
+     *
+     * @param  \Nlocascio\Mindbody\Model\UpdateClassRequest $Request Request (required)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function classUpdateClass($Request): void
+    {
+        $this->classUpdateClassWithHttpInfo($Request);
+    }
+
+    /**
+     * Operation classUpdateClassWithHttpInfo
+     *
+     * Update properties of an existing class.
+     *
+     * @param  \Nlocascio\Mindbody\Model\UpdateClassRequest $Request (required)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function classUpdateClassWithHttpInfo($Request): array
+    {
+        $returnType = '';
+        $request = $this->classUpdateClassRequest($Request);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation classUpdateClassAsync
+     *
+     * Update properties of an existing class.
+     *
+     * @param  \Nlocascio\Mindbody\Model\UpdateClassRequest $Request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function classUpdateClassAsync($Request): \GuzzleHttp\Promise\PromiseInterface
+    {
+        return $this->classUpdateClassAsyncWithHttpInfo($Request)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation classUpdateClassAsyncWithHttpInfo
+     *
+     * Update properties of an existing class.
+     *
+     * @param  \Nlocascio\Mindbody\Model\UpdateClassRequest $Request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function classUpdateClassAsyncWithHttpInfo($Request): \GuzzleHttp\Promise\PromiseInterface
+    {
+        $returnType = '';
+        $request = $this->classUpdateClassRequest($Request);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'classUpdateClass'
+     *
+     * @param  \Nlocascio\Mindbody\Model\UpdateClassRequest $Request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function classUpdateClassRequest($Request): \GuzzleHttp\Psr7\Request
+    {
+        // verify the required parameter 'Request' is set
+        if ($Request === null || (is_array($Request) && count($Request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $Request when calling classUpdateClass'
+            );
+        }
+
+        $resourcePath = '/public/v6/class/updateclass';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // body params
+        $_tempBody = null;
+        if (isset($Request)) {
+            $_tempBody = $Request;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                []
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                [],
+                ['application/json', 'text/json', 'application/x-www-form-urlencoded', 'multipart/form-data']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = Utils::jsonEncode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = Utils::jsonEncode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
+        if ($apiKey !== null) {
+            $headers['API-Key'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('authorization');
+        if ($apiKey !== null) {
+            $headers['authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('siteId');
+        if ($apiKey !== null) {
+            $headers['siteId'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation classUpdateClassSchedule
      *
      * This endpoint updates a class schedule.
@@ -4764,6 +5033,267 @@ class ClassApi implements ApiInterface
         $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation classUpdateClassScheduleNotes
+     *
+     * This endpoint updates a class schedule notes.
+     *
+     * @param  int $ClassScheduleId  (required)
+     * @param  \Nlocascio\Mindbody\Model\UpdateClassScheduleNotesRequest $Request  (required)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function classUpdateClassScheduleNotes($ClassScheduleId, $Request): void
+    {
+        $this->classUpdateClassScheduleNotesWithHttpInfo($ClassScheduleId, $Request);
+    }
+
+    /**
+     * Operation classUpdateClassScheduleNotesWithHttpInfo
+     *
+     * This endpoint updates a class schedule notes.
+     *
+     * @param  int $ClassScheduleId  (required)
+     * @param  \Nlocascio\Mindbody\Model\UpdateClassScheduleNotesRequest $Request  (required)
+     *
+     * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function classUpdateClassScheduleNotesWithHttpInfo($ClassScheduleId, $Request): array
+    {
+        $returnType = '';
+        $request = $this->classUpdateClassScheduleNotesRequest($ClassScheduleId, $Request);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation classUpdateClassScheduleNotesAsync
+     *
+     * This endpoint updates a class schedule notes.
+     *
+     * @param  int $ClassScheduleId  (required)
+     * @param  \Nlocascio\Mindbody\Model\UpdateClassScheduleNotesRequest $Request  (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function classUpdateClassScheduleNotesAsync($ClassScheduleId, $Request): \GuzzleHttp\Promise\PromiseInterface
+    {
+        return $this->classUpdateClassScheduleNotesAsyncWithHttpInfo($ClassScheduleId, $Request)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation classUpdateClassScheduleNotesAsyncWithHttpInfo
+     *
+     * This endpoint updates a class schedule notes.
+     *
+     * @param  int $ClassScheduleId  (required)
+     * @param  \Nlocascio\Mindbody\Model\UpdateClassScheduleNotesRequest $Request  (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function classUpdateClassScheduleNotesAsyncWithHttpInfo($ClassScheduleId, $Request): \GuzzleHttp\Promise\PromiseInterface
+    {
+        $returnType = '';
+        $request = $this->classUpdateClassScheduleNotesRequest($ClassScheduleId, $Request);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'classUpdateClassScheduleNotes'
+     *
+     * @param  int $ClassScheduleId  (required)
+     * @param  \Nlocascio\Mindbody\Model\UpdateClassScheduleNotesRequest $Request  (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function classUpdateClassScheduleNotesRequest($ClassScheduleId, $Request): \GuzzleHttp\Psr7\Request
+    {
+        // verify the required parameter 'ClassScheduleId' is set
+        if ($ClassScheduleId === null || (is_array($ClassScheduleId) && count($ClassScheduleId) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $ClassScheduleId when calling classUpdateClassScheduleNotes'
+            );
+        }
+        // verify the required parameter 'Request' is set
+        if ($Request === null || (is_array($Request) && count($Request) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $Request when calling classUpdateClassScheduleNotes'
+            );
+        }
+
+        $resourcePath = '/public/v6/class/updateclassschedulenotes/{classScheduleId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($ClassScheduleId !== null) {
+            $resourcePath = str_replace(
+                '{' . 'classScheduleId' . '}',
+                ObjectSerializer::toPathValue($ClassScheduleId),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($Request)) {
+            $_tempBody = $Request;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                []
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                [],
+                ['application/json', 'text/json', 'application/x-www-form-urlencoded', 'multipart/form-data']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            
+            if($headers['Content-Type'] === 'application/json') {
+                // \stdClass has no __toString(), so we should encode it manually
+                if ($httpBody instanceof \stdClass) {
+                    $httpBody = Utils::jsonEncode($httpBody);
+                }
+                // array has no __toString(), so we should encode it manually
+                if(is_array($httpBody)) {
+                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
+                }
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = Utils::jsonEncode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
+        if ($apiKey !== null) {
+            $headers['API-Key'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('authorization');
+        if ($apiKey !== null) {
+            $headers['authorization'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('siteId');
+        if ($apiKey !== null) {
+            $headers['siteId'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'PATCH',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

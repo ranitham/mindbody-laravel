@@ -33,13 +33,15 @@ namespace Nlocascio\Mindbody\Model;
  * GetProductsRequest Class Doc Comment
  *
  * @category Class
+ * @description Represents a request to get products with optional filters.
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  * @property string[] $ProductIds The barcode number of the product to be filter by.
  * @property string $SearchText A search filter, used for searching by term.
- * @property int[] $CategoryIds A list of revenue category IDs to filter by. Use this ID when calling the GET Categories endpoint.    **Note:** The values for these are not currently retrievable through the API.
- * @property int[] $SubCategoryIds A list of subcategory IDs to filter by. Use this ID when calling the GET Categories endpoint.    **Note:** The values for these are not currently retrievable through the API.
+ * @property int[] $CategoryIds A list of revenue category IDs to filter by. Use this ID when calling the GET Categories endpoint.
+ * @property int[] $SubCategoryIds A list of subcategory IDs to filter by. Use this ID when calling the GET Categories endpoint.
+ * @property int[] $SecondaryCategoryIds A list of secondary categories to filter by. Use this ID when calling the GET Categories endpoint.
  * @property bool $SellOnline When `true`, only products that can be sold online are returned.<br />  When `false`, all products are returned.<br />  Default: **false**
  * @property int $LocationId The location ID to use to determine the tax for the products that this request returns.<br />  Default: **online store**
  * @property int $Limit Number of results to include, defaults to 100
@@ -67,6 +69,7 @@ class GetProductsRequest extends BaseModel
         'SearchText' => 'string',
         'CategoryIds' => 'int[]',
         'SubCategoryIds' => 'int[]',
+        'SecondaryCategoryIds' => 'int[]',
         'SellOnline' => 'bool',
         'LocationId' => 'int',
         'Limit' => 'int',
@@ -83,6 +86,7 @@ class GetProductsRequest extends BaseModel
         'SearchText' => null,
         'CategoryIds' => 'int32',
         'SubCategoryIds' => 'int32',
+        'SecondaryCategoryIds' => 'int32',
         'SellOnline' => null,
         'LocationId' => 'int32',
         'Limit' => 'int32',
@@ -101,6 +105,7 @@ class GetProductsRequest extends BaseModel
         'SearchText' => 'SearchText',
         'CategoryIds' => 'CategoryIds',
         'SubCategoryIds' => 'SubCategoryIds',
+        'SecondaryCategoryIds' => 'SecondaryCategoryIds',
         'SellOnline' => 'SellOnline',
         'LocationId' => 'LocationId',
         'Limit' => 'Limit',
@@ -117,6 +122,7 @@ class GetProductsRequest extends BaseModel
         'SearchText' => 'setSearchText',
         'CategoryIds' => 'setCategoryIds',
         'SubCategoryIds' => 'setSubCategoryIds',
+        'SecondaryCategoryIds' => 'setSecondaryCategoryIds',
         'SellOnline' => 'setSellOnline',
         'LocationId' => 'setLocationId',
         'Limit' => 'setLimit',
@@ -133,6 +139,7 @@ class GetProductsRequest extends BaseModel
         'SearchText' => 'getSearchText',
         'CategoryIds' => 'getCategoryIds',
         'SubCategoryIds' => 'getSubCategoryIds',
+        'SecondaryCategoryIds' => 'getSecondaryCategoryIds',
         'SellOnline' => 'getSellOnline',
         'LocationId' => 'getLocationId',
         'Limit' => 'getLimit',
@@ -156,6 +163,7 @@ class GetProductsRequest extends BaseModel
         $this->container['SearchText'] = isset($data['SearchText']) ? $data['SearchText'] : null;
         $this->container['CategoryIds'] = isset($data['CategoryIds']) ? $data['CategoryIds'] : null;
         $this->container['SubCategoryIds'] = isset($data['SubCategoryIds']) ? $data['SubCategoryIds'] : null;
+        $this->container['SecondaryCategoryIds'] = isset($data['SecondaryCategoryIds']) ? $data['SecondaryCategoryIds'] : null;
         $this->container['SellOnline'] = isset($data['SellOnline']) ? $data['SellOnline'] : null;
         $this->container['LocationId'] = isset($data['LocationId']) ? $data['LocationId'] : null;
         $this->container['Limit'] = isset($data['Limit']) ? $data['Limit'] : null;
@@ -236,7 +244,7 @@ class GetProductsRequest extends BaseModel
     /**
      * Sets CategoryIds
      *
-     * @param int[] $CategoryIds A list of revenue category IDs to filter by. Use this ID when calling the GET Categories endpoint.    **Note:** The values for these are not currently retrievable through the API.
+     * @param int[] $CategoryIds A list of revenue category IDs to filter by. Use this ID when calling the GET Categories endpoint.
      *
      * @return $this
      */
@@ -260,13 +268,37 @@ class GetProductsRequest extends BaseModel
     /**
      * Sets SubCategoryIds
      *
-     * @param int[] $SubCategoryIds A list of subcategory IDs to filter by. Use this ID when calling the GET Categories endpoint.    **Note:** The values for these are not currently retrievable through the API.
+     * @param int[] $SubCategoryIds A list of subcategory IDs to filter by. Use this ID when calling the GET Categories endpoint.
      *
      * @return $this
      */
     public function setSubCategoryIds($SubCategoryIds): self
     {
         $this->container['SubCategoryIds'] = $SubCategoryIds;
+
+        return $this;
+    }
+
+    /**
+     * Gets SecondaryCategoryIds
+     *
+     * @return int[]
+     */
+    public function getSecondaryCategoryIds()
+    {
+        return $this->container['SecondaryCategoryIds'];
+    }
+
+    /**
+     * Sets SecondaryCategoryIds
+     *
+     * @param int[] $SecondaryCategoryIds A list of secondary categories to filter by. Use this ID when calling the GET Categories endpoint.
+     *
+     * @return $this
+     */
+    public function setSecondaryCategoryIds($SecondaryCategoryIds): self
+    {
+        $this->container['SecondaryCategoryIds'] = $SecondaryCategoryIds;
 
         return $this;
     }

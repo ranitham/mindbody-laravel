@@ -33,23 +33,28 @@ namespace Nlocascio\Mindbody\Model;
  * GetClientServicesRequest Class Doc Comment
  *
  * @category Class
+ * @description Represents a request to retrieve client services with various filtering options.  Note: if you want to request for a single client, use UniqueClientId or ClientId. For multiple clients, use UniqueClientIds or ClientIds.
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  * @property string $ClientId The ID of the client to query. The results are a list of pricing options that the client has purchased. Note that “service” and “pricing option” are synonymous in this section of the documentation.
+ * @property int $UniqueClientId The unique ID of the client to query. Note that UniqueClientId takes precedence over ClientId.
  * @property string[] $ClientIds The IDs of the clients to query. The results are a list of pricing options that the clients have purchased.  ClientId parameter takes priority over ClientIds due to backward compatibility.  So if you want to use ClientIds, then ClientId needs to be empty.  Either of ClientId or ClientIds need to be specified
+ * @property int[] $UniqueClientIds The Unique IDs of the clients to query. Note that UniqueClientIds collection takes precedence over ClientIds collection.
  * @property int $ClassId Filters results to only those pricing options that can be used to pay for this class.
  * @property int[] $ProgramIds Filters results to pricing options that belong to one of the given program IDs.
  * @property int $SessionTypeId Filters results to pricing options that will pay for the given session type ID. Use this to find pricing options that will pay for a specific appointment type.
  * @property int[] $LocationIds Filters results to pricing options that can be used at the listed location IDs.
  * @property int $VisitCount A filter on the minimum number of visits a service can pay for.
- * @property \DateTime $StartDate Filters results to pricing options that are valid on or after this date.  Default: **today’s date**
- * @property \DateTime $EndDate Filters results to pricing options that are valid on or before this date.  Default: **today’s date**
+ * @property \DateTime $StartDate Filters results to pricing options that are purchased on or after this date.  Default: **today’s date**
+ * @property \DateTime $EndDate Filters results to pricing options that are purchased on or before this date.   Default: **today’s date**
  * @property bool $ShowActiveOnly When `true`, includes active services only.  Default: **false**
  * @property bool $CrossRegionalLookup Used to retrieve a client’s pricing options from multiple sites within an organization. When included and set to `true`, it searches a maximum of ten sites with which this client is associated. When a client is associated with more than ten sites, use `ClientAssociatedSitesOffset` as many times as needed to search the additional sites with which the client is associated. You can use the `CrossRegionalClientAssociations` value from `GET CrossRegionalClientAssociations` to determine how many sites the client is associated with. Note that a `SiteID` is returned and populated in the `ClientServices` response when `CrossRegionalLookup` is set to `true`.  Default: **false**
  * @property bool $IgnoreCrossRegionalSiteLimit Used to specify if the number of cross regional sites used to search for client’s pricing options should be ignored.   Default: **false**
  * @property int $ClientAssociatedSitesOffset Used to retrieve a client’s pricing options from multiple sites within an organization when the client is associated with more than ten sites. To change which ten sites are searched, change this offset value. A value of 0 means that no sites are skipped and the first ten sites are returned. You can use the `CrossRegionalClientAssociations` value from `GET CrossRegionalClientAssociations` to determine how many sites the client is associated with. Note that you must always have `CrossRegionalLookup` set to `true` to use this parameter.<br />  Default: **0**    For example, if a client is associated with 25 sites, you need to call `GetClientServices` three times, as follows:  * Use `GET CrossRegionalClientAssociations` to determine how many sites a client is associated with, which tells you how many additional calls you need to make.  * Either omit `ClientAssociatedSitesOffset` or set it to 0 to return the client’s services (pricing options) from sites 1-10.  * Set `ClientAssociatedSitesOffset` to 10 to return the client pricing options from sites 11-20  * Set `ClientAssociatedSitesOffset` to 20 to return the client pricing options from sites 21-25
- * @property bool $UseActivateDate When this flag is set to true the date filtering will use activate date to filter the pricing options  When this flag is set to false the date filtering will use purchase date to filter the pricing options [ Existing logic ]
+ * @property bool $ExcludeInactiveSites When this flag is set to `true`, will exclude inactive sites from the response.  Default: **false**
+ * @property bool $UseActivateDate When this flag is set to `true`, the date filtering will use activate date to filter the pricing options.  When this flag is set to `false`, the date filtering will use purchase date to filter the pricing options.  Default: **false**
+ * @property int[] $ClassScheduleID Filters results to pricing options which are associated with one of the ClassScheduleIDs
  * @property int $Limit Number of results to include, defaults to 100
  * @property int $Offset Page offset, defaults to 0.
  *
@@ -72,7 +77,9 @@ class GetClientServicesRequest extends BaseModel
       */
     protected static $swaggerTypes = [
         'ClientId' => 'string',
+        'UniqueClientId' => 'int',
         'ClientIds' => 'string[]',
+        'UniqueClientIds' => 'int[]',
         'ClassId' => 'int',
         'ProgramIds' => 'int[]',
         'SessionTypeId' => 'int',
@@ -84,7 +91,9 @@ class GetClientServicesRequest extends BaseModel
         'CrossRegionalLookup' => 'bool',
         'IgnoreCrossRegionalSiteLimit' => 'bool',
         'ClientAssociatedSitesOffset' => 'int',
+        'ExcludeInactiveSites' => 'bool',
         'UseActivateDate' => 'bool',
+        'ClassScheduleID' => 'int[]',
         'Limit' => 'int',
         'Offset' => 'int'
     ];
@@ -96,7 +105,9 @@ class GetClientServicesRequest extends BaseModel
       */
     protected static $swaggerFormats = [
         'ClientId' => null,
+        'UniqueClientId' => 'int64',
         'ClientIds' => null,
+        'UniqueClientIds' => 'int64',
         'ClassId' => 'int32',
         'ProgramIds' => 'int32',
         'SessionTypeId' => 'int32',
@@ -108,7 +119,9 @@ class GetClientServicesRequest extends BaseModel
         'CrossRegionalLookup' => null,
         'IgnoreCrossRegionalSiteLimit' => null,
         'ClientAssociatedSitesOffset' => 'int32',
+        'ExcludeInactiveSites' => null,
         'UseActivateDate' => null,
+        'ClassScheduleID' => 'int32',
         'Limit' => 'int32',
         'Offset' => 'int32'
     ];
@@ -122,7 +135,9 @@ class GetClientServicesRequest extends BaseModel
      */
     protected static $attributeMap = [
         'ClientId' => 'ClientId',
+        'UniqueClientId' => 'UniqueClientId',
         'ClientIds' => 'ClientIds',
+        'UniqueClientIds' => 'UniqueClientIds',
         'ClassId' => 'ClassId',
         'ProgramIds' => 'ProgramIds',
         'SessionTypeId' => 'SessionTypeId',
@@ -134,7 +149,9 @@ class GetClientServicesRequest extends BaseModel
         'CrossRegionalLookup' => 'CrossRegionalLookup',
         'IgnoreCrossRegionalSiteLimit' => 'IgnoreCrossRegionalSiteLimit',
         'ClientAssociatedSitesOffset' => 'ClientAssociatedSitesOffset',
+        'ExcludeInactiveSites' => 'ExcludeInactiveSites',
         'UseActivateDate' => 'UseActivateDate',
+        'ClassScheduleID' => 'ClassScheduleID',
         'Limit' => 'Limit',
         'Offset' => 'Offset'
     ];
@@ -146,7 +163,9 @@ class GetClientServicesRequest extends BaseModel
      */
     protected static $setters = [
         'ClientId' => 'setClientId',
+        'UniqueClientId' => 'setUniqueClientId',
         'ClientIds' => 'setClientIds',
+        'UniqueClientIds' => 'setUniqueClientIds',
         'ClassId' => 'setClassId',
         'ProgramIds' => 'setProgramIds',
         'SessionTypeId' => 'setSessionTypeId',
@@ -158,7 +177,9 @@ class GetClientServicesRequest extends BaseModel
         'CrossRegionalLookup' => 'setCrossRegionalLookup',
         'IgnoreCrossRegionalSiteLimit' => 'setIgnoreCrossRegionalSiteLimit',
         'ClientAssociatedSitesOffset' => 'setClientAssociatedSitesOffset',
+        'ExcludeInactiveSites' => 'setExcludeInactiveSites',
         'UseActivateDate' => 'setUseActivateDate',
+        'ClassScheduleID' => 'setClassScheduleID',
         'Limit' => 'setLimit',
         'Offset' => 'setOffset'
     ];
@@ -170,7 +191,9 @@ class GetClientServicesRequest extends BaseModel
      */
     protected static $getters = [
         'ClientId' => 'getClientId',
+        'UniqueClientId' => 'getUniqueClientId',
         'ClientIds' => 'getClientIds',
+        'UniqueClientIds' => 'getUniqueClientIds',
         'ClassId' => 'getClassId',
         'ProgramIds' => 'getProgramIds',
         'SessionTypeId' => 'getSessionTypeId',
@@ -182,7 +205,9 @@ class GetClientServicesRequest extends BaseModel
         'CrossRegionalLookup' => 'getCrossRegionalLookup',
         'IgnoreCrossRegionalSiteLimit' => 'getIgnoreCrossRegionalSiteLimit',
         'ClientAssociatedSitesOffset' => 'getClientAssociatedSitesOffset',
+        'ExcludeInactiveSites' => 'getExcludeInactiveSites',
         'UseActivateDate' => 'getUseActivateDate',
+        'ClassScheduleID' => 'getClassScheduleID',
         'Limit' => 'getLimit',
         'Offset' => 'getOffset'
     ];
@@ -201,7 +226,9 @@ class GetClientServicesRequest extends BaseModel
     public function __construct(array $data = null)
     {
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
+        $this->container['UniqueClientId'] = isset($data['UniqueClientId']) ? $data['UniqueClientId'] : null;
         $this->container['ClientIds'] = isset($data['ClientIds']) ? $data['ClientIds'] : null;
+        $this->container['UniqueClientIds'] = isset($data['UniqueClientIds']) ? $data['UniqueClientIds'] : null;
         $this->container['ClassId'] = isset($data['ClassId']) ? $data['ClassId'] : null;
         $this->container['ProgramIds'] = isset($data['ProgramIds']) ? $data['ProgramIds'] : null;
         $this->container['SessionTypeId'] = isset($data['SessionTypeId']) ? $data['SessionTypeId'] : null;
@@ -213,7 +240,9 @@ class GetClientServicesRequest extends BaseModel
         $this->container['CrossRegionalLookup'] = isset($data['CrossRegionalLookup']) ? $data['CrossRegionalLookup'] : null;
         $this->container['IgnoreCrossRegionalSiteLimit'] = isset($data['IgnoreCrossRegionalSiteLimit']) ? $data['IgnoreCrossRegionalSiteLimit'] : null;
         $this->container['ClientAssociatedSitesOffset'] = isset($data['ClientAssociatedSitesOffset']) ? $data['ClientAssociatedSitesOffset'] : null;
+        $this->container['ExcludeInactiveSites'] = isset($data['ExcludeInactiveSites']) ? $data['ExcludeInactiveSites'] : null;
         $this->container['UseActivateDate'] = isset($data['UseActivateDate']) ? $data['UseActivateDate'] : null;
+        $this->container['ClassScheduleID'] = isset($data['ClassScheduleID']) ? $data['ClassScheduleID'] : null;
         $this->container['Limit'] = isset($data['Limit']) ? $data['Limit'] : null;
         $this->container['Offset'] = isset($data['Offset']) ? $data['Offset'] : null;
     }
@@ -227,9 +256,6 @@ class GetClientServicesRequest extends BaseModel
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['ClientId'] === null) {
-            $invalidProperties[] = "'ClientId' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -259,6 +285,30 @@ class GetClientServicesRequest extends BaseModel
     }
 
     /**
+     * Gets UniqueClientId
+     *
+     * @return int
+     */
+    public function getUniqueClientId()
+    {
+        return $this->container['UniqueClientId'];
+    }
+
+    /**
+     * Sets UniqueClientId
+     *
+     * @param int $UniqueClientId The unique ID of the client to query. Note that UniqueClientId takes precedence over ClientId.
+     *
+     * @return $this
+     */
+    public function setUniqueClientId($UniqueClientId): self
+    {
+        $this->container['UniqueClientId'] = $UniqueClientId;
+
+        return $this;
+    }
+
+    /**
      * Gets ClientIds
      *
      * @return string[]
@@ -278,6 +328,30 @@ class GetClientServicesRequest extends BaseModel
     public function setClientIds($ClientIds): self
     {
         $this->container['ClientIds'] = $ClientIds;
+
+        return $this;
+    }
+
+    /**
+     * Gets UniqueClientIds
+     *
+     * @return int[]
+     */
+    public function getUniqueClientIds()
+    {
+        return $this->container['UniqueClientIds'];
+    }
+
+    /**
+     * Sets UniqueClientIds
+     *
+     * @param int[] $UniqueClientIds The Unique IDs of the clients to query. Note that UniqueClientIds collection takes precedence over ClientIds collection.
+     *
+     * @return $this
+     */
+    public function setUniqueClientIds($UniqueClientIds): self
+    {
+        $this->container['UniqueClientIds'] = $UniqueClientIds;
 
         return $this;
     }
@@ -415,7 +489,7 @@ class GetClientServicesRequest extends BaseModel
     /**
      * Sets StartDate
      *
-     * @param \DateTime $StartDate Filters results to pricing options that are valid on or after this date.  Default: **today’s date**
+     * @param \DateTime $StartDate Filters results to pricing options that are purchased on or after this date.  Default: **today’s date**
      *
      * @return $this
      */
@@ -439,7 +513,7 @@ class GetClientServicesRequest extends BaseModel
     /**
      * Sets EndDate
      *
-     * @param \DateTime $EndDate Filters results to pricing options that are valid on or before this date.  Default: **today’s date**
+     * @param \DateTime $EndDate Filters results to pricing options that are purchased on or before this date.   Default: **today’s date**
      *
      * @return $this
      */
@@ -547,6 +621,30 @@ class GetClientServicesRequest extends BaseModel
     }
 
     /**
+     * Gets ExcludeInactiveSites
+     *
+     * @return bool
+     */
+    public function getExcludeInactiveSites()
+    {
+        return $this->container['ExcludeInactiveSites'];
+    }
+
+    /**
+     * Sets ExcludeInactiveSites
+     *
+     * @param bool $ExcludeInactiveSites When this flag is set to `true`, will exclude inactive sites from the response.  Default: **false**
+     *
+     * @return $this
+     */
+    public function setExcludeInactiveSites($ExcludeInactiveSites): self
+    {
+        $this->container['ExcludeInactiveSites'] = $ExcludeInactiveSites;
+
+        return $this;
+    }
+
+    /**
      * Gets UseActivateDate
      *
      * @return bool
@@ -559,13 +657,37 @@ class GetClientServicesRequest extends BaseModel
     /**
      * Sets UseActivateDate
      *
-     * @param bool $UseActivateDate When this flag is set to true the date filtering will use activate date to filter the pricing options  When this flag is set to false the date filtering will use purchase date to filter the pricing options [ Existing logic ]
+     * @param bool $UseActivateDate When this flag is set to `true`, the date filtering will use activate date to filter the pricing options.  When this flag is set to `false`, the date filtering will use purchase date to filter the pricing options.  Default: **false**
      *
      * @return $this
      */
     public function setUseActivateDate($UseActivateDate): self
     {
         $this->container['UseActivateDate'] = $UseActivateDate;
+
+        return $this;
+    }
+
+    /**
+     * Gets ClassScheduleID
+     *
+     * @return int[]
+     */
+    public function getClassScheduleID()
+    {
+        return $this->container['ClassScheduleID'];
+    }
+
+    /**
+     * Sets ClassScheduleID
+     *
+     * @param int[] $ClassScheduleID Filters results to pricing options which are associated with one of the ClassScheduleIDs
+     *
+     * @return $this
+     */
+    public function setClassScheduleID($ClassScheduleID): self
+    {
+        $this->container['ClassScheduleID'] = $ClassScheduleID;
 
         return $this;
     }

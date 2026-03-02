@@ -59,6 +59,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property bool $AllowOpenEnrollment Allow clients to choose which sessions they’d like to sign up for.  Default: **false**
  * @property bool $AllowDateForwardEnrollment Allow booking after the enrollment has started.  Default: **false**
  * @property int[] $PricingOptionsProductIds Pricing Options for this schedule
+ * @property bool $ShowToPublic Allow clients to see this schedule  Default: **true**
  *
  */
 class AddClassEnrollmentScheduleRequest extends BaseModel
@@ -100,7 +101,8 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
         'BookingStatus' => 'string',
         'AllowOpenEnrollment' => 'bool',
         'AllowDateForwardEnrollment' => 'bool',
-        'PricingOptionsProductIds' => 'int[]'
+        'PricingOptionsProductIds' => 'int[]',
+        'ShowToPublic' => 'bool'
     ];
 
     /**
@@ -131,7 +133,8 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
         'BookingStatus' => null,
         'AllowOpenEnrollment' => null,
         'AllowDateForwardEnrollment' => null,
-        'PricingOptionsProductIds' => 'int32'
+        'PricingOptionsProductIds' => 'int32',
+        'ShowToPublic' => null
     ];
 
 
@@ -164,7 +167,8 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
         'BookingStatus' => 'BookingStatus',
         'AllowOpenEnrollment' => 'AllowOpenEnrollment',
         'AllowDateForwardEnrollment' => 'AllowDateForwardEnrollment',
-        'PricingOptionsProductIds' => 'PricingOptionsProductIds'
+        'PricingOptionsProductIds' => 'PricingOptionsProductIds',
+        'ShowToPublic' => 'ShowToPublic'
     ];
 
     /**
@@ -195,7 +199,8 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
         'BookingStatus' => 'setBookingStatus',
         'AllowOpenEnrollment' => 'setAllowOpenEnrollment',
         'AllowDateForwardEnrollment' => 'setAllowDateForwardEnrollment',
-        'PricingOptionsProductIds' => 'setPricingOptionsProductIds'
+        'PricingOptionsProductIds' => 'setPricingOptionsProductIds',
+        'ShowToPublic' => 'setShowToPublic'
     ];
 
     /**
@@ -226,7 +231,8 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
         'BookingStatus' => 'getBookingStatus',
         'AllowOpenEnrollment' => 'getAllowOpenEnrollment',
         'AllowDateForwardEnrollment' => 'getAllowDateForwardEnrollment',
-        'PricingOptionsProductIds' => 'getPricingOptionsProductIds'
+        'PricingOptionsProductIds' => 'getPricingOptionsProductIds',
+        'ShowToPublic' => 'getShowToPublic'
     ];
 
 
@@ -265,6 +271,7 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
         $this->container['AllowOpenEnrollment'] = isset($data['AllowOpenEnrollment']) ? $data['AllowOpenEnrollment'] : null;
         $this->container['AllowDateForwardEnrollment'] = isset($data['AllowDateForwardEnrollment']) ? $data['AllowDateForwardEnrollment'] : null;
         $this->container['PricingOptionsProductIds'] = isset($data['PricingOptionsProductIds']) ? $data['PricingOptionsProductIds'] : null;
+        $this->container['ShowToPublic'] = isset($data['ShowToPublic']) ? $data['ShowToPublic'] : null;
     }
 
     /**
@@ -828,6 +835,30 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
     public function setPricingOptionsProductIds($PricingOptionsProductIds): self
     {
         $this->container['PricingOptionsProductIds'] = $PricingOptionsProductIds;
+
+        return $this;
+    }
+
+    /**
+     * Gets ShowToPublic
+     *
+     * @return bool
+     */
+    public function getShowToPublic()
+    {
+        return $this->container['ShowToPublic'];
+    }
+
+    /**
+     * Sets ShowToPublic
+     *
+     * @param bool $ShowToPublic Allow clients to see this schedule  Default: **true**
+     *
+     * @return $this
+     */
+    public function setShowToPublic($ShowToPublic): self
+    {
+        $this->container['ShowToPublic'] = $ShowToPublic;
 
         return $this;
     }

@@ -38,8 +38,8 @@ namespace Nlocascio\Mindbody\Model;
  * @link     https://github.com/swagger-api/swagger-codegen
  * @property \Nlocascio\Mindbody\Model\ClientWithSuspensionInfo $Client Contains information about the client to be updated. The client ID is used to look up the existing client to update and any specified values are updated.
  * @property bool $Test When `true`, indicates that test mode is enabled. The method is validated, but no client data is added or updated.<br />  Default: **false**
- * @property bool $CrossRegionalUpdate When `true`, the updated information is propagated to all of the region’s sites where the client has a profile.<br />  When `false`, only the local client is updated.<br />  Default: **true**
- * @property string $NewId The new RSSID to be used for the client. Use `NewId` to assign a specific number to be a client’s ID. If that number is not available, the call returns an error. This RSSID must be unique within the subscriber’s site. If this is a cross-regional update, the RSSID must be unique across the region. If the requested number is already in use, an error is returned.
+ * @property bool $CrossRegionalUpdate When `true`, the updated information is propagated to all of the region’s sites where the client has a profile.<br />  When `false`, only the local client is updated.<br />  Default: **true**<br />  Important: The fields below will automatically propagate cross-regionally when updated through the UpdateClient endpoint, regardless the CrossRegionalUpdate parameter is set to `true` or `false`.      * `RSSID`   * `Prefix`   * `Name (First, Middle, Last, Nickname)`   * `Email`   * `Birthday`   * `Phone (Home, Mobile, Work, Extension)`   * `Address`
+ * @property string $NewId The new RSSID to be used for the client. Use `NewId` to assign a specific number to be a client’s ID. If that number is not available, the call returns an error. This RSSID must be unique within the subscriber’s site. If this is a cross-regional update, the RSSID must be unique across the region. If the requested number is already in use, an error is returned.  Note: NewId value cannot fall within the reserved default ID range (100000000 -&gt; 101000000)
  * @property int $LeadChannelId The ID of the Lead Channel ID from lead management. If this is supplied then it will map lead channel on the lead management.  If this is not supplied then it will have Publicapi LeadChannelId.  This parameters required to track the lead channel if new client added to the location.
  *
  */
@@ -218,7 +218,7 @@ class UpdateClientRequest extends BaseModel
     /**
      * Sets CrossRegionalUpdate
      *
-     * @param bool $CrossRegionalUpdate When `true`, the updated information is propagated to all of the region’s sites where the client has a profile.<br />  When `false`, only the local client is updated.<br />  Default: **true**
+     * @param bool $CrossRegionalUpdate When `true`, the updated information is propagated to all of the region’s sites where the client has a profile.<br />  When `false`, only the local client is updated.<br />  Default: **true**<br />  Important: The fields below will automatically propagate cross-regionally when updated through the UpdateClient endpoint, regardless the CrossRegionalUpdate parameter is set to `true` or `false`.      * `RSSID`   * `Prefix`   * `Name (First, Middle, Last, Nickname)`   * `Email`   * `Birthday`   * `Phone (Home, Mobile, Work, Extension)`   * `Address`
      *
      * @return $this
      */
@@ -242,7 +242,7 @@ class UpdateClientRequest extends BaseModel
     /**
      * Sets NewId
      *
-     * @param string $NewId The new RSSID to be used for the client. Use `NewId` to assign a specific number to be a client’s ID. If that number is not available, the call returns an error. This RSSID must be unique within the subscriber’s site. If this is a cross-regional update, the RSSID must be unique across the region. If the requested number is already in use, an error is returned.
+     * @param string $NewId The new RSSID to be used for the client. Use `NewId` to assign a specific number to be a client’s ID. If that number is not available, the call returns an error. This RSSID must be unique within the subscriber’s site. If this is a cross-regional update, the RSSID must be unique across the region. If the requested number is already in use, an error is returned.  Note: NewId value cannot fall within the reserved default ID range (100000000 -&gt; 101000000)
      *
      * @return $this
      */

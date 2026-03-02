@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Id** | **string** | The barcode number of the product. This is the &#x60;PurchasedItems[].BarcodeId&#x60; returned from GET Sales. | [optional] 
 **CategoryId** | **int** | The revenue category ID of the product. Use this ID when calling the GET Categories endpoint. | [optional] 
 **SubCategoryId** | **int** | The SubCategory ID of the product. Use this ID when calling the GET Categories endpoint. | [optional] 
+**SecondaryCategoryId** | **int** | The SecondaryCategory ID of the product. Use this ID when calling the GET Categories endpoint. | [optional] 
 **Price** | **double** | The price of the product. | [optional] 
 **TaxIncluded** | **double** | If tax inclusive-pricing is enabled, this field shows how much tax was added to the price. To fetch this value &#x60;LocationId&#x60; must be passed as a query parameter. | [optional] 
 **TaxRate** | **double** | The tax rate that was applied to this purchase. To fetch this value &#x60;LocationId&#x60; must be passed as a query parameter. | [optional] 

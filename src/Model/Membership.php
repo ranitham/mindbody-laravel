@@ -49,6 +49,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property bool $AllowMembersToPurchaseNonMembersServices Allow members to purchase non-members services.
  * @property bool $AllowMembersToPurchaseNonMembersProducts Allow members to purchase non-members products.
  * @property bool $IsActive Indicates if the membership is active.
+ * @property int $EarlyAccessDaysBeforeSchedulingWindow Number of days before the scheduling window that members with this membership get early access.
  *
  */
 class Membership extends BaseModel
@@ -80,7 +81,8 @@ class Membership extends BaseModel
         'AllowMembersToBookAppointmentsWithoutPaying' => 'bool',
         'AllowMembersToPurchaseNonMembersServices' => 'bool',
         'AllowMembersToPurchaseNonMembersProducts' => 'bool',
-        'IsActive' => 'bool'
+        'IsActive' => 'bool',
+        'EarlyAccessDaysBeforeSchedulingWindow' => 'int'
     ];
 
     /**
@@ -101,7 +103,8 @@ class Membership extends BaseModel
         'AllowMembersToBookAppointmentsWithoutPaying' => null,
         'AllowMembersToPurchaseNonMembersServices' => null,
         'AllowMembersToPurchaseNonMembersProducts' => null,
-        'IsActive' => null
+        'IsActive' => null,
+        'EarlyAccessDaysBeforeSchedulingWindow' => 'int32'
     ];
 
 
@@ -124,7 +127,8 @@ class Membership extends BaseModel
         'AllowMembersToBookAppointmentsWithoutPaying' => 'AllowMembersToBookAppointmentsWithoutPaying',
         'AllowMembersToPurchaseNonMembersServices' => 'AllowMembersToPurchaseNonMembersServices',
         'AllowMembersToPurchaseNonMembersProducts' => 'AllowMembersToPurchaseNonMembersProducts',
-        'IsActive' => 'IsActive'
+        'IsActive' => 'IsActive',
+        'EarlyAccessDaysBeforeSchedulingWindow' => 'EarlyAccessDaysBeforeSchedulingWindow'
     ];
 
     /**
@@ -145,7 +149,8 @@ class Membership extends BaseModel
         'AllowMembersToBookAppointmentsWithoutPaying' => 'setAllowMembersToBookAppointmentsWithoutPaying',
         'AllowMembersToPurchaseNonMembersServices' => 'setAllowMembersToPurchaseNonMembersServices',
         'AllowMembersToPurchaseNonMembersProducts' => 'setAllowMembersToPurchaseNonMembersProducts',
-        'IsActive' => 'setIsActive'
+        'IsActive' => 'setIsActive',
+        'EarlyAccessDaysBeforeSchedulingWindow' => 'setEarlyAccessDaysBeforeSchedulingWindow'
     ];
 
     /**
@@ -166,7 +171,8 @@ class Membership extends BaseModel
         'AllowMembersToBookAppointmentsWithoutPaying' => 'getAllowMembersToBookAppointmentsWithoutPaying',
         'AllowMembersToPurchaseNonMembersServices' => 'getAllowMembersToPurchaseNonMembersServices',
         'AllowMembersToPurchaseNonMembersProducts' => 'getAllowMembersToPurchaseNonMembersProducts',
-        'IsActive' => 'getIsActive'
+        'IsActive' => 'getIsActive',
+        'EarlyAccessDaysBeforeSchedulingWindow' => 'getEarlyAccessDaysBeforeSchedulingWindow'
     ];
 
 
@@ -195,6 +201,7 @@ class Membership extends BaseModel
         $this->container['AllowMembersToPurchaseNonMembersServices'] = isset($data['AllowMembersToPurchaseNonMembersServices']) ? $data['AllowMembersToPurchaseNonMembersServices'] : null;
         $this->container['AllowMembersToPurchaseNonMembersProducts'] = isset($data['AllowMembersToPurchaseNonMembersProducts']) ? $data['AllowMembersToPurchaseNonMembersProducts'] : null;
         $this->container['IsActive'] = isset($data['IsActive']) ? $data['IsActive'] : null;
+        $this->container['EarlyAccessDaysBeforeSchedulingWindow'] = isset($data['EarlyAccessDaysBeforeSchedulingWindow']) ? $data['EarlyAccessDaysBeforeSchedulingWindow'] : null;
     }
 
     /**
@@ -518,6 +525,30 @@ class Membership extends BaseModel
     public function setIsActive($IsActive): self
     {
         $this->container['IsActive'] = $IsActive;
+
+        return $this;
+    }
+
+    /**
+     * Gets EarlyAccessDaysBeforeSchedulingWindow
+     *
+     * @return int
+     */
+    public function getEarlyAccessDaysBeforeSchedulingWindow()
+    {
+        return $this->container['EarlyAccessDaysBeforeSchedulingWindow'];
+    }
+
+    /**
+     * Sets EarlyAccessDaysBeforeSchedulingWindow
+     *
+     * @param int $EarlyAccessDaysBeforeSchedulingWindow Number of days before the scheduling window that members with this membership get early access.
+     *
+     * @return $this
+     */
+    public function setEarlyAccessDaysBeforeSchedulingWindow($EarlyAccessDaysBeforeSchedulingWindow): self
+    {
+        $this->container['EarlyAccessDaysBeforeSchedulingWindow'] = $EarlyAccessDaysBeforeSchedulingWindow;
 
         return $this;
     }

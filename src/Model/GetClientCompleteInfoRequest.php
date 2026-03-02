@@ -38,11 +38,15 @@ namespace Nlocascio\Mindbody\Model;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  * @property string $ClientId Filters results to client with these ID.
- * @property \DateTime $StartDate Filters results to pricing options that are valid on or after this date.
- * @property \DateTime $EndDate Filters results to pricing options that are valid on or before this date.
+ * @property \DateTime $StartDate Filters results to pricing options that are purchased on or after this date.   Default: **today’s date**.
+ * @property \DateTime $EndDate Filters results to pricing options that are purchased on or before this date.   Default: **today’s date**.
  * @property bool $CrossRegionalLookup Used to retrieve a clients pricing options from multiple sites within an organization.When included and set to `true`,  it searches a maximum of ten sites with which this client is associated.When a client is associated with more than ten sites, use `ClientAssociatedSitesOffset` as many times as needed to search the additional sites with which the client is associated.  You can use the `CrossRegionalClientAssociations` value from `GET CrossRegionalClientAssociations` to determine how many sites the client is associated with.   Note that a `SiteID` is returned and populated in the `ClientServices` response when `CrossRegionalLookup` is set to `true`.   Default: **false**
  * @property int $ClientAssociatedSitesOffset Used to retrieve a client’s pricing options from multiple sites within an organization when the client is associated with more than ten sites. To change which ten sites are searched, change this offset value. A value of 0 means that no sites are skipped and the first ten sites are returned. You can use the `CrossRegionalClientAssociations` value from `GET CrossRegionalClientAssociations` to determine how many sites the client is associated with. Note that you must always have `CrossRegionalLookup` set to `true` to use this parameter.<br />  Default: **0**    For example, if a client is associated with 25 sites, you need to call `GetClientServices` three times, as follows:  * Use `GET CrossRegionalClientAssociations` to determine how many sites a client is associated with, which tells you how many additional calls you need to make.  * Either omit `ClientAssociatedSitesOffset` or set it to 0 to return the client’s services (pricing options) from sites 1-10.  * Set `ClientAssociatedSitesOffset` to 10 to return the client pricing options from sites 11-20  * Set `ClientAssociatedSitesOffset` to 20 to return the client pricing options from sites 21-25
  * @property string[] $RequiredClientData Used to retrieve list of purchased services, contract details, membership details and arrival programs for a specific client.   Default `ClientServices`, `ClientContracts`, `ClientMemberships` and `ClientArrivals` will be returned when `RequiredClientDatais` not set.   When `RequiredClientData` is set to `Contracts` then only `ClientContracts` will be returned in the response.   When `RequiredClientData` is set to Services then only `ClientServices` will be returned in the response.  When `RequiredClientData` is set to `Memberships` then only `ClientMemberships` will be returned in the response.   When `RequiredClientData` is set to `ArrivalPrograms` then only `ClientArrivals` will be returned in the response.
+ * @property bool $ExcludeInactiveSites When this flag is set to `true`, will exclude inactive sites from the response  Default: **false**
+ * @property bool $UseActivateDate When this flag is set to `true`, the date filtering will use activate date to filter the pricing options.  When this flag is set to `false`, the date filtering will use purchase date to filter the pricing options.  Default: **false**
+ * @property bool $ShowActiveOnly When `true`, includes active services only. Set this field to `true` when trying to determine if a client has a   service that can pay for a class or appointment.  Default: **false**
+ * @property int $UniqueClientId The unique ID of the client who is viewing this class list.
  *
  */
 class GetClientCompleteInfoRequest extends BaseModel
@@ -67,7 +71,11 @@ class GetClientCompleteInfoRequest extends BaseModel
         'EndDate' => '\DateTime',
         'CrossRegionalLookup' => 'bool',
         'ClientAssociatedSitesOffset' => 'int',
-        'RequiredClientData' => 'string[]'
+        'RequiredClientData' => 'string[]',
+        'ExcludeInactiveSites' => 'bool',
+        'UseActivateDate' => 'bool',
+        'ShowActiveOnly' => 'bool',
+        'UniqueClientId' => 'int'
     ];
 
     /**
@@ -81,7 +89,11 @@ class GetClientCompleteInfoRequest extends BaseModel
         'EndDate' => 'date-time',
         'CrossRegionalLookup' => null,
         'ClientAssociatedSitesOffset' => 'int32',
-        'RequiredClientData' => null
+        'RequiredClientData' => null,
+        'ExcludeInactiveSites' => null,
+        'UseActivateDate' => null,
+        'ShowActiveOnly' => null,
+        'UniqueClientId' => 'int64'
     ];
 
 
@@ -97,7 +109,11 @@ class GetClientCompleteInfoRequest extends BaseModel
         'EndDate' => 'EndDate',
         'CrossRegionalLookup' => 'CrossRegionalLookup',
         'ClientAssociatedSitesOffset' => 'ClientAssociatedSitesOffset',
-        'RequiredClientData' => 'RequiredClientData'
+        'RequiredClientData' => 'RequiredClientData',
+        'ExcludeInactiveSites' => 'ExcludeInactiveSites',
+        'UseActivateDate' => 'UseActivateDate',
+        'ShowActiveOnly' => 'ShowActiveOnly',
+        'UniqueClientId' => 'UniqueClientId'
     ];
 
     /**
@@ -111,7 +127,11 @@ class GetClientCompleteInfoRequest extends BaseModel
         'EndDate' => 'setEndDate',
         'CrossRegionalLookup' => 'setCrossRegionalLookup',
         'ClientAssociatedSitesOffset' => 'setClientAssociatedSitesOffset',
-        'RequiredClientData' => 'setRequiredClientData'
+        'RequiredClientData' => 'setRequiredClientData',
+        'ExcludeInactiveSites' => 'setExcludeInactiveSites',
+        'UseActivateDate' => 'setUseActivateDate',
+        'ShowActiveOnly' => 'setShowActiveOnly',
+        'UniqueClientId' => 'setUniqueClientId'
     ];
 
     /**
@@ -125,7 +145,11 @@ class GetClientCompleteInfoRequest extends BaseModel
         'EndDate' => 'getEndDate',
         'CrossRegionalLookup' => 'getCrossRegionalLookup',
         'ClientAssociatedSitesOffset' => 'getClientAssociatedSitesOffset',
-        'RequiredClientData' => 'getRequiredClientData'
+        'RequiredClientData' => 'getRequiredClientData',
+        'ExcludeInactiveSites' => 'getExcludeInactiveSites',
+        'UseActivateDate' => 'getUseActivateDate',
+        'ShowActiveOnly' => 'getShowActiveOnly',
+        'UniqueClientId' => 'getUniqueClientId'
     ];
 
 
@@ -147,6 +171,10 @@ class GetClientCompleteInfoRequest extends BaseModel
         $this->container['CrossRegionalLookup'] = isset($data['CrossRegionalLookup']) ? $data['CrossRegionalLookup'] : null;
         $this->container['ClientAssociatedSitesOffset'] = isset($data['ClientAssociatedSitesOffset']) ? $data['ClientAssociatedSitesOffset'] : null;
         $this->container['RequiredClientData'] = isset($data['RequiredClientData']) ? $data['RequiredClientData'] : null;
+        $this->container['ExcludeInactiveSites'] = isset($data['ExcludeInactiveSites']) ? $data['ExcludeInactiveSites'] : null;
+        $this->container['UseActivateDate'] = isset($data['UseActivateDate']) ? $data['UseActivateDate'] : null;
+        $this->container['ShowActiveOnly'] = isset($data['ShowActiveOnly']) ? $data['ShowActiveOnly'] : null;
+        $this->container['UniqueClientId'] = isset($data['UniqueClientId']) ? $data['UniqueClientId'] : null;
     }
 
     /**
@@ -202,7 +230,7 @@ class GetClientCompleteInfoRequest extends BaseModel
     /**
      * Sets StartDate
      *
-     * @param \DateTime $StartDate Filters results to pricing options that are valid on or after this date.
+     * @param \DateTime $StartDate Filters results to pricing options that are purchased on or after this date.   Default: **today’s date**.
      *
      * @return $this
      */
@@ -226,7 +254,7 @@ class GetClientCompleteInfoRequest extends BaseModel
     /**
      * Sets EndDate
      *
-     * @param \DateTime $EndDate Filters results to pricing options that are valid on or before this date.
+     * @param \DateTime $EndDate Filters results to pricing options that are purchased on or before this date.   Default: **today’s date**.
      *
      * @return $this
      */
@@ -305,6 +333,102 @@ class GetClientCompleteInfoRequest extends BaseModel
     public function setRequiredClientData($RequiredClientData): self
     {
         $this->container['RequiredClientData'] = $RequiredClientData;
+
+        return $this;
+    }
+
+    /**
+     * Gets ExcludeInactiveSites
+     *
+     * @return bool
+     */
+    public function getExcludeInactiveSites()
+    {
+        return $this->container['ExcludeInactiveSites'];
+    }
+
+    /**
+     * Sets ExcludeInactiveSites
+     *
+     * @param bool $ExcludeInactiveSites When this flag is set to `true`, will exclude inactive sites from the response  Default: **false**
+     *
+     * @return $this
+     */
+    public function setExcludeInactiveSites($ExcludeInactiveSites): self
+    {
+        $this->container['ExcludeInactiveSites'] = $ExcludeInactiveSites;
+
+        return $this;
+    }
+
+    /**
+     * Gets UseActivateDate
+     *
+     * @return bool
+     */
+    public function getUseActivateDate()
+    {
+        return $this->container['UseActivateDate'];
+    }
+
+    /**
+     * Sets UseActivateDate
+     *
+     * @param bool $UseActivateDate When this flag is set to `true`, the date filtering will use activate date to filter the pricing options.  When this flag is set to `false`, the date filtering will use purchase date to filter the pricing options.  Default: **false**
+     *
+     * @return $this
+     */
+    public function setUseActivateDate($UseActivateDate): self
+    {
+        $this->container['UseActivateDate'] = $UseActivateDate;
+
+        return $this;
+    }
+
+    /**
+     * Gets ShowActiveOnly
+     *
+     * @return bool
+     */
+    public function getShowActiveOnly()
+    {
+        return $this->container['ShowActiveOnly'];
+    }
+
+    /**
+     * Sets ShowActiveOnly
+     *
+     * @param bool $ShowActiveOnly When `true`, includes active services only. Set this field to `true` when trying to determine if a client has a   service that can pay for a class or appointment.  Default: **false**
+     *
+     * @return $this
+     */
+    public function setShowActiveOnly($ShowActiveOnly): self
+    {
+        $this->container['ShowActiveOnly'] = $ShowActiveOnly;
+
+        return $this;
+    }
+
+    /**
+     * Gets UniqueClientId
+     *
+     * @return int
+     */
+    public function getUniqueClientId()
+    {
+        return $this->container['UniqueClientId'];
+    }
+
+    /**
+     * Sets UniqueClientId
+     *
+     * @param int $UniqueClientId The unique ID of the client who is viewing this class list.
+     *
+     * @return $this
+     */
+    public function setUniqueClientId($UniqueClientId): self
+    {
+        $this->container['UniqueClientId'] = $UniqueClientId;
 
         return $this;
     }

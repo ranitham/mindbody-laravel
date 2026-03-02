@@ -36,7 +36,8 @@ namespace Nlocascio\Mindbody\Model;
  * @package  Nlocascio\Mindbody
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
- * @property \Nlocascio\Mindbody\Model\Appointment $Appointment Contains information about the appointment.
+ * @property \Nlocascio\Mindbody\Model\Appointment $Appointment Contains information about the appointment. Only present if the request was made using the legacy model.
+ * @property \Nlocascio\Mindbody\Model\ItineraryEvent[] $Itinerary Contains information about the itinerary appointment. Only present if the request was made using the itinerary model.
  *
  */
 class AddAppointmentResponse extends BaseModel
@@ -56,7 +57,8 @@ class AddAppointmentResponse extends BaseModel
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'Appointment' => '\Nlocascio\Mindbody\Model\Appointment'
+        'Appointment' => '\Nlocascio\Mindbody\Model\Appointment',
+        'Itinerary' => '\Nlocascio\Mindbody\Model\ItineraryEvent[]'
     ];
 
     /**
@@ -65,7 +67,8 @@ class AddAppointmentResponse extends BaseModel
       * @var array<string, string|null>
       */
     protected static $swaggerFormats = [
-        'Appointment' => null
+        'Appointment' => null,
+        'Itinerary' => null
     ];
 
 
@@ -76,7 +79,8 @@ class AddAppointmentResponse extends BaseModel
      * @var string[]
      */
     protected static $attributeMap = [
-        'Appointment' => 'Appointment'
+        'Appointment' => 'Appointment',
+        'Itinerary' => 'Itinerary'
     ];
 
     /**
@@ -85,7 +89,8 @@ class AddAppointmentResponse extends BaseModel
      * @var string[]
      */
     protected static $setters = [
-        'Appointment' => 'setAppointment'
+        'Appointment' => 'setAppointment',
+        'Itinerary' => 'setItinerary'
     ];
 
     /**
@@ -94,7 +99,8 @@ class AddAppointmentResponse extends BaseModel
      * @var string[]
      */
     protected static $getters = [
-        'Appointment' => 'getAppointment'
+        'Appointment' => 'getAppointment',
+        'Itinerary' => 'getItinerary'
     ];
 
 
@@ -111,6 +117,7 @@ class AddAppointmentResponse extends BaseModel
     public function __construct(array $data = null)
     {
         $this->container['Appointment'] = isset($data['Appointment']) ? $data['Appointment'] : null;
+        $this->container['Itinerary'] = isset($data['Itinerary']) ? $data['Itinerary'] : null;
     }
 
     /**
@@ -139,13 +146,37 @@ class AddAppointmentResponse extends BaseModel
     /**
      * Sets Appointment
      *
-     * @param \Nlocascio\Mindbody\Model\Appointment $Appointment Contains information about the appointment.
+     * @param \Nlocascio\Mindbody\Model\Appointment $Appointment Contains information about the appointment. Only present if the request was made using the legacy model.
      *
      * @return $this
      */
     public function setAppointment($Appointment): self
     {
         $this->container['Appointment'] = $Appointment;
+
+        return $this;
+    }
+
+    /**
+     * Gets Itinerary
+     *
+     * @return \Nlocascio\Mindbody\Model\ItineraryEvent[]
+     */
+    public function getItinerary()
+    {
+        return $this->container['Itinerary'];
+    }
+
+    /**
+     * Sets Itinerary
+     *
+     * @param \Nlocascio\Mindbody\Model\ItineraryEvent[] $Itinerary Contains information about the itinerary appointment. Only present if the request was made using the itinerary model.
+     *
+     * @return $this
+     */
+    public function setItinerary($Itinerary): self
+    {
+        $this->container['Itinerary'] = $Itinerary;
 
         return $this;
     }
