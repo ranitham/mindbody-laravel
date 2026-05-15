@@ -50,34 +50,15 @@ use Nlocascio\Mindbody\ObjectSerializer;
 class SiteApi implements ApiInterface
 {
     /**
-     * @var ClientInterface
-     */
-    protected $client;
-
-    /**
-     * @var Configuration
-     */
-    protected $config;
-
-    /**
-     * @var HeaderSelector
-     */
-    protected $headerSelector;
-
-    /**
      * @param ClientInterface $client
      * @param Configuration   $config
-     * @param HeaderSelector  $selector
+     * @param HeaderSelector  $headerSelector
      */
     public function __construct(
-        ClientInterface $client = null,
-        Configuration $config = null,
-        HeaderSelector $selector = null
-    ) {
-        $this->client = $client ?: new Client();
-        $this->config = $config ?: new Configuration();
-        $this->headerSelector = $selector ?: new HeaderSelector();
-    }
+        protected ClientInterface $client,
+        protected Configuration $config,
+        protected HeaderSelector $headerSelector
+    ) { }
 
     /**
      * @return Configuration

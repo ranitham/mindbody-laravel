@@ -8,7 +8,7 @@ class MindbodyMagicMethodDocumentor
 {
     public static function getEndpointMethodSignatures(): void
     {
-        $endPoints = \Nlocascio\Mindbody\Mindbody::initialiseApiEndpoints(null, null, null);
+        $endPoints = \Nlocascio\Mindbody\Mindbody::initialiseApiEndpoints(new Configuration, new \GuzzleHttp\Client, new HeaderSelector);
 
         $methodSignatures = '';
 

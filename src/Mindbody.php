@@ -5,6 +5,7 @@ namespace Nlocascio\Mindbody;
 use Carbon\Carbon;
 use Nlocascio\Mindbody\Exceptions\MindbodyErrorException;
 use GuzzleHttp\Client as GuzzleHttpClient;
+use GuzzleHttp\ClientInterface;
 use Illuminate\Support\Facades\Storage;
 use Nlocascio\Mindbody\Api\ApiInterface;
 use Nlocascio\Mindbody\Traits\ProvidesMethodToEndpointMap;
@@ -348,15 +349,16 @@ class Mindbody
     /**
      * Instantiate the API endpoints
      *
-     * @param GuzzleHttpClient $client
+     * @param Configuration $apiConfiguration
+     * @param ClientInterface $client
      * @param HeaderSelector $headerSelector
      *
      * @return array<string, ApiInterface>
      */
     public static function initialiseApiEndpoints(
-        Configuration $apiConfiguration = null,
-        GuzzleHttpClient $client = null,
-        HeaderSelector $headerSelector = null,
+        Configuration $apiConfiguration,
+        ClientInterface $client,
+        HeaderSelector $headerSelector,
     ): array {
         $mindbodyApiEndpoints = [];
         foreach (self::$endpoints as $endpointName => $endpointClassName) {

@@ -41,11 +41,16 @@ use Nlocascio\Mindbody\HeaderSelector;
  */
 interface ApiInterface
 {
-  public function __construct(
-    ClientInterface $client = null,
-    Configuration $config = null,
-    HeaderSelector $selector = null
-  );
+    /**
+     * @param ClientInterface $client
+     * @param Configuration   $config
+     * @param HeaderSelector  $selector
+     */
+    public function __construct(
+        protected ClientInterface $client,
+        protected Configuration $config,
+        protected HeaderSelector $selector
+    );
 
 /**
  * get the Configuration
