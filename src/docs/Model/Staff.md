@@ -44,6 +44,7 @@ Name | Type | Description | Notes
 **EmploymentStart** | [**\DateTime**](\DateTime.md) | The start date of employment. | [optional] 
 **EmploymentEnd** | [**\DateTime**](\DateTime.md) | The end date of employment. | [optional] 
 **EmpID** | **string** | The custom staff ID assigned to the staff member. | [optional] 
+**DefaultClassPayRate** | **int** | The staff member’s default class pay rate (payscale) ID from tblPayRates.InstructorDefault1Rate. | [optional] 
 **Appointments** | [**\Nlocascio\Mindbody\Model\Appointment[]**](Appointment.md) | A list of appointments for the staff. | [optional] 
 **Unavailabilities** | [**\Nlocascio\Mindbody\Model\Unavailability[]**](Unavailability.md) | A list of unavailabilities for the staff. | [optional] 
 **Availabilities** | [**\Nlocascio\Mindbody\Model\Availability[]**](Availability.md) | A list of availabilities for the staff. | [optional] 

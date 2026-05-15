@@ -62,6 +62,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property string[] $ProviderIDs A list of providerIDs for the staff.  In the US it is one per staff and is numeric, otherwise it can be a list and is alpha-numeric  for more information see <a href=\" https://support.mindbodyonline.com/s/article/204075743-Provider-IDs?language=en_US\" target=\"blank\">Provider IDs</a>
  * @property string $Notes The staff member private notes.
  * @property string $EmpID The custom staff ID assigned to the staff member.
+ * @property int $DefaultClassPayRate Default class pay rate (payscale) ID between 1 and 21. Omit or leave null to skip.
  *
  */
 class AddStaffRequest extends BaseModel
@@ -106,7 +107,8 @@ class AddStaffRequest extends BaseModel
         'SortOrder' => 'int',
         'ProviderIDs' => 'string[]',
         'Notes' => 'string',
-        'EmpID' => 'string'
+        'EmpID' => 'string',
+        'DefaultClassPayRate' => 'int'
     ];
 
     /**
@@ -140,7 +142,8 @@ class AddStaffRequest extends BaseModel
         'SortOrder' => 'int32',
         'ProviderIDs' => null,
         'Notes' => null,
-        'EmpID' => null
+        'EmpID' => null,
+        'DefaultClassPayRate' => 'int32'
     ];
 
 
@@ -176,7 +179,8 @@ class AddStaffRequest extends BaseModel
         'SortOrder' => 'SortOrder',
         'ProviderIDs' => 'ProviderIDs',
         'Notes' => 'Notes',
-        'EmpID' => 'EmpID'
+        'EmpID' => 'EmpID',
+        'DefaultClassPayRate' => 'DefaultClassPayRate'
     ];
 
     /**
@@ -210,7 +214,8 @@ class AddStaffRequest extends BaseModel
         'SortOrder' => 'setSortOrder',
         'ProviderIDs' => 'setProviderIDs',
         'Notes' => 'setNotes',
-        'EmpID' => 'setEmpID'
+        'EmpID' => 'setEmpID',
+        'DefaultClassPayRate' => 'setDefaultClassPayRate'
     ];
 
     /**
@@ -244,7 +249,8 @@ class AddStaffRequest extends BaseModel
         'SortOrder' => 'getSortOrder',
         'ProviderIDs' => 'getProviderIDs',
         'Notes' => 'getNotes',
-        'EmpID' => 'getEmpID'
+        'EmpID' => 'getEmpID',
+        'DefaultClassPayRate' => 'getDefaultClassPayRate'
     ];
 
 
@@ -286,6 +292,7 @@ class AddStaffRequest extends BaseModel
         $this->container['ProviderIDs'] = isset($data['ProviderIDs']) ? $data['ProviderIDs'] : null;
         $this->container['Notes'] = isset($data['Notes']) ? $data['Notes'] : null;
         $this->container['EmpID'] = isset($data['EmpID']) ? $data['EmpID'] : null;
+        $this->container['DefaultClassPayRate'] = isset($data['DefaultClassPayRate']) ? $data['DefaultClassPayRate'] : null;
     }
 
     /**
@@ -927,6 +934,30 @@ class AddStaffRequest extends BaseModel
     public function setEmpID($EmpID): self
     {
         $this->container['EmpID'] = $EmpID;
+
+        return $this;
+    }
+
+    /**
+     * Gets DefaultClassPayRate
+     *
+     * @return int
+     */
+    public function getDefaultClassPayRate()
+    {
+        return $this->container['DefaultClassPayRate'];
+    }
+
+    /**
+     * Sets DefaultClassPayRate
+     *
+     * @param int $DefaultClassPayRate Default class pay rate (payscale) ID between 1 and 21. Omit or leave null to skip.
+     *
+     * @return $this
+     */
+    public function setDefaultClassPayRate($DefaultClassPayRate): self
+    {
+        $this->container['DefaultClassPayRate'] = $DefaultClassPayRate;
 
         return $this;
     }

@@ -29,6 +29,7 @@ Name | Type | Description | Notes
 **ProviderIDs** | **string[]** | A list of providerIDs for the staff.  In the US it is one per staff and is numeric, otherwise it can be a list and is alpha-numeric  for more information see &lt;a href&#x3D;\&quot; https://support.mindbodyonline.com/s/article/204075743-Provider-IDs?language&#x3D;en_US\&quot; target&#x3D;\&quot;blank\&quot;&gt;Provider IDs&lt;/a&gt; | [optional] 
 **Notes** | **string** | The staff member private notes. | [optional] 
 **EmpID** | **string** | The custom staff ID assigned to the staff member. | [optional] 
+**DefaultClassPayRate** | **int** | Default class pay rate (payscale) ID between 1 and 21. Omit or leave null to skip. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -31,6 +31,7 @@ Name | Type | Description | Notes
 **Active** | **bool** | Indicates if the staff member is active. Staff member cannot be deactivated if they have future classes or appointments. | [optional] 
 **Notes** | **string** | Staff Member Private Notes | [optional] 
 **EmpID** | **string** | The custom staff ID assigned to the staff member. | [optional] 
+**DefaultClassPayRate** | **int** | Default class pay rate (payscale) ID between 1 and 21. Omit or leave null to leave unchanged. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

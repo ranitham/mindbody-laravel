@@ -77,6 +77,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property \DateTime $EmploymentStart The start date of employment.
  * @property \DateTime $EmploymentEnd The end date of employment.
  * @property string $EmpID The custom staff ID assigned to the staff member.
+ * @property int $DefaultClassPayRate The staff member’s default class pay rate (payscale) ID from tblPayRates.InstructorDefault1Rate.
  * @property \Nlocascio\Mindbody\Model\Appointment[] $Appointments A list of appointments for the staff.
  * @property \Nlocascio\Mindbody\Model\Unavailability[] $Unavailabilities A list of unavailabilities for the staff.
  * @property \Nlocascio\Mindbody\Model\Availability[] $Availabilities A list of availabilities for the staff.
@@ -141,6 +142,7 @@ class Staff extends BaseModel implements ModelWithId
         'EmploymentStart' => '\DateTime',
         'EmploymentEnd' => '\DateTime',
         'EmpID' => 'string',
+        'DefaultClassPayRate' => 'int',
         'Appointments' => '\Nlocascio\Mindbody\Model\Appointment[]',
         'Unavailabilities' => '\Nlocascio\Mindbody\Model\Unavailability[]',
         'Availabilities' => '\Nlocascio\Mindbody\Model\Availability[]',
@@ -194,6 +196,7 @@ class Staff extends BaseModel implements ModelWithId
         'EmploymentStart' => 'date-time',
         'EmploymentEnd' => 'date-time',
         'EmpID' => null,
+        'DefaultClassPayRate' => 'int32',
         'Appointments' => null,
         'Unavailabilities' => null,
         'Availabilities' => null,
@@ -249,6 +252,7 @@ class Staff extends BaseModel implements ModelWithId
         'EmploymentStart' => 'EmploymentStart',
         'EmploymentEnd' => 'EmploymentEnd',
         'EmpID' => 'EmpID',
+        'DefaultClassPayRate' => 'DefaultClassPayRate',
         'Appointments' => 'Appointments',
         'Unavailabilities' => 'Unavailabilities',
         'Availabilities' => 'Availabilities',
@@ -302,6 +306,7 @@ class Staff extends BaseModel implements ModelWithId
         'EmploymentStart' => 'setEmploymentStart',
         'EmploymentEnd' => 'setEmploymentEnd',
         'EmpID' => 'setEmpID',
+        'DefaultClassPayRate' => 'setDefaultClassPayRate',
         'Appointments' => 'setAppointments',
         'Unavailabilities' => 'setUnavailabilities',
         'Availabilities' => 'setAvailabilities',
@@ -355,6 +360,7 @@ class Staff extends BaseModel implements ModelWithId
         'EmploymentStart' => 'getEmploymentStart',
         'EmploymentEnd' => 'getEmploymentEnd',
         'EmpID' => 'getEmpID',
+        'DefaultClassPayRate' => 'getDefaultClassPayRate',
         'Appointments' => 'getAppointments',
         'Unavailabilities' => 'getUnavailabilities',
         'Availabilities' => 'getAvailabilities',
@@ -415,6 +421,7 @@ class Staff extends BaseModel implements ModelWithId
         $this->container['EmploymentStart'] = isset($data['EmploymentStart']) ? $data['EmploymentStart'] : null;
         $this->container['EmploymentEnd'] = isset($data['EmploymentEnd']) ? $data['EmploymentEnd'] : null;
         $this->container['EmpID'] = isset($data['EmpID']) ? $data['EmpID'] : null;
+        $this->container['DefaultClassPayRate'] = isset($data['DefaultClassPayRate']) ? $data['DefaultClassPayRate'] : null;
         $this->container['Appointments'] = isset($data['Appointments']) ? $data['Appointments'] : null;
         $this->container['Unavailabilities'] = isset($data['Unavailabilities']) ? $data['Unavailabilities'] : null;
         $this->container['Availabilities'] = isset($data['Availabilities']) ? $data['Availabilities'] : null;
@@ -1414,6 +1421,30 @@ class Staff extends BaseModel implements ModelWithId
     public function setEmpID($EmpID): self
     {
         $this->container['EmpID'] = $EmpID;
+
+        return $this;
+    }
+
+    /**
+     * Gets DefaultClassPayRate
+     *
+     * @return int
+     */
+    public function getDefaultClassPayRate()
+    {
+        return $this->container['DefaultClassPayRate'];
+    }
+
+    /**
+     * Sets DefaultClassPayRate
+     *
+     * @param int $DefaultClassPayRate The staff member’s default class pay rate (payscale) ID from tblPayRates.InstructorDefault1Rate.
+     *
+     * @return $this
+     */
+    public function setDefaultClassPayRate($DefaultClassPayRate): self
+    {
+        $this->container['DefaultClassPayRate'] = $DefaultClassPayRate;
 
         return $this;
     }

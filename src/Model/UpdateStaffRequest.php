@@ -64,6 +64,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property bool $Active Indicates if the staff member is active. Staff member cannot be deactivated if they have future classes or appointments.
  * @property string $Notes Staff Member Private Notes
  * @property string $EmpID The custom staff ID assigned to the staff member.
+ * @property int $DefaultClassPayRate Default class pay rate (payscale) ID between 1 and 21. Omit or leave null to leave unchanged.
  *
  */
 class UpdateStaffRequest extends BaseModel
@@ -110,7 +111,8 @@ class UpdateStaffRequest extends BaseModel
         'ProviderIDs' => 'string[]',
         'Active' => 'bool',
         'Notes' => 'string',
-        'EmpID' => 'string'
+        'EmpID' => 'string',
+        'DefaultClassPayRate' => 'int'
     ];
 
     /**
@@ -146,7 +148,8 @@ class UpdateStaffRequest extends BaseModel
         'ProviderIDs' => null,
         'Active' => null,
         'Notes' => null,
-        'EmpID' => null
+        'EmpID' => null,
+        'DefaultClassPayRate' => 'int32'
     ];
 
 
@@ -184,7 +187,8 @@ class UpdateStaffRequest extends BaseModel
         'ProviderIDs' => 'ProviderIDs',
         'Active' => 'Active',
         'Notes' => 'Notes',
-        'EmpID' => 'EmpID'
+        'EmpID' => 'EmpID',
+        'DefaultClassPayRate' => 'DefaultClassPayRate'
     ];
 
     /**
@@ -220,7 +224,8 @@ class UpdateStaffRequest extends BaseModel
         'ProviderIDs' => 'setProviderIDs',
         'Active' => 'setActive',
         'Notes' => 'setNotes',
-        'EmpID' => 'setEmpID'
+        'EmpID' => 'setEmpID',
+        'DefaultClassPayRate' => 'setDefaultClassPayRate'
     ];
 
     /**
@@ -256,7 +261,8 @@ class UpdateStaffRequest extends BaseModel
         'ProviderIDs' => 'getProviderIDs',
         'Active' => 'getActive',
         'Notes' => 'getNotes',
-        'EmpID' => 'getEmpID'
+        'EmpID' => 'getEmpID',
+        'DefaultClassPayRate' => 'getDefaultClassPayRate'
     ];
 
 
@@ -300,6 +306,7 @@ class UpdateStaffRequest extends BaseModel
         $this->container['Active'] = isset($data['Active']) ? $data['Active'] : null;
         $this->container['Notes'] = isset($data['Notes']) ? $data['Notes'] : null;
         $this->container['EmpID'] = isset($data['EmpID']) ? $data['EmpID'] : null;
+        $this->container['DefaultClassPayRate'] = isset($data['DefaultClassPayRate']) ? $data['DefaultClassPayRate'] : null;
     }
 
     /**
@@ -986,6 +993,30 @@ class UpdateStaffRequest extends BaseModel
     public function setEmpID($EmpID): self
     {
         $this->container['EmpID'] = $EmpID;
+
+        return $this;
+    }
+
+    /**
+     * Gets DefaultClassPayRate
+     *
+     * @return int
+     */
+    public function getDefaultClassPayRate()
+    {
+        return $this->container['DefaultClassPayRate'];
+    }
+
+    /**
+     * Sets DefaultClassPayRate
+     *
+     * @param int $DefaultClassPayRate Default class pay rate (payscale) ID between 1 and 21. Omit or leave null to leave unchanged.
+     *
+     * @return $this
+     */
+    public function setDefaultClassPayRate($DefaultClassPayRate): self
+    {
+        $this->container['DefaultClassPayRate'] = $DefaultClassPayRate;
 
         return $this;
     }

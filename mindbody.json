@@ -11415,6 +11415,11 @@
                     "description": "The custom staff ID assigned to the staff member.",
                     "type": "string"
                 },
+                "DefaultClassPayRate": {
+                    "format": "int32",
+                    "description": "The staff member\u2019s default class pay rate (payscale) ID from tblPayRates.InstructorDefault1Rate.",
+                    "type": "integer"
+                },
                 "Appointments": {
                     "description": "A list of appointments for the staff.",
                     "type": "array",
@@ -19526,6 +19531,47 @@
                 }
             }
         },
+        "System.Threading.CancellationToken": {
+            "title": "CancellationToken",
+            "type": "object",
+            "properties": {
+                "IsCancellationRequested": {
+                    "type": "boolean",
+                    "readOnly": true
+                },
+                "CanBeCanceled": {
+                    "type": "boolean",
+                    "readOnly": true
+                },
+                "WaitHandle": {
+                    "$ref": "#\/definitions\/System.Threading.WaitHandle",
+                    "readOnly": true
+                }
+            }
+        },
+        "System.Threading.WaitHandle": {
+            "title": "WaitHandle",
+            "type": "object",
+            "properties": {
+                "SafeWaitHandle": {
+                    "$ref": "#\/definitions\/Microsoft.Win32.SafeHandles.SafeWaitHandle"
+                }
+            }
+        },
+        "Microsoft.Win32.SafeHandles.SafeWaitHandle": {
+            "title": "SafeWaitHandle",
+            "type": "object",
+            "properties": {
+                "IsInvalid": {
+                    "type": "boolean",
+                    "readOnly": true
+                },
+                "IsClosed": {
+                    "type": "boolean",
+                    "readOnly": true
+                }
+            }
+        },
         "GetGiftCardResponse": {
             "title": "GetGiftCardResponse",
             "type": "object",
@@ -24000,6 +24046,11 @@
                 "EmpID": {
                     "description": "The custom staff ID assigned to the staff member.",
                     "type": "string"
+                },
+                "DefaultClassPayRate": {
+                    "format": "int32",
+                    "description": "Default class pay rate (payscale) ID between 1 and 21. Omit or leave null to skip.",
+                    "type": "integer"
                 }
             }
         },
@@ -24138,6 +24189,11 @@
                 "EmpID": {
                     "description": "The custom staff ID assigned to the staff member.",
                     "type": "string"
+                },
+                "DefaultClassPayRate": {
+                    "format": "int32",
+                    "description": "Default class pay rate (payscale) ID between 1 and 21. Omit or leave null to leave unchanged.",
+                    "type": "integer"
                 }
             }
         },
