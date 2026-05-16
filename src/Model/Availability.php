@@ -51,7 +51,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property \Nlocascio\Mindbody\Model\ResourceAvailability[] $ResourceAvailabilities List of resource availabilities that can be booked with this session type.
  *
  */
-class Availability extends BaseModel implements ModelWithId
+class Availability extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -60,14 +60,14 @@ class Availability extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Availability';
+    protected static string $swaggerModelName = 'Availability';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Id' => 'int',
         'Staff' => '\Nlocascio\Mindbody\Model\Staff',
         'SessionType' => '\Nlocascio\Mindbody\Model\SessionType',
@@ -88,7 +88,7 @@ class Availability extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Id' => 'int32',
         'Staff' => null,
         'SessionType' => null,
@@ -111,7 +111,7 @@ class Availability extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Id' => 'Id',
         'Staff' => 'Staff',
         'SessionType' => 'SessionType',
@@ -132,7 +132,7 @@ class Availability extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Id' => 'setId',
         'Staff' => 'setStaff',
         'SessionType' => 'setSessionType',
@@ -153,7 +153,7 @@ class Availability extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Id' => 'getId',
         'Staff' => 'getStaff',
         'SessionType' => 'getSessionType',
@@ -180,7 +180,7 @@ class Availability extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
         $this->container['Staff'] = isset($data['Staff']) ? $data['Staff'] : null;
@@ -215,7 +215,7 @@ class Availability extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -227,7 +227,9 @@ class Availability extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -239,7 +241,7 @@ class Availability extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\Staff
      */
-    public function getStaff()
+    public function getStaff(): \Nlocascio\Mindbody\Model\Staff
     {
         return $this->container['Staff'];
     }
@@ -251,7 +253,9 @@ class Availability extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setStaff($Staff): self
+
+
+    public function setStaff(\Nlocascio\Mindbody\Model\Staff $Staff): static
     {
         $this->container['Staff'] = $Staff;
 
@@ -263,7 +267,7 @@ class Availability extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\SessionType
      */
-    public function getSessionType()
+    public function getSessionType(): \Nlocascio\Mindbody\Model\SessionType
     {
         return $this->container['SessionType'];
     }
@@ -275,7 +279,9 @@ class Availability extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSessionType($SessionType): self
+
+
+    public function setSessionType(\Nlocascio\Mindbody\Model\SessionType $SessionType): static
     {
         $this->container['SessionType'] = $SessionType;
 
@@ -287,7 +293,7 @@ class Availability extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\Program[]
      */
-    public function getPrograms()
+    public function getPrograms(): array
     {
         return $this->container['Programs'];
     }
@@ -299,7 +305,9 @@ class Availability extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setPrograms($Programs): self
+
+
+    public function setPrograms(array $Programs): static
     {
         $this->container['Programs'] = $Programs;
 
@@ -311,7 +319,7 @@ class Availability extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getStartDateTime()
+    public function getStartDateTime(): \DateTime
     {
         return $this->container['StartDateTime'];
     }
@@ -323,7 +331,9 @@ class Availability extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setStartDateTime($StartDateTime): self
+
+
+    public function setStartDateTime(\DateTime $StartDateTime): static
     {
         $this->container['StartDateTime'] = $StartDateTime;
 
@@ -335,7 +345,7 @@ class Availability extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getEndDateTime()
+    public function getEndDateTime(): \DateTime
     {
         return $this->container['EndDateTime'];
     }
@@ -347,7 +357,9 @@ class Availability extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setEndDateTime($EndDateTime): self
+
+
+    public function setEndDateTime(\DateTime $EndDateTime): static
     {
         $this->container['EndDateTime'] = $EndDateTime;
 
@@ -359,7 +371,7 @@ class Availability extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getBookableEndDateTime()
+    public function getBookableEndDateTime(): \DateTime
     {
         return $this->container['BookableEndDateTime'];
     }
@@ -371,7 +383,9 @@ class Availability extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setBookableEndDateTime($BookableEndDateTime): self
+
+
+    public function setBookableEndDateTime(\DateTime $BookableEndDateTime): static
     {
         $this->container['BookableEndDateTime'] = $BookableEndDateTime;
 
@@ -383,7 +397,7 @@ class Availability extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\Location
      */
-    public function getLocation()
+    public function getLocation(): \Nlocascio\Mindbody\Model\Location
     {
         return $this->container['Location'];
     }
@@ -395,7 +409,9 @@ class Availability extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setLocation($Location): self
+
+
+    public function setLocation(\Nlocascio\Mindbody\Model\Location $Location): static
     {
         $this->container['Location'] = $Location;
 
@@ -407,7 +423,7 @@ class Availability extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getPrepTime()
+    public function getPrepTime(): int
     {
         return $this->container['PrepTime'];
     }
@@ -419,7 +435,9 @@ class Availability extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setPrepTime($PrepTime): self
+
+
+    public function setPrepTime(int $PrepTime): static
     {
         $this->container['PrepTime'] = $PrepTime;
 
@@ -431,7 +449,7 @@ class Availability extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getFinishTime()
+    public function getFinishTime(): int
     {
         return $this->container['FinishTime'];
     }
@@ -443,7 +461,9 @@ class Availability extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setFinishTime($FinishTime): self
+
+
+    public function setFinishTime(int $FinishTime): static
     {
         $this->container['FinishTime'] = $FinishTime;
 
@@ -455,7 +475,7 @@ class Availability extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getIsMasked()
+    public function getIsMasked(): bool
     {
         return $this->container['IsMasked'];
     }
@@ -467,7 +487,9 @@ class Availability extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setIsMasked($IsMasked): self
+
+
+    public function setIsMasked(bool $IsMasked): static
     {
         $this->container['IsMasked'] = $IsMasked;
 
@@ -479,7 +501,7 @@ class Availability extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getShowPublic()
+    public function getShowPublic(): bool
     {
         return $this->container['ShowPublic'];
     }
@@ -491,7 +513,9 @@ class Availability extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setShowPublic($ShowPublic): self
+
+
+    public function setShowPublic(bool $ShowPublic): static
     {
         $this->container['ShowPublic'] = $ShowPublic;
 
@@ -503,7 +527,7 @@ class Availability extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\ResourceAvailability[]
      */
-    public function getResourceAvailabilities()
+    public function getResourceAvailabilities(): array
     {
         return $this->container['ResourceAvailabilities'];
     }
@@ -515,7 +539,9 @@ class Availability extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setResourceAvailabilities($ResourceAvailabilities): self
+
+
+    public function setResourceAvailabilities(array $ResourceAvailabilities): static
     {
         $this->container['ResourceAvailabilities'] = $ResourceAvailabilities;
 

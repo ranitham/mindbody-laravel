@@ -50,14 +50,14 @@ class UpdateProductPriceRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UpdateProductPriceRequest';
+    protected static string $swaggerModelName = 'UpdateProductPriceRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'BarcodeId' => 'string',
         'Price' => 'double',
         'OnlinePrice' => 'double'
@@ -68,7 +68,7 @@ class UpdateProductPriceRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'BarcodeId' => null,
         'Price' => 'double',
         'OnlinePrice' => 'double'
@@ -81,7 +81,7 @@ class UpdateProductPriceRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'BarcodeId' => 'BarcodeId',
         'Price' => 'Price',
         'OnlinePrice' => 'OnlinePrice'
@@ -92,7 +92,7 @@ class UpdateProductPriceRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'BarcodeId' => 'setBarcodeId',
         'Price' => 'setPrice',
         'OnlinePrice' => 'setOnlinePrice'
@@ -103,7 +103,7 @@ class UpdateProductPriceRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'BarcodeId' => 'getBarcodeId',
         'Price' => 'getPrice',
         'OnlinePrice' => 'getOnlinePrice'
@@ -120,7 +120,7 @@ class UpdateProductPriceRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['BarcodeId'] = isset($data['BarcodeId']) ? $data['BarcodeId'] : null;
         $this->container['Price'] = isset($data['Price']) ? $data['Price'] : null;
@@ -145,7 +145,7 @@ class UpdateProductPriceRequest extends BaseModel
      *
      * @return string
      */
-    public function getBarcodeId()
+    public function getBarcodeId(): string
     {
         return $this->container['BarcodeId'];
     }
@@ -157,7 +157,9 @@ class UpdateProductPriceRequest extends BaseModel
      *
      * @return $this
      */
-    public function setBarcodeId($BarcodeId): self
+
+
+    public function setBarcodeId(string $BarcodeId): static
     {
         $this->container['BarcodeId'] = $BarcodeId;
 
@@ -169,7 +171,7 @@ class UpdateProductPriceRequest extends BaseModel
      *
      * @return double
      */
-    public function getPrice()
+    public function getPrice(): float
     {
         return $this->container['Price'];
     }
@@ -181,7 +183,9 @@ class UpdateProductPriceRequest extends BaseModel
      *
      * @return $this
      */
-    public function setPrice($Price): self
+
+
+    public function setPrice(float $Price): static
     {
         $this->container['Price'] = $Price;
 
@@ -193,7 +197,7 @@ class UpdateProductPriceRequest extends BaseModel
      *
      * @return double
      */
-    public function getOnlinePrice()
+    public function getOnlinePrice(): float
     {
         return $this->container['OnlinePrice'];
     }
@@ -205,7 +209,9 @@ class UpdateProductPriceRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOnlinePrice($OnlinePrice): self
+
+
+    public function setOnlinePrice(float $OnlinePrice): static
     {
         $this->container['OnlinePrice'] = $OnlinePrice;
 

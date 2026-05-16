@@ -48,14 +48,14 @@ class CommissionDetail extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CommissionDetail';
+    protected static string $swaggerModelName = 'CommissionDetail';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'CommissionType' => 'string',
         'CommissionEarnings' => 'double'
     ];
@@ -65,7 +65,7 @@ class CommissionDetail extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'CommissionType' => null,
         'CommissionEarnings' => 'double'
     ];
@@ -77,7 +77,7 @@ class CommissionDetail extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'CommissionType' => 'CommissionType',
         'CommissionEarnings' => 'CommissionEarnings'
     ];
@@ -87,7 +87,7 @@ class CommissionDetail extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'CommissionType' => 'setCommissionType',
         'CommissionEarnings' => 'setCommissionEarnings'
     ];
@@ -97,7 +97,7 @@ class CommissionDetail extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'CommissionType' => 'getCommissionType',
         'CommissionEarnings' => 'getCommissionEarnings'
     ];
@@ -113,7 +113,7 @@ class CommissionDetail extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['CommissionType'] = isset($data['CommissionType']) ? $data['CommissionType'] : null;
         $this->container['CommissionEarnings'] = isset($data['CommissionEarnings']) ? $data['CommissionEarnings'] : null;
@@ -137,7 +137,7 @@ class CommissionDetail extends BaseModel
      *
      * @return string
      */
-    public function getCommissionType()
+    public function getCommissionType(): string
     {
         return $this->container['CommissionType'];
     }
@@ -149,7 +149,9 @@ class CommissionDetail extends BaseModel
      *
      * @return $this
      */
-    public function setCommissionType($CommissionType): self
+
+
+    public function setCommissionType(string $CommissionType): static
     {
         $this->container['CommissionType'] = $CommissionType;
 
@@ -161,7 +163,7 @@ class CommissionDetail extends BaseModel
      *
      * @return double
      */
-    public function getCommissionEarnings()
+    public function getCommissionEarnings(): float
     {
         return $this->container['CommissionEarnings'];
     }
@@ -173,7 +175,9 @@ class CommissionDetail extends BaseModel
      *
      * @return $this
      */
-    public function setCommissionEarnings($CommissionEarnings): self
+
+
+    public function setCommissionEarnings(float $CommissionEarnings): static
     {
         $this->container['CommissionEarnings'] = $CommissionEarnings;
 

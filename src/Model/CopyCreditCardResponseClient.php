@@ -51,14 +51,14 @@ class CopyCreditCardResponseClient extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CopyCreditCardResponseClient';
+    protected static string $swaggerModelName = 'CopyCreditCardResponseClient';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ClientId' => 'string',
         'UniqueId' => 'int',
         'SiteId' => 'int',
@@ -71,7 +71,7 @@ class CopyCreditCardResponseClient extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ClientId' => null,
         'UniqueId' => 'int64',
         'SiteId' => 'int32',
@@ -86,7 +86,7 @@ class CopyCreditCardResponseClient extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ClientId' => 'ClientId',
         'UniqueId' => 'UniqueId',
         'SiteId' => 'SiteId',
@@ -99,7 +99,7 @@ class CopyCreditCardResponseClient extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ClientId' => 'setClientId',
         'UniqueId' => 'setUniqueId',
         'SiteId' => 'setSiteId',
@@ -112,7 +112,7 @@ class CopyCreditCardResponseClient extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ClientId' => 'getClientId',
         'UniqueId' => 'getUniqueId',
         'SiteId' => 'getSiteId',
@@ -131,7 +131,7 @@ class CopyCreditCardResponseClient extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
         $this->container['UniqueId'] = isset($data['UniqueId']) ? $data['UniqueId'] : null;
@@ -158,7 +158,7 @@ class CopyCreditCardResponseClient extends BaseModel
      *
      * @return string
      */
-    public function getClientId()
+    public function getClientId(): string
     {
         return $this->container['ClientId'];
     }
@@ -170,7 +170,9 @@ class CopyCreditCardResponseClient extends BaseModel
      *
      * @return $this
      */
-    public function setClientId($ClientId): self
+
+
+    public function setClientId(string $ClientId): static
     {
         $this->container['ClientId'] = $ClientId;
 
@@ -182,7 +184,7 @@ class CopyCreditCardResponseClient extends BaseModel
      *
      * @return int
      */
-    public function getUniqueId()
+    public function getUniqueId(): int
     {
         return $this->container['UniqueId'];
     }
@@ -194,7 +196,9 @@ class CopyCreditCardResponseClient extends BaseModel
      *
      * @return $this
      */
-    public function setUniqueId($UniqueId): self
+
+
+    public function setUniqueId(int $UniqueId): static
     {
         $this->container['UniqueId'] = $UniqueId;
 
@@ -206,7 +210,7 @@ class CopyCreditCardResponseClient extends BaseModel
      *
      * @return int
      */
-    public function getSiteId()
+    public function getSiteId(): int
     {
         return $this->container['SiteId'];
     }
@@ -218,7 +222,9 @@ class CopyCreditCardResponseClient extends BaseModel
      *
      * @return $this
      */
-    public function setSiteId($SiteId): self
+
+
+    public function setSiteId(int $SiteId): static
     {
         $this->container['SiteId'] = $SiteId;
 
@@ -230,7 +236,7 @@ class CopyCreditCardResponseClient extends BaseModel
      *
      * @return string
      */
-    public function getFirstName()
+    public function getFirstName(): string
     {
         return $this->container['FirstName'];
     }
@@ -242,7 +248,9 @@ class CopyCreditCardResponseClient extends BaseModel
      *
      * @return $this
      */
-    public function setFirstName($FirstName): self
+
+
+    public function setFirstName(string $FirstName): static
     {
         $this->container['FirstName'] = $FirstName;
 
@@ -254,7 +262,7 @@ class CopyCreditCardResponseClient extends BaseModel
      *
      * @return string
      */
-    public function getLastName()
+    public function getLastName(): string
     {
         return $this->container['LastName'];
     }
@@ -266,7 +274,9 @@ class CopyCreditCardResponseClient extends BaseModel
      *
      * @return $this
      */
-    public function setLastName($LastName): self
+
+
+    public function setLastName(string $LastName): static
     {
         $this->container['LastName'] = $LastName;
 

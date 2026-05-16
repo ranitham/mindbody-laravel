@@ -48,14 +48,14 @@ class UpdateSaleDateResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UpdateSaleDateResponse';
+    protected static string $swaggerModelName = 'UpdateSaleDateResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Sale' => '\Nlocascio\Mindbody\Model\Sale'
     ];
 
@@ -64,7 +64,7 @@ class UpdateSaleDateResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Sale' => null
     ];
 
@@ -75,7 +75,7 @@ class UpdateSaleDateResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Sale' => 'Sale'
     ];
 
@@ -84,7 +84,7 @@ class UpdateSaleDateResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Sale' => 'setSale'
     ];
 
@@ -93,7 +93,7 @@ class UpdateSaleDateResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Sale' => 'getSale'
     ];
 
@@ -108,7 +108,7 @@ class UpdateSaleDateResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Sale'] = isset($data['Sale']) ? $data['Sale'] : null;
     }
@@ -131,7 +131,7 @@ class UpdateSaleDateResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Sale
      */
-    public function getSale()
+    public function getSale(): \Nlocascio\Mindbody\Model\Sale
     {
         return $this->container['Sale'];
     }
@@ -143,7 +143,9 @@ class UpdateSaleDateResponse extends BaseModel
      *
      * @return $this
      */
-    public function setSale($Sale): self
+
+
+    public function setSale(\Nlocascio\Mindbody\Model\Sale $Sale): static
     {
         $this->container['Sale'] = $Sale;
 

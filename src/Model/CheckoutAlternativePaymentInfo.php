@@ -49,14 +49,14 @@ class CheckoutAlternativePaymentInfo extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CheckoutAlternativePaymentInfo';
+    protected static string $swaggerModelName = 'CheckoutAlternativePaymentInfo';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'PaymentMethodId' => 'int',
         'Amount' => 'double'
     ];
@@ -66,7 +66,7 @@ class CheckoutAlternativePaymentInfo extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'PaymentMethodId' => 'int32',
         'Amount' => 'double'
     ];
@@ -78,7 +78,7 @@ class CheckoutAlternativePaymentInfo extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'PaymentMethodId' => 'PaymentMethodId',
         'Amount' => 'Amount'
     ];
@@ -88,7 +88,7 @@ class CheckoutAlternativePaymentInfo extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'PaymentMethodId' => 'setPaymentMethodId',
         'Amount' => 'setAmount'
     ];
@@ -98,7 +98,7 @@ class CheckoutAlternativePaymentInfo extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'PaymentMethodId' => 'getPaymentMethodId',
         'Amount' => 'getAmount'
     ];
@@ -114,7 +114,7 @@ class CheckoutAlternativePaymentInfo extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['PaymentMethodId'] = isset($data['PaymentMethodId']) ? $data['PaymentMethodId'] : null;
         $this->container['Amount'] = isset($data['Amount']) ? $data['Amount'] : null;
@@ -144,7 +144,7 @@ class CheckoutAlternativePaymentInfo extends BaseModel
      *
      * @return int
      */
-    public function getPaymentMethodId()
+    public function getPaymentMethodId(): int
     {
         return $this->container['PaymentMethodId'];
     }
@@ -156,7 +156,9 @@ class CheckoutAlternativePaymentInfo extends BaseModel
      *
      * @return $this
      */
-    public function setPaymentMethodId($PaymentMethodId): self
+
+
+    public function setPaymentMethodId(int $PaymentMethodId): static
     {
         $this->container['PaymentMethodId'] = $PaymentMethodId;
 
@@ -168,7 +170,7 @@ class CheckoutAlternativePaymentInfo extends BaseModel
      *
      * @return double
      */
-    public function getAmount()
+    public function getAmount(): float
     {
         return $this->container['Amount'];
     }
@@ -180,7 +182,9 @@ class CheckoutAlternativePaymentInfo extends BaseModel
      *
      * @return $this
      */
-    public function setAmount($Amount): self
+
+
+    public function setAmount(float $Amount): static
     {
         $this->container['Amount'] = $Amount;
 

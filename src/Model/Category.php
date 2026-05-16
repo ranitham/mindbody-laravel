@@ -48,7 +48,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property int $TotalCount Get total number of rows
  *
  */
-class Category extends BaseModel implements ModelWithId
+class Category extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -57,14 +57,14 @@ class Category extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Category';
+    protected static string $swaggerModelName = 'Category';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Id' => 'int',
         'CategoryName' => 'string',
         'Description' => 'string',
@@ -83,7 +83,7 @@ class Category extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Id' => 'int32',
         'CategoryName' => null,
         'Description' => null,
@@ -104,7 +104,7 @@ class Category extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Id' => 'Id',
         'CategoryName' => 'CategoryName',
         'Description' => 'Description',
@@ -123,7 +123,7 @@ class Category extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Id' => 'setId',
         'CategoryName' => 'setCategoryName',
         'Description' => 'setDescription',
@@ -142,7 +142,7 @@ class Category extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Id' => 'getId',
         'CategoryName' => 'getCategoryName',
         'Description' => 'getDescription',
@@ -167,7 +167,7 @@ class Category extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
         $this->container['CategoryName'] = isset($data['CategoryName']) ? $data['CategoryName'] : null;
@@ -200,7 +200,7 @@ class Category extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -212,7 +212,9 @@ class Category extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -224,7 +226,7 @@ class Category extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getCategoryName()
+    public function getCategoryName(): string
     {
         return $this->container['CategoryName'];
     }
@@ -236,7 +238,9 @@ class Category extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setCategoryName($CategoryName): self
+
+
+    public function setCategoryName(string $CategoryName): static
     {
         $this->container['CategoryName'] = $CategoryName;
 
@@ -248,7 +252,7 @@ class Category extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->container['Description'];
     }
@@ -260,7 +264,9 @@ class Category extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setDescription($Description): self
+
+
+    public function setDescription(string $Description): static
     {
         $this->container['Description'] = $Description;
 
@@ -272,7 +278,7 @@ class Category extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getService()
+    public function getService(): bool
     {
         return $this->container['Service'];
     }
@@ -284,7 +290,9 @@ class Category extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setService($Service): self
+
+
+    public function setService(bool $Service): static
     {
         $this->container['Service'] = $Service;
 
@@ -296,7 +304,7 @@ class Category extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getActive()
+    public function getActive(): bool
     {
         return $this->container['Active'];
     }
@@ -308,7 +316,9 @@ class Category extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setActive($Active): self
+
+
+    public function setActive(bool $Active): static
     {
         $this->container['Active'] = $Active;
 
@@ -320,7 +330,7 @@ class Category extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getIsPrimary()
+    public function getIsPrimary(): bool
     {
         return $this->container['IsPrimary'];
     }
@@ -332,7 +342,9 @@ class Category extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setIsPrimary($IsPrimary): self
+
+
+    public function setIsPrimary(bool $IsPrimary): static
     {
         $this->container['IsPrimary'] = $IsPrimary;
 
@@ -344,7 +356,7 @@ class Category extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getIsSecondary()
+    public function getIsSecondary(): bool
     {
         return $this->container['IsSecondary'];
     }
@@ -356,7 +368,9 @@ class Category extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setIsSecondary($IsSecondary): self
+
+
+    public function setIsSecondary(bool $IsSecondary): static
     {
         $this->container['IsSecondary'] = $IsSecondary;
 
@@ -368,7 +382,7 @@ class Category extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getCreatedDateTimeUTC()
+    public function getCreatedDateTimeUTC(): \DateTime
     {
         return $this->container['CreatedDateTimeUTC'];
     }
@@ -380,7 +394,9 @@ class Category extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setCreatedDateTimeUTC($CreatedDateTimeUTC): self
+
+
+    public function setCreatedDateTimeUTC(\DateTime $CreatedDateTimeUTC): static
     {
         $this->container['CreatedDateTimeUTC'] = $CreatedDateTimeUTC;
 
@@ -392,7 +408,7 @@ class Category extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getModifiedDateTimeUTC()
+    public function getModifiedDateTimeUTC(): \DateTime
     {
         return $this->container['ModifiedDateTimeUTC'];
     }
@@ -404,7 +420,9 @@ class Category extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setModifiedDateTimeUTC($ModifiedDateTimeUTC): self
+
+
+    public function setModifiedDateTimeUTC(\DateTime $ModifiedDateTimeUTC): static
     {
         $this->container['ModifiedDateTimeUTC'] = $ModifiedDateTimeUTC;
 
@@ -416,7 +434,7 @@ class Category extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\SubCategory[]
      */
-    public function getSubCategories()
+    public function getSubCategories(): array
     {
         return $this->container['SubCategories'];
     }
@@ -428,7 +446,9 @@ class Category extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSubCategories($SubCategories): self
+
+
+    public function setSubCategories(array $SubCategories): static
     {
         $this->container['SubCategories'] = $SubCategories;
 
@@ -440,7 +460,7 @@ class Category extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getTotalCount()
+    public function getTotalCount(): int
     {
         return $this->container['TotalCount'];
     }
@@ -452,7 +472,9 @@ class Category extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setTotalCount($TotalCount): self
+
+
+    public function setTotalCount(int $TotalCount): static
     {
         $this->container['TotalCount'] = $TotalCount;
 

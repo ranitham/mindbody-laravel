@@ -47,14 +47,14 @@ class GetMembershipsRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetMembershipsRequest';
+    protected static string $swaggerModelName = 'GetMembershipsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'MembershipIds' => 'int[]'
     ];
 
@@ -63,7 +63,7 @@ class GetMembershipsRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'MembershipIds' => 'int32'
     ];
 
@@ -74,7 +74,7 @@ class GetMembershipsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'MembershipIds' => 'MembershipIds'
     ];
 
@@ -83,7 +83,7 @@ class GetMembershipsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'MembershipIds' => 'setMembershipIds'
     ];
 
@@ -92,7 +92,7 @@ class GetMembershipsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'MembershipIds' => 'getMembershipIds'
     ];
 
@@ -107,7 +107,7 @@ class GetMembershipsRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['MembershipIds'] = isset($data['MembershipIds']) ? $data['MembershipIds'] : null;
     }
@@ -130,7 +130,7 @@ class GetMembershipsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getMembershipIds()
+    public function getMembershipIds(): array
     {
         return $this->container['MembershipIds'];
     }
@@ -142,7 +142,9 @@ class GetMembershipsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setMembershipIds($MembershipIds): self
+
+
+    public function setMembershipIds(array $MembershipIds): static
     {
         $this->container['MembershipIds'] = $MembershipIds;
 

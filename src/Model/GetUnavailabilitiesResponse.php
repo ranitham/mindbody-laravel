@@ -48,14 +48,14 @@ class GetUnavailabilitiesResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetUnavailabilitiesResponse';
+    protected static string $swaggerModelName = 'GetUnavailabilitiesResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'PaginationResponse' => '\Nlocascio\Mindbody\Model\PaginationResponse',
         'Unavailabilities' => '\Nlocascio\Mindbody\Model\UnavailabilityPlain[]'
     ];
@@ -65,7 +65,7 @@ class GetUnavailabilitiesResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'PaginationResponse' => null,
         'Unavailabilities' => null
     ];
@@ -77,7 +77,7 @@ class GetUnavailabilitiesResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'PaginationResponse' => 'PaginationResponse',
         'Unavailabilities' => 'Unavailabilities'
     ];
@@ -87,7 +87,7 @@ class GetUnavailabilitiesResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'PaginationResponse' => 'setPaginationResponse',
         'Unavailabilities' => 'setUnavailabilities'
     ];
@@ -97,7 +97,7 @@ class GetUnavailabilitiesResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'PaginationResponse' => 'getPaginationResponse',
         'Unavailabilities' => 'getUnavailabilities'
     ];
@@ -113,7 +113,7 @@ class GetUnavailabilitiesResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['PaginationResponse'] = isset($data['PaginationResponse']) ? $data['PaginationResponse'] : null;
         $this->container['Unavailabilities'] = isset($data['Unavailabilities']) ? $data['Unavailabilities'] : null;
@@ -137,7 +137,7 @@ class GetUnavailabilitiesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse()
+    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
     {
         return $this->container['PaginationResponse'];
     }
@@ -149,7 +149,9 @@ class GetUnavailabilitiesResponse extends BaseModel
      *
      * @return $this
      */
-    public function setPaginationResponse($PaginationResponse): self
+
+
+    public function setPaginationResponse(\Nlocascio\Mindbody\Model\PaginationResponse $PaginationResponse): static
     {
         $this->container['PaginationResponse'] = $PaginationResponse;
 
@@ -161,7 +163,7 @@ class GetUnavailabilitiesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\UnavailabilityPlain[]
      */
-    public function getUnavailabilities()
+    public function getUnavailabilities(): array
     {
         return $this->container['Unavailabilities'];
     }
@@ -173,7 +175,9 @@ class GetUnavailabilitiesResponse extends BaseModel
      *
      * @return $this
      */
-    public function setUnavailabilities($Unavailabilities): self
+
+
+    public function setUnavailabilities(array $Unavailabilities): static
     {
         $this->container['Unavailabilities'] = $Unavailabilities;
 

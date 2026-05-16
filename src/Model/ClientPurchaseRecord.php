@@ -56,14 +56,14 @@ class ClientPurchaseRecord extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ClientPurchaseRecord';
+    protected static string $swaggerModelName = 'ClientPurchaseRecord';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Sale' => '\Nlocascio\Mindbody\Model\Sale',
         'Description' => 'string',
         'AccountPayment' => 'bool',
@@ -80,7 +80,7 @@ class ClientPurchaseRecord extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Sale' => null,
         'Description' => null,
         'AccountPayment' => null,
@@ -99,7 +99,7 @@ class ClientPurchaseRecord extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Sale' => 'Sale',
         'Description' => 'Description',
         'AccountPayment' => 'AccountPayment',
@@ -116,7 +116,7 @@ class ClientPurchaseRecord extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Sale' => 'setSale',
         'Description' => 'setDescription',
         'AccountPayment' => 'setAccountPayment',
@@ -133,7 +133,7 @@ class ClientPurchaseRecord extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Sale' => 'getSale',
         'Description' => 'getDescription',
         'AccountPayment' => 'getAccountPayment',
@@ -156,7 +156,7 @@ class ClientPurchaseRecord extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Sale'] = isset($data['Sale']) ? $data['Sale'] : null;
         $this->container['Description'] = isset($data['Description']) ? $data['Description'] : null;
@@ -187,7 +187,7 @@ class ClientPurchaseRecord extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Sale
      */
-    public function getSale()
+    public function getSale(): \Nlocascio\Mindbody\Model\Sale
     {
         return $this->container['Sale'];
     }
@@ -199,7 +199,9 @@ class ClientPurchaseRecord extends BaseModel
      *
      * @return $this
      */
-    public function setSale($Sale): self
+
+
+    public function setSale(\Nlocascio\Mindbody\Model\Sale $Sale): static
     {
         $this->container['Sale'] = $Sale;
 
@@ -211,7 +213,7 @@ class ClientPurchaseRecord extends BaseModel
      *
      * @return string
      */
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->container['Description'];
     }
@@ -223,7 +225,9 @@ class ClientPurchaseRecord extends BaseModel
      *
      * @return $this
      */
-    public function setDescription($Description): self
+
+
+    public function setDescription(string $Description): static
     {
         $this->container['Description'] = $Description;
 
@@ -235,7 +239,7 @@ class ClientPurchaseRecord extends BaseModel
      *
      * @return bool
      */
-    public function getAccountPayment()
+    public function getAccountPayment(): bool
     {
         return $this->container['AccountPayment'];
     }
@@ -247,7 +251,9 @@ class ClientPurchaseRecord extends BaseModel
      *
      * @return $this
      */
-    public function setAccountPayment($AccountPayment): self
+
+
+    public function setAccountPayment(bool $AccountPayment): static
     {
         $this->container['AccountPayment'] = $AccountPayment;
 
@@ -259,7 +265,7 @@ class ClientPurchaseRecord extends BaseModel
      *
      * @return double
      */
-    public function getPrice()
+    public function getPrice(): float
     {
         return $this->container['Price'];
     }
@@ -271,7 +277,9 @@ class ClientPurchaseRecord extends BaseModel
      *
      * @return $this
      */
-    public function setPrice($Price): self
+
+
+    public function setPrice(float $Price): static
     {
         $this->container['Price'] = $Price;
 
@@ -283,7 +291,7 @@ class ClientPurchaseRecord extends BaseModel
      *
      * @return double
      */
-    public function getAmountPaid()
+    public function getAmountPaid(): float
     {
         return $this->container['AmountPaid'];
     }
@@ -295,7 +303,9 @@ class ClientPurchaseRecord extends BaseModel
      *
      * @return $this
      */
-    public function setAmountPaid($AmountPaid): self
+
+
+    public function setAmountPaid(float $AmountPaid): static
     {
         $this->container['AmountPaid'] = $AmountPaid;
 
@@ -307,7 +317,7 @@ class ClientPurchaseRecord extends BaseModel
      *
      * @return double
      */
-    public function getDiscount()
+    public function getDiscount(): float
     {
         return $this->container['Discount'];
     }
@@ -319,7 +329,9 @@ class ClientPurchaseRecord extends BaseModel
      *
      * @return $this
      */
-    public function setDiscount($Discount): self
+
+
+    public function setDiscount(float $Discount): static
     {
         $this->container['Discount'] = $Discount;
 
@@ -331,7 +343,7 @@ class ClientPurchaseRecord extends BaseModel
      *
      * @return double
      */
-    public function getTax()
+    public function getTax(): float
     {
         return $this->container['Tax'];
     }
@@ -343,7 +355,9 @@ class ClientPurchaseRecord extends BaseModel
      *
      * @return $this
      */
-    public function setTax($Tax): self
+
+
+    public function setTax(float $Tax): static
     {
         $this->container['Tax'] = $Tax;
 
@@ -355,7 +369,7 @@ class ClientPurchaseRecord extends BaseModel
      *
      * @return bool
      */
-    public function getReturned()
+    public function getReturned(): bool
     {
         return $this->container['Returned'];
     }
@@ -367,7 +381,9 @@ class ClientPurchaseRecord extends BaseModel
      *
      * @return $this
      */
-    public function setReturned($Returned): self
+
+
+    public function setReturned(bool $Returned): static
     {
         $this->container['Returned'] = $Returned;
 
@@ -379,7 +395,7 @@ class ClientPurchaseRecord extends BaseModel
      *
      * @return int
      */
-    public function getQuantity()
+    public function getQuantity(): int
     {
         return $this->container['Quantity'];
     }
@@ -391,7 +407,9 @@ class ClientPurchaseRecord extends BaseModel
      *
      * @return $this
      */
-    public function setQuantity($Quantity): self
+
+
+    public function setQuantity(int $Quantity): static
     {
         $this->container['Quantity'] = $Quantity;
 

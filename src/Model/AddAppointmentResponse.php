@@ -48,14 +48,14 @@ class AddAppointmentResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AddAppointmentResponse';
+    protected static string $swaggerModelName = 'AddAppointmentResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Appointment' => '\Nlocascio\Mindbody\Model\Appointment',
         'Itinerary' => '\Nlocascio\Mindbody\Model\ItineraryEvent[]'
     ];
@@ -65,7 +65,7 @@ class AddAppointmentResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Appointment' => null,
         'Itinerary' => null
     ];
@@ -77,7 +77,7 @@ class AddAppointmentResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Appointment' => 'Appointment',
         'Itinerary' => 'Itinerary'
     ];
@@ -87,7 +87,7 @@ class AddAppointmentResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Appointment' => 'setAppointment',
         'Itinerary' => 'setItinerary'
     ];
@@ -97,7 +97,7 @@ class AddAppointmentResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Appointment' => 'getAppointment',
         'Itinerary' => 'getItinerary'
     ];
@@ -113,7 +113,7 @@ class AddAppointmentResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Appointment'] = isset($data['Appointment']) ? $data['Appointment'] : null;
         $this->container['Itinerary'] = isset($data['Itinerary']) ? $data['Itinerary'] : null;
@@ -137,7 +137,7 @@ class AddAppointmentResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Appointment
      */
-    public function getAppointment()
+    public function getAppointment(): \Nlocascio\Mindbody\Model\Appointment
     {
         return $this->container['Appointment'];
     }
@@ -149,7 +149,9 @@ class AddAppointmentResponse extends BaseModel
      *
      * @return $this
      */
-    public function setAppointment($Appointment): self
+
+
+    public function setAppointment(\Nlocascio\Mindbody\Model\Appointment $Appointment): static
     {
         $this->container['Appointment'] = $Appointment;
 
@@ -161,7 +163,7 @@ class AddAppointmentResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ItineraryEvent[]
      */
-    public function getItinerary()
+    public function getItinerary(): array
     {
         return $this->container['Itinerary'];
     }
@@ -173,7 +175,9 @@ class AddAppointmentResponse extends BaseModel
      *
      * @return $this
      */
-    public function setItinerary($Itinerary): self
+
+
+    public function setItinerary(array $Itinerary): static
     {
         $this->container['Itinerary'] = $Itinerary;
 

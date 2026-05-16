@@ -48,14 +48,14 @@ class UploadClientPhotoRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UploadClientPhotoRequest';
+    protected static string $swaggerModelName = 'UploadClientPhotoRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Bytes' => 'string',
         'ClientId' => 'string'
     ];
@@ -65,7 +65,7 @@ class UploadClientPhotoRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Bytes' => 'byte',
         'ClientId' => null
     ];
@@ -77,7 +77,7 @@ class UploadClientPhotoRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Bytes' => 'Bytes',
         'ClientId' => 'ClientId'
     ];
@@ -87,7 +87,7 @@ class UploadClientPhotoRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Bytes' => 'setBytes',
         'ClientId' => 'setClientId'
     ];
@@ -97,7 +97,7 @@ class UploadClientPhotoRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Bytes' => 'getBytes',
         'ClientId' => 'getClientId'
     ];
@@ -113,7 +113,7 @@ class UploadClientPhotoRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Bytes'] = isset($data['Bytes']) ? $data['Bytes'] : null;
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
@@ -147,7 +147,7 @@ class UploadClientPhotoRequest extends BaseModel
      *
      * @return string
      */
-    public function getBytes()
+    public function getBytes(): string
     {
         return $this->container['Bytes'];
     }
@@ -159,7 +159,9 @@ class UploadClientPhotoRequest extends BaseModel
      *
      * @return $this
      */
-    public function setBytes($Bytes): self
+
+
+    public function setBytes(string $Bytes): static
     {
 
         if ((!preg_match("/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/", $Bytes))) {
@@ -176,7 +178,7 @@ class UploadClientPhotoRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId()
+    public function getClientId(): string
     {
         return $this->container['ClientId'];
     }
@@ -188,7 +190,9 @@ class UploadClientPhotoRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClientId($ClientId): self
+
+
+    public function setClientId(string $ClientId): static
     {
         $this->container['ClientId'] = $ClientId;
 

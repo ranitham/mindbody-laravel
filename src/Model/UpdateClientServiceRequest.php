@@ -51,14 +51,14 @@ class UpdateClientServiceRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UpdateClientServiceRequest';
+    protected static string $swaggerModelName = 'UpdateClientServiceRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ServiceId' => 'int',
         'ActiveDate' => '\DateTime',
         'ExpirationDate' => '\DateTime',
@@ -71,7 +71,7 @@ class UpdateClientServiceRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ServiceId' => 'int32',
         'ActiveDate' => 'date-time',
         'ExpirationDate' => 'date-time',
@@ -86,7 +86,7 @@ class UpdateClientServiceRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ServiceId' => 'ServiceId',
         'ActiveDate' => 'ActiveDate',
         'ExpirationDate' => 'ExpirationDate',
@@ -99,7 +99,7 @@ class UpdateClientServiceRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ServiceId' => 'setServiceId',
         'ActiveDate' => 'setActiveDate',
         'ExpirationDate' => 'setExpirationDate',
@@ -112,7 +112,7 @@ class UpdateClientServiceRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ServiceId' => 'getServiceId',
         'ActiveDate' => 'getActiveDate',
         'ExpirationDate' => 'getExpirationDate',
@@ -131,7 +131,7 @@ class UpdateClientServiceRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ServiceId'] = isset($data['ServiceId']) ? $data['ServiceId'] : null;
         $this->container['ActiveDate'] = isset($data['ActiveDate']) ? $data['ActiveDate'] : null;
@@ -161,7 +161,7 @@ class UpdateClientServiceRequest extends BaseModel
      *
      * @return int
      */
-    public function getServiceId()
+    public function getServiceId(): int
     {
         return $this->container['ServiceId'];
     }
@@ -173,7 +173,9 @@ class UpdateClientServiceRequest extends BaseModel
      *
      * @return $this
      */
-    public function setServiceId($ServiceId): self
+
+
+    public function setServiceId(int $ServiceId): static
     {
         $this->container['ServiceId'] = $ServiceId;
 
@@ -185,7 +187,7 @@ class UpdateClientServiceRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getActiveDate()
+    public function getActiveDate(): \DateTime
     {
         return $this->container['ActiveDate'];
     }
@@ -197,7 +199,9 @@ class UpdateClientServiceRequest extends BaseModel
      *
      * @return $this
      */
-    public function setActiveDate($ActiveDate): self
+
+
+    public function setActiveDate(\DateTime $ActiveDate): static
     {
         $this->container['ActiveDate'] = $ActiveDate;
 
@@ -209,7 +213,7 @@ class UpdateClientServiceRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getExpirationDate()
+    public function getExpirationDate(): \DateTime
     {
         return $this->container['ExpirationDate'];
     }
@@ -221,7 +225,9 @@ class UpdateClientServiceRequest extends BaseModel
      *
      * @return $this
      */
-    public function setExpirationDate($ExpirationDate): self
+
+
+    public function setExpirationDate(\DateTime $ExpirationDate): static
     {
         $this->container['ExpirationDate'] = $ExpirationDate;
 
@@ -233,7 +239,7 @@ class UpdateClientServiceRequest extends BaseModel
      *
      * @return int
      */
-    public function getCount()
+    public function getCount(): int
     {
         return $this->container['Count'];
     }
@@ -245,7 +251,9 @@ class UpdateClientServiceRequest extends BaseModel
      *
      * @return $this
      */
-    public function setCount($Count): self
+
+
+    public function setCount(int $Count): static
     {
         $this->container['Count'] = $Count;
 
@@ -257,7 +265,7 @@ class UpdateClientServiceRequest extends BaseModel
      *
      * @return bool
      */
-    public function getTest()
+    public function getTest(): bool
     {
         return $this->container['Test'];
     }
@@ -269,7 +277,9 @@ class UpdateClientServiceRequest extends BaseModel
      *
      * @return $this
      */
-    public function setTest($Test): self
+
+
+    public function setTest(bool $Test): static
     {
         $this->container['Test'] = $Test;
 

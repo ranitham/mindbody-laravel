@@ -81,7 +81,7 @@ class StaffApi implements ApiInterface
      */
     public function staffAddStaff($Request): \Nlocascio\Mindbody\Model\AddStaffResponse
     {
-        list($response) = $this->staffAddStaffWithHttpInfo($Request);
+        ['response' => $response] = $this->staffAddStaffWithHttpInfo($Request);
         return $response;
     }
 
@@ -94,7 +94,7 @@ class StaffApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\AddStaffResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\AddStaffResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function staffAddStaffWithHttpInfo($Request): array
     {
@@ -130,19 +130,24 @@ class StaffApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -150,8 +155,7 @@ class StaffApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\AddStaffResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\AddStaffResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -199,20 +203,14 @@ class StaffApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -240,21 +238,14 @@ class StaffApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function staffAddStaffRequest($Request): \GuzzleHttp\Psr7\Request
+    protected function staffAddStaffRequest(\Nlocascio\Mindbody\Model\AddStaffRequest $Request): \GuzzleHttp\Psr7\Request
     {
-        // verify the required parameter 'Request' is set
-        if ($Request === null || (is_array($Request) && count($Request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $Request when calling staffAddStaff'
-            );
-        }
 
         $resourcePath = '/public/v6/staff/addstaff';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
 
 
@@ -264,16 +255,10 @@ class StaffApi implements ApiInterface
             $_tempBody = $Request;
         }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -291,18 +276,7 @@ class StaffApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -372,7 +346,7 @@ class StaffApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: null, statusCode: int, headers: array<string, string[]>}
      */
     public function staffAddStaffAvailabilityWithHttpInfo($Request): array
     {
@@ -407,7 +381,7 @@ class StaffApi implements ApiInterface
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            return ['response' => null, 'statusCode' => $statusCode, 'headers' => $response->getHeaders()];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
@@ -482,21 +456,14 @@ class StaffApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function staffAddStaffAvailabilityRequest($Request): \GuzzleHttp\Psr7\Request
+    protected function staffAddStaffAvailabilityRequest(\Nlocascio\Mindbody\Model\AddStaffAvailabilityRequest $Request): \GuzzleHttp\Psr7\Request
     {
-        // verify the required parameter 'Request' is set
-        if ($Request === null || (is_array($Request) && count($Request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $Request when calling staffAddStaffAvailability'
-            );
-        }
 
         $resourcePath = '/public/v6/staff/staffavailability';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
 
 
@@ -506,16 +473,10 @@ class StaffApi implements ApiInterface
             $_tempBody = $Request;
         }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -533,18 +494,7 @@ class StaffApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -602,7 +552,7 @@ class StaffApi implements ApiInterface
      */
     public function staffAssignStaffSessionType($Request): \Nlocascio\Mindbody\Model\AssignStaffSessionTypeResponse
     {
-        list($response) = $this->staffAssignStaffSessionTypeWithHttpInfo($Request);
+        ['response' => $response] = $this->staffAssignStaffSessionTypeWithHttpInfo($Request);
         return $response;
     }
 
@@ -615,7 +565,7 @@ class StaffApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\AssignStaffSessionTypeResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\AssignStaffSessionTypeResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function staffAssignStaffSessionTypeWithHttpInfo($Request): array
     {
@@ -651,19 +601,24 @@ class StaffApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -671,8 +626,7 @@ class StaffApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\AssignStaffSessionTypeResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\AssignStaffSessionTypeResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -720,20 +674,14 @@ class StaffApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -761,21 +709,14 @@ class StaffApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function staffAssignStaffSessionTypeRequest($Request): \GuzzleHttp\Psr7\Request
+    protected function staffAssignStaffSessionTypeRequest(\Nlocascio\Mindbody\Model\AssignStaffSessionTypeRequest $Request): \GuzzleHttp\Psr7\Request
     {
-        // verify the required parameter 'Request' is set
-        if ($Request === null || (is_array($Request) && count($Request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $Request when calling staffAssignStaffSessionType'
-            );
-        }
 
         $resourcePath = '/public/v6/staff/assignsessiontype';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
 
 
@@ -785,16 +726,10 @@ class StaffApi implements ApiInterface
             $_tempBody = $Request;
         }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -812,18 +747,7 @@ class StaffApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -884,7 +808,7 @@ class StaffApi implements ApiInterface
      */
     public function staffGetSalesReps($RequestActiveOnly = null, $RequestLimit = null, $RequestOffset = null, $RequestSalesRepNumbers = null): \Nlocascio\Mindbody\Model\GetSalesRepsResponse
     {
-        list($response) = $this->staffGetSalesRepsWithHttpInfo($RequestActiveOnly, $RequestLimit, $RequestOffset, $RequestSalesRepNumbers);
+        ['response' => $response] = $this->staffGetSalesRepsWithHttpInfo($RequestActiveOnly, $RequestLimit, $RequestOffset, $RequestSalesRepNumbers);
         return $response;
     }
 
@@ -900,7 +824,7 @@ class StaffApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\GetSalesRepsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\GetSalesRepsResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function staffGetSalesRepsWithHttpInfo($RequestActiveOnly = null, $RequestLimit = null, $RequestOffset = null, $RequestSalesRepNumbers = null): array
     {
@@ -936,19 +860,24 @@ class StaffApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -956,8 +885,7 @@ class StaffApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\GetSalesRepsResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\GetSalesRepsResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -1011,20 +939,14 @@ class StaffApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -1055,7 +977,7 @@ class StaffApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function staffGetSalesRepsRequest($RequestActiveOnly = null, $RequestLimit = null, $RequestOffset = null, $RequestSalesRepNumbers = null): \GuzzleHttp\Psr7\Request
+    protected function staffGetSalesRepsRequest(?bool $RequestActiveOnly = null, ?int $RequestLimit = null, ?int $RequestOffset = null, ?array $RequestSalesRepNumbers = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/staff/salesreps';
@@ -1063,7 +985,6 @@ class StaffApi implements ApiInterface
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
         // query params
         if ($RequestActiveOnly !== null) {
@@ -1089,16 +1010,10 @@ class StaffApi implements ApiInterface
         // body params
         $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            []
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -1116,18 +1031,7 @@ class StaffApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -1191,7 +1095,7 @@ class StaffApi implements ApiInterface
      */
     public function staffGetStaff($RequestFilters = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSessionTypeId = null, $RequestStaffIds = null, $RequestStartDateTime = null): \Nlocascio\Mindbody\Model\GetStaffResponse
     {
-        list($response) = $this->staffGetStaffWithHttpInfo($RequestFilters, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestSessionTypeId, $RequestStaffIds, $RequestStartDateTime);
+        ['response' => $response] = $this->staffGetStaffWithHttpInfo($RequestFilters, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestSessionTypeId, $RequestStaffIds, $RequestStartDateTime);
         return $response;
     }
 
@@ -1210,7 +1114,7 @@ class StaffApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\GetStaffResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\GetStaffResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function staffGetStaffWithHttpInfo($RequestFilters = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSessionTypeId = null, $RequestStaffIds = null, $RequestStartDateTime = null): array
     {
@@ -1246,19 +1150,24 @@ class StaffApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -1266,8 +1175,7 @@ class StaffApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\GetStaffResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\GetStaffResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -1327,20 +1235,14 @@ class StaffApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -1374,7 +1276,7 @@ class StaffApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function staffGetStaffRequest($RequestFilters = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSessionTypeId = null, $RequestStaffIds = null, $RequestStartDateTime = null): \GuzzleHttp\Psr7\Request
+    protected function staffGetStaffRequest(?array $RequestFilters = null, ?int $RequestLimit = null, ?int $RequestLocationId = null, ?int $RequestOffset = null, ?int $RequestSessionTypeId = null, ?array $RequestStaffIds = null, ?\DateTime $RequestStartDateTime = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/staff/staff';
@@ -1382,7 +1284,6 @@ class StaffApi implements ApiInterface
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
         // query params
         if (is_array($RequestFilters)) {
@@ -1423,16 +1324,10 @@ class StaffApi implements ApiInterface
         // body params
         $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            []
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -1450,18 +1345,7 @@ class StaffApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -1519,7 +1403,7 @@ class StaffApi implements ApiInterface
      */
     public function staffGetStaffImageURL($RequestStaffId = null): \Nlocascio\Mindbody\Model\GetStaffImageURLResponse
     {
-        list($response) = $this->staffGetStaffImageURLWithHttpInfo($RequestStaffId);
+        ['response' => $response] = $this->staffGetStaffImageURLWithHttpInfo($RequestStaffId);
         return $response;
     }
 
@@ -1532,7 +1416,7 @@ class StaffApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\GetStaffImageURLResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\GetStaffImageURLResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function staffGetStaffImageURLWithHttpInfo($RequestStaffId = null): array
     {
@@ -1568,19 +1452,24 @@ class StaffApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -1588,8 +1477,7 @@ class StaffApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\GetStaffImageURLResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\GetStaffImageURLResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -1637,20 +1525,14 @@ class StaffApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -1678,7 +1560,7 @@ class StaffApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function staffGetStaffImageURLRequest($RequestStaffId = null): \GuzzleHttp\Psr7\Request
+    protected function staffGetStaffImageURLRequest(?int $RequestStaffId = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/staff/imageurl';
@@ -1686,7 +1568,6 @@ class StaffApi implements ApiInterface
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
         // query params
         if ($RequestStaffId !== null) {
@@ -1697,16 +1578,10 @@ class StaffApi implements ApiInterface
         // body params
         $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            []
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -1724,18 +1599,7 @@ class StaffApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -1793,7 +1657,7 @@ class StaffApi implements ApiInterface
      */
     public function staffGetStaffPermissions($RequestStaffId): \Nlocascio\Mindbody\Model\GetStaffPermissionsResponse
     {
-        list($response) = $this->staffGetStaffPermissionsWithHttpInfo($RequestStaffId);
+        ['response' => $response] = $this->staffGetStaffPermissionsWithHttpInfo($RequestStaffId);
         return $response;
     }
 
@@ -1806,7 +1670,7 @@ class StaffApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\GetStaffPermissionsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\GetStaffPermissionsResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function staffGetStaffPermissionsWithHttpInfo($RequestStaffId): array
     {
@@ -1842,19 +1706,24 @@ class StaffApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -1862,8 +1731,7 @@ class StaffApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\GetStaffPermissionsResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\GetStaffPermissionsResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -1911,20 +1779,14 @@ class StaffApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -1952,21 +1814,14 @@ class StaffApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function staffGetStaffPermissionsRequest($RequestStaffId): \GuzzleHttp\Psr7\Request
+    protected function staffGetStaffPermissionsRequest(int $RequestStaffId): \GuzzleHttp\Psr7\Request
     {
-        // verify the required parameter 'RequestStaffId' is set
-        if ($RequestStaffId === null || (is_array($RequestStaffId) && count($RequestStaffId) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $RequestStaffId when calling staffGetStaffPermissions'
-            );
-        }
 
         $resourcePath = '/public/v6/staff/staffpermissions';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
         // query params
         if ($RequestStaffId !== null) {
@@ -1977,16 +1832,10 @@ class StaffApi implements ApiInterface
         // body params
         $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            []
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -2004,18 +1853,7 @@ class StaffApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -2077,7 +1915,7 @@ class StaffApi implements ApiInterface
      */
     public function staffGetStaffSessionTypes($RequestStaffId, $RequestLimit = null, $RequestOffset = null, $RequestOnlineOnly = null, $RequestProgramIds = null): \Nlocascio\Mindbody\Model\GetStaffSessionTypesResponse
     {
-        list($response) = $this->staffGetStaffSessionTypesWithHttpInfo($RequestStaffId, $RequestLimit, $RequestOffset, $RequestOnlineOnly, $RequestProgramIds);
+        ['response' => $response] = $this->staffGetStaffSessionTypesWithHttpInfo($RequestStaffId, $RequestLimit, $RequestOffset, $RequestOnlineOnly, $RequestProgramIds);
         return $response;
     }
 
@@ -2094,7 +1932,7 @@ class StaffApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\GetStaffSessionTypesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\GetStaffSessionTypesResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function staffGetStaffSessionTypesWithHttpInfo($RequestStaffId, $RequestLimit = null, $RequestOffset = null, $RequestOnlineOnly = null, $RequestProgramIds = null): array
     {
@@ -2130,19 +1968,24 @@ class StaffApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -2150,8 +1993,7 @@ class StaffApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\GetStaffSessionTypesResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\GetStaffSessionTypesResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -2207,20 +2049,14 @@ class StaffApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -2252,21 +2088,14 @@ class StaffApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function staffGetStaffSessionTypesRequest($RequestStaffId, $RequestLimit = null, $RequestOffset = null, $RequestOnlineOnly = null, $RequestProgramIds = null): \GuzzleHttp\Psr7\Request
+    protected function staffGetStaffSessionTypesRequest(int $RequestStaffId, ?int $RequestLimit = null, ?int $RequestOffset = null, ?bool $RequestOnlineOnly = null, ?array $RequestProgramIds = null): \GuzzleHttp\Psr7\Request
     {
-        // verify the required parameter 'RequestStaffId' is set
-        if ($RequestStaffId === null || (is_array($RequestStaffId) && count($RequestStaffId) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $RequestStaffId when calling staffGetStaffSessionTypes'
-            );
-        }
 
         $resourcePath = '/public/v6/staff/sessiontypes';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
         // query params
         if ($RequestLimit !== null) {
@@ -2296,16 +2125,10 @@ class StaffApi implements ApiInterface
         // body params
         $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            []
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -2323,18 +2146,7 @@ class StaffApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -2392,7 +2204,7 @@ class StaffApi implements ApiInterface
      */
     public function staffUpdateStaff($Request): \Nlocascio\Mindbody\Model\UpdateStaffResponse
     {
-        list($response) = $this->staffUpdateStaffWithHttpInfo($Request);
+        ['response' => $response] = $this->staffUpdateStaffWithHttpInfo($Request);
         return $response;
     }
 
@@ -2405,7 +2217,7 @@ class StaffApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\UpdateStaffResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\UpdateStaffResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function staffUpdateStaffWithHttpInfo($Request): array
     {
@@ -2441,19 +2253,24 @@ class StaffApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -2461,8 +2278,7 @@ class StaffApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\UpdateStaffResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\UpdateStaffResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -2510,20 +2326,14 @@ class StaffApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -2551,21 +2361,14 @@ class StaffApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function staffUpdateStaffRequest($Request): \GuzzleHttp\Psr7\Request
+    protected function staffUpdateStaffRequest(\Nlocascio\Mindbody\Model\UpdateStaffRequest $Request): \GuzzleHttp\Psr7\Request
     {
-        // verify the required parameter 'Request' is set
-        if ($Request === null || (is_array($Request) && count($Request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $Request when calling staffUpdateStaff'
-            );
-        }
 
         $resourcePath = '/public/v6/staff/updatestaff';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
 
 
@@ -2575,16 +2378,10 @@ class StaffApi implements ApiInterface
             $_tempBody = $Request;
         }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -2602,18 +2399,7 @@ class StaffApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -2671,7 +2457,7 @@ class StaffApi implements ApiInterface
      */
     public function staffUpdateStaffPermissions($Request): \Nlocascio\Mindbody\Model\UpdateStaffPermissionsResponse
     {
-        list($response) = $this->staffUpdateStaffPermissionsWithHttpInfo($Request);
+        ['response' => $response] = $this->staffUpdateStaffPermissionsWithHttpInfo($Request);
         return $response;
     }
 
@@ -2684,7 +2470,7 @@ class StaffApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\UpdateStaffPermissionsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\UpdateStaffPermissionsResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function staffUpdateStaffPermissionsWithHttpInfo($Request): array
     {
@@ -2720,19 +2506,24 @@ class StaffApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -2740,8 +2531,7 @@ class StaffApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\UpdateStaffPermissionsResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\UpdateStaffPermissionsResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -2789,20 +2579,14 @@ class StaffApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -2830,21 +2614,14 @@ class StaffApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function staffUpdateStaffPermissionsRequest($Request): \GuzzleHttp\Psr7\Request
+    protected function staffUpdateStaffPermissionsRequest(\Nlocascio\Mindbody\Model\UpdateStaffPermissionsRequest $Request): \GuzzleHttp\Psr7\Request
     {
-        // verify the required parameter 'Request' is set
-        if ($Request === null || (is_array($Request) && count($Request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $Request when calling staffUpdateStaffPermissions'
-            );
-        }
 
         $resourcePath = '/public/v6/staff/updatestaffpermissions';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
 
 
@@ -2854,16 +2631,10 @@ class StaffApi implements ApiInterface
             $_tempBody = $Request;
         }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -2881,18 +2652,7 @@ class StaffApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {

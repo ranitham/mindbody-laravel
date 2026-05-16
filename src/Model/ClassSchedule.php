@@ -62,7 +62,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property int $FrequencyInterval The interval between class schedule occurencies.
  *
  */
-class ClassSchedule extends BaseModel implements ModelWithId
+class ClassSchedule extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -71,14 +71,14 @@ class ClassSchedule extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ClassSchedule';
+    protected static string $swaggerModelName = 'ClassSchedule';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Classes' => '\Nlocascio\Mindbody\Model\ModelClass[]',
         'Clients' => '\Nlocascio\Mindbody\Model\Client[]',
         'Course' => '\Nlocascio\Mindbody\Model\Course',
@@ -110,7 +110,7 @@ class ClassSchedule extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Classes' => null,
         'Clients' => null,
         'Course' => null,
@@ -144,7 +144,7 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Classes' => 'Classes',
         'Clients' => 'Clients',
         'Course' => 'Course',
@@ -176,7 +176,7 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Classes' => 'setClasses',
         'Clients' => 'setClients',
         'Course' => 'setCourse',
@@ -208,7 +208,7 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Classes' => 'getClasses',
         'Clients' => 'getClients',
         'Course' => 'getCourse',
@@ -263,7 +263,7 @@ class ClassSchedule extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Classes'] = isset($data['Classes']) ? $data['Classes'] : null;
         $this->container['Clients'] = isset($data['Clients']) ? $data['Clients'] : null;
@@ -317,7 +317,7 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\ModelClass[]
      */
-    public function getClasses()
+    public function getClasses(): array
     {
         return $this->container['Classes'];
     }
@@ -329,7 +329,9 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setClasses($Classes): self
+
+
+    public function setClasses(array $Classes): static
     {
         $this->container['Classes'] = $Classes;
 
@@ -341,7 +343,7 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\Client[]
      */
-    public function getClients()
+    public function getClients(): array
     {
         return $this->container['Clients'];
     }
@@ -353,7 +355,9 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setClients($Clients): self
+
+
+    public function setClients(array $Clients): static
     {
         $this->container['Clients'] = $Clients;
 
@@ -365,7 +369,7 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\Course
      */
-    public function getCourse()
+    public function getCourse(): \Nlocascio\Mindbody\Model\Course
     {
         return $this->container['Course'];
     }
@@ -377,7 +381,9 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setCourse($Course): self
+
+
+    public function setCourse(\Nlocascio\Mindbody\Model\Course $Course): static
     {
         $this->container['Course'] = $Course;
 
@@ -389,7 +395,7 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getSemesterId()
+    public function getSemesterId(): int
     {
         return $this->container['SemesterId'];
     }
@@ -401,7 +407,9 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSemesterId($SemesterId): self
+
+
+    public function setSemesterId(int $SemesterId): static
     {
         $this->container['SemesterId'] = $SemesterId;
 
@@ -413,7 +421,7 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getIsAvailable()
+    public function getIsAvailable(): bool
     {
         return $this->container['IsAvailable'];
     }
@@ -425,7 +433,9 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setIsAvailable($IsAvailable): self
+
+
+    public function setIsAvailable(bool $IsAvailable): static
     {
         $this->container['IsAvailable'] = $IsAvailable;
 
@@ -437,7 +447,7 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -449,7 +459,9 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -461,7 +473,7 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\ClassDescription
      */
-    public function getClassDescription()
+    public function getClassDescription(): \Nlocascio\Mindbody\Model\ClassDescription
     {
         return $this->container['ClassDescription'];
     }
@@ -473,7 +485,9 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setClassDescription($ClassDescription): self
+
+
+    public function setClassDescription(\Nlocascio\Mindbody\Model\ClassDescription $ClassDescription): static
     {
         $this->container['ClassDescription'] = $ClassDescription;
 
@@ -485,7 +499,7 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getDaySunday()
+    public function getDaySunday(): bool
     {
         return $this->container['DaySunday'];
     }
@@ -497,7 +511,9 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setDaySunday($DaySunday): self
+
+
+    public function setDaySunday(bool $DaySunday): static
     {
         $this->container['DaySunday'] = $DaySunday;
 
@@ -509,7 +525,7 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getDayMonday()
+    public function getDayMonday(): bool
     {
         return $this->container['DayMonday'];
     }
@@ -521,7 +537,9 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setDayMonday($DayMonday): self
+
+
+    public function setDayMonday(bool $DayMonday): static
     {
         $this->container['DayMonday'] = $DayMonday;
 
@@ -533,7 +551,7 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getDayTuesday()
+    public function getDayTuesday(): bool
     {
         return $this->container['DayTuesday'];
     }
@@ -545,7 +563,9 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setDayTuesday($DayTuesday): self
+
+
+    public function setDayTuesday(bool $DayTuesday): static
     {
         $this->container['DayTuesday'] = $DayTuesday;
 
@@ -557,7 +577,7 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getDayWednesday()
+    public function getDayWednesday(): bool
     {
         return $this->container['DayWednesday'];
     }
@@ -569,7 +589,9 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setDayWednesday($DayWednesday): self
+
+
+    public function setDayWednesday(bool $DayWednesday): static
     {
         $this->container['DayWednesday'] = $DayWednesday;
 
@@ -581,7 +603,7 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getDayThursday()
+    public function getDayThursday(): bool
     {
         return $this->container['DayThursday'];
     }
@@ -593,7 +615,9 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setDayThursday($DayThursday): self
+
+
+    public function setDayThursday(bool $DayThursday): static
     {
         $this->container['DayThursday'] = $DayThursday;
 
@@ -605,7 +629,7 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getDayFriday()
+    public function getDayFriday(): bool
     {
         return $this->container['DayFriday'];
     }
@@ -617,7 +641,9 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setDayFriday($DayFriday): self
+
+
+    public function setDayFriday(bool $DayFriday): static
     {
         $this->container['DayFriday'] = $DayFriday;
 
@@ -629,7 +655,7 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getDaySaturday()
+    public function getDaySaturday(): bool
     {
         return $this->container['DaySaturday'];
     }
@@ -641,7 +667,9 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setDaySaturday($DaySaturday): self
+
+
+    public function setDaySaturday(bool $DaySaturday): static
     {
         $this->container['DaySaturday'] = $DaySaturday;
 
@@ -653,7 +681,7 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getAllowOpenEnrollment()
+    public function getAllowOpenEnrollment(): bool
     {
         return $this->container['AllowOpenEnrollment'];
     }
@@ -665,7 +693,9 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAllowOpenEnrollment($AllowOpenEnrollment): self
+
+
+    public function setAllowOpenEnrollment(bool $AllowOpenEnrollment): static
     {
         $this->container['AllowOpenEnrollment'] = $AllowOpenEnrollment;
 
@@ -677,7 +707,7 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getAllowDateForwardEnrollment()
+    public function getAllowDateForwardEnrollment(): bool
     {
         return $this->container['AllowDateForwardEnrollment'];
     }
@@ -689,7 +719,9 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAllowDateForwardEnrollment($AllowDateForwardEnrollment): self
+
+
+    public function setAllowDateForwardEnrollment(bool $AllowDateForwardEnrollment): static
     {
         $this->container['AllowDateForwardEnrollment'] = $AllowDateForwardEnrollment;
 
@@ -701,7 +733,7 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getStartTime()
+    public function getStartTime(): \DateTime
     {
         return $this->container['StartTime'];
     }
@@ -713,7 +745,9 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setStartTime($StartTime): self
+
+
+    public function setStartTime(\DateTime $StartTime): static
     {
         $this->container['StartTime'] = $StartTime;
 
@@ -725,7 +759,7 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getEndTime()
+    public function getEndTime(): \DateTime
     {
         return $this->container['EndTime'];
     }
@@ -737,7 +771,9 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setEndTime($EndTime): self
+
+
+    public function setEndTime(\DateTime $EndTime): static
     {
         $this->container['EndTime'] = $EndTime;
 
@@ -749,7 +785,7 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getStartDate()
+    public function getStartDate(): \DateTime
     {
         return $this->container['StartDate'];
     }
@@ -761,7 +797,9 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setStartDate($StartDate): self
+
+
+    public function setStartDate(\DateTime $StartDate): static
     {
         $this->container['StartDate'] = $StartDate;
 
@@ -773,7 +811,7 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getEndDate()
+    public function getEndDate(): \DateTime
     {
         return $this->container['EndDate'];
     }
@@ -785,7 +823,9 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setEndDate($EndDate): self
+
+
+    public function setEndDate(\DateTime $EndDate): static
     {
         $this->container['EndDate'] = $EndDate;
 
@@ -797,7 +837,7 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\Staff
      */
-    public function getStaff()
+    public function getStaff(): \Nlocascio\Mindbody\Model\Staff
     {
         return $this->container['Staff'];
     }
@@ -809,7 +849,9 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setStaff($Staff): self
+
+
+    public function setStaff(\Nlocascio\Mindbody\Model\Staff $Staff): static
     {
         $this->container['Staff'] = $Staff;
 
@@ -821,7 +863,7 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\Location
      */
-    public function getLocation()
+    public function getLocation(): \Nlocascio\Mindbody\Model\Location
     {
         return $this->container['Location'];
     }
@@ -833,7 +875,9 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setLocation($Location): self
+
+
+    public function setLocation(\Nlocascio\Mindbody\Model\Location $Location): static
     {
         $this->container['Location'] = $Location;
 
@@ -845,7 +889,7 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getFrequencyType()
+    public function getFrequencyType(): string
     {
         return $this->container['FrequencyType'];
     }
@@ -857,7 +901,9 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setFrequencyType($FrequencyType): self
+
+
+    public function setFrequencyType(string $FrequencyType): static
     {
         $allowedValues = $this->getFrequencyTypeAllowableValues();
         if (!is_null($FrequencyType) && !in_array($FrequencyType, $allowedValues, true)) {
@@ -878,7 +924,7 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getFrequencyInterval()
+    public function getFrequencyInterval(): int
     {
         return $this->container['FrequencyInterval'];
     }
@@ -890,7 +936,9 @@ class ClassSchedule extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setFrequencyInterval($FrequencyInterval): self
+
+
+    public function setFrequencyInterval(int $FrequencyInterval): static
     {
         $this->container['FrequencyInterval'] = $FrequencyInterval;
 

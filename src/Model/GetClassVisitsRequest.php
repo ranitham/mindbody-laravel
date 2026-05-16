@@ -50,14 +50,14 @@ class GetClassVisitsRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetClassVisitsRequest';
+    protected static string $swaggerModelName = 'GetClassVisitsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ClassID' => 'int',
         'LastModifiedDate' => '\DateTime',
         'UseSiteSettingsStaffName' => 'bool'
@@ -68,7 +68,7 @@ class GetClassVisitsRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ClassID' => 'int64',
         'LastModifiedDate' => 'date-time',
         'UseSiteSettingsStaffName' => null
@@ -81,7 +81,7 @@ class GetClassVisitsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ClassID' => 'ClassID',
         'LastModifiedDate' => 'LastModifiedDate',
         'UseSiteSettingsStaffName' => 'UseSiteSettingsStaffName'
@@ -92,7 +92,7 @@ class GetClassVisitsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ClassID' => 'setClassID',
         'LastModifiedDate' => 'setLastModifiedDate',
         'UseSiteSettingsStaffName' => 'setUseSiteSettingsStaffName'
@@ -103,7 +103,7 @@ class GetClassVisitsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ClassID' => 'getClassID',
         'LastModifiedDate' => 'getLastModifiedDate',
         'UseSiteSettingsStaffName' => 'getUseSiteSettingsStaffName'
@@ -120,7 +120,7 @@ class GetClassVisitsRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ClassID'] = isset($data['ClassID']) ? $data['ClassID'] : null;
         $this->container['LastModifiedDate'] = isset($data['LastModifiedDate']) ? $data['LastModifiedDate'] : null;
@@ -148,7 +148,7 @@ class GetClassVisitsRequest extends BaseModel
      *
      * @return int
      */
-    public function getClassID()
+    public function getClassID(): int
     {
         return $this->container['ClassID'];
     }
@@ -160,7 +160,9 @@ class GetClassVisitsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClassID($ClassID): self
+
+
+    public function setClassID(int $ClassID): static
     {
         $this->container['ClassID'] = $ClassID;
 
@@ -172,7 +174,7 @@ class GetClassVisitsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getLastModifiedDate()
+    public function getLastModifiedDate(): \DateTime
     {
         return $this->container['LastModifiedDate'];
     }
@@ -184,7 +186,9 @@ class GetClassVisitsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLastModifiedDate($LastModifiedDate): self
+
+
+    public function setLastModifiedDate(\DateTime $LastModifiedDate): static
     {
         $this->container['LastModifiedDate'] = $LastModifiedDate;
 
@@ -196,7 +200,7 @@ class GetClassVisitsRequest extends BaseModel
      *
      * @return bool
      */
-    public function getUseSiteSettingsStaffName()
+    public function getUseSiteSettingsStaffName(): bool
     {
         return $this->container['UseSiteSettingsStaffName'];
     }
@@ -208,7 +212,9 @@ class GetClassVisitsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setUseSiteSettingsStaffName($UseSiteSettingsStaffName): self
+
+
+    public function setUseSiteSettingsStaffName(bool $UseSiteSettingsStaffName): static
     {
         $this->container['UseSiteSettingsStaffName'] = $UseSiteSettingsStaffName;
 

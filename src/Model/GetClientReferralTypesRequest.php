@@ -47,14 +47,14 @@ class GetClientReferralTypesRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetClientReferralTypesRequest';
+    protected static string $swaggerModelName = 'GetClientReferralTypesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'IncludeInactive' => 'bool'
     ];
 
@@ -63,7 +63,7 @@ class GetClientReferralTypesRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'IncludeInactive' => null
     ];
 
@@ -74,7 +74,7 @@ class GetClientReferralTypesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'IncludeInactive' => 'IncludeInactive'
     ];
 
@@ -83,7 +83,7 @@ class GetClientReferralTypesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'IncludeInactive' => 'setIncludeInactive'
     ];
 
@@ -92,7 +92,7 @@ class GetClientReferralTypesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'IncludeInactive' => 'getIncludeInactive'
     ];
 
@@ -107,7 +107,7 @@ class GetClientReferralTypesRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['IncludeInactive'] = isset($data['IncludeInactive']) ? $data['IncludeInactive'] : null;
     }
@@ -130,7 +130,7 @@ class GetClientReferralTypesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIncludeInactive()
+    public function getIncludeInactive(): bool
     {
         return $this->container['IncludeInactive'];
     }
@@ -142,7 +142,9 @@ class GetClientReferralTypesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setIncludeInactive($IncludeInactive): self
+
+
+    public function setIncludeInactive(bool $IncludeInactive): static
     {
         $this->container['IncludeInactive'] = $IncludeInactive;
 

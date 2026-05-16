@@ -49,14 +49,14 @@ class PickASpotUpdateReservationResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'PickASpot.UpdateReservationResponse';
+    protected static string $swaggerModelName = 'PickASpot.UpdateReservationResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Reservation' => '\Nlocascio\Mindbody\Model\PickASpotReservation',
         'ResponseDetails' => '\Nlocascio\Mindbody\Model\PickASpotResponseDetails'
     ];
@@ -66,7 +66,7 @@ class PickASpotUpdateReservationResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Reservation' => null,
         'ResponseDetails' => null
     ];
@@ -78,7 +78,7 @@ class PickASpotUpdateReservationResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Reservation' => 'Reservation',
         'ResponseDetails' => 'ResponseDetails'
     ];
@@ -88,7 +88,7 @@ class PickASpotUpdateReservationResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Reservation' => 'setReservation',
         'ResponseDetails' => 'setResponseDetails'
     ];
@@ -98,7 +98,7 @@ class PickASpotUpdateReservationResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Reservation' => 'getReservation',
         'ResponseDetails' => 'getResponseDetails'
     ];
@@ -114,7 +114,7 @@ class PickASpotUpdateReservationResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Reservation'] = isset($data['Reservation']) ? $data['Reservation'] : null;
         $this->container['ResponseDetails'] = isset($data['ResponseDetails']) ? $data['ResponseDetails'] : null;
@@ -138,7 +138,7 @@ class PickASpotUpdateReservationResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PickASpotReservation
      */
-    public function getReservation()
+    public function getReservation(): \Nlocascio\Mindbody\Model\PickASpotReservation
     {
         return $this->container['Reservation'];
     }
@@ -150,7 +150,9 @@ class PickASpotUpdateReservationResponse extends BaseModel
      *
      * @return $this
      */
-    public function setReservation($Reservation): self
+
+
+    public function setReservation(\Nlocascio\Mindbody\Model\PickASpotReservation $Reservation): static
     {
         $this->container['Reservation'] = $Reservation;
 
@@ -162,7 +164,7 @@ class PickASpotUpdateReservationResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PickASpotResponseDetails
      */
-    public function getResponseDetails()
+    public function getResponseDetails(): \Nlocascio\Mindbody\Model\PickASpotResponseDetails
     {
         return $this->container['ResponseDetails'];
     }
@@ -174,7 +176,9 @@ class PickASpotUpdateReservationResponse extends BaseModel
      *
      * @return $this
      */
-    public function setResponseDetails($ResponseDetails): self
+
+
+    public function setResponseDetails(\Nlocascio\Mindbody\Model\PickASpotResponseDetails $ResponseDetails): static
     {
         $this->container['ResponseDetails'] = $ResponseDetails;
 

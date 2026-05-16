@@ -47,14 +47,14 @@ class UpdateStaffResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UpdateStaffResponse';
+    protected static string $swaggerModelName = 'UpdateStaffResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Staff' => '\Nlocascio\Mindbody\Model\Staff'
     ];
 
@@ -63,7 +63,7 @@ class UpdateStaffResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Staff' => null
     ];
 
@@ -74,7 +74,7 @@ class UpdateStaffResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Staff' => 'Staff'
     ];
 
@@ -83,7 +83,7 @@ class UpdateStaffResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Staff' => 'setStaff'
     ];
 
@@ -92,7 +92,7 @@ class UpdateStaffResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Staff' => 'getStaff'
     ];
 
@@ -107,7 +107,7 @@ class UpdateStaffResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Staff'] = isset($data['Staff']) ? $data['Staff'] : null;
     }
@@ -130,7 +130,7 @@ class UpdateStaffResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Staff
      */
-    public function getStaff()
+    public function getStaff(): \Nlocascio\Mindbody\Model\Staff
     {
         return $this->container['Staff'];
     }
@@ -142,7 +142,9 @@ class UpdateStaffResponse extends BaseModel
      *
      * @return $this
      */
-    public function setStaff($Staff): self
+
+
+    public function setStaff(\Nlocascio\Mindbody\Model\Staff $Staff): static
     {
         $this->container['Staff'] = $Staff;
 

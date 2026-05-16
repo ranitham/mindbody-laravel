@@ -64,7 +64,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property int[] $ApplyMemberDiscountsOfMembershipIds Discounts applied of these membership ids.
  *
  */
-class Service extends BaseModel implements ModelWithId
+class Service extends BaseModel implements ModelWithStringId
 {
     const DISCRIMINATOR = null;
 
@@ -73,14 +73,14 @@ class Service extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Service';
+    protected static string $swaggerModelName = 'Service';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Price' => 'double',
         'OnlinePrice' => 'double',
         'TaxIncluded' => 'double',
@@ -115,7 +115,7 @@ class Service extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Price' => 'double',
         'OnlinePrice' => 'double',
         'TaxIncluded' => 'double',
@@ -152,7 +152,7 @@ class Service extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Price' => 'Price',
         'OnlinePrice' => 'OnlinePrice',
         'TaxIncluded' => 'TaxIncluded',
@@ -187,7 +187,7 @@ class Service extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Price' => 'setPrice',
         'OnlinePrice' => 'setOnlinePrice',
         'TaxIncluded' => 'setTaxIncluded',
@@ -222,7 +222,7 @@ class Service extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Price' => 'getPrice',
         'OnlinePrice' => 'getOnlinePrice',
         'TaxIncluded' => 'getTaxIncluded',
@@ -263,7 +263,7 @@ class Service extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Price'] = isset($data['Price']) ? $data['Price'] : null;
         $this->container['OnlinePrice'] = isset($data['OnlinePrice']) ? $data['OnlinePrice'] : null;
@@ -312,7 +312,7 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getPrice()
+    public function getPrice(): float
     {
         return $this->container['Price'];
     }
@@ -324,7 +324,9 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setPrice($Price): self
+
+
+    public function setPrice(float $Price): static
     {
         $this->container['Price'] = $Price;
 
@@ -336,7 +338,7 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getOnlinePrice()
+    public function getOnlinePrice(): float
     {
         return $this->container['OnlinePrice'];
     }
@@ -348,7 +350,9 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setOnlinePrice($OnlinePrice): self
+
+
+    public function setOnlinePrice(float $OnlinePrice): static
     {
         $this->container['OnlinePrice'] = $OnlinePrice;
 
@@ -360,7 +364,7 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getTaxIncluded()
+    public function getTaxIncluded(): float
     {
         return $this->container['TaxIncluded'];
     }
@@ -372,7 +376,9 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setTaxIncluded($TaxIncluded): self
+
+
+    public function setTaxIncluded(float $TaxIncluded): static
     {
         $this->container['TaxIncluded'] = $TaxIncluded;
 
@@ -384,7 +390,7 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getProgramId()
+    public function getProgramId(): int
     {
         return $this->container['ProgramId'];
     }
@@ -396,7 +402,9 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setProgramId($ProgramId): self
+
+
+    public function setProgramId(int $ProgramId): static
     {
         $this->container['ProgramId'] = $ProgramId;
 
@@ -408,7 +416,7 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getTaxRate()
+    public function getTaxRate(): float
     {
         return $this->container['TaxRate'];
     }
@@ -420,7 +428,9 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setTaxRate($TaxRate): self
+
+
+    public function setTaxRate(float $TaxRate): static
     {
         $this->container['TaxRate'] = $TaxRate;
 
@@ -432,7 +442,7 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getProductId()
+    public function getProductId(): int
     {
         return $this->container['ProductId'];
     }
@@ -444,7 +454,9 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setProductId($ProductId): self
+
+
+    public function setProductId(int $ProductId): static
     {
         $this->container['ProductId'] = $ProductId;
 
@@ -456,7 +468,7 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getId()
+    public function getId(): string
     {
         return $this->container['Id'];
     }
@@ -468,7 +480,9 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(string $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -480,7 +494,7 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->container['Name'];
     }
@@ -492,7 +506,9 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setName($Name): self
+
+
+    public function setName(string $Name): static
     {
         $this->container['Name'] = $Name;
 
@@ -504,7 +520,7 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getCount()
+    public function getCount(): int
     {
         return $this->container['Count'];
     }
@@ -516,7 +532,9 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setCount($Count): self
+
+
+    public function setCount(int $Count): static
     {
         $this->container['Count'] = $Count;
 
@@ -528,7 +546,7 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getSellOnline()
+    public function getSellOnline(): bool
     {
         return $this->container['SellOnline'];
     }
@@ -540,7 +558,9 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSellOnline($SellOnline): self
+
+
+    public function setSellOnline(bool $SellOnline): static
     {
         $this->container['SellOnline'] = $SellOnline;
 
@@ -552,7 +572,7 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getSaleInContractOnly()
+    public function getSaleInContractOnly(): bool
     {
         return $this->container['SaleInContractOnly'];
     }
@@ -564,7 +584,9 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSaleInContractOnly($SaleInContractOnly): self
+
+
+    public function setSaleInContractOnly(bool $SaleInContractOnly): static
     {
         $this->container['SaleInContractOnly'] = $SaleInContractOnly;
 
@@ -576,7 +598,7 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getType()
+    public function getType(): string
     {
         return $this->container['Type'];
     }
@@ -588,7 +610,9 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setType($Type): self
+
+
+    public function setType(string $Type): static
     {
         $this->container['Type'] = $Type;
 
@@ -600,7 +624,7 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getExpirationType()
+    public function getExpirationType(): string
     {
         return $this->container['ExpirationType'];
     }
@@ -612,7 +636,9 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setExpirationType($ExpirationType): self
+
+
+    public function setExpirationType(string $ExpirationType): static
     {
         $this->container['ExpirationType'] = $ExpirationType;
 
@@ -624,7 +650,7 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getExpirationUnit()
+    public function getExpirationUnit(): string
     {
         return $this->container['ExpirationUnit'];
     }
@@ -636,7 +662,9 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setExpirationUnit($ExpirationUnit): self
+
+
+    public function setExpirationUnit(string $ExpirationUnit): static
     {
         $this->container['ExpirationUnit'] = $ExpirationUnit;
 
@@ -648,7 +676,7 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getExpirationLength()
+    public function getExpirationLength(): int
     {
         return $this->container['ExpirationLength'];
     }
@@ -660,7 +688,9 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setExpirationLength($ExpirationLength): self
+
+
+    public function setExpirationLength(int $ExpirationLength): static
     {
         $this->container['ExpirationLength'] = $ExpirationLength;
 
@@ -672,7 +702,7 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getRevenueCategory()
+    public function getRevenueCategory(): string
     {
         return $this->container['RevenueCategory'];
     }
@@ -684,7 +714,9 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setRevenueCategory($RevenueCategory): self
+
+
+    public function setRevenueCategory(string $RevenueCategory): static
     {
         $this->container['RevenueCategory'] = $RevenueCategory;
 
@@ -696,7 +728,7 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getMembershipId()
+    public function getMembershipId(): int
     {
         return $this->container['MembershipId'];
     }
@@ -708,7 +740,9 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setMembershipId($MembershipId): self
+
+
+    public function setMembershipId(int $MembershipId): static
     {
         $this->container['MembershipId'] = $MembershipId;
 
@@ -720,7 +754,7 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return int[]
      */
-    public function getSellAtLocationIds()
+    public function getSellAtLocationIds(): array
     {
         return $this->container['SellAtLocationIds'];
     }
@@ -732,7 +766,9 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSellAtLocationIds($SellAtLocationIds): self
+
+
+    public function setSellAtLocationIds(array $SellAtLocationIds): static
     {
         $this->container['SellAtLocationIds'] = $SellAtLocationIds;
 
@@ -744,7 +780,7 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return int[]
      */
-    public function getUseAtLocationIds()
+    public function getUseAtLocationIds(): array
     {
         return $this->container['UseAtLocationIds'];
     }
@@ -756,7 +792,9 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setUseAtLocationIds($UseAtLocationIds): self
+
+
+    public function setUseAtLocationIds(array $UseAtLocationIds): static
     {
         $this->container['UseAtLocationIds'] = $UseAtLocationIds;
 
@@ -768,7 +806,7 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getPriority()
+    public function getPriority(): string
     {
         return $this->container['Priority'];
     }
@@ -780,7 +818,9 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setPriority($Priority): self
+
+
+    public function setPriority(string $Priority): static
     {
         $this->container['Priority'] = $Priority;
 
@@ -792,7 +832,7 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getIsIntroOffer()
+    public function getIsIntroOffer(): bool
     {
         return $this->container['IsIntroOffer'];
     }
@@ -804,7 +844,9 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setIsIntroOffer($IsIntroOffer): self
+
+
+    public function setIsIntroOffer(bool $IsIntroOffer): static
     {
         $this->container['IsIntroOffer'] = $IsIntroOffer;
 
@@ -816,7 +858,7 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getIntroOfferType()
+    public function getIntroOfferType(): string
     {
         return $this->container['IntroOfferType'];
     }
@@ -828,7 +870,9 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setIntroOfferType($IntroOfferType): self
+
+
+    public function setIntroOfferType(string $IntroOfferType): static
     {
         $this->container['IntroOfferType'] = $IntroOfferType;
 
@@ -840,7 +884,7 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getIsThirdPartyDiscountPricing()
+    public function getIsThirdPartyDiscountPricing(): bool
     {
         return $this->container['IsThirdPartyDiscountPricing'];
     }
@@ -852,7 +896,9 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setIsThirdPartyDiscountPricing($IsThirdPartyDiscountPricing): self
+
+
+    public function setIsThirdPartyDiscountPricing(bool $IsThirdPartyDiscountPricing): static
     {
         $this->container['IsThirdPartyDiscountPricing'] = $IsThirdPartyDiscountPricing;
 
@@ -864,7 +910,7 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getProgram()
+    public function getProgram(): string
     {
         return $this->container['Program'];
     }
@@ -876,7 +922,9 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setProgram($Program): self
+
+
+    public function setProgram(string $Program): static
     {
         $this->container['Program'] = $Program;
 
@@ -888,7 +936,7 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getDiscontinued()
+    public function getDiscontinued(): bool
     {
         return $this->container['Discontinued'];
     }
@@ -900,7 +948,9 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setDiscontinued($Discontinued): self
+
+
+    public function setDiscontinued(bool $Discontinued): static
     {
         $this->container['Discontinued'] = $Discontinued;
 
@@ -912,7 +962,7 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return int[]
      */
-    public function getRestrictToMembershipIds()
+    public function getRestrictToMembershipIds(): array
     {
         return $this->container['RestrictToMembershipIds'];
     }
@@ -924,7 +974,9 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setRestrictToMembershipIds($RestrictToMembershipIds): self
+
+
+    public function setRestrictToMembershipIds(array $RestrictToMembershipIds): static
     {
         $this->container['RestrictToMembershipIds'] = $RestrictToMembershipIds;
 
@@ -936,7 +988,7 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return int[]
      */
-    public function getApplyMemberDiscountsOfMembershipIds()
+    public function getApplyMemberDiscountsOfMembershipIds(): array
     {
         return $this->container['ApplyMemberDiscountsOfMembershipIds'];
     }
@@ -948,7 +1000,9 @@ class Service extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setApplyMemberDiscountsOfMembershipIds($ApplyMemberDiscountsOfMembershipIds): self
+
+
+    public function setApplyMemberDiscountsOfMembershipIds(array $ApplyMemberDiscountsOfMembershipIds): static
     {
         $this->container['ApplyMemberDiscountsOfMembershipIds'] = $ApplyMemberDiscountsOfMembershipIds;
 

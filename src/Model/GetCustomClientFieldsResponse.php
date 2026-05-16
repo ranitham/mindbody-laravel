@@ -48,14 +48,14 @@ class GetCustomClientFieldsResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetCustomClientFieldsResponse';
+    protected static string $swaggerModelName = 'GetCustomClientFieldsResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'PaginationResponse' => '\Nlocascio\Mindbody\Model\PaginationResponse',
         'CustomClientFields' => '\Nlocascio\Mindbody\Model\CustomClientField[]'
     ];
@@ -65,7 +65,7 @@ class GetCustomClientFieldsResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'PaginationResponse' => null,
         'CustomClientFields' => null
     ];
@@ -77,7 +77,7 @@ class GetCustomClientFieldsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'PaginationResponse' => 'PaginationResponse',
         'CustomClientFields' => 'CustomClientFields'
     ];
@@ -87,7 +87,7 @@ class GetCustomClientFieldsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'PaginationResponse' => 'setPaginationResponse',
         'CustomClientFields' => 'setCustomClientFields'
     ];
@@ -97,7 +97,7 @@ class GetCustomClientFieldsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'PaginationResponse' => 'getPaginationResponse',
         'CustomClientFields' => 'getCustomClientFields'
     ];
@@ -113,7 +113,7 @@ class GetCustomClientFieldsResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['PaginationResponse'] = isset($data['PaginationResponse']) ? $data['PaginationResponse'] : null;
         $this->container['CustomClientFields'] = isset($data['CustomClientFields']) ? $data['CustomClientFields'] : null;
@@ -137,7 +137,7 @@ class GetCustomClientFieldsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse()
+    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
     {
         return $this->container['PaginationResponse'];
     }
@@ -149,7 +149,9 @@ class GetCustomClientFieldsResponse extends BaseModel
      *
      * @return $this
      */
-    public function setPaginationResponse($PaginationResponse): self
+
+
+    public function setPaginationResponse(\Nlocascio\Mindbody\Model\PaginationResponse $PaginationResponse): static
     {
         $this->container['PaginationResponse'] = $PaginationResponse;
 
@@ -161,7 +163,7 @@ class GetCustomClientFieldsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\CustomClientField[]
      */
-    public function getCustomClientFields()
+    public function getCustomClientFields(): array
     {
         return $this->container['CustomClientFields'];
     }
@@ -173,7 +175,9 @@ class GetCustomClientFieldsResponse extends BaseModel
      *
      * @return $this
      */
-    public function setCustomClientFields($CustomClientFields): self
+
+
+    public function setCustomClientFields(array $CustomClientFields): static
     {
         $this->container['CustomClientFields'] = $CustomClientFields;
 

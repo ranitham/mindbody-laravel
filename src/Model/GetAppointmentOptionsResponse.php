@@ -47,14 +47,14 @@ class GetAppointmentOptionsResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetAppointmentOptionsResponse';
+    protected static string $swaggerModelName = 'GetAppointmentOptionsResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Options' => '\Nlocascio\Mindbody\Model\AppointmentOption[]'
     ];
 
@@ -63,7 +63,7 @@ class GetAppointmentOptionsResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Options' => null
     ];
 
@@ -74,7 +74,7 @@ class GetAppointmentOptionsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Options' => 'Options'
     ];
 
@@ -83,7 +83,7 @@ class GetAppointmentOptionsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Options' => 'setOptions'
     ];
 
@@ -92,7 +92,7 @@ class GetAppointmentOptionsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Options' => 'getOptions'
     ];
 
@@ -107,7 +107,7 @@ class GetAppointmentOptionsResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Options'] = isset($data['Options']) ? $data['Options'] : null;
     }
@@ -130,7 +130,7 @@ class GetAppointmentOptionsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\AppointmentOption[]
      */
-    public function getOptions()
+    public function getOptions(): array
     {
         return $this->container['Options'];
     }
@@ -142,7 +142,9 @@ class GetAppointmentOptionsResponse extends BaseModel
      *
      * @return $this
      */
-    public function setOptions($Options): self
+
+
+    public function setOptions(array $Options): static
     {
         $this->container['Options'] = $Options;
 

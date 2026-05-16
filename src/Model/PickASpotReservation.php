@@ -56,14 +56,14 @@ class PickASpotReservation extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'PickASpot.Reservation';
+    protected static string $swaggerModelName = 'PickASpot.Reservation';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ReservationId' => 'string',
         'ReservationExternalId' => 'string',
         'ClassId' => 'string',
@@ -80,7 +80,7 @@ class PickASpotReservation extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ReservationId' => null,
         'ReservationExternalId' => null,
         'ClassId' => null,
@@ -99,7 +99,7 @@ class PickASpotReservation extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ReservationId' => 'ReservationId',
         'ReservationExternalId' => 'ReservationExternalId',
         'ClassId' => 'ClassId',
@@ -116,7 +116,7 @@ class PickASpotReservation extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ReservationId' => 'setReservationId',
         'ReservationExternalId' => 'setReservationExternalId',
         'ClassId' => 'setClassId',
@@ -133,7 +133,7 @@ class PickASpotReservation extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ReservationId' => 'getReservationId',
         'ReservationExternalId' => 'getReservationExternalId',
         'ClassId' => 'getClassId',
@@ -156,7 +156,7 @@ class PickASpotReservation extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ReservationId'] = isset($data['ReservationId']) ? $data['ReservationId'] : null;
         $this->container['ReservationExternalId'] = isset($data['ReservationExternalId']) ? $data['ReservationExternalId'] : null;
@@ -187,7 +187,7 @@ class PickASpotReservation extends BaseModel
      *
      * @return string
      */
-    public function getReservationId()
+    public function getReservationId(): string
     {
         return $this->container['ReservationId'];
     }
@@ -199,7 +199,9 @@ class PickASpotReservation extends BaseModel
      *
      * @return $this
      */
-    public function setReservationId($ReservationId): self
+
+
+    public function setReservationId(string $ReservationId): static
     {
         $this->container['ReservationId'] = $ReservationId;
 
@@ -211,7 +213,7 @@ class PickASpotReservation extends BaseModel
      *
      * @return string
      */
-    public function getReservationExternalId()
+    public function getReservationExternalId(): string
     {
         return $this->container['ReservationExternalId'];
     }
@@ -223,7 +225,9 @@ class PickASpotReservation extends BaseModel
      *
      * @return $this
      */
-    public function setReservationExternalId($ReservationExternalId): self
+
+
+    public function setReservationExternalId(string $ReservationExternalId): static
     {
         $this->container['ReservationExternalId'] = $ReservationExternalId;
 
@@ -235,7 +239,7 @@ class PickASpotReservation extends BaseModel
      *
      * @return string
      */
-    public function getClassId()
+    public function getClassId(): string
     {
         return $this->container['ClassId'];
     }
@@ -247,7 +251,9 @@ class PickASpotReservation extends BaseModel
      *
      * @return $this
      */
-    public function setClassId($ClassId): self
+
+
+    public function setClassId(string $ClassId): static
     {
         $this->container['ClassId'] = $ClassId;
 
@@ -259,7 +265,7 @@ class PickASpotReservation extends BaseModel
      *
      * @return string
      */
-    public function getClassExternalId()
+    public function getClassExternalId(): string
     {
         return $this->container['ClassExternalId'];
     }
@@ -271,7 +277,9 @@ class PickASpotReservation extends BaseModel
      *
      * @return $this
      */
-    public function setClassExternalId($ClassExternalId): self
+
+
+    public function setClassExternalId(string $ClassExternalId): static
     {
         $this->container['ClassExternalId'] = $ClassExternalId;
 
@@ -283,7 +291,7 @@ class PickASpotReservation extends BaseModel
      *
      * @return string
      */
-    public function getMemberExternalId()
+    public function getMemberExternalId(): string
     {
         return $this->container['MemberExternalId'];
     }
@@ -295,7 +303,9 @@ class PickASpotReservation extends BaseModel
      *
      * @return $this
      */
-    public function setMemberExternalId($MemberExternalId): self
+
+
+    public function setMemberExternalId(string $MemberExternalId): static
     {
         $this->container['MemberExternalId'] = $MemberExternalId;
 
@@ -307,7 +317,7 @@ class PickASpotReservation extends BaseModel
      *
      * @return string
      */
-    public function getReservationType()
+    public function getReservationType(): string
     {
         return $this->container['ReservationType'];
     }
@@ -319,7 +329,9 @@ class PickASpotReservation extends BaseModel
      *
      * @return $this
      */
-    public function setReservationType($ReservationType): self
+
+
+    public function setReservationType(string $ReservationType): static
     {
         $this->container['ReservationType'] = $ReservationType;
 
@@ -331,7 +343,7 @@ class PickASpotReservation extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PickASpotSpot
      */
-    public function getSpots()
+    public function getSpots(): \Nlocascio\Mindbody\Model\PickASpotSpot
     {
         return $this->container['Spots'];
     }
@@ -343,7 +355,9 @@ class PickASpotReservation extends BaseModel
      *
      * @return $this
      */
-    public function setSpots($Spots): self
+
+
+    public function setSpots(\Nlocascio\Mindbody\Model\PickASpotSpot $Spots): static
     {
         $this->container['Spots'] = $Spots;
 
@@ -355,7 +369,7 @@ class PickASpotReservation extends BaseModel
      *
      * @return bool
      */
-    public function getIsConfirmed()
+    public function getIsConfirmed(): bool
     {
         return $this->container['IsConfirmed'];
     }
@@ -367,7 +381,9 @@ class PickASpotReservation extends BaseModel
      *
      * @return $this
      */
-    public function setIsConfirmed($IsConfirmed): self
+
+
+    public function setIsConfirmed(bool $IsConfirmed): static
     {
         $this->container['IsConfirmed'] = $IsConfirmed;
 
@@ -379,7 +395,7 @@ class PickASpotReservation extends BaseModel
      *
      * @return \DateTime
      */
-    public function getConfirmationDate()
+    public function getConfirmationDate(): \DateTime
     {
         return $this->container['ConfirmationDate'];
     }
@@ -391,7 +407,9 @@ class PickASpotReservation extends BaseModel
      *
      * @return $this
      */
-    public function setConfirmationDate($ConfirmationDate): self
+
+
+    public function setConfirmationDate(\DateTime $ConfirmationDate): static
     {
         $this->container['ConfirmationDate'] = $ConfirmationDate;
 

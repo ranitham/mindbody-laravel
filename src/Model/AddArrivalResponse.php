@@ -48,14 +48,14 @@ class AddArrivalResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AddArrivalResponse';
+    protected static string $swaggerModelName = 'AddArrivalResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ArrivalAdded' => 'bool',
         'ClientService' => '\Nlocascio\Mindbody\Model\ClientService'
     ];
@@ -65,7 +65,7 @@ class AddArrivalResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ArrivalAdded' => null,
         'ClientService' => null
     ];
@@ -77,7 +77,7 @@ class AddArrivalResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ArrivalAdded' => 'ArrivalAdded',
         'ClientService' => 'ClientService'
     ];
@@ -87,7 +87,7 @@ class AddArrivalResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ArrivalAdded' => 'setArrivalAdded',
         'ClientService' => 'setClientService'
     ];
@@ -97,7 +97,7 @@ class AddArrivalResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ArrivalAdded' => 'getArrivalAdded',
         'ClientService' => 'getClientService'
     ];
@@ -113,7 +113,7 @@ class AddArrivalResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ArrivalAdded'] = isset($data['ArrivalAdded']) ? $data['ArrivalAdded'] : null;
         $this->container['ClientService'] = isset($data['ClientService']) ? $data['ClientService'] : null;
@@ -137,7 +137,7 @@ class AddArrivalResponse extends BaseModel
      *
      * @return bool
      */
-    public function getArrivalAdded()
+    public function getArrivalAdded(): bool
     {
         return $this->container['ArrivalAdded'];
     }
@@ -149,7 +149,9 @@ class AddArrivalResponse extends BaseModel
      *
      * @return $this
      */
-    public function setArrivalAdded($ArrivalAdded): self
+
+
+    public function setArrivalAdded(bool $ArrivalAdded): static
     {
         $this->container['ArrivalAdded'] = $ArrivalAdded;
 
@@ -161,7 +163,7 @@ class AddArrivalResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClientService
      */
-    public function getClientService()
+    public function getClientService(): \Nlocascio\Mindbody\Model\ClientService
     {
         return $this->container['ClientService'];
     }
@@ -173,7 +175,9 @@ class AddArrivalResponse extends BaseModel
      *
      * @return $this
      */
-    public function setClientService($ClientService): self
+
+
+    public function setClientService(\Nlocascio\Mindbody\Model\ClientService $ClientService): static
     {
         $this->container['ClientService'] = $ClientService;
 

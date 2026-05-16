@@ -70,14 +70,14 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AddClassEnrollmentScheduleRequest';
+    protected static string $swaggerModelName = 'AddClassEnrollmentScheduleRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ClassDescriptionId' => 'int',
         'LocationId' => 'int',
         'StartDate' => '\DateTime',
@@ -109,7 +109,7 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ClassDescriptionId' => 'int32',
         'LocationId' => 'int32',
         'StartDate' => 'date-time',
@@ -143,7 +143,7 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ClassDescriptionId' => 'ClassDescriptionId',
         'LocationId' => 'LocationId',
         'StartDate' => 'StartDate',
@@ -175,7 +175,7 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ClassDescriptionId' => 'setClassDescriptionId',
         'LocationId' => 'setLocationId',
         'StartDate' => 'setStartDate',
@@ -207,7 +207,7 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ClassDescriptionId' => 'getClassDescriptionId',
         'LocationId' => 'getLocationId',
         'StartDate' => 'getStartDate',
@@ -245,7 +245,7 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ClassDescriptionId'] = isset($data['ClassDescriptionId']) ? $data['ClassDescriptionId'] : null;
         $this->container['LocationId'] = isset($data['LocationId']) ? $data['LocationId'] : null;
@@ -291,7 +291,7 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return int
      */
-    public function getClassDescriptionId()
+    public function getClassDescriptionId(): int
     {
         return $this->container['ClassDescriptionId'];
     }
@@ -303,7 +303,9 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClassDescriptionId($ClassDescriptionId): self
+
+
+    public function setClassDescriptionId(int $ClassDescriptionId): static
     {
         $this->container['ClassDescriptionId'] = $ClassDescriptionId;
 
@@ -315,7 +317,7 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return int
      */
-    public function getLocationId()
+    public function getLocationId(): int
     {
         return $this->container['LocationId'];
     }
@@ -327,7 +329,9 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLocationId($LocationId): self
+
+
+    public function setLocationId(int $LocationId): static
     {
         $this->container['LocationId'] = $LocationId;
 
@@ -339,7 +343,7 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDate()
+    public function getStartDate(): \DateTime
     {
         return $this->container['StartDate'];
     }
@@ -351,7 +355,9 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStartDate($StartDate): self
+
+
+    public function setStartDate(\DateTime $StartDate): static
     {
         $this->container['StartDate'] = $StartDate;
 
@@ -363,7 +369,7 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDate()
+    public function getEndDate(): \DateTime
     {
         return $this->container['EndDate'];
     }
@@ -375,7 +381,9 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return $this
      */
-    public function setEndDate($EndDate): self
+
+
+    public function setEndDate(\DateTime $EndDate): static
     {
         $this->container['EndDate'] = $EndDate;
 
@@ -387,7 +395,7 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartTime()
+    public function getStartTime(): \DateTime
     {
         return $this->container['StartTime'];
     }
@@ -399,7 +407,9 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStartTime($StartTime): self
+
+
+    public function setStartTime(\DateTime $StartTime): static
     {
         $this->container['StartTime'] = $StartTime;
 
@@ -411,7 +421,7 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndTime()
+    public function getEndTime(): \DateTime
     {
         return $this->container['EndTime'];
     }
@@ -423,7 +433,9 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return $this
      */
-    public function setEndTime($EndTime): self
+
+
+    public function setEndTime(\DateTime $EndTime): static
     {
         $this->container['EndTime'] = $EndTime;
 
@@ -435,7 +447,7 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return bool
      */
-    public function getDaySunday()
+    public function getDaySunday(): bool
     {
         return $this->container['DaySunday'];
     }
@@ -447,7 +459,9 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return $this
      */
-    public function setDaySunday($DaySunday): self
+
+
+    public function setDaySunday(bool $DaySunday): static
     {
         $this->container['DaySunday'] = $DaySunday;
 
@@ -459,7 +473,7 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return bool
      */
-    public function getDayMonday()
+    public function getDayMonday(): bool
     {
         return $this->container['DayMonday'];
     }
@@ -471,7 +485,9 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return $this
      */
-    public function setDayMonday($DayMonday): self
+
+
+    public function setDayMonday(bool $DayMonday): static
     {
         $this->container['DayMonday'] = $DayMonday;
 
@@ -483,7 +499,7 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return bool
      */
-    public function getDayTuesday()
+    public function getDayTuesday(): bool
     {
         return $this->container['DayTuesday'];
     }
@@ -495,7 +511,9 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return $this
      */
-    public function setDayTuesday($DayTuesday): self
+
+
+    public function setDayTuesday(bool $DayTuesday): static
     {
         $this->container['DayTuesday'] = $DayTuesday;
 
@@ -507,7 +525,7 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return bool
      */
-    public function getDayWednesday()
+    public function getDayWednesday(): bool
     {
         return $this->container['DayWednesday'];
     }
@@ -519,7 +537,9 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return $this
      */
-    public function setDayWednesday($DayWednesday): self
+
+
+    public function setDayWednesday(bool $DayWednesday): static
     {
         $this->container['DayWednesday'] = $DayWednesday;
 
@@ -531,7 +551,7 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return bool
      */
-    public function getDayThursday()
+    public function getDayThursday(): bool
     {
         return $this->container['DayThursday'];
     }
@@ -543,7 +563,9 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return $this
      */
-    public function setDayThursday($DayThursday): self
+
+
+    public function setDayThursday(bool $DayThursday): static
     {
         $this->container['DayThursday'] = $DayThursday;
 
@@ -555,7 +577,7 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return bool
      */
-    public function getDayFriday()
+    public function getDayFriday(): bool
     {
         return $this->container['DayFriday'];
     }
@@ -567,7 +589,9 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return $this
      */
-    public function setDayFriday($DayFriday): self
+
+
+    public function setDayFriday(bool $DayFriday): static
     {
         $this->container['DayFriday'] = $DayFriday;
 
@@ -579,7 +603,7 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return bool
      */
-    public function getDaySaturday()
+    public function getDaySaturday(): bool
     {
         return $this->container['DaySaturday'];
     }
@@ -591,7 +615,9 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return $this
      */
-    public function setDaySaturday($DaySaturday): self
+
+
+    public function setDaySaturday(bool $DaySaturday): static
     {
         $this->container['DaySaturday'] = $DaySaturday;
 
@@ -603,7 +629,7 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return int
      */
-    public function getStaffId()
+    public function getStaffId(): int
     {
         return $this->container['StaffId'];
     }
@@ -615,7 +641,9 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStaffId($StaffId): self
+
+
+    public function setStaffId(int $StaffId): static
     {
         $this->container['StaffId'] = $StaffId;
 
@@ -627,7 +655,7 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return int
      */
-    public function getStaffPayRate()
+    public function getStaffPayRate(): int
     {
         return $this->container['StaffPayRate'];
     }
@@ -639,7 +667,9 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStaffPayRate($StaffPayRate): self
+
+
+    public function setStaffPayRate(int $StaffPayRate): static
     {
         $this->container['StaffPayRate'] = $StaffPayRate;
 
@@ -651,7 +681,7 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return int
      */
-    public function getResourceId()
+    public function getResourceId(): int
     {
         return $this->container['ResourceId'];
     }
@@ -663,7 +693,9 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return $this
      */
-    public function setResourceId($ResourceId): self
+
+
+    public function setResourceId(int $ResourceId): static
     {
         $this->container['ResourceId'] = $ResourceId;
 
@@ -675,7 +707,7 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return int
      */
-    public function getMaxCapacity()
+    public function getMaxCapacity(): int
     {
         return $this->container['MaxCapacity'];
     }
@@ -687,7 +719,9 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return $this
      */
-    public function setMaxCapacity($MaxCapacity): self
+
+
+    public function setMaxCapacity(int $MaxCapacity): static
     {
         $this->container['MaxCapacity'] = $MaxCapacity;
 
@@ -699,7 +733,7 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return int
      */
-    public function getWebCapacity()
+    public function getWebCapacity(): int
     {
         return $this->container['WebCapacity'];
     }
@@ -711,7 +745,9 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return $this
      */
-    public function setWebCapacity($WebCapacity): self
+
+
+    public function setWebCapacity(int $WebCapacity): static
     {
         $this->container['WebCapacity'] = $WebCapacity;
 
@@ -723,7 +759,7 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return int
      */
-    public function getWaitlistCapacity()
+    public function getWaitlistCapacity(): int
     {
         return $this->container['WaitlistCapacity'];
     }
@@ -735,7 +771,9 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return $this
      */
-    public function setWaitlistCapacity($WaitlistCapacity): self
+
+
+    public function setWaitlistCapacity(int $WaitlistCapacity): static
     {
         $this->container['WaitlistCapacity'] = $WaitlistCapacity;
 
@@ -747,7 +785,7 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return string
      */
-    public function getBookingStatus()
+    public function getBookingStatus(): string
     {
         return $this->container['BookingStatus'];
     }
@@ -759,7 +797,9 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return $this
      */
-    public function setBookingStatus($BookingStatus): self
+
+
+    public function setBookingStatus(string $BookingStatus): static
     {
         $this->container['BookingStatus'] = $BookingStatus;
 
@@ -771,7 +811,7 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return bool
      */
-    public function getAllowOpenEnrollment()
+    public function getAllowOpenEnrollment(): bool
     {
         return $this->container['AllowOpenEnrollment'];
     }
@@ -783,7 +823,9 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return $this
      */
-    public function setAllowOpenEnrollment($AllowOpenEnrollment): self
+
+
+    public function setAllowOpenEnrollment(bool $AllowOpenEnrollment): static
     {
         $this->container['AllowOpenEnrollment'] = $AllowOpenEnrollment;
 
@@ -795,7 +837,7 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return bool
      */
-    public function getAllowDateForwardEnrollment()
+    public function getAllowDateForwardEnrollment(): bool
     {
         return $this->container['AllowDateForwardEnrollment'];
     }
@@ -807,7 +849,9 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return $this
      */
-    public function setAllowDateForwardEnrollment($AllowDateForwardEnrollment): self
+
+
+    public function setAllowDateForwardEnrollment(bool $AllowDateForwardEnrollment): static
     {
         $this->container['AllowDateForwardEnrollment'] = $AllowDateForwardEnrollment;
 
@@ -819,7 +863,7 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getPricingOptionsProductIds()
+    public function getPricingOptionsProductIds(): array
     {
         return $this->container['PricingOptionsProductIds'];
     }
@@ -831,7 +875,9 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return $this
      */
-    public function setPricingOptionsProductIds($PricingOptionsProductIds): self
+
+
+    public function setPricingOptionsProductIds(array $PricingOptionsProductIds): static
     {
         $this->container['PricingOptionsProductIds'] = $PricingOptionsProductIds;
 
@@ -843,7 +889,7 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return bool
      */
-    public function getShowToPublic()
+    public function getShowToPublic(): bool
     {
         return $this->container['ShowToPublic'];
     }
@@ -855,7 +901,9 @@ class AddClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return $this
      */
-    public function setShowToPublic($ShowToPublic): self
+
+
+    public function setShowToPublic(bool $ShowToPublic): static
     {
         $this->container['ShowToPublic'] = $ShowToPublic;
 

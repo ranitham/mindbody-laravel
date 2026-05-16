@@ -48,14 +48,14 @@ class GetAlternativePaymentMethodsResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetAlternativePaymentMethodsResponse';
+    protected static string $swaggerModelName = 'GetAlternativePaymentMethodsResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'PaymentMethods' => '\Nlocascio\Mindbody\Model\AlternativePaymentMethod[]'
     ];
 
@@ -64,7 +64,7 @@ class GetAlternativePaymentMethodsResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'PaymentMethods' => null
     ];
 
@@ -75,7 +75,7 @@ class GetAlternativePaymentMethodsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'PaymentMethods' => 'PaymentMethods'
     ];
 
@@ -84,7 +84,7 @@ class GetAlternativePaymentMethodsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'PaymentMethods' => 'setPaymentMethods'
     ];
 
@@ -93,7 +93,7 @@ class GetAlternativePaymentMethodsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'PaymentMethods' => 'getPaymentMethods'
     ];
 
@@ -108,7 +108,7 @@ class GetAlternativePaymentMethodsResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['PaymentMethods'] = isset($data['PaymentMethods']) ? $data['PaymentMethods'] : null;
     }
@@ -131,7 +131,7 @@ class GetAlternativePaymentMethodsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\AlternativePaymentMethod[]
      */
-    public function getPaymentMethods()
+    public function getPaymentMethods(): array
     {
         return $this->container['PaymentMethods'];
     }
@@ -143,7 +143,9 @@ class GetAlternativePaymentMethodsResponse extends BaseModel
      *
      * @return $this
      */
-    public function setPaymentMethods($PaymentMethods): self
+
+
+    public function setPaymentMethods(array $PaymentMethods): static
     {
         $this->container['PaymentMethods'] = $PaymentMethods;
 

@@ -48,14 +48,14 @@ class KeyValuePair extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'KeyValuePair';
+    protected static string $swaggerModelName = 'KeyValuePair';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Key' => 'string',
         'Value' => 'string[]'
     ];
@@ -65,7 +65,7 @@ class KeyValuePair extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Key' => null,
         'Value' => null
     ];
@@ -77,7 +77,7 @@ class KeyValuePair extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Key' => 'key',
         'Value' => 'value'
     ];
@@ -87,7 +87,7 @@ class KeyValuePair extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Key' => 'setKey',
         'Value' => 'setValue'
     ];
@@ -97,7 +97,7 @@ class KeyValuePair extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Key' => 'getKey',
         'Value' => 'getValue'
     ];
@@ -113,7 +113,7 @@ class KeyValuePair extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Key'] = isset($data['Key']) ? $data['Key'] : null;
         $this->container['Value'] = isset($data['Value']) ? $data['Value'] : null;
@@ -137,7 +137,7 @@ class KeyValuePair extends BaseModel
      *
      * @return string
      */
-    public function getKey()
+    public function getKey(): string
     {
         return $this->container['Key'];
     }
@@ -149,7 +149,9 @@ class KeyValuePair extends BaseModel
      *
      * @return $this
      */
-    public function setKey($Key): self
+
+
+    public function setKey(string $Key): static
     {
         $this->container['Key'] = $Key;
 
@@ -161,7 +163,7 @@ class KeyValuePair extends BaseModel
      *
      * @return string[]
      */
-    public function getValue()
+    public function getValue(): array
     {
         return $this->container['Value'];
     }
@@ -173,7 +175,9 @@ class KeyValuePair extends BaseModel
      *
      * @return $this
      */
-    public function setValue($Value): self
+
+
+    public function setValue(array $Value): static
     {
         $this->container['Value'] = $Value;
 

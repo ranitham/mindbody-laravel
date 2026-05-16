@@ -47,14 +47,14 @@ class SystemThreadingWaitHandle extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'System.Threading.WaitHandle';
+    protected static string $swaggerModelName = 'System.Threading.WaitHandle';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'SafeWaitHandle' => '\Nlocascio\Mindbody\Model\MicrosoftWin32SafeHandlesSafeWaitHandle'
     ];
 
@@ -63,7 +63,7 @@ class SystemThreadingWaitHandle extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'SafeWaitHandle' => null
     ];
 
@@ -74,7 +74,7 @@ class SystemThreadingWaitHandle extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'SafeWaitHandle' => 'SafeWaitHandle'
     ];
 
@@ -83,7 +83,7 @@ class SystemThreadingWaitHandle extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'SafeWaitHandle' => 'setSafeWaitHandle'
     ];
 
@@ -92,7 +92,7 @@ class SystemThreadingWaitHandle extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'SafeWaitHandle' => 'getSafeWaitHandle'
     ];
 
@@ -107,7 +107,7 @@ class SystemThreadingWaitHandle extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['SafeWaitHandle'] = isset($data['SafeWaitHandle']) ? $data['SafeWaitHandle'] : null;
     }
@@ -130,7 +130,7 @@ class SystemThreadingWaitHandle extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\MicrosoftWin32SafeHandlesSafeWaitHandle
      */
-    public function getSafeWaitHandle()
+    public function getSafeWaitHandle(): \Nlocascio\Mindbody\Model\MicrosoftWin32SafeHandlesSafeWaitHandle
     {
         return $this->container['SafeWaitHandle'];
     }
@@ -142,7 +142,9 @@ class SystemThreadingWaitHandle extends BaseModel
      *
      * @return $this
      */
-    public function setSafeWaitHandle($SafeWaitHandle): self
+
+
+    public function setSafeWaitHandle(\Nlocascio\Mindbody\Model\MicrosoftWin32SafeHandlesSafeWaitHandle $SafeWaitHandle): static
     {
         $this->container['SafeWaitHandle'] = $SafeWaitHandle;
 

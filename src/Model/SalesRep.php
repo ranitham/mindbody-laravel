@@ -42,7 +42,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property int[] $SalesRepNumbers A list of the different types of sales representative functions assigned to this staff member.
  *
  */
-class SalesRep extends BaseModel implements ModelWithId
+class SalesRep extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -51,14 +51,14 @@ class SalesRep extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SalesRep';
+    protected static string $swaggerModelName = 'SalesRep';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'FirstName' => 'string',
         'Id' => 'int',
         'LastName' => 'string',
@@ -71,7 +71,7 @@ class SalesRep extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'FirstName' => null,
         'Id' => 'int64',
         'LastName' => null,
@@ -86,7 +86,7 @@ class SalesRep extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'FirstName' => 'FirstName',
         'Id' => 'Id',
         'LastName' => 'LastName',
@@ -99,7 +99,7 @@ class SalesRep extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'FirstName' => 'setFirstName',
         'Id' => 'setId',
         'LastName' => 'setLastName',
@@ -112,7 +112,7 @@ class SalesRep extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'FirstName' => 'getFirstName',
         'Id' => 'getId',
         'LastName' => 'getLastName',
@@ -131,7 +131,7 @@ class SalesRep extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['FirstName'] = isset($data['FirstName']) ? $data['FirstName'] : null;
         $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
@@ -158,7 +158,7 @@ class SalesRep extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getFirstName()
+    public function getFirstName(): string
     {
         return $this->container['FirstName'];
     }
@@ -170,7 +170,9 @@ class SalesRep extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setFirstName($FirstName): self
+
+
+    public function setFirstName(string $FirstName): static
     {
         $this->container['FirstName'] = $FirstName;
 
@@ -182,7 +184,7 @@ class SalesRep extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -194,7 +196,9 @@ class SalesRep extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -206,7 +210,7 @@ class SalesRep extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getLastName()
+    public function getLastName(): string
     {
         return $this->container['LastName'];
     }
@@ -218,7 +222,9 @@ class SalesRep extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setLastName($LastName): self
+
+
+    public function setLastName(string $LastName): static
     {
         $this->container['LastName'] = $LastName;
 
@@ -230,7 +236,7 @@ class SalesRep extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getSalesRepNumber()
+    public function getSalesRepNumber(): int
     {
         return $this->container['SalesRepNumber'];
     }
@@ -242,7 +248,9 @@ class SalesRep extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSalesRepNumber($SalesRepNumber): self
+
+
+    public function setSalesRepNumber(int $SalesRepNumber): static
     {
         $this->container['SalesRepNumber'] = $SalesRepNumber;
 
@@ -254,7 +262,7 @@ class SalesRep extends BaseModel implements ModelWithId
      *
      * @return int[]
      */
-    public function getSalesRepNumbers()
+    public function getSalesRepNumbers(): array
     {
         return $this->container['SalesRepNumbers'];
     }
@@ -266,7 +274,9 @@ class SalesRep extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSalesRepNumbers($SalesRepNumbers): self
+
+
+    public function setSalesRepNumbers(array $SalesRepNumbers): static
     {
         $this->container['SalesRepNumbers'] = $SalesRepNumbers;
 

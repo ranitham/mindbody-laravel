@@ -55,14 +55,14 @@ class SuspendContractRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SuspendContractRequest';
+    protected static string $swaggerModelName = 'SuspendContractRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ClientId' => 'string',
         'ClientContractId' => 'int',
         'SuspensionType' => 'string',
@@ -79,7 +79,7 @@ class SuspendContractRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ClientId' => null,
         'ClientContractId' => 'int32',
         'SuspensionType' => null,
@@ -98,7 +98,7 @@ class SuspendContractRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ClientId' => 'ClientId',
         'ClientContractId' => 'ClientContractId',
         'SuspensionType' => 'SuspensionType',
@@ -115,7 +115,7 @@ class SuspendContractRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ClientId' => 'setClientId',
         'ClientContractId' => 'setClientContractId',
         'SuspensionType' => 'setSuspensionType',
@@ -132,7 +132,7 @@ class SuspendContractRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ClientId' => 'getClientId',
         'ClientContractId' => 'getClientContractId',
         'SuspensionType' => 'getSuspensionType',
@@ -155,7 +155,7 @@ class SuspendContractRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
         $this->container['ClientContractId'] = isset($data['ClientContractId']) ? $data['ClientContractId'] : null;
@@ -192,7 +192,7 @@ class SuspendContractRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId()
+    public function getClientId(): string
     {
         return $this->container['ClientId'];
     }
@@ -204,7 +204,9 @@ class SuspendContractRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClientId($ClientId): self
+
+
+    public function setClientId(string $ClientId): static
     {
         $this->container['ClientId'] = $ClientId;
 
@@ -216,7 +218,7 @@ class SuspendContractRequest extends BaseModel
      *
      * @return int
      */
-    public function getClientContractId()
+    public function getClientContractId(): int
     {
         return $this->container['ClientContractId'];
     }
@@ -228,7 +230,9 @@ class SuspendContractRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClientContractId($ClientContractId): self
+
+
+    public function setClientContractId(int $ClientContractId): static
     {
         $this->container['ClientContractId'] = $ClientContractId;
 
@@ -240,7 +244,7 @@ class SuspendContractRequest extends BaseModel
      *
      * @return string
      */
-    public function getSuspensionType()
+    public function getSuspensionType(): string
     {
         return $this->container['SuspensionType'];
     }
@@ -252,7 +256,9 @@ class SuspendContractRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSuspensionType($SuspensionType): self
+
+
+    public function setSuspensionType(string $SuspensionType): static
     {
         $this->container['SuspensionType'] = $SuspensionType;
 
@@ -264,7 +270,7 @@ class SuspendContractRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getSuspensionStart()
+    public function getSuspensionStart(): \DateTime
     {
         return $this->container['SuspensionStart'];
     }
@@ -276,7 +282,9 @@ class SuspendContractRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSuspensionStart($SuspensionStart): self
+
+
+    public function setSuspensionStart(\DateTime $SuspensionStart): static
     {
         $this->container['SuspensionStart'] = $SuspensionStart;
 
@@ -288,7 +296,7 @@ class SuspendContractRequest extends BaseModel
      *
      * @return int
      */
-    public function getDuration()
+    public function getDuration(): int
     {
         return $this->container['Duration'];
     }
@@ -300,7 +308,9 @@ class SuspendContractRequest extends BaseModel
      *
      * @return $this
      */
-    public function setDuration($Duration): self
+
+
+    public function setDuration(int $Duration): static
     {
         $this->container['Duration'] = $Duration;
 
@@ -312,7 +322,7 @@ class SuspendContractRequest extends BaseModel
      *
      * @return int
      */
-    public function getDurationUnit()
+    public function getDurationUnit(): int
     {
         return $this->container['DurationUnit'];
     }
@@ -324,7 +334,9 @@ class SuspendContractRequest extends BaseModel
      *
      * @return $this
      */
-    public function setDurationUnit($DurationUnit): self
+
+
+    public function setDurationUnit(int $DurationUnit): static
     {
         $this->container['DurationUnit'] = $DurationUnit;
 
@@ -336,7 +348,7 @@ class SuspendContractRequest extends BaseModel
      *
      * @return bool
      */
-    public function getOpenEnded()
+    public function getOpenEnded(): bool
     {
         return $this->container['OpenEnded'];
     }
@@ -348,7 +360,9 @@ class SuspendContractRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOpenEnded($OpenEnded): self
+
+
+    public function setOpenEnded(bool $OpenEnded): static
     {
         $this->container['OpenEnded'] = $OpenEnded;
 
@@ -360,7 +374,7 @@ class SuspendContractRequest extends BaseModel
      *
      * @return string
      */
-    public function getSuspensionNotes()
+    public function getSuspensionNotes(): string
     {
         return $this->container['SuspensionNotes'];
     }
@@ -372,7 +386,9 @@ class SuspendContractRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSuspensionNotes($SuspensionNotes): self
+
+
+    public function setSuspensionNotes(string $SuspensionNotes): static
     {
         $this->container['SuspensionNotes'] = $SuspensionNotes;
 
@@ -384,7 +400,7 @@ class SuspendContractRequest extends BaseModel
      *
      * @return double
      */
-    public function getSuspensionFee()
+    public function getSuspensionFee(): float
     {
         return $this->container['SuspensionFee'];
     }
@@ -396,7 +412,9 @@ class SuspendContractRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSuspensionFee($SuspensionFee): self
+
+
+    public function setSuspensionFee(float $SuspensionFee): static
     {
         $this->container['SuspensionFee'] = $SuspensionFee;
 

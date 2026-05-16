@@ -64,14 +64,14 @@ class UpdatePricingOptionRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UpdatePricingOptionRequest';
+    protected static string $swaggerModelName = 'UpdatePricingOptionRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ProductId' => 'double',
         'Name' => 'string',
         'Price' => 'double',
@@ -96,7 +96,7 @@ class UpdatePricingOptionRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ProductId' => 'double',
         'Name' => null,
         'Price' => 'double',
@@ -123,7 +123,7 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ProductId' => 'ProductId',
         'Name' => 'Name',
         'Price' => 'Price',
@@ -148,7 +148,7 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ProductId' => 'setProductId',
         'Name' => 'setName',
         'Price' => 'setPrice',
@@ -173,7 +173,7 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ProductId' => 'getProductId',
         'Name' => 'getName',
         'Price' => 'getPrice',
@@ -204,7 +204,7 @@ class UpdatePricingOptionRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ProductId'] = isset($data['ProductId']) ? $data['ProductId'] : null;
         $this->container['Name'] = isset($data['Name']) ? $data['Name'] : null;
@@ -241,10 +241,6 @@ class UpdatePricingOptionRequest extends BaseModel
             $invalidProperties[] = "invalid value for 'Name', the character length must be smaller than or equal to 100.";
         }
 
-        if (!is_null($this->container['Name']) && (mb_strlen($this->container['Name']) < 0)) {
-            $invalidProperties[] = "invalid value for 'Name', the character length must be bigger than or equal to 0.";
-        }
-
         if (!is_null($this->container['Count']) && ($this->container['Count'] > 2147483647)) {
             $invalidProperties[] = "invalid value for 'Count', must be smaller than or equal to 2147483647.";
         }
@@ -255,10 +251,6 @@ class UpdatePricingOptionRequest extends BaseModel
 
         if (!is_null($this->container['RevenueCategory']) && (mb_strlen($this->container['RevenueCategory']) > 35)) {
             $invalidProperties[] = "invalid value for 'RevenueCategory', the character length must be smaller than or equal to 35.";
-        }
-
-        if (!is_null($this->container['RevenueCategory']) && (mb_strlen($this->container['RevenueCategory']) < 0)) {
-            $invalidProperties[] = "invalid value for 'RevenueCategory', the character length must be bigger than or equal to 0.";
         }
 
         if (!is_null($this->container['ExpirationLength']) && ($this->container['ExpirationLength'] > 32767)) {
@@ -278,7 +270,7 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return double
      */
-    public function getProductId()
+    public function getProductId(): float
     {
         return $this->container['ProductId'];
     }
@@ -290,7 +282,9 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return $this
      */
-    public function setProductId($ProductId): self
+
+
+    public function setProductId(float $ProductId): static
     {
         $this->container['ProductId'] = $ProductId;
 
@@ -302,7 +296,7 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->container['Name'];
     }
@@ -314,13 +308,12 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return $this
      */
-    public function setName($Name): self
+
+
+    public function setName(string $Name): static
     {
         if (!is_null($Name) && (mb_strlen($Name) > 100)) {
             throw new \InvalidArgumentException('invalid length for $Name when calling UpdatePricingOptionRequest., must be smaller than or equal to 100.');
-        }
-        if (!is_null($Name) && (mb_strlen($Name) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $Name when calling UpdatePricingOptionRequest., must be bigger than or equal to 0.');
         }
 
         $this->container['Name'] = $Name;
@@ -333,7 +326,7 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return double
      */
-    public function getPrice()
+    public function getPrice(): float
     {
         return $this->container['Price'];
     }
@@ -345,7 +338,9 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return $this
      */
-    public function setPrice($Price): self
+
+
+    public function setPrice(float $Price): static
     {
         $this->container['Price'] = $Price;
 
@@ -357,7 +352,7 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return double
      */
-    public function getOnlinePrice()
+    public function getOnlinePrice(): float
     {
         return $this->container['OnlinePrice'];
     }
@@ -369,7 +364,9 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOnlinePrice($OnlinePrice): self
+
+
+    public function setOnlinePrice(float $OnlinePrice): static
     {
         $this->container['OnlinePrice'] = $OnlinePrice;
 
@@ -381,7 +378,7 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return int
      */
-    public function getCount()
+    public function getCount(): int
     {
         return $this->container['Count'];
     }
@@ -393,7 +390,9 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return $this
      */
-    public function setCount($Count): self
+
+
+    public function setCount(int $Count): static
     {
 
         if (!is_null($Count) && ($Count > 2147483647)) {
@@ -413,7 +412,7 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSellOnline()
+    public function getSellOnline(): bool
     {
         return $this->container['SellOnline'];
     }
@@ -425,7 +424,9 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSellOnline($SellOnline): self
+
+
+    public function setSellOnline(bool $SellOnline): static
     {
         $this->container['SellOnline'] = $SellOnline;
 
@@ -437,7 +438,7 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return string
      */
-    public function getRevenueCategory()
+    public function getRevenueCategory(): string
     {
         return $this->container['RevenueCategory'];
     }
@@ -449,13 +450,12 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return $this
      */
-    public function setRevenueCategory($RevenueCategory): self
+
+
+    public function setRevenueCategory(string $RevenueCategory): static
     {
         if (!is_null($RevenueCategory) && (mb_strlen($RevenueCategory) > 35)) {
             throw new \InvalidArgumentException('invalid length for $RevenueCategory when calling UpdatePricingOptionRequest., must be smaller than or equal to 35.');
-        }
-        if (!is_null($RevenueCategory) && (mb_strlen($RevenueCategory) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $RevenueCategory when calling UpdatePricingOptionRequest., must be bigger than or equal to 0.');
         }
 
         $this->container['RevenueCategory'] = $RevenueCategory;
@@ -468,7 +468,7 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return bool
      */
-    public function getDiscontinued()
+    public function getDiscontinued(): bool
     {
         return $this->container['Discontinued'];
     }
@@ -480,7 +480,9 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return $this
      */
-    public function setDiscontinued($Discontinued): self
+
+
+    public function setDiscontinued(bool $Discontinued): static
     {
         $this->container['Discontinued'] = $Discontinued;
 
@@ -492,7 +494,7 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return int
      */
-    public function getMembershipId()
+    public function getMembershipId(): int
     {
         return $this->container['MembershipId'];
     }
@@ -504,7 +506,9 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return $this
      */
-    public function setMembershipId($MembershipId): self
+
+
+    public function setMembershipId(int $MembershipId): static
     {
         $this->container['MembershipId'] = $MembershipId;
 
@@ -516,7 +520,7 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIsThirdPartyDiscountPricing()
+    public function getIsThirdPartyDiscountPricing(): bool
     {
         return $this->container['IsThirdPartyDiscountPricing'];
     }
@@ -528,7 +532,9 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return $this
      */
-    public function setIsThirdPartyDiscountPricing($IsThirdPartyDiscountPricing): self
+
+
+    public function setIsThirdPartyDiscountPricing(bool $IsThirdPartyDiscountPricing): static
     {
         $this->container['IsThirdPartyDiscountPricing'] = $IsThirdPartyDiscountPricing;
 
@@ -540,7 +546,7 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return string
      */
-    public function getPriority()
+    public function getPriority(): string
     {
         return $this->container['Priority'];
     }
@@ -552,7 +558,9 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return $this
      */
-    public function setPriority($Priority): self
+
+
+    public function setPriority(string $Priority): static
     {
         $this->container['Priority'] = $Priority;
 
@@ -564,7 +572,7 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getSellAtLocationIds()
+    public function getSellAtLocationIds(): array
     {
         return $this->container['SellAtLocationIds'];
     }
@@ -576,7 +584,9 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSellAtLocationIds($SellAtLocationIds): self
+
+
+    public function setSellAtLocationIds(array $SellAtLocationIds): static
     {
         $this->container['SellAtLocationIds'] = $SellAtLocationIds;
 
@@ -588,7 +598,7 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getUseAtLocationIds()
+    public function getUseAtLocationIds(): array
     {
         return $this->container['UseAtLocationIds'];
     }
@@ -600,7 +610,9 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return $this
      */
-    public function setUseAtLocationIds($UseAtLocationIds): self
+
+
+    public function setUseAtLocationIds(array $UseAtLocationIds): static
     {
         $this->container['UseAtLocationIds'] = $UseAtLocationIds;
 
@@ -612,7 +624,7 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return string
      */
-    public function getExpirationUnit()
+    public function getExpirationUnit(): string
     {
         return $this->container['ExpirationUnit'];
     }
@@ -624,7 +636,9 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return $this
      */
-    public function setExpirationUnit($ExpirationUnit): self
+
+
+    public function setExpirationUnit(string $ExpirationUnit): static
     {
         $this->container['ExpirationUnit'] = $ExpirationUnit;
 
@@ -636,7 +650,7 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return int
      */
-    public function getExpirationLength()
+    public function getExpirationLength(): int
     {
         return $this->container['ExpirationLength'];
     }
@@ -648,7 +662,9 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return $this
      */
-    public function setExpirationLength($ExpirationLength): self
+
+
+    public function setExpirationLength(int $ExpirationLength): static
     {
 
         if (!is_null($ExpirationLength) && ($ExpirationLength > 32767)) {
@@ -668,7 +684,7 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return string
      */
-    public function getExpirationType()
+    public function getExpirationType(): string
     {
         return $this->container['ExpirationType'];
     }
@@ -680,7 +696,9 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return $this
      */
-    public function setExpirationType($ExpirationType): self
+
+
+    public function setExpirationType(string $ExpirationType): static
     {
         $this->container['ExpirationType'] = $ExpirationType;
 
@@ -692,7 +710,7 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getRestrictedMembershipIds()
+    public function getRestrictedMembershipIds(): array
     {
         return $this->container['RestrictedMembershipIds'];
     }
@@ -704,7 +722,9 @@ class UpdatePricingOptionRequest extends BaseModel
      *
      * @return $this
      */
-    public function setRestrictedMembershipIds($RestrictedMembershipIds): self
+
+
+    public function setRestrictedMembershipIds(array $RestrictedMembershipIds): static
     {
         $this->container['RestrictedMembershipIds'] = $RestrictedMembershipIds;
 

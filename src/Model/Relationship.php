@@ -41,7 +41,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property string $RelationshipName2 The name of the second relationship.
  *
  */
-class Relationship extends BaseModel implements ModelWithId
+class Relationship extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -50,14 +50,14 @@ class Relationship extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Relationship';
+    protected static string $swaggerModelName = 'Relationship';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Id' => 'int',
         'RelationshipName1' => 'string',
         'RelationshipName2' => 'string'
@@ -68,7 +68,7 @@ class Relationship extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Id' => 'int32',
         'RelationshipName1' => null,
         'RelationshipName2' => null
@@ -81,7 +81,7 @@ class Relationship extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Id' => 'Id',
         'RelationshipName1' => 'RelationshipName1',
         'RelationshipName2' => 'RelationshipName2'
@@ -92,7 +92,7 @@ class Relationship extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Id' => 'setId',
         'RelationshipName1' => 'setRelationshipName1',
         'RelationshipName2' => 'setRelationshipName2'
@@ -103,7 +103,7 @@ class Relationship extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Id' => 'getId',
         'RelationshipName1' => 'getRelationshipName1',
         'RelationshipName2' => 'getRelationshipName2'
@@ -120,7 +120,7 @@ class Relationship extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
         $this->container['RelationshipName1'] = isset($data['RelationshipName1']) ? $data['RelationshipName1'] : null;
@@ -145,7 +145,7 @@ class Relationship extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -157,7 +157,9 @@ class Relationship extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -169,7 +171,7 @@ class Relationship extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getRelationshipName1()
+    public function getRelationshipName1(): string
     {
         return $this->container['RelationshipName1'];
     }
@@ -181,7 +183,9 @@ class Relationship extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setRelationshipName1($RelationshipName1): self
+
+
+    public function setRelationshipName1(string $RelationshipName1): static
     {
         $this->container['RelationshipName1'] = $RelationshipName1;
 
@@ -193,7 +197,7 @@ class Relationship extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getRelationshipName2()
+    public function getRelationshipName2(): string
     {
         return $this->container['RelationshipName2'];
     }
@@ -205,7 +209,9 @@ class Relationship extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setRelationshipName2($RelationshipName2): self
+
+
+    public function setRelationshipName2(string $RelationshipName2): static
     {
         $this->container['RelationshipName2'] = $RelationshipName2;
 

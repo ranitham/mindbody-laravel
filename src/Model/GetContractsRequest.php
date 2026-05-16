@@ -54,14 +54,14 @@ class GetContractsRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetContractsRequest';
+    protected static string $swaggerModelName = 'GetContractsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ContractIds' => 'int[]',
         'SoldOnline' => 'bool',
         'LocationId' => 'int',
@@ -76,7 +76,7 @@ class GetContractsRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ContractIds' => 'int32',
         'SoldOnline' => null,
         'LocationId' => 'int32',
@@ -93,7 +93,7 @@ class GetContractsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ContractIds' => 'ContractIds',
         'SoldOnline' => 'SoldOnline',
         'LocationId' => 'LocationId',
@@ -108,7 +108,7 @@ class GetContractsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ContractIds' => 'setContractIds',
         'SoldOnline' => 'setSoldOnline',
         'LocationId' => 'setLocationId',
@@ -123,7 +123,7 @@ class GetContractsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ContractIds' => 'getContractIds',
         'SoldOnline' => 'getSoldOnline',
         'LocationId' => 'getLocationId',
@@ -144,7 +144,7 @@ class GetContractsRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ContractIds'] = isset($data['ContractIds']) ? $data['ContractIds'] : null;
         $this->container['SoldOnline'] = isset($data['SoldOnline']) ? $data['SoldOnline'] : null;
@@ -176,7 +176,7 @@ class GetContractsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getContractIds()
+    public function getContractIds(): array
     {
         return $this->container['ContractIds'];
     }
@@ -188,7 +188,9 @@ class GetContractsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setContractIds($ContractIds): self
+
+
+    public function setContractIds(array $ContractIds): static
     {
         $this->container['ContractIds'] = $ContractIds;
 
@@ -200,7 +202,7 @@ class GetContractsRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSoldOnline()
+    public function getSoldOnline(): bool
     {
         return $this->container['SoldOnline'];
     }
@@ -212,7 +214,9 @@ class GetContractsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSoldOnline($SoldOnline): self
+
+
+    public function setSoldOnline(bool $SoldOnline): static
     {
         $this->container['SoldOnline'] = $SoldOnline;
 
@@ -224,7 +228,7 @@ class GetContractsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLocationId()
+    public function getLocationId(): int
     {
         return $this->container['LocationId'];
     }
@@ -236,7 +240,9 @@ class GetContractsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLocationId($LocationId): self
+
+
+    public function setLocationId(int $LocationId): static
     {
         $this->container['LocationId'] = $LocationId;
 
@@ -248,7 +254,7 @@ class GetContractsRequest extends BaseModel
      *
      * @return int
      */
-    public function getUniqueClientId()
+    public function getUniqueClientId(): int
     {
         return $this->container['UniqueClientId'];
     }
@@ -260,7 +266,9 @@ class GetContractsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setUniqueClientId($UniqueClientId): self
+
+
+    public function setUniqueClientId(int $UniqueClientId): static
     {
         $this->container['UniqueClientId'] = $UniqueClientId;
 
@@ -272,7 +280,7 @@ class GetContractsRequest extends BaseModel
      *
      * @return string
      */
-    public function getPromoCode()
+    public function getPromoCode(): string
     {
         return $this->container['PromoCode'];
     }
@@ -284,7 +292,9 @@ class GetContractsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setPromoCode($PromoCode): self
+
+
+    public function setPromoCode(string $PromoCode): static
     {
         $this->container['PromoCode'] = $PromoCode;
 
@@ -296,7 +306,7 @@ class GetContractsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit()
+    public function getLimit(): int
     {
         return $this->container['Limit'];
     }
@@ -308,7 +318,9 @@ class GetContractsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLimit($Limit): self
+
+
+    public function setLimit(int $Limit): static
     {
         $this->container['Limit'] = $Limit;
 
@@ -320,7 +332,7 @@ class GetContractsRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset()
+    public function getOffset(): int
     {
         return $this->container['Offset'];
     }
@@ -332,7 +344,9 @@ class GetContractsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOffset($Offset): self
+
+
+    public function setOffset(int $Offset): static
     {
         $this->container['Offset'] = $Offset;
 

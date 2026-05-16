@@ -48,14 +48,14 @@ class GetCustomClientFieldsRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetCustomClientFieldsRequest';
+    protected static string $swaggerModelName = 'GetCustomClientFieldsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Limit' => 'int',
         'Offset' => 'int'
     ];
@@ -65,7 +65,7 @@ class GetCustomClientFieldsRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Limit' => 'int32',
         'Offset' => 'int32'
     ];
@@ -77,7 +77,7 @@ class GetCustomClientFieldsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Limit' => 'Limit',
         'Offset' => 'Offset'
     ];
@@ -87,7 +87,7 @@ class GetCustomClientFieldsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Limit' => 'setLimit',
         'Offset' => 'setOffset'
     ];
@@ -97,7 +97,7 @@ class GetCustomClientFieldsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Limit' => 'getLimit',
         'Offset' => 'getOffset'
     ];
@@ -113,7 +113,7 @@ class GetCustomClientFieldsRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Limit'] = isset($data['Limit']) ? $data['Limit'] : null;
         $this->container['Offset'] = isset($data['Offset']) ? $data['Offset'] : null;
@@ -137,7 +137,7 @@ class GetCustomClientFieldsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit()
+    public function getLimit(): int
     {
         return $this->container['Limit'];
     }
@@ -149,7 +149,9 @@ class GetCustomClientFieldsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLimit($Limit): self
+
+
+    public function setLimit(int $Limit): static
     {
         $this->container['Limit'] = $Limit;
 
@@ -161,7 +163,7 @@ class GetCustomClientFieldsRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset()
+    public function getOffset(): int
     {
         return $this->container['Offset'];
     }
@@ -173,7 +175,9 @@ class GetCustomClientFieldsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOffset($Offset): self
+
+
+    public function setOffset(int $Offset): static
     {
         $this->container['Offset'] = $Offset;
 

@@ -49,14 +49,14 @@ class GetAddOnsResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetAddOnsResponse';
+    protected static string $swaggerModelName = 'GetAddOnsResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'PaginationResponse' => '\Nlocascio\Mindbody\Model\PaginationResponse',
         'AddOns' => '\Nlocascio\Mindbody\Model\AppointmentAddOn[]'
     ];
@@ -66,7 +66,7 @@ class GetAddOnsResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'PaginationResponse' => null,
         'AddOns' => null
     ];
@@ -78,7 +78,7 @@ class GetAddOnsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'PaginationResponse' => 'PaginationResponse',
         'AddOns' => 'AddOns'
     ];
@@ -88,7 +88,7 @@ class GetAddOnsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'PaginationResponse' => 'setPaginationResponse',
         'AddOns' => 'setAddOns'
     ];
@@ -98,7 +98,7 @@ class GetAddOnsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'PaginationResponse' => 'getPaginationResponse',
         'AddOns' => 'getAddOns'
     ];
@@ -114,7 +114,7 @@ class GetAddOnsResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['PaginationResponse'] = isset($data['PaginationResponse']) ? $data['PaginationResponse'] : null;
         $this->container['AddOns'] = isset($data['AddOns']) ? $data['AddOns'] : null;
@@ -138,7 +138,7 @@ class GetAddOnsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse()
+    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
     {
         return $this->container['PaginationResponse'];
     }
@@ -150,7 +150,9 @@ class GetAddOnsResponse extends BaseModel
      *
      * @return $this
      */
-    public function setPaginationResponse($PaginationResponse): self
+
+
+    public function setPaginationResponse(\Nlocascio\Mindbody\Model\PaginationResponse $PaginationResponse): static
     {
         $this->container['PaginationResponse'] = $PaginationResponse;
 
@@ -162,7 +164,7 @@ class GetAddOnsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\AppointmentAddOn[]
      */
-    public function getAddOns()
+    public function getAddOns(): array
     {
         return $this->container['AddOns'];
     }
@@ -174,7 +176,9 @@ class GetAddOnsResponse extends BaseModel
      *
      * @return $this
      */
-    public function setAddOns($AddOns): self
+
+
+    public function setAddOns(array $AddOns): static
     {
         $this->container['AddOns'] = $AddOns;
 

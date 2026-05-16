@@ -58,14 +58,14 @@ class AddStaffAvailabilityRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AddStaffAvailabilityRequest';
+    protected static string $swaggerModelName = 'AddStaffAvailabilityRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'StaffId' => 'int',
         'IsAvailability' => 'bool',
         'Description' => 'string',
@@ -84,7 +84,7 @@ class AddStaffAvailabilityRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'StaffId' => 'int64',
         'IsAvailability' => null,
         'Description' => null,
@@ -105,7 +105,7 @@ class AddStaffAvailabilityRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'StaffId' => 'StaffId',
         'IsAvailability' => 'IsAvailability',
         'Description' => 'Description',
@@ -124,7 +124,7 @@ class AddStaffAvailabilityRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'StaffId' => 'setStaffId',
         'IsAvailability' => 'setIsAvailability',
         'Description' => 'setDescription',
@@ -143,7 +143,7 @@ class AddStaffAvailabilityRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'StaffId' => 'getStaffId',
         'IsAvailability' => 'getIsAvailability',
         'Description' => 'getDescription',
@@ -168,7 +168,7 @@ class AddStaffAvailabilityRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['StaffId'] = isset($data['StaffId']) ? $data['StaffId'] : null;
         $this->container['IsAvailability'] = isset($data['IsAvailability']) ? $data['IsAvailability'] : null;
@@ -238,7 +238,7 @@ class AddStaffAvailabilityRequest extends BaseModel
      *
      * @return int
      */
-    public function getStaffId()
+    public function getStaffId(): int
     {
         return $this->container['StaffId'];
     }
@@ -250,7 +250,9 @@ class AddStaffAvailabilityRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStaffId($StaffId): self
+
+
+    public function setStaffId(int $StaffId): static
     {
         $this->container['StaffId'] = $StaffId;
 
@@ -262,7 +264,7 @@ class AddStaffAvailabilityRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIsAvailability()
+    public function getIsAvailability(): bool
     {
         return $this->container['IsAvailability'];
     }
@@ -274,7 +276,9 @@ class AddStaffAvailabilityRequest extends BaseModel
      *
      * @return $this
      */
-    public function setIsAvailability($IsAvailability): self
+
+
+    public function setIsAvailability(bool $IsAvailability): static
     {
         $this->container['IsAvailability'] = $IsAvailability;
 
@@ -286,7 +290,7 @@ class AddStaffAvailabilityRequest extends BaseModel
      *
      * @return string
      */
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->container['Description'];
     }
@@ -298,7 +302,9 @@ class AddStaffAvailabilityRequest extends BaseModel
      *
      * @return $this
      */
-    public function setDescription($Description): self
+
+
+    public function setDescription(string $Description): static
     {
         $this->container['Description'] = $Description;
 
@@ -310,7 +316,7 @@ class AddStaffAvailabilityRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getProgramIds()
+    public function getProgramIds(): array
     {
         return $this->container['ProgramIds'];
     }
@@ -322,7 +328,9 @@ class AddStaffAvailabilityRequest extends BaseModel
      *
      * @return $this
      */
-    public function setProgramIds($ProgramIds): self
+
+
+    public function setProgramIds(array $ProgramIds): static
     {
         $this->container['ProgramIds'] = $ProgramIds;
 
@@ -334,7 +342,7 @@ class AddStaffAvailabilityRequest extends BaseModel
      *
      * @return int
      */
-    public function getLocationId()
+    public function getLocationId(): int
     {
         return $this->container['LocationId'];
     }
@@ -346,7 +354,9 @@ class AddStaffAvailabilityRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLocationId($LocationId): self
+
+
+    public function setLocationId(int $LocationId): static
     {
         $this->container['LocationId'] = $LocationId;
 
@@ -358,7 +368,7 @@ class AddStaffAvailabilityRequest extends BaseModel
      *
      * @return string[]
      */
-    public function getDaysOfWeek()
+    public function getDaysOfWeek(): array
     {
         return $this->container['DaysOfWeek'];
     }
@@ -370,7 +380,9 @@ class AddStaffAvailabilityRequest extends BaseModel
      *
      * @return $this
      */
-    public function setDaysOfWeek($DaysOfWeek): self
+
+
+    public function setDaysOfWeek(array $DaysOfWeek): static
     {
         $this->container['DaysOfWeek'] = $DaysOfWeek;
 
@@ -382,7 +394,7 @@ class AddStaffAvailabilityRequest extends BaseModel
      *
      * @return string
      */
-    public function getStartTime()
+    public function getStartTime(): string
     {
         return $this->container['StartTime'];
     }
@@ -394,7 +406,9 @@ class AddStaffAvailabilityRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStartTime($StartTime): self
+
+
+    public function setStartTime(string $StartTime): static
     {
 
         if ((!preg_match("/^(?:(?:([01]?\\d|2[0-3]):)?([0-5]?\\d):)?([0-5]?\\d)$/", $StartTime))) {
@@ -411,7 +425,7 @@ class AddStaffAvailabilityRequest extends BaseModel
      *
      * @return string
      */
-    public function getEndTime()
+    public function getEndTime(): string
     {
         return $this->container['EndTime'];
     }
@@ -423,7 +437,9 @@ class AddStaffAvailabilityRequest extends BaseModel
      *
      * @return $this
      */
-    public function setEndTime($EndTime): self
+
+
+    public function setEndTime(string $EndTime): static
     {
 
         if ((!preg_match("/^(?:(?:([01]?\\d|2[0-3]):)?([0-5]?\\d):)?([0-5]?\\d)$/", $EndTime))) {
@@ -440,7 +456,7 @@ class AddStaffAvailabilityRequest extends BaseModel
      *
      * @return string
      */
-    public function getStartDate()
+    public function getStartDate(): string
     {
         return $this->container['StartDate'];
     }
@@ -452,7 +468,9 @@ class AddStaffAvailabilityRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStartDate($StartDate): self
+
+
+    public function setStartDate(string $StartDate): static
     {
 
         if ((!preg_match("/^\\d{4}-((0\\d)|(1[012]))-(([012]\\d)|3[01])$/", $StartDate))) {
@@ -469,7 +487,7 @@ class AddStaffAvailabilityRequest extends BaseModel
      *
      * @return string
      */
-    public function getEndDate()
+    public function getEndDate(): string
     {
         return $this->container['EndDate'];
     }
@@ -481,7 +499,9 @@ class AddStaffAvailabilityRequest extends BaseModel
      *
      * @return $this
      */
-    public function setEndDate($EndDate): self
+
+
+    public function setEndDate(string $EndDate): static
     {
 
         if ((!preg_match("/^\\d{4}-((0\\d)|(1[012]))-(([012]\\d)|3[01])$/", $EndDate))) {
@@ -498,7 +518,7 @@ class AddStaffAvailabilityRequest extends BaseModel
      *
      * @return string
      */
-    public function getStatus()
+    public function getStatus(): string
     {
         return $this->container['Status'];
     }
@@ -510,7 +530,9 @@ class AddStaffAvailabilityRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStatus($Status): self
+
+
+    public function setStatus(string $Status): static
     {
         $this->container['Status'] = $Status;
 

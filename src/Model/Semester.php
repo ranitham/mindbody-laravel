@@ -46,7 +46,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property bool $Active When `true`, indicates that the semester is active.
  *
  */
-class Semester extends BaseModel implements ModelWithId
+class Semester extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -55,14 +55,14 @@ class Semester extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Semester';
+    protected static string $swaggerModelName = 'Semester';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Id' => 'int',
         'Name' => 'string',
         'Description' => 'string',
@@ -78,7 +78,7 @@ class Semester extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Id' => 'int32',
         'Name' => null,
         'Description' => null,
@@ -96,7 +96,7 @@ class Semester extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Id' => 'Id',
         'Name' => 'Name',
         'Description' => 'Description',
@@ -112,7 +112,7 @@ class Semester extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Id' => 'setId',
         'Name' => 'setName',
         'Description' => 'setDescription',
@@ -128,7 +128,7 @@ class Semester extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Id' => 'getId',
         'Name' => 'getName',
         'Description' => 'getDescription',
@@ -150,7 +150,7 @@ class Semester extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
         $this->container['Name'] = isset($data['Name']) ? $data['Name'] : null;
@@ -180,7 +180,7 @@ class Semester extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -192,7 +192,9 @@ class Semester extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -204,7 +206,7 @@ class Semester extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->container['Name'];
     }
@@ -216,7 +218,9 @@ class Semester extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setName($Name): self
+
+
+    public function setName(string $Name): static
     {
         $this->container['Name'] = $Name;
 
@@ -228,7 +232,7 @@ class Semester extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->container['Description'];
     }
@@ -240,7 +244,9 @@ class Semester extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setDescription($Description): self
+
+
+    public function setDescription(string $Description): static
     {
         $this->container['Description'] = $Description;
 
@@ -252,7 +258,7 @@ class Semester extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getStartDate()
+    public function getStartDate(): \DateTime
     {
         return $this->container['StartDate'];
     }
@@ -264,7 +270,9 @@ class Semester extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setStartDate($StartDate): self
+
+
+    public function setStartDate(\DateTime $StartDate): static
     {
         $this->container['StartDate'] = $StartDate;
 
@@ -276,7 +284,7 @@ class Semester extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getEndDate()
+    public function getEndDate(): \DateTime
     {
         return $this->container['EndDate'];
     }
@@ -288,7 +296,9 @@ class Semester extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setEndDate($EndDate): self
+
+
+    public function setEndDate(\DateTime $EndDate): static
     {
         $this->container['EndDate'] = $EndDate;
 
@@ -300,7 +310,7 @@ class Semester extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getMultiRegistrationDiscount()
+    public function getMultiRegistrationDiscount(): float
     {
         return $this->container['MultiRegistrationDiscount'];
     }
@@ -312,7 +322,9 @@ class Semester extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setMultiRegistrationDiscount($MultiRegistrationDiscount): self
+
+
+    public function setMultiRegistrationDiscount(float $MultiRegistrationDiscount): static
     {
         $this->container['MultiRegistrationDiscount'] = $MultiRegistrationDiscount;
 
@@ -324,7 +336,7 @@ class Semester extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getMultiRegistrationDeadline()
+    public function getMultiRegistrationDeadline(): \DateTime
     {
         return $this->container['MultiRegistrationDeadline'];
     }
@@ -336,7 +348,9 @@ class Semester extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setMultiRegistrationDeadline($MultiRegistrationDeadline): self
+
+
+    public function setMultiRegistrationDeadline(\DateTime $MultiRegistrationDeadline): static
     {
         $this->container['MultiRegistrationDeadline'] = $MultiRegistrationDeadline;
 
@@ -348,7 +362,7 @@ class Semester extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getActive()
+    public function getActive(): bool
     {
         return $this->container['Active'];
     }
@@ -360,7 +374,9 @@ class Semester extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setActive($Active): self
+
+
+    public function setActive(bool $Active): static
     {
         $this->container['Active'] = $Active;
 

@@ -49,14 +49,14 @@ class ClientDocument extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ClientDocument';
+    protected static string $swaggerModelName = 'ClientDocument';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'FileName' => 'string',
         'MediaType' => 'string',
         'Buffer' => 'string'
@@ -67,7 +67,7 @@ class ClientDocument extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'FileName' => null,
         'MediaType' => null,
         'Buffer' => 'byte'
@@ -80,7 +80,7 @@ class ClientDocument extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'FileName' => 'FileName',
         'MediaType' => 'MediaType',
         'Buffer' => 'Buffer'
@@ -91,7 +91,7 @@ class ClientDocument extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'FileName' => 'setFileName',
         'MediaType' => 'setMediaType',
         'Buffer' => 'setBuffer'
@@ -102,7 +102,7 @@ class ClientDocument extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'FileName' => 'getFileName',
         'MediaType' => 'getMediaType',
         'Buffer' => 'getBuffer'
@@ -119,7 +119,7 @@ class ClientDocument extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['FileName'] = isset($data['FileName']) ? $data['FileName'] : null;
         $this->container['MediaType'] = isset($data['MediaType']) ? $data['MediaType'] : null;
@@ -157,7 +157,7 @@ class ClientDocument extends BaseModel
      *
      * @return string
      */
-    public function getFileName()
+    public function getFileName(): string
     {
         return $this->container['FileName'];
     }
@@ -169,7 +169,9 @@ class ClientDocument extends BaseModel
      *
      * @return $this
      */
-    public function setFileName($FileName): self
+
+
+    public function setFileName(string $FileName): static
     {
         $this->container['FileName'] = $FileName;
 
@@ -181,7 +183,7 @@ class ClientDocument extends BaseModel
      *
      * @return string
      */
-    public function getMediaType()
+    public function getMediaType(): string
     {
         return $this->container['MediaType'];
     }
@@ -193,7 +195,9 @@ class ClientDocument extends BaseModel
      *
      * @return $this
      */
-    public function setMediaType($MediaType): self
+
+
+    public function setMediaType(string $MediaType): static
     {
         $this->container['MediaType'] = $MediaType;
 
@@ -205,7 +209,7 @@ class ClientDocument extends BaseModel
      *
      * @return string
      */
-    public function getBuffer()
+    public function getBuffer(): string
     {
         return $this->container['Buffer'];
     }
@@ -217,7 +221,9 @@ class ClientDocument extends BaseModel
      *
      * @return $this
      */
-    public function setBuffer($Buffer): self
+
+
+    public function setBuffer(string $Buffer): static
     {
 
         if ((!preg_match("/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/", $Buffer))) {

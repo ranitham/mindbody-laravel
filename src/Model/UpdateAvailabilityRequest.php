@@ -56,14 +56,14 @@ class UpdateAvailabilityRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UpdateAvailabilityRequest';
+    protected static string $swaggerModelName = 'UpdateAvailabilityRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'AvailabilityIds' => 'int[]',
         'PublicDisplay' => 'string',
         'DaysOfWeek' => 'string[]',
@@ -80,7 +80,7 @@ class UpdateAvailabilityRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'AvailabilityIds' => 'int32',
         'PublicDisplay' => null,
         'DaysOfWeek' => null,
@@ -99,7 +99,7 @@ class UpdateAvailabilityRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'AvailabilityIds' => 'AvailabilityIds',
         'PublicDisplay' => 'PublicDisplay',
         'DaysOfWeek' => 'DaysOfWeek',
@@ -116,7 +116,7 @@ class UpdateAvailabilityRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'AvailabilityIds' => 'setAvailabilityIds',
         'PublicDisplay' => 'setPublicDisplay',
         'DaysOfWeek' => 'setDaysOfWeek',
@@ -133,7 +133,7 @@ class UpdateAvailabilityRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'AvailabilityIds' => 'getAvailabilityIds',
         'PublicDisplay' => 'getPublicDisplay',
         'DaysOfWeek' => 'getDaysOfWeek',
@@ -198,7 +198,7 @@ class UpdateAvailabilityRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['AvailabilityIds'] = isset($data['AvailabilityIds']) ? $data['AvailabilityIds'] : null;
         $this->container['PublicDisplay'] = isset($data['PublicDisplay']) ? $data['PublicDisplay'] : null;
@@ -237,7 +237,7 @@ class UpdateAvailabilityRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getAvailabilityIds()
+    public function getAvailabilityIds(): array
     {
         return $this->container['AvailabilityIds'];
     }
@@ -249,7 +249,9 @@ class UpdateAvailabilityRequest extends BaseModel
      *
      * @return $this
      */
-    public function setAvailabilityIds($AvailabilityIds): self
+
+
+    public function setAvailabilityIds(array $AvailabilityIds): static
     {
         $this->container['AvailabilityIds'] = $AvailabilityIds;
 
@@ -261,7 +263,7 @@ class UpdateAvailabilityRequest extends BaseModel
      *
      * @return string
      */
-    public function getPublicDisplay()
+    public function getPublicDisplay(): string
     {
         return $this->container['PublicDisplay'];
     }
@@ -273,7 +275,9 @@ class UpdateAvailabilityRequest extends BaseModel
      *
      * @return $this
      */
-    public function setPublicDisplay($PublicDisplay): self
+
+
+    public function setPublicDisplay(string $PublicDisplay): static
     {
         $allowedValues = $this->getPublicDisplayAllowableValues();
         if (!is_null($PublicDisplay) && !in_array($PublicDisplay, $allowedValues, true)) {
@@ -294,7 +298,7 @@ class UpdateAvailabilityRequest extends BaseModel
      *
      * @return string[]
      */
-    public function getDaysOfWeek()
+    public function getDaysOfWeek(): array
     {
         return $this->container['DaysOfWeek'];
     }
@@ -306,7 +310,9 @@ class UpdateAvailabilityRequest extends BaseModel
      *
      * @return $this
      */
-    public function setDaysOfWeek($DaysOfWeek): self
+
+
+    public function setDaysOfWeek(array $DaysOfWeek): static
     {
         $allowedValues = $this->getDaysOfWeekAllowableValues();
         if (!is_null($DaysOfWeek) && array_diff($DaysOfWeek, $allowedValues)) {
@@ -327,7 +333,7 @@ class UpdateAvailabilityRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getProgramIds()
+    public function getProgramIds(): array
     {
         return $this->container['ProgramIds'];
     }
@@ -339,7 +345,9 @@ class UpdateAvailabilityRequest extends BaseModel
      *
      * @return $this
      */
-    public function setProgramIds($ProgramIds): self
+
+
+    public function setProgramIds(array $ProgramIds): static
     {
         $this->container['ProgramIds'] = $ProgramIds;
 
@@ -351,7 +359,7 @@ class UpdateAvailabilityRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDateTime()
+    public function getStartDateTime(): \DateTime
     {
         return $this->container['StartDateTime'];
     }
@@ -363,7 +371,9 @@ class UpdateAvailabilityRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStartDateTime($StartDateTime): self
+
+
+    public function setStartDateTime(\DateTime $StartDateTime): static
     {
         $this->container['StartDateTime'] = $StartDateTime;
 
@@ -375,7 +385,7 @@ class UpdateAvailabilityRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDateTime()
+    public function getEndDateTime(): \DateTime
     {
         return $this->container['EndDateTime'];
     }
@@ -387,7 +397,9 @@ class UpdateAvailabilityRequest extends BaseModel
      *
      * @return $this
      */
-    public function setEndDateTime($EndDateTime): self
+
+
+    public function setEndDateTime(\DateTime $EndDateTime): static
     {
         $this->container['EndDateTime'] = $EndDateTime;
 
@@ -399,7 +411,7 @@ class UpdateAvailabilityRequest extends BaseModel
      *
      * @return int
      */
-    public function getLocationId()
+    public function getLocationId(): int
     {
         return $this->container['LocationId'];
     }
@@ -411,7 +423,9 @@ class UpdateAvailabilityRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLocationId($LocationId): self
+
+
+    public function setLocationId(int $LocationId): static
     {
         $this->container['LocationId'] = $LocationId;
 
@@ -423,7 +437,7 @@ class UpdateAvailabilityRequest extends BaseModel
      *
      * @return string
      */
-    public function getUnavailableDescription()
+    public function getUnavailableDescription(): string
     {
         return $this->container['UnavailableDescription'];
     }
@@ -435,7 +449,9 @@ class UpdateAvailabilityRequest extends BaseModel
      *
      * @return $this
      */
-    public function setUnavailableDescription($UnavailableDescription): self
+
+
+    public function setUnavailableDescription(string $UnavailableDescription): static
     {
         $this->container['UnavailableDescription'] = $UnavailableDescription;
 
@@ -447,7 +463,7 @@ class UpdateAvailabilityRequest extends BaseModel
      *
      * @return bool
      */
-    public function getTest()
+    public function getTest(): bool
     {
         return $this->container['Test'];
     }
@@ -459,7 +475,9 @@ class UpdateAvailabilityRequest extends BaseModel
      *
      * @return $this
      */
-    public function setTest($Test): self
+
+
+    public function setTest(bool $Test): static
     {
         $this->container['Test'] = $Test;
 

@@ -51,14 +51,14 @@ class GetClientRewardsRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetClientRewardsRequest';
+    protected static string $swaggerModelName = 'GetClientRewardsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ClientId' => 'string',
         'StartDate' => '\DateTime',
         'EndDate' => '\DateTime',
@@ -71,7 +71,7 @@ class GetClientRewardsRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ClientId' => null,
         'StartDate' => 'date-time',
         'EndDate' => 'date-time',
@@ -86,7 +86,7 @@ class GetClientRewardsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ClientId' => 'ClientId',
         'StartDate' => 'StartDate',
         'EndDate' => 'EndDate',
@@ -99,7 +99,7 @@ class GetClientRewardsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ClientId' => 'setClientId',
         'StartDate' => 'setStartDate',
         'EndDate' => 'setEndDate',
@@ -112,7 +112,7 @@ class GetClientRewardsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ClientId' => 'getClientId',
         'StartDate' => 'getStartDate',
         'EndDate' => 'getEndDate',
@@ -131,7 +131,7 @@ class GetClientRewardsRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
         $this->container['StartDate'] = isset($data['StartDate']) ? $data['StartDate'] : null;
@@ -161,7 +161,7 @@ class GetClientRewardsRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId()
+    public function getClientId(): string
     {
         return $this->container['ClientId'];
     }
@@ -173,7 +173,9 @@ class GetClientRewardsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClientId($ClientId): self
+
+
+    public function setClientId(string $ClientId): static
     {
         $this->container['ClientId'] = $ClientId;
 
@@ -185,7 +187,7 @@ class GetClientRewardsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDate()
+    public function getStartDate(): \DateTime
     {
         return $this->container['StartDate'];
     }
@@ -197,7 +199,9 @@ class GetClientRewardsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStartDate($StartDate): self
+
+
+    public function setStartDate(\DateTime $StartDate): static
     {
         $this->container['StartDate'] = $StartDate;
 
@@ -209,7 +213,7 @@ class GetClientRewardsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDate()
+    public function getEndDate(): \DateTime
     {
         return $this->container['EndDate'];
     }
@@ -221,7 +225,9 @@ class GetClientRewardsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setEndDate($EndDate): self
+
+
+    public function setEndDate(\DateTime $EndDate): static
     {
         $this->container['EndDate'] = $EndDate;
 
@@ -233,7 +239,7 @@ class GetClientRewardsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit()
+    public function getLimit(): int
     {
         return $this->container['Limit'];
     }
@@ -245,7 +251,9 @@ class GetClientRewardsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLimit($Limit): self
+
+
+    public function setLimit(int $Limit): static
     {
         $this->container['Limit'] = $Limit;
 
@@ -257,7 +265,7 @@ class GetClientRewardsRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset()
+    public function getOffset(): int
     {
         return $this->container['Offset'];
     }
@@ -269,7 +277,9 @@ class GetClientRewardsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOffset($Offset): self
+
+
+    public function setOffset(int $Offset): static
     {
         $this->container['Offset'] = $Offset;
 

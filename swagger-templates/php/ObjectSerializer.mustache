@@ -145,17 +145,13 @@ class ObjectSerializer
      * the http body (form parameter). If it's a string, pass through unchanged
      * If it's a datetime object, format it in ISO8601
      *
-     * @param string|\SplFileObject $value the value of the form parameter
+     * @param string $value the value of the form parameter
      *
      * @return string the form string
      */
     public static function toFormValue($value)
     {
-        if ($value instanceof \SplFileObject) {
-            return $value->getRealPath();
-        } else {
-            return self::toString($value);
-        }
+        return self::toString($value);
     }
 
     /**
@@ -217,11 +213,10 @@ class ObjectSerializer
      *
      * @param mixed    $data          object or primitive to be deserialized
      * @param string   $class         class name is passed as a string
-     * @param string[] $httpHeaders   HTTP headers
      *
      * @return object|array|null an single or an array of $class instances
      */
-    public static function deserialize($data, $class, $httpHeaders = null)
+    public static function deserialize($data, $class)
     {
         if (null === $data) {
             return null;
@@ -261,24 +256,6 @@ class ObjectSerializer
         } elseif (in_array($class, [{{&primitives}}], true)) {
             settype($data, $class);
             return $data;
-        } elseif ($class === '\SplFileObject') {
-            /** @var \Psr\Http\Message\StreamInterface $data */
-
-            // determine file name
-            if (array_key_exists('Content-Disposition', $httpHeaders) &&
-                preg_match('/inline; filename=[\'"]?([^\'"\s]+)[\'"]?$/i', $httpHeaders['Content-Disposition'], $match)) {
-                $filename = Configuration::getDefaultConfiguration()->getTempFolderPath() . DIRECTORY_SEPARATOR . self::sanitizeFilename($match[1]);
-            } else {
-                $filename = tempnam(Configuration::getDefaultConfiguration()->getTempFolderPath(), '');
-            }
-
-            $file = fopen($filename, 'w');
-            while ($chunk = $data->read(200)) {
-                fwrite($file, $chunk);
-            }
-            fclose($file);
-
-            return new \SplFileObject($filename, 'r');
         } elseif (method_exists($class, 'getAllowableEnumValues')) {
             if (!in_array($data, $class::getAllowableEnumValues(), true)) {
                 $imploded = implode("', '", $class::getAllowableEnumValues());

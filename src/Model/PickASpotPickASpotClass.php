@@ -58,14 +58,14 @@ class PickASpotPickASpotClass extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'PickASpot.PickASpotClass';
+    protected static string $swaggerModelName = 'PickASpot.PickASpotClass';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'SiteId' => 'int',
         'LocationId' => 'int',
         'ClassId' => 'string',
@@ -84,7 +84,7 @@ class PickASpotPickASpotClass extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'SiteId' => 'int32',
         'LocationId' => 'int32',
         'ClassId' => null,
@@ -105,7 +105,7 @@ class PickASpotPickASpotClass extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'SiteId' => 'SiteId',
         'LocationId' => 'LocationId',
         'ClassId' => 'ClassId',
@@ -124,7 +124,7 @@ class PickASpotPickASpotClass extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'SiteId' => 'setSiteId',
         'LocationId' => 'setLocationId',
         'ClassId' => 'setClassId',
@@ -143,7 +143,7 @@ class PickASpotPickASpotClass extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'SiteId' => 'getSiteId',
         'LocationId' => 'getLocationId',
         'ClassId' => 'getClassId',
@@ -168,7 +168,7 @@ class PickASpotPickASpotClass extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['SiteId'] = isset($data['SiteId']) ? $data['SiteId'] : null;
         $this->container['LocationId'] = isset($data['LocationId']) ? $data['LocationId'] : null;
@@ -201,7 +201,7 @@ class PickASpotPickASpotClass extends BaseModel
      *
      * @return int
      */
-    public function getSiteId()
+    public function getSiteId(): int
     {
         return $this->container['SiteId'];
     }
@@ -213,7 +213,9 @@ class PickASpotPickASpotClass extends BaseModel
      *
      * @return $this
      */
-    public function setSiteId($SiteId): self
+
+
+    public function setSiteId(int $SiteId): static
     {
         $this->container['SiteId'] = $SiteId;
 
@@ -225,7 +227,7 @@ class PickASpotPickASpotClass extends BaseModel
      *
      * @return int
      */
-    public function getLocationId()
+    public function getLocationId(): int
     {
         return $this->container['LocationId'];
     }
@@ -237,7 +239,9 @@ class PickASpotPickASpotClass extends BaseModel
      *
      * @return $this
      */
-    public function setLocationId($LocationId): self
+
+
+    public function setLocationId(int $LocationId): static
     {
         $this->container['LocationId'] = $LocationId;
 
@@ -249,7 +253,7 @@ class PickASpotPickASpotClass extends BaseModel
      *
      * @return string
      */
-    public function getClassId()
+    public function getClassId(): string
     {
         return $this->container['ClassId'];
     }
@@ -261,7 +265,9 @@ class PickASpotPickASpotClass extends BaseModel
      *
      * @return $this
      */
-    public function setClassId($ClassId): self
+
+
+    public function setClassId(string $ClassId): static
     {
         $this->container['ClassId'] = $ClassId;
 
@@ -273,7 +279,7 @@ class PickASpotPickASpotClass extends BaseModel
      *
      * @return string
      */
-    public function getClassExternalId()
+    public function getClassExternalId(): string
     {
         return $this->container['ClassExternalId'];
     }
@@ -285,7 +291,9 @@ class PickASpotPickASpotClass extends BaseModel
      *
      * @return $this
      */
-    public function setClassExternalId($ClassExternalId): self
+
+
+    public function setClassExternalId(string $ClassExternalId): static
     {
         $this->container['ClassExternalId'] = $ClassExternalId;
 
@@ -297,7 +305,7 @@ class PickASpotPickASpotClass extends BaseModel
      *
      * @return string
      */
-    public function getClassName()
+    public function getClassName(): string
     {
         return $this->container['ClassName'];
     }
@@ -309,7 +317,9 @@ class PickASpotPickASpotClass extends BaseModel
      *
      * @return $this
      */
-    public function setClassName($ClassName): self
+
+
+    public function setClassName(string $ClassName): static
     {
         $this->container['ClassName'] = $ClassName;
 
@@ -321,7 +331,7 @@ class PickASpotPickASpotClass extends BaseModel
      *
      * @return \DateTime
      */
-    public function getClassStartTime()
+    public function getClassStartTime(): \DateTime
     {
         return $this->container['ClassStartTime'];
     }
@@ -333,7 +343,9 @@ class PickASpotPickASpotClass extends BaseModel
      *
      * @return $this
      */
-    public function setClassStartTime($ClassStartTime): self
+
+
+    public function setClassStartTime(\DateTime $ClassStartTime): static
     {
         $this->container['ClassStartTime'] = $ClassStartTime;
 
@@ -345,7 +357,7 @@ class PickASpotPickASpotClass extends BaseModel
      *
      * @return \DateTime
      */
-    public function getClassEndTime()
+    public function getClassEndTime(): \DateTime
     {
         return $this->container['ClassEndTime'];
     }
@@ -357,7 +369,9 @@ class PickASpotPickASpotClass extends BaseModel
      *
      * @return $this
      */
-    public function setClassEndTime($ClassEndTime): self
+
+
+    public function setClassEndTime(\DateTime $ClassEndTime): static
     {
         $this->container['ClassEndTime'] = $ClassEndTime;
 
@@ -369,7 +383,7 @@ class PickASpotPickASpotClass extends BaseModel
      *
      * @return int
      */
-    public function getClassMaximumCapacity()
+    public function getClassMaximumCapacity(): int
     {
         return $this->container['ClassMaximumCapacity'];
     }
@@ -381,7 +395,9 @@ class PickASpotPickASpotClass extends BaseModel
      *
      * @return $this
      */
-    public function setClassMaximumCapacity($ClassMaximumCapacity): self
+
+
+    public function setClassMaximumCapacity(int $ClassMaximumCapacity): static
     {
         $this->container['ClassMaximumCapacity'] = $ClassMaximumCapacity;
 
@@ -393,7 +409,7 @@ class PickASpotPickASpotClass extends BaseModel
      *
      * @return string
      */
-    public function getRoomId()
+    public function getRoomId(): string
     {
         return $this->container['RoomId'];
     }
@@ -405,7 +421,9 @@ class PickASpotPickASpotClass extends BaseModel
      *
      * @return $this
      */
-    public function setRoomId($RoomId): self
+
+
+    public function setRoomId(string $RoomId): static
     {
         $this->container['RoomId'] = $RoomId;
 
@@ -417,7 +435,7 @@ class PickASpotPickASpotClass extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PickASpotSpot
      */
-    public function getSpots()
+    public function getSpots(): \Nlocascio\Mindbody\Model\PickASpotSpot
     {
         return $this->container['Spots'];
     }
@@ -429,7 +447,9 @@ class PickASpotPickASpotClass extends BaseModel
      *
      * @return $this
      */
-    public function setSpots($Spots): self
+
+
+    public function setSpots(\Nlocascio\Mindbody\Model\PickASpotSpot $Spots): static
     {
         $this->container['Spots'] = $Spots;
 
@@ -441,7 +461,7 @@ class PickASpotPickASpotClass extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PickASpotReservation[]
      */
-    public function getReservations()
+    public function getReservations(): array
     {
         return $this->container['Reservations'];
     }
@@ -453,7 +473,9 @@ class PickASpotPickASpotClass extends BaseModel
      *
      * @return $this
      */
-    public function setReservations($Reservations): self
+
+
+    public function setReservations(array $Reservations): static
     {
         $this->container['Reservations'] = $Reservations;
 

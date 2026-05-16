@@ -48,14 +48,14 @@ class GetStaffImageURLRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetStaffImageURLRequest';
+    protected static string $swaggerModelName = 'GetStaffImageURLRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'StaffId' => 'int'
     ];
 
@@ -64,7 +64,7 @@ class GetStaffImageURLRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'StaffId' => 'int64'
     ];
 
@@ -75,7 +75,7 @@ class GetStaffImageURLRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'StaffId' => 'StaffId'
     ];
 
@@ -84,7 +84,7 @@ class GetStaffImageURLRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'StaffId' => 'setStaffId'
     ];
 
@@ -93,7 +93,7 @@ class GetStaffImageURLRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'StaffId' => 'getStaffId'
     ];
 
@@ -108,7 +108,7 @@ class GetStaffImageURLRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['StaffId'] = isset($data['StaffId']) ? $data['StaffId'] : null;
     }
@@ -131,7 +131,7 @@ class GetStaffImageURLRequest extends BaseModel
      *
      * @return int
      */
-    public function getStaffId()
+    public function getStaffId(): int
     {
         return $this->container['StaffId'];
     }
@@ -143,7 +143,9 @@ class GetStaffImageURLRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStaffId($StaffId): self
+
+
+    public function setStaffId(int $StaffId): static
     {
         $this->container['StaffId'] = $StaffId;
 

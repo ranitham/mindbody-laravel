@@ -50,14 +50,14 @@ class CancelSingleClassRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CancelSingleClassRequest';
+    protected static string $swaggerModelName = 'CancelSingleClassRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ClassID' => 'int',
         'HideCancel' => 'bool',
         'SendClientEmail' => 'bool',
@@ -69,7 +69,7 @@ class CancelSingleClassRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ClassID' => 'int64',
         'HideCancel' => null,
         'SendClientEmail' => null,
@@ -83,7 +83,7 @@ class CancelSingleClassRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ClassID' => 'ClassID',
         'HideCancel' => 'HideCancel',
         'SendClientEmail' => 'SendClientEmail',
@@ -95,7 +95,7 @@ class CancelSingleClassRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ClassID' => 'setClassID',
         'HideCancel' => 'setHideCancel',
         'SendClientEmail' => 'setSendClientEmail',
@@ -107,7 +107,7 @@ class CancelSingleClassRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ClassID' => 'getClassID',
         'HideCancel' => 'getHideCancel',
         'SendClientEmail' => 'getSendClientEmail',
@@ -125,7 +125,7 @@ class CancelSingleClassRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ClassID'] = isset($data['ClassID']) ? $data['ClassID'] : null;
         $this->container['HideCancel'] = isset($data['HideCancel']) ? $data['HideCancel'] : null;
@@ -151,7 +151,7 @@ class CancelSingleClassRequest extends BaseModel
      *
      * @return int
      */
-    public function getClassID()
+    public function getClassID(): int
     {
         return $this->container['ClassID'];
     }
@@ -163,7 +163,9 @@ class CancelSingleClassRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClassID($ClassID): self
+
+
+    public function setClassID(int $ClassID): static
     {
         $this->container['ClassID'] = $ClassID;
 
@@ -175,7 +177,7 @@ class CancelSingleClassRequest extends BaseModel
      *
      * @return bool
      */
-    public function getHideCancel()
+    public function getHideCancel(): bool
     {
         return $this->container['HideCancel'];
     }
@@ -187,7 +189,9 @@ class CancelSingleClassRequest extends BaseModel
      *
      * @return $this
      */
-    public function setHideCancel($HideCancel): self
+
+
+    public function setHideCancel(bool $HideCancel): static
     {
         $this->container['HideCancel'] = $HideCancel;
 
@@ -199,7 +203,7 @@ class CancelSingleClassRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSendClientEmail()
+    public function getSendClientEmail(): bool
     {
         return $this->container['SendClientEmail'];
     }
@@ -211,7 +215,9 @@ class CancelSingleClassRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSendClientEmail($SendClientEmail): self
+
+
+    public function setSendClientEmail(bool $SendClientEmail): static
     {
         $this->container['SendClientEmail'] = $SendClientEmail;
 
@@ -223,7 +229,7 @@ class CancelSingleClassRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSendStaffEmail()
+    public function getSendStaffEmail(): bool
     {
         return $this->container['SendStaffEmail'];
     }
@@ -235,7 +241,9 @@ class CancelSingleClassRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSendStaffEmail($SendStaffEmail): self
+
+
+    public function setSendStaffEmail(bool $SendStaffEmail): static
     {
         $this->container['SendStaffEmail'] = $SendStaffEmail;
 

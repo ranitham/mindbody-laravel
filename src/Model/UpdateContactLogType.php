@@ -39,7 +39,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property int[] $SubTypes The subtype IDs that are to be added to the contact log.
  *
  */
-class UpdateContactLogType extends BaseModel implements ModelWithId
+class UpdateContactLogType extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -48,14 +48,14 @@ class UpdateContactLogType extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UpdateContactLogType';
+    protected static string $swaggerModelName = 'UpdateContactLogType';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Id' => 'int',
         'SubTypes' => 'int[]'
     ];
@@ -65,7 +65,7 @@ class UpdateContactLogType extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Id' => 'int32',
         'SubTypes' => 'int32'
     ];
@@ -77,7 +77,7 @@ class UpdateContactLogType extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Id' => 'Id',
         'SubTypes' => 'SubTypes'
     ];
@@ -87,7 +87,7 @@ class UpdateContactLogType extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Id' => 'setId',
         'SubTypes' => 'setSubTypes'
     ];
@@ -97,7 +97,7 @@ class UpdateContactLogType extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Id' => 'getId',
         'SubTypes' => 'getSubTypes'
     ];
@@ -113,7 +113,7 @@ class UpdateContactLogType extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
         $this->container['SubTypes'] = isset($data['SubTypes']) ? $data['SubTypes'] : null;
@@ -137,7 +137,7 @@ class UpdateContactLogType extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -149,7 +149,9 @@ class UpdateContactLogType extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -161,7 +163,7 @@ class UpdateContactLogType extends BaseModel implements ModelWithId
      *
      * @return int[]
      */
-    public function getSubTypes()
+    public function getSubTypes(): array
     {
         return $this->container['SubTypes'];
     }
@@ -173,7 +175,9 @@ class UpdateContactLogType extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSubTypes($SubTypes): self
+
+
+    public function setSubTypes(array $SubTypes): static
     {
         $this->container['SubTypes'] = $SubTypes;
 

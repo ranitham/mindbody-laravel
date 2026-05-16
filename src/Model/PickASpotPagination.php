@@ -51,14 +51,14 @@ class PickASpotPagination extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'PickASpot.Pagination';
+    protected static string $swaggerModelName = 'PickASpot.Pagination';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'PageNumber' => 'int',
         'PageSize' => 'int',
         'TotalResultCount' => 'int',
@@ -70,7 +70,7 @@ class PickASpotPagination extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'PageNumber' => 'int32',
         'PageSize' => 'int32',
         'TotalResultCount' => 'int32',
@@ -84,7 +84,7 @@ class PickASpotPagination extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'PageNumber' => 'PageNumber',
         'PageSize' => 'PageSize',
         'TotalResultCount' => 'TotalResultCount',
@@ -96,7 +96,7 @@ class PickASpotPagination extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'PageNumber' => 'setPageNumber',
         'PageSize' => 'setPageSize',
         'TotalResultCount' => 'setTotalResultCount',
@@ -108,7 +108,7 @@ class PickASpotPagination extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'PageNumber' => 'getPageNumber',
         'PageSize' => 'getPageSize',
         'TotalResultCount' => 'getTotalResultCount',
@@ -126,7 +126,7 @@ class PickASpotPagination extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['PageNumber'] = isset($data['PageNumber']) ? $data['PageNumber'] : null;
         $this->container['PageSize'] = isset($data['PageSize']) ? $data['PageSize'] : null;
@@ -152,7 +152,7 @@ class PickASpotPagination extends BaseModel
      *
      * @return int
      */
-    public function getPageNumber()
+    public function getPageNumber(): int
     {
         return $this->container['PageNumber'];
     }
@@ -164,7 +164,9 @@ class PickASpotPagination extends BaseModel
      *
      * @return $this
      */
-    public function setPageNumber($PageNumber): self
+
+
+    public function setPageNumber(int $PageNumber): static
     {
         $this->container['PageNumber'] = $PageNumber;
 
@@ -176,7 +178,7 @@ class PickASpotPagination extends BaseModel
      *
      * @return int
      */
-    public function getPageSize()
+    public function getPageSize(): int
     {
         return $this->container['PageSize'];
     }
@@ -188,7 +190,9 @@ class PickASpotPagination extends BaseModel
      *
      * @return $this
      */
-    public function setPageSize($PageSize): self
+
+
+    public function setPageSize(int $PageSize): static
     {
         $this->container['PageSize'] = $PageSize;
 
@@ -200,7 +204,7 @@ class PickASpotPagination extends BaseModel
      *
      * @return int
      */
-    public function getTotalResultCount()
+    public function getTotalResultCount(): int
     {
         return $this->container['TotalResultCount'];
     }
@@ -212,7 +216,9 @@ class PickASpotPagination extends BaseModel
      *
      * @return $this
      */
-    public function setTotalResultCount($TotalResultCount): self
+
+
+    public function setTotalResultCount(int $TotalResultCount): static
     {
         $this->container['TotalResultCount'] = $TotalResultCount;
 
@@ -224,7 +230,7 @@ class PickASpotPagination extends BaseModel
      *
      * @return int
      */
-    public function getTotalPageCount()
+    public function getTotalPageCount(): int
     {
         return $this->container['TotalPageCount'];
     }
@@ -236,7 +242,9 @@ class PickASpotPagination extends BaseModel
      *
      * @return $this
      */
-    public function setTotalPageCount($TotalPageCount): self
+
+
+    public function setTotalPageCount(int $TotalPageCount): static
     {
         $this->container['TotalPageCount'] = $TotalPageCount;
 

@@ -48,14 +48,14 @@ class UploadClientPhotoResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UploadClientPhotoResponse';
+    protected static string $swaggerModelName = 'UploadClientPhotoResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ClientId' => 'string',
         'PhotoUrl' => 'string'
     ];
@@ -65,7 +65,7 @@ class UploadClientPhotoResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ClientId' => null,
         'PhotoUrl' => null
     ];
@@ -77,7 +77,7 @@ class UploadClientPhotoResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ClientId' => 'ClientId',
         'PhotoUrl' => 'PhotoUrl'
     ];
@@ -87,7 +87,7 @@ class UploadClientPhotoResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ClientId' => 'setClientId',
         'PhotoUrl' => 'setPhotoUrl'
     ];
@@ -97,7 +97,7 @@ class UploadClientPhotoResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ClientId' => 'getClientId',
         'PhotoUrl' => 'getPhotoUrl'
     ];
@@ -113,7 +113,7 @@ class UploadClientPhotoResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
         $this->container['PhotoUrl'] = isset($data['PhotoUrl']) ? $data['PhotoUrl'] : null;
@@ -137,7 +137,7 @@ class UploadClientPhotoResponse extends BaseModel
      *
      * @return string
      */
-    public function getClientId()
+    public function getClientId(): string
     {
         return $this->container['ClientId'];
     }
@@ -149,7 +149,9 @@ class UploadClientPhotoResponse extends BaseModel
      *
      * @return $this
      */
-    public function setClientId($ClientId): self
+
+
+    public function setClientId(string $ClientId): static
     {
         $this->container['ClientId'] = $ClientId;
 
@@ -161,7 +163,7 @@ class UploadClientPhotoResponse extends BaseModel
      *
      * @return string
      */
-    public function getPhotoUrl()
+    public function getPhotoUrl(): string
     {
         return $this->container['PhotoUrl'];
     }
@@ -173,7 +175,9 @@ class UploadClientPhotoResponse extends BaseModel
      *
      * @return $this
      */
-    public function setPhotoUrl($PhotoUrl): self
+
+
+    public function setPhotoUrl(string $PhotoUrl): static
     {
         $this->container['PhotoUrl'] = $PhotoUrl;
 

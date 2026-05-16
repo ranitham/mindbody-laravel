@@ -48,14 +48,14 @@ class GetCrossRegionalClientAssociationsResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetCrossRegionalClientAssociationsResponse';
+    protected static string $swaggerModelName = 'GetCrossRegionalClientAssociationsResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'PaginationResponse' => '\Nlocascio\Mindbody\Model\PaginationResponse',
         'CrossRegionalClientAssociations' => '\Nlocascio\Mindbody\Model\CrossRegionalClientAssociation[]'
     ];
@@ -65,7 +65,7 @@ class GetCrossRegionalClientAssociationsResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'PaginationResponse' => null,
         'CrossRegionalClientAssociations' => null
     ];
@@ -77,7 +77,7 @@ class GetCrossRegionalClientAssociationsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'PaginationResponse' => 'PaginationResponse',
         'CrossRegionalClientAssociations' => 'CrossRegionalClientAssociations'
     ];
@@ -87,7 +87,7 @@ class GetCrossRegionalClientAssociationsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'PaginationResponse' => 'setPaginationResponse',
         'CrossRegionalClientAssociations' => 'setCrossRegionalClientAssociations'
     ];
@@ -97,7 +97,7 @@ class GetCrossRegionalClientAssociationsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'PaginationResponse' => 'getPaginationResponse',
         'CrossRegionalClientAssociations' => 'getCrossRegionalClientAssociations'
     ];
@@ -113,7 +113,7 @@ class GetCrossRegionalClientAssociationsResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['PaginationResponse'] = isset($data['PaginationResponse']) ? $data['PaginationResponse'] : null;
         $this->container['CrossRegionalClientAssociations'] = isset($data['CrossRegionalClientAssociations']) ? $data['CrossRegionalClientAssociations'] : null;
@@ -137,7 +137,7 @@ class GetCrossRegionalClientAssociationsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse()
+    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
     {
         return $this->container['PaginationResponse'];
     }
@@ -149,7 +149,9 @@ class GetCrossRegionalClientAssociationsResponse extends BaseModel
      *
      * @return $this
      */
-    public function setPaginationResponse($PaginationResponse): self
+
+
+    public function setPaginationResponse(\Nlocascio\Mindbody\Model\PaginationResponse $PaginationResponse): static
     {
         $this->container['PaginationResponse'] = $PaginationResponse;
 
@@ -161,7 +163,7 @@ class GetCrossRegionalClientAssociationsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\CrossRegionalClientAssociation[]
      */
-    public function getCrossRegionalClientAssociations()
+    public function getCrossRegionalClientAssociations(): array
     {
         return $this->container['CrossRegionalClientAssociations'];
     }
@@ -173,7 +175,9 @@ class GetCrossRegionalClientAssociationsResponse extends BaseModel
      *
      * @return $this
      */
-    public function setCrossRegionalClientAssociations($CrossRegionalClientAssociations): self
+
+
+    public function setCrossRegionalClientAssociations(array $CrossRegionalClientAssociations): static
     {
         $this->container['CrossRegionalClientAssociations'] = $CrossRegionalClientAssociations;
 

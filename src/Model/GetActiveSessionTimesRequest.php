@@ -52,14 +52,14 @@ class GetActiveSessionTimesRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetActiveSessionTimesRequest';
+    protected static string $swaggerModelName = 'GetActiveSessionTimesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ScheduleType' => 'string',
         'SessionTypeIds' => 'int[]',
         'StartTime' => '\DateTime',
@@ -73,7 +73,7 @@ class GetActiveSessionTimesRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ScheduleType' => null,
         'SessionTypeIds' => 'int32',
         'StartTime' => 'date-time',
@@ -89,7 +89,7 @@ class GetActiveSessionTimesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ScheduleType' => 'ScheduleType',
         'SessionTypeIds' => 'SessionTypeIds',
         'StartTime' => 'StartTime',
@@ -103,7 +103,7 @@ class GetActiveSessionTimesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ScheduleType' => 'setScheduleType',
         'SessionTypeIds' => 'setSessionTypeIds',
         'StartTime' => 'setStartTime',
@@ -117,7 +117,7 @@ class GetActiveSessionTimesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ScheduleType' => 'getScheduleType',
         'SessionTypeIds' => 'getSessionTypeIds',
         'StartTime' => 'getStartTime',
@@ -162,7 +162,7 @@ class GetActiveSessionTimesRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ScheduleType'] = isset($data['ScheduleType']) ? $data['ScheduleType'] : null;
         $this->container['SessionTypeIds'] = isset($data['SessionTypeIds']) ? $data['SessionTypeIds'] : null;
@@ -198,7 +198,7 @@ class GetActiveSessionTimesRequest extends BaseModel
      *
      * @return string
      */
-    public function getScheduleType()
+    public function getScheduleType(): string
     {
         return $this->container['ScheduleType'];
     }
@@ -210,7 +210,9 @@ class GetActiveSessionTimesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setScheduleType($ScheduleType): self
+
+
+    public function setScheduleType(string $ScheduleType): static
     {
         $allowedValues = $this->getScheduleTypeAllowableValues();
         if (!is_null($ScheduleType) && !in_array($ScheduleType, $allowedValues, true)) {
@@ -231,7 +233,7 @@ class GetActiveSessionTimesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getSessionTypeIds()
+    public function getSessionTypeIds(): array
     {
         return $this->container['SessionTypeIds'];
     }
@@ -243,7 +245,9 @@ class GetActiveSessionTimesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSessionTypeIds($SessionTypeIds): self
+
+
+    public function setSessionTypeIds(array $SessionTypeIds): static
     {
         $this->container['SessionTypeIds'] = $SessionTypeIds;
 
@@ -255,7 +259,7 @@ class GetActiveSessionTimesRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartTime()
+    public function getStartTime(): \DateTime
     {
         return $this->container['StartTime'];
     }
@@ -267,7 +271,9 @@ class GetActiveSessionTimesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStartTime($StartTime): self
+
+
+    public function setStartTime(\DateTime $StartTime): static
     {
         $this->container['StartTime'] = $StartTime;
 
@@ -279,7 +285,7 @@ class GetActiveSessionTimesRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndTime()
+    public function getEndTime(): \DateTime
     {
         return $this->container['EndTime'];
     }
@@ -291,7 +297,9 @@ class GetActiveSessionTimesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setEndTime($EndTime): self
+
+
+    public function setEndTime(\DateTime $EndTime): static
     {
         $this->container['EndTime'] = $EndTime;
 
@@ -303,7 +311,7 @@ class GetActiveSessionTimesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit()
+    public function getLimit(): int
     {
         return $this->container['Limit'];
     }
@@ -315,7 +323,9 @@ class GetActiveSessionTimesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLimit($Limit): self
+
+
+    public function setLimit(int $Limit): static
     {
         $this->container['Limit'] = $Limit;
 
@@ -327,7 +337,7 @@ class GetActiveSessionTimesRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset()
+    public function getOffset(): int
     {
         return $this->container['Offset'];
     }
@@ -339,7 +349,9 @@ class GetActiveSessionTimesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOffset($Offset): self
+
+
+    public function setOffset(int $Offset): static
     {
         $this->container['Offset'] = $Offset;
 

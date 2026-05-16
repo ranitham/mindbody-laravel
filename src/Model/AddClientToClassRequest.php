@@ -57,14 +57,14 @@ class AddClientToClassRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AddClientToClassRequest';
+    protected static string $swaggerModelName = 'AddClientToClassRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ClientId' => 'string',
         'ClassId' => 'int',
         'Test' => 'bool',
@@ -83,7 +83,7 @@ class AddClientToClassRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ClientId' => null,
         'ClassId' => 'int32',
         'Test' => null,
@@ -104,7 +104,7 @@ class AddClientToClassRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ClientId' => 'ClientId',
         'ClassId' => 'ClassId',
         'Test' => 'Test',
@@ -123,7 +123,7 @@ class AddClientToClassRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ClientId' => 'setClientId',
         'ClassId' => 'setClassId',
         'Test' => 'setTest',
@@ -142,7 +142,7 @@ class AddClientToClassRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ClientId' => 'getClientId',
         'ClassId' => 'getClassId',
         'Test' => 'getTest',
@@ -167,7 +167,7 @@ class AddClientToClassRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
         $this->container['ClassId'] = isset($data['ClassId']) ? $data['ClassId'] : null;
@@ -206,7 +206,7 @@ class AddClientToClassRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId()
+    public function getClientId(): string
     {
         return $this->container['ClientId'];
     }
@@ -218,7 +218,9 @@ class AddClientToClassRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClientId($ClientId): self
+
+
+    public function setClientId(string $ClientId): static
     {
         $this->container['ClientId'] = $ClientId;
 
@@ -230,7 +232,7 @@ class AddClientToClassRequest extends BaseModel
      *
      * @return int
      */
-    public function getClassId()
+    public function getClassId(): int
     {
         return $this->container['ClassId'];
     }
@@ -242,7 +244,9 @@ class AddClientToClassRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClassId($ClassId): self
+
+
+    public function setClassId(int $ClassId): static
     {
         $this->container['ClassId'] = $ClassId;
 
@@ -254,7 +258,7 @@ class AddClientToClassRequest extends BaseModel
      *
      * @return bool
      */
-    public function getTest()
+    public function getTest(): bool
     {
         return $this->container['Test'];
     }
@@ -266,7 +270,9 @@ class AddClientToClassRequest extends BaseModel
      *
      * @return $this
      */
-    public function setTest($Test): self
+
+
+    public function setTest(bool $Test): static
     {
         $this->container['Test'] = $Test;
 
@@ -278,7 +284,7 @@ class AddClientToClassRequest extends BaseModel
      *
      * @return bool
      */
-    public function getRequirePayment()
+    public function getRequirePayment(): bool
     {
         return $this->container['RequirePayment'];
     }
@@ -290,7 +296,9 @@ class AddClientToClassRequest extends BaseModel
      *
      * @return $this
      */
-    public function setRequirePayment($RequirePayment): self
+
+
+    public function setRequirePayment(bool $RequirePayment): static
     {
         $this->container['RequirePayment'] = $RequirePayment;
 
@@ -302,7 +310,7 @@ class AddClientToClassRequest extends BaseModel
      *
      * @return bool
      */
-    public function getWaitlist()
+    public function getWaitlist(): bool
     {
         return $this->container['Waitlist'];
     }
@@ -314,7 +322,9 @@ class AddClientToClassRequest extends BaseModel
      *
      * @return $this
      */
-    public function setWaitlist($Waitlist): self
+
+
+    public function setWaitlist(bool $Waitlist): static
     {
         $this->container['Waitlist'] = $Waitlist;
 
@@ -326,7 +336,7 @@ class AddClientToClassRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSendEmail()
+    public function getSendEmail(): bool
     {
         return $this->container['SendEmail'];
     }
@@ -338,7 +348,9 @@ class AddClientToClassRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSendEmail($SendEmail): self
+
+
+    public function setSendEmail(bool $SendEmail): static
     {
         $this->container['SendEmail'] = $SendEmail;
 
@@ -350,7 +362,7 @@ class AddClientToClassRequest extends BaseModel
      *
      * @return int
      */
-    public function getWaitlistEntryId()
+    public function getWaitlistEntryId(): int
     {
         return $this->container['WaitlistEntryId'];
     }
@@ -362,7 +374,9 @@ class AddClientToClassRequest extends BaseModel
      *
      * @return $this
      */
-    public function setWaitlistEntryId($WaitlistEntryId): self
+
+
+    public function setWaitlistEntryId(int $WaitlistEntryId): static
     {
         $this->container['WaitlistEntryId'] = $WaitlistEntryId;
 
@@ -374,7 +388,7 @@ class AddClientToClassRequest extends BaseModel
      *
      * @return int
      */
-    public function getClientServiceId()
+    public function getClientServiceId(): int
     {
         return $this->container['ClientServiceId'];
     }
@@ -386,7 +400,9 @@ class AddClientToClassRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClientServiceId($ClientServiceId): self
+
+
+    public function setClientServiceId(int $ClientServiceId): static
     {
         $this->container['ClientServiceId'] = $ClientServiceId;
 
@@ -398,7 +414,7 @@ class AddClientToClassRequest extends BaseModel
      *
      * @return bool
      */
-    public function getCrossRegionalBooking()
+    public function getCrossRegionalBooking(): bool
     {
         return $this->container['CrossRegionalBooking'];
     }
@@ -410,7 +426,9 @@ class AddClientToClassRequest extends BaseModel
      *
      * @return $this
      */
-    public function setCrossRegionalBooking($CrossRegionalBooking): self
+
+
+    public function setCrossRegionalBooking(bool $CrossRegionalBooking): static
     {
         $this->container['CrossRegionalBooking'] = $CrossRegionalBooking;
 
@@ -422,7 +440,7 @@ class AddClientToClassRequest extends BaseModel
      *
      * @return int
      */
-    public function getCrossRegionalBookingClientServiceSiteId()
+    public function getCrossRegionalBookingClientServiceSiteId(): int
     {
         return $this->container['CrossRegionalBookingClientServiceSiteId'];
     }
@@ -434,7 +452,9 @@ class AddClientToClassRequest extends BaseModel
      *
      * @return $this
      */
-    public function setCrossRegionalBookingClientServiceSiteId($CrossRegionalBookingClientServiceSiteId): self
+
+
+    public function setCrossRegionalBookingClientServiceSiteId(int $CrossRegionalBookingClientServiceSiteId): static
     {
         $this->container['CrossRegionalBookingClientServiceSiteId'] = $CrossRegionalBookingClientServiceSiteId;
 
@@ -446,7 +466,7 @@ class AddClientToClassRequest extends BaseModel
      *
      * @return int
      */
-    public function getUniqueId()
+    public function getUniqueId(): int
     {
         return $this->container['UniqueId'];
     }
@@ -458,7 +478,9 @@ class AddClientToClassRequest extends BaseModel
      *
      * @return $this
      */
-    public function setUniqueId($UniqueId): self
+
+
+    public function setUniqueId(int $UniqueId): static
     {
         $this->container['UniqueId'] = $UniqueId;
 

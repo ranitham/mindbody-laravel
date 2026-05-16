@@ -47,14 +47,14 @@ class UpdateClientVisitResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UpdateClientVisitResponse';
+    protected static string $swaggerModelName = 'UpdateClientVisitResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Visit' => '\Nlocascio\Mindbody\Model\Visit'
     ];
 
@@ -63,7 +63,7 @@ class UpdateClientVisitResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Visit' => null
     ];
 
@@ -74,7 +74,7 @@ class UpdateClientVisitResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Visit' => 'Visit'
     ];
 
@@ -83,7 +83,7 @@ class UpdateClientVisitResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Visit' => 'setVisit'
     ];
 
@@ -92,7 +92,7 @@ class UpdateClientVisitResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Visit' => 'getVisit'
     ];
 
@@ -107,7 +107,7 @@ class UpdateClientVisitResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Visit'] = isset($data['Visit']) ? $data['Visit'] : null;
     }
@@ -130,7 +130,7 @@ class UpdateClientVisitResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Visit
      */
-    public function getVisit()
+    public function getVisit(): \Nlocascio\Mindbody\Model\Visit
     {
         return $this->container['Visit'];
     }
@@ -142,7 +142,9 @@ class UpdateClientVisitResponse extends BaseModel
      *
      * @return $this
      */
-    public function setVisit($Visit): self
+
+
+    public function setVisit(\Nlocascio\Mindbody\Model\Visit $Visit): static
     {
         $this->container['Visit'] = $Visit;
 

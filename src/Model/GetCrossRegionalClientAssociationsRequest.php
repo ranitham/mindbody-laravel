@@ -55,14 +55,14 @@ class GetCrossRegionalClientAssociationsRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetCrossRegionalClientAssociationsRequest';
+    protected static string $swaggerModelName = 'GetCrossRegionalClientAssociationsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'UniqueClientId' => 'int',
         'ClientId' => 'string',
         'Email' => 'string',
@@ -79,7 +79,7 @@ class GetCrossRegionalClientAssociationsRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'UniqueClientId' => 'int64',
         'ClientId' => null,
         'Email' => null,
@@ -98,7 +98,7 @@ class GetCrossRegionalClientAssociationsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'UniqueClientId' => 'UniqueClientId',
         'ClientId' => 'ClientId',
         'Email' => 'Email',
@@ -115,7 +115,7 @@ class GetCrossRegionalClientAssociationsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'UniqueClientId' => 'setUniqueClientId',
         'ClientId' => 'setClientId',
         'Email' => 'setEmail',
@@ -132,7 +132,7 @@ class GetCrossRegionalClientAssociationsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'UniqueClientId' => 'getUniqueClientId',
         'ClientId' => 'getClientId',
         'Email' => 'getEmail',
@@ -155,7 +155,7 @@ class GetCrossRegionalClientAssociationsRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['UniqueClientId'] = isset($data['UniqueClientId']) ? $data['UniqueClientId'] : null;
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
@@ -186,7 +186,7 @@ class GetCrossRegionalClientAssociationsRequest extends BaseModel
      *
      * @return int
      */
-    public function getUniqueClientId()
+    public function getUniqueClientId(): int
     {
         return $this->container['UniqueClientId'];
     }
@@ -198,7 +198,9 @@ class GetCrossRegionalClientAssociationsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setUniqueClientId($UniqueClientId): self
+
+
+    public function setUniqueClientId(int $UniqueClientId): static
     {
         $this->container['UniqueClientId'] = $UniqueClientId;
 
@@ -210,7 +212,7 @@ class GetCrossRegionalClientAssociationsRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId()
+    public function getClientId(): string
     {
         return $this->container['ClientId'];
     }
@@ -222,7 +224,9 @@ class GetCrossRegionalClientAssociationsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClientId($ClientId): self
+
+
+    public function setClientId(string $ClientId): static
     {
         $this->container['ClientId'] = $ClientId;
 
@@ -234,7 +238,7 @@ class GetCrossRegionalClientAssociationsRequest extends BaseModel
      *
      * @return string
      */
-    public function getEmail()
+    public function getEmail(): string
     {
         return $this->container['Email'];
     }
@@ -246,7 +250,9 @@ class GetCrossRegionalClientAssociationsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setEmail($Email): self
+
+
+    public function setEmail(string $Email): static
     {
         $this->container['Email'] = $Email;
 
@@ -258,7 +264,7 @@ class GetCrossRegionalClientAssociationsRequest extends BaseModel
      *
      * @return string
      */
-    public function getFirstName()
+    public function getFirstName(): string
     {
         return $this->container['FirstName'];
     }
@@ -270,7 +276,9 @@ class GetCrossRegionalClientAssociationsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setFirstName($FirstName): self
+
+
+    public function setFirstName(string $FirstName): static
     {
         $this->container['FirstName'] = $FirstName;
 
@@ -282,7 +290,7 @@ class GetCrossRegionalClientAssociationsRequest extends BaseModel
      *
      * @return string
      */
-    public function getLastName()
+    public function getLastName(): string
     {
         return $this->container['LastName'];
     }
@@ -294,7 +302,9 @@ class GetCrossRegionalClientAssociationsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLastName($LastName): self
+
+
+    public function setLastName(string $LastName): static
     {
         $this->container['LastName'] = $LastName;
 
@@ -306,7 +316,7 @@ class GetCrossRegionalClientAssociationsRequest extends BaseModel
      *
      * @return bool
      */
-    public function getV2()
+    public function getV2(): bool
     {
         return $this->container['V2'];
     }
@@ -318,7 +328,9 @@ class GetCrossRegionalClientAssociationsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setV2($V2): self
+
+
+    public function setV2(bool $V2): static
     {
         $this->container['V2'] = $V2;
 
@@ -330,7 +342,7 @@ class GetCrossRegionalClientAssociationsRequest extends BaseModel
      *
      * @return bool
      */
-    public function getExcludeInactiveSites()
+    public function getExcludeInactiveSites(): bool
     {
         return $this->container['ExcludeInactiveSites'];
     }
@@ -342,7 +354,9 @@ class GetCrossRegionalClientAssociationsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setExcludeInactiveSites($ExcludeInactiveSites): self
+
+
+    public function setExcludeInactiveSites(bool $ExcludeInactiveSites): static
     {
         $this->container['ExcludeInactiveSites'] = $ExcludeInactiveSites;
 
@@ -354,7 +368,7 @@ class GetCrossRegionalClientAssociationsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit()
+    public function getLimit(): int
     {
         return $this->container['Limit'];
     }
@@ -366,7 +380,9 @@ class GetCrossRegionalClientAssociationsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLimit($Limit): self
+
+
+    public function setLimit(int $Limit): static
     {
         $this->container['Limit'] = $Limit;
 
@@ -378,7 +394,7 @@ class GetCrossRegionalClientAssociationsRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset()
+    public function getOffset(): int
     {
         return $this->container['Offset'];
     }
@@ -390,7 +406,9 @@ class GetCrossRegionalClientAssociationsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOffset($Offset): self
+
+
+    public function setOffset(int $Offset): static
     {
         $this->container['Offset'] = $Offset;
 

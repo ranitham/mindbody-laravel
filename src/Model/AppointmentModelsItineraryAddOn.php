@@ -44,7 +44,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property string $Notes Notes for the add-on appointment.
  *
  */
-class AppointmentModelsItineraryAddOn extends BaseModel implements ModelWithId
+class AppointmentModelsItineraryAddOn extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -53,14 +53,14 @@ class AppointmentModelsItineraryAddOn extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AppointmentModels.ItineraryAddOn';
+    protected static string $swaggerModelName = 'AppointmentModels.ItineraryAddOn';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Id' => 'int',
         'SessionTypeId' => 'int',
         'StartTime' => '\DateTime',
@@ -74,7 +74,7 @@ class AppointmentModelsItineraryAddOn extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Id' => 'int64',
         'SessionTypeId' => 'int32',
         'StartTime' => 'date-time',
@@ -90,7 +90,7 @@ class AppointmentModelsItineraryAddOn extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Id' => 'Id',
         'SessionTypeId' => 'SessionTypeId',
         'StartTime' => 'StartTime',
@@ -104,7 +104,7 @@ class AppointmentModelsItineraryAddOn extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Id' => 'setId',
         'SessionTypeId' => 'setSessionTypeId',
         'StartTime' => 'setStartTime',
@@ -118,7 +118,7 @@ class AppointmentModelsItineraryAddOn extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Id' => 'getId',
         'SessionTypeId' => 'getSessionTypeId',
         'StartTime' => 'getStartTime',
@@ -138,7 +138,7 @@ class AppointmentModelsItineraryAddOn extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
         $this->container['SessionTypeId'] = isset($data['SessionTypeId']) ? $data['SessionTypeId'] : null;
@@ -166,7 +166,7 @@ class AppointmentModelsItineraryAddOn extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -178,7 +178,9 @@ class AppointmentModelsItineraryAddOn extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -190,7 +192,7 @@ class AppointmentModelsItineraryAddOn extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getSessionTypeId()
+    public function getSessionTypeId(): int
     {
         return $this->container['SessionTypeId'];
     }
@@ -202,7 +204,9 @@ class AppointmentModelsItineraryAddOn extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSessionTypeId($SessionTypeId): self
+
+
+    public function setSessionTypeId(int $SessionTypeId): static
     {
         $this->container['SessionTypeId'] = $SessionTypeId;
 
@@ -214,7 +218,7 @@ class AppointmentModelsItineraryAddOn extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getStartTime()
+    public function getStartTime(): \DateTime
     {
         return $this->container['StartTime'];
     }
@@ -226,7 +230,9 @@ class AppointmentModelsItineraryAddOn extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setStartTime($StartTime): self
+
+
+    public function setStartTime(\DateTime $StartTime): static
     {
         $this->container['StartTime'] = $StartTime;
 
@@ -238,7 +244,7 @@ class AppointmentModelsItineraryAddOn extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getDurationOverrideInMinutes()
+    public function getDurationOverrideInMinutes(): int
     {
         return $this->container['DurationOverrideInMinutes'];
     }
@@ -250,7 +256,9 @@ class AppointmentModelsItineraryAddOn extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setDurationOverrideInMinutes($DurationOverrideInMinutes): self
+
+
+    public function setDurationOverrideInMinutes(int $DurationOverrideInMinutes): static
     {
         $this->container['DurationOverrideInMinutes'] = $DurationOverrideInMinutes;
 
@@ -262,7 +270,7 @@ class AppointmentModelsItineraryAddOn extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\AppointmentModelsAppointmentResourceInfo[]
      */
-    public function getResources()
+    public function getResources(): array
     {
         return $this->container['Resources'];
     }
@@ -274,7 +282,9 @@ class AppointmentModelsItineraryAddOn extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setResources($Resources): self
+
+
+    public function setResources(array $Resources): static
     {
         $this->container['Resources'] = $Resources;
 
@@ -286,7 +296,7 @@ class AppointmentModelsItineraryAddOn extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getNotes()
+    public function getNotes(): string
     {
         return $this->container['Notes'];
     }
@@ -298,7 +308,9 @@ class AppointmentModelsItineraryAddOn extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setNotes($Notes): self
+
+
+    public function setNotes(string $Notes): static
     {
         $this->container['Notes'] = $Notes;
 

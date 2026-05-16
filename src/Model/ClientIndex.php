@@ -44,7 +44,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property string $Action The action performed on this object.
  *
  */
-class ClientIndex extends BaseModel implements ModelWithId
+class ClientIndex extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -53,14 +53,14 @@ class ClientIndex extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ClientIndex';
+    protected static string $swaggerModelName = 'ClientIndex';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Id' => 'int',
         'Name' => 'string',
         'RequiredBusinessMode' => 'bool',
@@ -74,7 +74,7 @@ class ClientIndex extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Id' => 'int32',
         'Name' => null,
         'RequiredBusinessMode' => null,
@@ -90,7 +90,7 @@ class ClientIndex extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Id' => 'Id',
         'Name' => 'Name',
         'RequiredBusinessMode' => 'RequiredBusinessMode',
@@ -104,7 +104,7 @@ class ClientIndex extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Id' => 'setId',
         'Name' => 'setName',
         'RequiredBusinessMode' => 'setRequiredBusinessMode',
@@ -118,7 +118,7 @@ class ClientIndex extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Id' => 'getId',
         'Name' => 'getName',
         'RequiredBusinessMode' => 'getRequiredBusinessMode',
@@ -159,7 +159,7 @@ class ClientIndex extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
         $this->container['Name'] = isset($data['Name']) ? $data['Name'] : null;
@@ -195,7 +195,7 @@ class ClientIndex extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -207,7 +207,9 @@ class ClientIndex extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -219,7 +221,7 @@ class ClientIndex extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->container['Name'];
     }
@@ -231,7 +233,9 @@ class ClientIndex extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setName($Name): self
+
+
+    public function setName(string $Name): static
     {
         $this->container['Name'] = $Name;
 
@@ -243,7 +247,7 @@ class ClientIndex extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getRequiredBusinessMode()
+    public function getRequiredBusinessMode(): bool
     {
         return $this->container['RequiredBusinessMode'];
     }
@@ -255,7 +259,9 @@ class ClientIndex extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setRequiredBusinessMode($RequiredBusinessMode): self
+
+
+    public function setRequiredBusinessMode(bool $RequiredBusinessMode): static
     {
         $this->container['RequiredBusinessMode'] = $RequiredBusinessMode;
 
@@ -267,7 +273,7 @@ class ClientIndex extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getRequiredConsumerMode()
+    public function getRequiredConsumerMode(): bool
     {
         return $this->container['RequiredConsumerMode'];
     }
@@ -279,7 +285,9 @@ class ClientIndex extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setRequiredConsumerMode($RequiredConsumerMode): self
+
+
+    public function setRequiredConsumerMode(bool $RequiredConsumerMode): static
     {
         $this->container['RequiredConsumerMode'] = $RequiredConsumerMode;
 
@@ -291,7 +299,7 @@ class ClientIndex extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\ClientIndexValue[]
      */
-    public function getValues()
+    public function getValues(): array
     {
         return $this->container['Values'];
     }
@@ -303,7 +311,9 @@ class ClientIndex extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setValues($Values): self
+
+
+    public function setValues(array $Values): static
     {
         $this->container['Values'] = $Values;
 
@@ -315,7 +325,7 @@ class ClientIndex extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getAction()
+    public function getAction(): string
     {
         return $this->container['Action'];
     }
@@ -327,7 +337,9 @@ class ClientIndex extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAction($Action): self
+
+
+    public function setAction(string $Action): static
     {
         $allowedValues = $this->getActionAllowableValues();
         if (!is_null($Action) && !in_array($Action, $allowedValues, true)) {

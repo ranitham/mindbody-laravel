@@ -51,14 +51,14 @@ class BookingWindow extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'BookingWindow';
+    protected static string $swaggerModelName = 'BookingWindow';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'StartDateTime' => '\DateTime',
         'EndDateTime' => '\DateTime',
         'DailyStartTime' => '\DateTime',
@@ -70,7 +70,7 @@ class BookingWindow extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'StartDateTime' => 'date-time',
         'EndDateTime' => 'date-time',
         'DailyStartTime' => 'date-time',
@@ -84,7 +84,7 @@ class BookingWindow extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'StartDateTime' => 'StartDateTime',
         'EndDateTime' => 'EndDateTime',
         'DailyStartTime' => 'DailyStartTime',
@@ -96,7 +96,7 @@ class BookingWindow extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'StartDateTime' => 'setStartDateTime',
         'EndDateTime' => 'setEndDateTime',
         'DailyStartTime' => 'setDailyStartTime',
@@ -108,7 +108,7 @@ class BookingWindow extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'StartDateTime' => 'getStartDateTime',
         'EndDateTime' => 'getEndDateTime',
         'DailyStartTime' => 'getDailyStartTime',
@@ -126,7 +126,7 @@ class BookingWindow extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['StartDateTime'] = isset($data['StartDateTime']) ? $data['StartDateTime'] : null;
         $this->container['EndDateTime'] = isset($data['EndDateTime']) ? $data['EndDateTime'] : null;
@@ -152,7 +152,7 @@ class BookingWindow extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDateTime()
+    public function getStartDateTime(): \DateTime
     {
         return $this->container['StartDateTime'];
     }
@@ -164,7 +164,9 @@ class BookingWindow extends BaseModel
      *
      * @return $this
      */
-    public function setStartDateTime($StartDateTime): self
+
+
+    public function setStartDateTime(\DateTime $StartDateTime): static
     {
         $this->container['StartDateTime'] = $StartDateTime;
 
@@ -176,7 +178,7 @@ class BookingWindow extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDateTime()
+    public function getEndDateTime(): \DateTime
     {
         return $this->container['EndDateTime'];
     }
@@ -188,7 +190,9 @@ class BookingWindow extends BaseModel
      *
      * @return $this
      */
-    public function setEndDateTime($EndDateTime): self
+
+
+    public function setEndDateTime(\DateTime $EndDateTime): static
     {
         $this->container['EndDateTime'] = $EndDateTime;
 
@@ -200,7 +204,7 @@ class BookingWindow extends BaseModel
      *
      * @return \DateTime
      */
-    public function getDailyStartTime()
+    public function getDailyStartTime(): \DateTime
     {
         return $this->container['DailyStartTime'];
     }
@@ -212,7 +216,9 @@ class BookingWindow extends BaseModel
      *
      * @return $this
      */
-    public function setDailyStartTime($DailyStartTime): self
+
+
+    public function setDailyStartTime(\DateTime $DailyStartTime): static
     {
         $this->container['DailyStartTime'] = $DailyStartTime;
 
@@ -224,7 +230,7 @@ class BookingWindow extends BaseModel
      *
      * @return \DateTime
      */
-    public function getDailyEndTime()
+    public function getDailyEndTime(): \DateTime
     {
         return $this->container['DailyEndTime'];
     }
@@ -236,7 +242,9 @@ class BookingWindow extends BaseModel
      *
      * @return $this
      */
-    public function setDailyEndTime($DailyEndTime): self
+
+
+    public function setDailyEndTime(\DateTime $DailyEndTime): static
     {
         $this->container['DailyEndTime'] = $DailyEndTime;
 

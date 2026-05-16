@@ -46,7 +46,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property int $SaleId The ID of the sale associated with the shopping cart.
  *
  */
-class CompletedSaleShoppingCart extends BaseModel implements ModelWithId
+class CompletedSaleShoppingCart extends BaseModel implements ModelWithStringId
 {
     const DISCRIMINATOR = null;
 
@@ -55,14 +55,14 @@ class CompletedSaleShoppingCart extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CompletedSale.ShoppingCart';
+    protected static string $swaggerModelName = 'CompletedSale.ShoppingCart';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Id' => 'string',
         'CartItems' => '\Nlocascio\Mindbody\Model\CompletedSaleCartItem[]',
         'SubTotal' => 'double',
@@ -78,7 +78,7 @@ class CompletedSaleShoppingCart extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Id' => null,
         'CartItems' => null,
         'SubTotal' => 'double',
@@ -96,7 +96,7 @@ class CompletedSaleShoppingCart extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Id' => 'Id',
         'CartItems' => 'CartItems',
         'SubTotal' => 'SubTotal',
@@ -112,7 +112,7 @@ class CompletedSaleShoppingCart extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Id' => 'setId',
         'CartItems' => 'setCartItems',
         'SubTotal' => 'setSubTotal',
@@ -128,7 +128,7 @@ class CompletedSaleShoppingCart extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Id' => 'getId',
         'CartItems' => 'getCartItems',
         'SubTotal' => 'getSubTotal',
@@ -150,7 +150,7 @@ class CompletedSaleShoppingCart extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
         $this->container['CartItems'] = isset($data['CartItems']) ? $data['CartItems'] : null;
@@ -180,7 +180,7 @@ class CompletedSaleShoppingCart extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getId()
+    public function getId(): string
     {
         return $this->container['Id'];
     }
@@ -192,7 +192,9 @@ class CompletedSaleShoppingCart extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(string $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -204,7 +206,7 @@ class CompletedSaleShoppingCart extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\CompletedSaleCartItem[]
      */
-    public function getCartItems()
+    public function getCartItems(): array
     {
         return $this->container['CartItems'];
     }
@@ -216,7 +218,9 @@ class CompletedSaleShoppingCart extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setCartItems($CartItems): self
+
+
+    public function setCartItems(array $CartItems): static
     {
         $this->container['CartItems'] = $CartItems;
 
@@ -228,7 +232,7 @@ class CompletedSaleShoppingCart extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getSubTotal()
+    public function getSubTotal(): float
     {
         return $this->container['SubTotal'];
     }
@@ -240,7 +244,9 @@ class CompletedSaleShoppingCart extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSubTotal($SubTotal): self
+
+
+    public function setSubTotal(float $SubTotal): static
     {
         $this->container['SubTotal'] = $SubTotal;
 
@@ -252,7 +258,7 @@ class CompletedSaleShoppingCart extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getDiscountTotal()
+    public function getDiscountTotal(): float
     {
         return $this->container['DiscountTotal'];
     }
@@ -264,7 +270,9 @@ class CompletedSaleShoppingCart extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setDiscountTotal($DiscountTotal): self
+
+
+    public function setDiscountTotal(float $DiscountTotal): static
     {
         $this->container['DiscountTotal'] = $DiscountTotal;
 
@@ -276,7 +284,7 @@ class CompletedSaleShoppingCart extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getTaxTotal()
+    public function getTaxTotal(): float
     {
         return $this->container['TaxTotal'];
     }
@@ -288,7 +296,9 @@ class CompletedSaleShoppingCart extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setTaxTotal($TaxTotal): self
+
+
+    public function setTaxTotal(float $TaxTotal): static
     {
         $this->container['TaxTotal'] = $TaxTotal;
 
@@ -300,7 +310,7 @@ class CompletedSaleShoppingCart extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getGrandTotal()
+    public function getGrandTotal(): float
     {
         return $this->container['GrandTotal'];
     }
@@ -312,7 +322,9 @@ class CompletedSaleShoppingCart extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setGrandTotal($GrandTotal): self
+
+
+    public function setGrandTotal(float $GrandTotal): static
     {
         $this->container['GrandTotal'] = $GrandTotal;
 
@@ -324,7 +336,7 @@ class CompletedSaleShoppingCart extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\CompletedSaleTransactionResponse[]
      */
-    public function getTransactions()
+    public function getTransactions(): array
     {
         return $this->container['Transactions'];
     }
@@ -336,7 +348,9 @@ class CompletedSaleShoppingCart extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setTransactions($Transactions): self
+
+
+    public function setTransactions(array $Transactions): static
     {
         $this->container['Transactions'] = $Transactions;
 
@@ -348,7 +362,7 @@ class CompletedSaleShoppingCart extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getSaleId()
+    public function getSaleId(): int
     {
         return $this->container['SaleId'];
     }
@@ -360,7 +374,9 @@ class CompletedSaleShoppingCart extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSaleId($SaleId): self
+
+
+    public function setSaleId(int $SaleId): static
     {
         $this->container['SaleId'] = $SaleId;
 

@@ -42,7 +42,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property \Nlocascio\Mindbody\Model\Staff $CreatedBy Information about the staff member who created the comment.
  *
  */
-class ContactLogComment extends BaseModel implements ModelWithId
+class ContactLogComment extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -51,14 +51,14 @@ class ContactLogComment extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ContactLogComment';
+    protected static string $swaggerModelName = 'ContactLogComment';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Id' => 'int',
         'Text' => 'string',
         'CreatedDateTime' => '\DateTime',
@@ -70,7 +70,7 @@ class ContactLogComment extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Id' => 'int32',
         'Text' => null,
         'CreatedDateTime' => 'date-time',
@@ -84,7 +84,7 @@ class ContactLogComment extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Id' => 'Id',
         'Text' => 'Text',
         'CreatedDateTime' => 'CreatedDateTime',
@@ -96,7 +96,7 @@ class ContactLogComment extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Id' => 'setId',
         'Text' => 'setText',
         'CreatedDateTime' => 'setCreatedDateTime',
@@ -108,7 +108,7 @@ class ContactLogComment extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Id' => 'getId',
         'Text' => 'getText',
         'CreatedDateTime' => 'getCreatedDateTime',
@@ -126,7 +126,7 @@ class ContactLogComment extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
         $this->container['Text'] = isset($data['Text']) ? $data['Text'] : null;
@@ -152,7 +152,7 @@ class ContactLogComment extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -164,7 +164,9 @@ class ContactLogComment extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -176,7 +178,7 @@ class ContactLogComment extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getText()
+    public function getText(): string
     {
         return $this->container['Text'];
     }
@@ -188,7 +190,9 @@ class ContactLogComment extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setText($Text): self
+
+
+    public function setText(string $Text): static
     {
         $this->container['Text'] = $Text;
 
@@ -200,7 +204,7 @@ class ContactLogComment extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getCreatedDateTime()
+    public function getCreatedDateTime(): \DateTime
     {
         return $this->container['CreatedDateTime'];
     }
@@ -212,7 +216,9 @@ class ContactLogComment extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setCreatedDateTime($CreatedDateTime): self
+
+
+    public function setCreatedDateTime(\DateTime $CreatedDateTime): static
     {
         $this->container['CreatedDateTime'] = $CreatedDateTime;
 
@@ -224,7 +230,7 @@ class ContactLogComment extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\Staff
      */
-    public function getCreatedBy()
+    public function getCreatedBy(): \Nlocascio\Mindbody\Model\Staff
     {
         return $this->container['CreatedBy'];
     }
@@ -236,7 +242,9 @@ class ContactLogComment extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setCreatedBy($CreatedBy): self
+
+
+    public function setCreatedBy(\Nlocascio\Mindbody\Model\Staff $CreatedBy): static
     {
         $this->container['CreatedBy'] = $CreatedBy;
 

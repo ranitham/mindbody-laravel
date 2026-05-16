@@ -49,14 +49,14 @@ class ClassClientDetail extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ClassClientDetail';
+    protected static string $swaggerModelName = 'ClassClientDetail';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ClientIds' => 'string[]',
         'ClassId' => 'int'
     ];
@@ -66,7 +66,7 @@ class ClassClientDetail extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ClientIds' => null,
         'ClassId' => 'int32'
     ];
@@ -78,7 +78,7 @@ class ClassClientDetail extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ClientIds' => 'ClientIds',
         'ClassId' => 'ClassId'
     ];
@@ -88,7 +88,7 @@ class ClassClientDetail extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ClientIds' => 'setClientIds',
         'ClassId' => 'setClassId'
     ];
@@ -98,7 +98,7 @@ class ClassClientDetail extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ClientIds' => 'getClientIds',
         'ClassId' => 'getClassId'
     ];
@@ -114,7 +114,7 @@ class ClassClientDetail extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ClientIds'] = isset($data['ClientIds']) ? $data['ClientIds'] : null;
         $this->container['ClassId'] = isset($data['ClassId']) ? $data['ClassId'] : null;
@@ -144,7 +144,7 @@ class ClassClientDetail extends BaseModel
      *
      * @return string[]
      */
-    public function getClientIds()
+    public function getClientIds(): array
     {
         return $this->container['ClientIds'];
     }
@@ -156,7 +156,9 @@ class ClassClientDetail extends BaseModel
      *
      * @return $this
      */
-    public function setClientIds($ClientIds): self
+
+
+    public function setClientIds(array $ClientIds): static
     {
         $this->container['ClientIds'] = $ClientIds;
 
@@ -168,7 +170,7 @@ class ClassClientDetail extends BaseModel
      *
      * @return int
      */
-    public function getClassId()
+    public function getClassId(): int
     {
         return $this->container['ClassId'];
     }
@@ -180,7 +182,9 @@ class ClassClientDetail extends BaseModel
      *
      * @return $this
      */
-    public function setClassId($ClassId): self
+
+
+    public function setClassId(int $ClassId): static
     {
         $this->container['ClassId'] = $ClassId;
 

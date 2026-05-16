@@ -47,14 +47,14 @@ class GetRequiredClientFieldsResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetRequiredClientFieldsResponse';
+    protected static string $swaggerModelName = 'GetRequiredClientFieldsResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'RequiredClientFields' => 'string[]'
     ];
 
@@ -63,7 +63,7 @@ class GetRequiredClientFieldsResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'RequiredClientFields' => null
     ];
 
@@ -74,7 +74,7 @@ class GetRequiredClientFieldsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'RequiredClientFields' => 'RequiredClientFields'
     ];
 
@@ -83,7 +83,7 @@ class GetRequiredClientFieldsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'RequiredClientFields' => 'setRequiredClientFields'
     ];
 
@@ -92,7 +92,7 @@ class GetRequiredClientFieldsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'RequiredClientFields' => 'getRequiredClientFields'
     ];
 
@@ -107,7 +107,7 @@ class GetRequiredClientFieldsResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['RequiredClientFields'] = isset($data['RequiredClientFields']) ? $data['RequiredClientFields'] : null;
     }
@@ -130,7 +130,7 @@ class GetRequiredClientFieldsResponse extends BaseModel
      *
      * @return string[]
      */
-    public function getRequiredClientFields()
+    public function getRequiredClientFields(): array
     {
         return $this->container['RequiredClientFields'];
     }
@@ -142,7 +142,9 @@ class GetRequiredClientFieldsResponse extends BaseModel
      *
      * @return $this
      */
-    public function setRequiredClientFields($RequiredClientFields): self
+
+
+    public function setRequiredClientFields(array $RequiredClientFields): static
     {
         $this->container['RequiredClientFields'] = $RequiredClientFields;
 

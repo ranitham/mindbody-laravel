@@ -47,14 +47,14 @@ class GetStaffPermissionsRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetStaffPermissionsRequest';
+    protected static string $swaggerModelName = 'GetStaffPermissionsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'StaffId' => 'int'
     ];
 
@@ -63,7 +63,7 @@ class GetStaffPermissionsRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'StaffId' => 'int64'
     ];
 
@@ -74,7 +74,7 @@ class GetStaffPermissionsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'StaffId' => 'StaffId'
     ];
 
@@ -83,7 +83,7 @@ class GetStaffPermissionsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'StaffId' => 'setStaffId'
     ];
 
@@ -92,7 +92,7 @@ class GetStaffPermissionsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'StaffId' => 'getStaffId'
     ];
 
@@ -107,7 +107,7 @@ class GetStaffPermissionsRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['StaffId'] = isset($data['StaffId']) ? $data['StaffId'] : null;
     }
@@ -133,7 +133,7 @@ class GetStaffPermissionsRequest extends BaseModel
      *
      * @return int
      */
-    public function getStaffId()
+    public function getStaffId(): int
     {
         return $this->container['StaffId'];
     }
@@ -145,7 +145,9 @@ class GetStaffPermissionsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStaffId($StaffId): self
+
+
+    public function setStaffId(int $StaffId): static
     {
         $this->container['StaffId'] = $StaffId;
 

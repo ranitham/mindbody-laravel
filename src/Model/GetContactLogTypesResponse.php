@@ -48,14 +48,14 @@ class GetContactLogTypesResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetContactLogTypesResponse';
+    protected static string $swaggerModelName = 'GetContactLogTypesResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'PaginationResponse' => '\Nlocascio\Mindbody\Model\PaginationResponse',
         'ContactLogTypes' => '\Nlocascio\Mindbody\Model\ContactLogType[]'
     ];
@@ -65,7 +65,7 @@ class GetContactLogTypesResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'PaginationResponse' => null,
         'ContactLogTypes' => null
     ];
@@ -77,7 +77,7 @@ class GetContactLogTypesResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'PaginationResponse' => 'PaginationResponse',
         'ContactLogTypes' => 'ContactLogTypes'
     ];
@@ -87,7 +87,7 @@ class GetContactLogTypesResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'PaginationResponse' => 'setPaginationResponse',
         'ContactLogTypes' => 'setContactLogTypes'
     ];
@@ -97,7 +97,7 @@ class GetContactLogTypesResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'PaginationResponse' => 'getPaginationResponse',
         'ContactLogTypes' => 'getContactLogTypes'
     ];
@@ -113,7 +113,7 @@ class GetContactLogTypesResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['PaginationResponse'] = isset($data['PaginationResponse']) ? $data['PaginationResponse'] : null;
         $this->container['ContactLogTypes'] = isset($data['ContactLogTypes']) ? $data['ContactLogTypes'] : null;
@@ -137,7 +137,7 @@ class GetContactLogTypesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse()
+    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
     {
         return $this->container['PaginationResponse'];
     }
@@ -149,7 +149,9 @@ class GetContactLogTypesResponse extends BaseModel
      *
      * @return $this
      */
-    public function setPaginationResponse($PaginationResponse): self
+
+
+    public function setPaginationResponse(\Nlocascio\Mindbody\Model\PaginationResponse $PaginationResponse): static
     {
         $this->container['PaginationResponse'] = $PaginationResponse;
 
@@ -161,7 +163,7 @@ class GetContactLogTypesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ContactLogType[]
      */
-    public function getContactLogTypes()
+    public function getContactLogTypes(): array
     {
         return $this->container['ContactLogTypes'];
     }
@@ -173,7 +175,9 @@ class GetContactLogTypesResponse extends BaseModel
      *
      * @return $this
      */
-    public function setContactLogTypes($ContactLogTypes): self
+
+
+    public function setContactLogTypes(array $ContactLogTypes): static
     {
         $this->container['ContactLogTypes'] = $ContactLogTypes;
 

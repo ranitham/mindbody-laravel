@@ -50,14 +50,14 @@ class DeleteClientFormulaNoteRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DeleteClientFormulaNoteRequest';
+    protected static string $swaggerModelName = 'DeleteClientFormulaNoteRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ClientId' => 'string',
         'FormulaNoteId' => 'int',
         'Limit' => 'int',
@@ -69,7 +69,7 @@ class DeleteClientFormulaNoteRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ClientId' => null,
         'FormulaNoteId' => 'int64',
         'Limit' => 'int32',
@@ -83,7 +83,7 @@ class DeleteClientFormulaNoteRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ClientId' => 'ClientId',
         'FormulaNoteId' => 'FormulaNoteId',
         'Limit' => 'Limit',
@@ -95,7 +95,7 @@ class DeleteClientFormulaNoteRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ClientId' => 'setClientId',
         'FormulaNoteId' => 'setFormulaNoteId',
         'Limit' => 'setLimit',
@@ -107,7 +107,7 @@ class DeleteClientFormulaNoteRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ClientId' => 'getClientId',
         'FormulaNoteId' => 'getFormulaNoteId',
         'Limit' => 'getLimit',
@@ -125,7 +125,7 @@ class DeleteClientFormulaNoteRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
         $this->container['FormulaNoteId'] = isset($data['FormulaNoteId']) ? $data['FormulaNoteId'] : null;
@@ -157,7 +157,7 @@ class DeleteClientFormulaNoteRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId()
+    public function getClientId(): string
     {
         return $this->container['ClientId'];
     }
@@ -169,7 +169,9 @@ class DeleteClientFormulaNoteRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClientId($ClientId): self
+
+
+    public function setClientId(string $ClientId): static
     {
         $this->container['ClientId'] = $ClientId;
 
@@ -181,7 +183,7 @@ class DeleteClientFormulaNoteRequest extends BaseModel
      *
      * @return int
      */
-    public function getFormulaNoteId()
+    public function getFormulaNoteId(): int
     {
         return $this->container['FormulaNoteId'];
     }
@@ -193,7 +195,9 @@ class DeleteClientFormulaNoteRequest extends BaseModel
      *
      * @return $this
      */
-    public function setFormulaNoteId($FormulaNoteId): self
+
+
+    public function setFormulaNoteId(int $FormulaNoteId): static
     {
         $this->container['FormulaNoteId'] = $FormulaNoteId;
 
@@ -205,7 +209,7 @@ class DeleteClientFormulaNoteRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit()
+    public function getLimit(): int
     {
         return $this->container['Limit'];
     }
@@ -217,7 +221,9 @@ class DeleteClientFormulaNoteRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLimit($Limit): self
+
+
+    public function setLimit(int $Limit): static
     {
         $this->container['Limit'] = $Limit;
 
@@ -229,7 +235,7 @@ class DeleteClientFormulaNoteRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset()
+    public function getOffset(): int
     {
         return $this->container['Offset'];
     }
@@ -241,7 +247,9 @@ class DeleteClientFormulaNoteRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOffset($Offset): self
+
+
+    public function setOffset(int $Offset): static
     {
         $this->container['Offset'] = $Offset;
 

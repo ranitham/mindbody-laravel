@@ -48,14 +48,14 @@ class GetStaffResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetStaffResponse';
+    protected static string $swaggerModelName = 'GetStaffResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'PaginationResponse' => '\Nlocascio\Mindbody\Model\PaginationResponse',
         'StaffMembers' => '\Nlocascio\Mindbody\Model\Staff[]'
     ];
@@ -65,7 +65,7 @@ class GetStaffResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'PaginationResponse' => null,
         'StaffMembers' => null
     ];
@@ -77,7 +77,7 @@ class GetStaffResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'PaginationResponse' => 'PaginationResponse',
         'StaffMembers' => 'StaffMembers'
     ];
@@ -87,7 +87,7 @@ class GetStaffResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'PaginationResponse' => 'setPaginationResponse',
         'StaffMembers' => 'setStaffMembers'
     ];
@@ -97,7 +97,7 @@ class GetStaffResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'PaginationResponse' => 'getPaginationResponse',
         'StaffMembers' => 'getStaffMembers'
     ];
@@ -113,7 +113,7 @@ class GetStaffResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['PaginationResponse'] = isset($data['PaginationResponse']) ? $data['PaginationResponse'] : null;
         $this->container['StaffMembers'] = isset($data['StaffMembers']) ? $data['StaffMembers'] : null;
@@ -137,7 +137,7 @@ class GetStaffResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse()
+    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
     {
         return $this->container['PaginationResponse'];
     }
@@ -149,7 +149,9 @@ class GetStaffResponse extends BaseModel
      *
      * @return $this
      */
-    public function setPaginationResponse($PaginationResponse): self
+
+
+    public function setPaginationResponse(\Nlocascio\Mindbody\Model\PaginationResponse $PaginationResponse): static
     {
         $this->container['PaginationResponse'] = $PaginationResponse;
 
@@ -161,7 +163,7 @@ class GetStaffResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Staff[]
      */
-    public function getStaffMembers()
+    public function getStaffMembers(): array
     {
         return $this->container['StaffMembers'];
     }
@@ -173,7 +175,9 @@ class GetStaffResponse extends BaseModel
      *
      * @return $this
      */
-    public function setStaffMembers($StaffMembers): self
+
+
+    public function setStaffMembers(array $StaffMembers): static
     {
         $this->container['StaffMembers'] = $StaffMembers;
 

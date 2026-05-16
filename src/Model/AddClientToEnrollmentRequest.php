@@ -55,14 +55,14 @@ class AddClientToEnrollmentRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AddClientToEnrollmentRequest';
+    protected static string $swaggerModelName = 'AddClientToEnrollmentRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ClientId' => 'string',
         'ClassScheduleId' => 'int',
         'EnrollDateForward' => '\DateTime',
@@ -78,7 +78,7 @@ class AddClientToEnrollmentRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ClientId' => null,
         'ClassScheduleId' => 'int32',
         'EnrollDateForward' => 'date-time',
@@ -96,7 +96,7 @@ class AddClientToEnrollmentRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ClientId' => 'ClientId',
         'ClassScheduleId' => 'ClassScheduleId',
         'EnrollDateForward' => 'EnrollDateForward',
@@ -112,7 +112,7 @@ class AddClientToEnrollmentRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ClientId' => 'setClientId',
         'ClassScheduleId' => 'setClassScheduleId',
         'EnrollDateForward' => 'setEnrollDateForward',
@@ -128,7 +128,7 @@ class AddClientToEnrollmentRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ClientId' => 'getClientId',
         'ClassScheduleId' => 'getClassScheduleId',
         'EnrollDateForward' => 'getEnrollDateForward',
@@ -150,7 +150,7 @@ class AddClientToEnrollmentRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
         $this->container['ClassScheduleId'] = isset($data['ClassScheduleId']) ? $data['ClassScheduleId'] : null;
@@ -186,7 +186,7 @@ class AddClientToEnrollmentRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId()
+    public function getClientId(): string
     {
         return $this->container['ClientId'];
     }
@@ -198,7 +198,9 @@ class AddClientToEnrollmentRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClientId($ClientId): self
+
+
+    public function setClientId(string $ClientId): static
     {
         $this->container['ClientId'] = $ClientId;
 
@@ -210,7 +212,7 @@ class AddClientToEnrollmentRequest extends BaseModel
      *
      * @return int
      */
-    public function getClassScheduleId()
+    public function getClassScheduleId(): int
     {
         return $this->container['ClassScheduleId'];
     }
@@ -222,7 +224,9 @@ class AddClientToEnrollmentRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClassScheduleId($ClassScheduleId): self
+
+
+    public function setClassScheduleId(int $ClassScheduleId): static
     {
         $this->container['ClassScheduleId'] = $ClassScheduleId;
 
@@ -234,7 +238,7 @@ class AddClientToEnrollmentRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEnrollDateForward()
+    public function getEnrollDateForward(): \DateTime
     {
         return $this->container['EnrollDateForward'];
     }
@@ -246,7 +250,9 @@ class AddClientToEnrollmentRequest extends BaseModel
      *
      * @return $this
      */
-    public function setEnrollDateForward($EnrollDateForward): self
+
+
+    public function setEnrollDateForward(\DateTime $EnrollDateForward): static
     {
         $this->container['EnrollDateForward'] = $EnrollDateForward;
 
@@ -258,7 +264,7 @@ class AddClientToEnrollmentRequest extends BaseModel
      *
      * @return \DateTime[]
      */
-    public function getEnrollOpen()
+    public function getEnrollOpen(): array
     {
         return $this->container['EnrollOpen'];
     }
@@ -270,7 +276,9 @@ class AddClientToEnrollmentRequest extends BaseModel
      *
      * @return $this
      */
-    public function setEnrollOpen($EnrollOpen): self
+
+
+    public function setEnrollOpen(array $EnrollOpen): static
     {
         $this->container['EnrollOpen'] = $EnrollOpen;
 
@@ -282,7 +290,7 @@ class AddClientToEnrollmentRequest extends BaseModel
      *
      * @return bool
      */
-    public function getTest()
+    public function getTest(): bool
     {
         return $this->container['Test'];
     }
@@ -294,7 +302,9 @@ class AddClientToEnrollmentRequest extends BaseModel
      *
      * @return $this
      */
-    public function setTest($Test): self
+
+
+    public function setTest(bool $Test): static
     {
         $this->container['Test'] = $Test;
 
@@ -306,7 +316,7 @@ class AddClientToEnrollmentRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSendEmail()
+    public function getSendEmail(): bool
     {
         return $this->container['SendEmail'];
     }
@@ -318,7 +328,9 @@ class AddClientToEnrollmentRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSendEmail($SendEmail): self
+
+
+    public function setSendEmail(bool $SendEmail): static
     {
         $this->container['SendEmail'] = $SendEmail;
 
@@ -330,7 +342,7 @@ class AddClientToEnrollmentRequest extends BaseModel
      *
      * @return bool
      */
-    public function getWaitlist()
+    public function getWaitlist(): bool
     {
         return $this->container['Waitlist'];
     }
@@ -342,7 +354,9 @@ class AddClientToEnrollmentRequest extends BaseModel
      *
      * @return $this
      */
-    public function setWaitlist($Waitlist): self
+
+
+    public function setWaitlist(bool $Waitlist): static
     {
         $this->container['Waitlist'] = $Waitlist;
 
@@ -354,7 +368,7 @@ class AddClientToEnrollmentRequest extends BaseModel
      *
      * @return int
      */
-    public function getWaitlistEntryId()
+    public function getWaitlistEntryId(): int
     {
         return $this->container['WaitlistEntryId'];
     }
@@ -366,7 +380,9 @@ class AddClientToEnrollmentRequest extends BaseModel
      *
      * @return $this
      */
-    public function setWaitlistEntryId($WaitlistEntryId): self
+
+
+    public function setWaitlistEntryId(int $WaitlistEntryId): static
     {
         $this->container['WaitlistEntryId'] = $WaitlistEntryId;
 

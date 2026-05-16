@@ -51,14 +51,14 @@ class GetProgramsRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetProgramsRequest';
+    protected static string $swaggerModelName = 'GetProgramsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ScheduleType' => 'string',
         'OnlineOnly' => 'bool',
         'ProgramIds' => 'int[]',
@@ -71,7 +71,7 @@ class GetProgramsRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ScheduleType' => null,
         'OnlineOnly' => null,
         'ProgramIds' => 'int32',
@@ -86,7 +86,7 @@ class GetProgramsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ScheduleType' => 'ScheduleType',
         'OnlineOnly' => 'OnlineOnly',
         'ProgramIds' => 'ProgramIds',
@@ -99,7 +99,7 @@ class GetProgramsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ScheduleType' => 'setScheduleType',
         'OnlineOnly' => 'setOnlineOnly',
         'ProgramIds' => 'setProgramIds',
@@ -112,7 +112,7 @@ class GetProgramsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ScheduleType' => 'getScheduleType',
         'OnlineOnly' => 'getOnlineOnly',
         'ProgramIds' => 'getProgramIds',
@@ -156,7 +156,7 @@ class GetProgramsRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ScheduleType'] = isset($data['ScheduleType']) ? $data['ScheduleType'] : null;
         $this->container['OnlineOnly'] = isset($data['OnlineOnly']) ? $data['OnlineOnly'] : null;
@@ -191,7 +191,7 @@ class GetProgramsRequest extends BaseModel
      *
      * @return string
      */
-    public function getScheduleType()
+    public function getScheduleType(): string
     {
         return $this->container['ScheduleType'];
     }
@@ -203,7 +203,9 @@ class GetProgramsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setScheduleType($ScheduleType): self
+
+
+    public function setScheduleType(string $ScheduleType): static
     {
         $allowedValues = $this->getScheduleTypeAllowableValues();
         if (!is_null($ScheduleType) && !in_array($ScheduleType, $allowedValues, true)) {
@@ -224,7 +226,7 @@ class GetProgramsRequest extends BaseModel
      *
      * @return bool
      */
-    public function getOnlineOnly()
+    public function getOnlineOnly(): bool
     {
         return $this->container['OnlineOnly'];
     }
@@ -236,7 +238,9 @@ class GetProgramsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOnlineOnly($OnlineOnly): self
+
+
+    public function setOnlineOnly(bool $OnlineOnly): static
     {
         $this->container['OnlineOnly'] = $OnlineOnly;
 
@@ -248,7 +252,7 @@ class GetProgramsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getProgramIds()
+    public function getProgramIds(): array
     {
         return $this->container['ProgramIds'];
     }
@@ -260,7 +264,9 @@ class GetProgramsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setProgramIds($ProgramIds): self
+
+
+    public function setProgramIds(array $ProgramIds): static
     {
         $this->container['ProgramIds'] = $ProgramIds;
 
@@ -272,7 +278,7 @@ class GetProgramsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit()
+    public function getLimit(): int
     {
         return $this->container['Limit'];
     }
@@ -284,7 +290,9 @@ class GetProgramsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLimit($Limit): self
+
+
+    public function setLimit(int $Limit): static
     {
         $this->container['Limit'] = $Limit;
 
@@ -296,7 +304,7 @@ class GetProgramsRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset()
+    public function getOffset(): int
     {
         return $this->container['Offset'];
     }
@@ -308,7 +316,9 @@ class GetProgramsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOffset($Offset): self
+
+
+    public function setOffset(int $Offset): static
     {
         $this->container['Offset'] = $Offset;
 

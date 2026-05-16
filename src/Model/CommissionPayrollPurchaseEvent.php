@@ -53,14 +53,14 @@ class CommissionPayrollPurchaseEvent extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CommissionPayrollPurchaseEvent';
+    protected static string $swaggerModelName = 'CommissionPayrollPurchaseEvent';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'StaffId' => 'int',
         'SaleDateTime' => '\DateTime',
         'SaleId' => 'int',
@@ -75,7 +75,7 @@ class CommissionPayrollPurchaseEvent extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'StaffId' => 'int64',
         'SaleDateTime' => 'date-time',
         'SaleId' => 'int64',
@@ -92,7 +92,7 @@ class CommissionPayrollPurchaseEvent extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'StaffId' => 'StaffId',
         'SaleDateTime' => 'SaleDateTime',
         'SaleId' => 'SaleId',
@@ -107,7 +107,7 @@ class CommissionPayrollPurchaseEvent extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'StaffId' => 'setStaffId',
         'SaleDateTime' => 'setSaleDateTime',
         'SaleId' => 'setSaleId',
@@ -122,7 +122,7 @@ class CommissionPayrollPurchaseEvent extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'StaffId' => 'getStaffId',
         'SaleDateTime' => 'getSaleDateTime',
         'SaleId' => 'getSaleId',
@@ -143,7 +143,7 @@ class CommissionPayrollPurchaseEvent extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['StaffId'] = isset($data['StaffId']) ? $data['StaffId'] : null;
         $this->container['SaleDateTime'] = isset($data['SaleDateTime']) ? $data['SaleDateTime'] : null;
@@ -172,7 +172,7 @@ class CommissionPayrollPurchaseEvent extends BaseModel
      *
      * @return int
      */
-    public function getStaffId()
+    public function getStaffId(): int
     {
         return $this->container['StaffId'];
     }
@@ -184,7 +184,9 @@ class CommissionPayrollPurchaseEvent extends BaseModel
      *
      * @return $this
      */
-    public function setStaffId($StaffId): self
+
+
+    public function setStaffId(int $StaffId): static
     {
         $this->container['StaffId'] = $StaffId;
 
@@ -196,7 +198,7 @@ class CommissionPayrollPurchaseEvent extends BaseModel
      *
      * @return \DateTime
      */
-    public function getSaleDateTime()
+    public function getSaleDateTime(): \DateTime
     {
         return $this->container['SaleDateTime'];
     }
@@ -208,7 +210,9 @@ class CommissionPayrollPurchaseEvent extends BaseModel
      *
      * @return $this
      */
-    public function setSaleDateTime($SaleDateTime): self
+
+
+    public function setSaleDateTime(\DateTime $SaleDateTime): static
     {
         $this->container['SaleDateTime'] = $SaleDateTime;
 
@@ -220,7 +224,7 @@ class CommissionPayrollPurchaseEvent extends BaseModel
      *
      * @return int
      */
-    public function getSaleId()
+    public function getSaleId(): int
     {
         return $this->container['SaleId'];
     }
@@ -232,7 +236,9 @@ class CommissionPayrollPurchaseEvent extends BaseModel
      *
      * @return $this
      */
-    public function setSaleId($SaleId): self
+
+
+    public function setSaleId(int $SaleId): static
     {
         $this->container['SaleId'] = $SaleId;
 
@@ -244,7 +250,7 @@ class CommissionPayrollPurchaseEvent extends BaseModel
      *
      * @return string
      */
-    public function getSaleType()
+    public function getSaleType(): string
     {
         return $this->container['SaleType'];
     }
@@ -256,7 +262,9 @@ class CommissionPayrollPurchaseEvent extends BaseModel
      *
      * @return $this
      */
-    public function setSaleType($SaleType): self
+
+
+    public function setSaleType(string $SaleType): static
     {
         $this->container['SaleType'] = $SaleType;
 
@@ -268,7 +276,7 @@ class CommissionPayrollPurchaseEvent extends BaseModel
      *
      * @return int
      */
-    public function getProductId()
+    public function getProductId(): int
     {
         return $this->container['ProductId'];
     }
@@ -280,7 +288,9 @@ class CommissionPayrollPurchaseEvent extends BaseModel
      *
      * @return $this
      */
-    public function setProductId($ProductId): self
+
+
+    public function setProductId(int $ProductId): static
     {
         $this->container['ProductId'] = $ProductId;
 
@@ -292,7 +302,7 @@ class CommissionPayrollPurchaseEvent extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\CommissionDetail[]
      */
-    public function getEarningsDetails()
+    public function getEarningsDetails(): array
     {
         return $this->container['EarningsDetails'];
     }
@@ -304,7 +314,9 @@ class CommissionPayrollPurchaseEvent extends BaseModel
      *
      * @return $this
      */
-    public function setEarningsDetails($EarningsDetails): self
+
+
+    public function setEarningsDetails(array $EarningsDetails): static
     {
         $this->container['EarningsDetails'] = $EarningsDetails;
 
@@ -316,7 +328,7 @@ class CommissionPayrollPurchaseEvent extends BaseModel
      *
      * @return double
      */
-    public function getEarnings()
+    public function getEarnings(): float
     {
         return $this->container['Earnings'];
     }
@@ -328,7 +340,9 @@ class CommissionPayrollPurchaseEvent extends BaseModel
      *
      * @return $this
      */
-    public function setEarnings($Earnings): self
+
+
+    public function setEarnings(float $Earnings): static
     {
         $this->container['Earnings'] = $Earnings;
 

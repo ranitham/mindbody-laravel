@@ -52,14 +52,14 @@ class GetActiveClientsMembershipsRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetActiveClientsMembershipsRequest';
+    protected static string $swaggerModelName = 'GetActiveClientsMembershipsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ClientIds' => 'string[]',
         'LocationId' => 'int',
         'CrossRegionalLookup' => 'bool',
@@ -73,7 +73,7 @@ class GetActiveClientsMembershipsRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ClientIds' => null,
         'LocationId' => 'int32',
         'CrossRegionalLookup' => null,
@@ -89,7 +89,7 @@ class GetActiveClientsMembershipsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ClientIds' => 'ClientIds',
         'LocationId' => 'LocationId',
         'CrossRegionalLookup' => 'CrossRegionalLookup',
@@ -103,7 +103,7 @@ class GetActiveClientsMembershipsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ClientIds' => 'setClientIds',
         'LocationId' => 'setLocationId',
         'CrossRegionalLookup' => 'setCrossRegionalLookup',
@@ -117,7 +117,7 @@ class GetActiveClientsMembershipsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ClientIds' => 'getClientIds',
         'LocationId' => 'getLocationId',
         'CrossRegionalLookup' => 'getCrossRegionalLookup',
@@ -137,7 +137,7 @@ class GetActiveClientsMembershipsRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ClientIds'] = isset($data['ClientIds']) ? $data['ClientIds'] : null;
         $this->container['LocationId'] = isset($data['LocationId']) ? $data['LocationId'] : null;
@@ -168,7 +168,7 @@ class GetActiveClientsMembershipsRequest extends BaseModel
      *
      * @return string[]
      */
-    public function getClientIds()
+    public function getClientIds(): array
     {
         return $this->container['ClientIds'];
     }
@@ -180,7 +180,9 @@ class GetActiveClientsMembershipsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClientIds($ClientIds): self
+
+
+    public function setClientIds(array $ClientIds): static
     {
         $this->container['ClientIds'] = $ClientIds;
 
@@ -192,7 +194,7 @@ class GetActiveClientsMembershipsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLocationId()
+    public function getLocationId(): int
     {
         return $this->container['LocationId'];
     }
@@ -204,7 +206,9 @@ class GetActiveClientsMembershipsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLocationId($LocationId): self
+
+
+    public function setLocationId(int $LocationId): static
     {
         $this->container['LocationId'] = $LocationId;
 
@@ -216,7 +220,7 @@ class GetActiveClientsMembershipsRequest extends BaseModel
      *
      * @return bool
      */
-    public function getCrossRegionalLookup()
+    public function getCrossRegionalLookup(): bool
     {
         return $this->container['CrossRegionalLookup'];
     }
@@ -228,7 +232,9 @@ class GetActiveClientsMembershipsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setCrossRegionalLookup($CrossRegionalLookup): self
+
+
+    public function setCrossRegionalLookup(bool $CrossRegionalLookup): static
     {
         $this->container['CrossRegionalLookup'] = $CrossRegionalLookup;
 
@@ -240,7 +246,7 @@ class GetActiveClientsMembershipsRequest extends BaseModel
      *
      * @return int
      */
-    public function getClientAssociatedSitesOffset()
+    public function getClientAssociatedSitesOffset(): int
     {
         return $this->container['ClientAssociatedSitesOffset'];
     }
@@ -252,7 +258,9 @@ class GetActiveClientsMembershipsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClientAssociatedSitesOffset($ClientAssociatedSitesOffset): self
+
+
+    public function setClientAssociatedSitesOffset(int $ClientAssociatedSitesOffset): static
     {
         $this->container['ClientAssociatedSitesOffset'] = $ClientAssociatedSitesOffset;
 
@@ -264,7 +272,7 @@ class GetActiveClientsMembershipsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit()
+    public function getLimit(): int
     {
         return $this->container['Limit'];
     }
@@ -276,7 +284,9 @@ class GetActiveClientsMembershipsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLimit($Limit): self
+
+
+    public function setLimit(int $Limit): static
     {
         $this->container['Limit'] = $Limit;
 
@@ -288,7 +298,7 @@ class GetActiveClientsMembershipsRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset()
+    public function getOffset(): int
     {
         return $this->container['Offset'];
     }
@@ -300,7 +310,9 @@ class GetActiveClientsMembershipsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOffset($Offset): self
+
+
+    public function setOffset(int $Offset): static
     {
         $this->container['Offset'] = $Offset;
 

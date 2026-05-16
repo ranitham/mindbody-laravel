@@ -49,14 +49,14 @@ class StaffSetting extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'StaffSetting';
+    protected static string $swaggerModelName = 'StaffSetting';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'UseStaffNicknames' => 'bool',
         'ShowStaffLastNamesOnSchedules' => 'bool'
     ];
@@ -66,7 +66,7 @@ class StaffSetting extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'UseStaffNicknames' => null,
         'ShowStaffLastNamesOnSchedules' => null
     ];
@@ -78,7 +78,7 @@ class StaffSetting extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'UseStaffNicknames' => 'UseStaffNicknames',
         'ShowStaffLastNamesOnSchedules' => 'ShowStaffLastNamesOnSchedules'
     ];
@@ -88,7 +88,7 @@ class StaffSetting extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'UseStaffNicknames' => 'setUseStaffNicknames',
         'ShowStaffLastNamesOnSchedules' => 'setShowStaffLastNamesOnSchedules'
     ];
@@ -98,7 +98,7 @@ class StaffSetting extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'UseStaffNicknames' => 'getUseStaffNicknames',
         'ShowStaffLastNamesOnSchedules' => 'getShowStaffLastNamesOnSchedules'
     ];
@@ -114,7 +114,7 @@ class StaffSetting extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['UseStaffNicknames'] = isset($data['UseStaffNicknames']) ? $data['UseStaffNicknames'] : null;
         $this->container['ShowStaffLastNamesOnSchedules'] = isset($data['ShowStaffLastNamesOnSchedules']) ? $data['ShowStaffLastNamesOnSchedules'] : null;
@@ -138,7 +138,7 @@ class StaffSetting extends BaseModel
      *
      * @return bool
      */
-    public function getUseStaffNicknames()
+    public function getUseStaffNicknames(): bool
     {
         return $this->container['UseStaffNicknames'];
     }
@@ -150,7 +150,9 @@ class StaffSetting extends BaseModel
      *
      * @return $this
      */
-    public function setUseStaffNicknames($UseStaffNicknames): self
+
+
+    public function setUseStaffNicknames(bool $UseStaffNicknames): static
     {
         $this->container['UseStaffNicknames'] = $UseStaffNicknames;
 
@@ -162,7 +164,7 @@ class StaffSetting extends BaseModel
      *
      * @return bool
      */
-    public function getShowStaffLastNamesOnSchedules()
+    public function getShowStaffLastNamesOnSchedules(): bool
     {
         return $this->container['ShowStaffLastNamesOnSchedules'];
     }
@@ -174,7 +176,9 @@ class StaffSetting extends BaseModel
      *
      * @return $this
      */
-    public function setShowStaffLastNamesOnSchedules($ShowStaffLastNamesOnSchedules): self
+
+
+    public function setShowStaffLastNamesOnSchedules(bool $ShowStaffLastNamesOnSchedules): static
     {
         $this->container['ShowStaffLastNamesOnSchedules'] = $ShowStaffLastNamesOnSchedules;
 

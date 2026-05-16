@@ -51,14 +51,14 @@ class PurchaseAccountCreditResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'PurchaseAccountCreditResponse';
+    protected static string $swaggerModelName = 'PurchaseAccountCreditResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'AmountPaid' => 'double',
         'ClientId' => 'string',
         'SaleId' => 'int',
@@ -71,7 +71,7 @@ class PurchaseAccountCreditResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'AmountPaid' => 'double',
         'ClientId' => null,
         'SaleId' => 'int64',
@@ -86,7 +86,7 @@ class PurchaseAccountCreditResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'AmountPaid' => 'AmountPaid',
         'ClientId' => 'ClientId',
         'SaleId' => 'SaleId',
@@ -99,7 +99,7 @@ class PurchaseAccountCreditResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'AmountPaid' => 'setAmountPaid',
         'ClientId' => 'setClientId',
         'SaleId' => 'setSaleId',
@@ -112,7 +112,7 @@ class PurchaseAccountCreditResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'AmountPaid' => 'getAmountPaid',
         'ClientId' => 'getClientId',
         'SaleId' => 'getSaleId',
@@ -131,7 +131,7 @@ class PurchaseAccountCreditResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['AmountPaid'] = isset($data['AmountPaid']) ? $data['AmountPaid'] : null;
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
@@ -158,7 +158,7 @@ class PurchaseAccountCreditResponse extends BaseModel
      *
      * @return double
      */
-    public function getAmountPaid()
+    public function getAmountPaid(): float
     {
         return $this->container['AmountPaid'];
     }
@@ -170,7 +170,9 @@ class PurchaseAccountCreditResponse extends BaseModel
      *
      * @return $this
      */
-    public function setAmountPaid($AmountPaid): self
+
+
+    public function setAmountPaid(float $AmountPaid): static
     {
         $this->container['AmountPaid'] = $AmountPaid;
 
@@ -182,7 +184,7 @@ class PurchaseAccountCreditResponse extends BaseModel
      *
      * @return string
      */
-    public function getClientId()
+    public function getClientId(): string
     {
         return $this->container['ClientId'];
     }
@@ -194,7 +196,9 @@ class PurchaseAccountCreditResponse extends BaseModel
      *
      * @return $this
      */
-    public function setClientId($ClientId): self
+
+
+    public function setClientId(string $ClientId): static
     {
         $this->container['ClientId'] = $ClientId;
 
@@ -206,7 +210,7 @@ class PurchaseAccountCreditResponse extends BaseModel
      *
      * @return int
      */
-    public function getSaleId()
+    public function getSaleId(): int
     {
         return $this->container['SaleId'];
     }
@@ -218,7 +222,9 @@ class PurchaseAccountCreditResponse extends BaseModel
      *
      * @return $this
      */
-    public function setSaleId($SaleId): self
+
+
+    public function setSaleId(int $SaleId): static
     {
         $this->container['SaleId'] = $SaleId;
 
@@ -230,7 +236,7 @@ class PurchaseAccountCreditResponse extends BaseModel
      *
      * @return bool
      */
-    public function getEmailReceipt()
+    public function getEmailReceipt(): bool
     {
         return $this->container['EmailReceipt'];
     }
@@ -242,7 +248,9 @@ class PurchaseAccountCreditResponse extends BaseModel
      *
      * @return $this
      */
-    public function setEmailReceipt($EmailReceipt): self
+
+
+    public function setEmailReceipt(bool $EmailReceipt): static
     {
         $this->container['EmailReceipt'] = $EmailReceipt;
 
@@ -254,7 +262,7 @@ class PurchaseAccountCreditResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaymentProcessingFailure[]
      */
-    public function getPaymentProcessingFailures()
+    public function getPaymentProcessingFailures(): array
     {
         return $this->container['PaymentProcessingFailures'];
     }
@@ -266,7 +274,9 @@ class PurchaseAccountCreditResponse extends BaseModel
      *
      * @return $this
      */
-    public function setPaymentProcessingFailures($PaymentProcessingFailures): self
+
+
+    public function setPaymentProcessingFailures(array $PaymentProcessingFailures): static
     {
         $this->container['PaymentProcessingFailures'] = $PaymentProcessingFailures;
 

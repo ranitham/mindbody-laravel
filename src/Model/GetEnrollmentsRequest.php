@@ -55,14 +55,14 @@ class GetEnrollmentsRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetEnrollmentsRequest';
+    protected static string $swaggerModelName = 'GetEnrollmentsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ClassScheduleIds' => 'int[]',
         'EndDate' => '\DateTime',
         'LocationIds' => 'int[]',
@@ -79,7 +79,7 @@ class GetEnrollmentsRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ClassScheduleIds' => 'int32',
         'EndDate' => 'date-time',
         'LocationIds' => 'int32',
@@ -98,7 +98,7 @@ class GetEnrollmentsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ClassScheduleIds' => 'ClassScheduleIds',
         'EndDate' => 'EndDate',
         'LocationIds' => 'LocationIds',
@@ -115,7 +115,7 @@ class GetEnrollmentsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ClassScheduleIds' => 'setClassScheduleIds',
         'EndDate' => 'setEndDate',
         'LocationIds' => 'setLocationIds',
@@ -132,7 +132,7 @@ class GetEnrollmentsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ClassScheduleIds' => 'getClassScheduleIds',
         'EndDate' => 'getEndDate',
         'LocationIds' => 'getLocationIds',
@@ -155,7 +155,7 @@ class GetEnrollmentsRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ClassScheduleIds'] = isset($data['ClassScheduleIds']) ? $data['ClassScheduleIds'] : null;
         $this->container['EndDate'] = isset($data['EndDate']) ? $data['EndDate'] : null;
@@ -186,7 +186,7 @@ class GetEnrollmentsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getClassScheduleIds()
+    public function getClassScheduleIds(): array
     {
         return $this->container['ClassScheduleIds'];
     }
@@ -198,7 +198,9 @@ class GetEnrollmentsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClassScheduleIds($ClassScheduleIds): self
+
+
+    public function setClassScheduleIds(array $ClassScheduleIds): static
     {
         $this->container['ClassScheduleIds'] = $ClassScheduleIds;
 
@@ -210,7 +212,7 @@ class GetEnrollmentsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDate()
+    public function getEndDate(): \DateTime
     {
         return $this->container['EndDate'];
     }
@@ -222,7 +224,9 @@ class GetEnrollmentsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setEndDate($EndDate): self
+
+
+    public function setEndDate(\DateTime $EndDate): static
     {
         $this->container['EndDate'] = $EndDate;
 
@@ -234,7 +238,7 @@ class GetEnrollmentsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getLocationIds()
+    public function getLocationIds(): array
     {
         return $this->container['LocationIds'];
     }
@@ -246,7 +250,9 @@ class GetEnrollmentsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLocationIds($LocationIds): self
+
+
+    public function setLocationIds(array $LocationIds): static
     {
         $this->container['LocationIds'] = $LocationIds;
 
@@ -258,7 +264,7 @@ class GetEnrollmentsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getProgramIds()
+    public function getProgramIds(): array
     {
         return $this->container['ProgramIds'];
     }
@@ -270,7 +276,9 @@ class GetEnrollmentsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setProgramIds($ProgramIds): self
+
+
+    public function setProgramIds(array $ProgramIds): static
     {
         $this->container['ProgramIds'] = $ProgramIds;
 
@@ -282,7 +290,7 @@ class GetEnrollmentsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getSessionTypeIds()
+    public function getSessionTypeIds(): array
     {
         return $this->container['SessionTypeIds'];
     }
@@ -294,7 +302,9 @@ class GetEnrollmentsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSessionTypeIds($SessionTypeIds): self
+
+
+    public function setSessionTypeIds(array $SessionTypeIds): static
     {
         $this->container['SessionTypeIds'] = $SessionTypeIds;
 
@@ -306,7 +316,7 @@ class GetEnrollmentsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getStaffIds()
+    public function getStaffIds(): array
     {
         return $this->container['StaffIds'];
     }
@@ -318,7 +328,9 @@ class GetEnrollmentsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStaffIds($StaffIds): self
+
+
+    public function setStaffIds(array $StaffIds): static
     {
         $this->container['StaffIds'] = $StaffIds;
 
@@ -330,7 +342,7 @@ class GetEnrollmentsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDate()
+    public function getStartDate(): \DateTime
     {
         return $this->container['StartDate'];
     }
@@ -342,7 +354,9 @@ class GetEnrollmentsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStartDate($StartDate): self
+
+
+    public function setStartDate(\DateTime $StartDate): static
     {
         $this->container['StartDate'] = $StartDate;
 
@@ -354,7 +368,7 @@ class GetEnrollmentsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit()
+    public function getLimit(): int
     {
         return $this->container['Limit'];
     }
@@ -366,7 +380,9 @@ class GetEnrollmentsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLimit($Limit): self
+
+
+    public function setLimit(int $Limit): static
     {
         $this->container['Limit'] = $Limit;
 
@@ -378,7 +394,7 @@ class GetEnrollmentsRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset()
+    public function getOffset(): int
     {
         return $this->container['Offset'];
     }
@@ -390,7 +406,9 @@ class GetEnrollmentsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOffset($Offset): self
+
+
+    public function setOffset(int $Offset): static
     {
         $this->container['Offset'] = $Offset;
 

@@ -48,42 +48,42 @@ interface ModelInterface extends \ArrayAccess, \IteratorAggregate
     /**
      * Array of property to type mappings. Used for (de)serialization
      *
-     * @return array
+     * @return array<string, string>
      */
     public static function swaggerTypes();
 
     /**
      * Array of property to format mappings. Used for (de)serialization
      *
-     * @return array
+     * @return array<string, string|null>
      */
     public static function swaggerFormats();
 
     /**
      * Array of attributes where the key is the local name, and the value is the original name
      *
-     * @return array
+     * @return array<string, string>
      */
     public static function attributeMap();
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
      *
-     * @return array
+     * @return array<string, string>
      */
     public static function setters();
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
      *
-     * @return array
+     * @return array<string, string>
      */
     public static function getters();
 
     /**
      * Show all the invalid properties with reasons.
      *
-     * @return array
+     * @return string[]
      */
     public function listInvalidProperties();
 
@@ -99,7 +99,7 @@ interface ModelInterface extends \ArrayAccess, \IteratorAggregate
      /**
       * Return the model variables as an array
       *
-      * @return array
+      * @return array<string, mixed>
       */
     public function asArray(): array;
 }

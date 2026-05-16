@@ -50,14 +50,14 @@ class ReturnSaleResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ReturnSaleResponse';
+    protected static string $swaggerModelName = 'ReturnSaleResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ReturnSaleID' => 'int',
         'TrainerID' => 'int',
         'Amount' => 'double'
@@ -68,7 +68,7 @@ class ReturnSaleResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ReturnSaleID' => 'int64',
         'TrainerID' => 'int64',
         'Amount' => 'double'
@@ -81,7 +81,7 @@ class ReturnSaleResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ReturnSaleID' => 'ReturnSaleID',
         'TrainerID' => 'TrainerID',
         'Amount' => 'Amount'
@@ -92,7 +92,7 @@ class ReturnSaleResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ReturnSaleID' => 'setReturnSaleID',
         'TrainerID' => 'setTrainerID',
         'Amount' => 'setAmount'
@@ -103,7 +103,7 @@ class ReturnSaleResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ReturnSaleID' => 'getReturnSaleID',
         'TrainerID' => 'getTrainerID',
         'Amount' => 'getAmount'
@@ -120,7 +120,7 @@ class ReturnSaleResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ReturnSaleID'] = isset($data['ReturnSaleID']) ? $data['ReturnSaleID'] : null;
         $this->container['TrainerID'] = isset($data['TrainerID']) ? $data['TrainerID'] : null;
@@ -145,7 +145,7 @@ class ReturnSaleResponse extends BaseModel
      *
      * @return int
      */
-    public function getReturnSaleID()
+    public function getReturnSaleID(): int
     {
         return $this->container['ReturnSaleID'];
     }
@@ -157,7 +157,9 @@ class ReturnSaleResponse extends BaseModel
      *
      * @return $this
      */
-    public function setReturnSaleID($ReturnSaleID): self
+
+
+    public function setReturnSaleID(int $ReturnSaleID): static
     {
         $this->container['ReturnSaleID'] = $ReturnSaleID;
 
@@ -169,7 +171,7 @@ class ReturnSaleResponse extends BaseModel
      *
      * @return int
      */
-    public function getTrainerID()
+    public function getTrainerID(): int
     {
         return $this->container['TrainerID'];
     }
@@ -181,7 +183,9 @@ class ReturnSaleResponse extends BaseModel
      *
      * @return $this
      */
-    public function setTrainerID($TrainerID): self
+
+
+    public function setTrainerID(int $TrainerID): static
     {
         $this->container['TrainerID'] = $TrainerID;
 
@@ -193,7 +197,7 @@ class ReturnSaleResponse extends BaseModel
      *
      * @return double
      */
-    public function getAmount()
+    public function getAmount(): float
     {
         return $this->container['Amount'];
     }
@@ -205,7 +209,9 @@ class ReturnSaleResponse extends BaseModel
      *
      * @return $this
      */
-    public function setAmount($Amount): self
+
+
+    public function setAmount(float $Amount): static
     {
         $this->container['Amount'] = $Amount;
 

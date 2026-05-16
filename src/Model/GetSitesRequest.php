@@ -51,14 +51,14 @@ class GetSitesRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetSitesRequest';
+    protected static string $swaggerModelName = 'GetSitesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'SiteIds' => 'int[]',
         'IncludeLeadChannels' => 'bool',
         'IncludePerStaffPricing' => 'bool',
@@ -71,7 +71,7 @@ class GetSitesRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'SiteIds' => 'int32',
         'IncludeLeadChannels' => null,
         'IncludePerStaffPricing' => null,
@@ -86,7 +86,7 @@ class GetSitesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'SiteIds' => 'SiteIds',
         'IncludeLeadChannels' => 'IncludeLeadChannels',
         'IncludePerStaffPricing' => 'IncludePerStaffPricing',
@@ -99,7 +99,7 @@ class GetSitesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'SiteIds' => 'setSiteIds',
         'IncludeLeadChannels' => 'setIncludeLeadChannels',
         'IncludePerStaffPricing' => 'setIncludePerStaffPricing',
@@ -112,7 +112,7 @@ class GetSitesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'SiteIds' => 'getSiteIds',
         'IncludeLeadChannels' => 'getIncludeLeadChannels',
         'IncludePerStaffPricing' => 'getIncludePerStaffPricing',
@@ -131,7 +131,7 @@ class GetSitesRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['SiteIds'] = isset($data['SiteIds']) ? $data['SiteIds'] : null;
         $this->container['IncludeLeadChannels'] = isset($data['IncludeLeadChannels']) ? $data['IncludeLeadChannels'] : null;
@@ -158,7 +158,7 @@ class GetSitesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getSiteIds()
+    public function getSiteIds(): array
     {
         return $this->container['SiteIds'];
     }
@@ -170,7 +170,9 @@ class GetSitesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSiteIds($SiteIds): self
+
+
+    public function setSiteIds(array $SiteIds): static
     {
         $this->container['SiteIds'] = $SiteIds;
 
@@ -182,7 +184,7 @@ class GetSitesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIncludeLeadChannels()
+    public function getIncludeLeadChannels(): bool
     {
         return $this->container['IncludeLeadChannels'];
     }
@@ -194,7 +196,9 @@ class GetSitesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setIncludeLeadChannels($IncludeLeadChannels): self
+
+
+    public function setIncludeLeadChannels(bool $IncludeLeadChannels): static
     {
         $this->container['IncludeLeadChannels'] = $IncludeLeadChannels;
 
@@ -206,7 +210,7 @@ class GetSitesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIncludePerStaffPricing()
+    public function getIncludePerStaffPricing(): bool
     {
         return $this->container['IncludePerStaffPricing'];
     }
@@ -218,7 +222,9 @@ class GetSitesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setIncludePerStaffPricing($IncludePerStaffPricing): self
+
+
+    public function setIncludePerStaffPricing(bool $IncludePerStaffPricing): static
     {
         $this->container['IncludePerStaffPricing'] = $IncludePerStaffPricing;
 
@@ -230,7 +236,7 @@ class GetSitesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit()
+    public function getLimit(): int
     {
         return $this->container['Limit'];
     }
@@ -242,7 +248,9 @@ class GetSitesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLimit($Limit): self
+
+
+    public function setLimit(int $Limit): static
     {
         $this->container['Limit'] = $Limit;
 
@@ -254,7 +262,7 @@ class GetSitesRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset()
+    public function getOffset(): int
     {
         return $this->container['Offset'];
     }
@@ -266,7 +274,9 @@ class GetSitesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOffset($Offset): self
+
+
+    public function setOffset(int $Offset): static
     {
         $this->container['Offset'] = $Offset;
 

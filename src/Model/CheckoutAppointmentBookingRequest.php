@@ -53,14 +53,14 @@ class CheckoutAppointmentBookingRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CheckoutAppointmentBookingRequest';
+    protected static string $swaggerModelName = 'CheckoutAppointmentBookingRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'StaffId' => 'int',
         'LocationId' => 'int',
         'SessionTypeId' => 'int',
@@ -75,7 +75,7 @@ class CheckoutAppointmentBookingRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'StaffId' => 'int64',
         'LocationId' => 'int32',
         'SessionTypeId' => 'int32',
@@ -92,7 +92,7 @@ class CheckoutAppointmentBookingRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'StaffId' => 'StaffId',
         'LocationId' => 'LocationId',
         'SessionTypeId' => 'SessionTypeId',
@@ -107,7 +107,7 @@ class CheckoutAppointmentBookingRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'StaffId' => 'setStaffId',
         'LocationId' => 'setLocationId',
         'SessionTypeId' => 'setSessionTypeId',
@@ -122,7 +122,7 @@ class CheckoutAppointmentBookingRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'StaffId' => 'getStaffId',
         'LocationId' => 'getLocationId',
         'SessionTypeId' => 'getSessionTypeId',
@@ -143,7 +143,7 @@ class CheckoutAppointmentBookingRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['StaffId'] = isset($data['StaffId']) ? $data['StaffId'] : null;
         $this->container['LocationId'] = isset($data['LocationId']) ? $data['LocationId'] : null;
@@ -172,7 +172,7 @@ class CheckoutAppointmentBookingRequest extends BaseModel
      *
      * @return int
      */
-    public function getStaffId()
+    public function getStaffId(): int
     {
         return $this->container['StaffId'];
     }
@@ -184,7 +184,9 @@ class CheckoutAppointmentBookingRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStaffId($StaffId): self
+
+
+    public function setStaffId(int $StaffId): static
     {
         $this->container['StaffId'] = $StaffId;
 
@@ -196,7 +198,7 @@ class CheckoutAppointmentBookingRequest extends BaseModel
      *
      * @return int
      */
-    public function getLocationId()
+    public function getLocationId(): int
     {
         return $this->container['LocationId'];
     }
@@ -208,7 +210,9 @@ class CheckoutAppointmentBookingRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLocationId($LocationId): self
+
+
+    public function setLocationId(int $LocationId): static
     {
         $this->container['LocationId'] = $LocationId;
 
@@ -220,7 +224,7 @@ class CheckoutAppointmentBookingRequest extends BaseModel
      *
      * @return int
      */
-    public function getSessionTypeId()
+    public function getSessionTypeId(): int
     {
         return $this->container['SessionTypeId'];
     }
@@ -232,7 +236,9 @@ class CheckoutAppointmentBookingRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSessionTypeId($SessionTypeId): self
+
+
+    public function setSessionTypeId(int $SessionTypeId): static
     {
         $this->container['SessionTypeId'] = $SessionTypeId;
 
@@ -244,7 +250,7 @@ class CheckoutAppointmentBookingRequest extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ResourceSlim[]
      */
-    public function getResources()
+    public function getResources(): array
     {
         return $this->container['Resources'];
     }
@@ -256,7 +262,9 @@ class CheckoutAppointmentBookingRequest extends BaseModel
      *
      * @return $this
      */
-    public function setResources($Resources): self
+
+
+    public function setResources(array $Resources): static
     {
         $this->container['Resources'] = $Resources;
 
@@ -268,7 +276,7 @@ class CheckoutAppointmentBookingRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDateTime()
+    public function getStartDateTime(): \DateTime
     {
         return $this->container['StartDateTime'];
     }
@@ -280,7 +288,9 @@ class CheckoutAppointmentBookingRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStartDateTime($StartDateTime): self
+
+
+    public function setStartDateTime(\DateTime $StartDateTime): static
     {
         $this->container['StartDateTime'] = $StartDateTime;
 
@@ -292,7 +302,7 @@ class CheckoutAppointmentBookingRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDateTime()
+    public function getEndDateTime(): \DateTime
     {
         return $this->container['EndDateTime'];
     }
@@ -304,7 +314,9 @@ class CheckoutAppointmentBookingRequest extends BaseModel
      *
      * @return $this
      */
-    public function setEndDateTime($EndDateTime): self
+
+
+    public function setEndDateTime(\DateTime $EndDateTime): static
     {
         $this->container['EndDateTime'] = $EndDateTime;
 
@@ -316,7 +328,7 @@ class CheckoutAppointmentBookingRequest extends BaseModel
      *
      * @return string
      */
-    public function getProviderId()
+    public function getProviderId(): string
     {
         return $this->container['ProviderId'];
     }
@@ -328,7 +340,9 @@ class CheckoutAppointmentBookingRequest extends BaseModel
      *
      * @return $this
      */
-    public function setProviderId($ProviderId): self
+
+
+    public function setProviderId(string $ProviderId): static
     {
         $this->container['ProviderId'] = $ProviderId;
 

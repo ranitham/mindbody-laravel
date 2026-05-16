@@ -47,14 +47,14 @@ class UpdateAppointmentResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UpdateAppointmentResponse';
+    protected static string $swaggerModelName = 'UpdateAppointmentResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Appointment' => '\Nlocascio\Mindbody\Model\Appointment'
     ];
 
@@ -63,7 +63,7 @@ class UpdateAppointmentResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Appointment' => null
     ];
 
@@ -74,7 +74,7 @@ class UpdateAppointmentResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Appointment' => 'Appointment'
     ];
 
@@ -83,7 +83,7 @@ class UpdateAppointmentResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Appointment' => 'setAppointment'
     ];
 
@@ -92,7 +92,7 @@ class UpdateAppointmentResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Appointment' => 'getAppointment'
     ];
 
@@ -107,7 +107,7 @@ class UpdateAppointmentResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Appointment'] = isset($data['Appointment']) ? $data['Appointment'] : null;
     }
@@ -130,7 +130,7 @@ class UpdateAppointmentResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Appointment
      */
-    public function getAppointment()
+    public function getAppointment(): \Nlocascio\Mindbody\Model\Appointment
     {
         return $this->container['Appointment'];
     }
@@ -142,7 +142,9 @@ class UpdateAppointmentResponse extends BaseModel
      *
      * @return $this
      */
-    public function setAppointment($Appointment): self
+
+
+    public function setAppointment(\Nlocascio\Mindbody\Model\Appointment $Appointment): static
     {
         $this->container['Appointment'] = $Appointment;
 

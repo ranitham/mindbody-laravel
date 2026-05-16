@@ -51,14 +51,14 @@ class GetSalesRepsRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetSalesRepsRequest';
+    protected static string $swaggerModelName = 'GetSalesRepsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'SalesRepNumbers' => 'int[]',
         'ActiveOnly' => 'bool',
         'Limit' => 'int',
@@ -70,7 +70,7 @@ class GetSalesRepsRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'SalesRepNumbers' => 'int32',
         'ActiveOnly' => null,
         'Limit' => 'int32',
@@ -84,7 +84,7 @@ class GetSalesRepsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'SalesRepNumbers' => 'SalesRepNumbers',
         'ActiveOnly' => 'ActiveOnly',
         'Limit' => 'Limit',
@@ -96,7 +96,7 @@ class GetSalesRepsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'SalesRepNumbers' => 'setSalesRepNumbers',
         'ActiveOnly' => 'setActiveOnly',
         'Limit' => 'setLimit',
@@ -108,7 +108,7 @@ class GetSalesRepsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'SalesRepNumbers' => 'getSalesRepNumbers',
         'ActiveOnly' => 'getActiveOnly',
         'Limit' => 'getLimit',
@@ -126,7 +126,7 @@ class GetSalesRepsRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['SalesRepNumbers'] = isset($data['SalesRepNumbers']) ? $data['SalesRepNumbers'] : null;
         $this->container['ActiveOnly'] = isset($data['ActiveOnly']) ? $data['ActiveOnly'] : null;
@@ -152,7 +152,7 @@ class GetSalesRepsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getSalesRepNumbers()
+    public function getSalesRepNumbers(): array
     {
         return $this->container['SalesRepNumbers'];
     }
@@ -164,7 +164,9 @@ class GetSalesRepsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSalesRepNumbers($SalesRepNumbers): self
+
+
+    public function setSalesRepNumbers(array $SalesRepNumbers): static
     {
         $this->container['SalesRepNumbers'] = $SalesRepNumbers;
 
@@ -176,7 +178,7 @@ class GetSalesRepsRequest extends BaseModel
      *
      * @return bool
      */
-    public function getActiveOnly()
+    public function getActiveOnly(): bool
     {
         return $this->container['ActiveOnly'];
     }
@@ -188,7 +190,9 @@ class GetSalesRepsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setActiveOnly($ActiveOnly): self
+
+
+    public function setActiveOnly(bool $ActiveOnly): static
     {
         $this->container['ActiveOnly'] = $ActiveOnly;
 
@@ -200,7 +204,7 @@ class GetSalesRepsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit()
+    public function getLimit(): int
     {
         return $this->container['Limit'];
     }
@@ -212,7 +216,9 @@ class GetSalesRepsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLimit($Limit): self
+
+
+    public function setLimit(int $Limit): static
     {
         $this->container['Limit'] = $Limit;
 
@@ -224,7 +230,7 @@ class GetSalesRepsRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset()
+    public function getOffset(): int
     {
         return $this->container['Offset'];
     }
@@ -236,7 +242,9 @@ class GetSalesRepsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOffset($Offset): self
+
+
+    public function setOffset(int $Offset): static
     {
         $this->container['Offset'] = $Offset;
 

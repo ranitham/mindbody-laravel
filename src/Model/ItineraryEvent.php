@@ -62,7 +62,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property int $FinishTime The finish time in minutes.
  *
  */
-class ItineraryEvent extends BaseModel implements ModelWithId
+class ItineraryEvent extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -71,14 +71,14 @@ class ItineraryEvent extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ItineraryEvent';
+    protected static string $swaggerModelName = 'ItineraryEvent';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'GenderPreference' => 'string',
         'Duration' => 'int',
         'ProviderId' => 'string',
@@ -110,7 +110,7 @@ class ItineraryEvent extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'GenderPreference' => null,
         'Duration' => 'int32',
         'ProviderId' => null,
@@ -144,7 +144,7 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'GenderPreference' => 'GenderPreference',
         'Duration' => 'Duration',
         'ProviderId' => 'ProviderId',
@@ -176,7 +176,7 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'GenderPreference' => 'setGenderPreference',
         'Duration' => 'setDuration',
         'ProviderId' => 'setProviderId',
@@ -208,7 +208,7 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'GenderPreference' => 'getGenderPreference',
         'Duration' => 'getDuration',
         'ProviderId' => 'getProviderId',
@@ -292,7 +292,7 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['GenderPreference'] = isset($data['GenderPreference']) ? $data['GenderPreference'] : null;
         $this->container['Duration'] = isset($data['Duration']) ? $data['Duration'] : null;
@@ -354,7 +354,7 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getGenderPreference()
+    public function getGenderPreference(): string
     {
         return $this->container['GenderPreference'];
     }
@@ -366,7 +366,9 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setGenderPreference($GenderPreference): self
+
+
+    public function setGenderPreference(string $GenderPreference): static
     {
         $allowedValues = $this->getGenderPreferenceAllowableValues();
         if (!is_null($GenderPreference) && !in_array($GenderPreference, $allowedValues, true)) {
@@ -387,7 +389,7 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getDuration()
+    public function getDuration(): int
     {
         return $this->container['Duration'];
     }
@@ -399,7 +401,9 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setDuration($Duration): self
+
+
+    public function setDuration(int $Duration): static
     {
         $this->container['Duration'] = $Duration;
 
@@ -411,7 +415,7 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getProviderId()
+    public function getProviderId(): string
     {
         return $this->container['ProviderId'];
     }
@@ -423,7 +427,9 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setProviderId($ProviderId): self
+
+
+    public function setProviderId(string $ProviderId): static
     {
         $this->container['ProviderId'] = $ProviderId;
 
@@ -435,7 +441,7 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -447,7 +453,9 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -459,7 +467,7 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getStatus()
+    public function getStatus(): string
     {
         return $this->container['Status'];
     }
@@ -471,7 +479,9 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setStatus($Status): self
+
+
+    public function setStatus(string $Status): static
     {
         $allowedValues = $this->getStatusAllowableValues();
         if (!is_null($Status) && !in_array($Status, $allowedValues, true)) {
@@ -492,7 +502,7 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getStartDateTime()
+    public function getStartDateTime(): \DateTime
     {
         return $this->container['StartDateTime'];
     }
@@ -504,7 +514,9 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setStartDateTime($StartDateTime): self
+
+
+    public function setStartDateTime(\DateTime $StartDateTime): static
     {
         $this->container['StartDateTime'] = $StartDateTime;
 
@@ -516,7 +528,7 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getEndDateTime()
+    public function getEndDateTime(): \DateTime
     {
         return $this->container['EndDateTime'];
     }
@@ -528,7 +540,9 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setEndDateTime($EndDateTime): self
+
+
+    public function setEndDateTime(\DateTime $EndDateTime): static
     {
         $this->container['EndDateTime'] = $EndDateTime;
 
@@ -540,7 +554,7 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getNotes()
+    public function getNotes(): string
     {
         return $this->container['Notes'];
     }
@@ -552,7 +566,9 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setNotes($Notes): self
+
+
+    public function setNotes(string $Notes): static
     {
         $this->container['Notes'] = $Notes;
 
@@ -564,7 +580,7 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getStaffRequested()
+    public function getStaffRequested(): bool
     {
         return $this->container['StaffRequested'];
     }
@@ -576,7 +592,9 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setStaffRequested($StaffRequested): self
+
+
+    public function setStaffRequested(bool $StaffRequested): static
     {
         $this->container['StaffRequested'] = $StaffRequested;
 
@@ -588,7 +606,7 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getProgramId()
+    public function getProgramId(): int
     {
         return $this->container['ProgramId'];
     }
@@ -600,7 +618,9 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setProgramId($ProgramId): self
+
+
+    public function setProgramId(int $ProgramId): static
     {
         $this->container['ProgramId'] = $ProgramId;
 
@@ -612,7 +632,7 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getSessionTypeId()
+    public function getSessionTypeId(): int
     {
         return $this->container['SessionTypeId'];
     }
@@ -624,7 +644,9 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSessionTypeId($SessionTypeId): self
+
+
+    public function setSessionTypeId(int $SessionTypeId): static
     {
         $this->container['SessionTypeId'] = $SessionTypeId;
 
@@ -636,7 +658,7 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getLocationId()
+    public function getLocationId(): int
     {
         return $this->container['LocationId'];
     }
@@ -648,7 +670,9 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setLocationId($LocationId): self
+
+
+    public function setLocationId(int $LocationId): static
     {
         $this->container['LocationId'] = $LocationId;
 
@@ -660,7 +684,7 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getStaffId()
+    public function getStaffId(): int
     {
         return $this->container['StaffId'];
     }
@@ -672,7 +696,9 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setStaffId($StaffId): self
+
+
+    public function setStaffId(int $StaffId): static
     {
         $this->container['StaffId'] = $StaffId;
 
@@ -684,7 +710,7 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\AppointmentStaff
      */
-    public function getStaff()
+    public function getStaff(): \Nlocascio\Mindbody\Model\AppointmentStaff
     {
         return $this->container['Staff'];
     }
@@ -696,7 +722,9 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setStaff($Staff): self
+
+
+    public function setStaff(\Nlocascio\Mindbody\Model\AppointmentStaff $Staff): static
     {
         $this->container['Staff'] = $Staff;
 
@@ -708,7 +736,7 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getClientId()
+    public function getClientId(): string
     {
         return $this->container['ClientId'];
     }
@@ -720,7 +748,9 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setClientId($ClientId): self
+
+
+    public function setClientId(string $ClientId): static
     {
         $this->container['ClientId'] = $ClientId;
 
@@ -732,7 +762,7 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getFirstAppointment()
+    public function getFirstAppointment(): bool
     {
         return $this->container['FirstAppointment'];
     }
@@ -744,7 +774,9 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setFirstAppointment($FirstAppointment): self
+
+
+    public function setFirstAppointment(bool $FirstAppointment): static
     {
         $this->container['FirstAppointment'] = $FirstAppointment;
 
@@ -756,7 +788,7 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getIsWaitlist()
+    public function getIsWaitlist(): bool
     {
         return $this->container['IsWaitlist'];
     }
@@ -768,7 +800,9 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setIsWaitlist($IsWaitlist): self
+
+
+    public function setIsWaitlist(bool $IsWaitlist): static
     {
         $this->container['IsWaitlist'] = $IsWaitlist;
 
@@ -780,7 +814,7 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getWaitlistEntryId()
+    public function getWaitlistEntryId(): int
     {
         return $this->container['WaitlistEntryId'];
     }
@@ -792,7 +826,9 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setWaitlistEntryId($WaitlistEntryId): self
+
+
+    public function setWaitlistEntryId(int $WaitlistEntryId): static
     {
         $this->container['WaitlistEntryId'] = $WaitlistEntryId;
 
@@ -804,7 +840,7 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getClientServiceId()
+    public function getClientServiceId(): int
     {
         return $this->container['ClientServiceId'];
     }
@@ -816,7 +852,9 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setClientServiceId($ClientServiceId): self
+
+
+    public function setClientServiceId(int $ClientServiceId): static
     {
         $this->container['ClientServiceId'] = $ClientServiceId;
 
@@ -828,7 +866,7 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\ResourceSlim[]
      */
-    public function getResources()
+    public function getResources(): array
     {
         return $this->container['Resources'];
     }
@@ -840,7 +878,9 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setResources($Resources): self
+
+
+    public function setResources(array $Resources): static
     {
         $this->container['Resources'] = $Resources;
 
@@ -852,7 +892,7 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\AddOnSmall[]
      */
-    public function getAddOns()
+    public function getAddOns(): array
     {
         return $this->container['AddOns'];
     }
@@ -864,7 +904,9 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAddOns($AddOns): self
+
+
+    public function setAddOns(array $AddOns): static
     {
         $this->container['AddOns'] = $AddOns;
 
@@ -876,7 +918,7 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getOnlineDescription()
+    public function getOnlineDescription(): string
     {
         return $this->container['OnlineDescription'];
     }
@@ -888,7 +930,9 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setOnlineDescription($OnlineDescription): self
+
+
+    public function setOnlineDescription(string $OnlineDescription): static
     {
         $this->container['OnlineDescription'] = $OnlineDescription;
 
@@ -900,7 +944,7 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getPreparationTime()
+    public function getPreparationTime(): int
     {
         return $this->container['PreparationTime'];
     }
@@ -912,7 +956,9 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setPreparationTime($PreparationTime): self
+
+
+    public function setPreparationTime(int $PreparationTime): static
     {
         $this->container['PreparationTime'] = $PreparationTime;
 
@@ -924,7 +970,7 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getFinishTime()
+    public function getFinishTime(): int
     {
         return $this->container['FinishTime'];
     }
@@ -936,7 +982,9 @@ class ItineraryEvent extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setFinishTime($FinishTime): self
+
+
+    public function setFinishTime(int $FinishTime): static
     {
         $this->container['FinishTime'] = $FinishTime;
 

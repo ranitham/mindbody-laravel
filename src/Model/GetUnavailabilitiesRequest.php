@@ -51,14 +51,14 @@ class GetUnavailabilitiesRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetUnavailabilitiesRequest';
+    protected static string $swaggerModelName = 'GetUnavailabilitiesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'StaffIds' => 'int[]',
         'StartDate' => '\DateTime',
         'EndDate' => '\DateTime',
@@ -71,7 +71,7 @@ class GetUnavailabilitiesRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'StaffIds' => 'int64',
         'StartDate' => 'date-time',
         'EndDate' => 'date-time',
@@ -86,7 +86,7 @@ class GetUnavailabilitiesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'StaffIds' => 'StaffIds',
         'StartDate' => 'StartDate',
         'EndDate' => 'EndDate',
@@ -99,7 +99,7 @@ class GetUnavailabilitiesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'StaffIds' => 'setStaffIds',
         'StartDate' => 'setStartDate',
         'EndDate' => 'setEndDate',
@@ -112,7 +112,7 @@ class GetUnavailabilitiesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'StaffIds' => 'getStaffIds',
         'StartDate' => 'getStartDate',
         'EndDate' => 'getEndDate',
@@ -131,7 +131,7 @@ class GetUnavailabilitiesRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['StaffIds'] = isset($data['StaffIds']) ? $data['StaffIds'] : null;
         $this->container['StartDate'] = isset($data['StartDate']) ? $data['StartDate'] : null;
@@ -158,7 +158,7 @@ class GetUnavailabilitiesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getStaffIds()
+    public function getStaffIds(): array
     {
         return $this->container['StaffIds'];
     }
@@ -170,7 +170,9 @@ class GetUnavailabilitiesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStaffIds($StaffIds): self
+
+
+    public function setStaffIds(array $StaffIds): static
     {
         $this->container['StaffIds'] = $StaffIds;
 
@@ -182,7 +184,7 @@ class GetUnavailabilitiesRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDate()
+    public function getStartDate(): \DateTime
     {
         return $this->container['StartDate'];
     }
@@ -194,7 +196,9 @@ class GetUnavailabilitiesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStartDate($StartDate): self
+
+
+    public function setStartDate(\DateTime $StartDate): static
     {
         $this->container['StartDate'] = $StartDate;
 
@@ -206,7 +210,7 @@ class GetUnavailabilitiesRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDate()
+    public function getEndDate(): \DateTime
     {
         return $this->container['EndDate'];
     }
@@ -218,7 +222,9 @@ class GetUnavailabilitiesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setEndDate($EndDate): self
+
+
+    public function setEndDate(\DateTime $EndDate): static
     {
         $this->container['EndDate'] = $EndDate;
 
@@ -230,7 +236,7 @@ class GetUnavailabilitiesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit()
+    public function getLimit(): int
     {
         return $this->container['Limit'];
     }
@@ -242,7 +248,9 @@ class GetUnavailabilitiesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLimit($Limit): self
+
+
+    public function setLimit(int $Limit): static
     {
         $this->container['Limit'] = $Limit;
 
@@ -254,7 +262,7 @@ class GetUnavailabilitiesRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset()
+    public function getOffset(): int
     {
         return $this->container['Offset'];
     }
@@ -266,7 +274,9 @@ class GetUnavailabilitiesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOffset($Offset): self
+
+
+    public function setOffset(int $Offset): static
     {
         $this->container['Offset'] = $Offset;
 

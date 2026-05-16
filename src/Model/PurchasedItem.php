@@ -63,7 +63,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property int $RecipientClientId The ClientId of the recipient for this purchased item.  This value may differ from the Sale’s ClientId when items are purchased for another client (e.g., gifting).   Used to attribute the entitlement/ownership of the item to a client other than the purchaser.
  *
  */
-class PurchasedItem extends BaseModel implements ModelWithId
+class PurchasedItem extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -72,14 +72,14 @@ class PurchasedItem extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'PurchasedItem';
+    protected static string $swaggerModelName = 'PurchasedItem';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'SaleDetailId' => 'int',
         'Id' => 'int',
         'IsService' => 'bool',
@@ -113,7 +113,7 @@ class PurchasedItem extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'SaleDetailId' => 'int32',
         'Id' => 'int64',
         'IsService' => null,
@@ -149,7 +149,7 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'SaleDetailId' => 'SaleDetailId',
         'Id' => 'Id',
         'IsService' => 'IsService',
@@ -183,7 +183,7 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'SaleDetailId' => 'setSaleDetailId',
         'Id' => 'setId',
         'IsService' => 'setIsService',
@@ -217,7 +217,7 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'SaleDetailId' => 'getSaleDetailId',
         'Id' => 'getId',
         'IsService' => 'getIsService',
@@ -257,7 +257,7 @@ class PurchasedItem extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['SaleDetailId'] = isset($data['SaleDetailId']) ? $data['SaleDetailId'] : null;
         $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
@@ -305,7 +305,7 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getSaleDetailId()
+    public function getSaleDetailId(): int
     {
         return $this->container['SaleDetailId'];
     }
@@ -317,7 +317,9 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSaleDetailId($SaleDetailId): self
+
+
+    public function setSaleDetailId(int $SaleDetailId): static
     {
         $this->container['SaleDetailId'] = $SaleDetailId;
 
@@ -329,7 +331,7 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -341,7 +343,9 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -353,7 +357,7 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getIsService()
+    public function getIsService(): bool
     {
         return $this->container['IsService'];
     }
@@ -365,7 +369,9 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setIsService($IsService): self
+
+
+    public function setIsService(bool $IsService): static
     {
         $this->container['IsService'] = $IsService;
 
@@ -377,7 +383,7 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getBarcodeId()
+    public function getBarcodeId(): string
     {
         return $this->container['BarcodeId'];
     }
@@ -389,7 +395,9 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setBarcodeId($BarcodeId): self
+
+
+    public function setBarcodeId(string $BarcodeId): static
     {
         $this->container['BarcodeId'] = $BarcodeId;
 
@@ -401,7 +409,7 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->container['Description'];
     }
@@ -413,7 +421,9 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setDescription($Description): self
+
+
+    public function setDescription(string $Description): static
     {
         $this->container['Description'] = $Description;
 
@@ -425,7 +435,7 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getContractId()
+    public function getContractId(): int
     {
         return $this->container['ContractId'];
     }
@@ -437,7 +447,9 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setContractId($ContractId): self
+
+
+    public function setContractId(int $ContractId): static
     {
         $this->container['ContractId'] = $ContractId;
 
@@ -449,7 +461,7 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getCategoryId()
+    public function getCategoryId(): int
     {
         return $this->container['CategoryId'];
     }
@@ -461,7 +473,9 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setCategoryId($CategoryId): self
+
+
+    public function setCategoryId(int $CategoryId): static
     {
         $this->container['CategoryId'] = $CategoryId;
 
@@ -473,7 +487,7 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getSubCategoryId()
+    public function getSubCategoryId(): int
     {
         return $this->container['SubCategoryId'];
     }
@@ -485,7 +499,9 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSubCategoryId($SubCategoryId): self
+
+
+    public function setSubCategoryId(int $SubCategoryId): static
     {
         $this->container['SubCategoryId'] = $SubCategoryId;
 
@@ -497,7 +513,7 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getUnitPrice()
+    public function getUnitPrice(): float
     {
         return $this->container['UnitPrice'];
     }
@@ -509,7 +525,9 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setUnitPrice($UnitPrice): self
+
+
+    public function setUnitPrice(float $UnitPrice): static
     {
         $this->container['UnitPrice'] = $UnitPrice;
 
@@ -521,7 +539,7 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getQuantity()
+    public function getQuantity(): int
     {
         return $this->container['Quantity'];
     }
@@ -533,7 +551,9 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setQuantity($Quantity): self
+
+
+    public function setQuantity(int $Quantity): static
     {
         $this->container['Quantity'] = $Quantity;
 
@@ -545,7 +565,7 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getDiscountPercent()
+    public function getDiscountPercent(): float
     {
         return $this->container['DiscountPercent'];
     }
@@ -557,7 +577,9 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setDiscountPercent($DiscountPercent): self
+
+
+    public function setDiscountPercent(float $DiscountPercent): static
     {
         $this->container['DiscountPercent'] = $DiscountPercent;
 
@@ -569,7 +591,7 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getDiscountAmount()
+    public function getDiscountAmount(): float
     {
         return $this->container['DiscountAmount'];
     }
@@ -581,7 +603,9 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setDiscountAmount($DiscountAmount): self
+
+
+    public function setDiscountAmount(float $DiscountAmount): static
     {
         $this->container['DiscountAmount'] = $DiscountAmount;
 
@@ -593,7 +617,7 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getTax1()
+    public function getTax1(): float
     {
         return $this->container['Tax1'];
     }
@@ -605,7 +629,9 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setTax1($Tax1): self
+
+
+    public function setTax1(float $Tax1): static
     {
         $this->container['Tax1'] = $Tax1;
 
@@ -617,7 +643,7 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getTax2()
+    public function getTax2(): float
     {
         return $this->container['Tax2'];
     }
@@ -629,7 +655,9 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setTax2($Tax2): self
+
+
+    public function setTax2(float $Tax2): static
     {
         $this->container['Tax2'] = $Tax2;
 
@@ -641,7 +669,7 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getTax3()
+    public function getTax3(): float
     {
         return $this->container['Tax3'];
     }
@@ -653,7 +681,9 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setTax3($Tax3): self
+
+
+    public function setTax3(float $Tax3): static
     {
         $this->container['Tax3'] = $Tax3;
 
@@ -665,7 +695,7 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getTax4()
+    public function getTax4(): float
     {
         return $this->container['Tax4'];
     }
@@ -677,7 +707,9 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setTax4($Tax4): self
+
+
+    public function setTax4(float $Tax4): static
     {
         $this->container['Tax4'] = $Tax4;
 
@@ -689,7 +721,7 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getTax5()
+    public function getTax5(): float
     {
         return $this->container['Tax5'];
     }
@@ -701,7 +733,9 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setTax5($Tax5): self
+
+
+    public function setTax5(float $Tax5): static
     {
         $this->container['Tax5'] = $Tax5;
 
@@ -713,7 +747,7 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getTaxAmount()
+    public function getTaxAmount(): float
     {
         return $this->container['TaxAmount'];
     }
@@ -725,7 +759,9 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setTaxAmount($TaxAmount): self
+
+
+    public function setTaxAmount(float $TaxAmount): static
     {
         $this->container['TaxAmount'] = $TaxAmount;
 
@@ -737,7 +773,7 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getTotalAmount()
+    public function getTotalAmount(): float
     {
         return $this->container['TotalAmount'];
     }
@@ -749,7 +785,9 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setTotalAmount($TotalAmount): self
+
+
+    public function setTotalAmount(float $TotalAmount): static
     {
         $this->container['TotalAmount'] = $TotalAmount;
 
@@ -761,7 +799,7 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getNotes()
+    public function getNotes(): string
     {
         return $this->container['Notes'];
     }
@@ -773,7 +811,9 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setNotes($Notes): self
+
+
+    public function setNotes(string $Notes): static
     {
         $this->container['Notes'] = $Notes;
 
@@ -785,7 +825,7 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getReturned()
+    public function getReturned(): bool
     {
         return $this->container['Returned'];
     }
@@ -797,7 +837,9 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setReturned($Returned): self
+
+
+    public function setReturned(bool $Returned): static
     {
         $this->container['Returned'] = $Returned;
 
@@ -809,7 +851,7 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getPaymentRefId()
+    public function getPaymentRefId(): int
     {
         return $this->container['PaymentRefId'];
     }
@@ -821,7 +863,9 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setPaymentRefId($PaymentRefId): self
+
+
+    public function setPaymentRefId(int $PaymentRefId): static
     {
         $this->container['PaymentRefId'] = $PaymentRefId;
 
@@ -833,7 +877,7 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getExpDate()
+    public function getExpDate(): \DateTime
     {
         return $this->container['ExpDate'];
     }
@@ -845,7 +889,9 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setExpDate($ExpDate): self
+
+
+    public function setExpDate(\DateTime $ExpDate): static
     {
         $this->container['ExpDate'] = $ExpDate;
 
@@ -857,7 +903,7 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getActiveDate()
+    public function getActiveDate(): \DateTime
     {
         return $this->container['ActiveDate'];
     }
@@ -869,7 +915,9 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setActiveDate($ActiveDate): self
+
+
+    public function setActiveDate(\DateTime $ActiveDate): static
     {
         $this->container['ActiveDate'] = $ActiveDate;
 
@@ -881,7 +929,7 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getGiftCardBarcodeId()
+    public function getGiftCardBarcodeId(): string
     {
         return $this->container['GiftCardBarcodeId'];
     }
@@ -893,7 +941,9 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setGiftCardBarcodeId($GiftCardBarcodeId): self
+
+
+    public function setGiftCardBarcodeId(string $GiftCardBarcodeId): static
     {
         $this->container['GiftCardBarcodeId'] = $GiftCardBarcodeId;
 
@@ -905,7 +955,7 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getRecipientClientId()
+    public function getRecipientClientId(): int
     {
         return $this->container['RecipientClientId'];
     }
@@ -917,7 +967,9 @@ class PurchasedItem extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setRecipientClientId($RecipientClientId): self
+
+
+    public function setRecipientClientId(int $RecipientClientId): static
     {
         $this->container['RecipientClientId'] = $RecipientClientId;
 

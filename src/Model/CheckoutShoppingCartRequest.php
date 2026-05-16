@@ -66,14 +66,14 @@ class CheckoutShoppingCartRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CheckoutShoppingCartRequest';
+    protected static string $swaggerModelName = 'CheckoutShoppingCartRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'CartId' => 'string',
         'ClientId' => 'string',
         'UniqueClientId' => 'int',
@@ -101,7 +101,7 @@ class CheckoutShoppingCartRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'CartId' => null,
         'ClientId' => null,
         'UniqueClientId' => 'int64',
@@ -131,7 +131,7 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'CartId' => 'CartId',
         'ClientId' => 'ClientId',
         'UniqueClientId' => 'UniqueClientId',
@@ -159,7 +159,7 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'CartId' => 'setCartId',
         'ClientId' => 'setClientId',
         'UniqueClientId' => 'setUniqueClientId',
@@ -187,7 +187,7 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'CartId' => 'getCartId',
         'ClientId' => 'getClientId',
         'UniqueClientId' => 'getUniqueClientId',
@@ -221,7 +221,7 @@ class CheckoutShoppingCartRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['CartId'] = isset($data['CartId']) ? $data['CartId'] : null;
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
@@ -273,7 +273,7 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return string
      */
-    public function getCartId()
+    public function getCartId(): string
     {
         return $this->container['CartId'];
     }
@@ -285,7 +285,9 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return $this
      */
-    public function setCartId($CartId): self
+
+
+    public function setCartId(string $CartId): static
     {
         $this->container['CartId'] = $CartId;
 
@@ -297,7 +299,7 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId()
+    public function getClientId(): string
     {
         return $this->container['ClientId'];
     }
@@ -309,7 +311,9 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClientId($ClientId): self
+
+
+    public function setClientId(string $ClientId): static
     {
         $this->container['ClientId'] = $ClientId;
 
@@ -321,7 +325,7 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return int
      */
-    public function getUniqueClientId()
+    public function getUniqueClientId(): int
     {
         return $this->container['UniqueClientId'];
     }
@@ -333,7 +337,9 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return $this
      */
-    public function setUniqueClientId($UniqueClientId): self
+
+
+    public function setUniqueClientId(int $UniqueClientId): static
     {
         $this->container['UniqueClientId'] = $UniqueClientId;
 
@@ -345,7 +351,7 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return string
      */
-    public function getPayerClientId()
+    public function getPayerClientId(): string
     {
         return $this->container['PayerClientId'];
     }
@@ -357,7 +363,9 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return $this
      */
-    public function setPayerClientId($PayerClientId): self
+
+
+    public function setPayerClientId(string $PayerClientId): static
     {
         $this->container['PayerClientId'] = $PayerClientId;
 
@@ -369,7 +377,7 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return int
      */
-    public function getUniquePayerClientId()
+    public function getUniquePayerClientId(): int
     {
         return $this->container['UniquePayerClientId'];
     }
@@ -381,7 +389,9 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return $this
      */
-    public function setUniquePayerClientId($UniquePayerClientId): self
+
+
+    public function setUniquePayerClientId(int $UniquePayerClientId): static
     {
         $this->container['UniquePayerClientId'] = $UniquePayerClientId;
 
@@ -393,7 +403,7 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return bool
      */
-    public function getTest()
+    public function getTest(): bool
     {
         return $this->container['Test'];
     }
@@ -405,7 +415,9 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return $this
      */
-    public function setTest($Test): self
+
+
+    public function setTest(bool $Test): static
     {
         $this->container['Test'] = $Test;
 
@@ -417,7 +429,7 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\CheckoutItemWrapper[]
      */
-    public function getItems()
+    public function getItems(): array
     {
         return $this->container['Items'];
     }
@@ -429,7 +441,9 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return $this
      */
-    public function setItems($Items): self
+
+
+    public function setItems(array $Items): static
     {
         $this->container['Items'] = $Items;
 
@@ -441,7 +455,7 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return bool
      */
-    public function getInStore()
+    public function getInStore(): bool
     {
         return $this->container['InStore'];
     }
@@ -453,7 +467,9 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return $this
      */
-    public function setInStore($InStore): self
+
+
+    public function setInStore(bool $InStore): static
     {
         $this->container['InStore'] = $InStore;
 
@@ -465,7 +481,7 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return bool
      */
-    public function getCalculateTax()
+    public function getCalculateTax(): bool
     {
         return $this->container['CalculateTax'];
     }
@@ -477,7 +493,9 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return $this
      */
-    public function setCalculateTax($CalculateTax): self
+
+
+    public function setCalculateTax(bool $CalculateTax): static
     {
         $this->container['CalculateTax'] = $CalculateTax;
 
@@ -489,7 +507,7 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return string
      */
-    public function getPromotionCode()
+    public function getPromotionCode(): string
     {
         return $this->container['PromotionCode'];
     }
@@ -501,7 +519,9 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return $this
      */
-    public function setPromotionCode($PromotionCode): self
+
+
+    public function setPromotionCode(string $PromotionCode): static
     {
         $this->container['PromotionCode'] = $PromotionCode;
 
@@ -513,7 +533,7 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\CheckoutPaymentInfo[]
      */
-    public function getPayments()
+    public function getPayments(): array
     {
         return $this->container['Payments'];
     }
@@ -525,7 +545,9 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return $this
      */
-    public function setPayments($Payments): self
+
+
+    public function setPayments(array $Payments): static
     {
         $this->container['Payments'] = $Payments;
 
@@ -537,7 +559,7 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSendEmail()
+    public function getSendEmail(): bool
     {
         return $this->container['SendEmail'];
     }
@@ -549,7 +571,9 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSendEmail($SendEmail): self
+
+
+    public function setSendEmail(bool $SendEmail): static
     {
         $this->container['SendEmail'] = $SendEmail;
 
@@ -561,7 +585,7 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return int
      */
-    public function getLocationId()
+    public function getLocationId(): int
     {
         return $this->container['LocationId'];
     }
@@ -573,7 +597,9 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLocationId($LocationId): self
+
+
+    public function setLocationId(int $LocationId): static
     {
         $this->container['LocationId'] = $LocationId;
 
@@ -585,7 +611,7 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return string
      */
-    public function getImage()
+    public function getImage(): string
     {
         return $this->container['Image'];
     }
@@ -597,7 +623,9 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return $this
      */
-    public function setImage($Image): self
+
+
+    public function setImage(string $Image): static
     {
 
         if (!is_null($Image) && (!preg_match("/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/", $Image))) {
@@ -614,7 +642,7 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return string
      */
-    public function getImageFileName()
+    public function getImageFileName(): string
     {
         return $this->container['ImageFileName'];
     }
@@ -626,7 +654,9 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return $this
      */
-    public function setImageFileName($ImageFileName): self
+
+
+    public function setImageFileName(string $ImageFileName): static
     {
         $this->container['ImageFileName'] = $ImageFileName;
 
@@ -638,7 +668,7 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return bool
      */
-    public function getConsumerPresent()
+    public function getConsumerPresent(): bool
     {
         return $this->container['ConsumerPresent'];
     }
@@ -650,7 +680,9 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return $this
      */
-    public function setConsumerPresent($ConsumerPresent): self
+
+
+    public function setConsumerPresent(bool $ConsumerPresent): static
     {
         $this->container['ConsumerPresent'] = $ConsumerPresent;
 
@@ -662,7 +694,7 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return string
      */
-    public function getPaymentAuthenticationCallbackUrl()
+    public function getPaymentAuthenticationCallbackUrl(): string
     {
         return $this->container['PaymentAuthenticationCallbackUrl'];
     }
@@ -674,7 +706,9 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return $this
      */
-    public function setPaymentAuthenticationCallbackUrl($PaymentAuthenticationCallbackUrl): self
+
+
+    public function setPaymentAuthenticationCallbackUrl(string $PaymentAuthenticationCallbackUrl): static
     {
         $this->container['PaymentAuthenticationCallbackUrl'] = $PaymentAuthenticationCallbackUrl;
 
@@ -686,7 +720,7 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getTransactionIds()
+    public function getTransactionIds(): array
     {
         return $this->container['TransactionIds'];
     }
@@ -698,7 +732,9 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return $this
      */
-    public function setTransactionIds($TransactionIds): self
+
+
+    public function setTransactionIds(array $TransactionIds): static
     {
         $this->container['TransactionIds'] = $TransactionIds;
 
@@ -710,7 +746,7 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIsBillingPostalCodeRequired()
+    public function getIsBillingPostalCodeRequired(): bool
     {
         return $this->container['IsBillingPostalCodeRequired'];
     }
@@ -722,7 +758,9 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return $this
      */
-    public function setIsBillingPostalCodeRequired($IsBillingPostalCodeRequired): self
+
+
+    public function setIsBillingPostalCodeRequired(bool $IsBillingPostalCodeRequired): static
     {
         $this->container['IsBillingPostalCodeRequired'] = $IsBillingPostalCodeRequired;
 
@@ -734,7 +772,7 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return bool
      */
-    public function getEnforceLocationRestrictions()
+    public function getEnforceLocationRestrictions(): bool
     {
         return $this->container['EnforceLocationRestrictions'];
     }
@@ -746,7 +784,9 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return $this
      */
-    public function setEnforceLocationRestrictions($EnforceLocationRestrictions): self
+
+
+    public function setEnforceLocationRestrictions(bool $EnforceLocationRestrictions): static
     {
         $this->container['EnforceLocationRestrictions'] = $EnforceLocationRestrictions;
 

@@ -47,14 +47,14 @@ class AddPromoCodeResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AddPromoCodeResponse';
+    protected static string $swaggerModelName = 'AddPromoCodeResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'PromoCode' => '\Nlocascio\Mindbody\Model\PromoCode'
     ];
 
@@ -63,7 +63,7 @@ class AddPromoCodeResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'PromoCode' => null
     ];
 
@@ -74,7 +74,7 @@ class AddPromoCodeResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'PromoCode' => 'PromoCode'
     ];
 
@@ -83,7 +83,7 @@ class AddPromoCodeResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'PromoCode' => 'setPromoCode'
     ];
 
@@ -92,7 +92,7 @@ class AddPromoCodeResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'PromoCode' => 'getPromoCode'
     ];
 
@@ -107,7 +107,7 @@ class AddPromoCodeResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['PromoCode'] = isset($data['PromoCode']) ? $data['PromoCode'] : null;
     }
@@ -130,7 +130,7 @@ class AddPromoCodeResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PromoCode
      */
-    public function getPromoCode()
+    public function getPromoCode(): \Nlocascio\Mindbody\Model\PromoCode
     {
         return $this->container['PromoCode'];
     }
@@ -142,7 +142,9 @@ class AddPromoCodeResponse extends BaseModel
      *
      * @return $this
      */
-    public function setPromoCode($PromoCode): self
+
+
+    public function setPromoCode(\Nlocascio\Mindbody\Model\PromoCode $PromoCode): static
     {
         $this->container['PromoCode'] = $PromoCode;
 

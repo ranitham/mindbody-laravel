@@ -48,14 +48,14 @@ class CompletedSaleTransactionResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CompletedSale.TransactionResponse';
+    protected static string $swaggerModelName = 'CompletedSale.TransactionResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'TransactionId' => 'int',
         'AuthenticationUrl' => 'string'
     ];
@@ -65,7 +65,7 @@ class CompletedSaleTransactionResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'TransactionId' => 'int32',
         'AuthenticationUrl' => null
     ];
@@ -77,7 +77,7 @@ class CompletedSaleTransactionResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'TransactionId' => 'TransactionId',
         'AuthenticationUrl' => 'AuthenticationUrl'
     ];
@@ -87,7 +87,7 @@ class CompletedSaleTransactionResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'TransactionId' => 'setTransactionId',
         'AuthenticationUrl' => 'setAuthenticationUrl'
     ];
@@ -97,7 +97,7 @@ class CompletedSaleTransactionResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'TransactionId' => 'getTransactionId',
         'AuthenticationUrl' => 'getAuthenticationUrl'
     ];
@@ -113,7 +113,7 @@ class CompletedSaleTransactionResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['TransactionId'] = isset($data['TransactionId']) ? $data['TransactionId'] : null;
         $this->container['AuthenticationUrl'] = isset($data['AuthenticationUrl']) ? $data['AuthenticationUrl'] : null;
@@ -137,7 +137,7 @@ class CompletedSaleTransactionResponse extends BaseModel
      *
      * @return int
      */
-    public function getTransactionId()
+    public function getTransactionId(): int
     {
         return $this->container['TransactionId'];
     }
@@ -149,7 +149,9 @@ class CompletedSaleTransactionResponse extends BaseModel
      *
      * @return $this
      */
-    public function setTransactionId($TransactionId): self
+
+
+    public function setTransactionId(int $TransactionId): static
     {
         $this->container['TransactionId'] = $TransactionId;
 
@@ -161,7 +163,7 @@ class CompletedSaleTransactionResponse extends BaseModel
      *
      * @return string
      */
-    public function getAuthenticationUrl()
+    public function getAuthenticationUrl(): string
     {
         return $this->container['AuthenticationUrl'];
     }
@@ -173,7 +175,9 @@ class CompletedSaleTransactionResponse extends BaseModel
      *
      * @return $this
      */
-    public function setAuthenticationUrl($AuthenticationUrl): self
+
+
+    public function setAuthenticationUrl(string $AuthenticationUrl): static
     {
         $this->container['AuthenticationUrl'] = $AuthenticationUrl;
 

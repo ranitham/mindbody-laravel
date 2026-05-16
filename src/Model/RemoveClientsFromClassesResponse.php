@@ -50,14 +50,14 @@ class RemoveClientsFromClassesResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'RemoveClientsFromClassesResponse';
+    protected static string $swaggerModelName = 'RemoveClientsFromClassesResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'PaginationResponse' => '\Nlocascio\Mindbody\Model\PaginationResponse',
         'Classes' => '\Nlocascio\Mindbody\Model\ModelClass[]',
         'Errors' => '\Nlocascio\Mindbody\Model\ApiError[]'
@@ -68,7 +68,7 @@ class RemoveClientsFromClassesResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'PaginationResponse' => null,
         'Classes' => null,
         'Errors' => null
@@ -81,7 +81,7 @@ class RemoveClientsFromClassesResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'PaginationResponse' => 'PaginationResponse',
         'Classes' => 'Classes',
         'Errors' => 'Errors'
@@ -92,7 +92,7 @@ class RemoveClientsFromClassesResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'PaginationResponse' => 'setPaginationResponse',
         'Classes' => 'setClasses',
         'Errors' => 'setErrors'
@@ -103,7 +103,7 @@ class RemoveClientsFromClassesResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'PaginationResponse' => 'getPaginationResponse',
         'Classes' => 'getClasses',
         'Errors' => 'getErrors'
@@ -120,7 +120,7 @@ class RemoveClientsFromClassesResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['PaginationResponse'] = isset($data['PaginationResponse']) ? $data['PaginationResponse'] : null;
         $this->container['Classes'] = isset($data['Classes']) ? $data['Classes'] : null;
@@ -145,7 +145,7 @@ class RemoveClientsFromClassesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse()
+    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
     {
         return $this->container['PaginationResponse'];
     }
@@ -157,7 +157,9 @@ class RemoveClientsFromClassesResponse extends BaseModel
      *
      * @return $this
      */
-    public function setPaginationResponse($PaginationResponse): self
+
+
+    public function setPaginationResponse(\Nlocascio\Mindbody\Model\PaginationResponse $PaginationResponse): static
     {
         $this->container['PaginationResponse'] = $PaginationResponse;
 
@@ -169,7 +171,7 @@ class RemoveClientsFromClassesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ModelClass[]
      */
-    public function getClasses()
+    public function getClasses(): array
     {
         return $this->container['Classes'];
     }
@@ -181,7 +183,9 @@ class RemoveClientsFromClassesResponse extends BaseModel
      *
      * @return $this
      */
-    public function setClasses($Classes): self
+
+
+    public function setClasses(array $Classes): static
     {
         $this->container['Classes'] = $Classes;
 
@@ -193,7 +197,7 @@ class RemoveClientsFromClassesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ApiError[]
      */
-    public function getErrors()
+    public function getErrors(): array
     {
         return $this->container['Errors'];
     }
@@ -205,7 +209,9 @@ class RemoveClientsFromClassesResponse extends BaseModel
      *
      * @return $this
      */
-    public function setErrors($Errors): self
+
+
+    public function setErrors(array $Errors): static
     {
         $this->container['Errors'] = $Errors;
 

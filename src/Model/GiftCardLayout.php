@@ -50,14 +50,14 @@ class GiftCardLayout extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GiftCardLayout';
+    protected static string $swaggerModelName = 'GiftCardLayout';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'LayoutId' => 'int',
         'LayoutName' => 'string',
         'LayoutUrl' => 'string'
@@ -68,7 +68,7 @@ class GiftCardLayout extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'LayoutId' => 'int32',
         'LayoutName' => null,
         'LayoutUrl' => null
@@ -81,7 +81,7 @@ class GiftCardLayout extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'LayoutId' => 'LayoutId',
         'LayoutName' => 'LayoutName',
         'LayoutUrl' => 'LayoutUrl'
@@ -92,7 +92,7 @@ class GiftCardLayout extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'LayoutId' => 'setLayoutId',
         'LayoutName' => 'setLayoutName',
         'LayoutUrl' => 'setLayoutUrl'
@@ -103,7 +103,7 @@ class GiftCardLayout extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'LayoutId' => 'getLayoutId',
         'LayoutName' => 'getLayoutName',
         'LayoutUrl' => 'getLayoutUrl'
@@ -120,7 +120,7 @@ class GiftCardLayout extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['LayoutId'] = isset($data['LayoutId']) ? $data['LayoutId'] : null;
         $this->container['LayoutName'] = isset($data['LayoutName']) ? $data['LayoutName'] : null;
@@ -145,7 +145,7 @@ class GiftCardLayout extends BaseModel
      *
      * @return int
      */
-    public function getLayoutId()
+    public function getLayoutId(): int
     {
         return $this->container['LayoutId'];
     }
@@ -157,7 +157,9 @@ class GiftCardLayout extends BaseModel
      *
      * @return $this
      */
-    public function setLayoutId($LayoutId): self
+
+
+    public function setLayoutId(int $LayoutId): static
     {
         $this->container['LayoutId'] = $LayoutId;
 
@@ -169,7 +171,7 @@ class GiftCardLayout extends BaseModel
      *
      * @return string
      */
-    public function getLayoutName()
+    public function getLayoutName(): string
     {
         return $this->container['LayoutName'];
     }
@@ -181,7 +183,9 @@ class GiftCardLayout extends BaseModel
      *
      * @return $this
      */
-    public function setLayoutName($LayoutName): self
+
+
+    public function setLayoutName(string $LayoutName): static
     {
         $this->container['LayoutName'] = $LayoutName;
 
@@ -193,7 +197,7 @@ class GiftCardLayout extends BaseModel
      *
      * @return string
      */
-    public function getLayoutUrl()
+    public function getLayoutUrl(): string
     {
         return $this->container['LayoutUrl'];
     }
@@ -205,7 +209,9 @@ class GiftCardLayout extends BaseModel
      *
      * @return $this
      */
-    public function setLayoutUrl($LayoutUrl): self
+
+
+    public function setLayoutUrl(string $LayoutUrl): static
     {
         $this->container['LayoutUrl'] = $LayoutUrl;
 

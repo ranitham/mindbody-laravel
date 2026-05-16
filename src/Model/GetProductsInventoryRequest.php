@@ -51,14 +51,14 @@ class GetProductsInventoryRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetProductsInventoryRequest';
+    protected static string $swaggerModelName = 'GetProductsInventoryRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ProductIds' => 'string[]',
         'LocationIds' => 'int[]',
         'BarcodeIds' => 'string[]',
@@ -71,7 +71,7 @@ class GetProductsInventoryRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ProductIds' => null,
         'LocationIds' => 'int32',
         'BarcodeIds' => null,
@@ -86,7 +86,7 @@ class GetProductsInventoryRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ProductIds' => 'ProductIds',
         'LocationIds' => 'LocationIds',
         'BarcodeIds' => 'BarcodeIds',
@@ -99,7 +99,7 @@ class GetProductsInventoryRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ProductIds' => 'setProductIds',
         'LocationIds' => 'setLocationIds',
         'BarcodeIds' => 'setBarcodeIds',
@@ -112,7 +112,7 @@ class GetProductsInventoryRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ProductIds' => 'getProductIds',
         'LocationIds' => 'getLocationIds',
         'BarcodeIds' => 'getBarcodeIds',
@@ -131,7 +131,7 @@ class GetProductsInventoryRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ProductIds'] = isset($data['ProductIds']) ? $data['ProductIds'] : null;
         $this->container['LocationIds'] = isset($data['LocationIds']) ? $data['LocationIds'] : null;
@@ -158,7 +158,7 @@ class GetProductsInventoryRequest extends BaseModel
      *
      * @return string[]
      */
-    public function getProductIds()
+    public function getProductIds(): array
     {
         return $this->container['ProductIds'];
     }
@@ -170,7 +170,9 @@ class GetProductsInventoryRequest extends BaseModel
      *
      * @return $this
      */
-    public function setProductIds($ProductIds): self
+
+
+    public function setProductIds(array $ProductIds): static
     {
         $this->container['ProductIds'] = $ProductIds;
 
@@ -182,7 +184,7 @@ class GetProductsInventoryRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getLocationIds()
+    public function getLocationIds(): array
     {
         return $this->container['LocationIds'];
     }
@@ -194,7 +196,9 @@ class GetProductsInventoryRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLocationIds($LocationIds): self
+
+
+    public function setLocationIds(array $LocationIds): static
     {
         $this->container['LocationIds'] = $LocationIds;
 
@@ -206,7 +210,7 @@ class GetProductsInventoryRequest extends BaseModel
      *
      * @return string[]
      */
-    public function getBarcodeIds()
+    public function getBarcodeIds(): array
     {
         return $this->container['BarcodeIds'];
     }
@@ -218,7 +222,9 @@ class GetProductsInventoryRequest extends BaseModel
      *
      * @return $this
      */
-    public function setBarcodeIds($BarcodeIds): self
+
+
+    public function setBarcodeIds(array $BarcodeIds): static
     {
         $this->container['BarcodeIds'] = $BarcodeIds;
 
@@ -230,7 +236,7 @@ class GetProductsInventoryRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit()
+    public function getLimit(): int
     {
         return $this->container['Limit'];
     }
@@ -242,7 +248,9 @@ class GetProductsInventoryRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLimit($Limit): self
+
+
+    public function setLimit(int $Limit): static
     {
         $this->container['Limit'] = $Limit;
 
@@ -254,7 +262,7 @@ class GetProductsInventoryRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset()
+    public function getOffset(): int
     {
         return $this->container['Offset'];
     }
@@ -266,7 +274,9 @@ class GetProductsInventoryRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOffset($Offset): self
+
+
+    public function setOffset(int $Offset): static
     {
         $this->container['Offset'] = $Offset;
 

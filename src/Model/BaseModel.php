@@ -1,4 +1,5 @@
 <?php
+
 /**
  * ApiException
  * PHP version 5
@@ -30,6 +31,7 @@ namespace Nlocascio\Mindbody\Model;
 
 use \Nlocascio\Mindbody\ObjectSerializer;
 use ArrayIterator;
+use JsonException;
 use Traversable;
 
 abstract class _BaseModel implements ModelInterface
@@ -39,7 +41,7 @@ abstract class _BaseModel implements ModelInterface
    *
    * @var string
    */
-  protected static $swaggerModelName;
+  protected static string $swaggerModelName;
 
   /**
    * The original name of the model.
@@ -51,31 +53,51 @@ abstract class _BaseModel implements ModelInterface
     return static::$swaggerModelName;
   }
 
+  /**
+   * @return array<string, string>
+   */
   public static function swaggerTypes(): array
   {
     return [];
   }
 
+  /**
+   * @return array<string, string|null>
+   */
   public static function swaggerFormats(): array
   {
     return [];
   }
 
+  /**
+   * @return array<string, string>
+   */
   public static function attributeMap(): array
   {
     return [];
   }
 
+  /**
+   * @return array<string, string>
+   */
   public static function setters(): array
   {
     return [];
   }
 
+  /**
+   * @return array<string, string>
+   */
   public static function getters(): array
   {
     return [];
   }
 
+  /**
+   * Show all the invalid properties with reasons.
+   *
+   * @return string[] invalid properties with reasons
+   */
   public function listInvalidProperties(): array
   {
     return [];
@@ -94,24 +116,24 @@ abstract class _BaseModel implements ModelInterface
 abstract class BaseModel extends _BaseModel
 {
 
-/**
+  /**
    * Array of property to type mappings. Used for (de)serialization
    *
    * @var string[]
    */
-  protected static $swaggerTypes = [];
+  protected static array $swaggerTypes = [];
 
   /**
    * Array of property to format mappings. Used for (de)serialization
    *
    * @var array<string, string|null>
    */
-  protected static $swaggerFormats = [];
+  protected static array $swaggerFormats = [];
 
   /**
    * Array of property to type mappings. Used for (de)serialization
    *
-   * @return array
+   * @return array<string, string>
    */
   public static function swaggerTypes(): array
   {
@@ -121,7 +143,7 @@ abstract class BaseModel extends _BaseModel
   /**
    * Array of property to format mappings. Used for (de)serialization
    *
-   * @return array
+   * @return array<string, string|null>
    */
   public static function swaggerFormats(): array
   {
@@ -134,27 +156,27 @@ abstract class BaseModel extends _BaseModel
    *
    * @var string[]
    */
-  protected static $attributeMap = [];
+  protected static array $attributeMap = [];
 
   /**
    * Array of attributes to setter functions (for deserialization of responses)
    *
    * @var string[]
    */
-  protected static $setters = [];
+  protected static array $setters = [];
 
   /**
    * Array of attributes to getter functions (for serialization of requests)
    *
    * @var string[]
    */
-  protected static $getters = [];
+  protected static array $getters = [];
 
   /**
    * Array of attributes where the key is the local name,
    * and the value is the original name
    *
-   * @return array
+   * @return array<string, string>
    */
   public static function attributeMap(): array
   {
@@ -164,7 +186,7 @@ abstract class BaseModel extends _BaseModel
   /**
    * Array of attributes to setter functions (for deserialization of responses)
    *
-   * @return array
+   * @return array<string, string>
    */
   public static function setters(): array
   {
@@ -174,7 +196,7 @@ abstract class BaseModel extends _BaseModel
   /**
    * Array of attributes to getter functions (for serialization of requests)
    *
-   * @return array
+   * @return array<string, string>
    */
   public static function getters(): array
   {
@@ -189,18 +211,18 @@ abstract class BaseModel extends _BaseModel
   /**
    * Associative array for storing property values
    *
-   * @var mixed[]
+   * @var array<string, mixed>
    */
-  protected $container = [];
+  protected array $container = [];
 
   /**
    * Returns true if offset exists. False otherwise.
    *
-   * @param string $offset Offset
+   * @param mixed $offset Offset
    *
    * @return bool
    */
-  public function offsetExists($offset): bool
+  public function offsetExists(mixed $offset): bool
   {
     return isset($this->container[$offset]);
   }
@@ -208,11 +230,11 @@ abstract class BaseModel extends _BaseModel
   /**
    * Gets offset.
    *
-   * @param string $offset Offset
+   * @param mixed $offset Offset
    *
    * @return mixed
    */
-  public function offsetGet($offset): mixed
+  public function offsetGet(mixed $offset): mixed
   {
     return isset($this->container[$offset]) ? $this->container[$offset] : null;
   }
@@ -220,12 +242,12 @@ abstract class BaseModel extends _BaseModel
   /**
    * Sets value based on offset.
    *
-   * @param string $offset Offset
+   * @param mixed $offset Offset
    * @param mixed   $value  Value to be set
    *
    * @return void
    */
-  public function offsetSet($offset, $value): void
+  public function offsetSet(mixed $offset, mixed $value): void
   {
     if (is_null($offset)) {
       $this->container[] = $value;
@@ -237,11 +259,11 @@ abstract class BaseModel extends _BaseModel
   /**
    * Unsets offset.
    *
-   * @param string $offset Offset
+   * @param mixed $offset Offset
    *
    * @return void
    */
-  public function offsetUnset($offset): void
+  public function offsetUnset(mixed $offset): void
   {
     unset($this->container[$offset]);
   }
@@ -250,26 +272,28 @@ abstract class BaseModel extends _BaseModel
    * Gets the string presentation of the object
    *
    * @return string
+   * @throws JsonException
    */
-  public function __toString()
+  public function __toString(): string
   {
     if (defined("JSON_PRETTY_PRINT")) {
       // use JSON pretty print
       return json_encode(
         ObjectSerializer::sanitizeForSerialization($this),
-        JSON_PRETTY_PRINT
+        JSON_PRETTY_PRINT | \JSON_THROW_ON_ERROR
       );
     }
 
-    return json_encode(ObjectSerializer::sanitizeForSerialization($this));
+    return json_encode(ObjectSerializer::sanitizeForSerialization($this), \JSON_THROW_ON_ERROR);
   }
 
   /**
    * Return the model variables as an array
    *
-   * @return array
+   * @return array<string, mixed>
    */
-  public function asArray(): array {
+  public function asArray(): array
+  {
     return $this->container;
   }
 
@@ -282,22 +306,22 @@ abstract class BaseModel extends _BaseModel
 
   public function __set(string $name, mixed $value): void
   {
-      if (array_key_exists($name, static::setters())) {
-          $setter = static::setters()[$name];
-          $setter($value);
-      } else {
-          throw new \UnexpectedValueException('Cannot set variable named ' . $name . 'in ' . \get_class($this));
-      }
+    if (array_key_exists($name, static::setters())) {
+      $setter = static::setters()[$name];
+      $setter($value);
+    } else {
+      throw new \UnexpectedValueException('Cannot set variable named ' . $name . 'in ' . \get_class($this));
+    }
   }
 
   public function __get(string $name): mixed
   {
-      if (array_key_exists($name, static::getters())) {
-        $getter = static::getters()[$name];
-        return $this->$getter();
-      } else {
-          throw new \UnexpectedValueException('Cannot get variable named ' . $name . ' in ' . \get_class($this));
-      }
+    if (array_key_exists($name, static::getters())) {
+      $getter = static::getters()[$name];
+      return $this->$getter();
+    } else {
+      throw new \UnexpectedValueException('Cannot get variable named ' . $name . ' in ' . \get_class($this));
+    }
   }
 
   public function __isset(string $name): bool
@@ -310,5 +334,3 @@ abstract class BaseModel extends _BaseModel
     unset($this->container[$name]);
   }
 }
-
-

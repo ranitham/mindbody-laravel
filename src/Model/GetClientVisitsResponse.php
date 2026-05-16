@@ -48,14 +48,14 @@ class GetClientVisitsResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetClientVisitsResponse';
+    protected static string $swaggerModelName = 'GetClientVisitsResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'PaginationResponse' => '\Nlocascio\Mindbody\Model\PaginationResponse',
         'Visits' => '\Nlocascio\Mindbody\Model\Visit[]'
     ];
@@ -65,7 +65,7 @@ class GetClientVisitsResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'PaginationResponse' => null,
         'Visits' => null
     ];
@@ -77,7 +77,7 @@ class GetClientVisitsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'PaginationResponse' => 'PaginationResponse',
         'Visits' => 'Visits'
     ];
@@ -87,7 +87,7 @@ class GetClientVisitsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'PaginationResponse' => 'setPaginationResponse',
         'Visits' => 'setVisits'
     ];
@@ -97,7 +97,7 @@ class GetClientVisitsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'PaginationResponse' => 'getPaginationResponse',
         'Visits' => 'getVisits'
     ];
@@ -113,7 +113,7 @@ class GetClientVisitsResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['PaginationResponse'] = isset($data['PaginationResponse']) ? $data['PaginationResponse'] : null;
         $this->container['Visits'] = isset($data['Visits']) ? $data['Visits'] : null;
@@ -137,7 +137,7 @@ class GetClientVisitsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse()
+    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
     {
         return $this->container['PaginationResponse'];
     }
@@ -149,7 +149,9 @@ class GetClientVisitsResponse extends BaseModel
      *
      * @return $this
      */
-    public function setPaginationResponse($PaginationResponse): self
+
+
+    public function setPaginationResponse(\Nlocascio\Mindbody\Model\PaginationResponse $PaginationResponse): static
     {
         $this->container['PaginationResponse'] = $PaginationResponse;
 
@@ -161,7 +163,7 @@ class GetClientVisitsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Visit[]
      */
-    public function getVisits()
+    public function getVisits(): array
     {
         return $this->container['Visits'];
     }
@@ -173,7 +175,9 @@ class GetClientVisitsResponse extends BaseModel
      *
      * @return $this
      */
-    public function setVisits($Visits): self
+
+
+    public function setVisits(array $Visits): static
     {
         $this->container['Visits'] = $Visits;
 

@@ -54,14 +54,14 @@ class AssignStaffSessionTypeResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AssignStaffSessionTypeResponse';
+    protected static string $swaggerModelName = 'AssignStaffSessionTypeResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'StaffId' => 'int',
         'SessionTypeId' => 'int',
         'PayRateType' => 'string',
@@ -77,7 +77,7 @@ class AssignStaffSessionTypeResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'StaffId' => 'int64',
         'SessionTypeId' => 'int32',
         'PayRateType' => null,
@@ -95,7 +95,7 @@ class AssignStaffSessionTypeResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'StaffId' => 'StaffId',
         'SessionTypeId' => 'SessionTypeId',
         'PayRateType' => 'PayRateType',
@@ -111,7 +111,7 @@ class AssignStaffSessionTypeResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'StaffId' => 'setStaffId',
         'SessionTypeId' => 'setSessionTypeId',
         'PayRateType' => 'setPayRateType',
@@ -127,7 +127,7 @@ class AssignStaffSessionTypeResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'StaffId' => 'getStaffId',
         'SessionTypeId' => 'getSessionTypeId',
         'PayRateType' => 'getPayRateType',
@@ -149,7 +149,7 @@ class AssignStaffSessionTypeResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['StaffId'] = isset($data['StaffId']) ? $data['StaffId'] : null;
         $this->container['SessionTypeId'] = isset($data['SessionTypeId']) ? $data['SessionTypeId'] : null;
@@ -179,7 +179,7 @@ class AssignStaffSessionTypeResponse extends BaseModel
      *
      * @return int
      */
-    public function getStaffId()
+    public function getStaffId(): int
     {
         return $this->container['StaffId'];
     }
@@ -191,7 +191,9 @@ class AssignStaffSessionTypeResponse extends BaseModel
      *
      * @return $this
      */
-    public function setStaffId($StaffId): self
+
+
+    public function setStaffId(int $StaffId): static
     {
         $this->container['StaffId'] = $StaffId;
 
@@ -203,7 +205,7 @@ class AssignStaffSessionTypeResponse extends BaseModel
      *
      * @return int
      */
-    public function getSessionTypeId()
+    public function getSessionTypeId(): int
     {
         return $this->container['SessionTypeId'];
     }
@@ -215,7 +217,9 @@ class AssignStaffSessionTypeResponse extends BaseModel
      *
      * @return $this
      */
-    public function setSessionTypeId($SessionTypeId): self
+
+
+    public function setSessionTypeId(int $SessionTypeId): static
     {
         $this->container['SessionTypeId'] = $SessionTypeId;
 
@@ -227,7 +231,7 @@ class AssignStaffSessionTypeResponse extends BaseModel
      *
      * @return string
      */
-    public function getPayRateType()
+    public function getPayRateType(): string
     {
         return $this->container['PayRateType'];
     }
@@ -239,7 +243,9 @@ class AssignStaffSessionTypeResponse extends BaseModel
      *
      * @return $this
      */
-    public function setPayRateType($PayRateType): self
+
+
+    public function setPayRateType(string $PayRateType): static
     {
         $this->container['PayRateType'] = $PayRateType;
 
@@ -251,7 +257,7 @@ class AssignStaffSessionTypeResponse extends BaseModel
      *
      * @return double
      */
-    public function getPayRateAmount()
+    public function getPayRateAmount(): float
     {
         return $this->container['PayRateAmount'];
     }
@@ -263,7 +269,9 @@ class AssignStaffSessionTypeResponse extends BaseModel
      *
      * @return $this
      */
-    public function setPayRateAmount($PayRateAmount): self
+
+
+    public function setPayRateAmount(float $PayRateAmount): static
     {
         $this->container['PayRateAmount'] = $PayRateAmount;
 
@@ -275,7 +283,7 @@ class AssignStaffSessionTypeResponse extends BaseModel
      *
      * @return int
      */
-    public function getTimeLength()
+    public function getTimeLength(): int
     {
         return $this->container['TimeLength'];
     }
@@ -287,7 +295,9 @@ class AssignStaffSessionTypeResponse extends BaseModel
      *
      * @return $this
      */
-    public function setTimeLength($TimeLength): self
+
+
+    public function setTimeLength(int $TimeLength): static
     {
         $this->container['TimeLength'] = $TimeLength;
 
@@ -299,7 +309,7 @@ class AssignStaffSessionTypeResponse extends BaseModel
      *
      * @return int
      */
-    public function getPrepTime()
+    public function getPrepTime(): int
     {
         return $this->container['PrepTime'];
     }
@@ -311,7 +321,9 @@ class AssignStaffSessionTypeResponse extends BaseModel
      *
      * @return $this
      */
-    public function setPrepTime($PrepTime): self
+
+
+    public function setPrepTime(int $PrepTime): static
     {
         $this->container['PrepTime'] = $PrepTime;
 
@@ -323,7 +335,7 @@ class AssignStaffSessionTypeResponse extends BaseModel
      *
      * @return int
      */
-    public function getFinishTime()
+    public function getFinishTime(): int
     {
         return $this->container['FinishTime'];
     }
@@ -335,7 +347,9 @@ class AssignStaffSessionTypeResponse extends BaseModel
      *
      * @return $this
      */
-    public function setFinishTime($FinishTime): self
+
+
+    public function setFinishTime(int $FinishTime): static
     {
         $this->container['FinishTime'] = $FinishTime;
 
@@ -347,7 +361,7 @@ class AssignStaffSessionTypeResponse extends BaseModel
      *
      * @return bool
      */
-    public function getActive()
+    public function getActive(): bool
     {
         return $this->container['Active'];
     }
@@ -359,7 +373,9 @@ class AssignStaffSessionTypeResponse extends BaseModel
      *
      * @return $this
      */
-    public function setActive($Active): self
+
+
+    public function setActive(bool $Active): static
     {
         $this->container['Active'] = $Active;
 

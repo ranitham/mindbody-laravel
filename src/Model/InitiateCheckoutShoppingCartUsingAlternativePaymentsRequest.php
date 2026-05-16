@@ -62,14 +62,14 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
       *
       * @var string
       */
-    protected static $swaggerModelName = 'InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest';
+    protected static string $swaggerModelName = 'InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'CartId' => 'string',
         'ClientId' => 'string',
         'PayerClientId' => 'string',
@@ -92,7 +92,7 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'CartId' => null,
         'ClientId' => null,
         'PayerClientId' => null,
@@ -117,7 +117,7 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'CartId' => 'CartId',
         'ClientId' => 'ClientId',
         'PayerClientId' => 'PayerClientId',
@@ -140,7 +140,7 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'CartId' => 'setCartId',
         'ClientId' => 'setClientId',
         'PayerClientId' => 'setPayerClientId',
@@ -163,7 +163,7 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'CartId' => 'getCartId',
         'ClientId' => 'getClientId',
         'PayerClientId' => 'getPayerClientId',
@@ -192,7 +192,7 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['CartId'] = isset($data['CartId']) ? $data['CartId'] : null;
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
@@ -241,7 +241,7 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return string
      */
-    public function getCartId()
+    public function getCartId(): string
     {
         return $this->container['CartId'];
     }
@@ -253,7 +253,9 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return $this
      */
-    public function setCartId($CartId): self
+
+
+    public function setCartId(string $CartId): static
     {
         $this->container['CartId'] = $CartId;
 
@@ -265,7 +267,7 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return string
      */
-    public function getClientId()
+    public function getClientId(): string
     {
         return $this->container['ClientId'];
     }
@@ -277,7 +279,9 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return $this
      */
-    public function setClientId($ClientId): self
+
+
+    public function setClientId(string $ClientId): static
     {
         $this->container['ClientId'] = $ClientId;
 
@@ -289,7 +293,7 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return string
      */
-    public function getPayerClientId()
+    public function getPayerClientId(): string
     {
         return $this->container['PayerClientId'];
     }
@@ -301,7 +305,9 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return $this
      */
-    public function setPayerClientId($PayerClientId): self
+
+
+    public function setPayerClientId(string $PayerClientId): static
     {
         $this->container['PayerClientId'] = $PayerClientId;
 
@@ -313,7 +319,7 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return bool
      */
-    public function getTest()
+    public function getTest(): bool
     {
         return $this->container['Test'];
     }
@@ -325,7 +331,9 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return $this
      */
-    public function setTest($Test): self
+
+
+    public function setTest(bool $Test): static
     {
         $this->container['Test'] = $Test;
 
@@ -337,7 +345,7 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return \Nlocascio\Mindbody\Model\CheckoutItemWrapper[]
      */
-    public function getItems()
+    public function getItems(): array
     {
         return $this->container['Items'];
     }
@@ -349,7 +357,9 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return $this
      */
-    public function setItems($Items): self
+
+
+    public function setItems(array $Items): static
     {
         $this->container['Items'] = $Items;
 
@@ -361,7 +371,7 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return bool
      */
-    public function getInStore()
+    public function getInStore(): bool
     {
         return $this->container['InStore'];
     }
@@ -373,7 +383,9 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return $this
      */
-    public function setInStore($InStore): self
+
+
+    public function setInStore(bool $InStore): static
     {
         $this->container['InStore'] = $InStore;
 
@@ -385,7 +397,7 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return bool
      */
-    public function getCalculateTax()
+    public function getCalculateTax(): bool
     {
         return $this->container['CalculateTax'];
     }
@@ -397,7 +409,9 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return $this
      */
-    public function setCalculateTax($CalculateTax): self
+
+
+    public function setCalculateTax(bool $CalculateTax): static
     {
         $this->container['CalculateTax'] = $CalculateTax;
 
@@ -409,7 +423,7 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return string
      */
-    public function getPromotionCode()
+    public function getPromotionCode(): string
     {
         return $this->container['PromotionCode'];
     }
@@ -421,7 +435,9 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return $this
      */
-    public function setPromotionCode($PromotionCode): self
+
+
+    public function setPromotionCode(string $PromotionCode): static
     {
         $this->container['PromotionCode'] = $PromotionCode;
 
@@ -433,7 +449,7 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return \Nlocascio\Mindbody\Model\CheckoutAlternativePaymentInfo[]
      */
-    public function getPayments()
+    public function getPayments(): array
     {
         return $this->container['Payments'];
     }
@@ -445,7 +461,9 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return $this
      */
-    public function setPayments($Payments): self
+
+
+    public function setPayments(array $Payments): static
     {
         $this->container['Payments'] = $Payments;
 
@@ -457,7 +475,7 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return bool
      */
-    public function getSendEmail()
+    public function getSendEmail(): bool
     {
         return $this->container['SendEmail'];
     }
@@ -469,7 +487,9 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return $this
      */
-    public function setSendEmail($SendEmail): self
+
+
+    public function setSendEmail(bool $SendEmail): static
     {
         $this->container['SendEmail'] = $SendEmail;
 
@@ -481,7 +501,7 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return int
      */
-    public function getLocationId()
+    public function getLocationId(): int
     {
         return $this->container['LocationId'];
     }
@@ -493,7 +513,9 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return $this
      */
-    public function setLocationId($LocationId): self
+
+
+    public function setLocationId(int $LocationId): static
     {
         $this->container['LocationId'] = $LocationId;
 
@@ -505,7 +527,7 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return string
      */
-    public function getPaymentAuthenticationCallbackUrl()
+    public function getPaymentAuthenticationCallbackUrl(): string
     {
         return $this->container['PaymentAuthenticationCallbackUrl'];
     }
@@ -517,7 +539,9 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return $this
      */
-    public function setPaymentAuthenticationCallbackUrl($PaymentAuthenticationCallbackUrl): self
+
+
+    public function setPaymentAuthenticationCallbackUrl(string $PaymentAuthenticationCallbackUrl): static
     {
         $this->container['PaymentAuthenticationCallbackUrl'] = $PaymentAuthenticationCallbackUrl;
 
@@ -529,7 +553,7 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return int[]
      */
-    public function getTransactionIds()
+    public function getTransactionIds(): array
     {
         return $this->container['TransactionIds'];
     }
@@ -541,7 +565,9 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return $this
      */
-    public function setTransactionIds($TransactionIds): self
+
+
+    public function setTransactionIds(array $TransactionIds): static
     {
         $this->container['TransactionIds'] = $TransactionIds;
 
@@ -553,7 +579,7 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return bool
      */
-    public function getIsBillingPostalCodeRequired()
+    public function getIsBillingPostalCodeRequired(): bool
     {
         return $this->container['IsBillingPostalCodeRequired'];
     }
@@ -565,7 +591,9 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return $this
      */
-    public function setIsBillingPostalCodeRequired($IsBillingPostalCodeRequired): self
+
+
+    public function setIsBillingPostalCodeRequired(bool $IsBillingPostalCodeRequired): static
     {
         $this->container['IsBillingPostalCodeRequired'] = $IsBillingPostalCodeRequired;
 
@@ -577,7 +605,7 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return bool
      */
-    public function getEnforceLocationRestrictions()
+    public function getEnforceLocationRestrictions(): bool
     {
         return $this->container['EnforceLocationRestrictions'];
     }
@@ -589,7 +617,9 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return $this
      */
-    public function setEnforceLocationRestrictions($EnforceLocationRestrictions): self
+
+
+    public function setEnforceLocationRestrictions(bool $EnforceLocationRestrictions): static
     {
         $this->container['EnforceLocationRestrictions'] = $EnforceLocationRestrictions;
 

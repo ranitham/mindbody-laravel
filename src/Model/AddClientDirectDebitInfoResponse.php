@@ -51,14 +51,14 @@ class AddClientDirectDebitInfoResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AddClientDirectDebitInfoResponse';
+    protected static string $swaggerModelName = 'AddClientDirectDebitInfoResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ClientId' => 'string',
         'NameOnAccount' => 'string',
         'RoutingNumber' => 'string',
@@ -71,7 +71,7 @@ class AddClientDirectDebitInfoResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ClientId' => null,
         'NameOnAccount' => null,
         'RoutingNumber' => null,
@@ -86,7 +86,7 @@ class AddClientDirectDebitInfoResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ClientId' => 'ClientId',
         'NameOnAccount' => 'NameOnAccount',
         'RoutingNumber' => 'RoutingNumber',
@@ -99,7 +99,7 @@ class AddClientDirectDebitInfoResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ClientId' => 'setClientId',
         'NameOnAccount' => 'setNameOnAccount',
         'RoutingNumber' => 'setRoutingNumber',
@@ -112,7 +112,7 @@ class AddClientDirectDebitInfoResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ClientId' => 'getClientId',
         'NameOnAccount' => 'getNameOnAccount',
         'RoutingNumber' => 'getRoutingNumber',
@@ -131,7 +131,7 @@ class AddClientDirectDebitInfoResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
         $this->container['NameOnAccount'] = isset($data['NameOnAccount']) ? $data['NameOnAccount'] : null;
@@ -158,7 +158,7 @@ class AddClientDirectDebitInfoResponse extends BaseModel
      *
      * @return string
      */
-    public function getClientId()
+    public function getClientId(): string
     {
         return $this->container['ClientId'];
     }
@@ -170,7 +170,9 @@ class AddClientDirectDebitInfoResponse extends BaseModel
      *
      * @return $this
      */
-    public function setClientId($ClientId): self
+
+
+    public function setClientId(string $ClientId): static
     {
         $this->container['ClientId'] = $ClientId;
 
@@ -182,7 +184,7 @@ class AddClientDirectDebitInfoResponse extends BaseModel
      *
      * @return string
      */
-    public function getNameOnAccount()
+    public function getNameOnAccount(): string
     {
         return $this->container['NameOnAccount'];
     }
@@ -194,7 +196,9 @@ class AddClientDirectDebitInfoResponse extends BaseModel
      *
      * @return $this
      */
-    public function setNameOnAccount($NameOnAccount): self
+
+
+    public function setNameOnAccount(string $NameOnAccount): static
     {
         $this->container['NameOnAccount'] = $NameOnAccount;
 
@@ -206,7 +210,7 @@ class AddClientDirectDebitInfoResponse extends BaseModel
      *
      * @return string
      */
-    public function getRoutingNumber()
+    public function getRoutingNumber(): string
     {
         return $this->container['RoutingNumber'];
     }
@@ -218,7 +222,9 @@ class AddClientDirectDebitInfoResponse extends BaseModel
      *
      * @return $this
      */
-    public function setRoutingNumber($RoutingNumber): self
+
+
+    public function setRoutingNumber(string $RoutingNumber): static
     {
         $this->container['RoutingNumber'] = $RoutingNumber;
 
@@ -230,7 +236,7 @@ class AddClientDirectDebitInfoResponse extends BaseModel
      *
      * @return string
      */
-    public function getAccountNumber()
+    public function getAccountNumber(): string
     {
         return $this->container['AccountNumber'];
     }
@@ -242,7 +248,9 @@ class AddClientDirectDebitInfoResponse extends BaseModel
      *
      * @return $this
      */
-    public function setAccountNumber($AccountNumber): self
+
+
+    public function setAccountNumber(string $AccountNumber): static
     {
         $this->container['AccountNumber'] = $AccountNumber;
 
@@ -254,7 +262,7 @@ class AddClientDirectDebitInfoResponse extends BaseModel
      *
      * @return string
      */
-    public function getAccountType()
+    public function getAccountType(): string
     {
         return $this->container['AccountType'];
     }
@@ -266,7 +274,9 @@ class AddClientDirectDebitInfoResponse extends BaseModel
      *
      * @return $this
      */
-    public function setAccountType($AccountType): self
+
+
+    public function setAccountType(string $AccountType): static
     {
         $this->container['AccountType'] = $AccountType;
 

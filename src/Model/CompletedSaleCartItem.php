@@ -45,7 +45,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property int $Quantity The quantity of the item being purchased.
  *
  */
-class CompletedSaleCartItem extends BaseModel implements ModelWithId
+class CompletedSaleCartItem extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -54,14 +54,14 @@ class CompletedSaleCartItem extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CompletedSale.CartItem';
+    protected static string $swaggerModelName = 'CompletedSale.CartItem';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Item' => '\Nlocascio\Mindbody\Model\CompletedSaleItemBase',
         'SalesNotes' => 'string',
         'DiscountAmount' => 'double',
@@ -77,7 +77,7 @@ class CompletedSaleCartItem extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Item' => null,
         'SalesNotes' => null,
         'DiscountAmount' => 'double',
@@ -95,7 +95,7 @@ class CompletedSaleCartItem extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Item' => 'Item',
         'SalesNotes' => 'SalesNotes',
         'DiscountAmount' => 'DiscountAmount',
@@ -111,7 +111,7 @@ class CompletedSaleCartItem extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Item' => 'setItem',
         'SalesNotes' => 'setSalesNotes',
         'DiscountAmount' => 'setDiscountAmount',
@@ -127,7 +127,7 @@ class CompletedSaleCartItem extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Item' => 'getItem',
         'SalesNotes' => 'getSalesNotes',
         'DiscountAmount' => 'getDiscountAmount',
@@ -149,7 +149,7 @@ class CompletedSaleCartItem extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Item'] = isset($data['Item']) ? $data['Item'] : null;
         $this->container['SalesNotes'] = isset($data['SalesNotes']) ? $data['SalesNotes'] : null;
@@ -179,7 +179,7 @@ class CompletedSaleCartItem extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\CompletedSaleItemBase
      */
-    public function getItem()
+    public function getItem(): \Nlocascio\Mindbody\Model\CompletedSaleItemBase
     {
         return $this->container['Item'];
     }
@@ -191,7 +191,9 @@ class CompletedSaleCartItem extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setItem($Item): self
+
+
+    public function setItem(\Nlocascio\Mindbody\Model\CompletedSaleItemBase $Item): static
     {
         $this->container['Item'] = $Item;
 
@@ -203,7 +205,7 @@ class CompletedSaleCartItem extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getSalesNotes()
+    public function getSalesNotes(): string
     {
         return $this->container['SalesNotes'];
     }
@@ -215,7 +217,9 @@ class CompletedSaleCartItem extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSalesNotes($SalesNotes): self
+
+
+    public function setSalesNotes(string $SalesNotes): static
     {
         $this->container['SalesNotes'] = $SalesNotes;
 
@@ -227,7 +231,7 @@ class CompletedSaleCartItem extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getDiscountAmount()
+    public function getDiscountAmount(): float
     {
         return $this->container['DiscountAmount'];
     }
@@ -239,7 +243,9 @@ class CompletedSaleCartItem extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setDiscountAmount($DiscountAmount): self
+
+
+    public function setDiscountAmount(float $DiscountAmount): static
     {
         $this->container['DiscountAmount'] = $DiscountAmount;
 
@@ -251,7 +257,7 @@ class CompletedSaleCartItem extends BaseModel implements ModelWithId
      *
      * @return int[]
      */
-    public function getVisitIds()
+    public function getVisitIds(): array
     {
         return $this->container['VisitIds'];
     }
@@ -263,7 +269,9 @@ class CompletedSaleCartItem extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setVisitIds($VisitIds): self
+
+
+    public function setVisitIds(array $VisitIds): static
     {
         $this->container['VisitIds'] = $VisitIds;
 
@@ -275,7 +283,7 @@ class CompletedSaleCartItem extends BaseModel implements ModelWithId
      *
      * @return int[]
      */
-    public function getAppointmentIds()
+    public function getAppointmentIds(): array
     {
         return $this->container['AppointmentIds'];
     }
@@ -287,7 +295,9 @@ class CompletedSaleCartItem extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAppointmentIds($AppointmentIds): self
+
+
+    public function setAppointmentIds(array $AppointmentIds): static
     {
         $this->container['AppointmentIds'] = $AppointmentIds;
 
@@ -299,7 +309,7 @@ class CompletedSaleCartItem extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\Appointment[]
      */
-    public function getAppointments()
+    public function getAppointments(): array
     {
         return $this->container['Appointments'];
     }
@@ -311,7 +321,9 @@ class CompletedSaleCartItem extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAppointments($Appointments): self
+
+
+    public function setAppointments(array $Appointments): static
     {
         $this->container['Appointments'] = $Appointments;
 
@@ -323,7 +335,7 @@ class CompletedSaleCartItem extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -335,7 +347,9 @@ class CompletedSaleCartItem extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -347,7 +361,7 @@ class CompletedSaleCartItem extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getQuantity()
+    public function getQuantity(): int
     {
         return $this->container['Quantity'];
     }
@@ -359,7 +373,9 @@ class CompletedSaleCartItem extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setQuantity($Quantity): self
+
+
+    public function setQuantity(int $Quantity): static
     {
         $this->container['Quantity'] = $Quantity;
 

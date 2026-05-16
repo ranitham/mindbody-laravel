@@ -47,14 +47,14 @@ class RemoveFromWaitlistRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'RemoveFromWaitlistRequest';
+    protected static string $swaggerModelName = 'RemoveFromWaitlistRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'WaitlistEntryIds' => 'int[]'
     ];
 
@@ -63,7 +63,7 @@ class RemoveFromWaitlistRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'WaitlistEntryIds' => 'int32'
     ];
 
@@ -74,7 +74,7 @@ class RemoveFromWaitlistRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'WaitlistEntryIds' => 'WaitlistEntryIds'
     ];
 
@@ -83,7 +83,7 @@ class RemoveFromWaitlistRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'WaitlistEntryIds' => 'setWaitlistEntryIds'
     ];
 
@@ -92,7 +92,7 @@ class RemoveFromWaitlistRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'WaitlistEntryIds' => 'getWaitlistEntryIds'
     ];
 
@@ -107,7 +107,7 @@ class RemoveFromWaitlistRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['WaitlistEntryIds'] = isset($data['WaitlistEntryIds']) ? $data['WaitlistEntryIds'] : null;
     }
@@ -133,7 +133,7 @@ class RemoveFromWaitlistRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getWaitlistEntryIds()
+    public function getWaitlistEntryIds(): array
     {
         return $this->container['WaitlistEntryIds'];
     }
@@ -145,7 +145,9 @@ class RemoveFromWaitlistRequest extends BaseModel
      *
      * @return $this
      */
-    public function setWaitlistEntryIds($WaitlistEntryIds): self
+
+
+    public function setWaitlistEntryIds(array $WaitlistEntryIds): static
     {
         $this->container['WaitlistEntryIds'] = $WaitlistEntryIds;
 

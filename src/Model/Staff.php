@@ -83,7 +83,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property \Nlocascio\Mindbody\Model\Location[] $LoginLocations A list of LoginLocations for the staff
  *
  */
-class Staff extends BaseModel implements ModelWithId
+class Staff extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -92,14 +92,14 @@ class Staff extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Staff';
+    protected static string $swaggerModelName = 'Staff';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Id' => 'int',
         'FirstName' => 'string',
         'LastName' => 'string',
@@ -153,7 +153,7 @@ class Staff extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Id' => 'int64',
         'FirstName' => null,
         'LastName' => null,
@@ -209,7 +209,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Id' => 'Id',
         'FirstName' => 'FirstName',
         'LastName' => 'LastName',
@@ -263,7 +263,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Id' => 'setId',
         'FirstName' => 'setFirstName',
         'LastName' => 'setLastName',
@@ -317,7 +317,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Id' => 'getId',
         'FirstName' => 'getFirstName',
         'LastName' => 'getLastName',
@@ -377,7 +377,7 @@ class Staff extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
         $this->container['FirstName'] = isset($data['FirstName']) ? $data['FirstName'] : null;
@@ -445,7 +445,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -457,7 +457,9 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -469,7 +471,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getFirstName()
+    public function getFirstName(): string
     {
         return $this->container['FirstName'];
     }
@@ -481,7 +483,9 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setFirstName($FirstName): self
+
+
+    public function setFirstName(string $FirstName): static
     {
         $this->container['FirstName'] = $FirstName;
 
@@ -493,7 +497,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getLastName()
+    public function getLastName(): string
     {
         return $this->container['LastName'];
     }
@@ -505,7 +509,9 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setLastName($LastName): self
+
+
+    public function setLastName(string $LastName): static
     {
         $this->container['LastName'] = $LastName;
 
@@ -517,7 +523,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getDisplayName()
+    public function getDisplayName(): string
     {
         return $this->container['DisplayName'];
     }
@@ -529,7 +535,9 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setDisplayName($DisplayName): self
+
+
+    public function setDisplayName(string $DisplayName): static
     {
         $this->container['DisplayName'] = $DisplayName;
 
@@ -541,7 +549,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getEmail()
+    public function getEmail(): string
     {
         return $this->container['Email'];
     }
@@ -553,7 +561,9 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setEmail($Email): self
+
+
+    public function setEmail(string $Email): static
     {
         $this->container['Email'] = $Email;
 
@@ -565,7 +575,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getBio()
+    public function getBio(): string
     {
         return $this->container['Bio'];
     }
@@ -577,7 +587,9 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setBio($Bio): self
+
+
+    public function setBio(string $Bio): static
     {
         $this->container['Bio'] = $Bio;
 
@@ -589,7 +601,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getAddress()
+    public function getAddress(): string
     {
         return $this->container['Address'];
     }
@@ -601,7 +613,9 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAddress($Address): self
+
+
+    public function setAddress(string $Address): static
     {
         $this->container['Address'] = $Address;
 
@@ -613,7 +627,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getAddress2()
+    public function getAddress2(): string
     {
         return $this->container['Address2'];
     }
@@ -625,7 +639,9 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAddress2($Address2): self
+
+
+    public function setAddress2(string $Address2): static
     {
         $this->container['Address2'] = $Address2;
 
@@ -637,7 +653,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getCity()
+    public function getCity(): string
     {
         return $this->container['City'];
     }
@@ -649,7 +665,9 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setCity($City): self
+
+
+    public function setCity(string $City): static
     {
         $this->container['City'] = $City;
 
@@ -661,7 +679,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getState()
+    public function getState(): string
     {
         return $this->container['State'];
     }
@@ -673,7 +691,9 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setState($State): self
+
+
+    public function setState(string $State): static
     {
         $this->container['State'] = $State;
 
@@ -685,7 +705,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getPostalCode()
+    public function getPostalCode(): string
     {
         return $this->container['PostalCode'];
     }
@@ -697,7 +717,9 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setPostalCode($PostalCode): self
+
+
+    public function setPostalCode(string $PostalCode): static
     {
         $this->container['PostalCode'] = $PostalCode;
 
@@ -709,7 +731,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getForeignZip()
+    public function getForeignZip(): string
     {
         return $this->container['ForeignZip'];
     }
@@ -721,7 +743,9 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setForeignZip($ForeignZip): self
+
+
+    public function setForeignZip(string $ForeignZip): static
     {
         $this->container['ForeignZip'] = $ForeignZip;
 
@@ -733,7 +757,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getCountry()
+    public function getCountry(): string
     {
         return $this->container['Country'];
     }
@@ -745,7 +769,9 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setCountry($Country): self
+
+
+    public function setCountry(string $Country): static
     {
         $this->container['Country'] = $Country;
 
@@ -757,7 +783,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getWorkPhone()
+    public function getWorkPhone(): string
     {
         return $this->container['WorkPhone'];
     }
@@ -769,7 +795,9 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setWorkPhone($WorkPhone): self
+
+
+    public function setWorkPhone(string $WorkPhone): static
     {
         $this->container['WorkPhone'] = $WorkPhone;
 
@@ -781,7 +809,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getHomePhone()
+    public function getHomePhone(): string
     {
         return $this->container['HomePhone'];
     }
@@ -793,7 +821,9 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setHomePhone($HomePhone): self
+
+
+    public function setHomePhone(string $HomePhone): static
     {
         $this->container['HomePhone'] = $HomePhone;
 
@@ -805,7 +835,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getCellPhone()
+    public function getCellPhone(): string
     {
         return $this->container['CellPhone'];
     }
@@ -817,7 +847,9 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setCellPhone($CellPhone): self
+
+
+    public function setCellPhone(string $CellPhone): static
     {
         $this->container['CellPhone'] = $CellPhone;
 
@@ -829,7 +861,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getActive()
+    public function getActive(): bool
     {
         return $this->container['Active'];
     }
@@ -841,7 +873,9 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setActive($Active): self
+
+
+    public function setActive(bool $Active): static
     {
         $this->container['Active'] = $Active;
 
@@ -853,7 +887,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getIsSystem()
+    public function getIsSystem(): bool
     {
         return $this->container['IsSystem'];
     }
@@ -865,7 +899,9 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setIsSystem($IsSystem): self
+
+
+    public function setIsSystem(bool $IsSystem): static
     {
         $this->container['IsSystem'] = $IsSystem;
 
@@ -877,7 +913,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getSmodeId()
+    public function getSmodeId(): int
     {
         return $this->container['SmodeId'];
     }
@@ -889,7 +925,9 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSmodeId($SmodeId): self
+
+
+    public function setSmodeId(int $SmodeId): static
     {
         $this->container['SmodeId'] = $SmodeId;
 
@@ -901,7 +939,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getAppointmentTrn()
+    public function getAppointmentTrn(): bool
     {
         return $this->container['AppointmentTrn'];
     }
@@ -913,7 +951,9 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAppointmentTrn($AppointmentTrn): self
+
+
+    public function setAppointmentTrn(bool $AppointmentTrn): static
     {
         $this->container['AppointmentTrn'] = $AppointmentTrn;
 
@@ -925,7 +965,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getAlwaysAllowDoubleBooking()
+    public function getAlwaysAllowDoubleBooking(): bool
     {
         return $this->container['AlwaysAllowDoubleBooking'];
     }
@@ -937,7 +977,9 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAlwaysAllowDoubleBooking($AlwaysAllowDoubleBooking): self
+
+
+    public function setAlwaysAllowDoubleBooking(bool $AlwaysAllowDoubleBooking): static
     {
         $this->container['AlwaysAllowDoubleBooking'] = $AlwaysAllowDoubleBooking;
 
@@ -949,7 +991,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getIndependentContractor()
+    public function getIndependentContractor(): bool
     {
         return $this->container['IndependentContractor'];
     }
@@ -961,7 +1003,9 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setIndependentContractor($IndependentContractor): self
+
+
+    public function setIndependentContractor(bool $IndependentContractor): static
     {
         $this->container['IndependentContractor'] = $IndependentContractor;
 
@@ -973,7 +1017,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getImageUrl()
+    public function getImageUrl(): string
     {
         return $this->container['ImageUrl'];
     }
@@ -985,7 +1029,9 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setImageUrl($ImageUrl): self
+
+
+    public function setImageUrl(string $ImageUrl): static
     {
         $this->container['ImageUrl'] = $ImageUrl;
 
@@ -997,7 +1043,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getIsMale()
+    public function getIsMale(): bool
     {
         return $this->container['IsMale'];
     }
@@ -1009,7 +1055,9 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setIsMale($IsMale): self
+
+
+    public function setIsMale(bool $IsMale): static
     {
         $this->container['IsMale'] = $IsMale;
 
@@ -1021,7 +1069,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getReservationTrn()
+    public function getReservationTrn(): bool
     {
         return $this->container['ReservationTrn'];
     }
@@ -1033,7 +1081,9 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setReservationTrn($ReservationTrn): self
+
+
+    public function setReservationTrn(bool $ReservationTrn): static
     {
         $this->container['ReservationTrn'] = $ReservationTrn;
 
@@ -1045,7 +1095,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getSortOrder()
+    public function getSortOrder(): int
     {
         return $this->container['SortOrder'];
     }
@@ -1057,7 +1107,9 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSortOrder($SortOrder): self
+
+
+    public function setSortOrder(int $SortOrder): static
     {
         $this->container['SortOrder'] = $SortOrder;
 
@@ -1069,7 +1121,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getMultiLocationPermission()
+    public function getMultiLocationPermission(): bool
     {
         return $this->container['MultiLocationPermission'];
     }
@@ -1081,7 +1133,9 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setMultiLocationPermission($MultiLocationPermission): self
+
+
+    public function setMultiLocationPermission(bool $MultiLocationPermission): static
     {
         $this->container['MultiLocationPermission'] = $MultiLocationPermission;
 
@@ -1093,7 +1147,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->container['Name'];
     }
@@ -1105,7 +1159,9 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setName($Name): self
+
+
+    public function setName(string $Name): static
     {
         $this->container['Name'] = $Name;
 
@@ -1117,7 +1173,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return string[]
      */
-    public function getProviderIDs()
+    public function getProviderIDs(): array
     {
         return $this->container['ProviderIDs'];
     }
@@ -1129,7 +1185,9 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setProviderIDs($ProviderIDs): self
+
+
+    public function setProviderIDs(array $ProviderIDs): static
     {
         $this->container['ProviderIDs'] = $ProviderIDs;
 
@@ -1141,7 +1199,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\StaffSetting
      */
-    public function getStaffSettings()
+    public function getStaffSettings(): \Nlocascio\Mindbody\Model\StaffSetting
     {
         return $this->container['StaffSettings'];
     }
@@ -1153,7 +1211,9 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setStaffSettings($StaffSettings): self
+
+
+    public function setStaffSettings(\Nlocascio\Mindbody\Model\StaffSetting $StaffSettings): static
     {
         $this->container['StaffSettings'] = $StaffSettings;
 
@@ -1165,7 +1225,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getRep()
+    public function getRep(): bool
     {
         return $this->container['Rep'];
     }
@@ -1177,7 +1237,9 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setRep($Rep): self
+
+
+    public function setRep(bool $Rep): static
     {
         $this->container['Rep'] = $Rep;
 
@@ -1189,7 +1251,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getRep2()
+    public function getRep2(): bool
     {
         return $this->container['Rep2'];
     }
@@ -1201,7 +1263,9 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setRep2($Rep2): self
+
+
+    public function setRep2(bool $Rep2): static
     {
         $this->container['Rep2'] = $Rep2;
 
@@ -1213,7 +1277,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getRep3()
+    public function getRep3(): bool
     {
         return $this->container['Rep3'];
     }
@@ -1225,7 +1289,9 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setRep3($Rep3): self
+
+
+    public function setRep3(bool $Rep3): static
     {
         $this->container['Rep3'] = $Rep3;
 
@@ -1237,7 +1303,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getRep4()
+    public function getRep4(): bool
     {
         return $this->container['Rep4'];
     }
@@ -1249,7 +1315,9 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setRep4($Rep4): self
+
+
+    public function setRep4(bool $Rep4): static
     {
         $this->container['Rep4'] = $Rep4;
 
@@ -1261,7 +1329,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getRep5()
+    public function getRep5(): bool
     {
         return $this->container['Rep5'];
     }
@@ -1273,7 +1341,9 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setRep5($Rep5): self
+
+
+    public function setRep5(bool $Rep5): static
     {
         $this->container['Rep5'] = $Rep5;
 
@@ -1285,7 +1355,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getRep6()
+    public function getRep6(): bool
     {
         return $this->container['Rep6'];
     }
@@ -1297,7 +1367,9 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setRep6($Rep6): self
+
+
+    public function setRep6(bool $Rep6): static
     {
         $this->container['Rep6'] = $Rep6;
 
@@ -1309,7 +1381,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getAssistant()
+    public function getAssistant(): bool
     {
         return $this->container['Assistant'];
     }
@@ -1321,7 +1393,9 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAssistant($Assistant): self
+
+
+    public function setAssistant(bool $Assistant): static
     {
         $this->container['Assistant'] = $Assistant;
 
@@ -1333,7 +1407,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getAssistant2()
+    public function getAssistant2(): bool
     {
         return $this->container['Assistant2'];
     }
@@ -1345,7 +1419,9 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAssistant2($Assistant2): self
+
+
+    public function setAssistant2(bool $Assistant2): static
     {
         $this->container['Assistant2'] = $Assistant2;
 
@@ -1357,7 +1433,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getEmploymentStart()
+    public function getEmploymentStart(): \DateTime
     {
         return $this->container['EmploymentStart'];
     }
@@ -1369,7 +1445,9 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setEmploymentStart($EmploymentStart): self
+
+
+    public function setEmploymentStart(\DateTime $EmploymentStart): static
     {
         $this->container['EmploymentStart'] = $EmploymentStart;
 
@@ -1381,7 +1459,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getEmploymentEnd()
+    public function getEmploymentEnd(): \DateTime
     {
         return $this->container['EmploymentEnd'];
     }
@@ -1393,7 +1471,9 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setEmploymentEnd($EmploymentEnd): self
+
+
+    public function setEmploymentEnd(\DateTime $EmploymentEnd): static
     {
         $this->container['EmploymentEnd'] = $EmploymentEnd;
 
@@ -1405,7 +1485,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getEmpID()
+    public function getEmpID(): string
     {
         return $this->container['EmpID'];
     }
@@ -1417,7 +1497,9 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setEmpID($EmpID): self
+
+
+    public function setEmpID(string $EmpID): static
     {
         $this->container['EmpID'] = $EmpID;
 
@@ -1429,7 +1511,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getDefaultClassPayRate()
+    public function getDefaultClassPayRate(): int
     {
         return $this->container['DefaultClassPayRate'];
     }
@@ -1441,7 +1523,9 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setDefaultClassPayRate($DefaultClassPayRate): self
+
+
+    public function setDefaultClassPayRate(int $DefaultClassPayRate): static
     {
         $this->container['DefaultClassPayRate'] = $DefaultClassPayRate;
 
@@ -1453,7 +1537,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\Appointment[]
      */
-    public function getAppointments()
+    public function getAppointments(): array
     {
         return $this->container['Appointments'];
     }
@@ -1465,7 +1549,9 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAppointments($Appointments): self
+
+
+    public function setAppointments(array $Appointments): static
     {
         $this->container['Appointments'] = $Appointments;
 
@@ -1477,7 +1563,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\Unavailability[]
      */
-    public function getUnavailabilities()
+    public function getUnavailabilities(): array
     {
         return $this->container['Unavailabilities'];
     }
@@ -1489,7 +1575,9 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setUnavailabilities($Unavailabilities): self
+
+
+    public function setUnavailabilities(array $Unavailabilities): static
     {
         $this->container['Unavailabilities'] = $Unavailabilities;
 
@@ -1501,7 +1589,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\Availability[]
      */
-    public function getAvailabilities()
+    public function getAvailabilities(): array
     {
         return $this->container['Availabilities'];
     }
@@ -1513,7 +1601,9 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAvailabilities($Availabilities): self
+
+
+    public function setAvailabilities(array $Availabilities): static
     {
         $this->container['Availabilities'] = $Availabilities;
 
@@ -1525,7 +1615,7 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\Location[]
      */
-    public function getLoginLocations()
+    public function getLoginLocations(): array
     {
         return $this->container['LoginLocations'];
     }
@@ -1537,7 +1627,9 @@ class Staff extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setLoginLocations($LoginLocations): self
+
+
+    public function setLoginLocations(array $LoginLocations): static
     {
         $this->container['LoginLocations'] = $LoginLocations;
 

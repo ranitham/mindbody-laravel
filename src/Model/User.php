@@ -41,7 +41,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property string $Type The user’s type. Possible values are:  * Staff  * Owner  * Admin
  *
  */
-class User extends BaseModel implements ModelWithId
+class User extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -50,14 +50,14 @@ class User extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'User';
+    protected static string $swaggerModelName = 'User';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Id' => 'int',
         'FirstName' => 'string',
         'LastName' => 'string',
@@ -69,7 +69,7 @@ class User extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Id' => 'int64',
         'FirstName' => null,
         'LastName' => null,
@@ -83,7 +83,7 @@ class User extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Id' => 'Id',
         'FirstName' => 'FirstName',
         'LastName' => 'LastName',
@@ -95,7 +95,7 @@ class User extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Id' => 'setId',
         'FirstName' => 'setFirstName',
         'LastName' => 'setLastName',
@@ -107,7 +107,7 @@ class User extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Id' => 'getId',
         'FirstName' => 'getFirstName',
         'LastName' => 'getLastName',
@@ -125,7 +125,7 @@ class User extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
         $this->container['FirstName'] = isset($data['FirstName']) ? $data['FirstName'] : null;
@@ -151,7 +151,7 @@ class User extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -163,7 +163,9 @@ class User extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -175,7 +177,7 @@ class User extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getFirstName()
+    public function getFirstName(): string
     {
         return $this->container['FirstName'];
     }
@@ -187,7 +189,9 @@ class User extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setFirstName($FirstName): self
+
+
+    public function setFirstName(string $FirstName): static
     {
         $this->container['FirstName'] = $FirstName;
 
@@ -199,7 +203,7 @@ class User extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getLastName()
+    public function getLastName(): string
     {
         return $this->container['LastName'];
     }
@@ -211,7 +215,9 @@ class User extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setLastName($LastName): self
+
+
+    public function setLastName(string $LastName): static
     {
         $this->container['LastName'] = $LastName;
 
@@ -223,7 +229,7 @@ class User extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getType()
+    public function getType(): string
     {
         return $this->container['Type'];
     }
@@ -235,7 +241,9 @@ class User extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setType($Type): self
+
+
+    public function setType(string $Type): static
     {
         $this->container['Type'] = $Type;
 

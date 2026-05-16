@@ -40,7 +40,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property bool $Active When `true`, indicates that the subcategory is active.
  *
  */
-class SubCategory extends BaseModel implements ModelWithId
+class SubCategory extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -49,14 +49,14 @@ class SubCategory extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SubCategory';
+    protected static string $swaggerModelName = 'SubCategory';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Id' => 'int',
         'SubCategoryName' => 'string',
         'Active' => 'bool'
@@ -67,7 +67,7 @@ class SubCategory extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Id' => 'int32',
         'SubCategoryName' => null,
         'Active' => null
@@ -80,7 +80,7 @@ class SubCategory extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Id' => 'Id',
         'SubCategoryName' => 'SubCategoryName',
         'Active' => 'Active'
@@ -91,7 +91,7 @@ class SubCategory extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Id' => 'setId',
         'SubCategoryName' => 'setSubCategoryName',
         'Active' => 'setActive'
@@ -102,7 +102,7 @@ class SubCategory extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Id' => 'getId',
         'SubCategoryName' => 'getSubCategoryName',
         'Active' => 'getActive'
@@ -119,7 +119,7 @@ class SubCategory extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
         $this->container['SubCategoryName'] = isset($data['SubCategoryName']) ? $data['SubCategoryName'] : null;
@@ -144,7 +144,7 @@ class SubCategory extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -156,7 +156,9 @@ class SubCategory extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -168,7 +170,7 @@ class SubCategory extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getSubCategoryName()
+    public function getSubCategoryName(): string
     {
         return $this->container['SubCategoryName'];
     }
@@ -180,7 +182,9 @@ class SubCategory extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSubCategoryName($SubCategoryName): self
+
+
+    public function setSubCategoryName(string $SubCategoryName): static
     {
         $this->container['SubCategoryName'] = $SubCategoryName;
 
@@ -192,7 +196,7 @@ class SubCategory extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getActive()
+    public function getActive(): bool
     {
         return $this->container['Active'];
     }
@@ -204,7 +208,9 @@ class SubCategory extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setActive($Active): self
+
+
+    public function setActive(bool $Active): static
     {
         $this->container['Active'] = $Active;
 

@@ -55,14 +55,14 @@ class GetContactLogsRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetContactLogsRequest';
+    protected static string $swaggerModelName = 'GetContactLogsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ClientId' => 'string',
         'StartDate' => '\DateTime',
         'EndDate' => '\DateTime',
@@ -79,7 +79,7 @@ class GetContactLogsRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ClientId' => null,
         'StartDate' => 'date-time',
         'EndDate' => 'date-time',
@@ -98,7 +98,7 @@ class GetContactLogsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ClientId' => 'ClientId',
         'StartDate' => 'StartDate',
         'EndDate' => 'EndDate',
@@ -115,7 +115,7 @@ class GetContactLogsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ClientId' => 'setClientId',
         'StartDate' => 'setStartDate',
         'EndDate' => 'setEndDate',
@@ -132,7 +132,7 @@ class GetContactLogsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ClientId' => 'getClientId',
         'StartDate' => 'getStartDate',
         'EndDate' => 'getEndDate',
@@ -155,7 +155,7 @@ class GetContactLogsRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
         $this->container['StartDate'] = isset($data['StartDate']) ? $data['StartDate'] : null;
@@ -189,7 +189,7 @@ class GetContactLogsRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId()
+    public function getClientId(): string
     {
         return $this->container['ClientId'];
     }
@@ -201,7 +201,9 @@ class GetContactLogsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClientId($ClientId): self
+
+
+    public function setClientId(string $ClientId): static
     {
         $this->container['ClientId'] = $ClientId;
 
@@ -213,7 +215,7 @@ class GetContactLogsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDate()
+    public function getStartDate(): \DateTime
     {
         return $this->container['StartDate'];
     }
@@ -225,7 +227,9 @@ class GetContactLogsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStartDate($StartDate): self
+
+
+    public function setStartDate(\DateTime $StartDate): static
     {
         $this->container['StartDate'] = $StartDate;
 
@@ -237,7 +241,7 @@ class GetContactLogsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDate()
+    public function getEndDate(): \DateTime
     {
         return $this->container['EndDate'];
     }
@@ -249,7 +253,9 @@ class GetContactLogsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setEndDate($EndDate): self
+
+
+    public function setEndDate(\DateTime $EndDate): static
     {
         $this->container['EndDate'] = $EndDate;
 
@@ -261,7 +267,7 @@ class GetContactLogsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getStaffIds()
+    public function getStaffIds(): array
     {
         return $this->container['StaffIds'];
     }
@@ -273,7 +279,9 @@ class GetContactLogsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStaffIds($StaffIds): self
+
+
+    public function setStaffIds(array $StaffIds): static
     {
         $this->container['StaffIds'] = $StaffIds;
 
@@ -285,7 +293,7 @@ class GetContactLogsRequest extends BaseModel
      *
      * @return bool
      */
-    public function getShowSystemGenerated()
+    public function getShowSystemGenerated(): bool
     {
         return $this->container['ShowSystemGenerated'];
     }
@@ -297,7 +305,9 @@ class GetContactLogsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setShowSystemGenerated($ShowSystemGenerated): self
+
+
+    public function setShowSystemGenerated(bool $ShowSystemGenerated): static
     {
         $this->container['ShowSystemGenerated'] = $ShowSystemGenerated;
 
@@ -309,7 +319,7 @@ class GetContactLogsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getTypeIds()
+    public function getTypeIds(): array
     {
         return $this->container['TypeIds'];
     }
@@ -321,7 +331,9 @@ class GetContactLogsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setTypeIds($TypeIds): self
+
+
+    public function setTypeIds(array $TypeIds): static
     {
         $this->container['TypeIds'] = $TypeIds;
 
@@ -333,7 +345,7 @@ class GetContactLogsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getSubtypeIds()
+    public function getSubtypeIds(): array
     {
         return $this->container['SubtypeIds'];
     }
@@ -345,7 +357,9 @@ class GetContactLogsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSubtypeIds($SubtypeIds): self
+
+
+    public function setSubtypeIds(array $SubtypeIds): static
     {
         $this->container['SubtypeIds'] = $SubtypeIds;
 
@@ -357,7 +371,7 @@ class GetContactLogsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit()
+    public function getLimit(): int
     {
         return $this->container['Limit'];
     }
@@ -369,7 +383,9 @@ class GetContactLogsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLimit($Limit): self
+
+
+    public function setLimit(int $Limit): static
     {
         $this->container['Limit'] = $Limit;
 
@@ -381,7 +397,7 @@ class GetContactLogsRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset()
+    public function getOffset(): int
     {
         return $this->container['Offset'];
     }
@@ -393,7 +409,9 @@ class GetContactLogsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOffset($Offset): self
+
+
+    public function setOffset(int $Offset): static
     {
         $this->container['Offset'] = $Offset;
 

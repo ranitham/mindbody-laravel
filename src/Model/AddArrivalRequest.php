@@ -51,14 +51,14 @@ class AddArrivalRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AddArrivalRequest';
+    protected static string $swaggerModelName = 'AddArrivalRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ClientId' => 'string',
         'LocationId' => 'int',
         'ArrivalTypeId' => 'int',
@@ -71,7 +71,7 @@ class AddArrivalRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ClientId' => null,
         'LocationId' => 'int32',
         'ArrivalTypeId' => 'int32',
@@ -86,7 +86,7 @@ class AddArrivalRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ClientId' => 'ClientId',
         'LocationId' => 'LocationId',
         'ArrivalTypeId' => 'ArrivalTypeId',
@@ -99,7 +99,7 @@ class AddArrivalRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ClientId' => 'setClientId',
         'LocationId' => 'setLocationId',
         'ArrivalTypeId' => 'setArrivalTypeId',
@@ -112,7 +112,7 @@ class AddArrivalRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ClientId' => 'getClientId',
         'LocationId' => 'getLocationId',
         'ArrivalTypeId' => 'getArrivalTypeId',
@@ -131,7 +131,7 @@ class AddArrivalRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
         $this->container['LocationId'] = isset($data['LocationId']) ? $data['LocationId'] : null;
@@ -164,7 +164,7 @@ class AddArrivalRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId()
+    public function getClientId(): string
     {
         return $this->container['ClientId'];
     }
@@ -176,7 +176,9 @@ class AddArrivalRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClientId($ClientId): self
+
+
+    public function setClientId(string $ClientId): static
     {
         $this->container['ClientId'] = $ClientId;
 
@@ -188,7 +190,7 @@ class AddArrivalRequest extends BaseModel
      *
      * @return int
      */
-    public function getLocationId()
+    public function getLocationId(): int
     {
         return $this->container['LocationId'];
     }
@@ -200,7 +202,9 @@ class AddArrivalRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLocationId($LocationId): self
+
+
+    public function setLocationId(int $LocationId): static
     {
         $this->container['LocationId'] = $LocationId;
 
@@ -212,7 +216,7 @@ class AddArrivalRequest extends BaseModel
      *
      * @return int
      */
-    public function getArrivalTypeId()
+    public function getArrivalTypeId(): int
     {
         return $this->container['ArrivalTypeId'];
     }
@@ -224,7 +228,9 @@ class AddArrivalRequest extends BaseModel
      *
      * @return $this
      */
-    public function setArrivalTypeId($ArrivalTypeId): self
+
+
+    public function setArrivalTypeId(int $ArrivalTypeId): static
     {
         $this->container['ArrivalTypeId'] = $ArrivalTypeId;
 
@@ -236,7 +242,7 @@ class AddArrivalRequest extends BaseModel
      *
      * @return int
      */
-    public function getLeadChannelId()
+    public function getLeadChannelId(): int
     {
         return $this->container['LeadChannelId'];
     }
@@ -248,7 +254,9 @@ class AddArrivalRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLeadChannelId($LeadChannelId): self
+
+
+    public function setLeadChannelId(int $LeadChannelId): static
     {
         $this->container['LeadChannelId'] = $LeadChannelId;
 
@@ -260,7 +268,7 @@ class AddArrivalRequest extends BaseModel
      *
      * @return bool
      */
-    public function getTest()
+    public function getTest(): bool
     {
         return $this->container['Test'];
     }
@@ -272,7 +280,9 @@ class AddArrivalRequest extends BaseModel
      *
      * @return $this
      */
-    public function setTest($Test): self
+
+
+    public function setTest(bool $Test): static
     {
         $this->container['Test'] = $Test;
 

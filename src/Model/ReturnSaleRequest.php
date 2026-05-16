@@ -49,14 +49,14 @@ class ReturnSaleRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ReturnSaleRequest';
+    protected static string $swaggerModelName = 'ReturnSaleRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'SaleId' => 'int',
         'ReturnReason' => 'string'
     ];
@@ -66,7 +66,7 @@ class ReturnSaleRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'SaleId' => 'int64',
         'ReturnReason' => null
     ];
@@ -78,7 +78,7 @@ class ReturnSaleRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'SaleId' => 'SaleId',
         'ReturnReason' => 'ReturnReason'
     ];
@@ -88,7 +88,7 @@ class ReturnSaleRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'SaleId' => 'setSaleId',
         'ReturnReason' => 'setReturnReason'
     ];
@@ -98,7 +98,7 @@ class ReturnSaleRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'SaleId' => 'getSaleId',
         'ReturnReason' => 'getReturnReason'
     ];
@@ -114,7 +114,7 @@ class ReturnSaleRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['SaleId'] = isset($data['SaleId']) ? $data['SaleId'] : null;
         $this->container['ReturnReason'] = isset($data['ReturnReason']) ? $data['ReturnReason'] : null;
@@ -138,7 +138,7 @@ class ReturnSaleRequest extends BaseModel
      *
      * @return int
      */
-    public function getSaleId()
+    public function getSaleId(): int
     {
         return $this->container['SaleId'];
     }
@@ -150,7 +150,9 @@ class ReturnSaleRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSaleId($SaleId): self
+
+
+    public function setSaleId(int $SaleId): static
     {
         $this->container['SaleId'] = $SaleId;
 
@@ -162,7 +164,7 @@ class ReturnSaleRequest extends BaseModel
      *
      * @return string
      */
-    public function getReturnReason()
+    public function getReturnReason(): string
     {
         return $this->container['ReturnReason'];
     }
@@ -174,7 +176,9 @@ class ReturnSaleRequest extends BaseModel
      *
      * @return $this
      */
-    public function setReturnReason($ReturnReason): self
+
+
+    public function setReturnReason(string $ReturnReason): static
     {
         $this->container['ReturnReason'] = $ReturnReason;
 

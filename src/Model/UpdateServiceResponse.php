@@ -48,14 +48,14 @@ class UpdateServiceResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UpdateServiceResponse';
+    protected static string $swaggerModelName = 'UpdateServiceResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Services' => '\Nlocascio\Mindbody\Model\Service[]'
     ];
 
@@ -64,7 +64,7 @@ class UpdateServiceResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Services' => null
     ];
 
@@ -75,7 +75,7 @@ class UpdateServiceResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Services' => 'Services'
     ];
 
@@ -84,7 +84,7 @@ class UpdateServiceResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Services' => 'setServices'
     ];
 
@@ -93,7 +93,7 @@ class UpdateServiceResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Services' => 'getServices'
     ];
 
@@ -108,7 +108,7 @@ class UpdateServiceResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Services'] = isset($data['Services']) ? $data['Services'] : null;
     }
@@ -131,7 +131,7 @@ class UpdateServiceResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Service[]
      */
-    public function getServices()
+    public function getServices(): array
     {
         return $this->container['Services'];
     }
@@ -143,7 +143,9 @@ class UpdateServiceResponse extends BaseModel
      *
      * @return $this
      */
-    public function setServices($Services): self
+
+
+    public function setServices(array $Services): static
     {
         $this->container['Services'] = $Services;
 

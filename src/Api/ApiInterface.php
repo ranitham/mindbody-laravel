@@ -47,9 +47,9 @@ interface ApiInterface
      * @param HeaderSelector  $selector
      */
     public function __construct(
-        protected ClientInterface $client,
-        protected Configuration $config,
-        protected HeaderSelector $selector
+        ClientInterface $client,
+        Configuration $config,
+        HeaderSelector $selector
     );
 
 /**

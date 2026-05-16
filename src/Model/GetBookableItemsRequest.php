@@ -56,14 +56,14 @@ class GetBookableItemsRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetBookableItemsRequest';
+    protected static string $swaggerModelName = 'GetBookableItemsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'SessionTypeIds' => 'int[]',
         'LocationIds' => 'int[]',
         'StaffIds' => 'int[]',
@@ -81,7 +81,7 @@ class GetBookableItemsRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'SessionTypeIds' => 'int32',
         'LocationIds' => 'int32',
         'StaffIds' => 'int64',
@@ -101,7 +101,7 @@ class GetBookableItemsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'SessionTypeIds' => 'SessionTypeIds',
         'LocationIds' => 'LocationIds',
         'StaffIds' => 'StaffIds',
@@ -119,7 +119,7 @@ class GetBookableItemsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'SessionTypeIds' => 'setSessionTypeIds',
         'LocationIds' => 'setLocationIds',
         'StaffIds' => 'setStaffIds',
@@ -137,7 +137,7 @@ class GetBookableItemsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'SessionTypeIds' => 'getSessionTypeIds',
         'LocationIds' => 'getLocationIds',
         'StaffIds' => 'getStaffIds',
@@ -161,7 +161,7 @@ class GetBookableItemsRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['SessionTypeIds'] = isset($data['SessionTypeIds']) ? $data['SessionTypeIds'] : null;
         $this->container['LocationIds'] = isset($data['LocationIds']) ? $data['LocationIds'] : null;
@@ -196,7 +196,7 @@ class GetBookableItemsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getSessionTypeIds()
+    public function getSessionTypeIds(): array
     {
         return $this->container['SessionTypeIds'];
     }
@@ -208,7 +208,9 @@ class GetBookableItemsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSessionTypeIds($SessionTypeIds): self
+
+
+    public function setSessionTypeIds(array $SessionTypeIds): static
     {
         $this->container['SessionTypeIds'] = $SessionTypeIds;
 
@@ -220,7 +222,7 @@ class GetBookableItemsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getLocationIds()
+    public function getLocationIds(): array
     {
         return $this->container['LocationIds'];
     }
@@ -232,7 +234,9 @@ class GetBookableItemsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLocationIds($LocationIds): self
+
+
+    public function setLocationIds(array $LocationIds): static
     {
         $this->container['LocationIds'] = $LocationIds;
 
@@ -244,7 +248,7 @@ class GetBookableItemsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getStaffIds()
+    public function getStaffIds(): array
     {
         return $this->container['StaffIds'];
     }
@@ -256,7 +260,9 @@ class GetBookableItemsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStaffIds($StaffIds): self
+
+
+    public function setStaffIds(array $StaffIds): static
     {
         $this->container['StaffIds'] = $StaffIds;
 
@@ -268,7 +274,7 @@ class GetBookableItemsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDate()
+    public function getStartDate(): \DateTime
     {
         return $this->container['StartDate'];
     }
@@ -280,7 +286,9 @@ class GetBookableItemsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStartDate($StartDate): self
+
+
+    public function setStartDate(\DateTime $StartDate): static
     {
         $this->container['StartDate'] = $StartDate;
 
@@ -292,7 +300,7 @@ class GetBookableItemsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDate()
+    public function getEndDate(): \DateTime
     {
         return $this->container['EndDate'];
     }
@@ -304,7 +312,9 @@ class GetBookableItemsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setEndDate($EndDate): self
+
+
+    public function setEndDate(\DateTime $EndDate): static
     {
         $this->container['EndDate'] = $EndDate;
 
@@ -316,7 +326,7 @@ class GetBookableItemsRequest extends BaseModel
      *
      * @return int
      */
-    public function getAppointmentId()
+    public function getAppointmentId(): int
     {
         return $this->container['AppointmentId'];
     }
@@ -328,7 +338,9 @@ class GetBookableItemsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setAppointmentId($AppointmentId): self
+
+
+    public function setAppointmentId(int $AppointmentId): static
     {
         $this->container['AppointmentId'] = $AppointmentId;
 
@@ -340,7 +352,7 @@ class GetBookableItemsRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIgnoreDefaultSessionLength()
+    public function getIgnoreDefaultSessionLength(): bool
     {
         return $this->container['IgnoreDefaultSessionLength'];
     }
@@ -352,7 +364,9 @@ class GetBookableItemsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setIgnoreDefaultSessionLength($IgnoreDefaultSessionLength): self
+
+
+    public function setIgnoreDefaultSessionLength(bool $IgnoreDefaultSessionLength): static
     {
         $this->container['IgnoreDefaultSessionLength'] = $IgnoreDefaultSessionLength;
 
@@ -364,7 +378,7 @@ class GetBookableItemsRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIncludeResourceAvailability()
+    public function getIncludeResourceAvailability(): bool
     {
         return $this->container['IncludeResourceAvailability'];
     }
@@ -376,7 +390,9 @@ class GetBookableItemsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setIncludeResourceAvailability($IncludeResourceAvailability): self
+
+
+    public function setIncludeResourceAvailability(bool $IncludeResourceAvailability): static
     {
         $this->container['IncludeResourceAvailability'] = $IncludeResourceAvailability;
 
@@ -388,7 +404,7 @@ class GetBookableItemsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit()
+    public function getLimit(): int
     {
         return $this->container['Limit'];
     }
@@ -400,7 +416,9 @@ class GetBookableItemsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLimit($Limit): self
+
+
+    public function setLimit(int $Limit): static
     {
         $this->container['Limit'] = $Limit;
 
@@ -412,7 +430,7 @@ class GetBookableItemsRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset()
+    public function getOffset(): int
     {
         return $this->container['Offset'];
     }
@@ -424,7 +442,9 @@ class GetBookableItemsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOffset($Offset): self
+
+
+    public function setOffset(int $Offset): static
     {
         $this->container['Offset'] = $Offset;
 

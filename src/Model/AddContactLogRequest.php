@@ -56,14 +56,14 @@ class AddContactLogRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AddContactLogRequest';
+    protected static string $swaggerModelName = 'AddContactLogRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ClientId' => 'string',
         'AssignedToStaffId' => 'int',
         'Text' => 'string',
@@ -81,7 +81,7 @@ class AddContactLogRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ClientId' => null,
         'AssignedToStaffId' => 'int64',
         'Text' => null,
@@ -101,7 +101,7 @@ class AddContactLogRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ClientId' => 'ClientId',
         'AssignedToStaffId' => 'AssignedToStaffId',
         'Text' => 'Text',
@@ -119,7 +119,7 @@ class AddContactLogRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ClientId' => 'setClientId',
         'AssignedToStaffId' => 'setAssignedToStaffId',
         'Text' => 'setText',
@@ -137,7 +137,7 @@ class AddContactLogRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ClientId' => 'getClientId',
         'AssignedToStaffId' => 'getAssignedToStaffId',
         'Text' => 'getText',
@@ -161,7 +161,7 @@ class AddContactLogRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
         $this->container['AssignedToStaffId'] = isset($data['AssignedToStaffId']) ? $data['AssignedToStaffId'] : null;
@@ -199,7 +199,7 @@ class AddContactLogRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId()
+    public function getClientId(): string
     {
         return $this->container['ClientId'];
     }
@@ -211,7 +211,9 @@ class AddContactLogRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClientId($ClientId): self
+
+
+    public function setClientId(string $ClientId): static
     {
         $this->container['ClientId'] = $ClientId;
 
@@ -223,7 +225,7 @@ class AddContactLogRequest extends BaseModel
      *
      * @return int
      */
-    public function getAssignedToStaffId()
+    public function getAssignedToStaffId(): int
     {
         return $this->container['AssignedToStaffId'];
     }
@@ -235,7 +237,9 @@ class AddContactLogRequest extends BaseModel
      *
      * @return $this
      */
-    public function setAssignedToStaffId($AssignedToStaffId): self
+
+
+    public function setAssignedToStaffId(int $AssignedToStaffId): static
     {
         $this->container['AssignedToStaffId'] = $AssignedToStaffId;
 
@@ -247,7 +251,7 @@ class AddContactLogRequest extends BaseModel
      *
      * @return string
      */
-    public function getText()
+    public function getText(): string
     {
         return $this->container['Text'];
     }
@@ -259,7 +263,9 @@ class AddContactLogRequest extends BaseModel
      *
      * @return $this
      */
-    public function setText($Text): self
+
+
+    public function setText(string $Text): static
     {
         $this->container['Text'] = $Text;
 
@@ -271,7 +277,7 @@ class AddContactLogRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getFollowupByDate()
+    public function getFollowupByDate(): \DateTime
     {
         return $this->container['FollowupByDate'];
     }
@@ -283,7 +289,9 @@ class AddContactLogRequest extends BaseModel
      *
      * @return $this
      */
-    public function setFollowupByDate($FollowupByDate): self
+
+
+    public function setFollowupByDate(\DateTime $FollowupByDate): static
     {
         $this->container['FollowupByDate'] = $FollowupByDate;
 
@@ -295,7 +303,7 @@ class AddContactLogRequest extends BaseModel
      *
      * @return string
      */
-    public function getContactMethod()
+    public function getContactMethod(): string
     {
         return $this->container['ContactMethod'];
     }
@@ -307,7 +315,9 @@ class AddContactLogRequest extends BaseModel
      *
      * @return $this
      */
-    public function setContactMethod($ContactMethod): self
+
+
+    public function setContactMethod(string $ContactMethod): static
     {
         $this->container['ContactMethod'] = $ContactMethod;
 
@@ -319,7 +329,7 @@ class AddContactLogRequest extends BaseModel
      *
      * @return string
      */
-    public function getContactName()
+    public function getContactName(): string
     {
         return $this->container['ContactName'];
     }
@@ -331,7 +341,9 @@ class AddContactLogRequest extends BaseModel
      *
      * @return $this
      */
-    public function setContactName($ContactName): self
+
+
+    public function setContactName(string $ContactName): static
     {
         $this->container['ContactName'] = $ContactName;
 
@@ -343,7 +355,7 @@ class AddContactLogRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIsComplete()
+    public function getIsComplete(): bool
     {
         return $this->container['IsComplete'];
     }
@@ -355,7 +367,9 @@ class AddContactLogRequest extends BaseModel
      *
      * @return $this
      */
-    public function setIsComplete($IsComplete): self
+
+
+    public function setIsComplete(bool $IsComplete): static
     {
         $this->container['IsComplete'] = $IsComplete;
 
@@ -367,7 +381,7 @@ class AddContactLogRequest extends BaseModel
      *
      * @return string[]
      */
-    public function getComments()
+    public function getComments(): array
     {
         return $this->container['Comments'];
     }
@@ -379,7 +393,9 @@ class AddContactLogRequest extends BaseModel
      *
      * @return $this
      */
-    public function setComments($Comments): self
+
+
+    public function setComments(array $Comments): static
     {
         $this->container['Comments'] = $Comments;
 
@@ -391,7 +407,7 @@ class AddContactLogRequest extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\AddContactLogType[]
      */
-    public function getTypes()
+    public function getTypes(): array
     {
         return $this->container['Types'];
     }
@@ -403,7 +419,9 @@ class AddContactLogRequest extends BaseModel
      *
      * @return $this
      */
-    public function setTypes($Types): self
+
+
+    public function setTypes(array $Types): static
     {
         $this->container['Types'] = $Types;
 
@@ -415,7 +433,7 @@ class AddContactLogRequest extends BaseModel
      *
      * @return bool
      */
-    public function getTest()
+    public function getTest(): bool
     {
         return $this->container['Test'];
     }
@@ -427,7 +445,9 @@ class AddContactLogRequest extends BaseModel
      *
      * @return $this
      */
-    public function setTest($Test): self
+
+
+    public function setTest(bool $Test): static
     {
         $this->container['Test'] = $Test;
 

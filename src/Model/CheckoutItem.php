@@ -48,14 +48,14 @@ class CheckoutItem extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CheckoutItem';
+    protected static string $swaggerModelName = 'CheckoutItem';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Type' => 'string',
         'Metadata' => 'object'
     ];
@@ -65,7 +65,7 @@ class CheckoutItem extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Type' => null,
         'Metadata' => null
     ];
@@ -77,7 +77,7 @@ class CheckoutItem extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Type' => 'Type',
         'Metadata' => 'Metadata'
     ];
@@ -87,7 +87,7 @@ class CheckoutItem extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Type' => 'setType',
         'Metadata' => 'setMetadata'
     ];
@@ -97,7 +97,7 @@ class CheckoutItem extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Type' => 'getType',
         'Metadata' => 'getMetadata'
     ];
@@ -132,7 +132,7 @@ class CheckoutItem extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Type'] = isset($data['Type']) ? $data['Type'] : null;
         $this->container['Metadata'] = isset($data['Metadata']) ? $data['Metadata'] : null;
@@ -164,7 +164,7 @@ class CheckoutItem extends BaseModel
      *
      * @return string
      */
-    public function getType()
+    public function getType(): string
     {
         return $this->container['Type'];
     }
@@ -176,7 +176,9 @@ class CheckoutItem extends BaseModel
      *
      * @return $this
      */
-    public function setType($Type): self
+
+
+    public function setType(string $Type): static
     {
         $allowedValues = $this->getTypeAllowableValues();
         if (!is_null($Type) && !in_array($Type, $allowedValues, true)) {
@@ -197,7 +199,7 @@ class CheckoutItem extends BaseModel
      *
      * @return object
      */
-    public function getMetadata()
+    public function getMetadata(): object
     {
         return $this->container['Metadata'];
     }
@@ -209,7 +211,9 @@ class CheckoutItem extends BaseModel
      *
      * @return $this
      */
-    public function setMetadata($Metadata): self
+
+
+    public function setMetadata(object $Metadata): static
     {
         $this->container['Metadata'] = $Metadata;
 

@@ -51,14 +51,14 @@ class GetClientAccountBalancesRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetClientAccountBalancesRequest';
+    protected static string $swaggerModelName = 'GetClientAccountBalancesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'BalanceDate' => '\DateTime',
         'ClassId' => 'int',
         'ClientIds' => 'string[]',
@@ -71,7 +71,7 @@ class GetClientAccountBalancesRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'BalanceDate' => 'date-time',
         'ClassId' => 'int32',
         'ClientIds' => null,
@@ -86,7 +86,7 @@ class GetClientAccountBalancesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'BalanceDate' => 'BalanceDate',
         'ClassId' => 'ClassId',
         'ClientIds' => 'ClientIds',
@@ -99,7 +99,7 @@ class GetClientAccountBalancesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'BalanceDate' => 'setBalanceDate',
         'ClassId' => 'setClassId',
         'ClientIds' => 'setClientIds',
@@ -112,7 +112,7 @@ class GetClientAccountBalancesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'BalanceDate' => 'getBalanceDate',
         'ClassId' => 'getClassId',
         'ClientIds' => 'getClientIds',
@@ -131,7 +131,7 @@ class GetClientAccountBalancesRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['BalanceDate'] = isset($data['BalanceDate']) ? $data['BalanceDate'] : null;
         $this->container['ClassId'] = isset($data['ClassId']) ? $data['ClassId'] : null;
@@ -161,7 +161,7 @@ class GetClientAccountBalancesRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getBalanceDate()
+    public function getBalanceDate(): \DateTime
     {
         return $this->container['BalanceDate'];
     }
@@ -173,7 +173,9 @@ class GetClientAccountBalancesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setBalanceDate($BalanceDate): self
+
+
+    public function setBalanceDate(\DateTime $BalanceDate): static
     {
         $this->container['BalanceDate'] = $BalanceDate;
 
@@ -185,7 +187,7 @@ class GetClientAccountBalancesRequest extends BaseModel
      *
      * @return int
      */
-    public function getClassId()
+    public function getClassId(): int
     {
         return $this->container['ClassId'];
     }
@@ -197,7 +199,9 @@ class GetClientAccountBalancesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClassId($ClassId): self
+
+
+    public function setClassId(int $ClassId): static
     {
         $this->container['ClassId'] = $ClassId;
 
@@ -209,7 +213,7 @@ class GetClientAccountBalancesRequest extends BaseModel
      *
      * @return string[]
      */
-    public function getClientIds()
+    public function getClientIds(): array
     {
         return $this->container['ClientIds'];
     }
@@ -221,7 +225,9 @@ class GetClientAccountBalancesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClientIds($ClientIds): self
+
+
+    public function setClientIds(array $ClientIds): static
     {
         $this->container['ClientIds'] = $ClientIds;
 
@@ -233,7 +239,7 @@ class GetClientAccountBalancesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit()
+    public function getLimit(): int
     {
         return $this->container['Limit'];
     }
@@ -245,7 +251,9 @@ class GetClientAccountBalancesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLimit($Limit): self
+
+
+    public function setLimit(int $Limit): static
     {
         $this->container['Limit'] = $Limit;
 
@@ -257,7 +265,7 @@ class GetClientAccountBalancesRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset()
+    public function getOffset(): int
     {
         return $this->container['Offset'];
     }
@@ -269,7 +277,9 @@ class GetClientAccountBalancesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOffset($Offset): self
+
+
+    public function setOffset(int $Offset): static
     {
         $this->container['Offset'] = $Offset;
 

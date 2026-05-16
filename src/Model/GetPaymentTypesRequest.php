@@ -48,14 +48,14 @@ class GetPaymentTypesRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetPaymentTypesRequest';
+    protected static string $swaggerModelName = 'GetPaymentTypesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Active' => 'bool'
     ];
 
@@ -64,7 +64,7 @@ class GetPaymentTypesRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Active' => null
     ];
 
@@ -75,7 +75,7 @@ class GetPaymentTypesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Active' => 'Active'
     ];
 
@@ -84,7 +84,7 @@ class GetPaymentTypesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Active' => 'setActive'
     ];
 
@@ -93,7 +93,7 @@ class GetPaymentTypesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Active' => 'getActive'
     ];
 
@@ -108,7 +108,7 @@ class GetPaymentTypesRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Active'] = isset($data['Active']) ? $data['Active'] : null;
     }
@@ -131,7 +131,7 @@ class GetPaymentTypesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getActive()
+    public function getActive(): bool
     {
         return $this->container['Active'];
     }
@@ -143,7 +143,9 @@ class GetPaymentTypesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setActive($Active): self
+
+
+    public function setActive(bool $Active): static
     {
         $this->container['Active'] = $Active;
 

@@ -50,14 +50,14 @@ class SendPasswordResetEmailRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SendPasswordResetEmailRequest';
+    protected static string $swaggerModelName = 'SendPasswordResetEmailRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'UserEmail' => 'string',
         'UserFirstName' => 'string',
         'UserLastName' => 'string'
@@ -68,7 +68,7 @@ class SendPasswordResetEmailRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'UserEmail' => null,
         'UserFirstName' => null,
         'UserLastName' => null
@@ -81,7 +81,7 @@ class SendPasswordResetEmailRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'UserEmail' => 'UserEmail',
         'UserFirstName' => 'UserFirstName',
         'UserLastName' => 'UserLastName'
@@ -92,7 +92,7 @@ class SendPasswordResetEmailRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'UserEmail' => 'setUserEmail',
         'UserFirstName' => 'setUserFirstName',
         'UserLastName' => 'setUserLastName'
@@ -103,7 +103,7 @@ class SendPasswordResetEmailRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'UserEmail' => 'getUserEmail',
         'UserFirstName' => 'getUserFirstName',
         'UserLastName' => 'getUserLastName'
@@ -120,7 +120,7 @@ class SendPasswordResetEmailRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['UserEmail'] = isset($data['UserEmail']) ? $data['UserEmail'] : null;
         $this->container['UserFirstName'] = isset($data['UserFirstName']) ? $data['UserFirstName'] : null;
@@ -154,7 +154,7 @@ class SendPasswordResetEmailRequest extends BaseModel
      *
      * @return string
      */
-    public function getUserEmail()
+    public function getUserEmail(): string
     {
         return $this->container['UserEmail'];
     }
@@ -166,7 +166,9 @@ class SendPasswordResetEmailRequest extends BaseModel
      *
      * @return $this
      */
-    public function setUserEmail($UserEmail): self
+
+
+    public function setUserEmail(string $UserEmail): static
     {
         $this->container['UserEmail'] = $UserEmail;
 
@@ -178,7 +180,7 @@ class SendPasswordResetEmailRequest extends BaseModel
      *
      * @return string
      */
-    public function getUserFirstName()
+    public function getUserFirstName(): string
     {
         return $this->container['UserFirstName'];
     }
@@ -190,7 +192,9 @@ class SendPasswordResetEmailRequest extends BaseModel
      *
      * @return $this
      */
-    public function setUserFirstName($UserFirstName): self
+
+
+    public function setUserFirstName(string $UserFirstName): static
     {
         $this->container['UserFirstName'] = $UserFirstName;
 
@@ -202,7 +206,7 @@ class SendPasswordResetEmailRequest extends BaseModel
      *
      * @return string
      */
-    public function getUserLastName()
+    public function getUserLastName(): string
     {
         return $this->container['UserLastName'];
     }
@@ -214,7 +218,9 @@ class SendPasswordResetEmailRequest extends BaseModel
      *
      * @return $this
      */
-    public function setUserLastName($UserLastName): self
+
+
+    public function setUserLastName(string $UserLastName): static
     {
         $this->container['UserLastName'] = $UserLastName;
 

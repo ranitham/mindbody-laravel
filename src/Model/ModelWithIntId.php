@@ -1,4 +1,5 @@
 <?php
+
 /**
  * ModelWithId Interface
  *
@@ -34,17 +35,23 @@ namespace Nlocascio\Mindbody\Model;
  *
  * @package Nlocascio\Mindbody\Model
  * @author  Swagger Codegen team
- * @property mixed $Id
+ * @property int $Id
  */
-interface ModelWithId extends ModelInterface
+interface ModelWithIntId extends ModelInterface
 {
 
+  /**
+   * get the Id
+   * @return int
+   */
+  public function getId(): int;
 
-/**
- * get the Id
- */
-  public function getId();
-
-  public function setId($id): self;
-
+  /**
+   * Sets Id
+   *
+   * @param int $Id The class description's ID.
+   *
+   * @return $this
+   */
+  public function setId(int $id): static;
 }

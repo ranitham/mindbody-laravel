@@ -48,14 +48,14 @@ class SendAutoEmailRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SendAutoEmailRequest';
+    protected static string $swaggerModelName = 'SendAutoEmailRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ClientId' => 'string',
         'EmailType' => 'string'
     ];
@@ -65,7 +65,7 @@ class SendAutoEmailRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ClientId' => null,
         'EmailType' => null
     ];
@@ -77,7 +77,7 @@ class SendAutoEmailRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ClientId' => 'ClientId',
         'EmailType' => 'EmailType'
     ];
@@ -87,7 +87,7 @@ class SendAutoEmailRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ClientId' => 'setClientId',
         'EmailType' => 'setEmailType'
     ];
@@ -97,7 +97,7 @@ class SendAutoEmailRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ClientId' => 'getClientId',
         'EmailType' => 'getEmailType'
     ];
@@ -113,7 +113,7 @@ class SendAutoEmailRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
         $this->container['EmailType'] = isset($data['EmailType']) ? $data['EmailType'] : null;
@@ -143,7 +143,7 @@ class SendAutoEmailRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId()
+    public function getClientId(): string
     {
         return $this->container['ClientId'];
     }
@@ -155,7 +155,9 @@ class SendAutoEmailRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClientId($ClientId): self
+
+
+    public function setClientId(string $ClientId): static
     {
         $this->container['ClientId'] = $ClientId;
 
@@ -167,7 +169,7 @@ class SendAutoEmailRequest extends BaseModel
      *
      * @return string
      */
-    public function getEmailType()
+    public function getEmailType(): string
     {
         return $this->container['EmailType'];
     }
@@ -179,7 +181,9 @@ class SendAutoEmailRequest extends BaseModel
      *
      * @return $this
      */
-    public function setEmailType($EmailType): self
+
+
+    public function setEmailType(string $EmailType): static
     {
         $this->container['EmailType'] = $EmailType;
 

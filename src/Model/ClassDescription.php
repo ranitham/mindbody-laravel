@@ -53,7 +53,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property int $SubcategoryId The subcategory ID of this class description.
  *
  */
-class ClassDescription extends BaseModel implements ModelWithId
+class ClassDescription extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -62,14 +62,14 @@ class ClassDescription extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ClassDescription';
+    protected static string $swaggerModelName = 'ClassDescription';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Active' => 'bool',
         'Description' => 'string',
         'Id' => 'int',
@@ -92,7 +92,7 @@ class ClassDescription extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Active' => null,
         'Description' => null,
         'Id' => 'int32',
@@ -117,7 +117,7 @@ class ClassDescription extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Active' => 'Active',
         'Description' => 'Description',
         'Id' => 'Id',
@@ -140,7 +140,7 @@ class ClassDescription extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Active' => 'setActive',
         'Description' => 'setDescription',
         'Id' => 'setId',
@@ -163,7 +163,7 @@ class ClassDescription extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Active' => 'getActive',
         'Description' => 'getDescription',
         'Id' => 'getId',
@@ -192,7 +192,7 @@ class ClassDescription extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Active'] = isset($data['Active']) ? $data['Active'] : null;
         $this->container['Description'] = isset($data['Description']) ? $data['Description'] : null;
@@ -229,7 +229,7 @@ class ClassDescription extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getActive()
+    public function getActive(): bool
     {
         return $this->container['Active'];
     }
@@ -241,7 +241,9 @@ class ClassDescription extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setActive($Active): self
+
+
+    public function setActive(bool $Active): static
     {
         $this->container['Active'] = $Active;
 
@@ -253,7 +255,7 @@ class ClassDescription extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->container['Description'];
     }
@@ -265,7 +267,9 @@ class ClassDescription extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setDescription($Description): self
+
+
+    public function setDescription(string $Description): static
     {
         $this->container['Description'] = $Description;
 
@@ -277,7 +281,7 @@ class ClassDescription extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -289,7 +293,9 @@ class ClassDescription extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -301,7 +307,7 @@ class ClassDescription extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getImageURL()
+    public function getImageURL(): string
     {
         return $this->container['ImageURL'];
     }
@@ -313,7 +319,9 @@ class ClassDescription extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setImageURL($ImageURL): self
+
+
+    public function setImageURL(string $ImageURL): static
     {
         $this->container['ImageURL'] = $ImageURL;
 
@@ -325,7 +333,7 @@ class ClassDescription extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getLastUpdated()
+    public function getLastUpdated(): \DateTime
     {
         return $this->container['LastUpdated'];
     }
@@ -337,7 +345,9 @@ class ClassDescription extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setLastUpdated($LastUpdated): self
+
+
+    public function setLastUpdated(\DateTime $LastUpdated): static
     {
         $this->container['LastUpdated'] = $LastUpdated;
 
@@ -349,7 +359,7 @@ class ClassDescription extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\Level
      */
-    public function getLevel()
+    public function getLevel(): \Nlocascio\Mindbody\Model\Level
     {
         return $this->container['Level'];
     }
@@ -361,7 +371,9 @@ class ClassDescription extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setLevel($Level): self
+
+
+    public function setLevel(\Nlocascio\Mindbody\Model\Level $Level): static
     {
         $this->container['Level'] = $Level;
 
@@ -373,7 +385,7 @@ class ClassDescription extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->container['Name'];
     }
@@ -385,7 +397,9 @@ class ClassDescription extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setName($Name): self
+
+
+    public function setName(string $Name): static
     {
         $this->container['Name'] = $Name;
 
@@ -397,7 +411,7 @@ class ClassDescription extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getNotes()
+    public function getNotes(): string
     {
         return $this->container['Notes'];
     }
@@ -409,7 +423,9 @@ class ClassDescription extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setNotes($Notes): self
+
+
+    public function setNotes(string $Notes): static
     {
         $this->container['Notes'] = $Notes;
 
@@ -421,7 +437,7 @@ class ClassDescription extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getPrereq()
+    public function getPrereq(): string
     {
         return $this->container['Prereq'];
     }
@@ -433,7 +449,9 @@ class ClassDescription extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setPrereq($Prereq): self
+
+
+    public function setPrereq(string $Prereq): static
     {
         $this->container['Prereq'] = $Prereq;
 
@@ -445,7 +463,7 @@ class ClassDescription extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\Program
      */
-    public function getProgram()
+    public function getProgram(): \Nlocascio\Mindbody\Model\Program
     {
         return $this->container['Program'];
     }
@@ -457,7 +475,9 @@ class ClassDescription extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setProgram($Program): self
+
+
+    public function setProgram(\Nlocascio\Mindbody\Model\Program $Program): static
     {
         $this->container['Program'] = $Program;
 
@@ -469,7 +489,7 @@ class ClassDescription extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\SessionType
      */
-    public function getSessionType()
+    public function getSessionType(): \Nlocascio\Mindbody\Model\SessionType
     {
         return $this->container['SessionType'];
     }
@@ -481,7 +501,9 @@ class ClassDescription extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSessionType($SessionType): self
+
+
+    public function setSessionType(\Nlocascio\Mindbody\Model\SessionType $SessionType): static
     {
         $this->container['SessionType'] = $SessionType;
 
@@ -493,7 +515,7 @@ class ClassDescription extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getCategory()
+    public function getCategory(): string
     {
         return $this->container['Category'];
     }
@@ -505,7 +527,9 @@ class ClassDescription extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setCategory($Category): self
+
+
+    public function setCategory(string $Category): static
     {
         $this->container['Category'] = $Category;
 
@@ -517,7 +541,7 @@ class ClassDescription extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getCategoryId()
+    public function getCategoryId(): int
     {
         return $this->container['CategoryId'];
     }
@@ -529,7 +553,9 @@ class ClassDescription extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setCategoryId($CategoryId): self
+
+
+    public function setCategoryId(int $CategoryId): static
     {
         $this->container['CategoryId'] = $CategoryId;
 
@@ -541,7 +567,7 @@ class ClassDescription extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getSubcategory()
+    public function getSubcategory(): string
     {
         return $this->container['Subcategory'];
     }
@@ -553,7 +579,9 @@ class ClassDescription extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSubcategory($Subcategory): self
+
+
+    public function setSubcategory(string $Subcategory): static
     {
         $this->container['Subcategory'] = $Subcategory;
 
@@ -565,7 +593,7 @@ class ClassDescription extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getSubcategoryId()
+    public function getSubcategoryId(): int
     {
         return $this->container['SubcategoryId'];
     }
@@ -577,7 +605,9 @@ class ClassDescription extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSubcategoryId($SubcategoryId): self
+
+
+    public function setSubcategoryId(int $SubcategoryId): static
     {
         $this->container['SubcategoryId'] = $SubcategoryId;
 

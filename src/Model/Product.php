@@ -58,7 +58,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property string $ManufacturerId The ID number attributed to the product by the manufacturer.
  *
  */
-class Product extends BaseModel implements ModelWithId
+class Product extends BaseModel implements ModelWithStringId
 {
     const DISCRIMINATOR = null;
 
@@ -67,14 +67,14 @@ class Product extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Product';
+    protected static string $swaggerModelName = 'Product';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ProductId' => 'int',
         'Id' => 'string',
         'CategoryId' => 'int',
@@ -102,7 +102,7 @@ class Product extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ProductId' => 'int32',
         'Id' => null,
         'CategoryId' => 'int32',
@@ -132,7 +132,7 @@ class Product extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ProductId' => 'ProductId',
         'Id' => 'Id',
         'CategoryId' => 'CategoryId',
@@ -160,7 +160,7 @@ class Product extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ProductId' => 'setProductId',
         'Id' => 'setId',
         'CategoryId' => 'setCategoryId',
@@ -188,7 +188,7 @@ class Product extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ProductId' => 'getProductId',
         'Id' => 'getId',
         'CategoryId' => 'getCategoryId',
@@ -222,7 +222,7 @@ class Product extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ProductId'] = isset($data['ProductId']) ? $data['ProductId'] : null;
         $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
@@ -264,7 +264,7 @@ class Product extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getProductId()
+    public function getProductId(): int
     {
         return $this->container['ProductId'];
     }
@@ -276,7 +276,9 @@ class Product extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setProductId($ProductId): self
+
+
+    public function setProductId(int $ProductId): static
     {
         $this->container['ProductId'] = $ProductId;
 
@@ -288,7 +290,7 @@ class Product extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getId()
+    public function getId(): string
     {
         return $this->container['Id'];
     }
@@ -300,7 +302,9 @@ class Product extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(string $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -312,7 +316,7 @@ class Product extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getCategoryId()
+    public function getCategoryId(): int
     {
         return $this->container['CategoryId'];
     }
@@ -324,7 +328,9 @@ class Product extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setCategoryId($CategoryId): self
+
+
+    public function setCategoryId(int $CategoryId): static
     {
         $this->container['CategoryId'] = $CategoryId;
 
@@ -336,7 +342,7 @@ class Product extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getSubCategoryId()
+    public function getSubCategoryId(): int
     {
         return $this->container['SubCategoryId'];
     }
@@ -348,7 +354,9 @@ class Product extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSubCategoryId($SubCategoryId): self
+
+
+    public function setSubCategoryId(int $SubCategoryId): static
     {
         $this->container['SubCategoryId'] = $SubCategoryId;
 
@@ -360,7 +368,7 @@ class Product extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getSecondaryCategoryId()
+    public function getSecondaryCategoryId(): int
     {
         return $this->container['SecondaryCategoryId'];
     }
@@ -372,7 +380,9 @@ class Product extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSecondaryCategoryId($SecondaryCategoryId): self
+
+
+    public function setSecondaryCategoryId(int $SecondaryCategoryId): static
     {
         $this->container['SecondaryCategoryId'] = $SecondaryCategoryId;
 
@@ -384,7 +394,7 @@ class Product extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getPrice()
+    public function getPrice(): float
     {
         return $this->container['Price'];
     }
@@ -396,7 +406,9 @@ class Product extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setPrice($Price): self
+
+
+    public function setPrice(float $Price): static
     {
         $this->container['Price'] = $Price;
 
@@ -408,7 +420,7 @@ class Product extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getTaxIncluded()
+    public function getTaxIncluded(): float
     {
         return $this->container['TaxIncluded'];
     }
@@ -420,7 +432,9 @@ class Product extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setTaxIncluded($TaxIncluded): self
+
+
+    public function setTaxIncluded(float $TaxIncluded): static
     {
         $this->container['TaxIncluded'] = $TaxIncluded;
 
@@ -432,7 +446,7 @@ class Product extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getTaxRate()
+    public function getTaxRate(): float
     {
         return $this->container['TaxRate'];
     }
@@ -444,7 +458,9 @@ class Product extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setTaxRate($TaxRate): self
+
+
+    public function setTaxRate(float $TaxRate): static
     {
         $this->container['TaxRate'] = $TaxRate;
 
@@ -456,7 +472,7 @@ class Product extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getGroupId()
+    public function getGroupId(): int
     {
         return $this->container['GroupId'];
     }
@@ -468,7 +484,9 @@ class Product extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setGroupId($GroupId): self
+
+
+    public function setGroupId(int $GroupId): static
     {
         $this->container['GroupId'] = $GroupId;
 
@@ -480,7 +498,7 @@ class Product extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->container['Name'];
     }
@@ -492,7 +510,9 @@ class Product extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setName($Name): self
+
+
+    public function setName(string $Name): static
     {
         $this->container['Name'] = $Name;
 
@@ -504,7 +524,7 @@ class Product extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getOnlinePrice()
+    public function getOnlinePrice(): float
     {
         return $this->container['OnlinePrice'];
     }
@@ -516,7 +536,9 @@ class Product extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setOnlinePrice($OnlinePrice): self
+
+
+    public function setOnlinePrice(float $OnlinePrice): static
     {
         $this->container['OnlinePrice'] = $OnlinePrice;
 
@@ -528,7 +550,7 @@ class Product extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getShortDescription()
+    public function getShortDescription(): string
     {
         return $this->container['ShortDescription'];
     }
@@ -540,7 +562,9 @@ class Product extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setShortDescription($ShortDescription): self
+
+
+    public function setShortDescription(string $ShortDescription): static
     {
         $this->container['ShortDescription'] = $ShortDescription;
 
@@ -552,7 +576,7 @@ class Product extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getLongDescription()
+    public function getLongDescription(): string
     {
         return $this->container['LongDescription'];
     }
@@ -564,7 +588,9 @@ class Product extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setLongDescription($LongDescription): self
+
+
+    public function setLongDescription(string $LongDescription): static
     {
         $this->container['LongDescription'] = $LongDescription;
 
@@ -576,7 +602,7 @@ class Product extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getTypeGroup()
+    public function getTypeGroup(): int
     {
         return $this->container['TypeGroup'];
     }
@@ -588,7 +614,9 @@ class Product extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setTypeGroup($TypeGroup): self
+
+
+    public function setTypeGroup(int $TypeGroup): static
     {
         $this->container['TypeGroup'] = $TypeGroup;
 
@@ -600,7 +628,7 @@ class Product extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getSupplierId()
+    public function getSupplierId(): int
     {
         return $this->container['SupplierId'];
     }
@@ -612,7 +640,9 @@ class Product extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSupplierId($SupplierId): self
+
+
+    public function setSupplierId(int $SupplierId): static
     {
         $this->container['SupplierId'] = $SupplierId;
 
@@ -624,7 +654,7 @@ class Product extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getSupplierName()
+    public function getSupplierName(): string
     {
         return $this->container['SupplierName'];
     }
@@ -636,7 +666,9 @@ class Product extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSupplierName($SupplierName): self
+
+
+    public function setSupplierName(string $SupplierName): static
     {
         $this->container['SupplierName'] = $SupplierName;
 
@@ -648,7 +680,7 @@ class Product extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getImageURL()
+    public function getImageURL(): string
     {
         return $this->container['ImageURL'];
     }
@@ -660,7 +692,9 @@ class Product extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setImageURL($ImageURL): self
+
+
+    public function setImageURL(string $ImageURL): static
     {
         $this->container['ImageURL'] = $ImageURL;
 
@@ -672,7 +706,7 @@ class Product extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\Color
      */
-    public function getColor()
+    public function getColor(): \Nlocascio\Mindbody\Model\Color
     {
         return $this->container['Color'];
     }
@@ -684,7 +718,9 @@ class Product extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setColor($Color): self
+
+
+    public function setColor(\Nlocascio\Mindbody\Model\Color $Color): static
     {
         $this->container['Color'] = $Color;
 
@@ -696,7 +732,7 @@ class Product extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\Size
      */
-    public function getSize()
+    public function getSize(): \Nlocascio\Mindbody\Model\Size
     {
         return $this->container['Size'];
     }
@@ -708,7 +744,9 @@ class Product extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSize($Size): self
+
+
+    public function setSize(\Nlocascio\Mindbody\Model\Size $Size): static
     {
         $this->container['Size'] = $Size;
 
@@ -720,7 +758,7 @@ class Product extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getManufacturerId()
+    public function getManufacturerId(): string
     {
         return $this->container['ManufacturerId'];
     }
@@ -732,7 +770,9 @@ class Product extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setManufacturerId($ManufacturerId): self
+
+
+    public function setManufacturerId(string $ManufacturerId): static
     {
         $this->container['ManufacturerId'] = $ManufacturerId;
 

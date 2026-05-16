@@ -51,14 +51,14 @@ class GetPackagesRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetPackagesRequest';
+    protected static string $swaggerModelName = 'GetPackagesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'PackageIds' => 'int[]',
         'SellOnline' => 'bool',
         'LocationId' => 'int',
@@ -71,7 +71,7 @@ class GetPackagesRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'PackageIds' => 'int32',
         'SellOnline' => null,
         'LocationId' => 'int32',
@@ -86,7 +86,7 @@ class GetPackagesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'PackageIds' => 'PackageIds',
         'SellOnline' => 'SellOnline',
         'LocationId' => 'LocationId',
@@ -99,7 +99,7 @@ class GetPackagesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'PackageIds' => 'setPackageIds',
         'SellOnline' => 'setSellOnline',
         'LocationId' => 'setLocationId',
@@ -112,7 +112,7 @@ class GetPackagesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'PackageIds' => 'getPackageIds',
         'SellOnline' => 'getSellOnline',
         'LocationId' => 'getLocationId',
@@ -131,7 +131,7 @@ class GetPackagesRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['PackageIds'] = isset($data['PackageIds']) ? $data['PackageIds'] : null;
         $this->container['SellOnline'] = isset($data['SellOnline']) ? $data['SellOnline'] : null;
@@ -158,7 +158,7 @@ class GetPackagesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getPackageIds()
+    public function getPackageIds(): array
     {
         return $this->container['PackageIds'];
     }
@@ -170,7 +170,9 @@ class GetPackagesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setPackageIds($PackageIds): self
+
+
+    public function setPackageIds(array $PackageIds): static
     {
         $this->container['PackageIds'] = $PackageIds;
 
@@ -182,7 +184,7 @@ class GetPackagesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSellOnline()
+    public function getSellOnline(): bool
     {
         return $this->container['SellOnline'];
     }
@@ -194,7 +196,9 @@ class GetPackagesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSellOnline($SellOnline): self
+
+
+    public function setSellOnline(bool $SellOnline): static
     {
         $this->container['SellOnline'] = $SellOnline;
 
@@ -206,7 +210,7 @@ class GetPackagesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLocationId()
+    public function getLocationId(): int
     {
         return $this->container['LocationId'];
     }
@@ -218,7 +222,9 @@ class GetPackagesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLocationId($LocationId): self
+
+
+    public function setLocationId(int $LocationId): static
     {
         $this->container['LocationId'] = $LocationId;
 
@@ -230,7 +236,7 @@ class GetPackagesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit()
+    public function getLimit(): int
     {
         return $this->container['Limit'];
     }
@@ -242,7 +248,9 @@ class GetPackagesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLimit($Limit): self
+
+
+    public function setLimit(int $Limit): static
     {
         $this->container['Limit'] = $Limit;
 
@@ -254,7 +262,7 @@ class GetPackagesRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset()
+    public function getOffset(): int
     {
         return $this->container['Offset'];
     }
@@ -266,7 +274,9 @@ class GetPackagesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOffset($Offset): self
+
+
+    public function setOffset(int $Offset): static
     {
         $this->container['Offset'] = $Offset;
 

@@ -59,7 +59,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property string $VirtualStreamLink The URL for the pre-recorded live stream for the class if hosted on the mindbody virtual wellness platform
  *
  */
-class SubstituteTeacherClass extends BaseModel implements ModelWithId
+class SubstituteTeacherClass extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -68,14 +68,14 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SubstituteTeacherClass';
+    protected static string $swaggerModelName = 'SubstituteTeacherClass';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ClassScheduleId' => 'int',
         'Location' => '\Nlocascio\Mindbody\Model\Location',
         'MaxCapacity' => 'int',
@@ -104,7 +104,7 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ClassScheduleId' => 'int32',
         'Location' => null,
         'MaxCapacity' => 'int32',
@@ -135,7 +135,7 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ClassScheduleId' => 'ClassScheduleId',
         'Location' => 'Location',
         'MaxCapacity' => 'MaxCapacity',
@@ -164,7 +164,7 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ClassScheduleId' => 'setClassScheduleId',
         'Location' => 'setLocation',
         'MaxCapacity' => 'setMaxCapacity',
@@ -193,7 +193,7 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ClassScheduleId' => 'getClassScheduleId',
         'Location' => 'getLocation',
         'MaxCapacity' => 'getMaxCapacity',
@@ -228,7 +228,7 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ClassScheduleId'] = isset($data['ClassScheduleId']) ? $data['ClassScheduleId'] : null;
         $this->container['Location'] = isset($data['Location']) ? $data['Location'] : null;
@@ -271,7 +271,7 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getClassScheduleId()
+    public function getClassScheduleId(): int
     {
         return $this->container['ClassScheduleId'];
     }
@@ -283,7 +283,9 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setClassScheduleId($ClassScheduleId): self
+
+
+    public function setClassScheduleId(int $ClassScheduleId): static
     {
         $this->container['ClassScheduleId'] = $ClassScheduleId;
 
@@ -295,7 +297,7 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\Location
      */
-    public function getLocation()
+    public function getLocation(): \Nlocascio\Mindbody\Model\Location
     {
         return $this->container['Location'];
     }
@@ -307,7 +309,9 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setLocation($Location): self
+
+
+    public function setLocation(\Nlocascio\Mindbody\Model\Location $Location): static
     {
         $this->container['Location'] = $Location;
 
@@ -319,7 +323,7 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getMaxCapacity()
+    public function getMaxCapacity(): int
     {
         return $this->container['MaxCapacity'];
     }
@@ -331,7 +335,9 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setMaxCapacity($MaxCapacity): self
+
+
+    public function setMaxCapacity(int $MaxCapacity): static
     {
         $this->container['MaxCapacity'] = $MaxCapacity;
 
@@ -343,7 +349,7 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getWebCapacity()
+    public function getWebCapacity(): int
     {
         return $this->container['WebCapacity'];
     }
@@ -355,7 +361,9 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setWebCapacity($WebCapacity): self
+
+
+    public function setWebCapacity(int $WebCapacity): static
     {
         $this->container['WebCapacity'] = $WebCapacity;
 
@@ -367,7 +375,7 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getTotalBooked()
+    public function getTotalBooked(): int
     {
         return $this->container['TotalBooked'];
     }
@@ -379,7 +387,9 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setTotalBooked($TotalBooked): self
+
+
+    public function setTotalBooked(int $TotalBooked): static
     {
         $this->container['TotalBooked'] = $TotalBooked;
 
@@ -391,7 +401,7 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getTotalBookedWaitlist()
+    public function getTotalBookedWaitlist(): int
     {
         return $this->container['TotalBookedWaitlist'];
     }
@@ -403,7 +413,9 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setTotalBookedWaitlist($TotalBookedWaitlist): self
+
+
+    public function setTotalBookedWaitlist(int $TotalBookedWaitlist): static
     {
         $this->container['TotalBookedWaitlist'] = $TotalBookedWaitlist;
 
@@ -415,7 +427,7 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getWebBooked()
+    public function getWebBooked(): int
     {
         return $this->container['WebBooked'];
     }
@@ -427,7 +439,9 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setWebBooked($WebBooked): self
+
+
+    public function setWebBooked(int $WebBooked): static
     {
         $this->container['WebBooked'] = $WebBooked;
 
@@ -439,7 +453,7 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getSemesterId()
+    public function getSemesterId(): int
     {
         return $this->container['SemesterId'];
     }
@@ -451,7 +465,9 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSemesterId($SemesterId): self
+
+
+    public function setSemesterId(int $SemesterId): static
     {
         $this->container['SemesterId'] = $SemesterId;
 
@@ -463,7 +479,7 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getIsCanceled()
+    public function getIsCanceled(): bool
     {
         return $this->container['IsCanceled'];
     }
@@ -475,7 +491,9 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setIsCanceled($IsCanceled): self
+
+
+    public function setIsCanceled(bool $IsCanceled): static
     {
         $this->container['IsCanceled'] = $IsCanceled;
 
@@ -487,7 +505,7 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getSubstitute()
+    public function getSubstitute(): bool
     {
         return $this->container['Substitute'];
     }
@@ -499,7 +517,9 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSubstitute($Substitute): self
+
+
+    public function setSubstitute(bool $Substitute): static
     {
         $this->container['Substitute'] = $Substitute;
 
@@ -511,7 +531,7 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getActive()
+    public function getActive(): bool
     {
         return $this->container['Active'];
     }
@@ -523,7 +543,9 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setActive($Active): self
+
+
+    public function setActive(bool $Active): static
     {
         $this->container['Active'] = $Active;
 
@@ -535,7 +557,7 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getIsWaitlistAvailable()
+    public function getIsWaitlistAvailable(): bool
     {
         return $this->container['IsWaitlistAvailable'];
     }
@@ -547,7 +569,9 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setIsWaitlistAvailable($IsWaitlistAvailable): self
+
+
+    public function setIsWaitlistAvailable(bool $IsWaitlistAvailable): static
     {
         $this->container['IsWaitlistAvailable'] = $IsWaitlistAvailable;
 
@@ -559,7 +583,7 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getHideCancel()
+    public function getHideCancel(): bool
     {
         return $this->container['HideCancel'];
     }
@@ -571,7 +595,9 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setHideCancel($HideCancel): self
+
+
+    public function setHideCancel(bool $HideCancel): static
     {
         $this->container['HideCancel'] = $HideCancel;
 
@@ -583,7 +609,7 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -595,7 +621,9 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -607,7 +635,7 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getIsAvailable()
+    public function getIsAvailable(): bool
     {
         return $this->container['IsAvailable'];
     }
@@ -619,7 +647,9 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setIsAvailable($IsAvailable): self
+
+
+    public function setIsAvailable(bool $IsAvailable): static
     {
         $this->container['IsAvailable'] = $IsAvailable;
 
@@ -631,7 +661,7 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getStartDateTime()
+    public function getStartDateTime(): \DateTime
     {
         return $this->container['StartDateTime'];
     }
@@ -643,7 +673,9 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setStartDateTime($StartDateTime): self
+
+
+    public function setStartDateTime(\DateTime $StartDateTime): static
     {
         $this->container['StartDateTime'] = $StartDateTime;
 
@@ -655,7 +687,7 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getEndDateTime()
+    public function getEndDateTime(): \DateTime
     {
         return $this->container['EndDateTime'];
     }
@@ -667,7 +699,9 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setEndDateTime($EndDateTime): self
+
+
+    public function setEndDateTime(\DateTime $EndDateTime): static
     {
         $this->container['EndDateTime'] = $EndDateTime;
 
@@ -679,7 +713,7 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getLastModifiedDateTime()
+    public function getLastModifiedDateTime(): \DateTime
     {
         return $this->container['LastModifiedDateTime'];
     }
@@ -691,7 +725,9 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setLastModifiedDateTime($LastModifiedDateTime): self
+
+
+    public function setLastModifiedDateTime(\DateTime $LastModifiedDateTime): static
     {
         $this->container['LastModifiedDateTime'] = $LastModifiedDateTime;
 
@@ -703,7 +739,7 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\ClassDescription
      */
-    public function getClassDescription()
+    public function getClassDescription(): \Nlocascio\Mindbody\Model\ClassDescription
     {
         return $this->container['ClassDescription'];
     }
@@ -715,7 +751,9 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setClassDescription($ClassDescription): self
+
+
+    public function setClassDescription(\Nlocascio\Mindbody\Model\ClassDescription $ClassDescription): static
     {
         $this->container['ClassDescription'] = $ClassDescription;
 
@@ -727,7 +765,7 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\Staff
      */
-    public function getStaff()
+    public function getStaff(): \Nlocascio\Mindbody\Model\Staff
     {
         return $this->container['Staff'];
     }
@@ -739,7 +777,9 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setStaff($Staff): self
+
+
+    public function setStaff(\Nlocascio\Mindbody\Model\Staff $Staff): static
     {
         $this->container['Staff'] = $Staff;
 
@@ -751,7 +791,7 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getVirtualStreamLink()
+    public function getVirtualStreamLink(): string
     {
         return $this->container['VirtualStreamLink'];
     }
@@ -763,7 +803,9 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setVirtualStreamLink($VirtualStreamLink): self
+
+
+    public function setVirtualStreamLink(string $VirtualStreamLink): static
     {
         $this->container['VirtualStreamLink'] = $VirtualStreamLink;
 

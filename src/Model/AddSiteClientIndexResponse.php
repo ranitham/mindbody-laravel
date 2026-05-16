@@ -56,14 +56,14 @@ class AddSiteClientIndexResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AddSiteClientIndexResponse';
+    protected static string $swaggerModelName = 'AddSiteClientIndexResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ClientIndexID' => 'int',
         'ClientIndexName' => 'string',
         'Active' => 'bool',
@@ -81,7 +81,7 @@ class AddSiteClientIndexResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ClientIndexID' => 'int32',
         'ClientIndexName' => null,
         'Active' => null,
@@ -101,7 +101,7 @@ class AddSiteClientIndexResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ClientIndexID' => 'ClientIndexID',
         'ClientIndexName' => 'ClientIndexName',
         'Active' => 'Active',
@@ -119,7 +119,7 @@ class AddSiteClientIndexResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ClientIndexID' => 'setClientIndexID',
         'ClientIndexName' => 'setClientIndexName',
         'Active' => 'setActive',
@@ -137,7 +137,7 @@ class AddSiteClientIndexResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ClientIndexID' => 'getClientIndexID',
         'ClientIndexName' => 'getClientIndexName',
         'Active' => 'getActive',
@@ -161,7 +161,7 @@ class AddSiteClientIndexResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ClientIndexID'] = isset($data['ClientIndexID']) ? $data['ClientIndexID'] : null;
         $this->container['ClientIndexName'] = isset($data['ClientIndexName']) ? $data['ClientIndexName'] : null;
@@ -193,7 +193,7 @@ class AddSiteClientIndexResponse extends BaseModel
      *
      * @return int
      */
-    public function getClientIndexID()
+    public function getClientIndexID(): int
     {
         return $this->container['ClientIndexID'];
     }
@@ -205,7 +205,9 @@ class AddSiteClientIndexResponse extends BaseModel
      *
      * @return $this
      */
-    public function setClientIndexID($ClientIndexID): self
+
+
+    public function setClientIndexID(int $ClientIndexID): static
     {
         $this->container['ClientIndexID'] = $ClientIndexID;
 
@@ -217,7 +219,7 @@ class AddSiteClientIndexResponse extends BaseModel
      *
      * @return string
      */
-    public function getClientIndexName()
+    public function getClientIndexName(): string
     {
         return $this->container['ClientIndexName'];
     }
@@ -229,7 +231,9 @@ class AddSiteClientIndexResponse extends BaseModel
      *
      * @return $this
      */
-    public function setClientIndexName($ClientIndexName): self
+
+
+    public function setClientIndexName(string $ClientIndexName): static
     {
         $this->container['ClientIndexName'] = $ClientIndexName;
 
@@ -241,7 +245,7 @@ class AddSiteClientIndexResponse extends BaseModel
      *
      * @return bool
      */
-    public function getActive()
+    public function getActive(): bool
     {
         return $this->container['Active'];
     }
@@ -253,7 +257,9 @@ class AddSiteClientIndexResponse extends BaseModel
      *
      * @return $this
      */
-    public function setActive($Active): self
+
+
+    public function setActive(bool $Active): static
     {
         $this->container['Active'] = $Active;
 
@@ -265,7 +271,7 @@ class AddSiteClientIndexResponse extends BaseModel
      *
      * @return bool
      */
-    public function getShowOnNewClient()
+    public function getShowOnNewClient(): bool
     {
         return $this->container['ShowOnNewClient'];
     }
@@ -277,7 +283,9 @@ class AddSiteClientIndexResponse extends BaseModel
      *
      * @return $this
      */
-    public function setShowOnNewClient($ShowOnNewClient): self
+
+
+    public function setShowOnNewClient(bool $ShowOnNewClient): static
     {
         $this->container['ShowOnNewClient'] = $ShowOnNewClient;
 
@@ -289,7 +297,7 @@ class AddSiteClientIndexResponse extends BaseModel
      *
      * @return bool
      */
-    public function getShowOnEnrollmentRoster()
+    public function getShowOnEnrollmentRoster(): bool
     {
         return $this->container['ShowOnEnrollmentRoster'];
     }
@@ -301,7 +309,9 @@ class AddSiteClientIndexResponse extends BaseModel
      *
      * @return $this
      */
-    public function setShowOnEnrollmentRoster($ShowOnEnrollmentRoster): self
+
+
+    public function setShowOnEnrollmentRoster(bool $ShowOnEnrollmentRoster): static
     {
         $this->container['ShowOnEnrollmentRoster'] = $ShowOnEnrollmentRoster;
 
@@ -313,7 +323,7 @@ class AddSiteClientIndexResponse extends BaseModel
      *
      * @return bool
      */
-    public function getEditOnEnrollmentRoster()
+    public function getEditOnEnrollmentRoster(): bool
     {
         return $this->container['EditOnEnrollmentRoster'];
     }
@@ -325,7 +335,9 @@ class AddSiteClientIndexResponse extends BaseModel
      *
      * @return $this
      */
-    public function setEditOnEnrollmentRoster($EditOnEnrollmentRoster): self
+
+
+    public function setEditOnEnrollmentRoster(bool $EditOnEnrollmentRoster): static
     {
         $this->container['EditOnEnrollmentRoster'] = $EditOnEnrollmentRoster;
 
@@ -337,7 +349,7 @@ class AddSiteClientIndexResponse extends BaseModel
      *
      * @return int
      */
-    public function getSortOrder()
+    public function getSortOrder(): int
     {
         return $this->container['SortOrder'];
     }
@@ -349,7 +361,9 @@ class AddSiteClientIndexResponse extends BaseModel
      *
      * @return $this
      */
-    public function setSortOrder($SortOrder): self
+
+
+    public function setSortOrder(int $SortOrder): static
     {
         $this->container['SortOrder'] = $SortOrder;
 
@@ -361,7 +375,7 @@ class AddSiteClientIndexResponse extends BaseModel
      *
      * @return bool
      */
-    public function getShowInConsumerMode()
+    public function getShowInConsumerMode(): bool
     {
         return $this->container['ShowInConsumerMode'];
     }
@@ -373,7 +387,9 @@ class AddSiteClientIndexResponse extends BaseModel
      *
      * @return $this
      */
-    public function setShowInConsumerMode($ShowInConsumerMode): self
+
+
+    public function setShowInConsumerMode(bool $ShowInConsumerMode): static
     {
         $this->container['ShowInConsumerMode'] = $ShowInConsumerMode;
 
@@ -385,7 +401,7 @@ class AddSiteClientIndexResponse extends BaseModel
      *
      * @return bool
      */
-    public function getRequiredConsumerMode()
+    public function getRequiredConsumerMode(): bool
     {
         return $this->container['RequiredConsumerMode'];
     }
@@ -397,7 +413,9 @@ class AddSiteClientIndexResponse extends BaseModel
      *
      * @return $this
      */
-    public function setRequiredConsumerMode($RequiredConsumerMode): self
+
+
+    public function setRequiredConsumerMode(bool $RequiredConsumerMode): static
     {
         $this->container['RequiredConsumerMode'] = $RequiredConsumerMode;
 
@@ -409,7 +427,7 @@ class AddSiteClientIndexResponse extends BaseModel
      *
      * @return bool
      */
-    public function getRequiredBizMode()
+    public function getRequiredBizMode(): bool
     {
         return $this->container['RequiredBizMode'];
     }
@@ -421,7 +439,9 @@ class AddSiteClientIndexResponse extends BaseModel
      *
      * @return $this
      */
-    public function setRequiredBizMode($RequiredBizMode): self
+
+
+    public function setRequiredBizMode(bool $RequiredBizMode): static
     {
         $this->container['RequiredBizMode'] = $RequiredBizMode;
 

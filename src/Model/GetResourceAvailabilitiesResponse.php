@@ -48,14 +48,14 @@ class GetResourceAvailabilitiesResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetResourceAvailabilitiesResponse';
+    protected static string $swaggerModelName = 'GetResourceAvailabilitiesResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'PaginationResponse' => '\Nlocascio\Mindbody\Model\PaginationResponse',
         'ResourceAvailabilities' => '\Nlocascio\Mindbody\Model\ResourceAvailability[]'
     ];
@@ -65,7 +65,7 @@ class GetResourceAvailabilitiesResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'PaginationResponse' => null,
         'ResourceAvailabilities' => null
     ];
@@ -77,7 +77,7 @@ class GetResourceAvailabilitiesResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'PaginationResponse' => 'PaginationResponse',
         'ResourceAvailabilities' => 'ResourceAvailabilities'
     ];
@@ -87,7 +87,7 @@ class GetResourceAvailabilitiesResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'PaginationResponse' => 'setPaginationResponse',
         'ResourceAvailabilities' => 'setResourceAvailabilities'
     ];
@@ -97,7 +97,7 @@ class GetResourceAvailabilitiesResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'PaginationResponse' => 'getPaginationResponse',
         'ResourceAvailabilities' => 'getResourceAvailabilities'
     ];
@@ -113,7 +113,7 @@ class GetResourceAvailabilitiesResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['PaginationResponse'] = isset($data['PaginationResponse']) ? $data['PaginationResponse'] : null;
         $this->container['ResourceAvailabilities'] = isset($data['ResourceAvailabilities']) ? $data['ResourceAvailabilities'] : null;
@@ -137,7 +137,7 @@ class GetResourceAvailabilitiesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse()
+    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
     {
         return $this->container['PaginationResponse'];
     }
@@ -149,7 +149,9 @@ class GetResourceAvailabilitiesResponse extends BaseModel
      *
      * @return $this
      */
-    public function setPaginationResponse($PaginationResponse): self
+
+
+    public function setPaginationResponse(\Nlocascio\Mindbody\Model\PaginationResponse $PaginationResponse): static
     {
         $this->container['PaginationResponse'] = $PaginationResponse;
 
@@ -161,7 +163,7 @@ class GetResourceAvailabilitiesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ResourceAvailability[]
      */
-    public function getResourceAvailabilities()
+    public function getResourceAvailabilities(): array
     {
         return $this->container['ResourceAvailabilities'];
     }
@@ -173,7 +175,9 @@ class GetResourceAvailabilitiesResponse extends BaseModel
      *
      * @return $this
      */
-    public function setResourceAvailabilities($ResourceAvailabilities): self
+
+
+    public function setResourceAvailabilities(array $ResourceAvailabilities): static
     {
         $this->container['ResourceAvailabilities'] = $ResourceAvailabilities;
 

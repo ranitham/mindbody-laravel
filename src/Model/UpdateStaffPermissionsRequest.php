@@ -48,14 +48,14 @@ class UpdateStaffPermissionsRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UpdateStaffPermissionsRequest';
+    protected static string $swaggerModelName = 'UpdateStaffPermissionsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'StaffId' => 'int',
         'PermissionGroupName' => 'string'
     ];
@@ -65,7 +65,7 @@ class UpdateStaffPermissionsRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'StaffId' => 'int64',
         'PermissionGroupName' => null
     ];
@@ -77,7 +77,7 @@ class UpdateStaffPermissionsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'StaffId' => 'StaffId',
         'PermissionGroupName' => 'PermissionGroupName'
     ];
@@ -87,7 +87,7 @@ class UpdateStaffPermissionsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'StaffId' => 'setStaffId',
         'PermissionGroupName' => 'setPermissionGroupName'
     ];
@@ -97,7 +97,7 @@ class UpdateStaffPermissionsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'StaffId' => 'getStaffId',
         'PermissionGroupName' => 'getPermissionGroupName'
     ];
@@ -113,7 +113,7 @@ class UpdateStaffPermissionsRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['StaffId'] = isset($data['StaffId']) ? $data['StaffId'] : null;
         $this->container['PermissionGroupName'] = isset($data['PermissionGroupName']) ? $data['PermissionGroupName'] : null;
@@ -143,7 +143,7 @@ class UpdateStaffPermissionsRequest extends BaseModel
      *
      * @return int
      */
-    public function getStaffId()
+    public function getStaffId(): int
     {
         return $this->container['StaffId'];
     }
@@ -155,7 +155,9 @@ class UpdateStaffPermissionsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStaffId($StaffId): self
+
+
+    public function setStaffId(int $StaffId): static
     {
         $this->container['StaffId'] = $StaffId;
 
@@ -167,7 +169,7 @@ class UpdateStaffPermissionsRequest extends BaseModel
      *
      * @return string
      */
-    public function getPermissionGroupName()
+    public function getPermissionGroupName(): string
     {
         return $this->container['PermissionGroupName'];
     }
@@ -179,7 +181,9 @@ class UpdateStaffPermissionsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setPermissionGroupName($PermissionGroupName): self
+
+
+    public function setPermissionGroupName(string $PermissionGroupName): static
     {
         $this->container['PermissionGroupName'] = $PermissionGroupName;
 

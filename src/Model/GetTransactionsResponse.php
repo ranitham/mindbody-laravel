@@ -49,14 +49,14 @@ class GetTransactionsResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetTransactionsResponse';
+    protected static string $swaggerModelName = 'GetTransactionsResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'PaginationResponse' => '\Nlocascio\Mindbody\Model\PaginationResponse',
         'Transactions' => '\Nlocascio\Mindbody\Model\Transaction[]'
     ];
@@ -66,7 +66,7 @@ class GetTransactionsResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'PaginationResponse' => null,
         'Transactions' => null
     ];
@@ -78,7 +78,7 @@ class GetTransactionsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'PaginationResponse' => 'PaginationResponse',
         'Transactions' => 'Transactions'
     ];
@@ -88,7 +88,7 @@ class GetTransactionsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'PaginationResponse' => 'setPaginationResponse',
         'Transactions' => 'setTransactions'
     ];
@@ -98,7 +98,7 @@ class GetTransactionsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'PaginationResponse' => 'getPaginationResponse',
         'Transactions' => 'getTransactions'
     ];
@@ -114,7 +114,7 @@ class GetTransactionsResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['PaginationResponse'] = isset($data['PaginationResponse']) ? $data['PaginationResponse'] : null;
         $this->container['Transactions'] = isset($data['Transactions']) ? $data['Transactions'] : null;
@@ -138,7 +138,7 @@ class GetTransactionsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse()
+    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
     {
         return $this->container['PaginationResponse'];
     }
@@ -150,7 +150,9 @@ class GetTransactionsResponse extends BaseModel
      *
      * @return $this
      */
-    public function setPaginationResponse($PaginationResponse): self
+
+
+    public function setPaginationResponse(\Nlocascio\Mindbody\Model\PaginationResponse $PaginationResponse): static
     {
         $this->container['PaginationResponse'] = $PaginationResponse;
 
@@ -162,7 +164,7 @@ class GetTransactionsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Transaction[]
      */
-    public function getTransactions()
+    public function getTransactions(): array
     {
         return $this->container['Transactions'];
     }
@@ -174,7 +176,9 @@ class GetTransactionsResponse extends BaseModel
      *
      * @return $this
      */
-    public function setTransactions($Transactions): self
+
+
+    public function setTransactions(array $Transactions): static
     {
         $this->container['Transactions'] = $Transactions;
 

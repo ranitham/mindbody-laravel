@@ -49,14 +49,14 @@ class ClientMemberships extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ClientMemberships';
+    protected static string $swaggerModelName = 'ClientMemberships';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ClientId' => 'string',
         'Memberships' => '\Nlocascio\Mindbody\Model\ClientMembership[]',
         'ErrorMessage' => 'string'
@@ -67,7 +67,7 @@ class ClientMemberships extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ClientId' => null,
         'Memberships' => null,
         'ErrorMessage' => null
@@ -80,7 +80,7 @@ class ClientMemberships extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ClientId' => 'ClientId',
         'Memberships' => 'Memberships',
         'ErrorMessage' => 'ErrorMessage'
@@ -91,7 +91,7 @@ class ClientMemberships extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ClientId' => 'setClientId',
         'Memberships' => 'setMemberships',
         'ErrorMessage' => 'setErrorMessage'
@@ -102,7 +102,7 @@ class ClientMemberships extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ClientId' => 'getClientId',
         'Memberships' => 'getMemberships',
         'ErrorMessage' => 'getErrorMessage'
@@ -119,7 +119,7 @@ class ClientMemberships extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
         $this->container['Memberships'] = isset($data['Memberships']) ? $data['Memberships'] : null;
@@ -144,7 +144,7 @@ class ClientMemberships extends BaseModel
      *
      * @return string
      */
-    public function getClientId()
+    public function getClientId(): string
     {
         return $this->container['ClientId'];
     }
@@ -156,7 +156,9 @@ class ClientMemberships extends BaseModel
      *
      * @return $this
      */
-    public function setClientId($ClientId): self
+
+
+    public function setClientId(string $ClientId): static
     {
         $this->container['ClientId'] = $ClientId;
 
@@ -168,7 +170,7 @@ class ClientMemberships extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClientMembership[]
      */
-    public function getMemberships()
+    public function getMemberships(): array
     {
         return $this->container['Memberships'];
     }
@@ -180,7 +182,9 @@ class ClientMemberships extends BaseModel
      *
      * @return $this
      */
-    public function setMemberships($Memberships): self
+
+
+    public function setMemberships(array $Memberships): static
     {
         $this->container['Memberships'] = $Memberships;
 
@@ -192,7 +196,7 @@ class ClientMemberships extends BaseModel
      *
      * @return string
      */
-    public function getErrorMessage()
+    public function getErrorMessage(): string
     {
         return $this->container['ErrorMessage'];
     }
@@ -204,7 +208,9 @@ class ClientMemberships extends BaseModel
      *
      * @return $this
      */
-    public function setErrorMessage($ErrorMessage): self
+
+
+    public function setErrorMessage(string $ErrorMessage): static
     {
         $this->container['ErrorMessage'] = $ErrorMessage;
 

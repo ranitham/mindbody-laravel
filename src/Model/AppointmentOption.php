@@ -51,14 +51,14 @@ class AppointmentOption extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AppointmentOption';
+    protected static string $swaggerModelName = 'AppointmentOption';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'DisplayName' => 'string',
         'Name' => 'string',
         'Value' => 'string',
@@ -70,7 +70,7 @@ class AppointmentOption extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'DisplayName' => null,
         'Name' => null,
         'Value' => null,
@@ -84,7 +84,7 @@ class AppointmentOption extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'DisplayName' => 'DisplayName',
         'Name' => 'Name',
         'Value' => 'Value',
@@ -96,7 +96,7 @@ class AppointmentOption extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'DisplayName' => 'setDisplayName',
         'Name' => 'setName',
         'Value' => 'setValue',
@@ -108,7 +108,7 @@ class AppointmentOption extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'DisplayName' => 'getDisplayName',
         'Name' => 'getName',
         'Value' => 'getValue',
@@ -126,7 +126,7 @@ class AppointmentOption extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['DisplayName'] = isset($data['DisplayName']) ? $data['DisplayName'] : null;
         $this->container['Name'] = isset($data['Name']) ? $data['Name'] : null;
@@ -152,7 +152,7 @@ class AppointmentOption extends BaseModel
      *
      * @return string
      */
-    public function getDisplayName()
+    public function getDisplayName(): string
     {
         return $this->container['DisplayName'];
     }
@@ -164,7 +164,9 @@ class AppointmentOption extends BaseModel
      *
      * @return $this
      */
-    public function setDisplayName($DisplayName): self
+
+
+    public function setDisplayName(string $DisplayName): static
     {
         $this->container['DisplayName'] = $DisplayName;
 
@@ -176,7 +178,7 @@ class AppointmentOption extends BaseModel
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->container['Name'];
     }
@@ -188,7 +190,9 @@ class AppointmentOption extends BaseModel
      *
      * @return $this
      */
-    public function setName($Name): self
+
+
+    public function setName(string $Name): static
     {
         $this->container['Name'] = $Name;
 
@@ -200,7 +204,7 @@ class AppointmentOption extends BaseModel
      *
      * @return string
      */
-    public function getValue()
+    public function getValue(): string
     {
         return $this->container['Value'];
     }
@@ -212,7 +216,9 @@ class AppointmentOption extends BaseModel
      *
      * @return $this
      */
-    public function setValue($Value): self
+
+
+    public function setValue(string $Value): static
     {
         $this->container['Value'] = $Value;
 
@@ -224,7 +230,7 @@ class AppointmentOption extends BaseModel
      *
      * @return string
      */
-    public function getType()
+    public function getType(): string
     {
         return $this->container['Type'];
     }
@@ -236,7 +242,9 @@ class AppointmentOption extends BaseModel
      *
      * @return $this
      */
-    public function setType($Type): self
+
+
+    public function setType(string $Type): static
     {
         $this->container['Type'] = $Type;
 

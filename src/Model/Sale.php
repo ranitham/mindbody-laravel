@@ -49,7 +49,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property \Nlocascio\Mindbody\Model\SalePayment[] $Payments Contains the `SalePayment` objects that describe the payments that contributed to this sale.
  *
  */
-class Sale extends BaseModel implements ModelWithId
+class Sale extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -58,14 +58,14 @@ class Sale extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Sale';
+    protected static string $swaggerModelName = 'Sale';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Id' => 'int',
         'SaleDate' => '\DateTime',
         'SaleTime' => 'string',
@@ -84,7 +84,7 @@ class Sale extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Id' => 'int64',
         'SaleDate' => 'date-time',
         'SaleTime' => null,
@@ -105,7 +105,7 @@ class Sale extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Id' => 'Id',
         'SaleDate' => 'SaleDate',
         'SaleTime' => 'SaleTime',
@@ -124,7 +124,7 @@ class Sale extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Id' => 'setId',
         'SaleDate' => 'setSaleDate',
         'SaleTime' => 'setSaleTime',
@@ -143,7 +143,7 @@ class Sale extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Id' => 'getId',
         'SaleDate' => 'getSaleDate',
         'SaleTime' => 'getSaleTime',
@@ -168,7 +168,7 @@ class Sale extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
         $this->container['SaleDate'] = isset($data['SaleDate']) ? $data['SaleDate'] : null;
@@ -201,7 +201,7 @@ class Sale extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -213,7 +213,9 @@ class Sale extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -225,7 +227,7 @@ class Sale extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getSaleDate()
+    public function getSaleDate(): \DateTime
     {
         return $this->container['SaleDate'];
     }
@@ -237,7 +239,9 @@ class Sale extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSaleDate($SaleDate): self
+
+
+    public function setSaleDate(\DateTime $SaleDate): static
     {
         $this->container['SaleDate'] = $SaleDate;
 
@@ -249,7 +253,7 @@ class Sale extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getSaleTime()
+    public function getSaleTime(): string
     {
         return $this->container['SaleTime'];
     }
@@ -261,7 +265,9 @@ class Sale extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSaleTime($SaleTime): self
+
+
+    public function setSaleTime(string $SaleTime): static
     {
         $this->container['SaleTime'] = $SaleTime;
 
@@ -273,7 +279,7 @@ class Sale extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getSaleDateTime()
+    public function getSaleDateTime(): \DateTime
     {
         return $this->container['SaleDateTime'];
     }
@@ -285,7 +291,9 @@ class Sale extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSaleDateTime($SaleDateTime): self
+
+
+    public function setSaleDateTime(\DateTime $SaleDateTime): static
     {
         $this->container['SaleDateTime'] = $SaleDateTime;
 
@@ -297,7 +305,7 @@ class Sale extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getOriginalSaleDateTime()
+    public function getOriginalSaleDateTime(): \DateTime
     {
         return $this->container['OriginalSaleDateTime'];
     }
@@ -309,7 +317,9 @@ class Sale extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setOriginalSaleDateTime($OriginalSaleDateTime): self
+
+
+    public function setOriginalSaleDateTime(\DateTime $OriginalSaleDateTime): static
     {
         $this->container['OriginalSaleDateTime'] = $OriginalSaleDateTime;
 
@@ -321,7 +331,7 @@ class Sale extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getSalesRepId()
+    public function getSalesRepId(): int
     {
         return $this->container['SalesRepId'];
     }
@@ -333,7 +343,9 @@ class Sale extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSalesRepId($SalesRepId): self
+
+
+    public function setSalesRepId(int $SalesRepId): static
     {
         $this->container['SalesRepId'] = $SalesRepId;
 
@@ -345,7 +357,7 @@ class Sale extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getClientId()
+    public function getClientId(): string
     {
         return $this->container['ClientId'];
     }
@@ -357,7 +369,9 @@ class Sale extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setClientId($ClientId): self
+
+
+    public function setClientId(string $ClientId): static
     {
         $this->container['ClientId'] = $ClientId;
 
@@ -369,7 +383,7 @@ class Sale extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getRecipientClientId()
+    public function getRecipientClientId(): int
     {
         return $this->container['RecipientClientId'];
     }
@@ -381,7 +395,9 @@ class Sale extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setRecipientClientId($RecipientClientId): self
+
+
+    public function setRecipientClientId(int $RecipientClientId): static
     {
         $this->container['RecipientClientId'] = $RecipientClientId;
 
@@ -393,7 +409,7 @@ class Sale extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\PurchasedItem[]
      */
-    public function getPurchasedItems()
+    public function getPurchasedItems(): array
     {
         return $this->container['PurchasedItems'];
     }
@@ -405,7 +421,9 @@ class Sale extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setPurchasedItems($PurchasedItems): self
+
+
+    public function setPurchasedItems(array $PurchasedItems): static
     {
         $this->container['PurchasedItems'] = $PurchasedItems;
 
@@ -417,7 +435,7 @@ class Sale extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getLocationId()
+    public function getLocationId(): int
     {
         return $this->container['LocationId'];
     }
@@ -429,7 +447,9 @@ class Sale extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setLocationId($LocationId): self
+
+
+    public function setLocationId(int $LocationId): static
     {
         $this->container['LocationId'] = $LocationId;
 
@@ -441,7 +461,7 @@ class Sale extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\SalePayment[]
      */
-    public function getPayments()
+    public function getPayments(): array
     {
         return $this->container['Payments'];
     }
@@ -453,7 +473,9 @@ class Sale extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setPayments($Payments): self
+
+
+    public function setPayments(array $Payments): static
     {
         $this->container['Payments'] = $Payments;
 

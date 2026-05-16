@@ -53,14 +53,14 @@ class UpdateClientVisitRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UpdateClientVisitRequest';
+    protected static string $swaggerModelName = 'UpdateClientVisitRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'VisitId' => 'int',
         'Makeup' => 'bool',
         'SignedIn' => 'bool',
@@ -75,7 +75,7 @@ class UpdateClientVisitRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'VisitId' => 'int32',
         'Makeup' => null,
         'SignedIn' => null,
@@ -92,7 +92,7 @@ class UpdateClientVisitRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'VisitId' => 'VisitId',
         'Makeup' => 'Makeup',
         'SignedIn' => 'SignedIn',
@@ -107,7 +107,7 @@ class UpdateClientVisitRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'VisitId' => 'setVisitId',
         'Makeup' => 'setMakeup',
         'SignedIn' => 'setSignedIn',
@@ -122,7 +122,7 @@ class UpdateClientVisitRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'VisitId' => 'getVisitId',
         'Makeup' => 'getMakeup',
         'SignedIn' => 'getSignedIn',
@@ -143,7 +143,7 @@ class UpdateClientVisitRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['VisitId'] = isset($data['VisitId']) ? $data['VisitId'] : null;
         $this->container['Makeup'] = isset($data['Makeup']) ? $data['Makeup'] : null;
@@ -175,7 +175,7 @@ class UpdateClientVisitRequest extends BaseModel
      *
      * @return int
      */
-    public function getVisitId()
+    public function getVisitId(): int
     {
         return $this->container['VisitId'];
     }
@@ -187,7 +187,9 @@ class UpdateClientVisitRequest extends BaseModel
      *
      * @return $this
      */
-    public function setVisitId($VisitId): self
+
+
+    public function setVisitId(int $VisitId): static
     {
         $this->container['VisitId'] = $VisitId;
 
@@ -199,7 +201,7 @@ class UpdateClientVisitRequest extends BaseModel
      *
      * @return bool
      */
-    public function getMakeup()
+    public function getMakeup(): bool
     {
         return $this->container['Makeup'];
     }
@@ -211,7 +213,9 @@ class UpdateClientVisitRequest extends BaseModel
      *
      * @return $this
      */
-    public function setMakeup($Makeup): self
+
+
+    public function setMakeup(bool $Makeup): static
     {
         $this->container['Makeup'] = $Makeup;
 
@@ -223,7 +227,7 @@ class UpdateClientVisitRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSignedIn()
+    public function getSignedIn(): bool
     {
         return $this->container['SignedIn'];
     }
@@ -235,7 +239,9 @@ class UpdateClientVisitRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSignedIn($SignedIn): self
+
+
+    public function setSignedIn(bool $SignedIn): static
     {
         $this->container['SignedIn'] = $SignedIn;
 
@@ -247,7 +253,7 @@ class UpdateClientVisitRequest extends BaseModel
      *
      * @return int
      */
-    public function getClientServiceId()
+    public function getClientServiceId(): int
     {
         return $this->container['ClientServiceId'];
     }
@@ -259,7 +265,9 @@ class UpdateClientVisitRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClientServiceId($ClientServiceId): self
+
+
+    public function setClientServiceId(int $ClientServiceId): static
     {
         $this->container['ClientServiceId'] = $ClientServiceId;
 
@@ -271,7 +279,7 @@ class UpdateClientVisitRequest extends BaseModel
      *
      * @return string
      */
-    public function getExecute()
+    public function getExecute(): string
     {
         return $this->container['Execute'];
     }
@@ -283,7 +291,9 @@ class UpdateClientVisitRequest extends BaseModel
      *
      * @return $this
      */
-    public function setExecute($Execute): self
+
+
+    public function setExecute(string $Execute): static
     {
         $this->container['Execute'] = $Execute;
 
@@ -295,7 +305,7 @@ class UpdateClientVisitRequest extends BaseModel
      *
      * @return bool
      */
-    public function getTest()
+    public function getTest(): bool
     {
         return $this->container['Test'];
     }
@@ -307,7 +317,9 @@ class UpdateClientVisitRequest extends BaseModel
      *
      * @return $this
      */
-    public function setTest($Test): self
+
+
+    public function setTest(bool $Test): static
     {
         $this->container['Test'] = $Test;
 
@@ -319,7 +331,7 @@ class UpdateClientVisitRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSendEmail()
+    public function getSendEmail(): bool
     {
         return $this->container['SendEmail'];
     }
@@ -331,7 +343,9 @@ class UpdateClientVisitRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSendEmail($SendEmail): self
+
+
+    public function setSendEmail(bool $SendEmail): static
     {
         $this->container['SendEmail'] = $SendEmail;
 

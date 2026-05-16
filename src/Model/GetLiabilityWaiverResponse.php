@@ -47,14 +47,14 @@ class GetLiabilityWaiverResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetLiabilityWaiverResponse';
+    protected static string $swaggerModelName = 'GetLiabilityWaiverResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'LiabilityWaiver' => 'string'
     ];
 
@@ -63,7 +63,7 @@ class GetLiabilityWaiverResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'LiabilityWaiver' => null
     ];
 
@@ -74,7 +74,7 @@ class GetLiabilityWaiverResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'LiabilityWaiver' => 'LiabilityWaiver'
     ];
 
@@ -83,7 +83,7 @@ class GetLiabilityWaiverResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'LiabilityWaiver' => 'setLiabilityWaiver'
     ];
 
@@ -92,7 +92,7 @@ class GetLiabilityWaiverResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'LiabilityWaiver' => 'getLiabilityWaiver'
     ];
 
@@ -107,7 +107,7 @@ class GetLiabilityWaiverResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['LiabilityWaiver'] = isset($data['LiabilityWaiver']) ? $data['LiabilityWaiver'] : null;
     }
@@ -130,7 +130,7 @@ class GetLiabilityWaiverResponse extends BaseModel
      *
      * @return string
      */
-    public function getLiabilityWaiver()
+    public function getLiabilityWaiver(): string
     {
         return $this->container['LiabilityWaiver'];
     }
@@ -142,7 +142,9 @@ class GetLiabilityWaiverResponse extends BaseModel
      *
      * @return $this
      */
-    public function setLiabilityWaiver($LiabilityWaiver): self
+
+
+    public function setLiabilityWaiver(string $LiabilityWaiver): static
     {
         $this->container['LiabilityWaiver'] = $LiabilityWaiver;
 

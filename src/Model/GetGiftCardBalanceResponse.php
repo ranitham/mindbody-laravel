@@ -48,14 +48,14 @@ class GetGiftCardBalanceResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetGiftCardBalanceResponse';
+    protected static string $swaggerModelName = 'GetGiftCardBalanceResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'BarcodeId' => 'string',
         'RemainingBalance' => 'double'
     ];
@@ -65,7 +65,7 @@ class GetGiftCardBalanceResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'BarcodeId' => null,
         'RemainingBalance' => 'double'
     ];
@@ -77,7 +77,7 @@ class GetGiftCardBalanceResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'BarcodeId' => 'BarcodeId',
         'RemainingBalance' => 'RemainingBalance'
     ];
@@ -87,7 +87,7 @@ class GetGiftCardBalanceResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'BarcodeId' => 'setBarcodeId',
         'RemainingBalance' => 'setRemainingBalance'
     ];
@@ -97,7 +97,7 @@ class GetGiftCardBalanceResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'BarcodeId' => 'getBarcodeId',
         'RemainingBalance' => 'getRemainingBalance'
     ];
@@ -113,7 +113,7 @@ class GetGiftCardBalanceResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['BarcodeId'] = isset($data['BarcodeId']) ? $data['BarcodeId'] : null;
         $this->container['RemainingBalance'] = isset($data['RemainingBalance']) ? $data['RemainingBalance'] : null;
@@ -137,7 +137,7 @@ class GetGiftCardBalanceResponse extends BaseModel
      *
      * @return string
      */
-    public function getBarcodeId()
+    public function getBarcodeId(): string
     {
         return $this->container['BarcodeId'];
     }
@@ -149,7 +149,9 @@ class GetGiftCardBalanceResponse extends BaseModel
      *
      * @return $this
      */
-    public function setBarcodeId($BarcodeId): self
+
+
+    public function setBarcodeId(string $BarcodeId): static
     {
         $this->container['BarcodeId'] = $BarcodeId;
 
@@ -161,7 +163,7 @@ class GetGiftCardBalanceResponse extends BaseModel
      *
      * @return double
      */
-    public function getRemainingBalance()
+    public function getRemainingBalance(): float
     {
         return $this->container['RemainingBalance'];
     }
@@ -173,7 +175,9 @@ class GetGiftCardBalanceResponse extends BaseModel
      *
      * @return $this
      */
-    public function setRemainingBalance($RemainingBalance): self
+
+
+    public function setRemainingBalance(float $RemainingBalance): static
     {
         $this->container['RemainingBalance'] = $RemainingBalance;
 

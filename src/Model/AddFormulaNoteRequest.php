@@ -49,14 +49,14 @@ class AddFormulaNoteRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AddFormulaNoteRequest';
+    protected static string $swaggerModelName = 'AddFormulaNoteRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ClientId' => 'string',
         'AppointmentId' => 'int',
         'Note' => 'string'
@@ -67,7 +67,7 @@ class AddFormulaNoteRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ClientId' => null,
         'AppointmentId' => 'int64',
         'Note' => null
@@ -80,7 +80,7 @@ class AddFormulaNoteRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ClientId' => 'ClientId',
         'AppointmentId' => 'AppointmentId',
         'Note' => 'Note'
@@ -91,7 +91,7 @@ class AddFormulaNoteRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ClientId' => 'setClientId',
         'AppointmentId' => 'setAppointmentId',
         'Note' => 'setNote'
@@ -102,7 +102,7 @@ class AddFormulaNoteRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ClientId' => 'getClientId',
         'AppointmentId' => 'getAppointmentId',
         'Note' => 'getNote'
@@ -119,7 +119,7 @@ class AddFormulaNoteRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
         $this->container['AppointmentId'] = isset($data['AppointmentId']) ? $data['AppointmentId'] : null;
@@ -150,7 +150,7 @@ class AddFormulaNoteRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId()
+    public function getClientId(): string
     {
         return $this->container['ClientId'];
     }
@@ -162,7 +162,9 @@ class AddFormulaNoteRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClientId($ClientId): self
+
+
+    public function setClientId(string $ClientId): static
     {
         $this->container['ClientId'] = $ClientId;
 
@@ -174,7 +176,7 @@ class AddFormulaNoteRequest extends BaseModel
      *
      * @return int
      */
-    public function getAppointmentId()
+    public function getAppointmentId(): int
     {
         return $this->container['AppointmentId'];
     }
@@ -186,7 +188,9 @@ class AddFormulaNoteRequest extends BaseModel
      *
      * @return $this
      */
-    public function setAppointmentId($AppointmentId): self
+
+
+    public function setAppointmentId(int $AppointmentId): static
     {
         $this->container['AppointmentId'] = $AppointmentId;
 
@@ -198,7 +202,7 @@ class AddFormulaNoteRequest extends BaseModel
      *
      * @return string
      */
-    public function getNote()
+    public function getNote(): string
     {
         return $this->container['Note'];
     }
@@ -210,7 +214,9 @@ class AddFormulaNoteRequest extends BaseModel
      *
      * @return $this
      */
-    public function setNote($Note): self
+
+
+    public function setNote(string $Note): static
     {
         $this->container['Note'] = $Note;
 

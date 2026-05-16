@@ -50,14 +50,14 @@ class GetClientFormulaNotesRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetClientFormulaNotesRequest';
+    protected static string $swaggerModelName = 'GetClientFormulaNotesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ClientId' => 'string',
         'AppointmentId' => 'int',
         'Limit' => 'int',
@@ -69,7 +69,7 @@ class GetClientFormulaNotesRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ClientId' => null,
         'AppointmentId' => 'int64',
         'Limit' => 'int32',
@@ -83,7 +83,7 @@ class GetClientFormulaNotesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ClientId' => 'ClientId',
         'AppointmentId' => 'AppointmentId',
         'Limit' => 'Limit',
@@ -95,7 +95,7 @@ class GetClientFormulaNotesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ClientId' => 'setClientId',
         'AppointmentId' => 'setAppointmentId',
         'Limit' => 'setLimit',
@@ -107,7 +107,7 @@ class GetClientFormulaNotesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ClientId' => 'getClientId',
         'AppointmentId' => 'getAppointmentId',
         'Limit' => 'getLimit',
@@ -125,7 +125,7 @@ class GetClientFormulaNotesRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
         $this->container['AppointmentId'] = isset($data['AppointmentId']) ? $data['AppointmentId'] : null;
@@ -151,7 +151,7 @@ class GetClientFormulaNotesRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId()
+    public function getClientId(): string
     {
         return $this->container['ClientId'];
     }
@@ -163,7 +163,9 @@ class GetClientFormulaNotesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClientId($ClientId): self
+
+
+    public function setClientId(string $ClientId): static
     {
         $this->container['ClientId'] = $ClientId;
 
@@ -175,7 +177,7 @@ class GetClientFormulaNotesRequest extends BaseModel
      *
      * @return int
      */
-    public function getAppointmentId()
+    public function getAppointmentId(): int
     {
         return $this->container['AppointmentId'];
     }
@@ -187,7 +189,9 @@ class GetClientFormulaNotesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setAppointmentId($AppointmentId): self
+
+
+    public function setAppointmentId(int $AppointmentId): static
     {
         $this->container['AppointmentId'] = $AppointmentId;
 
@@ -199,7 +203,7 @@ class GetClientFormulaNotesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit()
+    public function getLimit(): int
     {
         return $this->container['Limit'];
     }
@@ -211,7 +215,9 @@ class GetClientFormulaNotesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLimit($Limit): self
+
+
+    public function setLimit(int $Limit): static
     {
         $this->container['Limit'] = $Limit;
 
@@ -223,7 +229,7 @@ class GetClientFormulaNotesRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset()
+    public function getOffset(): int
     {
         return $this->container['Offset'];
     }
@@ -235,7 +241,9 @@ class GetClientFormulaNotesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOffset($Offset): self
+
+
+    public function setOffset(int $Offset): static
     {
         $this->container['Offset'] = $Offset;
 

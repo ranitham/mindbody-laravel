@@ -53,14 +53,14 @@ class ClientRewardTransaction extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ClientRewardTransaction';
+    protected static string $swaggerModelName = 'ClientRewardTransaction';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ActionDateTime' => '\DateTime',
         'Action' => 'string',
         'Source' => 'string',
@@ -74,7 +74,7 @@ class ClientRewardTransaction extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ActionDateTime' => 'date-time',
         'Action' => null,
         'Source' => null,
@@ -90,7 +90,7 @@ class ClientRewardTransaction extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ActionDateTime' => 'ActionDateTime',
         'Action' => 'Action',
         'Source' => 'Source',
@@ -104,7 +104,7 @@ class ClientRewardTransaction extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ActionDateTime' => 'setActionDateTime',
         'Action' => 'setAction',
         'Source' => 'setSource',
@@ -118,7 +118,7 @@ class ClientRewardTransaction extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ActionDateTime' => 'getActionDateTime',
         'Action' => 'getAction',
         'Source' => 'getSource',
@@ -159,7 +159,7 @@ class ClientRewardTransaction extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ActionDateTime'] = isset($data['ActionDateTime']) ? $data['ActionDateTime'] : null;
         $this->container['Action'] = isset($data['Action']) ? $data['Action'] : null;
@@ -195,7 +195,7 @@ class ClientRewardTransaction extends BaseModel
      *
      * @return \DateTime
      */
-    public function getActionDateTime()
+    public function getActionDateTime(): \DateTime
     {
         return $this->container['ActionDateTime'];
     }
@@ -207,7 +207,9 @@ class ClientRewardTransaction extends BaseModel
      *
      * @return $this
      */
-    public function setActionDateTime($ActionDateTime): self
+
+
+    public function setActionDateTime(\DateTime $ActionDateTime): static
     {
         $this->container['ActionDateTime'] = $ActionDateTime;
 
@@ -219,7 +221,7 @@ class ClientRewardTransaction extends BaseModel
      *
      * @return string
      */
-    public function getAction()
+    public function getAction(): string
     {
         return $this->container['Action'];
     }
@@ -231,7 +233,9 @@ class ClientRewardTransaction extends BaseModel
      *
      * @return $this
      */
-    public function setAction($Action): self
+
+
+    public function setAction(string $Action): static
     {
         $allowedValues = $this->getActionAllowableValues();
         if (!is_null($Action) && !in_array($Action, $allowedValues, true)) {
@@ -252,7 +256,7 @@ class ClientRewardTransaction extends BaseModel
      *
      * @return string
      */
-    public function getSource()
+    public function getSource(): string
     {
         return $this->container['Source'];
     }
@@ -264,7 +268,9 @@ class ClientRewardTransaction extends BaseModel
      *
      * @return $this
      */
-    public function setSource($Source): self
+
+
+    public function setSource(string $Source): static
     {
         $this->container['Source'] = $Source;
 
@@ -276,7 +282,7 @@ class ClientRewardTransaction extends BaseModel
      *
      * @return int
      */
-    public function getSourceID()
+    public function getSourceID(): int
     {
         return $this->container['SourceID'];
     }
@@ -288,7 +294,9 @@ class ClientRewardTransaction extends BaseModel
      *
      * @return $this
      */
-    public function setSourceID($SourceID): self
+
+
+    public function setSourceID(int $SourceID): static
     {
         $this->container['SourceID'] = $SourceID;
 
@@ -300,7 +308,7 @@ class ClientRewardTransaction extends BaseModel
      *
      * @return \DateTime
      */
-    public function getExpirationDateTime()
+    public function getExpirationDateTime(): \DateTime
     {
         return $this->container['ExpirationDateTime'];
     }
@@ -312,7 +320,9 @@ class ClientRewardTransaction extends BaseModel
      *
      * @return $this
      */
-    public function setExpirationDateTime($ExpirationDateTime): self
+
+
+    public function setExpirationDateTime(\DateTime $ExpirationDateTime): static
     {
         $this->container['ExpirationDateTime'] = $ExpirationDateTime;
 
@@ -324,7 +334,7 @@ class ClientRewardTransaction extends BaseModel
      *
      * @return int
      */
-    public function getPoints()
+    public function getPoints(): int
     {
         return $this->container['Points'];
     }
@@ -336,7 +346,9 @@ class ClientRewardTransaction extends BaseModel
      *
      * @return $this
      */
-    public function setPoints($Points): self
+
+
+    public function setPoints(int $Points): static
     {
         $this->container['Points'] = $Points;
 

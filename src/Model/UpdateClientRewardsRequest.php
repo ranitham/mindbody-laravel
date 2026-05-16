@@ -53,14 +53,14 @@ class UpdateClientRewardsRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UpdateClientRewardsRequest';
+    protected static string $swaggerModelName = 'UpdateClientRewardsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ClientId' => 'string',
         'Points' => 'int',
         'Source' => 'string',
@@ -74,7 +74,7 @@ class UpdateClientRewardsRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ClientId' => null,
         'Points' => 'int64',
         'Source' => null,
@@ -90,7 +90,7 @@ class UpdateClientRewardsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ClientId' => 'ClientId',
         'Points' => 'Points',
         'Source' => 'Source',
@@ -104,7 +104,7 @@ class UpdateClientRewardsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ClientId' => 'setClientId',
         'Points' => 'setPoints',
         'Source' => 'setSource',
@@ -118,7 +118,7 @@ class UpdateClientRewardsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ClientId' => 'getClientId',
         'Points' => 'getPoints',
         'Source' => 'getSource',
@@ -138,7 +138,7 @@ class UpdateClientRewardsRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
         $this->container['Points'] = isset($data['Points']) ? $data['Points'] : null;
@@ -179,7 +179,7 @@ class UpdateClientRewardsRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId()
+    public function getClientId(): string
     {
         return $this->container['ClientId'];
     }
@@ -191,7 +191,9 @@ class UpdateClientRewardsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClientId($ClientId): self
+
+
+    public function setClientId(string $ClientId): static
     {
         $this->container['ClientId'] = $ClientId;
 
@@ -203,7 +205,7 @@ class UpdateClientRewardsRequest extends BaseModel
      *
      * @return int
      */
-    public function getPoints()
+    public function getPoints(): int
     {
         return $this->container['Points'];
     }
@@ -215,7 +217,9 @@ class UpdateClientRewardsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setPoints($Points): self
+
+
+    public function setPoints(int $Points): static
     {
 
         if (($Points < 1)) {
@@ -232,7 +236,7 @@ class UpdateClientRewardsRequest extends BaseModel
      *
      * @return string
      */
-    public function getSource()
+    public function getSource(): string
     {
         return $this->container['Source'];
     }
@@ -244,7 +248,9 @@ class UpdateClientRewardsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSource($Source): self
+
+
+    public function setSource(string $Source): static
     {
         $this->container['Source'] = $Source;
 
@@ -256,7 +262,7 @@ class UpdateClientRewardsRequest extends BaseModel
      *
      * @return int
      */
-    public function getSourceId()
+    public function getSourceId(): int
     {
         return $this->container['SourceId'];
     }
@@ -268,7 +274,9 @@ class UpdateClientRewardsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSourceId($SourceId): self
+
+
+    public function setSourceId(int $SourceId): static
     {
         $this->container['SourceId'] = $SourceId;
 
@@ -280,7 +288,7 @@ class UpdateClientRewardsRequest extends BaseModel
      *
      * @return string
      */
-    public function getAction()
+    public function getAction(): string
     {
         return $this->container['Action'];
     }
@@ -292,7 +300,9 @@ class UpdateClientRewardsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setAction($Action): self
+
+
+    public function setAction(string $Action): static
     {
         $this->container['Action'] = $Action;
 
@@ -304,7 +314,7 @@ class UpdateClientRewardsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getActionDateTime()
+    public function getActionDateTime(): \DateTime
     {
         return $this->container['ActionDateTime'];
     }
@@ -316,7 +326,9 @@ class UpdateClientRewardsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setActionDateTime($ActionDateTime): self
+
+
+    public function setActionDateTime(\DateTime $ActionDateTime): static
     {
         $this->container['ActionDateTime'] = $ActionDateTime;
 

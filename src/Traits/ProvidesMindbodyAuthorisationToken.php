@@ -37,7 +37,7 @@ trait ProvidesMindbodyAuthorisationToken
      *
      * @return self
      */
-    protected function updateAccessToken(string $username = null, string $password = null): self
+    protected function updateAccessToken(?string $username = null, ?string $password = null): self
     {
         /** @var UserTokenApi */
         $tokenApi = $this->getMindbodyEndpointInstance('userToken');

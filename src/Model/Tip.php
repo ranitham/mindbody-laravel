@@ -50,14 +50,14 @@ class Tip extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Tip';
+    protected static string $swaggerModelName = 'Tip';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'StaffId' => 'int',
         'SaleId' => 'int',
         'SaleDateTime' => '\DateTime',
@@ -69,7 +69,7 @@ class Tip extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'StaffId' => 'int64',
         'SaleId' => 'int64',
         'SaleDateTime' => 'date-time',
@@ -83,7 +83,7 @@ class Tip extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'StaffId' => 'StaffId',
         'SaleId' => 'SaleId',
         'SaleDateTime' => 'SaleDateTime',
@@ -95,7 +95,7 @@ class Tip extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'StaffId' => 'setStaffId',
         'SaleId' => 'setSaleId',
         'SaleDateTime' => 'setSaleDateTime',
@@ -107,7 +107,7 @@ class Tip extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'StaffId' => 'getStaffId',
         'SaleId' => 'getSaleId',
         'SaleDateTime' => 'getSaleDateTime',
@@ -125,7 +125,7 @@ class Tip extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['StaffId'] = isset($data['StaffId']) ? $data['StaffId'] : null;
         $this->container['SaleId'] = isset($data['SaleId']) ? $data['SaleId'] : null;
@@ -151,7 +151,7 @@ class Tip extends BaseModel
      *
      * @return int
      */
-    public function getStaffId()
+    public function getStaffId(): int
     {
         return $this->container['StaffId'];
     }
@@ -163,7 +163,9 @@ class Tip extends BaseModel
      *
      * @return $this
      */
-    public function setStaffId($StaffId): self
+
+
+    public function setStaffId(int $StaffId): static
     {
         $this->container['StaffId'] = $StaffId;
 
@@ -175,7 +177,7 @@ class Tip extends BaseModel
      *
      * @return int
      */
-    public function getSaleId()
+    public function getSaleId(): int
     {
         return $this->container['SaleId'];
     }
@@ -187,7 +189,9 @@ class Tip extends BaseModel
      *
      * @return $this
      */
-    public function setSaleId($SaleId): self
+
+
+    public function setSaleId(int $SaleId): static
     {
         $this->container['SaleId'] = $SaleId;
 
@@ -199,7 +203,7 @@ class Tip extends BaseModel
      *
      * @return \DateTime
      */
-    public function getSaleDateTime()
+    public function getSaleDateTime(): \DateTime
     {
         return $this->container['SaleDateTime'];
     }
@@ -211,7 +215,9 @@ class Tip extends BaseModel
      *
      * @return $this
      */
-    public function setSaleDateTime($SaleDateTime): self
+
+
+    public function setSaleDateTime(\DateTime $SaleDateTime): static
     {
         $this->container['SaleDateTime'] = $SaleDateTime;
 
@@ -223,7 +229,7 @@ class Tip extends BaseModel
      *
      * @return double
      */
-    public function getEarnings()
+    public function getEarnings(): float
     {
         return $this->container['Earnings'];
     }
@@ -235,7 +241,9 @@ class Tip extends BaseModel
      *
      * @return $this
      */
-    public function setEarnings($Earnings): self
+
+
+    public function setEarnings(float $Earnings): static
     {
         $this->container['Earnings'] = $Earnings;
 

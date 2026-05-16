@@ -81,7 +81,7 @@ use {{invokerPackage}}\ObjectSerializer;
      */
     public function {{operationId}}({{#allParams}}${{paramName}}{{^required}} = {{#defaultValue}}'{{{.}}}'{{/defaultValue}}{{^defaultValue}}null{{/defaultValue}}{{/required}}{{#hasMore}}, {{/hasMore}}{{/allParams}}): {{#returnType}}{{{returnType}}}{{/returnType}}{{^returnType}}void{{/returnType}}
     {
-        {{#returnType}}list($response) = {{/returnType}}$this->{{operationId}}WithHttpInfo({{#allParams}}${{paramName}}{{#hasMore}}, {{/hasMore}}{{/allParams}});{{#returnType}}
+        {{#returnType}}['response' => $response] = {{/returnType}}$this->{{operationId}}WithHttpInfo({{#allParams}}${{paramName}}{{#hasMore}}, {{/hasMore}}{{/allParams}});{{#returnType}}
         return $response;{{/returnType}}
     }
 
@@ -102,7 +102,7 @@ use {{invokerPackage}}\ObjectSerializer;
      *
      * @throws \{{invokerPackage}}\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of {{#returnType}}{{{returnType}}}{{/returnType}}{{^returnType}}null{{/returnType}}, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: {{#returnType}}{{{returnType}}}{{/returnType}}{{^returnType}}null{{/returnType}}, statusCode: int, headers: array<string, string[]>}
      */
     public function {{operationId}}WithHttpInfo({{#allParams}}${{paramName}}{{^required}} = {{#defaultValue}}'{{{.}}}'{{/defaultValue}}{{^defaultValue}}null{{/defaultValue}}{{/required}}{{#hasMore}}, {{/hasMore}}{{/allParams}}): array
     {
@@ -139,23 +139,33 @@ use {{invokerPackage}}\ObjectSerializer;
 
             {{#returnType}}
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            {{#responses.0.isString}}
+            $content = $responseBody->getContents();
+            {{/responses.0.isString}}
+            {{^responses.0.isString}}
+            $content = json_decode($responseBody->getContents());
+            {{/responses.0.isString}}
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
             {{/returnType}}
             {{^returnType}}
-            return [null, $statusCode, $response->getHeaders()];
+            return ['response' => null, 'statusCode' => $statusCode, 'headers' => $response->getHeaders()];
             {{/returnType}}
 
         } catch (ApiException $e) {
@@ -165,8 +175,7 @@ use {{invokerPackage}}\ObjectSerializer;
                 {{^isWildcard}}case {{code}}:{{/isWildcard}}{{#isWildcard}}default:{{/isWildcard}}
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '{{dataType}}',
-                        $e->getResponseHeaders()
+                        '{{dataType}}'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -229,20 +238,19 @@ use {{invokerPackage}}\ObjectSerializer;
             ->then(
                 function ($response) use ($returnType) {
                     {{#returnType}}
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    {{#responses.0.isString}}
+                    $content = $responseBody->getContents();
+                    {{/responses.0.isString}}
+                    {{^responses.0.isString}}
+                    $content = json_decode($responseBody->getContents());
+                    {{/responses.0.isString}}
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                     {{/returnType}}
                     {{^returnType}}
@@ -276,17 +284,9 @@ use {{invokerPackage}}\ObjectSerializer;
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function {{operationId}}Request({{#allParams}}${{paramName}}{{^required}} = {{#defaultValue}}'{{{.}}}'{{/defaultValue}}{{^defaultValue}}null{{/defaultValue}}{{/required}}{{#hasMore}}, {{/hasMore}}{{/allParams}}): \GuzzleHttp\Psr7\Request
+    protected function {{operationId}}Request({{#allParams}}{{^required}}?{{/required}}{{#isListContainer}}array{{/isListContainer}}{{#isMapContainer}}array{{/isMapContainer}}{{^isListContainer}}{{^isMapContainer}}{{dataType}}{{/isMapContainer}}{{/isListContainer}} ${{paramName}}{{^required}} = {{#defaultValue}}'{{{.}}}'{{/defaultValue}}{{^defaultValue}}null{{/defaultValue}}{{/required}}{{#hasMore}}, {{/hasMore}}{{/allParams}}): \GuzzleHttp\Psr7\Request
     {
         {{#allParams}}
-        {{#required}}
-        // verify the required parameter '{{paramName}}' is set
-        if (${{paramName}} === null || (is_array(${{paramName}}) && count(${{paramName}}) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter ${{paramName}} when calling {{operationId}}'
-            );
-        }
-        {{/required}}
         {{#hasValidation}}
         {{#maxLength}}
         if ({{^required}}${{paramName}} !== null && {{/required}}strlen(${{paramName}}) > {{maxLength}}) {
@@ -332,7 +332,6 @@ use {{invokerPackage}}\ObjectSerializer;
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
         {{#queryParams}}
         // query params
@@ -376,10 +375,6 @@ use {{invokerPackage}}\ObjectSerializer;
         {{#formParams}}
         // form params
         if (${{paramName}} !== null) {
-            {{#isFile}}
-            $multipart = true;
-            $formParams['{{baseName}}'] = \GuzzleHttp\Psr7\try_fopen(ObjectSerializer::toFormValue(${{paramName}}), 'rb');
-            {{/isFile}}
             {{^isFile}}
             $formParams['{{baseName}}'] = ObjectSerializer::toFormValue(${{paramName}});
             {{/isFile}}
@@ -393,16 +388,10 @@ use {{invokerPackage}}\ObjectSerializer;
         }
         {{/bodyParams}}
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                [{{#produces}}'{{{mediaType}}}'{{#hasMore}}, {{/hasMore}}{{/produces}}]
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                [{{#produces}}'{{{mediaType}}}'{{#hasMore}}, {{/hasMore}}{{/produces}}],
-                [{{#consumes}}'{{{mediaType}}}'{{#hasMore}}, {{/hasMore}}{{/consumes}}]
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            [{{#produces}}'{{{mediaType}}}'{{#hasMore}}, {{/hasMore}}{{/produces}}],
+            [{{#consumes}}'{{{mediaType}}}'{{#hasMore}}, {{/hasMore}}{{/consumes}}]
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -420,18 +409,7 @@ use {{invokerPackage}}\ObjectSerializer;
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {

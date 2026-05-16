@@ -60,7 +60,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property bool $PerStaffPricing When `true`, indicates that per-staff pricing is enabled at this site.<br />  When `false`, indicates that per-staff pricing is not enabled at this site.
  *
  */
-class Site extends BaseModel implements ModelWithId
+class Site extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -69,14 +69,14 @@ class Site extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Site';
+    protected static string $swaggerModelName = 'Site';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'AcceptsAmericanExpress' => 'bool',
         'AcceptsDiscover' => 'bool',
         'AcceptsMasterCard' => 'bool',
@@ -107,7 +107,7 @@ class Site extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'AcceptsAmericanExpress' => null,
         'AcceptsDiscover' => null,
         'AcceptsMasterCard' => null,
@@ -140,7 +140,7 @@ class Site extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'AcceptsAmericanExpress' => 'AcceptsAmericanExpress',
         'AcceptsDiscover' => 'AcceptsDiscover',
         'AcceptsMasterCard' => 'AcceptsMasterCard',
@@ -171,7 +171,7 @@ class Site extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'AcceptsAmericanExpress' => 'setAcceptsAmericanExpress',
         'AcceptsDiscover' => 'setAcceptsDiscover',
         'AcceptsMasterCard' => 'setAcceptsMasterCard',
@@ -202,7 +202,7 @@ class Site extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'AcceptsAmericanExpress' => 'getAcceptsAmericanExpress',
         'AcceptsDiscover' => 'getAcceptsDiscover',
         'AcceptsMasterCard' => 'getAcceptsMasterCard',
@@ -239,7 +239,7 @@ class Site extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['AcceptsAmericanExpress'] = isset($data['AcceptsAmericanExpress']) ? $data['AcceptsAmericanExpress'] : null;
         $this->container['AcceptsDiscover'] = isset($data['AcceptsDiscover']) ? $data['AcceptsDiscover'] : null;
@@ -284,7 +284,7 @@ class Site extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getAcceptsAmericanExpress()
+    public function getAcceptsAmericanExpress(): bool
     {
         return $this->container['AcceptsAmericanExpress'];
     }
@@ -296,7 +296,9 @@ class Site extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAcceptsAmericanExpress($AcceptsAmericanExpress): self
+
+
+    public function setAcceptsAmericanExpress(bool $AcceptsAmericanExpress): static
     {
         $this->container['AcceptsAmericanExpress'] = $AcceptsAmericanExpress;
 
@@ -308,7 +310,7 @@ class Site extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getAcceptsDiscover()
+    public function getAcceptsDiscover(): bool
     {
         return $this->container['AcceptsDiscover'];
     }
@@ -320,7 +322,9 @@ class Site extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAcceptsDiscover($AcceptsDiscover): self
+
+
+    public function setAcceptsDiscover(bool $AcceptsDiscover): static
     {
         $this->container['AcceptsDiscover'] = $AcceptsDiscover;
 
@@ -332,7 +336,7 @@ class Site extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getAcceptsMasterCard()
+    public function getAcceptsMasterCard(): bool
     {
         return $this->container['AcceptsMasterCard'];
     }
@@ -344,7 +348,9 @@ class Site extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAcceptsMasterCard($AcceptsMasterCard): self
+
+
+    public function setAcceptsMasterCard(bool $AcceptsMasterCard): static
     {
         $this->container['AcceptsMasterCard'] = $AcceptsMasterCard;
 
@@ -356,7 +362,7 @@ class Site extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getAcceptsVisa()
+    public function getAcceptsVisa(): bool
     {
         return $this->container['AcceptsVisa'];
     }
@@ -368,7 +374,9 @@ class Site extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAcceptsVisa($AcceptsVisa): self
+
+
+    public function setAcceptsVisa(bool $AcceptsVisa): static
     {
         $this->container['AcceptsVisa'] = $AcceptsVisa;
 
@@ -380,7 +388,7 @@ class Site extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getAllowsDashboardAccess()
+    public function getAllowsDashboardAccess(): bool
     {
         return $this->container['AllowsDashboardAccess'];
     }
@@ -392,7 +400,9 @@ class Site extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAllowsDashboardAccess($AllowsDashboardAccess): self
+
+
+    public function setAllowsDashboardAccess(bool $AllowsDashboardAccess): static
     {
         $this->container['AllowsDashboardAccess'] = $AllowsDashboardAccess;
 
@@ -404,7 +414,7 @@ class Site extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getContactEmail()
+    public function getContactEmail(): string
     {
         return $this->container['ContactEmail'];
     }
@@ -416,7 +426,9 @@ class Site extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setContactEmail($ContactEmail): self
+
+
+    public function setContactEmail(string $ContactEmail): static
     {
         $this->container['ContactEmail'] = $ContactEmail;
 
@@ -428,7 +440,7 @@ class Site extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->container['Description'];
     }
@@ -440,7 +452,9 @@ class Site extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setDescription($Description): self
+
+
+    public function setDescription(string $Description): static
     {
         $this->container['Description'] = $Description;
 
@@ -452,7 +466,7 @@ class Site extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -464,7 +478,9 @@ class Site extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -476,7 +492,7 @@ class Site extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getLogoUrl()
+    public function getLogoUrl(): string
     {
         return $this->container['LogoUrl'];
     }
@@ -488,7 +504,9 @@ class Site extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setLogoUrl($LogoUrl): self
+
+
+    public function setLogoUrl(string $LogoUrl): static
     {
         $this->container['LogoUrl'] = $LogoUrl;
 
@@ -500,7 +518,7 @@ class Site extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->container['Name'];
     }
@@ -512,7 +530,9 @@ class Site extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setName($Name): self
+
+
+    public function setName(string $Name): static
     {
         $this->container['Name'] = $Name;
 
@@ -524,7 +544,7 @@ class Site extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getPageColor1()
+    public function getPageColor1(): string
     {
         return $this->container['PageColor1'];
     }
@@ -536,7 +556,9 @@ class Site extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setPageColor1($PageColor1): self
+
+
+    public function setPageColor1(string $PageColor1): static
     {
         $this->container['PageColor1'] = $PageColor1;
 
@@ -548,7 +570,7 @@ class Site extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getPageColor2()
+    public function getPageColor2(): string
     {
         return $this->container['PageColor2'];
     }
@@ -560,7 +582,9 @@ class Site extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setPageColor2($PageColor2): self
+
+
+    public function setPageColor2(string $PageColor2): static
     {
         $this->container['PageColor2'] = $PageColor2;
 
@@ -572,7 +596,7 @@ class Site extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getPageColor3()
+    public function getPageColor3(): string
     {
         return $this->container['PageColor3'];
     }
@@ -584,7 +608,9 @@ class Site extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setPageColor3($PageColor3): self
+
+
+    public function setPageColor3(string $PageColor3): static
     {
         $this->container['PageColor3'] = $PageColor3;
 
@@ -596,7 +622,7 @@ class Site extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getPageColor4()
+    public function getPageColor4(): string
     {
         return $this->container['PageColor4'];
     }
@@ -608,7 +634,9 @@ class Site extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setPageColor4($PageColor4): self
+
+
+    public function setPageColor4(string $PageColor4): static
     {
         $this->container['PageColor4'] = $PageColor4;
 
@@ -620,7 +648,7 @@ class Site extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getPricingLevel()
+    public function getPricingLevel(): string
     {
         return $this->container['PricingLevel'];
     }
@@ -632,7 +660,9 @@ class Site extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setPricingLevel($PricingLevel): self
+
+
+    public function setPricingLevel(string $PricingLevel): static
     {
         $this->container['PricingLevel'] = $PricingLevel;
 
@@ -644,7 +674,7 @@ class Site extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getSmsPackageEnabled()
+    public function getSmsPackageEnabled(): bool
     {
         return $this->container['SmsPackageEnabled'];
     }
@@ -656,7 +686,9 @@ class Site extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSmsPackageEnabled($SmsPackageEnabled): self
+
+
+    public function setSmsPackageEnabled(bool $SmsPackageEnabled): static
     {
         $this->container['SmsPackageEnabled'] = $SmsPackageEnabled;
 
@@ -668,7 +700,7 @@ class Site extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getTaxInclusivePrices()
+    public function getTaxInclusivePrices(): bool
     {
         return $this->container['TaxInclusivePrices'];
     }
@@ -680,7 +712,9 @@ class Site extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setTaxInclusivePrices($TaxInclusivePrices): self
+
+
+    public function setTaxInclusivePrices(bool $TaxInclusivePrices): static
     {
         $this->container['TaxInclusivePrices'] = $TaxInclusivePrices;
 
@@ -692,7 +726,7 @@ class Site extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getCurrencyIsoCode()
+    public function getCurrencyIsoCode(): string
     {
         return $this->container['CurrencyIsoCode'];
     }
@@ -704,7 +738,9 @@ class Site extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setCurrencyIsoCode($CurrencyIsoCode): self
+
+
+    public function setCurrencyIsoCode(string $CurrencyIsoCode): static
     {
         $this->container['CurrencyIsoCode'] = $CurrencyIsoCode;
 
@@ -716,7 +752,7 @@ class Site extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getCountryCode()
+    public function getCountryCode(): string
     {
         return $this->container['CountryCode'];
     }
@@ -728,7 +764,9 @@ class Site extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setCountryCode($CountryCode): self
+
+
+    public function setCountryCode(string $CountryCode): static
     {
         $this->container['CountryCode'] = $CountryCode;
 
@@ -740,7 +778,7 @@ class Site extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getTimeZone()
+    public function getTimeZone(): string
     {
         return $this->container['TimeZone'];
     }
@@ -752,7 +790,9 @@ class Site extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setTimeZone($TimeZone): self
+
+
+    public function setTimeZone(string $TimeZone): static
     {
         $this->container['TimeZone'] = $TimeZone;
 
@@ -764,7 +804,7 @@ class Site extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getAcceptsDirectDebit()
+    public function getAcceptsDirectDebit(): bool
     {
         return $this->container['AcceptsDirectDebit'];
     }
@@ -776,7 +816,9 @@ class Site extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAcceptsDirectDebit($AcceptsDirectDebit): self
+
+
+    public function setAcceptsDirectDebit(bool $AcceptsDirectDebit): static
     {
         $this->container['AcceptsDirectDebit'] = $AcceptsDirectDebit;
 
@@ -788,7 +830,7 @@ class Site extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\LeadChannel[]
      */
-    public function getLeadChannels()
+    public function getLeadChannels(): array
     {
         return $this->container['LeadChannels'];
     }
@@ -800,7 +842,9 @@ class Site extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setLeadChannels($LeadChannels): self
+
+
+    public function setLeadChannels(array $LeadChannels): static
     {
         $this->container['LeadChannels'] = $LeadChannels;
 
@@ -812,7 +856,7 @@ class Site extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getPerStaffPricing()
+    public function getPerStaffPricing(): bool
     {
         return $this->container['PerStaffPricing'];
     }
@@ -824,7 +868,9 @@ class Site extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setPerStaffPricing($PerStaffPricing): self
+
+
+    public function setPerStaffPricing(bool $PerStaffPricing): static
     {
         $this->container['PerStaffPricing'] = $PerStaffPricing;
 

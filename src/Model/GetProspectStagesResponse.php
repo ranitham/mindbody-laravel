@@ -48,14 +48,14 @@ class GetProspectStagesResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetProspectStagesResponse';
+    protected static string $swaggerModelName = 'GetProspectStagesResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ProspectStages' => '\Nlocascio\Mindbody\Model\ProspectStage[]'
     ];
 
@@ -64,7 +64,7 @@ class GetProspectStagesResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ProspectStages' => null
     ];
 
@@ -75,7 +75,7 @@ class GetProspectStagesResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ProspectStages' => 'ProspectStages'
     ];
 
@@ -84,7 +84,7 @@ class GetProspectStagesResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ProspectStages' => 'setProspectStages'
     ];
 
@@ -93,7 +93,7 @@ class GetProspectStagesResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ProspectStages' => 'getProspectStages'
     ];
 
@@ -108,7 +108,7 @@ class GetProspectStagesResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ProspectStages'] = isset($data['ProspectStages']) ? $data['ProspectStages'] : null;
     }
@@ -131,7 +131,7 @@ class GetProspectStagesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ProspectStage[]
      */
-    public function getProspectStages()
+    public function getProspectStages(): array
     {
         return $this->container['ProspectStages'];
     }
@@ -143,7 +143,9 @@ class GetProspectStagesResponse extends BaseModel
      *
      * @return $this
      */
-    public function setProspectStages($ProspectStages): self
+
+
+    public function setProspectStages(array $ProspectStages): static
     {
         $this->container['ProspectStages'] = $ProspectStages;
 

@@ -66,14 +66,14 @@ class AddAppointmentRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AddAppointmentRequest';
+    protected static string $swaggerModelName = 'AddAppointmentRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ItineraryEvents' => '\Nlocascio\Mindbody\Model\ItineraryEventRequest[]',
         'ApplyPayment' => 'bool',
         'ClientId' => 'string',
@@ -100,7 +100,7 @@ class AddAppointmentRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ItineraryEvents' => null,
         'ApplyPayment' => null,
         'ClientId' => null,
@@ -129,7 +129,7 @@ class AddAppointmentRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ItineraryEvents' => 'ItineraryEvents',
         'ApplyPayment' => 'ApplyPayment',
         'ClientId' => 'ClientId',
@@ -156,7 +156,7 @@ class AddAppointmentRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ItineraryEvents' => 'setItineraryEvents',
         'ApplyPayment' => 'setApplyPayment',
         'ClientId' => 'setClientId',
@@ -183,7 +183,7 @@ class AddAppointmentRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ItineraryEvents' => 'getItineraryEvents',
         'ApplyPayment' => 'getApplyPayment',
         'ClientId' => 'getClientId',
@@ -216,7 +216,7 @@ class AddAppointmentRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ItineraryEvents'] = isset($data['ItineraryEvents']) ? $data['ItineraryEvents'] : null;
         $this->container['ApplyPayment'] = isset($data['ApplyPayment']) ? $data['ApplyPayment'] : null;
@@ -263,7 +263,7 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ItineraryEventRequest[]
      */
-    public function getItineraryEvents()
+    public function getItineraryEvents(): array
     {
         return $this->container['ItineraryEvents'];
     }
@@ -275,7 +275,9 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return $this
      */
-    public function setItineraryEvents($ItineraryEvents): self
+
+
+    public function setItineraryEvents(array $ItineraryEvents): static
     {
         $this->container['ItineraryEvents'] = $ItineraryEvents;
 
@@ -287,7 +289,7 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return bool
      */
-    public function getApplyPayment()
+    public function getApplyPayment(): bool
     {
         return $this->container['ApplyPayment'];
     }
@@ -299,7 +301,9 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return $this
      */
-    public function setApplyPayment($ApplyPayment): self
+
+
+    public function setApplyPayment(bool $ApplyPayment): static
     {
         $this->container['ApplyPayment'] = $ApplyPayment;
 
@@ -311,7 +315,7 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId()
+    public function getClientId(): string
     {
         return $this->container['ClientId'];
     }
@@ -323,7 +327,9 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClientId($ClientId): self
+
+
+    public function setClientId(string $ClientId): static
     {
         $this->container['ClientId'] = $ClientId;
 
@@ -335,7 +341,7 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return int
      */
-    public function getDuration()
+    public function getDuration(): int
     {
         return $this->container['Duration'];
     }
@@ -347,7 +353,9 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return $this
      */
-    public function setDuration($Duration): self
+
+
+    public function setDuration(int $Duration): static
     {
         $this->container['Duration'] = $Duration;
 
@@ -359,7 +367,7 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDateTime()
+    public function getEndDateTime(): \DateTime
     {
         return $this->container['EndDateTime'];
     }
@@ -371,7 +379,9 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return $this
      */
-    public function setEndDateTime($EndDateTime): self
+
+
+    public function setEndDateTime(\DateTime $EndDateTime): static
     {
         $this->container['EndDateTime'] = $EndDateTime;
 
@@ -383,7 +393,7 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return string
      */
-    public function getGenderPreference()
+    public function getGenderPreference(): string
     {
         return $this->container['GenderPreference'];
     }
@@ -395,7 +405,9 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return $this
      */
-    public function setGenderPreference($GenderPreference): self
+
+
+    public function setGenderPreference(string $GenderPreference): static
     {
         $this->container['GenderPreference'] = $GenderPreference;
 
@@ -407,7 +419,7 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return int
      */
-    public function getLocationId()
+    public function getLocationId(): int
     {
         return $this->container['LocationId'];
     }
@@ -419,7 +431,9 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLocationId($LocationId): self
+
+
+    public function setLocationId(int $LocationId): static
     {
         $this->container['LocationId'] = $LocationId;
 
@@ -431,7 +445,7 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return string
      */
-    public function getNotes()
+    public function getNotes(): string
     {
         return $this->container['Notes'];
     }
@@ -443,7 +457,9 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return $this
      */
-    public function setNotes($Notes): self
+
+
+    public function setNotes(string $Notes): static
     {
         $this->container['Notes'] = $Notes;
 
@@ -455,7 +471,7 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return string
      */
-    public function getProviderId()
+    public function getProviderId(): string
     {
         return $this->container['ProviderId'];
     }
@@ -467,7 +483,9 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return $this
      */
-    public function setProviderId($ProviderId): self
+
+
+    public function setProviderId(string $ProviderId): static
     {
         $this->container['ProviderId'] = $ProviderId;
 
@@ -479,7 +497,7 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getResourceIds()
+    public function getResourceIds(): array
     {
         return $this->container['ResourceIds'];
     }
@@ -491,7 +509,9 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return $this
      */
-    public function setResourceIds($ResourceIds): self
+
+
+    public function setResourceIds(array $ResourceIds): static
     {
         $this->container['ResourceIds'] = $ResourceIds;
 
@@ -503,7 +523,7 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSendEmail()
+    public function getSendEmail(): bool
     {
         return $this->container['SendEmail'];
     }
@@ -515,7 +535,9 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSendEmail($SendEmail): self
+
+
+    public function setSendEmail(bool $SendEmail): static
     {
         $this->container['SendEmail'] = $SendEmail;
 
@@ -527,7 +549,7 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return int
      */
-    public function getSessionTypeId()
+    public function getSessionTypeId(): int
     {
         return $this->container['SessionTypeId'];
     }
@@ -539,7 +561,9 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSessionTypeId($SessionTypeId): self
+
+
+    public function setSessionTypeId(int $SessionTypeId): static
     {
         $this->container['SessionTypeId'] = $SessionTypeId;
 
@@ -551,7 +575,7 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return int
      */
-    public function getStaffId()
+    public function getStaffId(): int
     {
         return $this->container['StaffId'];
     }
@@ -563,7 +587,9 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStaffId($StaffId): self
+
+
+    public function setStaffId(int $StaffId): static
     {
         $this->container['StaffId'] = $StaffId;
 
@@ -575,7 +601,7 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return bool
      */
-    public function getStaffRequested()
+    public function getStaffRequested(): bool
     {
         return $this->container['StaffRequested'];
     }
@@ -587,7 +613,9 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStaffRequested($StaffRequested): self
+
+
+    public function setStaffRequested(bool $StaffRequested): static
     {
         $this->container['StaffRequested'] = $StaffRequested;
 
@@ -599,7 +627,7 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDateTime()
+    public function getStartDateTime(): \DateTime
     {
         return $this->container['StartDateTime'];
     }
@@ -611,7 +639,9 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStartDateTime($StartDateTime): self
+
+
+    public function setStartDateTime(\DateTime $StartDateTime): static
     {
         $this->container['StartDateTime'] = $StartDateTime;
 
@@ -623,7 +653,7 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return bool
      */
-    public function getTest()
+    public function getTest(): bool
     {
         return $this->container['Test'];
     }
@@ -635,7 +665,9 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return $this
      */
-    public function setTest($Test): self
+
+
+    public function setTest(bool $Test): static
     {
         $this->container['Test'] = $Test;
 
@@ -647,7 +679,7 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIsWaitlist()
+    public function getIsWaitlist(): bool
     {
         return $this->container['IsWaitlist'];
     }
@@ -659,7 +691,9 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return $this
      */
-    public function setIsWaitlist($IsWaitlist): self
+
+
+    public function setIsWaitlist(bool $IsWaitlist): static
     {
         $this->container['IsWaitlist'] = $IsWaitlist;
 
@@ -671,7 +705,7 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return string
      */
-    public function getPartnerExternalId()
+    public function getPartnerExternalId(): string
     {
         return $this->container['PartnerExternalId'];
     }
@@ -683,7 +717,9 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return $this
      */
-    public function setPartnerExternalId($PartnerExternalId): self
+
+
+    public function setPartnerExternalId(string $PartnerExternalId): static
     {
         $this->container['PartnerExternalId'] = $PartnerExternalId;
 
@@ -695,7 +731,7 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return int
      */
-    public function getAddAppointmentRequestId()
+    public function getAddAppointmentRequestId(): int
     {
         return $this->container['AddAppointmentRequestId'];
     }
@@ -707,7 +743,9 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return $this
      */
-    public function setAddAppointmentRequestId($AddAppointmentRequestId): self
+
+
+    public function setAddAppointmentRequestId(int $AddAppointmentRequestId): static
     {
         $this->container['AddAppointmentRequestId'] = $AddAppointmentRequestId;
 

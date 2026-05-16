@@ -47,14 +47,14 @@ class TerminateContractResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TerminateContractResponse';
+    protected static string $swaggerModelName = 'TerminateContractResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Contract' => '\Nlocascio\Mindbody\Model\ClientContract'
     ];
 
@@ -63,7 +63,7 @@ class TerminateContractResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Contract' => null
     ];
 
@@ -74,7 +74,7 @@ class TerminateContractResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Contract' => 'Contract'
     ];
 
@@ -83,7 +83,7 @@ class TerminateContractResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Contract' => 'setContract'
     ];
 
@@ -92,7 +92,7 @@ class TerminateContractResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Contract' => 'getContract'
     ];
 
@@ -107,7 +107,7 @@ class TerminateContractResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Contract'] = isset($data['Contract']) ? $data['Contract'] : null;
     }
@@ -130,7 +130,7 @@ class TerminateContractResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClientContract
      */
-    public function getContract()
+    public function getContract(): \Nlocascio\Mindbody\Model\ClientContract
     {
         return $this->container['Contract'];
     }
@@ -142,7 +142,9 @@ class TerminateContractResponse extends BaseModel
      *
      * @return $this
      */
-    public function setContract($Contract): self
+
+
+    public function setContract(\Nlocascio\Mindbody\Model\ClientContract $Contract): static
     {
         $this->container['Contract'] = $Contract;
 

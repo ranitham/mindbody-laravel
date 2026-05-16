@@ -52,14 +52,14 @@ class GetTimeCardsRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetTimeCardsRequest';
+    protected static string $swaggerModelName = 'GetTimeCardsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'StaffId' => 'int',
         'StartDateTime' => '\DateTime',
         'EndDateTime' => '\DateTime',
@@ -73,7 +73,7 @@ class GetTimeCardsRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'StaffId' => 'int64',
         'StartDateTime' => 'date-time',
         'EndDateTime' => 'date-time',
@@ -89,7 +89,7 @@ class GetTimeCardsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'StaffId' => 'StaffId',
         'StartDateTime' => 'StartDateTime',
         'EndDateTime' => 'EndDateTime',
@@ -103,7 +103,7 @@ class GetTimeCardsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'StaffId' => 'setStaffId',
         'StartDateTime' => 'setStartDateTime',
         'EndDateTime' => 'setEndDateTime',
@@ -117,7 +117,7 @@ class GetTimeCardsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'StaffId' => 'getStaffId',
         'StartDateTime' => 'getStartDateTime',
         'EndDateTime' => 'getEndDateTime',
@@ -137,7 +137,7 @@ class GetTimeCardsRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['StaffId'] = isset($data['StaffId']) ? $data['StaffId'] : null;
         $this->container['StartDateTime'] = isset($data['StartDateTime']) ? $data['StartDateTime'] : null;
@@ -165,7 +165,7 @@ class GetTimeCardsRequest extends BaseModel
      *
      * @return int
      */
-    public function getStaffId()
+    public function getStaffId(): int
     {
         return $this->container['StaffId'];
     }
@@ -177,7 +177,9 @@ class GetTimeCardsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStaffId($StaffId): self
+
+
+    public function setStaffId(int $StaffId): static
     {
         $this->container['StaffId'] = $StaffId;
 
@@ -189,7 +191,7 @@ class GetTimeCardsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDateTime()
+    public function getStartDateTime(): \DateTime
     {
         return $this->container['StartDateTime'];
     }
@@ -201,7 +203,9 @@ class GetTimeCardsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStartDateTime($StartDateTime): self
+
+
+    public function setStartDateTime(\DateTime $StartDateTime): static
     {
         $this->container['StartDateTime'] = $StartDateTime;
 
@@ -213,7 +217,7 @@ class GetTimeCardsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDateTime()
+    public function getEndDateTime(): \DateTime
     {
         return $this->container['EndDateTime'];
     }
@@ -225,7 +229,9 @@ class GetTimeCardsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setEndDateTime($EndDateTime): self
+
+
+    public function setEndDateTime(\DateTime $EndDateTime): static
     {
         $this->container['EndDateTime'] = $EndDateTime;
 
@@ -237,7 +243,7 @@ class GetTimeCardsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLocationId()
+    public function getLocationId(): int
     {
         return $this->container['LocationId'];
     }
@@ -249,7 +255,9 @@ class GetTimeCardsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLocationId($LocationId): self
+
+
+    public function setLocationId(int $LocationId): static
     {
         $this->container['LocationId'] = $LocationId;
 
@@ -261,7 +269,7 @@ class GetTimeCardsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit()
+    public function getLimit(): int
     {
         return $this->container['Limit'];
     }
@@ -273,7 +281,9 @@ class GetTimeCardsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLimit($Limit): self
+
+
+    public function setLimit(int $Limit): static
     {
         $this->container['Limit'] = $Limit;
 
@@ -285,7 +295,7 @@ class GetTimeCardsRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset()
+    public function getOffset(): int
     {
         return $this->container['Offset'];
     }
@@ -297,7 +307,9 @@ class GetTimeCardsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOffset($Offset): self
+
+
+    public function setOffset(int $Offset): static
     {
         $this->container['Offset'] = $Offset;
 

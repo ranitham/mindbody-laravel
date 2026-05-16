@@ -48,7 +48,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property int $Quantity The number of this item to be purchased.
  *
  */
-class CheckoutItemWrapper extends BaseModel implements ModelWithId
+class CheckoutItemWrapper extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -57,14 +57,14 @@ class CheckoutItemWrapper extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CheckoutItemWrapper';
+    protected static string $swaggerModelName = 'CheckoutItemWrapper';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Item' => '\Nlocascio\Mindbody\Model\CheckoutItem',
         'SalesNotes' => 'string',
         'DiscountAmount' => 'double',
@@ -83,7 +83,7 @@ class CheckoutItemWrapper extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Item' => null,
         'SalesNotes' => null,
         'DiscountAmount' => 'double',
@@ -104,7 +104,7 @@ class CheckoutItemWrapper extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Item' => 'Item',
         'SalesNotes' => 'SalesNotes',
         'DiscountAmount' => 'DiscountAmount',
@@ -123,7 +123,7 @@ class CheckoutItemWrapper extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Item' => 'setItem',
         'SalesNotes' => 'setSalesNotes',
         'DiscountAmount' => 'setDiscountAmount',
@@ -142,7 +142,7 @@ class CheckoutItemWrapper extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Item' => 'getItem',
         'SalesNotes' => 'getSalesNotes',
         'DiscountAmount' => 'getDiscountAmount',
@@ -167,7 +167,7 @@ class CheckoutItemWrapper extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Item'] = isset($data['Item']) ? $data['Item'] : null;
         $this->container['SalesNotes'] = isset($data['SalesNotes']) ? $data['SalesNotes'] : null;
@@ -200,7 +200,7 @@ class CheckoutItemWrapper extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\CheckoutItem
      */
-    public function getItem()
+    public function getItem(): \Nlocascio\Mindbody\Model\CheckoutItem
     {
         return $this->container['Item'];
     }
@@ -212,7 +212,9 @@ class CheckoutItemWrapper extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setItem($Item): self
+
+
+    public function setItem(\Nlocascio\Mindbody\Model\CheckoutItem $Item): static
     {
         $this->container['Item'] = $Item;
 
@@ -224,7 +226,7 @@ class CheckoutItemWrapper extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getSalesNotes()
+    public function getSalesNotes(): string
     {
         return $this->container['SalesNotes'];
     }
@@ -236,7 +238,9 @@ class CheckoutItemWrapper extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSalesNotes($SalesNotes): self
+
+
+    public function setSalesNotes(string $SalesNotes): static
     {
         $this->container['SalesNotes'] = $SalesNotes;
 
@@ -248,7 +252,7 @@ class CheckoutItemWrapper extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getDiscountAmount()
+    public function getDiscountAmount(): float
     {
         return $this->container['DiscountAmount'];
     }
@@ -260,7 +264,9 @@ class CheckoutItemWrapper extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setDiscountAmount($DiscountAmount): self
+
+
+    public function setDiscountAmount(float $DiscountAmount): static
     {
         $this->container['DiscountAmount'] = $DiscountAmount;
 
@@ -272,7 +278,7 @@ class CheckoutItemWrapper extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\CheckoutAppointmentBookingRequest[]
      */
-    public function getAppointmentBookingRequests()
+    public function getAppointmentBookingRequests(): array
     {
         return $this->container['AppointmentBookingRequests'];
     }
@@ -284,7 +290,9 @@ class CheckoutItemWrapper extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAppointmentBookingRequests($AppointmentBookingRequests): self
+
+
+    public function setAppointmentBookingRequests(array $AppointmentBookingRequests): static
     {
         $this->container['AppointmentBookingRequests'] = $AppointmentBookingRequests;
 
@@ -296,7 +304,7 @@ class CheckoutItemWrapper extends BaseModel implements ModelWithId
      *
      * @return int[]
      */
-    public function getEnrollmentIds()
+    public function getEnrollmentIds(): array
     {
         return $this->container['EnrollmentIds'];
     }
@@ -308,7 +316,9 @@ class CheckoutItemWrapper extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setEnrollmentIds($EnrollmentIds): self
+
+
+    public function setEnrollmentIds(array $EnrollmentIds): static
     {
         $this->container['EnrollmentIds'] = $EnrollmentIds;
 
@@ -320,7 +330,7 @@ class CheckoutItemWrapper extends BaseModel implements ModelWithId
      *
      * @return int[]
      */
-    public function getClassIds()
+    public function getClassIds(): array
     {
         return $this->container['ClassIds'];
     }
@@ -332,7 +342,9 @@ class CheckoutItemWrapper extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setClassIds($ClassIds): self
+
+
+    public function setClassIds(array $ClassIds): static
     {
         $this->container['ClassIds'] = $ClassIds;
 
@@ -344,7 +356,7 @@ class CheckoutItemWrapper extends BaseModel implements ModelWithId
      *
      * @return int[]
      */
-    public function getCourseIds()
+    public function getCourseIds(): array
     {
         return $this->container['CourseIds'];
     }
@@ -356,7 +368,9 @@ class CheckoutItemWrapper extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setCourseIds($CourseIds): self
+
+
+    public function setCourseIds(array $CourseIds): static
     {
         $this->container['CourseIds'] = $CourseIds;
 
@@ -368,7 +382,7 @@ class CheckoutItemWrapper extends BaseModel implements ModelWithId
      *
      * @return int[]
      */
-    public function getVisitIds()
+    public function getVisitIds(): array
     {
         return $this->container['VisitIds'];
     }
@@ -380,7 +394,9 @@ class CheckoutItemWrapper extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setVisitIds($VisitIds): self
+
+
+    public function setVisitIds(array $VisitIds): static
     {
         $this->container['VisitIds'] = $VisitIds;
 
@@ -392,7 +408,7 @@ class CheckoutItemWrapper extends BaseModel implements ModelWithId
      *
      * @return int[]
      */
-    public function getAppointmentIds()
+    public function getAppointmentIds(): array
     {
         return $this->container['AppointmentIds'];
     }
@@ -404,7 +420,9 @@ class CheckoutItemWrapper extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAppointmentIds($AppointmentIds): self
+
+
+    public function setAppointmentIds(array $AppointmentIds): static
     {
         $this->container['AppointmentIds'] = $AppointmentIds;
 
@@ -416,7 +434,7 @@ class CheckoutItemWrapper extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -428,7 +446,9 @@ class CheckoutItemWrapper extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -440,7 +460,7 @@ class CheckoutItemWrapper extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getQuantity()
+    public function getQuantity(): int
     {
         return $this->container['Quantity'];
     }
@@ -452,7 +472,9 @@ class CheckoutItemWrapper extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setQuantity($Quantity): self
+
+
+    public function setQuantity(int $Quantity): static
     {
         $this->container['Quantity'] = $Quantity;
 

@@ -44,7 +44,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property bool $OneTimeItem When `true`, indicates that the item is charged only once.<br />  When `false`, indicates that the item is charged multiple times.
  *
  */
-class ContractItem extends BaseModel implements ModelWithId
+class ContractItem extends BaseModel implements ModelWithStringId
 {
     const DISCRIMINATOR = null;
 
@@ -53,14 +53,14 @@ class ContractItem extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ContractItem';
+    protected static string $swaggerModelName = 'ContractItem';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Id' => 'string',
         'Name' => 'string',
         'Description' => 'string',
@@ -75,7 +75,7 @@ class ContractItem extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Id' => null,
         'Name' => null,
         'Description' => null,
@@ -92,7 +92,7 @@ class ContractItem extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Id' => 'Id',
         'Name' => 'Name',
         'Description' => 'Description',
@@ -107,7 +107,7 @@ class ContractItem extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Id' => 'setId',
         'Name' => 'setName',
         'Description' => 'setDescription',
@@ -122,7 +122,7 @@ class ContractItem extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Id' => 'getId',
         'Name' => 'getName',
         'Description' => 'getDescription',
@@ -143,7 +143,7 @@ class ContractItem extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
         $this->container['Name'] = isset($data['Name']) ? $data['Name'] : null;
@@ -172,7 +172,7 @@ class ContractItem extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getId()
+    public function getId(): string
     {
         return $this->container['Id'];
     }
@@ -184,7 +184,9 @@ class ContractItem extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(string $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -196,7 +198,7 @@ class ContractItem extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->container['Name'];
     }
@@ -208,7 +210,9 @@ class ContractItem extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setName($Name): self
+
+
+    public function setName(string $Name): static
     {
         $this->container['Name'] = $Name;
 
@@ -220,7 +224,7 @@ class ContractItem extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->container['Description'];
     }
@@ -232,7 +236,9 @@ class ContractItem extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setDescription($Description): self
+
+
+    public function setDescription(string $Description): static
     {
         $this->container['Description'] = $Description;
 
@@ -244,7 +250,7 @@ class ContractItem extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getType()
+    public function getType(): string
     {
         return $this->container['Type'];
     }
@@ -256,7 +262,9 @@ class ContractItem extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setType($Type): self
+
+
+    public function setType(string $Type): static
     {
         $this->container['Type'] = $Type;
 
@@ -268,7 +276,7 @@ class ContractItem extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getPrice()
+    public function getPrice(): float
     {
         return $this->container['Price'];
     }
@@ -280,7 +288,9 @@ class ContractItem extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setPrice($Price): self
+
+
+    public function setPrice(float $Price): static
     {
         $this->container['Price'] = $Price;
 
@@ -292,7 +302,7 @@ class ContractItem extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getQuantity()
+    public function getQuantity(): int
     {
         return $this->container['Quantity'];
     }
@@ -304,7 +314,9 @@ class ContractItem extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setQuantity($Quantity): self
+
+
+    public function setQuantity(int $Quantity): static
     {
         $this->container['Quantity'] = $Quantity;
 
@@ -316,7 +328,7 @@ class ContractItem extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getOneTimeItem()
+    public function getOneTimeItem(): bool
     {
         return $this->container['OneTimeItem'];
     }
@@ -328,7 +340,9 @@ class ContractItem extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setOneTimeItem($OneTimeItem): self
+
+
+    public function setOneTimeItem(bool $OneTimeItem): static
     {
         $this->container['OneTimeItem'] = $OneTimeItem;
 

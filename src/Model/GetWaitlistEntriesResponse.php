@@ -48,14 +48,14 @@ class GetWaitlistEntriesResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetWaitlistEntriesResponse';
+    protected static string $swaggerModelName = 'GetWaitlistEntriesResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'PaginationResponse' => '\Nlocascio\Mindbody\Model\PaginationResponse',
         'WaitlistEntries' => '\Nlocascio\Mindbody\Model\WaitlistEntry[]'
     ];
@@ -65,7 +65,7 @@ class GetWaitlistEntriesResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'PaginationResponse' => null,
         'WaitlistEntries' => null
     ];
@@ -77,7 +77,7 @@ class GetWaitlistEntriesResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'PaginationResponse' => 'PaginationResponse',
         'WaitlistEntries' => 'WaitlistEntries'
     ];
@@ -87,7 +87,7 @@ class GetWaitlistEntriesResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'PaginationResponse' => 'setPaginationResponse',
         'WaitlistEntries' => 'setWaitlistEntries'
     ];
@@ -97,7 +97,7 @@ class GetWaitlistEntriesResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'PaginationResponse' => 'getPaginationResponse',
         'WaitlistEntries' => 'getWaitlistEntries'
     ];
@@ -113,7 +113,7 @@ class GetWaitlistEntriesResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['PaginationResponse'] = isset($data['PaginationResponse']) ? $data['PaginationResponse'] : null;
         $this->container['WaitlistEntries'] = isset($data['WaitlistEntries']) ? $data['WaitlistEntries'] : null;
@@ -137,7 +137,7 @@ class GetWaitlistEntriesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse()
+    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
     {
         return $this->container['PaginationResponse'];
     }
@@ -149,7 +149,9 @@ class GetWaitlistEntriesResponse extends BaseModel
      *
      * @return $this
      */
-    public function setPaginationResponse($PaginationResponse): self
+
+
+    public function setPaginationResponse(\Nlocascio\Mindbody\Model\PaginationResponse $PaginationResponse): static
     {
         $this->container['PaginationResponse'] = $PaginationResponse;
 
@@ -161,7 +163,7 @@ class GetWaitlistEntriesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\WaitlistEntry[]
      */
-    public function getWaitlistEntries()
+    public function getWaitlistEntries(): array
     {
         return $this->container['WaitlistEntries'];
     }
@@ -173,7 +175,9 @@ class GetWaitlistEntriesResponse extends BaseModel
      *
      * @return $this
      */
-    public function setWaitlistEntries($WaitlistEntries): self
+
+
+    public function setWaitlistEntries(array $WaitlistEntries): static
     {
         $this->container['WaitlistEntries'] = $WaitlistEntries;
 

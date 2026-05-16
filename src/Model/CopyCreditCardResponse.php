@@ -49,14 +49,14 @@ class CopyCreditCardResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CopyCreditCardResponse';
+    protected static string $swaggerModelName = 'CopyCreditCardResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'CopiedFrom' => '\Nlocascio\Mindbody\Model\CopyCreditCardResponseClient',
         'CopiedTo' => '\Nlocascio\Mindbody\Model\CopyCreditCardResponseClient'
     ];
@@ -66,7 +66,7 @@ class CopyCreditCardResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'CopiedFrom' => null,
         'CopiedTo' => null
     ];
@@ -78,7 +78,7 @@ class CopyCreditCardResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'CopiedFrom' => 'CopiedFrom',
         'CopiedTo' => 'CopiedTo'
     ];
@@ -88,7 +88,7 @@ class CopyCreditCardResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'CopiedFrom' => 'setCopiedFrom',
         'CopiedTo' => 'setCopiedTo'
     ];
@@ -98,7 +98,7 @@ class CopyCreditCardResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'CopiedFrom' => 'getCopiedFrom',
         'CopiedTo' => 'getCopiedTo'
     ];
@@ -114,7 +114,7 @@ class CopyCreditCardResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['CopiedFrom'] = isset($data['CopiedFrom']) ? $data['CopiedFrom'] : null;
         $this->container['CopiedTo'] = isset($data['CopiedTo']) ? $data['CopiedTo'] : null;
@@ -138,7 +138,7 @@ class CopyCreditCardResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\CopyCreditCardResponseClient
      */
-    public function getCopiedFrom()
+    public function getCopiedFrom(): \Nlocascio\Mindbody\Model\CopyCreditCardResponseClient
     {
         return $this->container['CopiedFrom'];
     }
@@ -150,7 +150,9 @@ class CopyCreditCardResponse extends BaseModel
      *
      * @return $this
      */
-    public function setCopiedFrom($CopiedFrom): self
+
+
+    public function setCopiedFrom(\Nlocascio\Mindbody\Model\CopyCreditCardResponseClient $CopiedFrom): static
     {
         $this->container['CopiedFrom'] = $CopiedFrom;
 
@@ -162,7 +164,7 @@ class CopyCreditCardResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\CopyCreditCardResponseClient
      */
-    public function getCopiedTo()
+    public function getCopiedTo(): \Nlocascio\Mindbody\Model\CopyCreditCardResponseClient
     {
         return $this->container['CopiedTo'];
     }
@@ -174,7 +176,9 @@ class CopyCreditCardResponse extends BaseModel
      *
      * @return $this
      */
-    public function setCopiedTo($CopiedTo): self
+
+
+    public function setCopiedTo(\Nlocascio\Mindbody\Model\CopyCreditCardResponseClient $CopiedTo): static
     {
         $this->container['CopiedTo'] = $CopiedTo;
 

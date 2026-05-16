@@ -39,7 +39,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property string $Text The new text for the comment.
  *
  */
-class UpdateContactLogComment extends BaseModel implements ModelWithId
+class UpdateContactLogComment extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -48,14 +48,14 @@ class UpdateContactLogComment extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UpdateContactLogComment';
+    protected static string $swaggerModelName = 'UpdateContactLogComment';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Id' => 'int',
         'Text' => 'string'
     ];
@@ -65,7 +65,7 @@ class UpdateContactLogComment extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Id' => 'int32',
         'Text' => null
     ];
@@ -77,7 +77,7 @@ class UpdateContactLogComment extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Id' => 'Id',
         'Text' => 'Text'
     ];
@@ -87,7 +87,7 @@ class UpdateContactLogComment extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Id' => 'setId',
         'Text' => 'setText'
     ];
@@ -97,7 +97,7 @@ class UpdateContactLogComment extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Id' => 'getId',
         'Text' => 'getText'
     ];
@@ -113,7 +113,7 @@ class UpdateContactLogComment extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
         $this->container['Text'] = isset($data['Text']) ? $data['Text'] : null;
@@ -137,7 +137,7 @@ class UpdateContactLogComment extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -149,7 +149,9 @@ class UpdateContactLogComment extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -161,7 +163,7 @@ class UpdateContactLogComment extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getText()
+    public function getText(): string
     {
         return $this->container['Text'];
     }
@@ -173,7 +175,9 @@ class UpdateContactLogComment extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setText($Text): self
+
+
+    public function setText(string $Text): static
     {
         $this->container['Text'] = $Text;
 

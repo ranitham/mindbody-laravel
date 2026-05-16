@@ -48,14 +48,14 @@ class GetScheduledServiceEarningsResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetScheduledServiceEarningsResponse';
+    protected static string $swaggerModelName = 'GetScheduledServiceEarningsResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'PaginationResponse' => '\Nlocascio\Mindbody\Model\PaginationResponse',
         'ScheduledServiceEarnings' => '\Nlocascio\Mindbody\Model\ScheduledServiceEarningsEvent[]'
     ];
@@ -65,7 +65,7 @@ class GetScheduledServiceEarningsResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'PaginationResponse' => null,
         'ScheduledServiceEarnings' => null
     ];
@@ -77,7 +77,7 @@ class GetScheduledServiceEarningsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'PaginationResponse' => 'PaginationResponse',
         'ScheduledServiceEarnings' => 'ScheduledServiceEarnings'
     ];
@@ -87,7 +87,7 @@ class GetScheduledServiceEarningsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'PaginationResponse' => 'setPaginationResponse',
         'ScheduledServiceEarnings' => 'setScheduledServiceEarnings'
     ];
@@ -97,7 +97,7 @@ class GetScheduledServiceEarningsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'PaginationResponse' => 'getPaginationResponse',
         'ScheduledServiceEarnings' => 'getScheduledServiceEarnings'
     ];
@@ -113,7 +113,7 @@ class GetScheduledServiceEarningsResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['PaginationResponse'] = isset($data['PaginationResponse']) ? $data['PaginationResponse'] : null;
         $this->container['ScheduledServiceEarnings'] = isset($data['ScheduledServiceEarnings']) ? $data['ScheduledServiceEarnings'] : null;
@@ -137,7 +137,7 @@ class GetScheduledServiceEarningsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse()
+    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
     {
         return $this->container['PaginationResponse'];
     }
@@ -149,7 +149,9 @@ class GetScheduledServiceEarningsResponse extends BaseModel
      *
      * @return $this
      */
-    public function setPaginationResponse($PaginationResponse): self
+
+
+    public function setPaginationResponse(\Nlocascio\Mindbody\Model\PaginationResponse $PaginationResponse): static
     {
         $this->container['PaginationResponse'] = $PaginationResponse;
 
@@ -161,7 +163,7 @@ class GetScheduledServiceEarningsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ScheduledServiceEarningsEvent[]
      */
-    public function getScheduledServiceEarnings()
+    public function getScheduledServiceEarnings(): array
     {
         return $this->container['ScheduledServiceEarnings'];
     }
@@ -173,7 +175,9 @@ class GetScheduledServiceEarningsResponse extends BaseModel
      *
      * @return $this
      */
-    public function setScheduledServiceEarnings($ScheduledServiceEarnings): self
+
+
+    public function setScheduledServiceEarnings(array $ScheduledServiceEarnings): static
     {
         $this->container['ScheduledServiceEarnings'] = $ScheduledServiceEarnings;
 

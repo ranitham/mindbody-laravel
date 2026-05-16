@@ -40,7 +40,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property string $Type The type of resource (Staff or Room).
  *
  */
-class AppointmentModelsAppointmentResourceInfo extends BaseModel implements ModelWithId
+class AppointmentModelsAppointmentResourceInfo extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -49,14 +49,14 @@ class AppointmentModelsAppointmentResourceInfo extends BaseModel implements Mode
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AppointmentModels.AppointmentResourceInfo';
+    protected static string $swaggerModelName = 'AppointmentModels.AppointmentResourceInfo';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Id' => 'int',
         'Type' => 'string'
     ];
@@ -66,7 +66,7 @@ class AppointmentModelsAppointmentResourceInfo extends BaseModel implements Mode
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Id' => 'int64',
         'Type' => null
     ];
@@ -78,7 +78,7 @@ class AppointmentModelsAppointmentResourceInfo extends BaseModel implements Mode
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Id' => 'Id',
         'Type' => 'Type'
     ];
@@ -88,7 +88,7 @@ class AppointmentModelsAppointmentResourceInfo extends BaseModel implements Mode
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Id' => 'setId',
         'Type' => 'setType'
     ];
@@ -98,7 +98,7 @@ class AppointmentModelsAppointmentResourceInfo extends BaseModel implements Mode
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Id' => 'getId',
         'Type' => 'getType'
     ];
@@ -129,7 +129,7 @@ class AppointmentModelsAppointmentResourceInfo extends BaseModel implements Mode
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
         $this->container['Type'] = isset($data['Type']) ? $data['Type'] : null;
@@ -161,7 +161,7 @@ class AppointmentModelsAppointmentResourceInfo extends BaseModel implements Mode
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -173,7 +173,9 @@ class AppointmentModelsAppointmentResourceInfo extends BaseModel implements Mode
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -185,7 +187,7 @@ class AppointmentModelsAppointmentResourceInfo extends BaseModel implements Mode
      *
      * @return string
      */
-    public function getType()
+    public function getType(): string
     {
         return $this->container['Type'];
     }
@@ -197,7 +199,9 @@ class AppointmentModelsAppointmentResourceInfo extends BaseModel implements Mode
      *
      * @return $this
      */
-    public function setType($Type): self
+
+
+    public function setType(string $Type): static
     {
         $allowedValues = $this->getTypeAllowableValues();
         if (!is_null($Type) && !in_array($Type, $allowedValues, true)) {

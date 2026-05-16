@@ -49,14 +49,14 @@ class GetStaffImageURLResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetStaffImageURLResponse';
+    protected static string $swaggerModelName = 'GetStaffImageURLResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ImageURL' => 'string',
         'MobileImageURL' => 'string'
     ];
@@ -66,7 +66,7 @@ class GetStaffImageURLResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ImageURL' => null,
         'MobileImageURL' => null
     ];
@@ -78,7 +78,7 @@ class GetStaffImageURLResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ImageURL' => 'ImageURL',
         'MobileImageURL' => 'MobileImageURL'
     ];
@@ -88,7 +88,7 @@ class GetStaffImageURLResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ImageURL' => 'setImageURL',
         'MobileImageURL' => 'setMobileImageURL'
     ];
@@ -98,7 +98,7 @@ class GetStaffImageURLResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ImageURL' => 'getImageURL',
         'MobileImageURL' => 'getMobileImageURL'
     ];
@@ -114,7 +114,7 @@ class GetStaffImageURLResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ImageURL'] = isset($data['ImageURL']) ? $data['ImageURL'] : null;
         $this->container['MobileImageURL'] = isset($data['MobileImageURL']) ? $data['MobileImageURL'] : null;
@@ -138,7 +138,7 @@ class GetStaffImageURLResponse extends BaseModel
      *
      * @return string
      */
-    public function getImageURL()
+    public function getImageURL(): string
     {
         return $this->container['ImageURL'];
     }
@@ -150,7 +150,9 @@ class GetStaffImageURLResponse extends BaseModel
      *
      * @return $this
      */
-    public function setImageURL($ImageURL): self
+
+
+    public function setImageURL(string $ImageURL): static
     {
         $this->container['ImageURL'] = $ImageURL;
 
@@ -162,7 +164,7 @@ class GetStaffImageURLResponse extends BaseModel
      *
      * @return string
      */
-    public function getMobileImageURL()
+    public function getMobileImageURL(): string
     {
         return $this->container['MobileImageURL'];
     }
@@ -174,7 +176,9 @@ class GetStaffImageURLResponse extends BaseModel
      *
      * @return $this
      */
-    public function setMobileImageURL($MobileImageURL): self
+
+
+    public function setMobileImageURL(string $MobileImageURL): static
     {
         $this->container['MobileImageURL'] = $MobileImageURL;
 

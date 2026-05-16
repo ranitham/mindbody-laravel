@@ -48,14 +48,14 @@ class GetContractsResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetContractsResponse';
+    protected static string $swaggerModelName = 'GetContractsResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'PaginationResponse' => '\Nlocascio\Mindbody\Model\PaginationResponse',
         'Contracts' => '\Nlocascio\Mindbody\Model\Contract[]'
     ];
@@ -65,7 +65,7 @@ class GetContractsResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'PaginationResponse' => null,
         'Contracts' => null
     ];
@@ -77,7 +77,7 @@ class GetContractsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'PaginationResponse' => 'PaginationResponse',
         'Contracts' => 'Contracts'
     ];
@@ -87,7 +87,7 @@ class GetContractsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'PaginationResponse' => 'setPaginationResponse',
         'Contracts' => 'setContracts'
     ];
@@ -97,7 +97,7 @@ class GetContractsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'PaginationResponse' => 'getPaginationResponse',
         'Contracts' => 'getContracts'
     ];
@@ -113,7 +113,7 @@ class GetContractsResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['PaginationResponse'] = isset($data['PaginationResponse']) ? $data['PaginationResponse'] : null;
         $this->container['Contracts'] = isset($data['Contracts']) ? $data['Contracts'] : null;
@@ -137,7 +137,7 @@ class GetContractsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse()
+    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
     {
         return $this->container['PaginationResponse'];
     }
@@ -149,7 +149,9 @@ class GetContractsResponse extends BaseModel
      *
      * @return $this
      */
-    public function setPaginationResponse($PaginationResponse): self
+
+
+    public function setPaginationResponse(\Nlocascio\Mindbody\Model\PaginationResponse $PaginationResponse): static
     {
         $this->container['PaginationResponse'] = $PaginationResponse;
 
@@ -161,7 +163,7 @@ class GetContractsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Contract[]
      */
-    public function getContracts()
+    public function getContracts(): array
     {
         return $this->container['Contracts'];
     }
@@ -173,7 +175,9 @@ class GetContractsResponse extends BaseModel
      *
      * @return $this
      */
-    public function setContracts($Contracts): self
+
+
+    public function setContracts(array $Contracts): static
     {
         $this->container['Contracts'] = $Contracts;
 

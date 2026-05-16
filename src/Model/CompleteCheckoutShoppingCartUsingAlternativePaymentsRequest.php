@@ -50,14 +50,14 @@ class CompleteCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CompleteCheckoutShoppingCartUsingAlternativePaymentsRequest';
+    protected static string $swaggerModelName = 'CompleteCheckoutShoppingCartUsingAlternativePaymentsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'AccessToken' => 'string',
         'ClientId' => 'string',
         'Test' => 'bool'
@@ -68,7 +68,7 @@ class CompleteCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'AccessToken' => null,
         'ClientId' => null,
         'Test' => null
@@ -81,7 +81,7 @@ class CompleteCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'AccessToken' => 'AccessToken',
         'ClientId' => 'ClientId',
         'Test' => 'Test'
@@ -92,7 +92,7 @@ class CompleteCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'AccessToken' => 'setAccessToken',
         'ClientId' => 'setClientId',
         'Test' => 'setTest'
@@ -103,7 +103,7 @@ class CompleteCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'AccessToken' => 'getAccessToken',
         'ClientId' => 'getClientId',
         'Test' => 'getTest'
@@ -120,7 +120,7 @@ class CompleteCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['AccessToken'] = isset($data['AccessToken']) ? $data['AccessToken'] : null;
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
@@ -151,7 +151,7 @@ class CompleteCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return string
      */
-    public function getAccessToken()
+    public function getAccessToken(): string
     {
         return $this->container['AccessToken'];
     }
@@ -163,7 +163,9 @@ class CompleteCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return $this
      */
-    public function setAccessToken($AccessToken): self
+
+
+    public function setAccessToken(string $AccessToken): static
     {
         $this->container['AccessToken'] = $AccessToken;
 
@@ -175,7 +177,7 @@ class CompleteCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return string
      */
-    public function getClientId()
+    public function getClientId(): string
     {
         return $this->container['ClientId'];
     }
@@ -187,7 +189,9 @@ class CompleteCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return $this
      */
-    public function setClientId($ClientId): self
+
+
+    public function setClientId(string $ClientId): static
     {
         $this->container['ClientId'] = $ClientId;
 
@@ -199,7 +203,7 @@ class CompleteCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return bool
      */
-    public function getTest()
+    public function getTest(): bool
     {
         return $this->container['Test'];
     }
@@ -211,7 +215,9 @@ class CompleteCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return $this
      */
-    public function setTest($Test): self
+
+
+    public function setTest(bool $Test): static
     {
         $this->container['Test'] = $Test;
 

@@ -47,14 +47,14 @@ class GetClientReferralTypesResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetClientReferralTypesResponse';
+    protected static string $swaggerModelName = 'GetClientReferralTypesResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ReferralTypes' => 'string[]'
     ];
 
@@ -63,7 +63,7 @@ class GetClientReferralTypesResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ReferralTypes' => null
     ];
 
@@ -74,7 +74,7 @@ class GetClientReferralTypesResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ReferralTypes' => 'ReferralTypes'
     ];
 
@@ -83,7 +83,7 @@ class GetClientReferralTypesResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ReferralTypes' => 'setReferralTypes'
     ];
 
@@ -92,7 +92,7 @@ class GetClientReferralTypesResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ReferralTypes' => 'getReferralTypes'
     ];
 
@@ -107,7 +107,7 @@ class GetClientReferralTypesResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ReferralTypes'] = isset($data['ReferralTypes']) ? $data['ReferralTypes'] : null;
     }
@@ -130,7 +130,7 @@ class GetClientReferralTypesResponse extends BaseModel
      *
      * @return string[]
      */
-    public function getReferralTypes()
+    public function getReferralTypes(): array
     {
         return $this->container['ReferralTypes'];
     }
@@ -142,7 +142,9 @@ class GetClientReferralTypesResponse extends BaseModel
      *
      * @return $this
      */
-    public function setReferralTypes($ReferralTypes): self
+
+
+    public function setReferralTypes(array $ReferralTypes): static
     {
         $this->container['ReferralTypes'] = $ReferralTypes;
 

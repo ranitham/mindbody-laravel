@@ -48,14 +48,14 @@ class GetCustomPaymentMethodsResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetCustomPaymentMethodsResponse';
+    protected static string $swaggerModelName = 'GetCustomPaymentMethodsResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'PaginationResponse' => '\Nlocascio\Mindbody\Model\PaginationResponse',
         'PaymentMethods' => '\Nlocascio\Mindbody\Model\CustomPaymentMethod[]'
     ];
@@ -65,7 +65,7 @@ class GetCustomPaymentMethodsResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'PaginationResponse' => null,
         'PaymentMethods' => null
     ];
@@ -77,7 +77,7 @@ class GetCustomPaymentMethodsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'PaginationResponse' => 'PaginationResponse',
         'PaymentMethods' => 'PaymentMethods'
     ];
@@ -87,7 +87,7 @@ class GetCustomPaymentMethodsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'PaginationResponse' => 'setPaginationResponse',
         'PaymentMethods' => 'setPaymentMethods'
     ];
@@ -97,7 +97,7 @@ class GetCustomPaymentMethodsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'PaginationResponse' => 'getPaginationResponse',
         'PaymentMethods' => 'getPaymentMethods'
     ];
@@ -113,7 +113,7 @@ class GetCustomPaymentMethodsResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['PaginationResponse'] = isset($data['PaginationResponse']) ? $data['PaginationResponse'] : null;
         $this->container['PaymentMethods'] = isset($data['PaymentMethods']) ? $data['PaymentMethods'] : null;
@@ -137,7 +137,7 @@ class GetCustomPaymentMethodsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse()
+    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
     {
         return $this->container['PaginationResponse'];
     }
@@ -149,7 +149,9 @@ class GetCustomPaymentMethodsResponse extends BaseModel
      *
      * @return $this
      */
-    public function setPaginationResponse($PaginationResponse): self
+
+
+    public function setPaginationResponse(\Nlocascio\Mindbody\Model\PaginationResponse $PaginationResponse): static
     {
         $this->container['PaginationResponse'] = $PaginationResponse;
 
@@ -161,7 +163,7 @@ class GetCustomPaymentMethodsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\CustomPaymentMethod[]
      */
-    public function getPaymentMethods()
+    public function getPaymentMethods(): array
     {
         return $this->container['PaymentMethods'];
     }
@@ -173,7 +175,9 @@ class GetCustomPaymentMethodsResponse extends BaseModel
      *
      * @return $this
      */
-    public function setPaymentMethods($PaymentMethods): self
+
+
+    public function setPaymentMethods(array $PaymentMethods): static
     {
         $this->container['PaymentMethods'] = $PaymentMethods;
 

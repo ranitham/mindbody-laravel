@@ -49,7 +49,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property \Nlocascio\Mindbody\Model\ContactLogType[] $Types Information about the type of contact log.
  *
  */
-class ContactLog extends BaseModel implements ModelWithId
+class ContactLog extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -58,14 +58,14 @@ class ContactLog extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ContactLog';
+    protected static string $swaggerModelName = 'ContactLog';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Id' => 'int',
         'Text' => 'string',
         'CreatedDateTime' => '\DateTime',
@@ -84,7 +84,7 @@ class ContactLog extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Id' => 'int64',
         'Text' => null,
         'CreatedDateTime' => 'date-time',
@@ -105,7 +105,7 @@ class ContactLog extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Id' => 'Id',
         'Text' => 'Text',
         'CreatedDateTime' => 'CreatedDateTime',
@@ -124,7 +124,7 @@ class ContactLog extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Id' => 'setId',
         'Text' => 'setText',
         'CreatedDateTime' => 'setCreatedDateTime',
@@ -143,7 +143,7 @@ class ContactLog extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Id' => 'getId',
         'Text' => 'getText',
         'CreatedDateTime' => 'getCreatedDateTime',
@@ -168,7 +168,7 @@ class ContactLog extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
         $this->container['Text'] = isset($data['Text']) ? $data['Text'] : null;
@@ -201,7 +201,7 @@ class ContactLog extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -213,7 +213,9 @@ class ContactLog extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -225,7 +227,7 @@ class ContactLog extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getText()
+    public function getText(): string
     {
         return $this->container['Text'];
     }
@@ -237,7 +239,9 @@ class ContactLog extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setText($Text): self
+
+
+    public function setText(string $Text): static
     {
         $this->container['Text'] = $Text;
 
@@ -249,7 +253,7 @@ class ContactLog extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getCreatedDateTime()
+    public function getCreatedDateTime(): \DateTime
     {
         return $this->container['CreatedDateTime'];
     }
@@ -261,7 +265,9 @@ class ContactLog extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setCreatedDateTime($CreatedDateTime): self
+
+
+    public function setCreatedDateTime(\DateTime $CreatedDateTime): static
     {
         $this->container['CreatedDateTime'] = $CreatedDateTime;
 
@@ -273,7 +279,7 @@ class ContactLog extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getFollowupByDate()
+    public function getFollowupByDate(): \DateTime
     {
         return $this->container['FollowupByDate'];
     }
@@ -285,7 +291,9 @@ class ContactLog extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setFollowupByDate($FollowupByDate): self
+
+
+    public function setFollowupByDate(\DateTime $FollowupByDate): static
     {
         $this->container['FollowupByDate'] = $FollowupByDate;
 
@@ -297,7 +305,7 @@ class ContactLog extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getContactMethod()
+    public function getContactMethod(): string
     {
         return $this->container['ContactMethod'];
     }
@@ -309,7 +317,9 @@ class ContactLog extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setContactMethod($ContactMethod): self
+
+
+    public function setContactMethod(string $ContactMethod): static
     {
         $this->container['ContactMethod'] = $ContactMethod;
 
@@ -321,7 +331,7 @@ class ContactLog extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getContactName()
+    public function getContactName(): string
     {
         return $this->container['ContactName'];
     }
@@ -333,7 +343,9 @@ class ContactLog extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setContactName($ContactName): self
+
+
+    public function setContactName(string $ContactName): static
     {
         $this->container['ContactName'] = $ContactName;
 
@@ -345,7 +357,7 @@ class ContactLog extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\Client
      */
-    public function getClient()
+    public function getClient(): \Nlocascio\Mindbody\Model\Client
     {
         return $this->container['Client'];
     }
@@ -357,7 +369,9 @@ class ContactLog extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setClient($Client): self
+
+
+    public function setClient(\Nlocascio\Mindbody\Model\Client $Client): static
     {
         $this->container['Client'] = $Client;
 
@@ -369,7 +383,7 @@ class ContactLog extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\Staff
      */
-    public function getCreatedBy()
+    public function getCreatedBy(): \Nlocascio\Mindbody\Model\Staff
     {
         return $this->container['CreatedBy'];
     }
@@ -381,7 +395,9 @@ class ContactLog extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setCreatedBy($CreatedBy): self
+
+
+    public function setCreatedBy(\Nlocascio\Mindbody\Model\Staff $CreatedBy): static
     {
         $this->container['CreatedBy'] = $CreatedBy;
 
@@ -393,7 +409,7 @@ class ContactLog extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\Staff
      */
-    public function getAssignedTo()
+    public function getAssignedTo(): \Nlocascio\Mindbody\Model\Staff
     {
         return $this->container['AssignedTo'];
     }
@@ -405,7 +421,9 @@ class ContactLog extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAssignedTo($AssignedTo): self
+
+
+    public function setAssignedTo(\Nlocascio\Mindbody\Model\Staff $AssignedTo): static
     {
         $this->container['AssignedTo'] = $AssignedTo;
 
@@ -417,7 +435,7 @@ class ContactLog extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\ContactLogComment[]
      */
-    public function getComments()
+    public function getComments(): array
     {
         return $this->container['Comments'];
     }
@@ -429,7 +447,9 @@ class ContactLog extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setComments($Comments): self
+
+
+    public function setComments(array $Comments): static
     {
         $this->container['Comments'] = $Comments;
 
@@ -441,7 +461,7 @@ class ContactLog extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\ContactLogType[]
      */
-    public function getTypes()
+    public function getTypes(): array
     {
         return $this->container['Types'];
     }
@@ -453,7 +473,9 @@ class ContactLog extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setTypes($Types): self
+
+
+    public function setTypes(array $Types): static
     {
         $this->container['Types'] = $Types;
 

@@ -49,14 +49,14 @@ class GetAlternativePaymentMethodsRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetAlternativePaymentMethodsRequest';
+    protected static string $swaggerModelName = 'GetAlternativePaymentMethodsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'LocationId' => 'int',
         'ClientId' => 'string'
     ];
@@ -66,7 +66,7 @@ class GetAlternativePaymentMethodsRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'LocationId' => 'int32',
         'ClientId' => null
     ];
@@ -78,7 +78,7 @@ class GetAlternativePaymentMethodsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'LocationId' => 'LocationId',
         'ClientId' => 'ClientId'
     ];
@@ -88,7 +88,7 @@ class GetAlternativePaymentMethodsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'LocationId' => 'setLocationId',
         'ClientId' => 'setClientId'
     ];
@@ -98,7 +98,7 @@ class GetAlternativePaymentMethodsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'LocationId' => 'getLocationId',
         'ClientId' => 'getClientId'
     ];
@@ -114,7 +114,7 @@ class GetAlternativePaymentMethodsRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['LocationId'] = isset($data['LocationId']) ? $data['LocationId'] : null;
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
@@ -138,7 +138,7 @@ class GetAlternativePaymentMethodsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLocationId()
+    public function getLocationId(): int
     {
         return $this->container['LocationId'];
     }
@@ -150,7 +150,9 @@ class GetAlternativePaymentMethodsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLocationId($LocationId): self
+
+
+    public function setLocationId(int $LocationId): static
     {
         $this->container['LocationId'] = $LocationId;
 
@@ -162,7 +164,7 @@ class GetAlternativePaymentMethodsRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId()
+    public function getClientId(): string
     {
         return $this->container['ClientId'];
     }
@@ -174,7 +176,9 @@ class GetAlternativePaymentMethodsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClientId($ClientId): self
+
+
+    public function setClientId(string $ClientId): static
     {
         $this->container['ClientId'] = $ClientId;
 

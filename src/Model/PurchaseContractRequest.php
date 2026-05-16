@@ -65,14 +65,14 @@ class PurchaseContractRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'PurchaseContractRequest';
+    protected static string $swaggerModelName = 'PurchaseContractRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Test' => 'bool',
         'LocationId' => 'int',
         'ClientId' => 'string',
@@ -99,7 +99,7 @@ class PurchaseContractRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Test' => null,
         'LocationId' => 'int32',
         'ClientId' => null,
@@ -128,7 +128,7 @@ class PurchaseContractRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Test' => 'Test',
         'LocationId' => 'LocationId',
         'ClientId' => 'ClientId',
@@ -155,7 +155,7 @@ class PurchaseContractRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Test' => 'setTest',
         'LocationId' => 'setLocationId',
         'ClientId' => 'setClientId',
@@ -182,7 +182,7 @@ class PurchaseContractRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Test' => 'getTest',
         'LocationId' => 'getLocationId',
         'ClientId' => 'getClientId',
@@ -215,7 +215,7 @@ class PurchaseContractRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Test'] = isset($data['Test']) ? $data['Test'] : null;
         $this->container['LocationId'] = isset($data['LocationId']) ? $data['LocationId'] : null;
@@ -263,7 +263,7 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return bool
      */
-    public function getTest()
+    public function getTest(): bool
     {
         return $this->container['Test'];
     }
@@ -275,7 +275,9 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return $this
      */
-    public function setTest($Test): self
+
+
+    public function setTest(bool $Test): static
     {
         $this->container['Test'] = $Test;
 
@@ -287,7 +289,7 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return int
      */
-    public function getLocationId()
+    public function getLocationId(): int
     {
         return $this->container['LocationId'];
     }
@@ -299,7 +301,9 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLocationId($LocationId): self
+
+
+    public function setLocationId(int $LocationId): static
     {
         $this->container['LocationId'] = $LocationId;
 
@@ -311,7 +315,7 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId()
+    public function getClientId(): string
     {
         return $this->container['ClientId'];
     }
@@ -323,7 +327,9 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClientId($ClientId): self
+
+
+    public function setClientId(string $ClientId): static
     {
         $this->container['ClientId'] = $ClientId;
 
@@ -335,7 +341,7 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return int
      */
-    public function getUniqueClientId()
+    public function getUniqueClientId(): int
     {
         return $this->container['UniqueClientId'];
     }
@@ -347,7 +353,9 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return $this
      */
-    public function setUniqueClientId($UniqueClientId): self
+
+
+    public function setUniqueClientId(int $UniqueClientId): static
     {
         $this->container['UniqueClientId'] = $UniqueClientId;
 
@@ -359,7 +367,7 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return int
      */
-    public function getContractId()
+    public function getContractId(): int
     {
         return $this->container['ContractId'];
     }
@@ -371,7 +379,9 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return $this
      */
-    public function setContractId($ContractId): self
+
+
+    public function setContractId(int $ContractId): static
     {
         $this->container['ContractId'] = $ContractId;
 
@@ -383,7 +393,7 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDate()
+    public function getStartDate(): \DateTime
     {
         return $this->container['StartDate'];
     }
@@ -395,7 +405,9 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStartDate($StartDate): self
+
+
+    public function setStartDate(\DateTime $StartDate): static
     {
         $this->container['StartDate'] = $StartDate;
 
@@ -407,7 +419,7 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return string
      */
-    public function getFirstPaymentOccurs()
+    public function getFirstPaymentOccurs(): string
     {
         return $this->container['FirstPaymentOccurs'];
     }
@@ -419,7 +431,9 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return $this
      */
-    public function setFirstPaymentOccurs($FirstPaymentOccurs): self
+
+
+    public function setFirstPaymentOccurs(string $FirstPaymentOccurs): static
     {
         $this->container['FirstPaymentOccurs'] = $FirstPaymentOccurs;
 
@@ -431,7 +445,7 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientSignature()
+    public function getClientSignature(): string
     {
         return $this->container['ClientSignature'];
     }
@@ -443,7 +457,9 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClientSignature($ClientSignature): self
+
+
+    public function setClientSignature(string $ClientSignature): static
     {
 
         if (!is_null($ClientSignature) && (!preg_match("/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/", $ClientSignature))) {
@@ -460,7 +476,7 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return string
      */
-    public function getPromotionCode()
+    public function getPromotionCode(): string
     {
         return $this->container['PromotionCode'];
     }
@@ -472,7 +488,9 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return $this
      */
-    public function setPromotionCode($PromotionCode): self
+
+
+    public function setPromotionCode(string $PromotionCode): static
     {
         $this->container['PromotionCode'] = $PromotionCode;
 
@@ -484,7 +502,7 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return string[]
      */
-    public function getPromotionCodes()
+    public function getPromotionCodes(): array
     {
         return $this->container['PromotionCodes'];
     }
@@ -496,7 +514,9 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return $this
      */
-    public function setPromotionCodes($PromotionCodes): self
+
+
+    public function setPromotionCodes(array $PromotionCodes): static
     {
         $this->container['PromotionCodes'] = $PromotionCodes;
 
@@ -508,7 +528,7 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\CreditCardInfo
      */
-    public function getCreditCardInfo()
+    public function getCreditCardInfo(): \Nlocascio\Mindbody\Model\CreditCardInfo
     {
         return $this->container['CreditCardInfo'];
     }
@@ -520,7 +540,9 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return $this
      */
-    public function setCreditCardInfo($CreditCardInfo): self
+
+
+    public function setCreditCardInfo(\Nlocascio\Mindbody\Model\CreditCardInfo $CreditCardInfo): static
     {
         $this->container['CreditCardInfo'] = $CreditCardInfo;
 
@@ -532,7 +554,7 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\StoredCardInfo
      */
-    public function getStoredCardInfo()
+    public function getStoredCardInfo(): \Nlocascio\Mindbody\Model\StoredCardInfo
     {
         return $this->container['StoredCardInfo'];
     }
@@ -544,7 +566,9 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStoredCardInfo($StoredCardInfo): self
+
+
+    public function setStoredCardInfo(\Nlocascio\Mindbody\Model\StoredCardInfo $StoredCardInfo): static
     {
         $this->container['StoredCardInfo'] = $StoredCardInfo;
 
@@ -556,7 +580,7 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSendNotifications()
+    public function getSendNotifications(): bool
     {
         return $this->container['SendNotifications'];
     }
@@ -568,7 +592,9 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSendNotifications($SendNotifications): self
+
+
+    public function setSendNotifications(bool $SendNotifications): static
     {
         $this->container['SendNotifications'] = $SendNotifications;
 
@@ -580,7 +606,7 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return int
      */
-    public function getSalesRepId()
+    public function getSalesRepId(): int
     {
         return $this->container['SalesRepId'];
     }
@@ -592,7 +618,9 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSalesRepId($SalesRepId): self
+
+
+    public function setSalesRepId(int $SalesRepId): static
     {
         $this->container['SalesRepId'] = $SalesRepId;
 
@@ -604,7 +632,7 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return bool
      */
-    public function getUseDirectDebit()
+    public function getUseDirectDebit(): bool
     {
         return $this->container['UseDirectDebit'];
     }
@@ -616,7 +644,9 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return $this
      */
-    public function setUseDirectDebit($UseDirectDebit): self
+
+
+    public function setUseDirectDebit(bool $UseDirectDebit): static
     {
         $this->container['UseDirectDebit'] = $UseDirectDebit;
 
@@ -628,7 +658,7 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return bool
      */
-    public function getUseAccountCredit()
+    public function getUseAccountCredit(): bool
     {
         return $this->container['UseAccountCredit'];
     }
@@ -640,7 +670,9 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return $this
      */
-    public function setUseAccountCredit($UseAccountCredit): self
+
+
+    public function setUseAccountCredit(bool $UseAccountCredit): static
     {
         $this->container['UseAccountCredit'] = $UseAccountCredit;
 
@@ -652,7 +684,7 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return bool
      */
-    public function getConsumerPresent()
+    public function getConsumerPresent(): bool
     {
         return $this->container['ConsumerPresent'];
     }
@@ -664,7 +696,9 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return $this
      */
-    public function setConsumerPresent($ConsumerPresent): self
+
+
+    public function setConsumerPresent(bool $ConsumerPresent): static
     {
         $this->container['ConsumerPresent'] = $ConsumerPresent;
 
@@ -676,7 +710,7 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return string
      */
-    public function getPaymentAuthenticationCallbackUrl()
+    public function getPaymentAuthenticationCallbackUrl(): string
     {
         return $this->container['PaymentAuthenticationCallbackUrl'];
     }
@@ -688,7 +722,9 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return $this
      */
-    public function setPaymentAuthenticationCallbackUrl($PaymentAuthenticationCallbackUrl): self
+
+
+    public function setPaymentAuthenticationCallbackUrl(string $PaymentAuthenticationCallbackUrl): static
     {
         $this->container['PaymentAuthenticationCallbackUrl'] = $PaymentAuthenticationCallbackUrl;
 
@@ -700,7 +736,7 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getProrateDate()
+    public function getProrateDate(): \DateTime
     {
         return $this->container['ProrateDate'];
     }
@@ -712,7 +748,9 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return $this
      */
-    public function setProrateDate($ProrateDate): self
+
+
+    public function setProrateDate(\DateTime $ProrateDate): static
     {
         $this->container['ProrateDate'] = $ProrateDate;
 

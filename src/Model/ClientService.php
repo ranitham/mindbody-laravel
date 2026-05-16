@@ -52,7 +52,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property bool $Returned Identification for purchased service is returned or not.
  *
  */
-class ClientService extends BaseModel implements ModelWithId
+class ClientService extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -61,14 +61,14 @@ class ClientService extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ClientService';
+    protected static string $swaggerModelName = 'ClientService';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ActiveDate' => '\DateTime',
         'Count' => 'int',
         'Current' => 'bool',
@@ -90,7 +90,7 @@ class ClientService extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ActiveDate' => 'date-time',
         'Count' => 'int32',
         'Current' => null,
@@ -114,7 +114,7 @@ class ClientService extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ActiveDate' => 'ActiveDate',
         'Count' => 'Count',
         'Current' => 'Current',
@@ -136,7 +136,7 @@ class ClientService extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ActiveDate' => 'setActiveDate',
         'Count' => 'setCount',
         'Current' => 'setCurrent',
@@ -158,7 +158,7 @@ class ClientService extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ActiveDate' => 'getActiveDate',
         'Count' => 'getCount',
         'Current' => 'getCurrent',
@@ -207,7 +207,7 @@ class ClientService extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ActiveDate'] = isset($data['ActiveDate']) ? $data['ActiveDate'] : null;
         $this->container['Count'] = isset($data['Count']) ? $data['Count'] : null;
@@ -251,7 +251,7 @@ class ClientService extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getActiveDate()
+    public function getActiveDate(): \DateTime
     {
         return $this->container['ActiveDate'];
     }
@@ -263,7 +263,9 @@ class ClientService extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setActiveDate($ActiveDate): self
+
+
+    public function setActiveDate(\DateTime $ActiveDate): static
     {
         $this->container['ActiveDate'] = $ActiveDate;
 
@@ -275,7 +277,7 @@ class ClientService extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getCount()
+    public function getCount(): int
     {
         return $this->container['Count'];
     }
@@ -287,7 +289,9 @@ class ClientService extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setCount($Count): self
+
+
+    public function setCount(int $Count): static
     {
         $this->container['Count'] = $Count;
 
@@ -299,7 +303,7 @@ class ClientService extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getCurrent()
+    public function getCurrent(): bool
     {
         return $this->container['Current'];
     }
@@ -311,7 +315,9 @@ class ClientService extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setCurrent($Current): self
+
+
+    public function setCurrent(bool $Current): static
     {
         $this->container['Current'] = $Current;
 
@@ -323,7 +329,7 @@ class ClientService extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getExpirationDate()
+    public function getExpirationDate(): \DateTime
     {
         return $this->container['ExpirationDate'];
     }
@@ -335,7 +341,9 @@ class ClientService extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setExpirationDate($ExpirationDate): self
+
+
+    public function setExpirationDate(\DateTime $ExpirationDate): static
     {
         $this->container['ExpirationDate'] = $ExpirationDate;
 
@@ -347,7 +355,7 @@ class ClientService extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -359,7 +367,9 @@ class ClientService extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -371,7 +381,7 @@ class ClientService extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getProductId()
+    public function getProductId(): int
     {
         return $this->container['ProductId'];
     }
@@ -383,7 +393,9 @@ class ClientService extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setProductId($ProductId): self
+
+
+    public function setProductId(int $ProductId): static
     {
         $this->container['ProductId'] = $ProductId;
 
@@ -395,7 +407,7 @@ class ClientService extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->container['Name'];
     }
@@ -407,7 +419,9 @@ class ClientService extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setName($Name): self
+
+
+    public function setName(string $Name): static
     {
         $this->container['Name'] = $Name;
 
@@ -419,7 +433,7 @@ class ClientService extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getPaymentDate()
+    public function getPaymentDate(): \DateTime
     {
         return $this->container['PaymentDate'];
     }
@@ -431,7 +445,9 @@ class ClientService extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setPaymentDate($PaymentDate): self
+
+
+    public function setPaymentDate(\DateTime $PaymentDate): static
     {
         $this->container['PaymentDate'] = $PaymentDate;
 
@@ -443,7 +459,7 @@ class ClientService extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\Program
      */
-    public function getProgram()
+    public function getProgram(): \Nlocascio\Mindbody\Model\Program
     {
         return $this->container['Program'];
     }
@@ -455,7 +471,9 @@ class ClientService extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setProgram($Program): self
+
+
+    public function setProgram(\Nlocascio\Mindbody\Model\Program $Program): static
     {
         $this->container['Program'] = $Program;
 
@@ -467,7 +485,7 @@ class ClientService extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getRemaining()
+    public function getRemaining(): int
     {
         return $this->container['Remaining'];
     }
@@ -479,7 +497,9 @@ class ClientService extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setRemaining($Remaining): self
+
+
+    public function setRemaining(int $Remaining): static
     {
         $this->container['Remaining'] = $Remaining;
 
@@ -491,7 +511,7 @@ class ClientService extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getSiteId()
+    public function getSiteId(): int
     {
         return $this->container['SiteId'];
     }
@@ -503,7 +523,9 @@ class ClientService extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSiteId($SiteId): self
+
+
+    public function setSiteId(int $SiteId): static
     {
         $this->container['SiteId'] = $SiteId;
 
@@ -515,7 +537,7 @@ class ClientService extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getAction()
+    public function getAction(): string
     {
         return $this->container['Action'];
     }
@@ -527,7 +549,9 @@ class ClientService extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAction($Action): self
+
+
+    public function setAction(string $Action): static
     {
         $allowedValues = $this->getActionAllowableValues();
         if (!is_null($Action) && !in_array($Action, $allowedValues, true)) {
@@ -548,7 +572,7 @@ class ClientService extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getClientID()
+    public function getClientID(): string
     {
         return $this->container['ClientID'];
     }
@@ -560,7 +584,9 @@ class ClientService extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setClientID($ClientID): self
+
+
+    public function setClientID(string $ClientID): static
     {
         $this->container['ClientID'] = $ClientID;
 
@@ -572,7 +598,7 @@ class ClientService extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getReturned()
+    public function getReturned(): bool
     {
         return $this->container['Returned'];
     }
@@ -584,7 +610,9 @@ class ClientService extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setReturned($Returned): self
+
+
+    public function setReturned(bool $Returned): static
     {
         $this->container['Returned'] = $Returned;
 

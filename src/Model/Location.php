@@ -93,7 +93,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property double $AverageRating AverageRating
  *
  */
-class Location extends BaseModel implements ModelWithId
+class Location extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -102,14 +102,14 @@ class Location extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Location';
+    protected static string $swaggerModelName = 'Location';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'BusinessId' => 'int',
         'SiteId' => 'int',
         'BusinessDescription' => 'string',
@@ -173,7 +173,7 @@ class Location extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'BusinessId' => 'int32',
         'SiteId' => 'int32',
         'BusinessDescription' => null,
@@ -239,7 +239,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'BusinessId' => 'BusinessId',
         'SiteId' => 'SiteId',
         'BusinessDescription' => 'BusinessDescription',
@@ -303,7 +303,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'BusinessId' => 'setBusinessId',
         'SiteId' => 'setSiteId',
         'BusinessDescription' => 'setBusinessDescription',
@@ -367,7 +367,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'BusinessId' => 'getBusinessId',
         'SiteId' => 'getSiteId',
         'BusinessDescription' => 'getBusinessDescription',
@@ -458,7 +458,7 @@ class Location extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['BusinessId'] = isset($data['BusinessId']) ? $data['BusinessId'] : null;
         $this->container['SiteId'] = isset($data['SiteId']) ? $data['SiteId'] : null;
@@ -544,7 +544,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getBusinessId()
+    public function getBusinessId(): int
     {
         return $this->container['BusinessId'];
     }
@@ -556,7 +556,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setBusinessId($BusinessId): self
+
+
+    public function setBusinessId(int $BusinessId): static
     {
         $this->container['BusinessId'] = $BusinessId;
 
@@ -568,7 +570,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getSiteId()
+    public function getSiteId(): int
     {
         return $this->container['SiteId'];
     }
@@ -580,7 +582,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSiteId($SiteId): self
+
+
+    public function setSiteId(int $SiteId): static
     {
         $this->container['SiteId'] = $SiteId;
 
@@ -592,7 +596,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getBusinessDescription()
+    public function getBusinessDescription(): string
     {
         return $this->container['BusinessDescription'];
     }
@@ -604,7 +608,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setBusinessDescription($BusinessDescription): self
+
+
+    public function setBusinessDescription(string $BusinessDescription): static
     {
         $this->container['BusinessDescription'] = $BusinessDescription;
 
@@ -616,7 +622,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return string[]
      */
-    public function getAdditionalImageURLs()
+    public function getAdditionalImageURLs(): array
     {
         return $this->container['AdditionalImageURLs'];
     }
@@ -628,7 +634,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAdditionalImageURLs($AdditionalImageURLs): self
+
+
+    public function setAdditionalImageURLs(array $AdditionalImageURLs): static
     {
         $this->container['AdditionalImageURLs'] = $AdditionalImageURLs;
 
@@ -640,7 +648,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getFacilitySquareFeet()
+    public function getFacilitySquareFeet(): int
     {
         return $this->container['FacilitySquareFeet'];
     }
@@ -652,7 +660,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setFacilitySquareFeet($FacilitySquareFeet): self
+
+
+    public function setFacilitySquareFeet(int $FacilitySquareFeet): static
     {
         $this->container['FacilitySquareFeet'] = $FacilitySquareFeet;
 
@@ -664,7 +674,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getProSpaFinderSite()
+    public function getProSpaFinderSite(): bool
     {
         return $this->container['ProSpaFinderSite'];
     }
@@ -676,7 +686,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setProSpaFinderSite($ProSpaFinderSite): self
+
+
+    public function setProSpaFinderSite(bool $ProSpaFinderSite): static
     {
         $this->container['ProSpaFinderSite'] = $ProSpaFinderSite;
 
@@ -688,7 +700,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getHasClasses()
+    public function getHasClasses(): bool
     {
         return $this->container['HasClasses'];
     }
@@ -700,7 +712,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setHasClasses($HasClasses): self
+
+
+    public function setHasClasses(bool $HasClasses): static
     {
         $this->container['HasClasses'] = $HasClasses;
 
@@ -712,7 +726,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getPhoneExtension()
+    public function getPhoneExtension(): string
     {
         return $this->container['PhoneExtension'];
     }
@@ -724,7 +738,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setPhoneExtension($PhoneExtension): self
+
+
+    public function setPhoneExtension(string $PhoneExtension): static
     {
         $this->container['PhoneExtension'] = $PhoneExtension;
 
@@ -736,7 +752,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getAction()
+    public function getAction(): string
     {
         return $this->container['Action'];
     }
@@ -748,7 +764,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAction($Action): self
+
+
+    public function setAction(string $Action): static
     {
         $allowedValues = $this->getActionAllowableValues();
         if (!is_null($Action) && !in_array($Action, $allowedValues, true)) {
@@ -769,7 +787,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -781,7 +799,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -793,7 +813,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->container['Name'];
     }
@@ -805,7 +825,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setName($Name): self
+
+
+    public function setName(string $Name): static
     {
         $this->container['Name'] = $Name;
 
@@ -817,7 +839,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getAddress()
+    public function getAddress(): string
     {
         return $this->container['Address'];
     }
@@ -829,7 +851,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAddress($Address): self
+
+
+    public function setAddress(string $Address): static
     {
         $this->container['Address'] = $Address;
 
@@ -841,7 +865,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getAddress2()
+    public function getAddress2(): string
     {
         return $this->container['Address2'];
     }
@@ -853,7 +877,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAddress2($Address2): self
+
+
+    public function setAddress2(string $Address2): static
     {
         $this->container['Address2'] = $Address2;
 
@@ -865,7 +891,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return float
      */
-    public function getTax1()
+    public function getTax1(): float
     {
         return $this->container['Tax1'];
     }
@@ -877,7 +903,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setTax1($Tax1): self
+
+
+    public function setTax1(float $Tax1): static
     {
         $this->container['Tax1'] = $Tax1;
 
@@ -889,7 +917,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return float
      */
-    public function getTax2()
+    public function getTax2(): float
     {
         return $this->container['Tax2'];
     }
@@ -901,7 +929,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setTax2($Tax2): self
+
+
+    public function setTax2(float $Tax2): static
     {
         $this->container['Tax2'] = $Tax2;
 
@@ -913,7 +943,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return float
      */
-    public function getTax3()
+    public function getTax3(): float
     {
         return $this->container['Tax3'];
     }
@@ -925,7 +955,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setTax3($Tax3): self
+
+
+    public function setTax3(float $Tax3): static
     {
         $this->container['Tax3'] = $Tax3;
 
@@ -937,7 +969,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return float
      */
-    public function getTax4()
+    public function getTax4(): float
     {
         return $this->container['Tax4'];
     }
@@ -949,7 +981,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setTax4($Tax4): self
+
+
+    public function setTax4(float $Tax4): static
     {
         $this->container['Tax4'] = $Tax4;
 
@@ -961,7 +995,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return float
      */
-    public function getTax5()
+    public function getTax5(): float
     {
         return $this->container['Tax5'];
     }
@@ -973,7 +1007,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setTax5($Tax5): self
+
+
+    public function setTax5(float $Tax5): static
     {
         $this->container['Tax5'] = $Tax5;
 
@@ -985,7 +1021,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getPhone()
+    public function getPhone(): string
     {
         return $this->container['Phone'];
     }
@@ -997,7 +1033,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setPhone($Phone): self
+
+
+    public function setPhone(string $Phone): static
     {
         $this->container['Phone'] = $Phone;
 
@@ -1009,7 +1047,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getCity()
+    public function getCity(): string
     {
         return $this->container['City'];
     }
@@ -1021,7 +1059,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setCity($City): self
+
+
+    public function setCity(string $City): static
     {
         $this->container['City'] = $City;
 
@@ -1033,7 +1073,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getStateProvCode()
+    public function getStateProvCode(): string
     {
         return $this->container['StateProvCode'];
     }
@@ -1045,7 +1085,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setStateProvCode($StateProvCode): self
+
+
+    public function setStateProvCode(string $StateProvCode): static
     {
         $this->container['StateProvCode'] = $StateProvCode;
 
@@ -1057,7 +1099,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getPostalCode()
+    public function getPostalCode(): string
     {
         return $this->container['PostalCode'];
     }
@@ -1069,7 +1111,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setPostalCode($PostalCode): self
+
+
+    public function setPostalCode(string $PostalCode): static
     {
         $this->container['PostalCode'] = $PostalCode;
 
@@ -1081,7 +1125,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getLatitude()
+    public function getLatitude(): float
     {
         return $this->container['Latitude'];
     }
@@ -1093,7 +1137,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setLatitude($Latitude): self
+
+
+    public function setLatitude(float $Latitude): static
     {
         $this->container['Latitude'] = $Latitude;
 
@@ -1105,7 +1151,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getLongitude()
+    public function getLongitude(): float
     {
         return $this->container['Longitude'];
     }
@@ -1117,7 +1163,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setLongitude($Longitude): self
+
+
+    public function setLongitude(float $Longitude): static
     {
         $this->container['Longitude'] = $Longitude;
 
@@ -1129,7 +1177,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getDistanceInMiles()
+    public function getDistanceInMiles(): float
     {
         return $this->container['DistanceInMiles'];
     }
@@ -1141,7 +1189,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setDistanceInMiles($DistanceInMiles): self
+
+
+    public function setDistanceInMiles(float $DistanceInMiles): static
     {
         $this->container['DistanceInMiles'] = $DistanceInMiles;
 
@@ -1153,7 +1203,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getImageURL()
+    public function getImageURL(): string
     {
         return $this->container['ImageURL'];
     }
@@ -1165,7 +1215,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setImageURL($ImageURL): self
+
+
+    public function setImageURL(string $ImageURL): static
     {
         $this->container['ImageURL'] = $ImageURL;
 
@@ -1177,7 +1229,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->container['Description'];
     }
@@ -1189,7 +1241,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setDescription($Description): self
+
+
+    public function setDescription(string $Description): static
     {
         $this->container['Description'] = $Description;
 
@@ -1201,7 +1255,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getHasSite()
+    public function getHasSite(): bool
     {
         return $this->container['HasSite'];
     }
@@ -1213,7 +1267,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setHasSite($HasSite): self
+
+
+    public function setHasSite(bool $HasSite): static
     {
         $this->container['HasSite'] = $HasSite;
 
@@ -1225,7 +1281,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getCanBook()
+    public function getCanBook(): bool
     {
         return $this->container['CanBook'];
     }
@@ -1237,7 +1293,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setCanBook($CanBook): self
+
+
+    public function setCanBook(bool $CanBook): static
     {
         $this->container['CanBook'] = $CanBook;
 
@@ -1249,7 +1307,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getNumberTreatmentRooms()
+    public function getNumberTreatmentRooms(): int
     {
         return $this->container['NumberTreatmentRooms'];
     }
@@ -1261,7 +1319,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setNumberTreatmentRooms($NumberTreatmentRooms): self
+
+
+    public function setNumberTreatmentRooms(int $NumberTreatmentRooms): static
     {
         $this->container['NumberTreatmentRooms'] = $NumberTreatmentRooms;
 
@@ -1273,7 +1333,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getActive()
+    public function getActive(): bool
     {
         return $this->container['Active'];
     }
@@ -1285,7 +1345,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setActive($Active): self
+
+
+    public function setActive(bool $Active): static
     {
         $this->container['Active'] = $Active;
 
@@ -1297,7 +1359,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getInvActive()
+    public function getInvActive(): bool
     {
         return $this->container['InvActive'];
     }
@@ -1309,7 +1371,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setInvActive($InvActive): self
+
+
+    public function setInvActive(bool $InvActive): static
     {
         $this->container['InvActive'] = $InvActive;
 
@@ -1321,7 +1385,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getWsShow()
+    public function getWsShow(): bool
     {
         return $this->container['WsShow'];
     }
@@ -1333,7 +1397,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setWsShow($WsShow): self
+
+
+    public function setWsShow(bool $WsShow): static
     {
         $this->container['WsShow'] = $WsShow;
 
@@ -1345,7 +1411,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getEmail()
+    public function getEmail(): string
     {
         return $this->container['Email'];
     }
@@ -1357,7 +1423,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setEmail($Email): self
+
+
+    public function setEmail(string $Email): static
     {
         $this->container['Email'] = $Email;
 
@@ -1369,7 +1437,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getContactName()
+    public function getContactName(): string
     {
         return $this->container['ContactName'];
     }
@@ -1381,7 +1449,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setContactName($ContactName): self
+
+
+    public function setContactName(string $ContactName): static
     {
         $this->container['ContactName'] = $ContactName;
 
@@ -1393,7 +1463,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getShipAddress()
+    public function getShipAddress(): string
     {
         return $this->container['ShipAddress'];
     }
@@ -1405,7 +1475,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setShipAddress($ShipAddress): self
+
+
+    public function setShipAddress(string $ShipAddress): static
     {
         $this->container['ShipAddress'] = $ShipAddress;
 
@@ -1417,7 +1489,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getShipState()
+    public function getShipState(): string
     {
         return $this->container['ShipState'];
     }
@@ -1429,7 +1501,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setShipState($ShipState): self
+
+
+    public function setShipState(string $ShipState): static
     {
         $this->container['ShipState'] = $ShipState;
 
@@ -1441,7 +1515,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getShipPostal()
+    public function getShipPostal(): string
     {
         return $this->container['ShipPostal'];
     }
@@ -1453,7 +1527,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setShipPostal($ShipPostal): self
+
+
+    public function setShipPostal(string $ShipPostal): static
     {
         $this->container['ShipPostal'] = $ShipPostal;
 
@@ -1465,7 +1541,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getShipPhone()
+    public function getShipPhone(): string
     {
         return $this->container['ShipPhone'];
     }
@@ -1477,7 +1553,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setShipPhone($ShipPhone): self
+
+
+    public function setShipPhone(string $ShipPhone): static
     {
         $this->container['ShipPhone'] = $ShipPhone;
 
@@ -1489,7 +1567,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getShipPOC()
+    public function getShipPOC(): string
     {
         return $this->container['ShipPOC'];
     }
@@ -1501,7 +1579,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setShipPOC($ShipPOC): self
+
+
+    public function setShipPOC(string $ShipPOC): static
     {
         $this->container['ShipPOC'] = $ShipPOC;
 
@@ -1513,7 +1593,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getTaxGrouping()
+    public function getTaxGrouping(): bool
     {
         return $this->container['TaxGrouping'];
     }
@@ -1525,7 +1605,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setTaxGrouping($TaxGrouping): self
+
+
+    public function setTaxGrouping(bool $TaxGrouping): static
     {
         $this->container['TaxGrouping'] = $TaxGrouping;
 
@@ -1537,7 +1619,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getLabelTax1()
+    public function getLabelTax1(): string
     {
         return $this->container['LabelTax1'];
     }
@@ -1549,7 +1631,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setLabelTax1($LabelTax1): self
+
+
+    public function setLabelTax1(string $LabelTax1): static
     {
         $this->container['LabelTax1'] = $LabelTax1;
 
@@ -1561,7 +1645,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getLabelTax2()
+    public function getLabelTax2(): string
     {
         return $this->container['LabelTax2'];
     }
@@ -1573,7 +1657,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setLabelTax2($LabelTax2): self
+
+
+    public function setLabelTax2(string $LabelTax2): static
     {
         $this->container['LabelTax2'] = $LabelTax2;
 
@@ -1585,7 +1671,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getLabelTax3()
+    public function getLabelTax3(): string
     {
         return $this->container['LabelTax3'];
     }
@@ -1597,7 +1683,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setLabelTax3($LabelTax3): self
+
+
+    public function setLabelTax3(string $LabelTax3): static
     {
         $this->container['LabelTax3'] = $LabelTax3;
 
@@ -1609,7 +1697,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getLabelTax4()
+    public function getLabelTax4(): string
     {
         return $this->container['LabelTax4'];
     }
@@ -1621,7 +1709,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setLabelTax4($LabelTax4): self
+
+
+    public function setLabelTax4(string $LabelTax4): static
     {
         $this->container['LabelTax4'] = $LabelTax4;
 
@@ -1633,7 +1723,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getLabelTax5()
+    public function getLabelTax5(): string
     {
         return $this->container['LabelTax5'];
     }
@@ -1645,7 +1735,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setLabelTax5($LabelTax5): self
+
+
+    public function setLabelTax5(string $LabelTax5): static
     {
         $this->container['LabelTax5'] = $LabelTax5;
 
@@ -1657,7 +1749,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getWAC()
+    public function getWAC(): bool
     {
         return $this->container['WAC'];
     }
@@ -1669,7 +1761,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setWAC($WAC): self
+
+
+    public function setWAC(bool $WAC): static
     {
         $this->container['WAC'] = $WAC;
 
@@ -1681,7 +1775,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getShipAddress2()
+    public function getShipAddress2(): string
     {
         return $this->container['ShipAddress2'];
     }
@@ -1693,7 +1787,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setShipAddress2($ShipAddress2): self
+
+
+    public function setShipAddress2(string $ShipAddress2): static
     {
         $this->container['ShipAddress2'] = $ShipAddress2;
 
@@ -1705,7 +1801,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getMasterLocId()
+    public function getMasterLocId(): int
     {
         return $this->container['MasterLocId'];
     }
@@ -1717,7 +1813,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setMasterLocId($MasterLocId): self
+
+
+    public function setMasterLocId(int $MasterLocId): static
     {
         $this->container['MasterLocId'] = $MasterLocId;
 
@@ -1729,7 +1827,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getStreetAddress()
+    public function getStreetAddress(): string
     {
         return $this->container['StreetAddress'];
     }
@@ -1741,7 +1839,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setStreetAddress($StreetAddress): self
+
+
+    public function setStreetAddress(string $StreetAddress): static
     {
         $this->container['StreetAddress'] = $StreetAddress;
 
@@ -1753,7 +1853,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getCountry()
+    public function getCountry(): string
     {
         return $this->container['Country'];
     }
@@ -1765,7 +1865,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setCountry($Country): self
+
+
+    public function setCountry(string $Country): static
     {
         $this->container['Country'] = $Country;
 
@@ -1777,7 +1879,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getExt()
+    public function getExt(): string
     {
         return $this->container['Ext'];
     }
@@ -1789,7 +1891,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setExt($Ext): self
+
+
+    public function setExt(string $Ext): static
     {
         $this->container['Ext'] = $Ext;
 
@@ -1801,7 +1905,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\Amenity[]
      */
-    public function getAmenities()
+    public function getAmenities(): array
     {
         return $this->container['Amenities'];
     }
@@ -1813,7 +1917,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAmenities($Amenities): self
+
+
+    public function setAmenities(array $Amenities): static
     {
         $this->container['Amenities'] = $Amenities;
 
@@ -1825,7 +1931,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getTotalNumberOfDeals()
+    public function getTotalNumberOfDeals(): int
     {
         return $this->container['TotalNumberOfDeals'];
     }
@@ -1837,7 +1943,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setTotalNumberOfDeals($TotalNumberOfDeals): self
+
+
+    public function setTotalNumberOfDeals(int $TotalNumberOfDeals): static
     {
         $this->container['TotalNumberOfDeals'] = $TotalNumberOfDeals;
 
@@ -1849,7 +1957,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getTotalNumberOfRatings()
+    public function getTotalNumberOfRatings(): int
     {
         return $this->container['TotalNumberOfRatings'];
     }
@@ -1861,7 +1969,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setTotalNumberOfRatings($TotalNumberOfRatings): self
+
+
+    public function setTotalNumberOfRatings(int $TotalNumberOfRatings): static
     {
         $this->container['TotalNumberOfRatings'] = $TotalNumberOfRatings;
 
@@ -1873,7 +1983,7 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getAverageRating()
+    public function getAverageRating(): float
     {
         return $this->container['AverageRating'];
     }
@@ -1885,7 +1995,9 @@ class Location extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAverageRating($AverageRating): self
+
+
+    public function setAverageRating(float $AverageRating): static
     {
         $this->container['AverageRating'] = $AverageRating;
 

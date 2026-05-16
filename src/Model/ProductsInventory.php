@@ -56,14 +56,14 @@ class ProductsInventory extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ProductsInventory';
+    protected static string $swaggerModelName = 'ProductsInventory';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ProductId' => 'int',
         'BarcodeId' => 'string',
         'LocationId' => 'int',
@@ -81,7 +81,7 @@ class ProductsInventory extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ProductId' => 'int32',
         'BarcodeId' => null,
         'LocationId' => 'int32',
@@ -101,7 +101,7 @@ class ProductsInventory extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ProductId' => 'ProductId',
         'BarcodeId' => 'BarcodeId',
         'LocationId' => 'LocationId',
@@ -119,7 +119,7 @@ class ProductsInventory extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ProductId' => 'setProductId',
         'BarcodeId' => 'setBarcodeId',
         'LocationId' => 'setLocationId',
@@ -137,7 +137,7 @@ class ProductsInventory extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ProductId' => 'getProductId',
         'BarcodeId' => 'getBarcodeId',
         'LocationId' => 'getLocationId',
@@ -161,7 +161,7 @@ class ProductsInventory extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ProductId'] = isset($data['ProductId']) ? $data['ProductId'] : null;
         $this->container['BarcodeId'] = isset($data['BarcodeId']) ? $data['BarcodeId'] : null;
@@ -193,7 +193,7 @@ class ProductsInventory extends BaseModel
      *
      * @return int
      */
-    public function getProductId()
+    public function getProductId(): int
     {
         return $this->container['ProductId'];
     }
@@ -205,7 +205,9 @@ class ProductsInventory extends BaseModel
      *
      * @return $this
      */
-    public function setProductId($ProductId): self
+
+
+    public function setProductId(int $ProductId): static
     {
         $this->container['ProductId'] = $ProductId;
 
@@ -217,7 +219,7 @@ class ProductsInventory extends BaseModel
      *
      * @return string
      */
-    public function getBarcodeId()
+    public function getBarcodeId(): string
     {
         return $this->container['BarcodeId'];
     }
@@ -229,7 +231,9 @@ class ProductsInventory extends BaseModel
      *
      * @return $this
      */
-    public function setBarcodeId($BarcodeId): self
+
+
+    public function setBarcodeId(string $BarcodeId): static
     {
         $this->container['BarcodeId'] = $BarcodeId;
 
@@ -241,7 +245,7 @@ class ProductsInventory extends BaseModel
      *
      * @return int
      */
-    public function getLocationId()
+    public function getLocationId(): int
     {
         return $this->container['LocationId'];
     }
@@ -253,7 +257,9 @@ class ProductsInventory extends BaseModel
      *
      * @return $this
      */
-    public function setLocationId($LocationId): self
+
+
+    public function setLocationId(int $LocationId): static
     {
         $this->container['LocationId'] = $LocationId;
 
@@ -265,7 +271,7 @@ class ProductsInventory extends BaseModel
      *
      * @return int
      */
-    public function getUnitsLogged()
+    public function getUnitsLogged(): int
     {
         return $this->container['UnitsLogged'];
     }
@@ -277,7 +283,9 @@ class ProductsInventory extends BaseModel
      *
      * @return $this
      */
-    public function setUnitsLogged($UnitsLogged): self
+
+
+    public function setUnitsLogged(int $UnitsLogged): static
     {
         $this->container['UnitsLogged'] = $UnitsLogged;
 
@@ -289,7 +297,7 @@ class ProductsInventory extends BaseModel
      *
      * @return int
      */
-    public function getUnitsSold()
+    public function getUnitsSold(): int
     {
         return $this->container['UnitsSold'];
     }
@@ -301,7 +309,9 @@ class ProductsInventory extends BaseModel
      *
      * @return $this
      */
-    public function setUnitsSold($UnitsSold): self
+
+
+    public function setUnitsSold(int $UnitsSold): static
     {
         $this->container['UnitsSold'] = $UnitsSold;
 
@@ -313,7 +323,7 @@ class ProductsInventory extends BaseModel
      *
      * @return int
      */
-    public function getUnitsInStock()
+    public function getUnitsInStock(): int
     {
         return $this->container['UnitsInStock'];
     }
@@ -325,7 +335,9 @@ class ProductsInventory extends BaseModel
      *
      * @return $this
      */
-    public function setUnitsInStock($UnitsInStock): self
+
+
+    public function setUnitsInStock(int $UnitsInStock): static
     {
         $this->container['UnitsInStock'] = $UnitsInStock;
 
@@ -337,7 +349,7 @@ class ProductsInventory extends BaseModel
      *
      * @return int
      */
-    public function getReorderLevel()
+    public function getReorderLevel(): int
     {
         return $this->container['ReorderLevel'];
     }
@@ -349,7 +361,9 @@ class ProductsInventory extends BaseModel
      *
      * @return $this
      */
-    public function setReorderLevel($ReorderLevel): self
+
+
+    public function setReorderLevel(int $ReorderLevel): static
     {
         $this->container['ReorderLevel'] = $ReorderLevel;
 
@@ -361,7 +375,7 @@ class ProductsInventory extends BaseModel
      *
      * @return int
      */
-    public function getMaxLevel()
+    public function getMaxLevel(): int
     {
         return $this->container['MaxLevel'];
     }
@@ -373,7 +387,9 @@ class ProductsInventory extends BaseModel
      *
      * @return $this
      */
-    public function setMaxLevel($MaxLevel): self
+
+
+    public function setMaxLevel(int $MaxLevel): static
     {
         $this->container['MaxLevel'] = $MaxLevel;
 
@@ -385,7 +401,7 @@ class ProductsInventory extends BaseModel
      *
      * @return \DateTime
      */
-    public function getCreatedDateTimeUTC()
+    public function getCreatedDateTimeUTC(): \DateTime
     {
         return $this->container['CreatedDateTimeUTC'];
     }
@@ -397,7 +413,9 @@ class ProductsInventory extends BaseModel
      *
      * @return $this
      */
-    public function setCreatedDateTimeUTC($CreatedDateTimeUTC): self
+
+
+    public function setCreatedDateTimeUTC(\DateTime $CreatedDateTimeUTC): static
     {
         $this->container['CreatedDateTimeUTC'] = $CreatedDateTimeUTC;
 
@@ -409,7 +427,7 @@ class ProductsInventory extends BaseModel
      *
      * @return \DateTime
      */
-    public function getModifiedDateTimeUTC()
+    public function getModifiedDateTimeUTC(): \DateTime
     {
         return $this->container['ModifiedDateTimeUTC'];
     }
@@ -421,7 +439,9 @@ class ProductsInventory extends BaseModel
      *
      * @return $this
      */
-    public function setModifiedDateTimeUTC($ModifiedDateTimeUTC): self
+
+
+    public function setModifiedDateTimeUTC(\DateTime $ModifiedDateTimeUTC): static
     {
         $this->container['ModifiedDateTimeUTC'] = $ModifiedDateTimeUTC;
 

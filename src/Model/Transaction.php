@@ -63,14 +63,14 @@ class Transaction extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Transaction';
+    protected static string $swaggerModelName = 'Transaction';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'TransactionId' => 'int',
         'SaleId' => 'int',
         'ClientId' => 'int',
@@ -95,7 +95,7 @@ class Transaction extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'TransactionId' => 'int32',
         'SaleId' => 'int64',
         'ClientId' => 'int64',
@@ -122,7 +122,7 @@ class Transaction extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'TransactionId' => 'TransactionId',
         'SaleId' => 'SaleId',
         'ClientId' => 'ClientId',
@@ -147,7 +147,7 @@ class Transaction extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'TransactionId' => 'setTransactionId',
         'SaleId' => 'setSaleId',
         'ClientId' => 'setClientId',
@@ -172,7 +172,7 @@ class Transaction extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'TransactionId' => 'getTransactionId',
         'SaleId' => 'getSaleId',
         'ClientId' => 'getClientId',
@@ -203,7 +203,7 @@ class Transaction extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['TransactionId'] = isset($data['TransactionId']) ? $data['TransactionId'] : null;
         $this->container['SaleId'] = isset($data['SaleId']) ? $data['SaleId'] : null;
@@ -242,7 +242,7 @@ class Transaction extends BaseModel
      *
      * @return int
      */
-    public function getTransactionId()
+    public function getTransactionId(): int
     {
         return $this->container['TransactionId'];
     }
@@ -254,7 +254,9 @@ class Transaction extends BaseModel
      *
      * @return $this
      */
-    public function setTransactionId($TransactionId): self
+
+
+    public function setTransactionId(int $TransactionId): static
     {
         $this->container['TransactionId'] = $TransactionId;
 
@@ -266,7 +268,7 @@ class Transaction extends BaseModel
      *
      * @return int
      */
-    public function getSaleId()
+    public function getSaleId(): int
     {
         return $this->container['SaleId'];
     }
@@ -278,7 +280,9 @@ class Transaction extends BaseModel
      *
      * @return $this
      */
-    public function setSaleId($SaleId): self
+
+
+    public function setSaleId(int $SaleId): static
     {
         $this->container['SaleId'] = $SaleId;
 
@@ -290,7 +294,7 @@ class Transaction extends BaseModel
      *
      * @return int
      */
-    public function getClientId()
+    public function getClientId(): int
     {
         return $this->container['ClientId'];
     }
@@ -302,7 +306,9 @@ class Transaction extends BaseModel
      *
      * @return $this
      */
-    public function setClientId($ClientId): self
+
+
+    public function setClientId(int $ClientId): static
     {
         $this->container['ClientId'] = $ClientId;
 
@@ -314,7 +320,7 @@ class Transaction extends BaseModel
      *
      * @return double
      */
-    public function getAmount()
+    public function getAmount(): float
     {
         return $this->container['Amount'];
     }
@@ -326,7 +332,9 @@ class Transaction extends BaseModel
      *
      * @return $this
      */
-    public function setAmount($Amount): self
+
+
+    public function setAmount(float $Amount): static
     {
         $this->container['Amount'] = $Amount;
 
@@ -338,7 +346,7 @@ class Transaction extends BaseModel
      *
      * @return bool
      */
-    public function getSettled()
+    public function getSettled(): bool
     {
         return $this->container['Settled'];
     }
@@ -350,7 +358,9 @@ class Transaction extends BaseModel
      *
      * @return $this
      */
-    public function setSettled($Settled): self
+
+
+    public function setSettled(bool $Settled): static
     {
         $this->container['Settled'] = $Settled;
 
@@ -362,7 +372,7 @@ class Transaction extends BaseModel
      *
      * @return string
      */
-    public function getStatus()
+    public function getStatus(): string
     {
         return $this->container['Status'];
     }
@@ -374,7 +384,9 @@ class Transaction extends BaseModel
      *
      * @return $this
      */
-    public function setStatus($Status): self
+
+
+    public function setStatus(string $Status): static
     {
         $this->container['Status'] = $Status;
 
@@ -386,7 +398,7 @@ class Transaction extends BaseModel
      *
      * @return \DateTime
      */
-    public function getTransactionTime()
+    public function getTransactionTime(): \DateTime
     {
         return $this->container['TransactionTime'];
     }
@@ -398,7 +410,9 @@ class Transaction extends BaseModel
      *
      * @return $this
      */
-    public function setTransactionTime($TransactionTime): self
+
+
+    public function setTransactionTime(\DateTime $TransactionTime): static
     {
         $this->container['TransactionTime'] = $TransactionTime;
 
@@ -410,7 +424,7 @@ class Transaction extends BaseModel
      *
      * @return \DateTime
      */
-    public function getAuthTime()
+    public function getAuthTime(): \DateTime
     {
         return $this->container['AuthTime'];
     }
@@ -422,7 +436,9 @@ class Transaction extends BaseModel
      *
      * @return $this
      */
-    public function setAuthTime($AuthTime): self
+
+
+    public function setAuthTime(\DateTime $AuthTime): static
     {
         $this->container['AuthTime'] = $AuthTime;
 
@@ -434,7 +450,7 @@ class Transaction extends BaseModel
      *
      * @return int
      */
-    public function getLocationId()
+    public function getLocationId(): int
     {
         return $this->container['LocationId'];
     }
@@ -446,7 +462,9 @@ class Transaction extends BaseModel
      *
      * @return $this
      */
-    public function setLocationId($LocationId): self
+
+
+    public function setLocationId(int $LocationId): static
     {
         $this->container['LocationId'] = $LocationId;
 
@@ -458,7 +476,7 @@ class Transaction extends BaseModel
      *
      * @return string
      */
-    public function getMerchantId()
+    public function getMerchantId(): string
     {
         return $this->container['MerchantId'];
     }
@@ -470,7 +488,9 @@ class Transaction extends BaseModel
      *
      * @return $this
      */
-    public function setMerchantId($MerchantId): self
+
+
+    public function setMerchantId(string $MerchantId): static
     {
         $this->container['MerchantId'] = $MerchantId;
 
@@ -482,7 +502,7 @@ class Transaction extends BaseModel
      *
      * @return string
      */
-    public function getTerminalId()
+    public function getTerminalId(): string
     {
         return $this->container['TerminalId'];
     }
@@ -494,7 +514,9 @@ class Transaction extends BaseModel
      *
      * @return $this
      */
-    public function setTerminalId($TerminalId): self
+
+
+    public function setTerminalId(string $TerminalId): static
     {
         $this->container['TerminalId'] = $TerminalId;
 
@@ -506,7 +528,7 @@ class Transaction extends BaseModel
      *
      * @return string
      */
-    public function getCardExpirationMonth()
+    public function getCardExpirationMonth(): string
     {
         return $this->container['CardExpirationMonth'];
     }
@@ -518,7 +540,9 @@ class Transaction extends BaseModel
      *
      * @return $this
      */
-    public function setCardExpirationMonth($CardExpirationMonth): self
+
+
+    public function setCardExpirationMonth(string $CardExpirationMonth): static
     {
         $this->container['CardExpirationMonth'] = $CardExpirationMonth;
 
@@ -530,7 +554,7 @@ class Transaction extends BaseModel
      *
      * @return string
      */
-    public function getCardExpirationYear()
+    public function getCardExpirationYear(): string
     {
         return $this->container['CardExpirationYear'];
     }
@@ -542,7 +566,9 @@ class Transaction extends BaseModel
      *
      * @return $this
      */
-    public function setCardExpirationYear($CardExpirationYear): self
+
+
+    public function setCardExpirationYear(string $CardExpirationYear): static
     {
         $this->container['CardExpirationYear'] = $CardExpirationYear;
 
@@ -554,7 +580,7 @@ class Transaction extends BaseModel
      *
      * @return string
      */
-    public function getCCLastFour()
+    public function getCCLastFour(): string
     {
         return $this->container['CCLastFour'];
     }
@@ -566,7 +592,9 @@ class Transaction extends BaseModel
      *
      * @return $this
      */
-    public function setCCLastFour($CCLastFour): self
+
+
+    public function setCCLastFour(string $CCLastFour): static
     {
         $this->container['CCLastFour'] = $CCLastFour;
 
@@ -578,7 +606,7 @@ class Transaction extends BaseModel
      *
      * @return string
      */
-    public function getCardType()
+    public function getCardType(): string
     {
         return $this->container['CardType'];
     }
@@ -590,7 +618,9 @@ class Transaction extends BaseModel
      *
      * @return $this
      */
-    public function setCardType($CardType): self
+
+
+    public function setCardType(string $CardType): static
     {
         $this->container['CardType'] = $CardType;
 
@@ -602,7 +632,7 @@ class Transaction extends BaseModel
      *
      * @return bool
      */
-    public function getCCSwiped()
+    public function getCCSwiped(): bool
     {
         return $this->container['CCSwiped'];
     }
@@ -614,7 +644,9 @@ class Transaction extends BaseModel
      *
      * @return $this
      */
-    public function setCCSwiped($CCSwiped): self
+
+
+    public function setCCSwiped(bool $CCSwiped): static
     {
         $this->container['CCSwiped'] = $CCSwiped;
 
@@ -626,7 +658,7 @@ class Transaction extends BaseModel
      *
      * @return string
      */
-    public function getACHLastFour()
+    public function getACHLastFour(): string
     {
         return $this->container['ACHLastFour'];
     }
@@ -638,7 +670,9 @@ class Transaction extends BaseModel
      *
      * @return $this
      */
-    public function setACHLastFour($ACHLastFour): self
+
+
+    public function setACHLastFour(string $ACHLastFour): static
     {
         $this->container['ACHLastFour'] = $ACHLastFour;
 

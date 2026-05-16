@@ -40,7 +40,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property int $ValueId The index’s value ID.
  *
  */
-class AssignedClientIndex extends BaseModel implements ModelWithId
+class AssignedClientIndex extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -49,14 +49,14 @@ class AssignedClientIndex extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AssignedClientIndex';
+    protected static string $swaggerModelName = 'AssignedClientIndex';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Id' => 'int',
         'ValueId' => 'int'
     ];
@@ -66,7 +66,7 @@ class AssignedClientIndex extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Id' => 'int32',
         'ValueId' => 'int32'
     ];
@@ -78,7 +78,7 @@ class AssignedClientIndex extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Id' => 'Id',
         'ValueId' => 'ValueId'
     ];
@@ -88,7 +88,7 @@ class AssignedClientIndex extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Id' => 'setId',
         'ValueId' => 'setValueId'
     ];
@@ -98,7 +98,7 @@ class AssignedClientIndex extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Id' => 'getId',
         'ValueId' => 'getValueId'
     ];
@@ -114,7 +114,7 @@ class AssignedClientIndex extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
         $this->container['ValueId'] = isset($data['ValueId']) ? $data['ValueId'] : null;
@@ -138,7 +138,7 @@ class AssignedClientIndex extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -150,7 +150,9 @@ class AssignedClientIndex extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -162,7 +164,7 @@ class AssignedClientIndex extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getValueId()
+    public function getValueId(): int
     {
         return $this->container['ValueId'];
     }
@@ -174,7 +176,9 @@ class AssignedClientIndex extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setValueId($ValueId): self
+
+
+    public function setValueId(int $ValueId): static
     {
         $this->container['ValueId'] = $ValueId;
 

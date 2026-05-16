@@ -48,14 +48,14 @@ class UpdateProductPriceResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UpdateProductPriceResponse';
+    protected static string $swaggerModelName = 'UpdateProductPriceResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Product' => '\Nlocascio\Mindbody\Model\Product'
     ];
 
@@ -64,7 +64,7 @@ class UpdateProductPriceResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Product' => null
     ];
 
@@ -75,7 +75,7 @@ class UpdateProductPriceResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Product' => 'Product'
     ];
 
@@ -84,7 +84,7 @@ class UpdateProductPriceResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Product' => 'setProduct'
     ];
 
@@ -93,7 +93,7 @@ class UpdateProductPriceResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Product' => 'getProduct'
     ];
 
@@ -108,7 +108,7 @@ class UpdateProductPriceResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Product'] = isset($data['Product']) ? $data['Product'] : null;
     }
@@ -131,7 +131,7 @@ class UpdateProductPriceResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Product
      */
-    public function getProduct()
+    public function getProduct(): \Nlocascio\Mindbody\Model\Product
     {
         return $this->container['Product'];
     }
@@ -143,7 +143,9 @@ class UpdateProductPriceResponse extends BaseModel
      *
      * @return $this
      */
-    public function setProduct($Product): self
+
+
+    public function setProduct(\Nlocascio\Mindbody\Model\Product $Product): static
     {
         $this->container['Product'] = $Product;
 

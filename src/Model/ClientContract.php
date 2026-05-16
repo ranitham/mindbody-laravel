@@ -61,7 +61,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property \DateTime $MinimumCommitmentEndDate The earliest date a contract termination can take effect if a minimum commitment applies.  This represents the last day the client is obligated to remain on the contract.  Returned even if the commitment has already been fulfilled.
  *
  */
-class ClientContract extends BaseModel implements ModelWithId
+class ClientContract extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -70,14 +70,14 @@ class ClientContract extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ClientContract';
+    protected static string $swaggerModelName = 'ClientContract';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'PayerClientId' => 'int',
         'AgreementDate' => '\DateTime',
         'AutopayStatus' => 'string',
@@ -108,7 +108,7 @@ class ClientContract extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'PayerClientId' => 'int64',
         'AgreementDate' => 'date-time',
         'AutopayStatus' => null,
@@ -141,7 +141,7 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'PayerClientId' => 'PayerClientId',
         'AgreementDate' => 'AgreementDate',
         'AutopayStatus' => 'AutopayStatus',
@@ -172,7 +172,7 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'PayerClientId' => 'setPayerClientId',
         'AgreementDate' => 'setAgreementDate',
         'AutopayStatus' => 'setAutopayStatus',
@@ -203,7 +203,7 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'PayerClientId' => 'getPayerClientId',
         'AgreementDate' => 'getAgreementDate',
         'AutopayStatus' => 'getAutopayStatus',
@@ -274,7 +274,7 @@ class ClientContract extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['PayerClientId'] = isset($data['PayerClientId']) ? $data['PayerClientId'] : null;
         $this->container['AgreementDate'] = isset($data['AgreementDate']) ? $data['AgreementDate'] : null;
@@ -335,7 +335,7 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getPayerClientId()
+    public function getPayerClientId(): int
     {
         return $this->container['PayerClientId'];
     }
@@ -347,7 +347,9 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setPayerClientId($PayerClientId): self
+
+
+    public function setPayerClientId(int $PayerClientId): static
     {
         $this->container['PayerClientId'] = $PayerClientId;
 
@@ -359,7 +361,7 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getAgreementDate()
+    public function getAgreementDate(): \DateTime
     {
         return $this->container['AgreementDate'];
     }
@@ -371,7 +373,9 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAgreementDate($AgreementDate): self
+
+
+    public function setAgreementDate(\DateTime $AgreementDate): static
     {
         $this->container['AgreementDate'] = $AgreementDate;
 
@@ -383,7 +387,7 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getAutopayStatus()
+    public function getAutopayStatus(): string
     {
         return $this->container['AutopayStatus'];
     }
@@ -395,7 +399,9 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAutopayStatus($AutopayStatus): self
+
+
+    public function setAutopayStatus(string $AutopayStatus): static
     {
         $allowedValues = $this->getAutopayStatusAllowableValues();
         if (!is_null($AutopayStatus) && !in_array($AutopayStatus, $allowedValues, true)) {
@@ -416,7 +422,7 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getAutoRenewing()
+    public function getAutoRenewing(): bool
     {
         return $this->container['AutoRenewing'];
     }
@@ -428,7 +434,9 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAutoRenewing($AutoRenewing): self
+
+
+    public function setAutoRenewing(bool $AutoRenewing): static
     {
         $this->container['AutoRenewing'] = $AutoRenewing;
 
@@ -440,7 +448,7 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getFirstAutoPay()
+    public function getFirstAutoPay(): float
     {
         return $this->container['FirstAutoPay'];
     }
@@ -452,7 +460,9 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setFirstAutoPay($FirstAutoPay): self
+
+
+    public function setFirstAutoPay(float $FirstAutoPay): static
     {
         $this->container['FirstAutoPay'] = $FirstAutoPay;
 
@@ -464,7 +474,7 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getLastAutoPay()
+    public function getLastAutoPay(): float
     {
         return $this->container['LastAutoPay'];
     }
@@ -476,7 +486,9 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setLastAutoPay($LastAutoPay): self
+
+
+    public function setLastAutoPay(float $LastAutoPay): static
     {
         $this->container['LastAutoPay'] = $LastAutoPay;
 
@@ -488,7 +500,7 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getNormalAutoPay()
+    public function getNormalAutoPay(): float
     {
         return $this->container['NormalAutoPay'];
     }
@@ -500,7 +512,9 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setNormalAutoPay($NormalAutoPay): self
+
+
+    public function setNormalAutoPay(float $NormalAutoPay): static
     {
         $this->container['NormalAutoPay'] = $NormalAutoPay;
 
@@ -512,7 +526,7 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getIsMonthToMonth()
+    public function getIsMonthToMonth(): bool
     {
         return $this->container['IsMonthToMonth'];
     }
@@ -524,7 +538,9 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setIsMonthToMonth($IsMonthToMonth): self
+
+
+    public function setIsMonthToMonth(bool $IsMonthToMonth): static
     {
         $this->container['IsMonthToMonth'] = $IsMonthToMonth;
 
@@ -536,7 +552,7 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getAutoRenewClientContractID()
+    public function getAutoRenewClientContractID(): int
     {
         return $this->container['AutoRenewClientContractID'];
     }
@@ -548,7 +564,9 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAutoRenewClientContractID($AutoRenewClientContractID): self
+
+
+    public function setAutoRenewClientContractID(int $AutoRenewClientContractID): static
     {
         $this->container['AutoRenewClientContractID'] = $AutoRenewClientContractID;
 
@@ -560,7 +578,7 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getContractText()
+    public function getContractText(): string
     {
         return $this->container['ContractText'];
     }
@@ -572,7 +590,9 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setContractText($ContractText): self
+
+
+    public function setContractText(string $ContractText): static
     {
         $this->container['ContractText'] = $ContractText;
 
@@ -584,7 +604,7 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getContractAutoRenewed()
+    public function getContractAutoRenewed(): bool
     {
         return $this->container['ContractAutoRenewed'];
     }
@@ -596,7 +616,9 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setContractAutoRenewed($ContractAutoRenewed): self
+
+
+    public function setContractAutoRenewed(bool $ContractAutoRenewed): static
     {
         $this->container['ContractAutoRenewed'] = $ContractAutoRenewed;
 
@@ -608,7 +630,7 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getContractName()
+    public function getContractName(): string
     {
         return $this->container['ContractName'];
     }
@@ -620,7 +642,9 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setContractName($ContractName): self
+
+
+    public function setContractName(string $ContractName): static
     {
         $this->container['ContractName'] = $ContractName;
 
@@ -632,7 +656,7 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getEndDate()
+    public function getEndDate(): \DateTime
     {
         return $this->container['EndDate'];
     }
@@ -644,7 +668,9 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setEndDate($EndDate): self
+
+
+    public function setEndDate(\DateTime $EndDate): static
     {
         $this->container['EndDate'] = $EndDate;
 
@@ -656,7 +682,7 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -668,7 +694,9 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -680,7 +708,7 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getOriginationLocationId()
+    public function getOriginationLocationId(): int
     {
         return $this->container['OriginationLocationId'];
     }
@@ -692,7 +720,9 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setOriginationLocationId($OriginationLocationId): self
+
+
+    public function setOriginationLocationId(int $OriginationLocationId): static
     {
         $this->container['OriginationLocationId'] = $OriginationLocationId;
 
@@ -704,7 +734,7 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getStartDate()
+    public function getStartDate(): \DateTime
     {
         return $this->container['StartDate'];
     }
@@ -716,7 +746,9 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setStartDate($StartDate): self
+
+
+    public function setStartDate(\DateTime $StartDate): static
     {
         $this->container['StartDate'] = $StartDate;
 
@@ -728,7 +760,7 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getSiteId()
+    public function getSiteId(): int
     {
         return $this->container['SiteId'];
     }
@@ -740,7 +772,9 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSiteId($SiteId): self
+
+
+    public function setSiteId(int $SiteId): static
     {
         $this->container['SiteId'] = $SiteId;
 
@@ -752,7 +786,7 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\UpcomingAutopayEvent[]
      */
-    public function getUpcomingAutopayEvents()
+    public function getUpcomingAutopayEvents(): array
     {
         return $this->container['UpcomingAutopayEvents'];
     }
@@ -764,7 +798,9 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setUpcomingAutopayEvents($UpcomingAutopayEvents): self
+
+
+    public function setUpcomingAutopayEvents(array $UpcomingAutopayEvents): static
     {
         $this->container['UpcomingAutopayEvents'] = $UpcomingAutopayEvents;
 
@@ -776,7 +812,7 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getContractID()
+    public function getContractID(): int
     {
         return $this->container['ContractID'];
     }
@@ -788,7 +824,9 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setContractID($ContractID): self
+
+
+    public function setContractID(int $ContractID): static
     {
         $this->container['ContractID'] = $ContractID;
 
@@ -800,7 +838,7 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getTerminationDate()
+    public function getTerminationDate(): \DateTime
     {
         return $this->container['TerminationDate'];
     }
@@ -812,7 +850,9 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setTerminationDate($TerminationDate): self
+
+
+    public function setTerminationDate(\DateTime $TerminationDate): static
     {
         $this->container['TerminationDate'] = $TerminationDate;
 
@@ -824,7 +864,7 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getMinimumCommitmentValue()
+    public function getMinimumCommitmentValue(): int
     {
         return $this->container['MinimumCommitmentValue'];
     }
@@ -836,7 +876,9 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setMinimumCommitmentValue($MinimumCommitmentValue): self
+
+
+    public function setMinimumCommitmentValue(int $MinimumCommitmentValue): static
     {
         $this->container['MinimumCommitmentValue'] = $MinimumCommitmentValue;
 
@@ -848,7 +890,7 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getMinimumCommitmentUnit()
+    public function getMinimumCommitmentUnit(): string
     {
         return $this->container['MinimumCommitmentUnit'];
     }
@@ -860,7 +902,9 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setMinimumCommitmentUnit($MinimumCommitmentUnit): self
+
+
+    public function setMinimumCommitmentUnit(string $MinimumCommitmentUnit): static
     {
         $allowedValues = $this->getMinimumCommitmentUnitAllowableValues();
         if (!is_null($MinimumCommitmentUnit) && !in_array($MinimumCommitmentUnit, $allowedValues, true)) {
@@ -881,7 +925,7 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getMinimumCommitmentEndDate()
+    public function getMinimumCommitmentEndDate(): \DateTime
     {
         return $this->container['MinimumCommitmentEndDate'];
     }
@@ -893,7 +937,9 @@ class ClientContract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setMinimumCommitmentEndDate($MinimumCommitmentEndDate): self
+
+
+    public function setMinimumCommitmentEndDate(\DateTime $MinimumCommitmentEndDate): static
     {
         $this->container['MinimumCommitmentEndDate'] = $MinimumCommitmentEndDate;
 

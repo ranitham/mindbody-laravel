@@ -54,14 +54,14 @@ class GetClientsRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetClientsRequest';
+    protected static string $swaggerModelName = 'GetClientsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ClientIDs' => 'string[]',
         'SearchText' => 'string',
         'IsProspect' => 'bool',
@@ -77,7 +77,7 @@ class GetClientsRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ClientIDs' => null,
         'SearchText' => null,
         'IsProspect' => null,
@@ -95,7 +95,7 @@ class GetClientsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ClientIDs' => 'ClientIDs',
         'SearchText' => 'SearchText',
         'IsProspect' => 'IsProspect',
@@ -111,7 +111,7 @@ class GetClientsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ClientIDs' => 'setClientIDs',
         'SearchText' => 'setSearchText',
         'IsProspect' => 'setIsProspect',
@@ -127,7 +127,7 @@ class GetClientsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ClientIDs' => 'getClientIDs',
         'SearchText' => 'getSearchText',
         'IsProspect' => 'getIsProspect',
@@ -149,7 +149,7 @@ class GetClientsRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ClientIDs'] = isset($data['ClientIDs']) ? $data['ClientIDs'] : null;
         $this->container['SearchText'] = isset($data['SearchText']) ? $data['SearchText'] : null;
@@ -179,7 +179,7 @@ class GetClientsRequest extends BaseModel
      *
      * @return string[]
      */
-    public function getClientIDs()
+    public function getClientIDs(): array
     {
         return $this->container['ClientIDs'];
     }
@@ -191,7 +191,9 @@ class GetClientsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClientIDs($ClientIDs): self
+
+
+    public function setClientIDs(array $ClientIDs): static
     {
         $this->container['ClientIDs'] = $ClientIDs;
 
@@ -203,7 +205,7 @@ class GetClientsRequest extends BaseModel
      *
      * @return string
      */
-    public function getSearchText()
+    public function getSearchText(): string
     {
         return $this->container['SearchText'];
     }
@@ -215,7 +217,9 @@ class GetClientsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSearchText($SearchText): self
+
+
+    public function setSearchText(string $SearchText): static
     {
         $this->container['SearchText'] = $SearchText;
 
@@ -227,7 +231,7 @@ class GetClientsRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIsProspect()
+    public function getIsProspect(): bool
     {
         return $this->container['IsProspect'];
     }
@@ -239,7 +243,9 @@ class GetClientsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setIsProspect($IsProspect): self
+
+
+    public function setIsProspect(bool $IsProspect): static
     {
         $this->container['IsProspect'] = $IsProspect;
 
@@ -251,7 +257,7 @@ class GetClientsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getLastModifiedDate()
+    public function getLastModifiedDate(): \DateTime
     {
         return $this->container['LastModifiedDate'];
     }
@@ -263,7 +269,9 @@ class GetClientsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLastModifiedDate($LastModifiedDate): self
+
+
+    public function setLastModifiedDate(\DateTime $LastModifiedDate): static
     {
         $this->container['LastModifiedDate'] = $LastModifiedDate;
 
@@ -275,7 +283,7 @@ class GetClientsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getUniqueIds()
+    public function getUniqueIds(): array
     {
         return $this->container['UniqueIds'];
     }
@@ -287,7 +295,9 @@ class GetClientsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setUniqueIds($UniqueIds): self
+
+
+    public function setUniqueIds(array $UniqueIds): static
     {
         $this->container['UniqueIds'] = $UniqueIds;
 
@@ -299,7 +309,7 @@ class GetClientsRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIncludeInactive()
+    public function getIncludeInactive(): bool
     {
         return $this->container['IncludeInactive'];
     }
@@ -311,7 +321,9 @@ class GetClientsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setIncludeInactive($IncludeInactive): self
+
+
+    public function setIncludeInactive(bool $IncludeInactive): static
     {
         $this->container['IncludeInactive'] = $IncludeInactive;
 
@@ -323,7 +335,7 @@ class GetClientsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit()
+    public function getLimit(): int
     {
         return $this->container['Limit'];
     }
@@ -335,7 +347,9 @@ class GetClientsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLimit($Limit): self
+
+
+    public function setLimit(int $Limit): static
     {
         $this->container['Limit'] = $Limit;
 
@@ -347,7 +361,7 @@ class GetClientsRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset()
+    public function getOffset(): int
     {
         return $this->container['Offset'];
     }
@@ -359,7 +373,9 @@ class GetClientsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOffset($Offset): self
+
+
+    public function setOffset(int $Offset): static
     {
         $this->container['Offset'] = $Offset;
 

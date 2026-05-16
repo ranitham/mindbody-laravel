@@ -54,14 +54,14 @@ class GetScheduledServiceEarningsRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetScheduledServiceEarningsRequest';
+    protected static string $swaggerModelName = 'GetScheduledServiceEarningsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ScheduledServiceType' => 'string',
         'ScheduledServiceId' => 'int',
         'StaffId' => 'int',
@@ -77,7 +77,7 @@ class GetScheduledServiceEarningsRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ScheduledServiceType' => null,
         'ScheduledServiceId' => 'int64',
         'StaffId' => 'int64',
@@ -95,7 +95,7 @@ class GetScheduledServiceEarningsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ScheduledServiceType' => 'ScheduledServiceType',
         'ScheduledServiceId' => 'ScheduledServiceId',
         'StaffId' => 'StaffId',
@@ -111,7 +111,7 @@ class GetScheduledServiceEarningsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ScheduledServiceType' => 'setScheduledServiceType',
         'ScheduledServiceId' => 'setScheduledServiceId',
         'StaffId' => 'setStaffId',
@@ -127,7 +127,7 @@ class GetScheduledServiceEarningsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ScheduledServiceType' => 'getScheduledServiceType',
         'ScheduledServiceId' => 'getScheduledServiceId',
         'StaffId' => 'getStaffId',
@@ -149,7 +149,7 @@ class GetScheduledServiceEarningsRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ScheduledServiceType'] = isset($data['ScheduledServiceType']) ? $data['ScheduledServiceType'] : null;
         $this->container['ScheduledServiceId'] = isset($data['ScheduledServiceId']) ? $data['ScheduledServiceId'] : null;
@@ -179,7 +179,7 @@ class GetScheduledServiceEarningsRequest extends BaseModel
      *
      * @return string
      */
-    public function getScheduledServiceType()
+    public function getScheduledServiceType(): string
     {
         return $this->container['ScheduledServiceType'];
     }
@@ -191,7 +191,9 @@ class GetScheduledServiceEarningsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setScheduledServiceType($ScheduledServiceType): self
+
+
+    public function setScheduledServiceType(string $ScheduledServiceType): static
     {
         $this->container['ScheduledServiceType'] = $ScheduledServiceType;
 
@@ -203,7 +205,7 @@ class GetScheduledServiceEarningsRequest extends BaseModel
      *
      * @return int
      */
-    public function getScheduledServiceId()
+    public function getScheduledServiceId(): int
     {
         return $this->container['ScheduledServiceId'];
     }
@@ -215,7 +217,9 @@ class GetScheduledServiceEarningsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setScheduledServiceId($ScheduledServiceId): self
+
+
+    public function setScheduledServiceId(int $ScheduledServiceId): static
     {
         $this->container['ScheduledServiceId'] = $ScheduledServiceId;
 
@@ -227,7 +231,7 @@ class GetScheduledServiceEarningsRequest extends BaseModel
      *
      * @return int
      */
-    public function getStaffId()
+    public function getStaffId(): int
     {
         return $this->container['StaffId'];
     }
@@ -239,7 +243,9 @@ class GetScheduledServiceEarningsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStaffId($StaffId): self
+
+
+    public function setStaffId(int $StaffId): static
     {
         $this->container['StaffId'] = $StaffId;
 
@@ -251,7 +257,7 @@ class GetScheduledServiceEarningsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDateTime()
+    public function getStartDateTime(): \DateTime
     {
         return $this->container['StartDateTime'];
     }
@@ -263,7 +269,9 @@ class GetScheduledServiceEarningsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStartDateTime($StartDateTime): self
+
+
+    public function setStartDateTime(\DateTime $StartDateTime): static
     {
         $this->container['StartDateTime'] = $StartDateTime;
 
@@ -275,7 +283,7 @@ class GetScheduledServiceEarningsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDateTime()
+    public function getEndDateTime(): \DateTime
     {
         return $this->container['EndDateTime'];
     }
@@ -287,7 +295,9 @@ class GetScheduledServiceEarningsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setEndDateTime($EndDateTime): self
+
+
+    public function setEndDateTime(\DateTime $EndDateTime): static
     {
         $this->container['EndDateTime'] = $EndDateTime;
 
@@ -299,7 +309,7 @@ class GetScheduledServiceEarningsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLocationId()
+    public function getLocationId(): int
     {
         return $this->container['LocationId'];
     }
@@ -311,7 +321,9 @@ class GetScheduledServiceEarningsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLocationId($LocationId): self
+
+
+    public function setLocationId(int $LocationId): static
     {
         $this->container['LocationId'] = $LocationId;
 
@@ -323,7 +335,7 @@ class GetScheduledServiceEarningsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit()
+    public function getLimit(): int
     {
         return $this->container['Limit'];
     }
@@ -335,7 +347,9 @@ class GetScheduledServiceEarningsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLimit($Limit): self
+
+
+    public function setLimit(int $Limit): static
     {
         $this->container['Limit'] = $Limit;
 
@@ -347,7 +361,7 @@ class GetScheduledServiceEarningsRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset()
+    public function getOffset(): int
     {
         return $this->container['Offset'];
     }
@@ -359,7 +373,9 @@ class GetScheduledServiceEarningsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOffset($Offset): self
+
+
+    public function setOffset(int $Offset): static
     {
         $this->container['Offset'] = $Offset;
 

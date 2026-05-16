@@ -49,14 +49,14 @@ class IssueRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'IssueRequest';
+    protected static string $swaggerModelName = 'IssueRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Username' => 'string',
         'Password' => 'string'
     ];
@@ -66,7 +66,7 @@ class IssueRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Username' => null,
         'Password' => null
     ];
@@ -78,7 +78,7 @@ class IssueRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Username' => 'Username',
         'Password' => 'Password'
     ];
@@ -88,7 +88,7 @@ class IssueRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Username' => 'setUsername',
         'Password' => 'setPassword'
     ];
@@ -98,7 +98,7 @@ class IssueRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Username' => 'getUsername',
         'Password' => 'getPassword'
     ];
@@ -114,7 +114,7 @@ class IssueRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Username'] = isset($data['Username']) ? $data['Username'] : null;
         $this->container['Password'] = isset($data['Password']) ? $data['Password'] : null;
@@ -138,7 +138,7 @@ class IssueRequest extends BaseModel
      *
      * @return string
      */
-    public function getUsername()
+    public function getUsername(): string
     {
         return $this->container['Username'];
     }
@@ -150,7 +150,9 @@ class IssueRequest extends BaseModel
      *
      * @return $this
      */
-    public function setUsername($Username): self
+
+
+    public function setUsername(string $Username): static
     {
         $this->container['Username'] = $Username;
 
@@ -162,7 +164,7 @@ class IssueRequest extends BaseModel
      *
      * @return string
      */
-    public function getPassword()
+    public function getPassword(): string
     {
         return $this->container['Password'];
     }
@@ -174,7 +176,9 @@ class IssueRequest extends BaseModel
      *
      * @return $this
      */
-    public function setPassword($Password): self
+
+
+    public function setPassword(string $Password): static
     {
         $this->container['Password'] = $Password;
 

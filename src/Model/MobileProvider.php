@@ -41,7 +41,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property string $ProviderAddress ProviderAddress
  *
  */
-class MobileProvider extends BaseModel implements ModelWithId
+class MobileProvider extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -50,14 +50,14 @@ class MobileProvider extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'MobileProvider';
+    protected static string $swaggerModelName = 'MobileProvider';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Id' => 'int',
         'Active' => 'bool',
         'ProviderName' => 'string',
@@ -69,7 +69,7 @@ class MobileProvider extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Id' => 'int32',
         'Active' => null,
         'ProviderName' => null,
@@ -83,7 +83,7 @@ class MobileProvider extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Id' => 'Id',
         'Active' => 'Active',
         'ProviderName' => 'ProviderName',
@@ -95,7 +95,7 @@ class MobileProvider extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Id' => 'setId',
         'Active' => 'setActive',
         'ProviderName' => 'setProviderName',
@@ -107,7 +107,7 @@ class MobileProvider extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Id' => 'getId',
         'Active' => 'getActive',
         'ProviderName' => 'getProviderName',
@@ -125,7 +125,7 @@ class MobileProvider extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
         $this->container['Active'] = isset($data['Active']) ? $data['Active'] : null;
@@ -151,7 +151,7 @@ class MobileProvider extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -163,7 +163,9 @@ class MobileProvider extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -175,7 +177,7 @@ class MobileProvider extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getActive()
+    public function getActive(): bool
     {
         return $this->container['Active'];
     }
@@ -187,7 +189,9 @@ class MobileProvider extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setActive($Active): self
+
+
+    public function setActive(bool $Active): static
     {
         $this->container['Active'] = $Active;
 
@@ -199,7 +203,7 @@ class MobileProvider extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getProviderName()
+    public function getProviderName(): string
     {
         return $this->container['ProviderName'];
     }
@@ -211,7 +215,9 @@ class MobileProvider extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setProviderName($ProviderName): self
+
+
+    public function setProviderName(string $ProviderName): static
     {
         $this->container['ProviderName'] = $ProviderName;
 
@@ -223,7 +229,7 @@ class MobileProvider extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getProviderAddress()
+    public function getProviderAddress(): string
     {
         return $this->container['ProviderAddress'];
     }
@@ -235,7 +241,9 @@ class MobileProvider extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setProviderAddress($ProviderAddress): self
+
+
+    public function setProviderAddress(string $ProviderAddress): static
     {
         $this->container['ProviderAddress'] = $ProviderAddress;
 

@@ -51,14 +51,14 @@ class CrossRegionalClientAssociation extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CrossRegionalClientAssociation';
+    protected static string $swaggerModelName = 'CrossRegionalClientAssociation';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'SiteId' => 'int',
         'ClientId' => 'string',
         'UniqueId' => 'int',
@@ -70,7 +70,7 @@ class CrossRegionalClientAssociation extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'SiteId' => 'int32',
         'ClientId' => null,
         'UniqueId' => 'int64',
@@ -84,7 +84,7 @@ class CrossRegionalClientAssociation extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'SiteId' => 'SiteId',
         'ClientId' => 'ClientId',
         'UniqueId' => 'UniqueId',
@@ -96,7 +96,7 @@ class CrossRegionalClientAssociation extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'SiteId' => 'setSiteId',
         'ClientId' => 'setClientId',
         'UniqueId' => 'setUniqueId',
@@ -108,7 +108,7 @@ class CrossRegionalClientAssociation extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'SiteId' => 'getSiteId',
         'ClientId' => 'getClientId',
         'UniqueId' => 'getUniqueId',
@@ -126,7 +126,7 @@ class CrossRegionalClientAssociation extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['SiteId'] = isset($data['SiteId']) ? $data['SiteId'] : null;
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
@@ -152,7 +152,7 @@ class CrossRegionalClientAssociation extends BaseModel
      *
      * @return int
      */
-    public function getSiteId()
+    public function getSiteId(): int
     {
         return $this->container['SiteId'];
     }
@@ -164,7 +164,9 @@ class CrossRegionalClientAssociation extends BaseModel
      *
      * @return $this
      */
-    public function setSiteId($SiteId): self
+
+
+    public function setSiteId(int $SiteId): static
     {
         $this->container['SiteId'] = $SiteId;
 
@@ -176,7 +178,7 @@ class CrossRegionalClientAssociation extends BaseModel
      *
      * @return string
      */
-    public function getClientId()
+    public function getClientId(): string
     {
         return $this->container['ClientId'];
     }
@@ -188,7 +190,9 @@ class CrossRegionalClientAssociation extends BaseModel
      *
      * @return $this
      */
-    public function setClientId($ClientId): self
+
+
+    public function setClientId(string $ClientId): static
     {
         $this->container['ClientId'] = $ClientId;
 
@@ -200,7 +204,7 @@ class CrossRegionalClientAssociation extends BaseModel
      *
      * @return int
      */
-    public function getUniqueId()
+    public function getUniqueId(): int
     {
         return $this->container['UniqueId'];
     }
@@ -212,7 +216,9 @@ class CrossRegionalClientAssociation extends BaseModel
      *
      * @return $this
      */
-    public function setUniqueId($UniqueId): self
+
+
+    public function setUniqueId(int $UniqueId): static
     {
         $this->container['UniqueId'] = $UniqueId;
 
@@ -224,7 +230,7 @@ class CrossRegionalClientAssociation extends BaseModel
      *
      * @return bool
      */
-    public function getSiteIsActive()
+    public function getSiteIsActive(): bool
     {
         return $this->container['SiteIsActive'];
     }
@@ -236,7 +242,9 @@ class CrossRegionalClientAssociation extends BaseModel
      *
      * @return $this
      */
-    public function setSiteIsActive($SiteIsActive): self
+
+
+    public function setSiteIsActive(bool $SiteIsActive): static
     {
         $this->container['SiteIsActive'] = $SiteIsActive;
 

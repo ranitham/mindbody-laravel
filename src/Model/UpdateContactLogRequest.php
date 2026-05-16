@@ -47,7 +47,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property \Nlocascio\Mindbody\Model\UpdateContactLogType[] $Types Contains information about the contact logs types being assigned to the contact log, in addition to the contact log types that are already assigned.
  *
  */
-class UpdateContactLogRequest extends BaseModel implements ModelWithId
+class UpdateContactLogRequest extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -56,14 +56,14 @@ class UpdateContactLogRequest extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UpdateContactLogRequest';
+    protected static string $swaggerModelName = 'UpdateContactLogRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Id' => 'int',
         'Test' => 'bool',
         'AssignedToStaffId' => 'int',
@@ -81,7 +81,7 @@ class UpdateContactLogRequest extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Id' => 'int32',
         'Test' => null,
         'AssignedToStaffId' => 'int64',
@@ -101,7 +101,7 @@ class UpdateContactLogRequest extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Id' => 'Id',
         'Test' => 'Test',
         'AssignedToStaffId' => 'AssignedToStaffId',
@@ -119,7 +119,7 @@ class UpdateContactLogRequest extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Id' => 'setId',
         'Test' => 'setTest',
         'AssignedToStaffId' => 'setAssignedToStaffId',
@@ -137,7 +137,7 @@ class UpdateContactLogRequest extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Id' => 'getId',
         'Test' => 'getTest',
         'AssignedToStaffId' => 'getAssignedToStaffId',
@@ -161,7 +161,7 @@ class UpdateContactLogRequest extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
         $this->container['Test'] = isset($data['Test']) ? $data['Test'] : null;
@@ -193,7 +193,7 @@ class UpdateContactLogRequest extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -205,7 +205,9 @@ class UpdateContactLogRequest extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -217,7 +219,7 @@ class UpdateContactLogRequest extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getTest()
+    public function getTest(): bool
     {
         return $this->container['Test'];
     }
@@ -229,7 +231,9 @@ class UpdateContactLogRequest extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setTest($Test): self
+
+
+    public function setTest(bool $Test): static
     {
         $this->container['Test'] = $Test;
 
@@ -241,7 +245,7 @@ class UpdateContactLogRequest extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getAssignedToStaffId()
+    public function getAssignedToStaffId(): int
     {
         return $this->container['AssignedToStaffId'];
     }
@@ -253,7 +257,9 @@ class UpdateContactLogRequest extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAssignedToStaffId($AssignedToStaffId): self
+
+
+    public function setAssignedToStaffId(int $AssignedToStaffId): static
     {
         $this->container['AssignedToStaffId'] = $AssignedToStaffId;
 
@@ -265,7 +271,7 @@ class UpdateContactLogRequest extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getText()
+    public function getText(): string
     {
         return $this->container['Text'];
     }
@@ -277,7 +283,9 @@ class UpdateContactLogRequest extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setText($Text): self
+
+
+    public function setText(string $Text): static
     {
         $this->container['Text'] = $Text;
 
@@ -289,7 +297,7 @@ class UpdateContactLogRequest extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getContactName()
+    public function getContactName(): string
     {
         return $this->container['ContactName'];
     }
@@ -301,7 +309,9 @@ class UpdateContactLogRequest extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setContactName($ContactName): self
+
+
+    public function setContactName(string $ContactName): static
     {
         $this->container['ContactName'] = $ContactName;
 
@@ -313,7 +323,7 @@ class UpdateContactLogRequest extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getFollowupByDate()
+    public function getFollowupByDate(): \DateTime
     {
         return $this->container['FollowupByDate'];
     }
@@ -325,7 +335,9 @@ class UpdateContactLogRequest extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setFollowupByDate($FollowupByDate): self
+
+
+    public function setFollowupByDate(\DateTime $FollowupByDate): static
     {
         $this->container['FollowupByDate'] = $FollowupByDate;
 
@@ -337,7 +349,7 @@ class UpdateContactLogRequest extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getContactMethod()
+    public function getContactMethod(): string
     {
         return $this->container['ContactMethod'];
     }
@@ -349,7 +361,9 @@ class UpdateContactLogRequest extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setContactMethod($ContactMethod): self
+
+
+    public function setContactMethod(string $ContactMethod): static
     {
         $this->container['ContactMethod'] = $ContactMethod;
 
@@ -361,7 +375,7 @@ class UpdateContactLogRequest extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getIsComplete()
+    public function getIsComplete(): bool
     {
         return $this->container['IsComplete'];
     }
@@ -373,7 +387,9 @@ class UpdateContactLogRequest extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setIsComplete($IsComplete): self
+
+
+    public function setIsComplete(bool $IsComplete): static
     {
         $this->container['IsComplete'] = $IsComplete;
 
@@ -385,7 +401,7 @@ class UpdateContactLogRequest extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\UpdateContactLogComment[]
      */
-    public function getComments()
+    public function getComments(): array
     {
         return $this->container['Comments'];
     }
@@ -397,7 +413,9 @@ class UpdateContactLogRequest extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setComments($Comments): self
+
+
+    public function setComments(array $Comments): static
     {
         $this->container['Comments'] = $Comments;
 
@@ -409,7 +427,7 @@ class UpdateContactLogRequest extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\UpdateContactLogType[]
      */
-    public function getTypes()
+    public function getTypes(): array
     {
         return $this->container['Types'];
     }
@@ -421,7 +439,9 @@ class UpdateContactLogRequest extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setTypes($Types): self
+
+
+    public function setTypes(array $Types): static
     {
         $this->container['Types'] = $Types;
 

@@ -48,14 +48,14 @@ class GetActivationCodeResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetActivationCodeResponse';
+    protected static string $swaggerModelName = 'GetActivationCodeResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ActivationCode' => 'string',
         'ActivationLink' => 'string'
     ];
@@ -65,7 +65,7 @@ class GetActivationCodeResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ActivationCode' => null,
         'ActivationLink' => null
     ];
@@ -77,7 +77,7 @@ class GetActivationCodeResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ActivationCode' => 'ActivationCode',
         'ActivationLink' => 'ActivationLink'
     ];
@@ -87,7 +87,7 @@ class GetActivationCodeResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ActivationCode' => 'setActivationCode',
         'ActivationLink' => 'setActivationLink'
     ];
@@ -97,7 +97,7 @@ class GetActivationCodeResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ActivationCode' => 'getActivationCode',
         'ActivationLink' => 'getActivationLink'
     ];
@@ -113,7 +113,7 @@ class GetActivationCodeResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ActivationCode'] = isset($data['ActivationCode']) ? $data['ActivationCode'] : null;
         $this->container['ActivationLink'] = isset($data['ActivationLink']) ? $data['ActivationLink'] : null;
@@ -137,7 +137,7 @@ class GetActivationCodeResponse extends BaseModel
      *
      * @return string
      */
-    public function getActivationCode()
+    public function getActivationCode(): string
     {
         return $this->container['ActivationCode'];
     }
@@ -149,7 +149,9 @@ class GetActivationCodeResponse extends BaseModel
      *
      * @return $this
      */
-    public function setActivationCode($ActivationCode): self
+
+
+    public function setActivationCode(string $ActivationCode): static
     {
         $this->container['ActivationCode'] = $ActivationCode;
 
@@ -161,7 +163,7 @@ class GetActivationCodeResponse extends BaseModel
      *
      * @return string
      */
-    public function getActivationLink()
+    public function getActivationLink(): string
     {
         return $this->container['ActivationLink'];
     }
@@ -173,7 +175,9 @@ class GetActivationCodeResponse extends BaseModel
      *
      * @return $this
      */
-    public function setActivationLink($ActivationLink): self
+
+
+    public function setActivationLink(string $ActivationLink): static
     {
         $this->container['ActivationLink'] = $ActivationLink;
 

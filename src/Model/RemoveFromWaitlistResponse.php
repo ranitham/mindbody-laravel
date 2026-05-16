@@ -46,14 +46,14 @@ class RemoveFromWaitlistResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'RemoveFromWaitlistResponse';
+    protected static string $swaggerModelName = 'RemoveFromWaitlistResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         
     ];
 
@@ -62,7 +62,7 @@ class RemoveFromWaitlistResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         
     ];
 
@@ -73,7 +73,7 @@ class RemoveFromWaitlistResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         
     ];
 
@@ -82,7 +82,7 @@ class RemoveFromWaitlistResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         
     ];
 
@@ -91,7 +91,7 @@ class RemoveFromWaitlistResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         
     ];
 
@@ -106,7 +106,7 @@ class RemoveFromWaitlistResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
     }
 

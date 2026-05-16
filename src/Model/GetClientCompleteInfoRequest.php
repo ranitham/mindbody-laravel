@@ -57,14 +57,14 @@ class GetClientCompleteInfoRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetClientCompleteInfoRequest';
+    protected static string $swaggerModelName = 'GetClientCompleteInfoRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ClientId' => 'string',
         'StartDate' => '\DateTime',
         'EndDate' => '\DateTime',
@@ -82,7 +82,7 @@ class GetClientCompleteInfoRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ClientId' => null,
         'StartDate' => 'date-time',
         'EndDate' => 'date-time',
@@ -102,7 +102,7 @@ class GetClientCompleteInfoRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ClientId' => 'ClientId',
         'StartDate' => 'StartDate',
         'EndDate' => 'EndDate',
@@ -120,7 +120,7 @@ class GetClientCompleteInfoRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ClientId' => 'setClientId',
         'StartDate' => 'setStartDate',
         'EndDate' => 'setEndDate',
@@ -138,7 +138,7 @@ class GetClientCompleteInfoRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ClientId' => 'getClientId',
         'StartDate' => 'getStartDate',
         'EndDate' => 'getEndDate',
@@ -162,7 +162,7 @@ class GetClientCompleteInfoRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
         $this->container['StartDate'] = isset($data['StartDate']) ? $data['StartDate'] : null;
@@ -197,7 +197,7 @@ class GetClientCompleteInfoRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId()
+    public function getClientId(): string
     {
         return $this->container['ClientId'];
     }
@@ -209,7 +209,9 @@ class GetClientCompleteInfoRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClientId($ClientId): self
+
+
+    public function setClientId(string $ClientId): static
     {
         $this->container['ClientId'] = $ClientId;
 
@@ -221,7 +223,7 @@ class GetClientCompleteInfoRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDate()
+    public function getStartDate(): \DateTime
     {
         return $this->container['StartDate'];
     }
@@ -233,7 +235,9 @@ class GetClientCompleteInfoRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStartDate($StartDate): self
+
+
+    public function setStartDate(\DateTime $StartDate): static
     {
         $this->container['StartDate'] = $StartDate;
 
@@ -245,7 +249,7 @@ class GetClientCompleteInfoRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDate()
+    public function getEndDate(): \DateTime
     {
         return $this->container['EndDate'];
     }
@@ -257,7 +261,9 @@ class GetClientCompleteInfoRequest extends BaseModel
      *
      * @return $this
      */
-    public function setEndDate($EndDate): self
+
+
+    public function setEndDate(\DateTime $EndDate): static
     {
         $this->container['EndDate'] = $EndDate;
 
@@ -269,7 +275,7 @@ class GetClientCompleteInfoRequest extends BaseModel
      *
      * @return bool
      */
-    public function getCrossRegionalLookup()
+    public function getCrossRegionalLookup(): bool
     {
         return $this->container['CrossRegionalLookup'];
     }
@@ -281,7 +287,9 @@ class GetClientCompleteInfoRequest extends BaseModel
      *
      * @return $this
      */
-    public function setCrossRegionalLookup($CrossRegionalLookup): self
+
+
+    public function setCrossRegionalLookup(bool $CrossRegionalLookup): static
     {
         $this->container['CrossRegionalLookup'] = $CrossRegionalLookup;
 
@@ -293,7 +301,7 @@ class GetClientCompleteInfoRequest extends BaseModel
      *
      * @return int
      */
-    public function getClientAssociatedSitesOffset()
+    public function getClientAssociatedSitesOffset(): int
     {
         return $this->container['ClientAssociatedSitesOffset'];
     }
@@ -305,7 +313,9 @@ class GetClientCompleteInfoRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClientAssociatedSitesOffset($ClientAssociatedSitesOffset): self
+
+
+    public function setClientAssociatedSitesOffset(int $ClientAssociatedSitesOffset): static
     {
         $this->container['ClientAssociatedSitesOffset'] = $ClientAssociatedSitesOffset;
 
@@ -317,7 +327,7 @@ class GetClientCompleteInfoRequest extends BaseModel
      *
      * @return string[]
      */
-    public function getRequiredClientData()
+    public function getRequiredClientData(): array
     {
         return $this->container['RequiredClientData'];
     }
@@ -329,7 +339,9 @@ class GetClientCompleteInfoRequest extends BaseModel
      *
      * @return $this
      */
-    public function setRequiredClientData($RequiredClientData): self
+
+
+    public function setRequiredClientData(array $RequiredClientData): static
     {
         $this->container['RequiredClientData'] = $RequiredClientData;
 
@@ -341,7 +353,7 @@ class GetClientCompleteInfoRequest extends BaseModel
      *
      * @return bool
      */
-    public function getExcludeInactiveSites()
+    public function getExcludeInactiveSites(): bool
     {
         return $this->container['ExcludeInactiveSites'];
     }
@@ -353,7 +365,9 @@ class GetClientCompleteInfoRequest extends BaseModel
      *
      * @return $this
      */
-    public function setExcludeInactiveSites($ExcludeInactiveSites): self
+
+
+    public function setExcludeInactiveSites(bool $ExcludeInactiveSites): static
     {
         $this->container['ExcludeInactiveSites'] = $ExcludeInactiveSites;
 
@@ -365,7 +379,7 @@ class GetClientCompleteInfoRequest extends BaseModel
      *
      * @return bool
      */
-    public function getUseActivateDate()
+    public function getUseActivateDate(): bool
     {
         return $this->container['UseActivateDate'];
     }
@@ -377,7 +391,9 @@ class GetClientCompleteInfoRequest extends BaseModel
      *
      * @return $this
      */
-    public function setUseActivateDate($UseActivateDate): self
+
+
+    public function setUseActivateDate(bool $UseActivateDate): static
     {
         $this->container['UseActivateDate'] = $UseActivateDate;
 
@@ -389,7 +405,7 @@ class GetClientCompleteInfoRequest extends BaseModel
      *
      * @return bool
      */
-    public function getShowActiveOnly()
+    public function getShowActiveOnly(): bool
     {
         return $this->container['ShowActiveOnly'];
     }
@@ -401,7 +417,9 @@ class GetClientCompleteInfoRequest extends BaseModel
      *
      * @return $this
      */
-    public function setShowActiveOnly($ShowActiveOnly): self
+
+
+    public function setShowActiveOnly(bool $ShowActiveOnly): static
     {
         $this->container['ShowActiveOnly'] = $ShowActiveOnly;
 
@@ -413,7 +431,7 @@ class GetClientCompleteInfoRequest extends BaseModel
      *
      * @return int
      */
-    public function getUniqueClientId()
+    public function getUniqueClientId(): int
     {
         return $this->container['UniqueClientId'];
     }
@@ -425,7 +443,9 @@ class GetClientCompleteInfoRequest extends BaseModel
      *
      * @return $this
      */
-    public function setUniqueClientId($UniqueClientId): self
+
+
+    public function setUniqueClientId(int $UniqueClientId): static
     {
         $this->container['UniqueClientId'] = $UniqueClientId;
 

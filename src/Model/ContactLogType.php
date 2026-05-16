@@ -41,7 +41,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property \Nlocascio\Mindbody\Model\ContactLogSubType[] $SubTypes Contains the SubType objects, each of which describes the subtypes for a contactlog Type.
  *
  */
-class ContactLogType extends BaseModel implements ModelWithId
+class ContactLogType extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -50,14 +50,14 @@ class ContactLogType extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ContactLogType';
+    protected static string $swaggerModelName = 'ContactLogType';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Id' => 'int',
         'Name' => 'string',
         'SubTypes' => '\Nlocascio\Mindbody\Model\ContactLogSubType[]'
@@ -68,7 +68,7 @@ class ContactLogType extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Id' => 'int32',
         'Name' => null,
         'SubTypes' => null
@@ -81,7 +81,7 @@ class ContactLogType extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Id' => 'Id',
         'Name' => 'Name',
         'SubTypes' => 'SubTypes'
@@ -92,7 +92,7 @@ class ContactLogType extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Id' => 'setId',
         'Name' => 'setName',
         'SubTypes' => 'setSubTypes'
@@ -103,7 +103,7 @@ class ContactLogType extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Id' => 'getId',
         'Name' => 'getName',
         'SubTypes' => 'getSubTypes'
@@ -120,7 +120,7 @@ class ContactLogType extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
         $this->container['Name'] = isset($data['Name']) ? $data['Name'] : null;
@@ -145,7 +145,7 @@ class ContactLogType extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -157,7 +157,9 @@ class ContactLogType extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -169,7 +171,7 @@ class ContactLogType extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->container['Name'];
     }
@@ -181,7 +183,9 @@ class ContactLogType extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setName($Name): self
+
+
+    public function setName(string $Name): static
     {
         $this->container['Name'] = $Name;
 
@@ -193,7 +197,7 @@ class ContactLogType extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\ContactLogSubType[]
      */
-    public function getSubTypes()
+    public function getSubTypes(): array
     {
         return $this->container['SubTypes'];
     }
@@ -205,7 +209,9 @@ class ContactLogType extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSubTypes($SubTypes): self
+
+
+    public function setSubTypes(array $SubTypes): static
     {
         $this->container['SubTypes'] = $SubTypes;
 

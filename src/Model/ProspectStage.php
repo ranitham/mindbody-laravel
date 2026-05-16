@@ -40,7 +40,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property int $Id The ID of the prospect stage assigned to the client.
  *
  */
-class ProspectStage extends BaseModel implements ModelWithId
+class ProspectStage extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -49,14 +49,14 @@ class ProspectStage extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ProspectStage';
+    protected static string $swaggerModelName = 'ProspectStage';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Active' => 'bool',
         'Description' => 'string',
         'Id' => 'int'
@@ -67,7 +67,7 @@ class ProspectStage extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Active' => null,
         'Description' => null,
         'Id' => 'int32'
@@ -80,7 +80,7 @@ class ProspectStage extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Active' => 'Active',
         'Description' => 'Description',
         'Id' => 'Id'
@@ -91,7 +91,7 @@ class ProspectStage extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Active' => 'setActive',
         'Description' => 'setDescription',
         'Id' => 'setId'
@@ -102,7 +102,7 @@ class ProspectStage extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Active' => 'getActive',
         'Description' => 'getDescription',
         'Id' => 'getId'
@@ -119,7 +119,7 @@ class ProspectStage extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Active'] = isset($data['Active']) ? $data['Active'] : null;
         $this->container['Description'] = isset($data['Description']) ? $data['Description'] : null;
@@ -144,7 +144,7 @@ class ProspectStage extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getActive()
+    public function getActive(): bool
     {
         return $this->container['Active'];
     }
@@ -156,7 +156,9 @@ class ProspectStage extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setActive($Active): self
+
+
+    public function setActive(bool $Active): static
     {
         $this->container['Active'] = $Active;
 
@@ -168,7 +170,7 @@ class ProspectStage extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->container['Description'];
     }
@@ -180,7 +182,9 @@ class ProspectStage extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setDescription($Description): self
+
+
+    public function setDescription(string $Description): static
     {
         $this->container['Description'] = $Description;
 
@@ -192,7 +196,7 @@ class ProspectStage extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -204,7 +208,9 @@ class ProspectStage extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 

@@ -51,14 +51,14 @@ class CheckoutShoppingCartResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CheckoutShoppingCartResponse';
+    protected static string $swaggerModelName = 'CheckoutShoppingCartResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ShoppingCart' => '\Nlocascio\Mindbody\Model\CompletedSaleShoppingCart',
         'Classes' => '\Nlocascio\Mindbody\Model\ModelClass[]',
         'Appointments' => '\Nlocascio\Mindbody\Model\Appointment[]',
@@ -70,7 +70,7 @@ class CheckoutShoppingCartResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ShoppingCart' => null,
         'Classes' => null,
         'Appointments' => null,
@@ -84,7 +84,7 @@ class CheckoutShoppingCartResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ShoppingCart' => 'ShoppingCart',
         'Classes' => 'Classes',
         'Appointments' => 'Appointments',
@@ -96,7 +96,7 @@ class CheckoutShoppingCartResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ShoppingCart' => 'setShoppingCart',
         'Classes' => 'setClasses',
         'Appointments' => 'setAppointments',
@@ -108,7 +108,7 @@ class CheckoutShoppingCartResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ShoppingCart' => 'getShoppingCart',
         'Classes' => 'getClasses',
         'Appointments' => 'getAppointments',
@@ -126,7 +126,7 @@ class CheckoutShoppingCartResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ShoppingCart'] = isset($data['ShoppingCart']) ? $data['ShoppingCart'] : null;
         $this->container['Classes'] = isset($data['Classes']) ? $data['Classes'] : null;
@@ -152,7 +152,7 @@ class CheckoutShoppingCartResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\CompletedSaleShoppingCart
      */
-    public function getShoppingCart()
+    public function getShoppingCart(): \Nlocascio\Mindbody\Model\CompletedSaleShoppingCart
     {
         return $this->container['ShoppingCart'];
     }
@@ -164,7 +164,9 @@ class CheckoutShoppingCartResponse extends BaseModel
      *
      * @return $this
      */
-    public function setShoppingCart($ShoppingCart): self
+
+
+    public function setShoppingCart(\Nlocascio\Mindbody\Model\CompletedSaleShoppingCart $ShoppingCart): static
     {
         $this->container['ShoppingCart'] = $ShoppingCart;
 
@@ -176,7 +178,7 @@ class CheckoutShoppingCartResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ModelClass[]
      */
-    public function getClasses()
+    public function getClasses(): array
     {
         return $this->container['Classes'];
     }
@@ -188,7 +190,9 @@ class CheckoutShoppingCartResponse extends BaseModel
      *
      * @return $this
      */
-    public function setClasses($Classes): self
+
+
+    public function setClasses(array $Classes): static
     {
         $this->container['Classes'] = $Classes;
 
@@ -200,7 +204,7 @@ class CheckoutShoppingCartResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Appointment[]
      */
-    public function getAppointments()
+    public function getAppointments(): array
     {
         return $this->container['Appointments'];
     }
@@ -212,7 +216,9 @@ class CheckoutShoppingCartResponse extends BaseModel
      *
      * @return $this
      */
-    public function setAppointments($Appointments): self
+
+
+    public function setAppointments(array $Appointments): static
     {
         $this->container['Appointments'] = $Appointments;
 
@@ -224,7 +230,7 @@ class CheckoutShoppingCartResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClassSchedule[]
      */
-    public function getEnrollments()
+    public function getEnrollments(): array
     {
         return $this->container['Enrollments'];
     }
@@ -236,7 +242,9 @@ class CheckoutShoppingCartResponse extends BaseModel
      *
      * @return $this
      */
-    public function setEnrollments($Enrollments): self
+
+
+    public function setEnrollments(array $Enrollments): static
     {
         $this->container['Enrollments'] = $Enrollments;
 

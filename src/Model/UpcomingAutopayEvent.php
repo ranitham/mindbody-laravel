@@ -53,14 +53,14 @@ class UpcomingAutopayEvent extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UpcomingAutopayEvent';
+    protected static string $swaggerModelName = 'UpcomingAutopayEvent';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ClientContractId' => 'int',
         'ChargeAmount' => 'double',
         'Subtotal' => 'double',
@@ -75,7 +75,7 @@ class UpcomingAutopayEvent extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ClientContractId' => 'int32',
         'ChargeAmount' => 'double',
         'Subtotal' => 'double',
@@ -92,7 +92,7 @@ class UpcomingAutopayEvent extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ClientContractId' => 'ClientContractId',
         'ChargeAmount' => 'ChargeAmount',
         'Subtotal' => 'Subtotal',
@@ -107,7 +107,7 @@ class UpcomingAutopayEvent extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ClientContractId' => 'setClientContractId',
         'ChargeAmount' => 'setChargeAmount',
         'Subtotal' => 'setSubtotal',
@@ -122,7 +122,7 @@ class UpcomingAutopayEvent extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ClientContractId' => 'getClientContractId',
         'ChargeAmount' => 'getChargeAmount',
         'Subtotal' => 'getSubtotal',
@@ -162,7 +162,7 @@ class UpcomingAutopayEvent extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ClientContractId'] = isset($data['ClientContractId']) ? $data['ClientContractId'] : null;
         $this->container['ChargeAmount'] = isset($data['ChargeAmount']) ? $data['ChargeAmount'] : null;
@@ -199,7 +199,7 @@ class UpcomingAutopayEvent extends BaseModel
      *
      * @return int
      */
-    public function getClientContractId()
+    public function getClientContractId(): int
     {
         return $this->container['ClientContractId'];
     }
@@ -211,7 +211,9 @@ class UpcomingAutopayEvent extends BaseModel
      *
      * @return $this
      */
-    public function setClientContractId($ClientContractId): self
+
+
+    public function setClientContractId(int $ClientContractId): static
     {
         $this->container['ClientContractId'] = $ClientContractId;
 
@@ -223,7 +225,7 @@ class UpcomingAutopayEvent extends BaseModel
      *
      * @return double
      */
-    public function getChargeAmount()
+    public function getChargeAmount(): float
     {
         return $this->container['ChargeAmount'];
     }
@@ -235,7 +237,9 @@ class UpcomingAutopayEvent extends BaseModel
      *
      * @return $this
      */
-    public function setChargeAmount($ChargeAmount): self
+
+
+    public function setChargeAmount(float $ChargeAmount): static
     {
         $this->container['ChargeAmount'] = $ChargeAmount;
 
@@ -247,7 +251,7 @@ class UpcomingAutopayEvent extends BaseModel
      *
      * @return double
      */
-    public function getSubtotal()
+    public function getSubtotal(): float
     {
         return $this->container['Subtotal'];
     }
@@ -259,7 +263,9 @@ class UpcomingAutopayEvent extends BaseModel
      *
      * @return $this
      */
-    public function setSubtotal($Subtotal): self
+
+
+    public function setSubtotal(float $Subtotal): static
     {
         $this->container['Subtotal'] = $Subtotal;
 
@@ -271,7 +277,7 @@ class UpcomingAutopayEvent extends BaseModel
      *
      * @return double
      */
-    public function getTax()
+    public function getTax(): float
     {
         return $this->container['Tax'];
     }
@@ -283,7 +289,9 @@ class UpcomingAutopayEvent extends BaseModel
      *
      * @return $this
      */
-    public function setTax($Tax): self
+
+
+    public function setTax(float $Tax): static
     {
         $this->container['Tax'] = $Tax;
 
@@ -295,7 +303,7 @@ class UpcomingAutopayEvent extends BaseModel
      *
      * @return string
      */
-    public function getPaymentMethod()
+    public function getPaymentMethod(): string
     {
         return $this->container['PaymentMethod'];
     }
@@ -307,7 +315,9 @@ class UpcomingAutopayEvent extends BaseModel
      *
      * @return $this
      */
-    public function setPaymentMethod($PaymentMethod): self
+
+
+    public function setPaymentMethod(string $PaymentMethod): static
     {
         $allowedValues = $this->getPaymentMethodAllowableValues();
         if (!is_null($PaymentMethod) && !in_array($PaymentMethod, $allowedValues, true)) {
@@ -328,7 +338,7 @@ class UpcomingAutopayEvent extends BaseModel
      *
      * @return \DateTime
      */
-    public function getScheduleDate()
+    public function getScheduleDate(): \DateTime
     {
         return $this->container['ScheduleDate'];
     }
@@ -340,7 +350,9 @@ class UpcomingAutopayEvent extends BaseModel
      *
      * @return $this
      */
-    public function setScheduleDate($ScheduleDate): self
+
+
+    public function setScheduleDate(\DateTime $ScheduleDate): static
     {
         $this->container['ScheduleDate'] = $ScheduleDate;
 
@@ -352,7 +364,7 @@ class UpcomingAutopayEvent extends BaseModel
      *
      * @return int
      */
-    public function getProductId()
+    public function getProductId(): int
     {
         return $this->container['ProductId'];
     }
@@ -364,7 +376,9 @@ class UpcomingAutopayEvent extends BaseModel
      *
      * @return $this
      */
-    public function setProductId($ProductId): self
+
+
+    public function setProductId(int $ProductId): static
     {
         $this->container['ProductId'] = $ProductId;
 

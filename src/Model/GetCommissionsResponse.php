@@ -48,14 +48,14 @@ class GetCommissionsResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetCommissionsResponse';
+    protected static string $swaggerModelName = 'GetCommissionsResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'PaginationResponse' => '\Nlocascio\Mindbody\Model\PaginationResponse',
         'Commissions' => '\Nlocascio\Mindbody\Model\CommissionPayrollPurchaseEvent[]'
     ];
@@ -65,7 +65,7 @@ class GetCommissionsResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'PaginationResponse' => null,
         'Commissions' => null
     ];
@@ -77,7 +77,7 @@ class GetCommissionsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'PaginationResponse' => 'PaginationResponse',
         'Commissions' => 'Commissions'
     ];
@@ -87,7 +87,7 @@ class GetCommissionsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'PaginationResponse' => 'setPaginationResponse',
         'Commissions' => 'setCommissions'
     ];
@@ -97,7 +97,7 @@ class GetCommissionsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'PaginationResponse' => 'getPaginationResponse',
         'Commissions' => 'getCommissions'
     ];
@@ -113,7 +113,7 @@ class GetCommissionsResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['PaginationResponse'] = isset($data['PaginationResponse']) ? $data['PaginationResponse'] : null;
         $this->container['Commissions'] = isset($data['Commissions']) ? $data['Commissions'] : null;
@@ -137,7 +137,7 @@ class GetCommissionsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse()
+    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
     {
         return $this->container['PaginationResponse'];
     }
@@ -149,7 +149,9 @@ class GetCommissionsResponse extends BaseModel
      *
      * @return $this
      */
-    public function setPaginationResponse($PaginationResponse): self
+
+
+    public function setPaginationResponse(\Nlocascio\Mindbody\Model\PaginationResponse $PaginationResponse): static
     {
         $this->container['PaginationResponse'] = $PaginationResponse;
 
@@ -161,7 +163,7 @@ class GetCommissionsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\CommissionPayrollPurchaseEvent[]
      */
-    public function getCommissions()
+    public function getCommissions(): array
     {
         return $this->container['Commissions'];
     }
@@ -173,7 +175,9 @@ class GetCommissionsResponse extends BaseModel
      *
      * @return $this
      */
-    public function setCommissions($Commissions): self
+
+
+    public function setCommissions(array $Commissions): static
     {
         $this->container['Commissions'] = $Commissions;
 

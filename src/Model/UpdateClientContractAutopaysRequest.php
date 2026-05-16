@@ -53,14 +53,14 @@ class UpdateClientContractAutopaysRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UpdateClientContractAutopaysRequest';
+    protected static string $swaggerModelName = 'UpdateClientContractAutopaysRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ClientContractId' => 'int',
         'AutopayStartDate' => '\DateTime',
         'AutopayEndDate' => '\DateTime',
@@ -75,7 +75,7 @@ class UpdateClientContractAutopaysRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ClientContractId' => 'int32',
         'AutopayStartDate' => 'date-time',
         'AutopayEndDate' => 'date-time',
@@ -92,7 +92,7 @@ class UpdateClientContractAutopaysRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ClientContractId' => 'ClientContractId',
         'AutopayStartDate' => 'AutopayStartDate',
         'AutopayEndDate' => 'AutopayEndDate',
@@ -107,7 +107,7 @@ class UpdateClientContractAutopaysRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ClientContractId' => 'setClientContractId',
         'AutopayStartDate' => 'setAutopayStartDate',
         'AutopayEndDate' => 'setAutopayEndDate',
@@ -122,7 +122,7 @@ class UpdateClientContractAutopaysRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ClientContractId' => 'getClientContractId',
         'AutopayStartDate' => 'getAutopayStartDate',
         'AutopayEndDate' => 'getAutopayEndDate',
@@ -143,7 +143,7 @@ class UpdateClientContractAutopaysRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ClientContractId'] = isset($data['ClientContractId']) ? $data['ClientContractId'] : null;
         $this->container['AutopayStartDate'] = isset($data['AutopayStartDate']) ? $data['AutopayStartDate'] : null;
@@ -172,7 +172,7 @@ class UpdateClientContractAutopaysRequest extends BaseModel
      *
      * @return int
      */
-    public function getClientContractId()
+    public function getClientContractId(): int
     {
         return $this->container['ClientContractId'];
     }
@@ -184,7 +184,9 @@ class UpdateClientContractAutopaysRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClientContractId($ClientContractId): self
+
+
+    public function setClientContractId(int $ClientContractId): static
     {
         $this->container['ClientContractId'] = $ClientContractId;
 
@@ -196,7 +198,7 @@ class UpdateClientContractAutopaysRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getAutopayStartDate()
+    public function getAutopayStartDate(): \DateTime
     {
         return $this->container['AutopayStartDate'];
     }
@@ -208,7 +210,9 @@ class UpdateClientContractAutopaysRequest extends BaseModel
      *
      * @return $this
      */
-    public function setAutopayStartDate($AutopayStartDate): self
+
+
+    public function setAutopayStartDate(\DateTime $AutopayStartDate): static
     {
         $this->container['AutopayStartDate'] = $AutopayStartDate;
 
@@ -220,7 +224,7 @@ class UpdateClientContractAutopaysRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getAutopayEndDate()
+    public function getAutopayEndDate(): \DateTime
     {
         return $this->container['AutopayEndDate'];
     }
@@ -232,7 +236,9 @@ class UpdateClientContractAutopaysRequest extends BaseModel
      *
      * @return $this
      */
-    public function setAutopayEndDate($AutopayEndDate): self
+
+
+    public function setAutopayEndDate(\DateTime $AutopayEndDate): static
     {
         $this->container['AutopayEndDate'] = $AutopayEndDate;
 
@@ -244,7 +250,7 @@ class UpdateClientContractAutopaysRequest extends BaseModel
      *
      * @return int
      */
-    public function getProductId()
+    public function getProductId(): int
     {
         return $this->container['ProductId'];
     }
@@ -256,7 +262,9 @@ class UpdateClientContractAutopaysRequest extends BaseModel
      *
      * @return $this
      */
-    public function setProductId($ProductId): self
+
+
+    public function setProductId(int $ProductId): static
     {
         $this->container['ProductId'] = $ProductId;
 
@@ -268,7 +276,7 @@ class UpdateClientContractAutopaysRequest extends BaseModel
      *
      * @return int
      */
-    public function getReplaceWithProductId()
+    public function getReplaceWithProductId(): int
     {
         return $this->container['ReplaceWithProductId'];
     }
@@ -280,7 +288,9 @@ class UpdateClientContractAutopaysRequest extends BaseModel
      *
      * @return $this
      */
-    public function setReplaceWithProductId($ReplaceWithProductId): self
+
+
+    public function setReplaceWithProductId(int $ReplaceWithProductId): static
     {
         $this->container['ReplaceWithProductId'] = $ReplaceWithProductId;
 
@@ -292,7 +302,7 @@ class UpdateClientContractAutopaysRequest extends BaseModel
      *
      * @return double
      */
-    public function getAmount()
+    public function getAmount(): float
     {
         return $this->container['Amount'];
     }
@@ -304,7 +314,9 @@ class UpdateClientContractAutopaysRequest extends BaseModel
      *
      * @return $this
      */
-    public function setAmount($Amount): self
+
+
+    public function setAmount(float $Amount): static
     {
         $this->container['Amount'] = $Amount;
 
@@ -316,7 +328,7 @@ class UpdateClientContractAutopaysRequest extends BaseModel
      *
      * @return bool
      */
-    public function getOverwriteAllProductIDs()
+    public function getOverwriteAllProductIDs(): bool
     {
         return $this->container['OverwriteAllProductIDs'];
     }
@@ -328,7 +340,9 @@ class UpdateClientContractAutopaysRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOverwriteAllProductIDs($OverwriteAllProductIDs): self
+
+
+    public function setOverwriteAllProductIDs(bool $OverwriteAllProductIDs): static
     {
         $this->container['OverwriteAllProductIDs'] = $OverwriteAllProductIDs;
 

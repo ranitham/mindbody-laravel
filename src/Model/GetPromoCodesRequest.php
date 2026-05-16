@@ -53,14 +53,14 @@ class GetPromoCodesRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetPromoCodesRequest';
+    protected static string $swaggerModelName = 'GetPromoCodesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ActiveOnly' => 'bool',
         'OnlineOnly' => 'bool',
         'StartDate' => '\DateTime',
@@ -75,7 +75,7 @@ class GetPromoCodesRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ActiveOnly' => null,
         'OnlineOnly' => null,
         'StartDate' => 'date-time',
@@ -92,7 +92,7 @@ class GetPromoCodesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ActiveOnly' => 'ActiveOnly',
         'OnlineOnly' => 'OnlineOnly',
         'StartDate' => 'StartDate',
@@ -107,7 +107,7 @@ class GetPromoCodesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ActiveOnly' => 'setActiveOnly',
         'OnlineOnly' => 'setOnlineOnly',
         'StartDate' => 'setStartDate',
@@ -122,7 +122,7 @@ class GetPromoCodesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ActiveOnly' => 'getActiveOnly',
         'OnlineOnly' => 'getOnlineOnly',
         'StartDate' => 'getStartDate',
@@ -143,7 +143,7 @@ class GetPromoCodesRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ActiveOnly'] = isset($data['ActiveOnly']) ? $data['ActiveOnly'] : null;
         $this->container['OnlineOnly'] = isset($data['OnlineOnly']) ? $data['OnlineOnly'] : null;
@@ -172,7 +172,7 @@ class GetPromoCodesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getActiveOnly()
+    public function getActiveOnly(): bool
     {
         return $this->container['ActiveOnly'];
     }
@@ -184,7 +184,9 @@ class GetPromoCodesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setActiveOnly($ActiveOnly): self
+
+
+    public function setActiveOnly(bool $ActiveOnly): static
     {
         $this->container['ActiveOnly'] = $ActiveOnly;
 
@@ -196,7 +198,7 @@ class GetPromoCodesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getOnlineOnly()
+    public function getOnlineOnly(): bool
     {
         return $this->container['OnlineOnly'];
     }
@@ -208,7 +210,9 @@ class GetPromoCodesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOnlineOnly($OnlineOnly): self
+
+
+    public function setOnlineOnly(bool $OnlineOnly): static
     {
         $this->container['OnlineOnly'] = $OnlineOnly;
 
@@ -220,7 +224,7 @@ class GetPromoCodesRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDate()
+    public function getStartDate(): \DateTime
     {
         return $this->container['StartDate'];
     }
@@ -232,7 +236,9 @@ class GetPromoCodesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStartDate($StartDate): self
+
+
+    public function setStartDate(\DateTime $StartDate): static
     {
         $this->container['StartDate'] = $StartDate;
 
@@ -244,7 +250,7 @@ class GetPromoCodesRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDate()
+    public function getEndDate(): \DateTime
     {
         return $this->container['EndDate'];
     }
@@ -256,7 +262,9 @@ class GetPromoCodesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setEndDate($EndDate): self
+
+
+    public function setEndDate(\DateTime $EndDate): static
     {
         $this->container['EndDate'] = $EndDate;
 
@@ -268,7 +276,7 @@ class GetPromoCodesRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getLastModifiedDate()
+    public function getLastModifiedDate(): \DateTime
     {
         return $this->container['LastModifiedDate'];
     }
@@ -280,7 +288,9 @@ class GetPromoCodesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLastModifiedDate($LastModifiedDate): self
+
+
+    public function setLastModifiedDate(\DateTime $LastModifiedDate): static
     {
         $this->container['LastModifiedDate'] = $LastModifiedDate;
 
@@ -292,7 +302,7 @@ class GetPromoCodesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit()
+    public function getLimit(): int
     {
         return $this->container['Limit'];
     }
@@ -304,7 +314,9 @@ class GetPromoCodesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLimit($Limit): self
+
+
+    public function setLimit(int $Limit): static
     {
         $this->container['Limit'] = $Limit;
 
@@ -316,7 +328,7 @@ class GetPromoCodesRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset()
+    public function getOffset(): int
     {
         return $this->container['Offset'];
     }
@@ -328,7 +340,9 @@ class GetPromoCodesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOffset($Offset): self
+
+
+    public function setOffset(int $Offset): static
     {
         $this->container['Offset'] = $Offset;
 

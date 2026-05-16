@@ -49,14 +49,14 @@ class UpdateSaleDateRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UpdateSaleDateRequest';
+    protected static string $swaggerModelName = 'UpdateSaleDateRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'SaleID' => 'int',
         'SaleDate' => '\DateTime'
     ];
@@ -66,7 +66,7 @@ class UpdateSaleDateRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'SaleID' => 'int64',
         'SaleDate' => 'date-time'
     ];
@@ -78,7 +78,7 @@ class UpdateSaleDateRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'SaleID' => 'SaleID',
         'SaleDate' => 'SaleDate'
     ];
@@ -88,7 +88,7 @@ class UpdateSaleDateRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'SaleID' => 'setSaleID',
         'SaleDate' => 'setSaleDate'
     ];
@@ -98,7 +98,7 @@ class UpdateSaleDateRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'SaleID' => 'getSaleID',
         'SaleDate' => 'getSaleDate'
     ];
@@ -114,7 +114,7 @@ class UpdateSaleDateRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['SaleID'] = isset($data['SaleID']) ? $data['SaleID'] : null;
         $this->container['SaleDate'] = isset($data['SaleDate']) ? $data['SaleDate'] : null;
@@ -138,7 +138,7 @@ class UpdateSaleDateRequest extends BaseModel
      *
      * @return int
      */
-    public function getSaleID()
+    public function getSaleID(): int
     {
         return $this->container['SaleID'];
     }
@@ -150,7 +150,9 @@ class UpdateSaleDateRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSaleID($SaleID): self
+
+
+    public function setSaleID(int $SaleID): static
     {
         $this->container['SaleID'] = $SaleID;
 
@@ -162,7 +164,7 @@ class UpdateSaleDateRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getSaleDate()
+    public function getSaleDate(): \DateTime
     {
         return $this->container['SaleDate'];
     }
@@ -174,7 +176,9 @@ class UpdateSaleDateRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSaleDate($SaleDate): self
+
+
+    public function setSaleDate(\DateTime $SaleDate): static
     {
         $this->container['SaleDate'] = $SaleDate;
 

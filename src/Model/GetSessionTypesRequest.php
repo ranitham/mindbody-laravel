@@ -50,14 +50,14 @@ class GetSessionTypesRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetSessionTypesRequest';
+    protected static string $swaggerModelName = 'GetSessionTypesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ProgramIDs' => 'int[]',
         'OnlineOnly' => 'bool',
         'Limit' => 'int',
@@ -69,7 +69,7 @@ class GetSessionTypesRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ProgramIDs' => 'int32',
         'OnlineOnly' => null,
         'Limit' => 'int32',
@@ -83,7 +83,7 @@ class GetSessionTypesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ProgramIDs' => 'ProgramIDs',
         'OnlineOnly' => 'OnlineOnly',
         'Limit' => 'Limit',
@@ -95,7 +95,7 @@ class GetSessionTypesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ProgramIDs' => 'setProgramIDs',
         'OnlineOnly' => 'setOnlineOnly',
         'Limit' => 'setLimit',
@@ -107,7 +107,7 @@ class GetSessionTypesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ProgramIDs' => 'getProgramIDs',
         'OnlineOnly' => 'getOnlineOnly',
         'Limit' => 'getLimit',
@@ -125,7 +125,7 @@ class GetSessionTypesRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ProgramIDs'] = isset($data['ProgramIDs']) ? $data['ProgramIDs'] : null;
         $this->container['OnlineOnly'] = isset($data['OnlineOnly']) ? $data['OnlineOnly'] : null;
@@ -151,7 +151,7 @@ class GetSessionTypesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getProgramIDs()
+    public function getProgramIDs(): array
     {
         return $this->container['ProgramIDs'];
     }
@@ -163,7 +163,9 @@ class GetSessionTypesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setProgramIDs($ProgramIDs): self
+
+
+    public function setProgramIDs(array $ProgramIDs): static
     {
         $this->container['ProgramIDs'] = $ProgramIDs;
 
@@ -175,7 +177,7 @@ class GetSessionTypesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getOnlineOnly()
+    public function getOnlineOnly(): bool
     {
         return $this->container['OnlineOnly'];
     }
@@ -187,7 +189,9 @@ class GetSessionTypesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOnlineOnly($OnlineOnly): self
+
+
+    public function setOnlineOnly(bool $OnlineOnly): static
     {
         $this->container['OnlineOnly'] = $OnlineOnly;
 
@@ -199,7 +203,7 @@ class GetSessionTypesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit()
+    public function getLimit(): int
     {
         return $this->container['Limit'];
     }
@@ -211,7 +215,9 @@ class GetSessionTypesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLimit($Limit): self
+
+
+    public function setLimit(int $Limit): static
     {
         $this->container['Limit'] = $Limit;
 
@@ -223,7 +229,7 @@ class GetSessionTypesRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset()
+    public function getOffset(): int
     {
         return $this->container['Offset'];
     }
@@ -235,7 +241,9 @@ class GetSessionTypesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOffset($Offset): self
+
+
+    public function setOffset(int $Offset): static
     {
         $this->container['Offset'] = $Offset;
 

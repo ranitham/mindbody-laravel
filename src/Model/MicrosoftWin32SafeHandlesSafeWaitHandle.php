@@ -48,14 +48,14 @@ class MicrosoftWin32SafeHandlesSafeWaitHandle extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Microsoft.Win32.SafeHandles.SafeWaitHandle';
+    protected static string $swaggerModelName = 'Microsoft.Win32.SafeHandles.SafeWaitHandle';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'IsInvalid' => 'bool',
         'IsClosed' => 'bool'
     ];
@@ -65,7 +65,7 @@ class MicrosoftWin32SafeHandlesSafeWaitHandle extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'IsInvalid' => null,
         'IsClosed' => null
     ];
@@ -77,7 +77,7 @@ class MicrosoftWin32SafeHandlesSafeWaitHandle extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'IsInvalid' => 'IsInvalid',
         'IsClosed' => 'IsClosed'
     ];
@@ -87,7 +87,7 @@ class MicrosoftWin32SafeHandlesSafeWaitHandle extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'IsInvalid' => 'setIsInvalid',
         'IsClosed' => 'setIsClosed'
     ];
@@ -97,7 +97,7 @@ class MicrosoftWin32SafeHandlesSafeWaitHandle extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'IsInvalid' => 'getIsInvalid',
         'IsClosed' => 'getIsClosed'
     ];
@@ -113,7 +113,7 @@ class MicrosoftWin32SafeHandlesSafeWaitHandle extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['IsInvalid'] = isset($data['IsInvalid']) ? $data['IsInvalid'] : null;
         $this->container['IsClosed'] = isset($data['IsClosed']) ? $data['IsClosed'] : null;
@@ -137,7 +137,7 @@ class MicrosoftWin32SafeHandlesSafeWaitHandle extends BaseModel
      *
      * @return bool
      */
-    public function getIsInvalid()
+    public function getIsInvalid(): bool
     {
         return $this->container['IsInvalid'];
     }
@@ -149,7 +149,9 @@ class MicrosoftWin32SafeHandlesSafeWaitHandle extends BaseModel
      *
      * @return $this
      */
-    public function setIsInvalid($IsInvalid): self
+
+
+    public function setIsInvalid(bool $IsInvalid): static
     {
         $this->container['IsInvalid'] = $IsInvalid;
 
@@ -161,7 +163,7 @@ class MicrosoftWin32SafeHandlesSafeWaitHandle extends BaseModel
      *
      * @return bool
      */
-    public function getIsClosed()
+    public function getIsClosed(): bool
     {
         return $this->container['IsClosed'];
     }
@@ -173,7 +175,9 @@ class MicrosoftWin32SafeHandlesSafeWaitHandle extends BaseModel
      *
      * @return $this
      */
-    public function setIsClosed($IsClosed): self
+
+
+    public function setIsClosed(bool $IsClosed): static
     {
         $this->container['IsClosed'] = $IsClosed;
 

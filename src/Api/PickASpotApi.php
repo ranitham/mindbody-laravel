@@ -81,7 +81,7 @@ class PickASpotApi implements ApiInterface
      */
     public function pickASpotCreateReservation($PathInfo): \Nlocascio\Mindbody\Model\PickASpotCreateReservationResponse
     {
-        list($response) = $this->pickASpotCreateReservationWithHttpInfo($PathInfo);
+        ['response' => $response] = $this->pickASpotCreateReservationWithHttpInfo($PathInfo);
         return $response;
     }
 
@@ -94,7 +94,7 @@ class PickASpotApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\PickASpotCreateReservationResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\PickASpotCreateReservationResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function pickASpotCreateReservationWithHttpInfo($PathInfo): array
     {
@@ -130,19 +130,24 @@ class PickASpotApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -150,8 +155,7 @@ class PickASpotApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\PickASpotCreateReservationResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\PickASpotCreateReservationResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -199,20 +203,14 @@ class PickASpotApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -240,21 +238,14 @@ class PickASpotApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function pickASpotCreateReservationRequest($PathInfo): \GuzzleHttp\Psr7\Request
+    protected function pickASpotCreateReservationRequest(string $PathInfo): \GuzzleHttp\Psr7\Request
     {
-        // verify the required parameter 'PathInfo' is set
-        if ($PathInfo === null || (is_array($PathInfo) && count($PathInfo) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $PathInfo when calling pickASpotCreateReservation'
-            );
-        }
 
         $resourcePath = '/public/v6/pickaspot/v1/reservation/{pathInfo}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
 
         // path params
@@ -269,16 +260,10 @@ class PickASpotApi implements ApiInterface
         // body params
         $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            []
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -296,18 +281,7 @@ class PickASpotApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -365,7 +339,7 @@ class PickASpotApi implements ApiInterface
      */
     public function pickASpotDeleteReservation($PathInfo): \Nlocascio\Mindbody\Model\SystemNetHttpHttpContent
     {
-        list($response) = $this->pickASpotDeleteReservationWithHttpInfo($PathInfo);
+        ['response' => $response] = $this->pickASpotDeleteReservationWithHttpInfo($PathInfo);
         return $response;
     }
 
@@ -378,7 +352,7 @@ class PickASpotApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\SystemNetHttpHttpContent, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\SystemNetHttpHttpContent, statusCode: int, headers: array<string, string[]>}
      */
     public function pickASpotDeleteReservationWithHttpInfo($PathInfo): array
     {
@@ -414,19 +388,24 @@ class PickASpotApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -434,8 +413,7 @@ class PickASpotApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\SystemNetHttpHttpContent',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\SystemNetHttpHttpContent'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -483,20 +461,14 @@ class PickASpotApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -524,21 +496,14 @@ class PickASpotApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function pickASpotDeleteReservationRequest($PathInfo): \GuzzleHttp\Psr7\Request
+    protected function pickASpotDeleteReservationRequest(string $PathInfo): \GuzzleHttp\Psr7\Request
     {
-        // verify the required parameter 'PathInfo' is set
-        if ($PathInfo === null || (is_array($PathInfo) && count($PathInfo) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $PathInfo when calling pickASpotDeleteReservation'
-            );
-        }
 
         $resourcePath = '/public/v6/pickaspot/v1/reservation/{pathInfo}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
 
         // path params
@@ -553,16 +518,10 @@ class PickASpotApi implements ApiInterface
         // body params
         $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            []
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -580,18 +539,7 @@ class PickASpotApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -649,7 +597,7 @@ class PickASpotApi implements ApiInterface
      */
     public function pickASpotGetClass($ClassId): \Nlocascio\Mindbody\Model\PickASpotGetPickASpotClassResponse
     {
-        list($response) = $this->pickASpotGetClassWithHttpInfo($ClassId);
+        ['response' => $response] = $this->pickASpotGetClassWithHttpInfo($ClassId);
         return $response;
     }
 
@@ -662,7 +610,7 @@ class PickASpotApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\PickASpotGetPickASpotClassResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\PickASpotGetPickASpotClassResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function pickASpotGetClassWithHttpInfo($ClassId): array
     {
@@ -698,19 +646,24 @@ class PickASpotApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -718,8 +671,7 @@ class PickASpotApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\PickASpotGetPickASpotClassResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\PickASpotGetPickASpotClassResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -767,20 +719,14 @@ class PickASpotApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -808,21 +754,14 @@ class PickASpotApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function pickASpotGetClassRequest($ClassId): \GuzzleHttp\Psr7\Request
+    protected function pickASpotGetClassRequest(string $ClassId): \GuzzleHttp\Psr7\Request
     {
-        // verify the required parameter 'ClassId' is set
-        if ($ClassId === null || (is_array($ClassId) && count($ClassId) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $ClassId when calling pickASpotGetClass'
-            );
-        }
 
         $resourcePath = '/public/v6/pickaspot/v1/class/{classId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
 
         // path params
@@ -837,16 +776,10 @@ class PickASpotApi implements ApiInterface
         // body params
         $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            []
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -864,18 +797,7 @@ class PickASpotApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -932,7 +854,7 @@ class PickASpotApi implements ApiInterface
      */
     public function pickASpotGetClassList(): \Nlocascio\Mindbody\Model\PickASpotGetPickASpotClassResponse
     {
-        list($response) = $this->pickASpotGetClassListWithHttpInfo();
+        ['response' => $response] = $this->pickASpotGetClassListWithHttpInfo();
         return $response;
     }
 
@@ -944,7 +866,7 @@ class PickASpotApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\PickASpotGetPickASpotClassResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\PickASpotGetPickASpotClassResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function pickASpotGetClassListWithHttpInfo(): array
     {
@@ -980,19 +902,24 @@ class PickASpotApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -1000,8 +927,7 @@ class PickASpotApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\PickASpotGetPickASpotClassResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\PickASpotGetPickASpotClassResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -1047,20 +973,14 @@ class PickASpotApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -1095,23 +1015,16 @@ class PickASpotApi implements ApiInterface
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
 
 
         // body params
         $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            []
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -1129,18 +1042,7 @@ class PickASpotApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -1198,7 +1100,7 @@ class PickASpotApi implements ApiInterface
      */
     public function pickASpotGetReservation($PathInfo): \Nlocascio\Mindbody\Model\PickASpotGetReservationResponse
     {
-        list($response) = $this->pickASpotGetReservationWithHttpInfo($PathInfo);
+        ['response' => $response] = $this->pickASpotGetReservationWithHttpInfo($PathInfo);
         return $response;
     }
 
@@ -1211,7 +1113,7 @@ class PickASpotApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\PickASpotGetReservationResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\PickASpotGetReservationResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function pickASpotGetReservationWithHttpInfo($PathInfo): array
     {
@@ -1247,19 +1149,24 @@ class PickASpotApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -1267,8 +1174,7 @@ class PickASpotApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\PickASpotGetReservationResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\PickASpotGetReservationResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -1316,20 +1222,14 @@ class PickASpotApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -1357,21 +1257,14 @@ class PickASpotApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function pickASpotGetReservationRequest($PathInfo): \GuzzleHttp\Psr7\Request
+    protected function pickASpotGetReservationRequest(string $PathInfo): \GuzzleHttp\Psr7\Request
     {
-        // verify the required parameter 'PathInfo' is set
-        if ($PathInfo === null || (is_array($PathInfo) && count($PathInfo) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $PathInfo when calling pickASpotGetReservation'
-            );
-        }
 
         $resourcePath = '/public/v6/pickaspot/v1/reservation/{pathInfo}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
 
         // path params
@@ -1386,16 +1279,10 @@ class PickASpotApi implements ApiInterface
         // body params
         $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            []
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -1413,18 +1300,7 @@ class PickASpotApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -1482,7 +1358,7 @@ class PickASpotApi implements ApiInterface
      */
     public function pickASpotUpdateReservation($PathInfo): \Nlocascio\Mindbody\Model\PickASpotUpdateReservationResponse
     {
-        list($response) = $this->pickASpotUpdateReservationWithHttpInfo($PathInfo);
+        ['response' => $response] = $this->pickASpotUpdateReservationWithHttpInfo($PathInfo);
         return $response;
     }
 
@@ -1495,7 +1371,7 @@ class PickASpotApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\PickASpotUpdateReservationResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\PickASpotUpdateReservationResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function pickASpotUpdateReservationWithHttpInfo($PathInfo): array
     {
@@ -1531,19 +1407,24 @@ class PickASpotApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -1551,8 +1432,7 @@ class PickASpotApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\PickASpotUpdateReservationResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\PickASpotUpdateReservationResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -1600,20 +1480,14 @@ class PickASpotApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -1641,21 +1515,14 @@ class PickASpotApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function pickASpotUpdateReservationRequest($PathInfo): \GuzzleHttp\Psr7\Request
+    protected function pickASpotUpdateReservationRequest(string $PathInfo): \GuzzleHttp\Psr7\Request
     {
-        // verify the required parameter 'PathInfo' is set
-        if ($PathInfo === null || (is_array($PathInfo) && count($PathInfo) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $PathInfo when calling pickASpotUpdateReservation'
-            );
-        }
 
         $resourcePath = '/public/v6/pickaspot/v1/reservation/{pathInfo}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
 
         // path params
@@ -1670,16 +1537,10 @@ class PickASpotApi implements ApiInterface
         // body params
         $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            []
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -1697,18 +1558,7 @@ class PickASpotApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {

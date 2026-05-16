@@ -56,14 +56,14 @@ class GetCoursesRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetCoursesRequest';
+    protected static string $swaggerModelName = 'GetCoursesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'LocationIDs' => 'int[]',
         'CourseIDs' => 'int[]',
         'StaffIDs' => 'int[]',
@@ -80,7 +80,7 @@ class GetCoursesRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'LocationIDs' => 'int32',
         'CourseIDs' => 'int64',
         'StaffIDs' => 'int64',
@@ -99,7 +99,7 @@ class GetCoursesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'LocationIDs' => 'LocationIDs',
         'CourseIDs' => 'CourseIDs',
         'StaffIDs' => 'StaffIDs',
@@ -116,7 +116,7 @@ class GetCoursesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'LocationIDs' => 'setLocationIDs',
         'CourseIDs' => 'setCourseIDs',
         'StaffIDs' => 'setStaffIDs',
@@ -133,7 +133,7 @@ class GetCoursesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'LocationIDs' => 'getLocationIDs',
         'CourseIDs' => 'getCourseIDs',
         'StaffIDs' => 'getStaffIDs',
@@ -156,7 +156,7 @@ class GetCoursesRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['LocationIDs'] = isset($data['LocationIDs']) ? $data['LocationIDs'] : null;
         $this->container['CourseIDs'] = isset($data['CourseIDs']) ? $data['CourseIDs'] : null;
@@ -187,7 +187,7 @@ class GetCoursesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getLocationIDs()
+    public function getLocationIDs(): array
     {
         return $this->container['LocationIDs'];
     }
@@ -199,7 +199,9 @@ class GetCoursesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLocationIDs($LocationIDs): self
+
+
+    public function setLocationIDs(array $LocationIDs): static
     {
         $this->container['LocationIDs'] = $LocationIDs;
 
@@ -211,7 +213,7 @@ class GetCoursesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getCourseIDs()
+    public function getCourseIDs(): array
     {
         return $this->container['CourseIDs'];
     }
@@ -223,7 +225,9 @@ class GetCoursesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setCourseIDs($CourseIDs): self
+
+
+    public function setCourseIDs(array $CourseIDs): static
     {
         $this->container['CourseIDs'] = $CourseIDs;
 
@@ -235,7 +239,7 @@ class GetCoursesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getStaffIDs()
+    public function getStaffIDs(): array
     {
         return $this->container['StaffIDs'];
     }
@@ -247,7 +251,9 @@ class GetCoursesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStaffIDs($StaffIDs): self
+
+
+    public function setStaffIDs(array $StaffIDs): static
     {
         $this->container['StaffIDs'] = $StaffIDs;
 
@@ -259,7 +265,7 @@ class GetCoursesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getProgramIDs()
+    public function getProgramIDs(): array
     {
         return $this->container['ProgramIDs'];
     }
@@ -271,7 +277,9 @@ class GetCoursesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setProgramIDs($ProgramIDs): self
+
+
+    public function setProgramIDs(array $ProgramIDs): static
     {
         $this->container['ProgramIDs'] = $ProgramIDs;
 
@@ -283,7 +291,7 @@ class GetCoursesRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDate()
+    public function getStartDate(): \DateTime
     {
         return $this->container['StartDate'];
     }
@@ -295,7 +303,9 @@ class GetCoursesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStartDate($StartDate): self
+
+
+    public function setStartDate(\DateTime $StartDate): static
     {
         $this->container['StartDate'] = $StartDate;
 
@@ -307,7 +317,7 @@ class GetCoursesRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDate()
+    public function getEndDate(): \DateTime
     {
         return $this->container['EndDate'];
     }
@@ -319,7 +329,9 @@ class GetCoursesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setEndDate($EndDate): self
+
+
+    public function setEndDate(\DateTime $EndDate): static
     {
         $this->container['EndDate'] = $EndDate;
 
@@ -331,7 +343,7 @@ class GetCoursesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getSemesterIDs()
+    public function getSemesterIDs(): array
     {
         return $this->container['SemesterIDs'];
     }
@@ -343,7 +355,9 @@ class GetCoursesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSemesterIDs($SemesterIDs): self
+
+
+    public function setSemesterIDs(array $SemesterIDs): static
     {
         $this->container['SemesterIDs'] = $SemesterIDs;
 
@@ -355,7 +369,7 @@ class GetCoursesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit()
+    public function getLimit(): int
     {
         return $this->container['Limit'];
     }
@@ -367,7 +381,9 @@ class GetCoursesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLimit($Limit): self
+
+
+    public function setLimit(int $Limit): static
     {
         $this->container['Limit'] = $Limit;
 
@@ -379,7 +395,7 @@ class GetCoursesRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset()
+    public function getOffset(): int
     {
         return $this->container['Offset'];
     }
@@ -391,7 +407,9 @@ class GetCoursesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOffset($Offset): self
+
+
+    public function setOffset(int $Offset): static
     {
         $this->container['Offset'] = $Offset;
 

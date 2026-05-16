@@ -46,7 +46,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property bool $Web If `true`, the entry on the waiting list was requested online.<br />  If `false`, the entry on the waiting list was requested off-line, for example in person or by phone.
  *
  */
-class WaitlistEntry extends BaseModel implements ModelWithId
+class WaitlistEntry extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -55,14 +55,14 @@ class WaitlistEntry extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'WaitlistEntry';
+    protected static string $swaggerModelName = 'WaitlistEntry';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ClassDate' => '\DateTime',
         'ClassId' => 'int',
         'ClassSchedule' => '\Nlocascio\Mindbody\Model\ClassSchedule',
@@ -79,7 +79,7 @@ class WaitlistEntry extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ClassDate' => 'date-time',
         'ClassId' => 'int64',
         'ClassSchedule' => null,
@@ -98,7 +98,7 @@ class WaitlistEntry extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ClassDate' => 'ClassDate',
         'ClassId' => 'ClassId',
         'ClassSchedule' => 'ClassSchedule',
@@ -115,7 +115,7 @@ class WaitlistEntry extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ClassDate' => 'setClassDate',
         'ClassId' => 'setClassId',
         'ClassSchedule' => 'setClassSchedule',
@@ -132,7 +132,7 @@ class WaitlistEntry extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ClassDate' => 'getClassDate',
         'ClassId' => 'getClassId',
         'ClassSchedule' => 'getClassSchedule',
@@ -155,7 +155,7 @@ class WaitlistEntry extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ClassDate'] = isset($data['ClassDate']) ? $data['ClassDate'] : null;
         $this->container['ClassId'] = isset($data['ClassId']) ? $data['ClassId'] : null;
@@ -186,7 +186,7 @@ class WaitlistEntry extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getClassDate()
+    public function getClassDate(): \DateTime
     {
         return $this->container['ClassDate'];
     }
@@ -198,7 +198,9 @@ class WaitlistEntry extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setClassDate($ClassDate): self
+
+
+    public function setClassDate(\DateTime $ClassDate): static
     {
         $this->container['ClassDate'] = $ClassDate;
 
@@ -210,7 +212,7 @@ class WaitlistEntry extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getClassId()
+    public function getClassId(): int
     {
         return $this->container['ClassId'];
     }
@@ -222,7 +224,9 @@ class WaitlistEntry extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setClassId($ClassId): self
+
+
+    public function setClassId(int $ClassId): static
     {
         $this->container['ClassId'] = $ClassId;
 
@@ -234,7 +238,7 @@ class WaitlistEntry extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\ClassSchedule
      */
-    public function getClassSchedule()
+    public function getClassSchedule(): \Nlocascio\Mindbody\Model\ClassSchedule
     {
         return $this->container['ClassSchedule'];
     }
@@ -246,7 +250,9 @@ class WaitlistEntry extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setClassSchedule($ClassSchedule): self
+
+
+    public function setClassSchedule(\Nlocascio\Mindbody\Model\ClassSchedule $ClassSchedule): static
     {
         $this->container['ClassSchedule'] = $ClassSchedule;
 
@@ -258,7 +264,7 @@ class WaitlistEntry extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\Client
      */
-    public function getClient()
+    public function getClient(): \Nlocascio\Mindbody\Model\Client
     {
         return $this->container['Client'];
     }
@@ -270,7 +276,9 @@ class WaitlistEntry extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setClient($Client): self
+
+
+    public function setClient(\Nlocascio\Mindbody\Model\Client $Client): static
     {
         $this->container['Client'] = $Client;
 
@@ -282,7 +290,7 @@ class WaitlistEntry extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getEnrollmentDateForward()
+    public function getEnrollmentDateForward(): \DateTime
     {
         return $this->container['EnrollmentDateForward'];
     }
@@ -294,7 +302,9 @@ class WaitlistEntry extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setEnrollmentDateForward($EnrollmentDateForward): self
+
+
+    public function setEnrollmentDateForward(\DateTime $EnrollmentDateForward): static
     {
         $this->container['EnrollmentDateForward'] = $EnrollmentDateForward;
 
@@ -306,7 +316,7 @@ class WaitlistEntry extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -318,7 +328,9 @@ class WaitlistEntry extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -330,7 +342,7 @@ class WaitlistEntry extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getRequestDateTime()
+    public function getRequestDateTime(): \DateTime
     {
         return $this->container['RequestDateTime'];
     }
@@ -342,7 +354,9 @@ class WaitlistEntry extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setRequestDateTime($RequestDateTime): self
+
+
+    public function setRequestDateTime(\DateTime $RequestDateTime): static
     {
         $this->container['RequestDateTime'] = $RequestDateTime;
 
@@ -354,7 +368,7 @@ class WaitlistEntry extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getVisitRefNo()
+    public function getVisitRefNo(): int
     {
         return $this->container['VisitRefNo'];
     }
@@ -366,7 +380,9 @@ class WaitlistEntry extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setVisitRefNo($VisitRefNo): self
+
+
+    public function setVisitRefNo(int $VisitRefNo): static
     {
         $this->container['VisitRefNo'] = $VisitRefNo;
 
@@ -378,7 +394,7 @@ class WaitlistEntry extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getWeb()
+    public function getWeb(): bool
     {
         return $this->container['Web'];
     }
@@ -390,7 +406,9 @@ class WaitlistEntry extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setWeb($Web): self
+
+
+    public function setWeb(bool $Web): static
     {
         $this->container['Web'] = $Web;
 

@@ -47,14 +47,14 @@ class DeactivatePromoCodeRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DeactivatePromoCodeRequest';
+    protected static string $swaggerModelName = 'DeactivatePromoCodeRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'PromotionId' => 'int'
     ];
 
@@ -63,7 +63,7 @@ class DeactivatePromoCodeRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'PromotionId' => 'int32'
     ];
 
@@ -74,7 +74,7 @@ class DeactivatePromoCodeRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'PromotionId' => 'PromotionId'
     ];
 
@@ -83,7 +83,7 @@ class DeactivatePromoCodeRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'PromotionId' => 'setPromotionId'
     ];
 
@@ -92,7 +92,7 @@ class DeactivatePromoCodeRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'PromotionId' => 'getPromotionId'
     ];
 
@@ -107,7 +107,7 @@ class DeactivatePromoCodeRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['PromotionId'] = isset($data['PromotionId']) ? $data['PromotionId'] : null;
     }
@@ -133,7 +133,7 @@ class DeactivatePromoCodeRequest extends BaseModel
      *
      * @return int
      */
-    public function getPromotionId()
+    public function getPromotionId(): int
     {
         return $this->container['PromotionId'];
     }
@@ -145,7 +145,9 @@ class DeactivatePromoCodeRequest extends BaseModel
      *
      * @return $this
      */
-    public function setPromotionId($PromotionId): self
+
+
+    public function setPromotionId(int $PromotionId): static
     {
         $this->container['PromotionId'] = $PromotionId;
 

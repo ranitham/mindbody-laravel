@@ -48,14 +48,14 @@ class GetProductsInventoryResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetProductsInventoryResponse';
+    protected static string $swaggerModelName = 'GetProductsInventoryResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'PaginationResponse' => '\Nlocascio\Mindbody\Model\PaginationResponse',
         'ProductsInventory' => '\Nlocascio\Mindbody\Model\ProductsInventory[]'
     ];
@@ -65,7 +65,7 @@ class GetProductsInventoryResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'PaginationResponse' => null,
         'ProductsInventory' => null
     ];
@@ -77,7 +77,7 @@ class GetProductsInventoryResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'PaginationResponse' => 'PaginationResponse',
         'ProductsInventory' => 'ProductsInventory'
     ];
@@ -87,7 +87,7 @@ class GetProductsInventoryResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'PaginationResponse' => 'setPaginationResponse',
         'ProductsInventory' => 'setProductsInventory'
     ];
@@ -97,7 +97,7 @@ class GetProductsInventoryResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'PaginationResponse' => 'getPaginationResponse',
         'ProductsInventory' => 'getProductsInventory'
     ];
@@ -113,7 +113,7 @@ class GetProductsInventoryResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['PaginationResponse'] = isset($data['PaginationResponse']) ? $data['PaginationResponse'] : null;
         $this->container['ProductsInventory'] = isset($data['ProductsInventory']) ? $data['ProductsInventory'] : null;
@@ -137,7 +137,7 @@ class GetProductsInventoryResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse()
+    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
     {
         return $this->container['PaginationResponse'];
     }
@@ -149,7 +149,9 @@ class GetProductsInventoryResponse extends BaseModel
      *
      * @return $this
      */
-    public function setPaginationResponse($PaginationResponse): self
+
+
+    public function setPaginationResponse(\Nlocascio\Mindbody\Model\PaginationResponse $PaginationResponse): static
     {
         $this->container['PaginationResponse'] = $PaginationResponse;
 
@@ -161,7 +163,7 @@ class GetProductsInventoryResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ProductsInventory[]
      */
-    public function getProductsInventory()
+    public function getProductsInventory(): array
     {
         return $this->container['ProductsInventory'];
     }
@@ -173,7 +175,9 @@ class GetProductsInventoryResponse extends BaseModel
      *
      * @return $this
      */
-    public function setProductsInventory($ProductsInventory): self
+
+
+    public function setProductsInventory(array $ProductsInventory): static
     {
         $this->container['ProductsInventory'] = $ProductsInventory;
 

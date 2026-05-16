@@ -52,14 +52,14 @@ class SubstituteClassTeacherRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SubstituteClassTeacherRequest';
+    protected static string $swaggerModelName = 'SubstituteClassTeacherRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ClassId' => 'int',
         'StaffId' => 'int',
         'OverrideConflicts' => 'bool',
@@ -73,7 +73,7 @@ class SubstituteClassTeacherRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ClassId' => 'int32',
         'StaffId' => 'int64',
         'OverrideConflicts' => null,
@@ -89,7 +89,7 @@ class SubstituteClassTeacherRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ClassId' => 'ClassId',
         'StaffId' => 'StaffId',
         'OverrideConflicts' => 'OverrideConflicts',
@@ -103,7 +103,7 @@ class SubstituteClassTeacherRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ClassId' => 'setClassId',
         'StaffId' => 'setStaffId',
         'OverrideConflicts' => 'setOverrideConflicts',
@@ -117,7 +117,7 @@ class SubstituteClassTeacherRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ClassId' => 'getClassId',
         'StaffId' => 'getStaffId',
         'OverrideConflicts' => 'getOverrideConflicts',
@@ -137,7 +137,7 @@ class SubstituteClassTeacherRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ClassId'] = isset($data['ClassId']) ? $data['ClassId'] : null;
         $this->container['StaffId'] = isset($data['StaffId']) ? $data['StaffId'] : null;
@@ -171,7 +171,7 @@ class SubstituteClassTeacherRequest extends BaseModel
      *
      * @return int
      */
-    public function getClassId()
+    public function getClassId(): int
     {
         return $this->container['ClassId'];
     }
@@ -183,7 +183,9 @@ class SubstituteClassTeacherRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClassId($ClassId): self
+
+
+    public function setClassId(int $ClassId): static
     {
         $this->container['ClassId'] = $ClassId;
 
@@ -195,7 +197,7 @@ class SubstituteClassTeacherRequest extends BaseModel
      *
      * @return int
      */
-    public function getStaffId()
+    public function getStaffId(): int
     {
         return $this->container['StaffId'];
     }
@@ -207,7 +209,9 @@ class SubstituteClassTeacherRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStaffId($StaffId): self
+
+
+    public function setStaffId(int $StaffId): static
     {
         $this->container['StaffId'] = $StaffId;
 
@@ -219,7 +223,7 @@ class SubstituteClassTeacherRequest extends BaseModel
      *
      * @return bool
      */
-    public function getOverrideConflicts()
+    public function getOverrideConflicts(): bool
     {
         return $this->container['OverrideConflicts'];
     }
@@ -231,7 +235,9 @@ class SubstituteClassTeacherRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOverrideConflicts($OverrideConflicts): self
+
+
+    public function setOverrideConflicts(bool $OverrideConflicts): static
     {
         $this->container['OverrideConflicts'] = $OverrideConflicts;
 
@@ -243,7 +249,7 @@ class SubstituteClassTeacherRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSendClientEmail()
+    public function getSendClientEmail(): bool
     {
         return $this->container['SendClientEmail'];
     }
@@ -255,7 +261,9 @@ class SubstituteClassTeacherRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSendClientEmail($SendClientEmail): self
+
+
+    public function setSendClientEmail(bool $SendClientEmail): static
     {
         $this->container['SendClientEmail'] = $SendClientEmail;
 
@@ -267,7 +275,7 @@ class SubstituteClassTeacherRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSendOriginalTeacherEmail()
+    public function getSendOriginalTeacherEmail(): bool
     {
         return $this->container['SendOriginalTeacherEmail'];
     }
@@ -279,7 +287,9 @@ class SubstituteClassTeacherRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSendOriginalTeacherEmail($SendOriginalTeacherEmail): self
+
+
+    public function setSendOriginalTeacherEmail(bool $SendOriginalTeacherEmail): static
     {
         $this->container['SendOriginalTeacherEmail'] = $SendOriginalTeacherEmail;
 
@@ -291,7 +301,7 @@ class SubstituteClassTeacherRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSendSubstituteTeacherEmail()
+    public function getSendSubstituteTeacherEmail(): bool
     {
         return $this->container['SendSubstituteTeacherEmail'];
     }
@@ -303,7 +313,9 @@ class SubstituteClassTeacherRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSendSubstituteTeacherEmail($SendSubstituteTeacherEmail): self
+
+
+    public function setSendSubstituteTeacherEmail(bool $SendSubstituteTeacherEmail): static
     {
         $this->container['SendSubstituteTeacherEmail'] = $SendSubstituteTeacherEmail;
 

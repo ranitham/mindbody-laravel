@@ -47,14 +47,14 @@ class GetClientIndexesResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetClientIndexesResponse';
+    protected static string $swaggerModelName = 'GetClientIndexesResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ClientIndexes' => '\Nlocascio\Mindbody\Model\ClientIndex[]'
     ];
 
@@ -63,7 +63,7 @@ class GetClientIndexesResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ClientIndexes' => null
     ];
 
@@ -74,7 +74,7 @@ class GetClientIndexesResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ClientIndexes' => 'ClientIndexes'
     ];
 
@@ -83,7 +83,7 @@ class GetClientIndexesResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ClientIndexes' => 'setClientIndexes'
     ];
 
@@ -92,7 +92,7 @@ class GetClientIndexesResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ClientIndexes' => 'getClientIndexes'
     ];
 
@@ -107,7 +107,7 @@ class GetClientIndexesResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ClientIndexes'] = isset($data['ClientIndexes']) ? $data['ClientIndexes'] : null;
     }
@@ -130,7 +130,7 @@ class GetClientIndexesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClientIndex[]
      */
-    public function getClientIndexes()
+    public function getClientIndexes(): array
     {
         return $this->container['ClientIndexes'];
     }
@@ -142,7 +142,9 @@ class GetClientIndexesResponse extends BaseModel
      *
      * @return $this
      */
-    public function setClientIndexes($ClientIndexes): self
+
+
+    public function setClientIndexes(array $ClientIndexes): static
     {
         $this->container['ClientIndexes'] = $ClientIndexes;
 

@@ -7,14 +7,14 @@ class {{classname}} extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = '{{name}}';
+    protected static string $swaggerModelName = '{{name}}';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         {{#vars}}'{{name}}' => '{{{datatype}}}'{{#hasMore}},
         {{/hasMore}}{{/vars}}
     ];
@@ -24,7 +24,7 @@ class {{classname}} extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         {{#vars}}'{{name}}' => {{#dataFormat}}'{{{dataFormat}}}'{{/dataFormat}}{{^dataFormat}}null{{/dataFormat}}{{#hasMore}},
         {{/hasMore}}{{/vars}}
     ];
@@ -36,7 +36,7 @@ class {{classname}} extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         {{#vars}}'{{name}}' => '{{baseName}}'{{#hasMore}},
         {{/hasMore}}{{/vars}}
     ];
@@ -46,7 +46,7 @@ class {{classname}} extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         {{#vars}}'{{name}}' => '{{setter}}'{{#hasMore}},
         {{/hasMore}}{{/vars}}
     ];
@@ -56,7 +56,7 @@ class {{classname}} extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         {{#vars}}'{{name}}' => '{{getter}}'{{#hasMore}},
         {{/hasMore}}{{/vars}}
     ];
@@ -86,7 +86,7 @@ class {{classname}} extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         {{#parentSchema}}
         parent::__construct($data);
@@ -185,7 +185,7 @@ class {{classname}} extends BaseModel
      *
      * @return {{datatype}}
      */
-    public function {{getter}}()
+    {{#isContainer}}public function {{getter}}(): array{{/isContainer}}{{^isContainer}}public function {{getter}}(): {{#isDouble}}float{{/isDouble}}{{^isDouble}}{{datatype}}{{/isDouble}}{{/isContainer}}
     {
         return $this->container['{{name}}'];
     }
@@ -197,7 +197,9 @@ class {{classname}} extends BaseModel
      *
      * @return $this
      */
-    public function {{setter}}(${{name}}): self
+
+
+    public function {{setter}}({{#isContainer}}array{{/isContainer}}{{^isContainer}}{{#isDouble}}float{{/isDouble}}{{^isDouble}}{{datatype}}{{/isDouble}}{{/isContainer}} ${{name}}): static
     {
         {{#isEnum}}
         $allowedValues = $this->{{getter}}AllowableValues();

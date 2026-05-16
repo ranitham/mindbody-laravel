@@ -53,14 +53,14 @@ class GetResourcesRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetResourcesRequest';
+    protected static string $swaggerModelName = 'GetResourcesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ResourceIds' => 'int[]',
         'LocationIds' => 'int[]',
         'ScheduleTypes' => 'string[]',
@@ -75,7 +75,7 @@ class GetResourcesRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ResourceIds' => 'int32',
         'LocationIds' => 'int32',
         'ScheduleTypes' => null,
@@ -92,7 +92,7 @@ class GetResourcesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ResourceIds' => 'ResourceIds',
         'LocationIds' => 'LocationIds',
         'ScheduleTypes' => 'ScheduleTypes',
@@ -107,7 +107,7 @@ class GetResourcesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ResourceIds' => 'setResourceIds',
         'LocationIds' => 'setLocationIds',
         'ScheduleTypes' => 'setScheduleTypes',
@@ -122,7 +122,7 @@ class GetResourcesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ResourceIds' => 'getResourceIds',
         'LocationIds' => 'getLocationIds',
         'ScheduleTypes' => 'getScheduleTypes',
@@ -168,7 +168,7 @@ class GetResourcesRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ResourceIds'] = isset($data['ResourceIds']) ? $data['ResourceIds'] : null;
         $this->container['LocationIds'] = isset($data['LocationIds']) ? $data['LocationIds'] : null;
@@ -197,7 +197,7 @@ class GetResourcesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getResourceIds()
+    public function getResourceIds(): array
     {
         return $this->container['ResourceIds'];
     }
@@ -209,7 +209,9 @@ class GetResourcesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setResourceIds($ResourceIds): self
+
+
+    public function setResourceIds(array $ResourceIds): static
     {
         $this->container['ResourceIds'] = $ResourceIds;
 
@@ -221,7 +223,7 @@ class GetResourcesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getLocationIds()
+    public function getLocationIds(): array
     {
         return $this->container['LocationIds'];
     }
@@ -233,7 +235,9 @@ class GetResourcesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLocationIds($LocationIds): self
+
+
+    public function setLocationIds(array $LocationIds): static
     {
         $this->container['LocationIds'] = $LocationIds;
 
@@ -245,7 +249,7 @@ class GetResourcesRequest extends BaseModel
      *
      * @return string[]
      */
-    public function getScheduleTypes()
+    public function getScheduleTypes(): array
     {
         return $this->container['ScheduleTypes'];
     }
@@ -257,7 +261,9 @@ class GetResourcesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setScheduleTypes($ScheduleTypes): self
+
+
+    public function setScheduleTypes(array $ScheduleTypes): static
     {
         $allowedValues = $this->getScheduleTypesAllowableValues();
         if (!is_null($ScheduleTypes) && array_diff($ScheduleTypes, $allowedValues)) {
@@ -278,7 +284,7 @@ class GetResourcesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getProgramIds()
+    public function getProgramIds(): array
     {
         return $this->container['ProgramIds'];
     }
@@ -290,7 +296,9 @@ class GetResourcesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setProgramIds($ProgramIds): self
+
+
+    public function setProgramIds(array $ProgramIds): static
     {
         $this->container['ProgramIds'] = $ProgramIds;
 
@@ -302,7 +310,7 @@ class GetResourcesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIncludeInactive()
+    public function getIncludeInactive(): bool
     {
         return $this->container['IncludeInactive'];
     }
@@ -314,7 +322,9 @@ class GetResourcesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setIncludeInactive($IncludeInactive): self
+
+
+    public function setIncludeInactive(bool $IncludeInactive): static
     {
         $this->container['IncludeInactive'] = $IncludeInactive;
 
@@ -326,7 +336,7 @@ class GetResourcesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit()
+    public function getLimit(): int
     {
         return $this->container['Limit'];
     }
@@ -338,7 +348,9 @@ class GetResourcesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLimit($Limit): self
+
+
+    public function setLimit(int $Limit): static
     {
         $this->container['Limit'] = $Limit;
 
@@ -350,7 +362,7 @@ class GetResourcesRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset()
+    public function getOffset(): int
     {
         return $this->container['Offset'];
     }
@@ -362,7 +374,9 @@ class GetResourcesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOffset($Offset): self
+
+
+    public function setOffset(int $Offset): static
     {
         $this->container['Offset'] = $Offset;
 

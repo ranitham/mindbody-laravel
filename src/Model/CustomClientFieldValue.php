@@ -42,7 +42,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property string $Name The name of the field.
  *
  */
-class CustomClientFieldValue extends BaseModel implements ModelWithId
+class CustomClientFieldValue extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -51,14 +51,14 @@ class CustomClientFieldValue extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CustomClientFieldValue';
+    protected static string $swaggerModelName = 'CustomClientFieldValue';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Value' => 'string',
         'Id' => 'int',
         'DataType' => 'string',
@@ -70,7 +70,7 @@ class CustomClientFieldValue extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Value' => null,
         'Id' => 'int32',
         'DataType' => null,
@@ -84,7 +84,7 @@ class CustomClientFieldValue extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Value' => 'Value',
         'Id' => 'Id',
         'DataType' => 'DataType',
@@ -96,7 +96,7 @@ class CustomClientFieldValue extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Value' => 'setValue',
         'Id' => 'setId',
         'DataType' => 'setDataType',
@@ -108,7 +108,7 @@ class CustomClientFieldValue extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Value' => 'getValue',
         'Id' => 'getId',
         'DataType' => 'getDataType',
@@ -126,7 +126,7 @@ class CustomClientFieldValue extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Value'] = isset($data['Value']) ? $data['Value'] : null;
         $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
@@ -152,7 +152,7 @@ class CustomClientFieldValue extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getValue()
+    public function getValue(): string
     {
         return $this->container['Value'];
     }
@@ -164,7 +164,9 @@ class CustomClientFieldValue extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setValue($Value): self
+
+
+    public function setValue(string $Value): static
     {
         $this->container['Value'] = $Value;
 
@@ -176,7 +178,7 @@ class CustomClientFieldValue extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -188,7 +190,9 @@ class CustomClientFieldValue extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -200,7 +204,7 @@ class CustomClientFieldValue extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getDataType()
+    public function getDataType(): string
     {
         return $this->container['DataType'];
     }
@@ -212,7 +216,9 @@ class CustomClientFieldValue extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setDataType($DataType): self
+
+
+    public function setDataType(string $DataType): static
     {
         $this->container['DataType'] = $DataType;
 
@@ -224,7 +230,7 @@ class CustomClientFieldValue extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->container['Name'];
     }
@@ -236,7 +242,9 @@ class CustomClientFieldValue extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setName($Name): self
+
+
+    public function setName(string $Name): static
     {
         $this->container['Name'] = $Name;
 

@@ -47,14 +47,14 @@ class UpdateClientResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UpdateClientResponse';
+    protected static string $swaggerModelName = 'UpdateClientResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Client' => '\Nlocascio\Mindbody\Model\ClientWithSuspensionInfo'
     ];
 
@@ -63,7 +63,7 @@ class UpdateClientResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Client' => null
     ];
 
@@ -74,7 +74,7 @@ class UpdateClientResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Client' => 'Client'
     ];
 
@@ -83,7 +83,7 @@ class UpdateClientResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Client' => 'setClient'
     ];
 
@@ -92,7 +92,7 @@ class UpdateClientResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Client' => 'getClient'
     ];
 
@@ -107,7 +107,7 @@ class UpdateClientResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Client'] = isset($data['Client']) ? $data['Client'] : null;
     }
@@ -130,7 +130,7 @@ class UpdateClientResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClientWithSuspensionInfo
      */
-    public function getClient()
+    public function getClient(): \Nlocascio\Mindbody\Model\ClientWithSuspensionInfo
     {
         return $this->container['Client'];
     }
@@ -142,7 +142,9 @@ class UpdateClientResponse extends BaseModel
      *
      * @return $this
      */
-    public function setClient($Client): self
+
+
+    public function setClient(\Nlocascio\Mindbody\Model\ClientWithSuspensionInfo $Client): static
     {
         $this->container['Client'] = $Client;
 

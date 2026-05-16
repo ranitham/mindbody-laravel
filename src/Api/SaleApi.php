@@ -81,7 +81,7 @@ class SaleApi implements ApiInterface
      */
     public function saleCheckoutShoppingCart($Request): \Nlocascio\Mindbody\Model\CheckoutShoppingCartResponse
     {
-        list($response) = $this->saleCheckoutShoppingCartWithHttpInfo($Request);
+        ['response' => $response] = $this->saleCheckoutShoppingCartWithHttpInfo($Request);
         return $response;
     }
 
@@ -94,7 +94,7 @@ class SaleApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\CheckoutShoppingCartResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\CheckoutShoppingCartResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function saleCheckoutShoppingCartWithHttpInfo($Request): array
     {
@@ -130,19 +130,24 @@ class SaleApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -150,8 +155,7 @@ class SaleApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\CheckoutShoppingCartResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\CheckoutShoppingCartResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -199,20 +203,14 @@ class SaleApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -240,21 +238,14 @@ class SaleApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function saleCheckoutShoppingCartRequest($Request): \GuzzleHttp\Psr7\Request
+    protected function saleCheckoutShoppingCartRequest(\Nlocascio\Mindbody\Model\CheckoutShoppingCartRequest $Request): \GuzzleHttp\Psr7\Request
     {
-        // verify the required parameter 'Request' is set
-        if ($Request === null || (is_array($Request) && count($Request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $Request when calling saleCheckoutShoppingCart'
-            );
-        }
 
         $resourcePath = '/public/v6/sale/checkoutshoppingcart';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
 
 
@@ -264,16 +255,10 @@ class SaleApi implements ApiInterface
             $_tempBody = $Request;
         }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -291,18 +276,7 @@ class SaleApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -360,7 +334,7 @@ class SaleApi implements ApiInterface
      */
     public function saleCompleteCheckoutShoppingCartUsingAlternativePayments($Request): \Nlocascio\Mindbody\Model\CheckoutShoppingCartResponse
     {
-        list($response) = $this->saleCompleteCheckoutShoppingCartUsingAlternativePaymentsWithHttpInfo($Request);
+        ['response' => $response] = $this->saleCompleteCheckoutShoppingCartUsingAlternativePaymentsWithHttpInfo($Request);
         return $response;
     }
 
@@ -373,7 +347,7 @@ class SaleApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\CheckoutShoppingCartResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\CheckoutShoppingCartResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function saleCompleteCheckoutShoppingCartUsingAlternativePaymentsWithHttpInfo($Request): array
     {
@@ -409,19 +383,24 @@ class SaleApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -429,8 +408,7 @@ class SaleApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\CheckoutShoppingCartResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\CheckoutShoppingCartResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -478,20 +456,14 @@ class SaleApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -519,21 +491,14 @@ class SaleApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function saleCompleteCheckoutShoppingCartUsingAlternativePaymentsRequest($Request): \GuzzleHttp\Psr7\Request
+    protected function saleCompleteCheckoutShoppingCartUsingAlternativePaymentsRequest(\Nlocascio\Mindbody\Model\CompleteCheckoutShoppingCartUsingAlternativePaymentsRequest $Request): \GuzzleHttp\Psr7\Request
     {
-        // verify the required parameter 'Request' is set
-        if ($Request === null || (is_array($Request) && count($Request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $Request when calling saleCompleteCheckoutShoppingCartUsingAlternativePayments'
-            );
-        }
 
         $resourcePath = '/public/v6/sale/completecheckoutshoppingcart';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
 
 
@@ -543,16 +508,10 @@ class SaleApi implements ApiInterface
             $_tempBody = $Request;
         }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -570,18 +529,7 @@ class SaleApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -638,7 +586,7 @@ class SaleApi implements ApiInterface
      */
     public function saleGetAcceptedCardTypes(): array
     {
-        list($response) = $this->saleGetAcceptedCardTypesWithHttpInfo();
+        ['response' => $response] = $this->saleGetAcceptedCardTypesWithHttpInfo();
         return $response;
     }
 
@@ -650,7 +598,7 @@ class SaleApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of string[], HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: string[], statusCode: int, headers: array<string, string[]>}
      */
     public function saleGetAcceptedCardTypesWithHttpInfo(): array
     {
@@ -686,19 +634,24 @@ class SaleApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -706,8 +659,7 @@ class SaleApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'string[]',
-                        $e->getResponseHeaders()
+                        'string[]'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -753,20 +705,14 @@ class SaleApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -801,23 +747,16 @@ class SaleApi implements ApiInterface
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
 
 
         // body params
         $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            []
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -835,18 +774,7 @@ class SaleApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -905,7 +833,7 @@ class SaleApi implements ApiInterface
      */
     public function saleGetAlternativePaymentMethods($RequestClientId = null, $RequestLocationId = null): \Nlocascio\Mindbody\Model\GetAlternativePaymentMethodsResponse
     {
-        list($response) = $this->saleGetAlternativePaymentMethodsWithHttpInfo($RequestClientId, $RequestLocationId);
+        ['response' => $response] = $this->saleGetAlternativePaymentMethodsWithHttpInfo($RequestClientId, $RequestLocationId);
         return $response;
     }
 
@@ -919,7 +847,7 @@ class SaleApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\GetAlternativePaymentMethodsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\GetAlternativePaymentMethodsResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function saleGetAlternativePaymentMethodsWithHttpInfo($RequestClientId = null, $RequestLocationId = null): array
     {
@@ -955,19 +883,24 @@ class SaleApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -975,8 +908,7 @@ class SaleApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\GetAlternativePaymentMethodsResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\GetAlternativePaymentMethodsResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -1026,20 +958,14 @@ class SaleApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -1068,7 +994,7 @@ class SaleApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function saleGetAlternativePaymentMethodsRequest($RequestClientId = null, $RequestLocationId = null): \GuzzleHttp\Psr7\Request
+    protected function saleGetAlternativePaymentMethodsRequest(?string $RequestClientId = null, ?int $RequestLocationId = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/sale/alternativepaymentmethods';
@@ -1076,7 +1002,6 @@ class SaleApi implements ApiInterface
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
         // query params
         if ($RequestClientId !== null) {
@@ -1091,16 +1016,10 @@ class SaleApi implements ApiInterface
         // body params
         $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            []
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -1118,18 +1037,7 @@ class SaleApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -1193,7 +1101,7 @@ class SaleApi implements ApiInterface
      */
     public function saleGetContracts($RequestLocationId, $RequestContractIds = null, $RequestLimit = null, $RequestOffset = null, $RequestPromoCode = null, $RequestSoldOnline = null, $RequestUniqueClientId = null): \Nlocascio\Mindbody\Model\GetContractsResponse
     {
-        list($response) = $this->saleGetContractsWithHttpInfo($RequestLocationId, $RequestContractIds, $RequestLimit, $RequestOffset, $RequestPromoCode, $RequestSoldOnline, $RequestUniqueClientId);
+        ['response' => $response] = $this->saleGetContractsWithHttpInfo($RequestLocationId, $RequestContractIds, $RequestLimit, $RequestOffset, $RequestPromoCode, $RequestSoldOnline, $RequestUniqueClientId);
         return $response;
     }
 
@@ -1212,7 +1120,7 @@ class SaleApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\GetContractsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\GetContractsResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function saleGetContractsWithHttpInfo($RequestLocationId, $RequestContractIds = null, $RequestLimit = null, $RequestOffset = null, $RequestPromoCode = null, $RequestSoldOnline = null, $RequestUniqueClientId = null): array
     {
@@ -1248,19 +1156,24 @@ class SaleApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -1268,8 +1181,7 @@ class SaleApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\GetContractsResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\GetContractsResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -1329,20 +1241,14 @@ class SaleApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -1376,21 +1282,14 @@ class SaleApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function saleGetContractsRequest($RequestLocationId, $RequestContractIds = null, $RequestLimit = null, $RequestOffset = null, $RequestPromoCode = null, $RequestSoldOnline = null, $RequestUniqueClientId = null): \GuzzleHttp\Psr7\Request
+    protected function saleGetContractsRequest(int $RequestLocationId, ?array $RequestContractIds = null, ?int $RequestLimit = null, ?int $RequestOffset = null, ?string $RequestPromoCode = null, ?bool $RequestSoldOnline = null, ?int $RequestUniqueClientId = null): \GuzzleHttp\Psr7\Request
     {
-        // verify the required parameter 'RequestLocationId' is set
-        if ($RequestLocationId === null || (is_array($RequestLocationId) && count($RequestLocationId) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $RequestLocationId when calling saleGetContracts'
-            );
-        }
 
         $resourcePath = '/public/v6/sale/contracts';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
         // query params
         if (is_array($RequestContractIds)) {
@@ -1428,16 +1327,10 @@ class SaleApi implements ApiInterface
         // body params
         $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            []
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -1455,18 +1348,7 @@ class SaleApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -1525,7 +1407,7 @@ class SaleApi implements ApiInterface
      */
     public function saleGetCustomPaymentMethods($RequestLimit = null, $RequestOffset = null): \Nlocascio\Mindbody\Model\GetCustomPaymentMethodsResponse
     {
-        list($response) = $this->saleGetCustomPaymentMethodsWithHttpInfo($RequestLimit, $RequestOffset);
+        ['response' => $response] = $this->saleGetCustomPaymentMethodsWithHttpInfo($RequestLimit, $RequestOffset);
         return $response;
     }
 
@@ -1539,7 +1421,7 @@ class SaleApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\GetCustomPaymentMethodsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\GetCustomPaymentMethodsResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function saleGetCustomPaymentMethodsWithHttpInfo($RequestLimit = null, $RequestOffset = null): array
     {
@@ -1575,19 +1457,24 @@ class SaleApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -1595,8 +1482,7 @@ class SaleApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\GetCustomPaymentMethodsResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\GetCustomPaymentMethodsResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -1646,20 +1532,14 @@ class SaleApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -1688,7 +1568,7 @@ class SaleApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function saleGetCustomPaymentMethodsRequest($RequestLimit = null, $RequestOffset = null): \GuzzleHttp\Psr7\Request
+    protected function saleGetCustomPaymentMethodsRequest(?int $RequestLimit = null, ?int $RequestOffset = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/sale/custompaymentmethods';
@@ -1696,7 +1576,6 @@ class SaleApi implements ApiInterface
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
         // query params
         if ($RequestLimit !== null) {
@@ -1711,16 +1590,10 @@ class SaleApi implements ApiInterface
         // body params
         $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            []
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -1738,18 +1611,7 @@ class SaleApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -1807,7 +1669,7 @@ class SaleApi implements ApiInterface
      */
     public function saleGetGiftCardBalance($BarcodeId = null): \Nlocascio\Mindbody\Model\GetGiftCardBalanceResponse
     {
-        list($response) = $this->saleGetGiftCardBalanceWithHttpInfo($BarcodeId);
+        ['response' => $response] = $this->saleGetGiftCardBalanceWithHttpInfo($BarcodeId);
         return $response;
     }
 
@@ -1820,7 +1682,7 @@ class SaleApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\GetGiftCardBalanceResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\GetGiftCardBalanceResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function saleGetGiftCardBalanceWithHttpInfo($BarcodeId = null): array
     {
@@ -1856,19 +1718,24 @@ class SaleApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -1876,8 +1743,7 @@ class SaleApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\GetGiftCardBalanceResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\GetGiftCardBalanceResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -1925,20 +1791,14 @@ class SaleApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -1966,7 +1826,7 @@ class SaleApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function saleGetGiftCardBalanceRequest($BarcodeId = null): \GuzzleHttp\Psr7\Request
+    protected function saleGetGiftCardBalanceRequest(?string $BarcodeId = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/sale/giftcardbalance';
@@ -1974,7 +1834,6 @@ class SaleApi implements ApiInterface
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
         // query params
         if ($BarcodeId !== null) {
@@ -1985,16 +1844,10 @@ class SaleApi implements ApiInterface
         // body params
         $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            []
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -2012,18 +1865,7 @@ class SaleApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -2086,7 +1928,7 @@ class SaleApi implements ApiInterface
      */
     public function saleGetGiftCards($RequestIds = null, $RequestIncludeCustomLayouts = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSoldOnline = null): \Nlocascio\Mindbody\Model\GetGiftCardResponse
     {
-        list($response) = $this->saleGetGiftCardsWithHttpInfo($RequestIds, $RequestIncludeCustomLayouts, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestSoldOnline);
+        ['response' => $response] = $this->saleGetGiftCardsWithHttpInfo($RequestIds, $RequestIncludeCustomLayouts, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestSoldOnline);
         return $response;
     }
 
@@ -2104,7 +1946,7 @@ class SaleApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\GetGiftCardResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\GetGiftCardResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function saleGetGiftCardsWithHttpInfo($RequestIds = null, $RequestIncludeCustomLayouts = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSoldOnline = null): array
     {
@@ -2140,19 +1982,24 @@ class SaleApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -2160,8 +2007,7 @@ class SaleApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\GetGiftCardResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\GetGiftCardResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -2219,20 +2065,14 @@ class SaleApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -2265,7 +2105,7 @@ class SaleApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function saleGetGiftCardsRequest($RequestIds = null, $RequestIncludeCustomLayouts = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSoldOnline = null): \GuzzleHttp\Psr7\Request
+    protected function saleGetGiftCardsRequest(?array $RequestIds = null, ?bool $RequestIncludeCustomLayouts = null, ?int $RequestLimit = null, ?int $RequestLocationId = null, ?int $RequestOffset = null, ?bool $RequestSoldOnline = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/sale/giftcards';
@@ -2273,7 +2113,6 @@ class SaleApi implements ApiInterface
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
         // query params
         if (is_array($RequestIds)) {
@@ -2307,16 +2146,10 @@ class SaleApi implements ApiInterface
         // body params
         $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            []
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -2334,18 +2167,7 @@ class SaleApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -2407,7 +2229,7 @@ class SaleApi implements ApiInterface
      */
     public function saleGetPackages($RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestPackageIds = null, $RequestSellOnline = null): \Nlocascio\Mindbody\Model\GetPackagesResponse
     {
-        list($response) = $this->saleGetPackagesWithHttpInfo($RequestLimit, $RequestLocationId, $RequestOffset, $RequestPackageIds, $RequestSellOnline);
+        ['response' => $response] = $this->saleGetPackagesWithHttpInfo($RequestLimit, $RequestLocationId, $RequestOffset, $RequestPackageIds, $RequestSellOnline);
         return $response;
     }
 
@@ -2424,7 +2246,7 @@ class SaleApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\GetPackagesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\GetPackagesResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function saleGetPackagesWithHttpInfo($RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestPackageIds = null, $RequestSellOnline = null): array
     {
@@ -2460,19 +2282,24 @@ class SaleApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -2480,8 +2307,7 @@ class SaleApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\GetPackagesResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\GetPackagesResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -2537,20 +2363,14 @@ class SaleApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -2582,7 +2402,7 @@ class SaleApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function saleGetPackagesRequest($RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestPackageIds = null, $RequestSellOnline = null): \GuzzleHttp\Psr7\Request
+    protected function saleGetPackagesRequest(?int $RequestLimit = null, ?int $RequestLocationId = null, ?int $RequestOffset = null, ?array $RequestPackageIds = null, ?bool $RequestSellOnline = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/sale/packages';
@@ -2590,7 +2410,6 @@ class SaleApi implements ApiInterface
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
         // query params
         if ($RequestLimit !== null) {
@@ -2620,16 +2439,10 @@ class SaleApi implements ApiInterface
         // body params
         $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            []
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -2647,18 +2460,7 @@ class SaleApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -2724,7 +2526,7 @@ class SaleApi implements ApiInterface
      */
     public function saleGetProducts($RequestCategoryIds = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProductIds = null, $RequestSearchText = null, $RequestSecondaryCategoryIds = null, $RequestSellOnline = null, $RequestSubCategoryIds = null): \Nlocascio\Mindbody\Model\GetProductsResponse
     {
-        list($response) = $this->saleGetProductsWithHttpInfo($RequestCategoryIds, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestProductIds, $RequestSearchText, $RequestSecondaryCategoryIds, $RequestSellOnline, $RequestSubCategoryIds);
+        ['response' => $response] = $this->saleGetProductsWithHttpInfo($RequestCategoryIds, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestProductIds, $RequestSearchText, $RequestSecondaryCategoryIds, $RequestSellOnline, $RequestSubCategoryIds);
         return $response;
     }
 
@@ -2745,7 +2547,7 @@ class SaleApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\GetProductsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\GetProductsResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function saleGetProductsWithHttpInfo($RequestCategoryIds = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProductIds = null, $RequestSearchText = null, $RequestSecondaryCategoryIds = null, $RequestSellOnline = null, $RequestSubCategoryIds = null): array
     {
@@ -2781,19 +2583,24 @@ class SaleApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -2801,8 +2608,7 @@ class SaleApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\GetProductsResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\GetProductsResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -2866,20 +2672,14 @@ class SaleApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -2915,7 +2715,7 @@ class SaleApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function saleGetProductsRequest($RequestCategoryIds = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProductIds = null, $RequestSearchText = null, $RequestSecondaryCategoryIds = null, $RequestSellOnline = null, $RequestSubCategoryIds = null): \GuzzleHttp\Psr7\Request
+    protected function saleGetProductsRequest(?array $RequestCategoryIds = null, ?int $RequestLimit = null, ?int $RequestLocationId = null, ?int $RequestOffset = null, ?array $RequestProductIds = null, ?string $RequestSearchText = null, ?array $RequestSecondaryCategoryIds = null, ?bool $RequestSellOnline = null, ?array $RequestSubCategoryIds = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/sale/products';
@@ -2923,7 +2723,6 @@ class SaleApi implements ApiInterface
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
         // query params
         if (is_array($RequestCategoryIds)) {
@@ -2978,16 +2777,10 @@ class SaleApi implements ApiInterface
         // body params
         $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            []
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -3005,18 +2798,7 @@ class SaleApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -3078,7 +2860,7 @@ class SaleApi implements ApiInterface
      */
     public function saleGetProductsInventory($RequestBarcodeIds = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProductIds = null): \Nlocascio\Mindbody\Model\GetProductsInventoryResponse
     {
-        list($response) = $this->saleGetProductsInventoryWithHttpInfo($RequestBarcodeIds, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProductIds);
+        ['response' => $response] = $this->saleGetProductsInventoryWithHttpInfo($RequestBarcodeIds, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProductIds);
         return $response;
     }
 
@@ -3095,7 +2877,7 @@ class SaleApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\GetProductsInventoryResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\GetProductsInventoryResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function saleGetProductsInventoryWithHttpInfo($RequestBarcodeIds = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProductIds = null): array
     {
@@ -3131,19 +2913,24 @@ class SaleApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -3151,8 +2938,7 @@ class SaleApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\GetProductsInventoryResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\GetProductsInventoryResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -3208,20 +2994,14 @@ class SaleApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -3253,7 +3033,7 @@ class SaleApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function saleGetProductsInventoryRequest($RequestBarcodeIds = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProductIds = null): \GuzzleHttp\Psr7\Request
+    protected function saleGetProductsInventoryRequest(?array $RequestBarcodeIds = null, ?int $RequestLimit = null, ?array $RequestLocationIds = null, ?int $RequestOffset = null, ?array $RequestProductIds = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/sale/productsinventory';
@@ -3261,7 +3041,6 @@ class SaleApi implements ApiInterface
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
         // query params
         if (is_array($RequestBarcodeIds)) {
@@ -3297,16 +3076,10 @@ class SaleApi implements ApiInterface
         // body params
         $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            []
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -3324,18 +3097,7 @@ class SaleApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -3393,7 +3155,7 @@ class SaleApi implements ApiInterface
      */
     public function saleGetPurchaseContractStatus($AccessToken): \Nlocascio\Mindbody\Model\PurchaseContractResponse
     {
-        list($response) = $this->saleGetPurchaseContractStatusWithHttpInfo($AccessToken);
+        ['response' => $response] = $this->saleGetPurchaseContractStatusWithHttpInfo($AccessToken);
         return $response;
     }
 
@@ -3406,7 +3168,7 @@ class SaleApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\PurchaseContractResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\PurchaseContractResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function saleGetPurchaseContractStatusWithHttpInfo($AccessToken): array
     {
@@ -3442,19 +3204,24 @@ class SaleApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -3462,8 +3229,7 @@ class SaleApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\PurchaseContractResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\PurchaseContractResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -3511,20 +3277,14 @@ class SaleApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -3552,21 +3312,14 @@ class SaleApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function saleGetPurchaseContractStatusRequest($AccessToken): \GuzzleHttp\Psr7\Request
+    protected function saleGetPurchaseContractStatusRequest(string $AccessToken): \GuzzleHttp\Psr7\Request
     {
-        // verify the required parameter 'AccessToken' is set
-        if ($AccessToken === null || (is_array($AccessToken) && count($AccessToken) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $AccessToken when calling saleGetPurchaseContractStatus'
-            );
-        }
 
         $resourcePath = '/public/v6/sale/purchasecontractstatus';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
         // query params
         if ($AccessToken !== null) {
@@ -3577,16 +3330,10 @@ class SaleApi implements ApiInterface
         // body params
         $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            []
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -3604,18 +3351,7 @@ class SaleApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -3678,7 +3414,7 @@ class SaleApi implements ApiInterface
      */
     public function saleGetSales($RequestEndSaleDateTime = null, $RequestLimit = null, $RequestOffset = null, $RequestPaymentMethodId = null, $RequestSaleId = null, $RequestStartSaleDateTime = null): \Nlocascio\Mindbody\Model\GetSalesResponse
     {
-        list($response) = $this->saleGetSalesWithHttpInfo($RequestEndSaleDateTime, $RequestLimit, $RequestOffset, $RequestPaymentMethodId, $RequestSaleId, $RequestStartSaleDateTime);
+        ['response' => $response] = $this->saleGetSalesWithHttpInfo($RequestEndSaleDateTime, $RequestLimit, $RequestOffset, $RequestPaymentMethodId, $RequestSaleId, $RequestStartSaleDateTime);
         return $response;
     }
 
@@ -3696,7 +3432,7 @@ class SaleApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\GetSalesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\GetSalesResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function saleGetSalesWithHttpInfo($RequestEndSaleDateTime = null, $RequestLimit = null, $RequestOffset = null, $RequestPaymentMethodId = null, $RequestSaleId = null, $RequestStartSaleDateTime = null): array
     {
@@ -3732,19 +3468,24 @@ class SaleApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -3752,8 +3493,7 @@ class SaleApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\GetSalesResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\GetSalesResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -3811,20 +3551,14 @@ class SaleApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -3857,7 +3591,7 @@ class SaleApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function saleGetSalesRequest($RequestEndSaleDateTime = null, $RequestLimit = null, $RequestOffset = null, $RequestPaymentMethodId = null, $RequestSaleId = null, $RequestStartSaleDateTime = null): \GuzzleHttp\Psr7\Request
+    protected function saleGetSalesRequest(?\DateTime $RequestEndSaleDateTime = null, ?int $RequestLimit = null, ?int $RequestOffset = null, ?int $RequestPaymentMethodId = null, ?int $RequestSaleId = null, ?\DateTime $RequestStartSaleDateTime = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/sale/sales';
@@ -3865,7 +3599,6 @@ class SaleApi implements ApiInterface
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
         // query params
         if ($RequestEndSaleDateTime !== null) {
@@ -3896,16 +3629,10 @@ class SaleApi implements ApiInterface
         // body params
         $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            []
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -3923,18 +3650,7 @@ class SaleApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -4004,7 +3720,7 @@ class SaleApi implements ApiInterface
      */
     public function saleGetServices($RequestClassId = null, $RequestClassScheduleId = null, $RequestHideRelatedPrograms = null, $RequestIncludeDiscontinued = null, $RequestIncludeSaleInContractOnly = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSellOnline = null, $RequestServiceIds = null, $RequestSessionTypeIds = null, $RequestStaffId = null): \Nlocascio\Mindbody\Model\GetServicesResponse
     {
-        list($response) = $this->saleGetServicesWithHttpInfo($RequestClassId, $RequestClassScheduleId, $RequestHideRelatedPrograms, $RequestIncludeDiscontinued, $RequestIncludeSaleInContractOnly, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestProgramIds, $RequestSellOnline, $RequestServiceIds, $RequestSessionTypeIds, $RequestStaffId);
+        ['response' => $response] = $this->saleGetServicesWithHttpInfo($RequestClassId, $RequestClassScheduleId, $RequestHideRelatedPrograms, $RequestIncludeDiscontinued, $RequestIncludeSaleInContractOnly, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestProgramIds, $RequestSellOnline, $RequestServiceIds, $RequestSessionTypeIds, $RequestStaffId);
         return $response;
     }
 
@@ -4029,7 +3745,7 @@ class SaleApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\GetServicesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\GetServicesResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function saleGetServicesWithHttpInfo($RequestClassId = null, $RequestClassScheduleId = null, $RequestHideRelatedPrograms = null, $RequestIncludeDiscontinued = null, $RequestIncludeSaleInContractOnly = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSellOnline = null, $RequestServiceIds = null, $RequestSessionTypeIds = null, $RequestStaffId = null): array
     {
@@ -4065,19 +3781,24 @@ class SaleApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -4085,8 +3806,7 @@ class SaleApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\GetServicesResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\GetServicesResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -4158,20 +3878,14 @@ class SaleApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -4211,7 +3925,7 @@ class SaleApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function saleGetServicesRequest($RequestClassId = null, $RequestClassScheduleId = null, $RequestHideRelatedPrograms = null, $RequestIncludeDiscontinued = null, $RequestIncludeSaleInContractOnly = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestProgramIds = null, $RequestSellOnline = null, $RequestServiceIds = null, $RequestSessionTypeIds = null, $RequestStaffId = null): \GuzzleHttp\Psr7\Request
+    protected function saleGetServicesRequest(?int $RequestClassId = null, ?int $RequestClassScheduleId = null, ?bool $RequestHideRelatedPrograms = null, ?bool $RequestIncludeDiscontinued = null, ?bool $RequestIncludeSaleInContractOnly = null, ?int $RequestLimit = null, ?int $RequestLocationId = null, ?int $RequestOffset = null, ?array $RequestProgramIds = null, ?bool $RequestSellOnline = null, ?array $RequestServiceIds = null, ?array $RequestSessionTypeIds = null, ?int $RequestStaffId = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/sale/services';
@@ -4219,7 +3933,6 @@ class SaleApi implements ApiInterface
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
         // query params
         if ($RequestClassId !== null) {
@@ -4287,16 +4000,10 @@ class SaleApi implements ApiInterface
         // body params
         $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            []
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -4314,18 +4021,7 @@ class SaleApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -4391,7 +4087,7 @@ class SaleApi implements ApiInterface
      */
     public function saleGetTransactions($RequestClientId = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSaleId = null, $RequestStatus = null, $RequestTransactionEndDateTime = null, $RequestTransactionId = null, $RequestTransactionStartDateTime = null): \Nlocascio\Mindbody\Model\GetTransactionsResponse
     {
-        list($response) = $this->saleGetTransactionsWithHttpInfo($RequestClientId, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestSaleId, $RequestStatus, $RequestTransactionEndDateTime, $RequestTransactionId, $RequestTransactionStartDateTime);
+        ['response' => $response] = $this->saleGetTransactionsWithHttpInfo($RequestClientId, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestSaleId, $RequestStatus, $RequestTransactionEndDateTime, $RequestTransactionId, $RequestTransactionStartDateTime);
         return $response;
     }
 
@@ -4412,7 +4108,7 @@ class SaleApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\GetTransactionsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\GetTransactionsResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function saleGetTransactionsWithHttpInfo($RequestClientId = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSaleId = null, $RequestStatus = null, $RequestTransactionEndDateTime = null, $RequestTransactionId = null, $RequestTransactionStartDateTime = null): array
     {
@@ -4448,19 +4144,24 @@ class SaleApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -4468,8 +4169,7 @@ class SaleApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\GetTransactionsResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\GetTransactionsResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -4533,20 +4233,14 @@ class SaleApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -4582,7 +4276,7 @@ class SaleApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function saleGetTransactionsRequest($RequestClientId = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestSaleId = null, $RequestStatus = null, $RequestTransactionEndDateTime = null, $RequestTransactionId = null, $RequestTransactionStartDateTime = null): \GuzzleHttp\Psr7\Request
+    protected function saleGetTransactionsRequest(?int $RequestClientId = null, ?int $RequestLimit = null, ?int $RequestLocationId = null, ?int $RequestOffset = null, ?int $RequestSaleId = null, ?string $RequestStatus = null, ?\DateTime $RequestTransactionEndDateTime = null, ?int $RequestTransactionId = null, ?\DateTime $RequestTransactionStartDateTime = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/sale/transactions';
@@ -4590,7 +4284,6 @@ class SaleApi implements ApiInterface
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
         // query params
         if ($RequestClientId !== null) {
@@ -4633,16 +4326,10 @@ class SaleApi implements ApiInterface
         // body params
         $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            []
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -4660,18 +4347,7 @@ class SaleApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -4729,7 +4405,7 @@ class SaleApi implements ApiInterface
      */
     public function saleInitiateCheckoutShoppingCartUsingAlternativePayments($Request): array
     {
-        list($response) = $this->saleInitiateCheckoutShoppingCartUsingAlternativePaymentsWithHttpInfo($Request);
+        ['response' => $response] = $this->saleInitiateCheckoutShoppingCartUsingAlternativePaymentsWithHttpInfo($Request);
         return $response;
     }
 
@@ -4742,7 +4418,7 @@ class SaleApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: object, statusCode: int, headers: array<string, string[]>}
      */
     public function saleInitiateCheckoutShoppingCartUsingAlternativePaymentsWithHttpInfo($Request): array
     {
@@ -4778,19 +4454,24 @@ class SaleApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -4798,8 +4479,7 @@ class SaleApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
-                        $e->getResponseHeaders()
+                        'object'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -4847,20 +4527,14 @@ class SaleApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -4888,21 +4562,14 @@ class SaleApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function saleInitiateCheckoutShoppingCartUsingAlternativePaymentsRequest($Request): \GuzzleHttp\Psr7\Request
+    protected function saleInitiateCheckoutShoppingCartUsingAlternativePaymentsRequest(\Nlocascio\Mindbody\Model\InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest $Request): \GuzzleHttp\Psr7\Request
     {
-        // verify the required parameter 'Request' is set
-        if ($Request === null || (is_array($Request) && count($Request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $Request when calling saleInitiateCheckoutShoppingCartUsingAlternativePayments'
-            );
-        }
 
         $resourcePath = '/public/v6/sale/initiatecheckoutshoppingcart';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
 
 
@@ -4912,16 +4579,10 @@ class SaleApi implements ApiInterface
             $_tempBody = $Request;
         }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -4939,18 +4600,7 @@ class SaleApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -5008,7 +4658,7 @@ class SaleApi implements ApiInterface
      */
     public function saleInitiatePurchaseContractUsingAlternativePayments($Request): array
     {
-        list($response) = $this->saleInitiatePurchaseContractUsingAlternativePaymentsWithHttpInfo($Request);
+        ['response' => $response] = $this->saleInitiatePurchaseContractUsingAlternativePaymentsWithHttpInfo($Request);
         return $response;
     }
 
@@ -5021,7 +4671,7 @@ class SaleApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: object, statusCode: int, headers: array<string, string[]>}
      */
     public function saleInitiatePurchaseContractUsingAlternativePaymentsWithHttpInfo($Request): array
     {
@@ -5057,19 +4707,24 @@ class SaleApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -5077,8 +4732,7 @@ class SaleApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
-                        $e->getResponseHeaders()
+                        'object'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -5126,20 +4780,14 @@ class SaleApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -5167,21 +4815,14 @@ class SaleApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function saleInitiatePurchaseContractUsingAlternativePaymentsRequest($Request): \GuzzleHttp\Psr7\Request
+    protected function saleInitiatePurchaseContractUsingAlternativePaymentsRequest(\Nlocascio\Mindbody\Model\InitiatePurchaseContractRequest $Request): \GuzzleHttp\Psr7\Request
     {
-        // verify the required parameter 'Request' is set
-        if ($Request === null || (is_array($Request) && count($Request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $Request when calling saleInitiatePurchaseContractUsingAlternativePayments'
-            );
-        }
 
         $resourcePath = '/public/v6/sale/initiatepurchasecontract';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
 
 
@@ -5191,16 +4832,10 @@ class SaleApi implements ApiInterface
             $_tempBody = $Request;
         }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -5218,18 +4853,7 @@ class SaleApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -5287,7 +4911,7 @@ class SaleApi implements ApiInterface
      */
     public function salePurchaseAccountCredit($Request): \Nlocascio\Mindbody\Model\PurchaseAccountCreditResponse
     {
-        list($response) = $this->salePurchaseAccountCreditWithHttpInfo($Request);
+        ['response' => $response] = $this->salePurchaseAccountCreditWithHttpInfo($Request);
         return $response;
     }
 
@@ -5300,7 +4924,7 @@ class SaleApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\PurchaseAccountCreditResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\PurchaseAccountCreditResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function salePurchaseAccountCreditWithHttpInfo($Request): array
     {
@@ -5336,19 +4960,24 @@ class SaleApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -5356,8 +4985,7 @@ class SaleApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\PurchaseAccountCreditResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\PurchaseAccountCreditResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -5405,20 +5033,14 @@ class SaleApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -5446,21 +5068,14 @@ class SaleApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function salePurchaseAccountCreditRequest($Request): \GuzzleHttp\Psr7\Request
+    protected function salePurchaseAccountCreditRequest(\Nlocascio\Mindbody\Model\PurchaseAccountCreditRequest $Request): \GuzzleHttp\Psr7\Request
     {
-        // verify the required parameter 'Request' is set
-        if ($Request === null || (is_array($Request) && count($Request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $Request when calling salePurchaseAccountCredit'
-            );
-        }
 
         $resourcePath = '/public/v6/sale/purchaseaccountcredit';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
 
 
@@ -5470,16 +5085,10 @@ class SaleApi implements ApiInterface
             $_tempBody = $Request;
         }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -5497,18 +5106,7 @@ class SaleApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -5566,7 +5164,7 @@ class SaleApi implements ApiInterface
      */
     public function salePurchaseContract($Request): \Nlocascio\Mindbody\Model\PurchaseContractResponse
     {
-        list($response) = $this->salePurchaseContractWithHttpInfo($Request);
+        ['response' => $response] = $this->salePurchaseContractWithHttpInfo($Request);
         return $response;
     }
 
@@ -5579,7 +5177,7 @@ class SaleApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\PurchaseContractResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\PurchaseContractResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function salePurchaseContractWithHttpInfo($Request): array
     {
@@ -5615,19 +5213,24 @@ class SaleApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -5635,8 +5238,7 @@ class SaleApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\PurchaseContractResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\PurchaseContractResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -5684,20 +5286,14 @@ class SaleApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -5725,21 +5321,14 @@ class SaleApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function salePurchaseContractRequest($Request): \GuzzleHttp\Psr7\Request
+    protected function salePurchaseContractRequest(\Nlocascio\Mindbody\Model\PurchaseContractRequest $Request): \GuzzleHttp\Psr7\Request
     {
-        // verify the required parameter 'Request' is set
-        if ($Request === null || (is_array($Request) && count($Request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $Request when calling salePurchaseContract'
-            );
-        }
 
         $resourcePath = '/public/v6/sale/purchasecontract';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
 
 
@@ -5749,16 +5338,10 @@ class SaleApi implements ApiInterface
             $_tempBody = $Request;
         }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -5776,18 +5359,7 @@ class SaleApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -5845,7 +5417,7 @@ class SaleApi implements ApiInterface
      */
     public function salePurchaseGiftCard($Request): \Nlocascio\Mindbody\Model\PurchaseGiftCardResponse
     {
-        list($response) = $this->salePurchaseGiftCardWithHttpInfo($Request);
+        ['response' => $response] = $this->salePurchaseGiftCardWithHttpInfo($Request);
         return $response;
     }
 
@@ -5858,7 +5430,7 @@ class SaleApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\PurchaseGiftCardResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\PurchaseGiftCardResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function salePurchaseGiftCardWithHttpInfo($Request): array
     {
@@ -5894,19 +5466,24 @@ class SaleApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -5914,8 +5491,7 @@ class SaleApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\PurchaseGiftCardResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\PurchaseGiftCardResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -5963,20 +5539,14 @@ class SaleApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -6004,21 +5574,14 @@ class SaleApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function salePurchaseGiftCardRequest($Request): \GuzzleHttp\Psr7\Request
+    protected function salePurchaseGiftCardRequest(\Nlocascio\Mindbody\Model\PurchaseGiftCardRequest $Request): \GuzzleHttp\Psr7\Request
     {
-        // verify the required parameter 'Request' is set
-        if ($Request === null || (is_array($Request) && count($Request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $Request when calling salePurchaseGiftCard'
-            );
-        }
 
         $resourcePath = '/public/v6/sale/purchasegiftcard';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
 
 
@@ -6028,16 +5591,10 @@ class SaleApi implements ApiInterface
             $_tempBody = $Request;
         }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -6055,18 +5612,7 @@ class SaleApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -6124,7 +5670,7 @@ class SaleApi implements ApiInterface
      */
     public function saleReturnSale($ReturnSaleRequest): \Nlocascio\Mindbody\Model\ReturnSaleResponse
     {
-        list($response) = $this->saleReturnSaleWithHttpInfo($ReturnSaleRequest);
+        ['response' => $response] = $this->saleReturnSaleWithHttpInfo($ReturnSaleRequest);
         return $response;
     }
 
@@ -6137,7 +5683,7 @@ class SaleApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\ReturnSaleResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\ReturnSaleResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function saleReturnSaleWithHttpInfo($ReturnSaleRequest): array
     {
@@ -6173,19 +5719,24 @@ class SaleApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -6193,8 +5744,7 @@ class SaleApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\ReturnSaleResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\ReturnSaleResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -6242,20 +5792,14 @@ class SaleApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -6283,21 +5827,14 @@ class SaleApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function saleReturnSaleRequest($ReturnSaleRequest): \GuzzleHttp\Psr7\Request
+    protected function saleReturnSaleRequest(\Nlocascio\Mindbody\Model\ReturnSaleRequest $ReturnSaleRequest): \GuzzleHttp\Psr7\Request
     {
-        // verify the required parameter 'ReturnSaleRequest' is set
-        if ($ReturnSaleRequest === null || (is_array($ReturnSaleRequest) && count($ReturnSaleRequest) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $ReturnSaleRequest when calling saleReturnSale'
-            );
-        }
 
         $resourcePath = '/public/v6/sale/returnsale';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
 
 
@@ -6307,16 +5844,10 @@ class SaleApi implements ApiInterface
             $_tempBody = $ReturnSaleRequest;
         }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -6334,18 +5865,7 @@ class SaleApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -6403,7 +5923,7 @@ class SaleApi implements ApiInterface
      */
     public function saleUpdateProductPrice($Request): \Nlocascio\Mindbody\Model\UpdateProductPriceResponse
     {
-        list($response) = $this->saleUpdateProductPriceWithHttpInfo($Request);
+        ['response' => $response] = $this->saleUpdateProductPriceWithHttpInfo($Request);
         return $response;
     }
 
@@ -6416,7 +5936,7 @@ class SaleApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\UpdateProductPriceResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\UpdateProductPriceResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function saleUpdateProductPriceWithHttpInfo($Request): array
     {
@@ -6452,19 +5972,24 @@ class SaleApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -6472,8 +5997,7 @@ class SaleApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\UpdateProductPriceResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\UpdateProductPriceResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -6521,20 +6045,14 @@ class SaleApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -6562,21 +6080,14 @@ class SaleApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function saleUpdateProductPriceRequest($Request): \GuzzleHttp\Psr7\Request
+    protected function saleUpdateProductPriceRequest(\Nlocascio\Mindbody\Model\UpdateProductPriceRequest $Request): \GuzzleHttp\Psr7\Request
     {
-        // verify the required parameter 'Request' is set
-        if ($Request === null || (is_array($Request) && count($Request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $Request when calling saleUpdateProductPrice'
-            );
-        }
 
         $resourcePath = '/public/v6/sale/updateproductprice';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
 
 
@@ -6586,16 +6097,10 @@ class SaleApi implements ApiInterface
             $_tempBody = $Request;
         }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -6613,18 +6118,7 @@ class SaleApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -6682,7 +6176,7 @@ class SaleApi implements ApiInterface
      */
     public function saleUpdateProducts($UpdateProductsRequests): \Nlocascio\Mindbody\Model\GetProductsResponse
     {
-        list($response) = $this->saleUpdateProductsWithHttpInfo($UpdateProductsRequests);
+        ['response' => $response] = $this->saleUpdateProductsWithHttpInfo($UpdateProductsRequests);
         return $response;
     }
 
@@ -6695,7 +6189,7 @@ class SaleApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\GetProductsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\GetProductsResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function saleUpdateProductsWithHttpInfo($UpdateProductsRequests): array
     {
@@ -6731,19 +6225,24 @@ class SaleApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -6751,8 +6250,7 @@ class SaleApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\GetProductsResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\GetProductsResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -6800,20 +6298,14 @@ class SaleApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -6841,21 +6333,14 @@ class SaleApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function saleUpdateProductsRequest($UpdateProductsRequests): \GuzzleHttp\Psr7\Request
+    protected function saleUpdateProductsRequest(array $UpdateProductsRequests): \GuzzleHttp\Psr7\Request
     {
-        // verify the required parameter 'UpdateProductsRequests' is set
-        if ($UpdateProductsRequests === null || (is_array($UpdateProductsRequests) && count($UpdateProductsRequests) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $UpdateProductsRequests when calling saleUpdateProducts'
-            );
-        }
 
         $resourcePath = '/public/v6/sale/products';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
 
 
@@ -6865,16 +6350,10 @@ class SaleApi implements ApiInterface
             $_tempBody = $UpdateProductsRequests;
         }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -6892,18 +6371,7 @@ class SaleApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -6961,7 +6429,7 @@ class SaleApi implements ApiInterface
      */
     public function saleUpdateSaleDate($Request): \Nlocascio\Mindbody\Model\UpdateSaleDateResponse
     {
-        list($response) = $this->saleUpdateSaleDateWithHttpInfo($Request);
+        ['response' => $response] = $this->saleUpdateSaleDateWithHttpInfo($Request);
         return $response;
     }
 
@@ -6974,7 +6442,7 @@ class SaleApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\UpdateSaleDateResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\UpdateSaleDateResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function saleUpdateSaleDateWithHttpInfo($Request): array
     {
@@ -7010,19 +6478,24 @@ class SaleApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -7030,8 +6503,7 @@ class SaleApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\UpdateSaleDateResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\UpdateSaleDateResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -7079,20 +6551,14 @@ class SaleApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -7120,21 +6586,14 @@ class SaleApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function saleUpdateSaleDateRequest($Request): \GuzzleHttp\Psr7\Request
+    protected function saleUpdateSaleDateRequest(\Nlocascio\Mindbody\Model\UpdateSaleDateRequest $Request): \GuzzleHttp\Psr7\Request
     {
-        // verify the required parameter 'Request' is set
-        if ($Request === null || (is_array($Request) && count($Request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $Request when calling saleUpdateSaleDate'
-            );
-        }
 
         $resourcePath = '/public/v6/sale/updatesaledate';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
 
 
@@ -7144,16 +6603,10 @@ class SaleApi implements ApiInterface
             $_tempBody = $Request;
         }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -7171,18 +6624,7 @@ class SaleApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -7240,7 +6682,7 @@ class SaleApi implements ApiInterface
      */
     public function saleUpdateServices($UpdateServicesRequest): \Nlocascio\Mindbody\Model\UpdateServiceResponse
     {
-        list($response) = $this->saleUpdateServicesWithHttpInfo($UpdateServicesRequest);
+        ['response' => $response] = $this->saleUpdateServicesWithHttpInfo($UpdateServicesRequest);
         return $response;
     }
 
@@ -7253,7 +6695,7 @@ class SaleApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\UpdateServiceResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\UpdateServiceResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function saleUpdateServicesWithHttpInfo($UpdateServicesRequest): array
     {
@@ -7289,19 +6731,24 @@ class SaleApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -7309,8 +6756,7 @@ class SaleApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\UpdateServiceResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\UpdateServiceResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -7358,20 +6804,14 @@ class SaleApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -7399,21 +6839,14 @@ class SaleApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function saleUpdateServicesRequest($UpdateServicesRequest): \GuzzleHttp\Psr7\Request
+    protected function saleUpdateServicesRequest(array $UpdateServicesRequest): \GuzzleHttp\Psr7\Request
     {
-        // verify the required parameter 'UpdateServicesRequest' is set
-        if ($UpdateServicesRequest === null || (is_array($UpdateServicesRequest) && count($UpdateServicesRequest) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $UpdateServicesRequest when calling saleUpdateServices'
-            );
-        }
 
         $resourcePath = '/public/v6/sale/services';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
 
 
@@ -7423,16 +6856,10 @@ class SaleApi implements ApiInterface
             $_tempBody = $UpdateServicesRequest;
         }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -7450,18 +6877,7 @@ class SaleApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {

@@ -49,14 +49,14 @@ class DeleteContactLogRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DeleteContactLogRequest';
+    protected static string $swaggerModelName = 'DeleteContactLogRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ClientId' => 'string',
         'ContactLogId' => 'int',
         'Test' => 'bool'
@@ -67,7 +67,7 @@ class DeleteContactLogRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ClientId' => null,
         'ContactLogId' => 'int64',
         'Test' => null
@@ -80,7 +80,7 @@ class DeleteContactLogRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ClientId' => 'ClientId',
         'ContactLogId' => 'ContactLogId',
         'Test' => 'Test'
@@ -91,7 +91,7 @@ class DeleteContactLogRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ClientId' => 'setClientId',
         'ContactLogId' => 'setContactLogId',
         'Test' => 'setTest'
@@ -102,7 +102,7 @@ class DeleteContactLogRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ClientId' => 'getClientId',
         'ContactLogId' => 'getContactLogId',
         'Test' => 'getTest'
@@ -119,7 +119,7 @@ class DeleteContactLogRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
         $this->container['ContactLogId'] = isset($data['ContactLogId']) ? $data['ContactLogId'] : null;
@@ -150,7 +150,7 @@ class DeleteContactLogRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId()
+    public function getClientId(): string
     {
         return $this->container['ClientId'];
     }
@@ -162,7 +162,9 @@ class DeleteContactLogRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClientId($ClientId): self
+
+
+    public function setClientId(string $ClientId): static
     {
         $this->container['ClientId'] = $ClientId;
 
@@ -174,7 +176,7 @@ class DeleteContactLogRequest extends BaseModel
      *
      * @return int
      */
-    public function getContactLogId()
+    public function getContactLogId(): int
     {
         return $this->container['ContactLogId'];
     }
@@ -186,7 +188,9 @@ class DeleteContactLogRequest extends BaseModel
      *
      * @return $this
      */
-    public function setContactLogId($ContactLogId): self
+
+
+    public function setContactLogId(int $ContactLogId): static
     {
         $this->container['ContactLogId'] = $ContactLogId;
 
@@ -198,7 +202,7 @@ class DeleteContactLogRequest extends BaseModel
      *
      * @return bool
      */
-    public function getTest()
+    public function getTest(): bool
     {
         return $this->container['Test'];
     }
@@ -210,7 +214,9 @@ class DeleteContactLogRequest extends BaseModel
      *
      * @return $this
      */
-    public function setTest($Test): self
+
+
+    public function setTest(bool $Test): static
     {
         $this->container['Test'] = $Test;
 

@@ -54,14 +54,14 @@ class PurchaseContractResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'PurchaseContractResponse';
+    protected static string $swaggerModelName = 'PurchaseContractResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ClientId' => 'string',
         'UniqueClientId' => 'int',
         'LocationId' => 'int',
@@ -76,7 +76,7 @@ class PurchaseContractResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ClientId' => null,
         'UniqueClientId' => 'int64',
         'LocationId' => 'int32',
@@ -93,7 +93,7 @@ class PurchaseContractResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ClientId' => 'ClientId',
         'UniqueClientId' => 'UniqueClientId',
         'LocationId' => 'LocationId',
@@ -108,7 +108,7 @@ class PurchaseContractResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ClientId' => 'setClientId',
         'UniqueClientId' => 'setUniqueClientId',
         'LocationId' => 'setLocationId',
@@ -123,7 +123,7 @@ class PurchaseContractResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ClientId' => 'getClientId',
         'UniqueClientId' => 'getUniqueClientId',
         'LocationId' => 'getLocationId',
@@ -144,7 +144,7 @@ class PurchaseContractResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
         $this->container['UniqueClientId'] = isset($data['UniqueClientId']) ? $data['UniqueClientId'] : null;
@@ -173,7 +173,7 @@ class PurchaseContractResponse extends BaseModel
      *
      * @return string
      */
-    public function getClientId()
+    public function getClientId(): string
     {
         return $this->container['ClientId'];
     }
@@ -185,7 +185,9 @@ class PurchaseContractResponse extends BaseModel
      *
      * @return $this
      */
-    public function setClientId($ClientId): self
+
+
+    public function setClientId(string $ClientId): static
     {
         $this->container['ClientId'] = $ClientId;
 
@@ -197,7 +199,7 @@ class PurchaseContractResponse extends BaseModel
      *
      * @return int
      */
-    public function getUniqueClientId()
+    public function getUniqueClientId(): int
     {
         return $this->container['UniqueClientId'];
     }
@@ -209,7 +211,9 @@ class PurchaseContractResponse extends BaseModel
      *
      * @return $this
      */
-    public function setUniqueClientId($UniqueClientId): self
+
+
+    public function setUniqueClientId(int $UniqueClientId): static
     {
         $this->container['UniqueClientId'] = $UniqueClientId;
 
@@ -221,7 +225,7 @@ class PurchaseContractResponse extends BaseModel
      *
      * @return int
      */
-    public function getLocationId()
+    public function getLocationId(): int
     {
         return $this->container['LocationId'];
     }
@@ -233,7 +237,9 @@ class PurchaseContractResponse extends BaseModel
      *
      * @return $this
      */
-    public function setLocationId($LocationId): self
+
+
+    public function setLocationId(int $LocationId): static
     {
         $this->container['LocationId'] = $LocationId;
 
@@ -245,7 +251,7 @@ class PurchaseContractResponse extends BaseModel
      *
      * @return int
      */
-    public function getContractId()
+    public function getContractId(): int
     {
         return $this->container['ContractId'];
     }
@@ -257,7 +263,9 @@ class PurchaseContractResponse extends BaseModel
      *
      * @return $this
      */
-    public function setContractId($ContractId): self
+
+
+    public function setContractId(int $ContractId): static
     {
         $this->container['ContractId'] = $ContractId;
 
@@ -269,7 +277,7 @@ class PurchaseContractResponse extends BaseModel
      *
      * @return int
      */
-    public function getClientContractId()
+    public function getClientContractId(): int
     {
         return $this->container['ClientContractId'];
     }
@@ -281,7 +289,9 @@ class PurchaseContractResponse extends BaseModel
      *
      * @return $this
      */
-    public function setClientContractId($ClientContractId): self
+
+
+    public function setClientContractId(int $ClientContractId): static
     {
         $this->container['ClientContractId'] = $ClientContractId;
 
@@ -293,7 +303,7 @@ class PurchaseContractResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PurchaseContractResponseTotals
      */
-    public function getTotals()
+    public function getTotals(): \Nlocascio\Mindbody\Model\PurchaseContractResponseTotals
     {
         return $this->container['Totals'];
     }
@@ -305,7 +315,9 @@ class PurchaseContractResponse extends BaseModel
      *
      * @return $this
      */
-    public function setTotals($Totals): self
+
+
+    public function setTotals(\Nlocascio\Mindbody\Model\PurchaseContractResponseTotals $Totals): static
     {
         $this->container['Totals'] = $Totals;
 
@@ -317,7 +329,7 @@ class PurchaseContractResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaymentProcessingFailure[]
      */
-    public function getPaymentProcessingFailures()
+    public function getPaymentProcessingFailures(): array
     {
         return $this->container['PaymentProcessingFailures'];
     }
@@ -329,7 +341,9 @@ class PurchaseContractResponse extends BaseModel
      *
      * @return $this
      */
-    public function setPaymentProcessingFailures($PaymentProcessingFailures): self
+
+
+    public function setPaymentProcessingFailures(array $PaymentProcessingFailures): static
     {
         $this->container['PaymentProcessingFailures'] = $PaymentProcessingFailures;
 

@@ -42,7 +42,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property bool $IsDefault When true, this indicates that this is the default gender option at the site.
  *
  */
-class GenderOption extends BaseModel implements ModelWithId
+class GenderOption extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -51,14 +51,14 @@ class GenderOption extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GenderOption';
+    protected static string $swaggerModelName = 'GenderOption';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Id' => 'int',
         'Name' => 'string',
         'IsActive' => 'bool',
@@ -70,7 +70,7 @@ class GenderOption extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Id' => 'int32',
         'Name' => null,
         'IsActive' => null,
@@ -84,7 +84,7 @@ class GenderOption extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Id' => 'Id',
         'Name' => 'Name',
         'IsActive' => 'IsActive',
@@ -96,7 +96,7 @@ class GenderOption extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Id' => 'setId',
         'Name' => 'setName',
         'IsActive' => 'setIsActive',
@@ -108,7 +108,7 @@ class GenderOption extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Id' => 'getId',
         'Name' => 'getName',
         'IsActive' => 'getIsActive',
@@ -126,7 +126,7 @@ class GenderOption extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
         $this->container['Name'] = isset($data['Name']) ? $data['Name'] : null;
@@ -152,7 +152,7 @@ class GenderOption extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -164,7 +164,9 @@ class GenderOption extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -176,7 +178,7 @@ class GenderOption extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->container['Name'];
     }
@@ -188,7 +190,9 @@ class GenderOption extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setName($Name): self
+
+
+    public function setName(string $Name): static
     {
         $this->container['Name'] = $Name;
 
@@ -200,7 +204,7 @@ class GenderOption extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getIsActive()
+    public function getIsActive(): bool
     {
         return $this->container['IsActive'];
     }
@@ -212,7 +216,9 @@ class GenderOption extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setIsActive($IsActive): self
+
+
+    public function setIsActive(bool $IsActive): static
     {
         $this->container['IsActive'] = $IsActive;
 
@@ -224,7 +230,7 @@ class GenderOption extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getIsDefault()
+    public function getIsDefault(): bool
     {
         return $this->container['IsDefault'];
     }
@@ -236,7 +242,9 @@ class GenderOption extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setIsDefault($IsDefault): self
+
+
+    public function setIsDefault(bool $IsDefault): static
     {
         $this->container['IsDefault'] = $IsDefault;
 

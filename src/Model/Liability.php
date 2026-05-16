@@ -49,14 +49,14 @@ class Liability extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Liability';
+    protected static string $swaggerModelName = 'Liability';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'AgreementDate' => '\DateTime',
         'IsReleased' => 'bool',
         'ReleasedBy' => 'int'
@@ -67,7 +67,7 @@ class Liability extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'AgreementDate' => 'date-time',
         'IsReleased' => null,
         'ReleasedBy' => 'int64'
@@ -80,7 +80,7 @@ class Liability extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'AgreementDate' => 'AgreementDate',
         'IsReleased' => 'IsReleased',
         'ReleasedBy' => 'ReleasedBy'
@@ -91,7 +91,7 @@ class Liability extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'AgreementDate' => 'setAgreementDate',
         'IsReleased' => 'setIsReleased',
         'ReleasedBy' => 'setReleasedBy'
@@ -102,7 +102,7 @@ class Liability extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'AgreementDate' => 'getAgreementDate',
         'IsReleased' => 'getIsReleased',
         'ReleasedBy' => 'getReleasedBy'
@@ -119,7 +119,7 @@ class Liability extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['AgreementDate'] = isset($data['AgreementDate']) ? $data['AgreementDate'] : null;
         $this->container['IsReleased'] = isset($data['IsReleased']) ? $data['IsReleased'] : null;
@@ -144,7 +144,7 @@ class Liability extends BaseModel
      *
      * @return \DateTime
      */
-    public function getAgreementDate()
+    public function getAgreementDate(): \DateTime
     {
         return $this->container['AgreementDate'];
     }
@@ -156,7 +156,9 @@ class Liability extends BaseModel
      *
      * @return $this
      */
-    public function setAgreementDate($AgreementDate): self
+
+
+    public function setAgreementDate(\DateTime $AgreementDate): static
     {
         $this->container['AgreementDate'] = $AgreementDate;
 
@@ -168,7 +170,7 @@ class Liability extends BaseModel
      *
      * @return bool
      */
-    public function getIsReleased()
+    public function getIsReleased(): bool
     {
         return $this->container['IsReleased'];
     }
@@ -180,7 +182,9 @@ class Liability extends BaseModel
      *
      * @return $this
      */
-    public function setIsReleased($IsReleased): self
+
+
+    public function setIsReleased(bool $IsReleased): static
     {
         $this->container['IsReleased'] = $IsReleased;
 
@@ -192,7 +196,7 @@ class Liability extends BaseModel
      *
      * @return int
      */
-    public function getReleasedBy()
+    public function getReleasedBy(): int
     {
         return $this->container['ReleasedBy'];
     }
@@ -204,7 +208,9 @@ class Liability extends BaseModel
      *
      * @return $this
      */
-    public function setReleasedBy($ReleasedBy): self
+
+
+    public function setReleasedBy(int $ReleasedBy): static
     {
         $this->container['ReleasedBy'] = $ReleasedBy;
 

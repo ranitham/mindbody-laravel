@@ -48,14 +48,14 @@ class GetMobileProvidersResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetMobileProvidersResponse';
+    protected static string $swaggerModelName = 'GetMobileProvidersResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'MobileProviders' => '\Nlocascio\Mindbody\Model\MobileProvider[]'
     ];
 
@@ -64,7 +64,7 @@ class GetMobileProvidersResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'MobileProviders' => null
     ];
 
@@ -75,7 +75,7 @@ class GetMobileProvidersResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'MobileProviders' => 'MobileProviders'
     ];
 
@@ -84,7 +84,7 @@ class GetMobileProvidersResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'MobileProviders' => 'setMobileProviders'
     ];
 
@@ -93,7 +93,7 @@ class GetMobileProvidersResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'MobileProviders' => 'getMobileProviders'
     ];
 
@@ -108,7 +108,7 @@ class GetMobileProvidersResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['MobileProviders'] = isset($data['MobileProviders']) ? $data['MobileProviders'] : null;
     }
@@ -131,7 +131,7 @@ class GetMobileProvidersResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\MobileProvider[]
      */
-    public function getMobileProviders()
+    public function getMobileProviders(): array
     {
         return $this->container['MobileProviders'];
     }
@@ -143,7 +143,9 @@ class GetMobileProvidersResponse extends BaseModel
      *
      * @return $this
      */
-    public function setMobileProviders($MobileProviders): self
+
+
+    public function setMobileProviders(array $MobileProviders): static
     {
         $this->container['MobileProviders'] = $MobileProviders;
 

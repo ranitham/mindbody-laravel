@@ -106,14 +106,14 @@ class AddClientRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AddClientRequest';
+    protected static string $swaggerModelName = 'AddClientRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'AccountBalance' => 'double',
         'Action' => 'string',
         'Active' => 'bool',
@@ -181,7 +181,7 @@ class AddClientRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'AccountBalance' => 'double',
         'Action' => null,
         'Active' => null,
@@ -251,7 +251,7 @@ class AddClientRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'AccountBalance' => 'AccountBalance',
         'Action' => 'Action',
         'Active' => 'Active',
@@ -319,7 +319,7 @@ class AddClientRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'AccountBalance' => 'setAccountBalance',
         'Action' => 'setAction',
         'Active' => 'setActive',
@@ -387,7 +387,7 @@ class AddClientRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'AccountBalance' => 'getAccountBalance',
         'Action' => 'getAction',
         'Active' => 'getActive',
@@ -482,7 +482,7 @@ class AddClientRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['AccountBalance'] = isset($data['AccountBalance']) ? $data['AccountBalance'] : null;
         $this->container['Action'] = isset($data['Action']) ? $data['Action'] : null;
@@ -578,7 +578,7 @@ class AddClientRequest extends BaseModel
      *
      * @return double
      */
-    public function getAccountBalance()
+    public function getAccountBalance(): float
     {
         return $this->container['AccountBalance'];
     }
@@ -590,7 +590,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setAccountBalance($AccountBalance): self
+
+
+    public function setAccountBalance(float $AccountBalance): static
     {
         $this->container['AccountBalance'] = $AccountBalance;
 
@@ -602,7 +604,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getAction()
+    public function getAction(): string
     {
         return $this->container['Action'];
     }
@@ -614,7 +616,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setAction($Action): self
+
+
+    public function setAction(string $Action): static
     {
         $allowedValues = $this->getActionAllowableValues();
         if (!is_null($Action) && !in_array($Action, $allowedValues, true)) {
@@ -635,7 +639,7 @@ class AddClientRequest extends BaseModel
      *
      * @return bool
      */
-    public function getActive()
+    public function getActive(): bool
     {
         return $this->container['Active'];
     }
@@ -647,7 +651,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setActive($Active): self
+
+
+    public function setActive(bool $Active): static
     {
         $this->container['Active'] = $Active;
 
@@ -659,7 +665,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getAddressLine1()
+    public function getAddressLine1(): string
     {
         return $this->container['AddressLine1'];
     }
@@ -671,7 +677,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setAddressLine1($AddressLine1): self
+
+
+    public function setAddressLine1(string $AddressLine1): static
     {
         $this->container['AddressLine1'] = $AddressLine1;
 
@@ -683,7 +691,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getAddressLine2()
+    public function getAddressLine2(): string
     {
         return $this->container['AddressLine2'];
     }
@@ -695,7 +703,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setAddressLine2($AddressLine2): self
+
+
+    public function setAddressLine2(string $AddressLine2): static
     {
         $this->container['AddressLine2'] = $AddressLine2;
 
@@ -707,7 +717,7 @@ class AddClientRequest extends BaseModel
      *
      * @return bool
      */
-    public function getApptGenderPrefMale()
+    public function getApptGenderPrefMale(): bool
     {
         return $this->container['ApptGenderPrefMale'];
     }
@@ -719,7 +729,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setApptGenderPrefMale($ApptGenderPrefMale): self
+
+
+    public function setApptGenderPrefMale(bool $ApptGenderPrefMale): static
     {
         $this->container['ApptGenderPrefMale'] = $ApptGenderPrefMale;
 
@@ -731,7 +743,7 @@ class AddClientRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getBirthDate()
+    public function getBirthDate(): \DateTime
     {
         return $this->container['BirthDate'];
     }
@@ -743,7 +755,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setBirthDate($BirthDate): self
+
+
+    public function setBirthDate(\DateTime $BirthDate): static
     {
         $this->container['BirthDate'] = $BirthDate;
 
@@ -755,7 +769,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getCity()
+    public function getCity(): string
     {
         return $this->container['City'];
     }
@@ -767,7 +781,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setCity($City): self
+
+
+    public function setCity(string $City): static
     {
         $this->container['City'] = $City;
 
@@ -779,7 +795,7 @@ class AddClientRequest extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClientCreditCard
      */
-    public function getClientCreditCard()
+    public function getClientCreditCard(): \Nlocascio\Mindbody\Model\ClientCreditCard
     {
         return $this->container['ClientCreditCard'];
     }
@@ -791,7 +807,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClientCreditCard($ClientCreditCard): self
+
+
+    public function setClientCreditCard(\Nlocascio\Mindbody\Model\ClientCreditCard $ClientCreditCard): static
     {
         $this->container['ClientCreditCard'] = $ClientCreditCard;
 
@@ -803,7 +821,7 @@ class AddClientRequest extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\AssignedClientIndex[]
      */
-    public function getClientIndexes()
+    public function getClientIndexes(): array
     {
         return $this->container['ClientIndexes'];
     }
@@ -815,7 +833,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClientIndexes($ClientIndexes): self
+
+
+    public function setClientIndexes(array $ClientIndexes): static
     {
         $this->container['ClientIndexes'] = $ClientIndexes;
 
@@ -827,7 +847,7 @@ class AddClientRequest extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClientRelationship[]
      */
-    public function getClientRelationships()
+    public function getClientRelationships(): array
     {
         return $this->container['ClientRelationships'];
     }
@@ -839,7 +859,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClientRelationships($ClientRelationships): self
+
+
+    public function setClientRelationships(array $ClientRelationships): static
     {
         $this->container['ClientRelationships'] = $ClientRelationships;
 
@@ -851,7 +873,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getCountry()
+    public function getCountry(): string
     {
         return $this->container['Country'];
     }
@@ -863,7 +885,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setCountry($Country): self
+
+
+    public function setCountry(string $Country): static
     {
         $this->container['Country'] = $Country;
 
@@ -875,7 +899,7 @@ class AddClientRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getCreationDate()
+    public function getCreationDate(): \DateTime
     {
         return $this->container['CreationDate'];
     }
@@ -887,7 +911,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setCreationDate($CreationDate): self
+
+
+    public function setCreationDate(\DateTime $CreationDate): static
     {
         $this->container['CreationDate'] = $CreationDate;
 
@@ -899,7 +925,7 @@ class AddClientRequest extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\CustomClientFieldValue[]
      */
-    public function getCustomClientFields()
+    public function getCustomClientFields(): array
     {
         return $this->container['CustomClientFields'];
     }
@@ -911,7 +937,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setCustomClientFields($CustomClientFields): self
+
+
+    public function setCustomClientFields(array $CustomClientFields): static
     {
         $this->container['CustomClientFields'] = $CustomClientFields;
 
@@ -923,7 +951,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getEmail()
+    public function getEmail(): string
     {
         return $this->container['Email'];
     }
@@ -935,7 +963,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setEmail($Email): self
+
+
+    public function setEmail(string $Email): static
     {
         $this->container['Email'] = $Email;
 
@@ -947,7 +977,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getEmergencyContactInfoEmail()
+    public function getEmergencyContactInfoEmail(): string
     {
         return $this->container['EmergencyContactInfoEmail'];
     }
@@ -959,7 +989,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setEmergencyContactInfoEmail($EmergencyContactInfoEmail): self
+
+
+    public function setEmergencyContactInfoEmail(string $EmergencyContactInfoEmail): static
     {
         $this->container['EmergencyContactInfoEmail'] = $EmergencyContactInfoEmail;
 
@@ -971,7 +1003,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getEmergencyContactInfoName()
+    public function getEmergencyContactInfoName(): string
     {
         return $this->container['EmergencyContactInfoName'];
     }
@@ -983,7 +1015,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setEmergencyContactInfoName($EmergencyContactInfoName): self
+
+
+    public function setEmergencyContactInfoName(string $EmergencyContactInfoName): static
     {
         $this->container['EmergencyContactInfoName'] = $EmergencyContactInfoName;
 
@@ -995,7 +1029,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getEmergencyContactInfoPhone()
+    public function getEmergencyContactInfoPhone(): string
     {
         return $this->container['EmergencyContactInfoPhone'];
     }
@@ -1007,7 +1041,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setEmergencyContactInfoPhone($EmergencyContactInfoPhone): self
+
+
+    public function setEmergencyContactInfoPhone(string $EmergencyContactInfoPhone): static
     {
         $this->container['EmergencyContactInfoPhone'] = $EmergencyContactInfoPhone;
 
@@ -1019,7 +1055,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getEmergencyContactInfoRelationship()
+    public function getEmergencyContactInfoRelationship(): string
     {
         return $this->container['EmergencyContactInfoRelationship'];
     }
@@ -1031,7 +1067,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setEmergencyContactInfoRelationship($EmergencyContactInfoRelationship): self
+
+
+    public function setEmergencyContactInfoRelationship(string $EmergencyContactInfoRelationship): static
     {
         $this->container['EmergencyContactInfoRelationship'] = $EmergencyContactInfoRelationship;
 
@@ -1043,7 +1081,7 @@ class AddClientRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getFirstAppointmentDate()
+    public function getFirstAppointmentDate(): \DateTime
     {
         return $this->container['FirstAppointmentDate'];
     }
@@ -1055,7 +1093,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setFirstAppointmentDate($FirstAppointmentDate): self
+
+
+    public function setFirstAppointmentDate(\DateTime $FirstAppointmentDate): static
     {
         $this->container['FirstAppointmentDate'] = $FirstAppointmentDate;
 
@@ -1067,7 +1107,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getFirstName()
+    public function getFirstName(): string
     {
         return $this->container['FirstName'];
     }
@@ -1079,7 +1119,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setFirstName($FirstName): self
+
+
+    public function setFirstName(string $FirstName): static
     {
         $this->container['FirstName'] = $FirstName;
 
@@ -1091,7 +1133,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getGender()
+    public function getGender(): string
     {
         return $this->container['Gender'];
     }
@@ -1103,7 +1145,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setGender($Gender): self
+
+
+    public function setGender(string $Gender): static
     {
         $this->container['Gender'] = $Gender;
 
@@ -1115,7 +1159,7 @@ class AddClientRequest extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Location
      */
-    public function getHomeLocation()
+    public function getHomeLocation(): \Nlocascio\Mindbody\Model\Location
     {
         return $this->container['HomeLocation'];
     }
@@ -1127,7 +1171,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setHomeLocation($HomeLocation): self
+
+
+    public function setHomeLocation(\Nlocascio\Mindbody\Model\Location $HomeLocation): static
     {
         $this->container['HomeLocation'] = $HomeLocation;
 
@@ -1139,7 +1185,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getHomePhone()
+    public function getHomePhone(): string
     {
         return $this->container['HomePhone'];
     }
@@ -1151,7 +1197,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setHomePhone($HomePhone): self
+
+
+    public function setHomePhone(string $HomePhone): static
     {
         $this->container['HomePhone'] = $HomePhone;
 
@@ -1163,7 +1211,7 @@ class AddClientRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIsCompany()
+    public function getIsCompany(): bool
     {
         return $this->container['IsCompany'];
     }
@@ -1175,7 +1223,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setIsCompany($IsCompany): self
+
+
+    public function setIsCompany(bool $IsCompany): static
     {
         $this->container['IsCompany'] = $IsCompany;
 
@@ -1187,7 +1237,7 @@ class AddClientRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIsProspect()
+    public function getIsProspect(): bool
     {
         return $this->container['IsProspect'];
     }
@@ -1199,7 +1249,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setIsProspect($IsProspect): self
+
+
+    public function setIsProspect(bool $IsProspect): static
     {
         $this->container['IsProspect'] = $IsProspect;
 
@@ -1211,7 +1263,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getLastFormulaNotes()
+    public function getLastFormulaNotes(): string
     {
         return $this->container['LastFormulaNotes'];
     }
@@ -1223,7 +1275,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLastFormulaNotes($LastFormulaNotes): self
+
+
+    public function setLastFormulaNotes(string $LastFormulaNotes): static
     {
         $this->container['LastFormulaNotes'] = $LastFormulaNotes;
 
@@ -1235,7 +1289,7 @@ class AddClientRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getLastModifiedDateTime()
+    public function getLastModifiedDateTime(): \DateTime
     {
         return $this->container['LastModifiedDateTime'];
     }
@@ -1247,7 +1301,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLastModifiedDateTime($LastModifiedDateTime): self
+
+
+    public function setLastModifiedDateTime(\DateTime $LastModifiedDateTime): static
     {
         $this->container['LastModifiedDateTime'] = $LastModifiedDateTime;
 
@@ -1259,7 +1315,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getLastName()
+    public function getLastName(): string
     {
         return $this->container['LastName'];
     }
@@ -1271,7 +1327,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLastName($LastName): self
+
+
+    public function setLastName(string $LastName): static
     {
         $this->container['LastName'] = $LastName;
 
@@ -1283,7 +1341,7 @@ class AddClientRequest extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Liability
      */
-    public function getLiability()
+    public function getLiability(): \Nlocascio\Mindbody\Model\Liability
     {
         return $this->container['Liability'];
     }
@@ -1295,7 +1353,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLiability($Liability): self
+
+
+    public function setLiability(\Nlocascio\Mindbody\Model\Liability $Liability): static
     {
         $this->container['Liability'] = $Liability;
 
@@ -1307,7 +1367,7 @@ class AddClientRequest extends BaseModel
      *
      * @return bool
      */
-    public function getLiabilityRelease()
+    public function getLiabilityRelease(): bool
     {
         return $this->container['LiabilityRelease'];
     }
@@ -1319,7 +1379,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLiabilityRelease($LiabilityRelease): self
+
+
+    public function setLiabilityRelease(bool $LiabilityRelease): static
     {
         $this->container['LiabilityRelease'] = $LiabilityRelease;
 
@@ -1331,7 +1393,7 @@ class AddClientRequest extends BaseModel
      *
      * @return int
      */
-    public function getMembershipIcon()
+    public function getMembershipIcon(): int
     {
         return $this->container['MembershipIcon'];
     }
@@ -1343,7 +1405,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setMembershipIcon($MembershipIcon): self
+
+
+    public function setMembershipIcon(int $MembershipIcon): static
     {
         $this->container['MembershipIcon'] = $MembershipIcon;
 
@@ -1355,7 +1419,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getMiddleName()
+    public function getMiddleName(): string
     {
         return $this->container['MiddleName'];
     }
@@ -1367,7 +1431,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setMiddleName($MiddleName): self
+
+
+    public function setMiddleName(string $MiddleName): static
     {
         $this->container['MiddleName'] = $MiddleName;
 
@@ -1379,7 +1445,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getMobilePhone()
+    public function getMobilePhone(): string
     {
         return $this->container['MobilePhone'];
     }
@@ -1391,7 +1457,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setMobilePhone($MobilePhone): self
+
+
+    public function setMobilePhone(string $MobilePhone): static
     {
         $this->container['MobilePhone'] = $MobilePhone;
 
@@ -1403,7 +1471,7 @@ class AddClientRequest extends BaseModel
      *
      * @return int
      */
-    public function getMobileProvider()
+    public function getMobileProvider(): int
     {
         return $this->container['MobileProvider'];
     }
@@ -1415,7 +1483,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setMobileProvider($MobileProvider): self
+
+
+    public function setMobileProvider(int $MobileProvider): static
     {
         $this->container['MobileProvider'] = $MobileProvider;
 
@@ -1427,7 +1497,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getNewId()
+    public function getNewId(): string
     {
         return $this->container['NewId'];
     }
@@ -1439,7 +1509,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setNewId($NewId): self
+
+
+    public function setNewId(string $NewId): static
     {
         $this->container['NewId'] = $NewId;
 
@@ -1451,7 +1523,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getNotes()
+    public function getNotes(): string
     {
         return $this->container['Notes'];
     }
@@ -1463,7 +1535,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setNotes($Notes): self
+
+
+    public function setNotes(string $Notes): static
     {
         $this->container['Notes'] = $Notes;
 
@@ -1475,7 +1549,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getPhotoUrl()
+    public function getPhotoUrl(): string
     {
         return $this->container['PhotoUrl'];
     }
@@ -1487,7 +1561,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setPhotoUrl($PhotoUrl): self
+
+
+    public function setPhotoUrl(string $PhotoUrl): static
     {
         $this->container['PhotoUrl'] = $PhotoUrl;
 
@@ -1499,7 +1575,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getPostalCode()
+    public function getPostalCode(): string
     {
         return $this->container['PostalCode'];
     }
@@ -1511,7 +1587,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setPostalCode($PostalCode): self
+
+
+    public function setPostalCode(string $PostalCode): static
     {
         $this->container['PostalCode'] = $PostalCode;
 
@@ -1523,7 +1601,7 @@ class AddClientRequest extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ProspectStage
      */
-    public function getProspectStage()
+    public function getProspectStage(): \Nlocascio\Mindbody\Model\ProspectStage
     {
         return $this->container['ProspectStage'];
     }
@@ -1535,7 +1613,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setProspectStage($ProspectStage): self
+
+
+    public function setProspectStage(\Nlocascio\Mindbody\Model\ProspectStage $ProspectStage): static
     {
         $this->container['ProspectStage'] = $ProspectStage;
 
@@ -1547,7 +1627,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getRedAlert()
+    public function getRedAlert(): string
     {
         return $this->container['RedAlert'];
     }
@@ -1559,7 +1639,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setRedAlert($RedAlert): self
+
+
+    public function setRedAlert(string $RedAlert): static
     {
         $this->container['RedAlert'] = $RedAlert;
 
@@ -1571,7 +1653,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getReferredBy()
+    public function getReferredBy(): string
     {
         return $this->container['ReferredBy'];
     }
@@ -1583,7 +1665,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setReferredBy($ReferredBy): self
+
+
+    public function setReferredBy(string $ReferredBy): static
     {
         $this->container['ReferredBy'] = $ReferredBy;
 
@@ -1595,7 +1679,7 @@ class AddClientRequest extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\SalesRep[]
      */
-    public function getSalesReps()
+    public function getSalesReps(): array
     {
         return $this->container['SalesReps'];
     }
@@ -1607,7 +1691,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSalesReps($SalesReps): self
+
+
+    public function setSalesReps(array $SalesReps): static
     {
         $this->container['SalesReps'] = $SalesReps;
 
@@ -1619,7 +1705,7 @@ class AddClientRequest extends BaseModel
      *
      * @return int
      */
-    public function getSiteId()
+    public function getSiteId(): int
     {
         return $this->container['SiteId'];
     }
@@ -1631,7 +1717,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSiteId($SiteId): self
+
+
+    public function setSiteId(int $SiteId): static
     {
         $this->container['SiteId'] = $SiteId;
 
@@ -1643,7 +1731,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getState()
+    public function getState(): string
     {
         return $this->container['State'];
     }
@@ -1655,7 +1743,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setState($State): self
+
+
+    public function setState(string $State): static
     {
         $this->container['State'] = $State;
 
@@ -1667,7 +1757,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getStatus()
+    public function getStatus(): string
     {
         return $this->container['Status'];
     }
@@ -1679,7 +1769,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStatus($Status): self
+
+
+    public function setStatus(string $Status): static
     {
         $this->container['Status'] = $Status;
 
@@ -1691,7 +1783,7 @@ class AddClientRequest extends BaseModel
      *
      * @return bool
      */
-    public function getTest()
+    public function getTest(): bool
     {
         return $this->container['Test'];
     }
@@ -1703,7 +1795,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setTest($Test): self
+
+
+    public function setTest(bool $Test): static
     {
         $this->container['Test'] = $Test;
 
@@ -1715,7 +1809,7 @@ class AddClientRequest extends BaseModel
      *
      * @return int
      */
-    public function getUniqueId()
+    public function getUniqueId(): int
     {
         return $this->container['UniqueId'];
     }
@@ -1727,7 +1821,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setUniqueId($UniqueId): self
+
+
+    public function setUniqueId(int $UniqueId): static
     {
         $this->container['UniqueId'] = $UniqueId;
 
@@ -1739,7 +1835,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getWorkExtension()
+    public function getWorkExtension(): string
     {
         return $this->container['WorkExtension'];
     }
@@ -1751,7 +1847,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setWorkExtension($WorkExtension): self
+
+
+    public function setWorkExtension(string $WorkExtension): static
     {
         $this->container['WorkExtension'] = $WorkExtension;
 
@@ -1763,7 +1861,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getWorkPhone()
+    public function getWorkPhone(): string
     {
         return $this->container['WorkPhone'];
     }
@@ -1775,7 +1873,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setWorkPhone($WorkPhone): self
+
+
+    public function setWorkPhone(string $WorkPhone): static
     {
         $this->container['WorkPhone'] = $WorkPhone;
 
@@ -1787,7 +1887,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getYellowAlert()
+    public function getYellowAlert(): string
     {
         return $this->container['YellowAlert'];
     }
@@ -1799,7 +1899,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setYellowAlert($YellowAlert): self
+
+
+    public function setYellowAlert(string $YellowAlert): static
     {
         $this->container['YellowAlert'] = $YellowAlert;
 
@@ -1811,7 +1913,7 @@ class AddClientRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSendScheduleEmails()
+    public function getSendScheduleEmails(): bool
     {
         return $this->container['SendScheduleEmails'];
     }
@@ -1823,7 +1925,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSendScheduleEmails($SendScheduleEmails): self
+
+
+    public function setSendScheduleEmails(bool $SendScheduleEmails): static
     {
         $this->container['SendScheduleEmails'] = $SendScheduleEmails;
 
@@ -1835,7 +1939,7 @@ class AddClientRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSendAccountEmails()
+    public function getSendAccountEmails(): bool
     {
         return $this->container['SendAccountEmails'];
     }
@@ -1847,7 +1951,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSendAccountEmails($SendAccountEmails): self
+
+
+    public function setSendAccountEmails(bool $SendAccountEmails): static
     {
         $this->container['SendAccountEmails'] = $SendAccountEmails;
 
@@ -1859,7 +1965,7 @@ class AddClientRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSendPromotionalEmails()
+    public function getSendPromotionalEmails(): bool
     {
         return $this->container['SendPromotionalEmails'];
     }
@@ -1871,7 +1977,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSendPromotionalEmails($SendPromotionalEmails): self
+
+
+    public function setSendPromotionalEmails(bool $SendPromotionalEmails): static
     {
         $this->container['SendPromotionalEmails'] = $SendPromotionalEmails;
 
@@ -1883,7 +1991,7 @@ class AddClientRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSendScheduleTexts()
+    public function getSendScheduleTexts(): bool
     {
         return $this->container['SendScheduleTexts'];
     }
@@ -1895,7 +2003,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSendScheduleTexts($SendScheduleTexts): self
+
+
+    public function setSendScheduleTexts(bool $SendScheduleTexts): static
     {
         $this->container['SendScheduleTexts'] = $SendScheduleTexts;
 
@@ -1907,7 +2017,7 @@ class AddClientRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSendAccountTexts()
+    public function getSendAccountTexts(): bool
     {
         return $this->container['SendAccountTexts'];
     }
@@ -1919,7 +2029,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSendAccountTexts($SendAccountTexts): self
+
+
+    public function setSendAccountTexts(bool $SendAccountTexts): static
     {
         $this->container['SendAccountTexts'] = $SendAccountTexts;
 
@@ -1931,7 +2043,7 @@ class AddClientRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSendPromotionalTexts()
+    public function getSendPromotionalTexts(): bool
     {
         return $this->container['SendPromotionalTexts'];
     }
@@ -1943,7 +2055,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSendPromotionalTexts($SendPromotionalTexts): self
+
+
+    public function setSendPromotionalTexts(bool $SendPromotionalTexts): static
     {
         $this->container['SendPromotionalTexts'] = $SendPromotionalTexts;
 
@@ -1955,7 +2069,7 @@ class AddClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getLockerNumber()
+    public function getLockerNumber(): string
     {
         return $this->container['LockerNumber'];
     }
@@ -1967,7 +2081,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLockerNumber($LockerNumber): self
+
+
+    public function setLockerNumber(string $LockerNumber): static
     {
         $this->container['LockerNumber'] = $LockerNumber;
 
@@ -1979,7 +2095,7 @@ class AddClientRequest extends BaseModel
      *
      * @return bool
      */
-    public function getReactivateInactiveClient()
+    public function getReactivateInactiveClient(): bool
     {
         return $this->container['ReactivateInactiveClient'];
     }
@@ -1991,7 +2107,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setReactivateInactiveClient($ReactivateInactiveClient): self
+
+
+    public function setReactivateInactiveClient(bool $ReactivateInactiveClient): static
     {
         $this->container['ReactivateInactiveClient'] = $ReactivateInactiveClient;
 
@@ -2003,7 +2121,7 @@ class AddClientRequest extends BaseModel
      *
      * @return int
      */
-    public function getLeadChannelId()
+    public function getLeadChannelId(): int
     {
         return $this->container['LeadChannelId'];
     }
@@ -2015,7 +2133,9 @@ class AddClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLeadChannelId($LeadChannelId): self
+
+
+    public function setLeadChannelId(int $LeadChannelId): static
     {
         $this->container['LeadChannelId'] = $LeadChannelId;
 

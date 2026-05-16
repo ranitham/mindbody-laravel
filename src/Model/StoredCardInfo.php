@@ -47,14 +47,14 @@ class StoredCardInfo extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'StoredCardInfo';
+    protected static string $swaggerModelName = 'StoredCardInfo';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'LastFour' => 'string'
     ];
 
@@ -63,7 +63,7 @@ class StoredCardInfo extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'LastFour' => null
     ];
 
@@ -74,7 +74,7 @@ class StoredCardInfo extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'LastFour' => 'LastFour'
     ];
 
@@ -83,7 +83,7 @@ class StoredCardInfo extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'LastFour' => 'setLastFour'
     ];
 
@@ -92,7 +92,7 @@ class StoredCardInfo extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'LastFour' => 'getLastFour'
     ];
 
@@ -107,7 +107,7 @@ class StoredCardInfo extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['LastFour'] = isset($data['LastFour']) ? $data['LastFour'] : null;
     }
@@ -130,7 +130,7 @@ class StoredCardInfo extends BaseModel
      *
      * @return string
      */
-    public function getLastFour()
+    public function getLastFour(): string
     {
         return $this->container['LastFour'];
     }
@@ -142,7 +142,9 @@ class StoredCardInfo extends BaseModel
      *
      * @return $this
      */
-    public function setLastFour($LastFour): self
+
+
+    public function setLastFour(string $LastFour): static
     {
         $this->container['LastFour'] = $LastFour;
 

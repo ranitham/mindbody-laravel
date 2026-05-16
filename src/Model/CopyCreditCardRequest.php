@@ -53,14 +53,14 @@ class CopyCreditCardRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CopyCreditCardRequest';
+    protected static string $swaggerModelName = 'CopyCreditCardRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'SourceSiteId' => 'int',
         'SourceClientId' => 'string',
         'SourceUniqueClientId' => 'int',
@@ -74,7 +74,7 @@ class CopyCreditCardRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'SourceSiteId' => 'int32',
         'SourceClientId' => null,
         'SourceUniqueClientId' => 'int64',
@@ -90,7 +90,7 @@ class CopyCreditCardRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'SourceSiteId' => 'SourceSiteId',
         'SourceClientId' => 'SourceClientId',
         'SourceUniqueClientId' => 'SourceUniqueClientId',
@@ -104,7 +104,7 @@ class CopyCreditCardRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'SourceSiteId' => 'setSourceSiteId',
         'SourceClientId' => 'setSourceClientId',
         'SourceUniqueClientId' => 'setSourceUniqueClientId',
@@ -118,7 +118,7 @@ class CopyCreditCardRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'SourceSiteId' => 'getSourceSiteId',
         'SourceClientId' => 'getSourceClientId',
         'SourceUniqueClientId' => 'getSourceUniqueClientId',
@@ -138,7 +138,7 @@ class CopyCreditCardRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['SourceSiteId'] = isset($data['SourceSiteId']) ? $data['SourceSiteId'] : null;
         $this->container['SourceClientId'] = isset($data['SourceClientId']) ? $data['SourceClientId'] : null;
@@ -166,7 +166,7 @@ class CopyCreditCardRequest extends BaseModel
      *
      * @return int
      */
-    public function getSourceSiteId()
+    public function getSourceSiteId(): int
     {
         return $this->container['SourceSiteId'];
     }
@@ -178,7 +178,9 @@ class CopyCreditCardRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSourceSiteId($SourceSiteId): self
+
+
+    public function setSourceSiteId(int $SourceSiteId): static
     {
         $this->container['SourceSiteId'] = $SourceSiteId;
 
@@ -190,7 +192,7 @@ class CopyCreditCardRequest extends BaseModel
      *
      * @return string
      */
-    public function getSourceClientId()
+    public function getSourceClientId(): string
     {
         return $this->container['SourceClientId'];
     }
@@ -202,7 +204,9 @@ class CopyCreditCardRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSourceClientId($SourceClientId): self
+
+
+    public function setSourceClientId(string $SourceClientId): static
     {
         $this->container['SourceClientId'] = $SourceClientId;
 
@@ -214,7 +218,7 @@ class CopyCreditCardRequest extends BaseModel
      *
      * @return int
      */
-    public function getSourceUniqueClientId()
+    public function getSourceUniqueClientId(): int
     {
         return $this->container['SourceUniqueClientId'];
     }
@@ -226,7 +230,9 @@ class CopyCreditCardRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSourceUniqueClientId($SourceUniqueClientId): self
+
+
+    public function setSourceUniqueClientId(int $SourceUniqueClientId): static
     {
         $this->container['SourceUniqueClientId'] = $SourceUniqueClientId;
 
@@ -238,7 +244,7 @@ class CopyCreditCardRequest extends BaseModel
      *
      * @return int
      */
-    public function getTargetSiteId()
+    public function getTargetSiteId(): int
     {
         return $this->container['TargetSiteId'];
     }
@@ -250,7 +256,9 @@ class CopyCreditCardRequest extends BaseModel
      *
      * @return $this
      */
-    public function setTargetSiteId($TargetSiteId): self
+
+
+    public function setTargetSiteId(int $TargetSiteId): static
     {
         $this->container['TargetSiteId'] = $TargetSiteId;
 
@@ -262,7 +270,7 @@ class CopyCreditCardRequest extends BaseModel
      *
      * @return string
      */
-    public function getTargetClientId()
+    public function getTargetClientId(): string
     {
         return $this->container['TargetClientId'];
     }
@@ -274,7 +282,9 @@ class CopyCreditCardRequest extends BaseModel
      *
      * @return $this
      */
-    public function setTargetClientId($TargetClientId): self
+
+
+    public function setTargetClientId(string $TargetClientId): static
     {
         $this->container['TargetClientId'] = $TargetClientId;
 
@@ -286,7 +296,7 @@ class CopyCreditCardRequest extends BaseModel
      *
      * @return int
      */
-    public function getTargetUniqueClientId()
+    public function getTargetUniqueClientId(): int
     {
         return $this->container['TargetUniqueClientId'];
     }
@@ -298,7 +308,9 @@ class CopyCreditCardRequest extends BaseModel
      *
      * @return $this
      */
-    public function setTargetUniqueClientId($TargetUniqueClientId): self
+
+
+    public function setTargetUniqueClientId(int $TargetUniqueClientId): static
     {
         $this->container['TargetUniqueClientId'] = $TargetUniqueClientId;
 

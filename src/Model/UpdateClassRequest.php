@@ -49,14 +49,14 @@ class UpdateClassRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UpdateClassRequest';
+    protected static string $swaggerModelName = 'UpdateClassRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ClassId' => 'int',
         'ThemeName' => 'string'
     ];
@@ -66,7 +66,7 @@ class UpdateClassRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ClassId' => 'int32',
         'ThemeName' => null
     ];
@@ -78,7 +78,7 @@ class UpdateClassRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ClassId' => 'ClassId',
         'ThemeName' => 'ThemeName'
     ];
@@ -88,7 +88,7 @@ class UpdateClassRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ClassId' => 'setClassId',
         'ThemeName' => 'setThemeName'
     ];
@@ -98,7 +98,7 @@ class UpdateClassRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ClassId' => 'getClassId',
         'ThemeName' => 'getThemeName'
     ];
@@ -114,7 +114,7 @@ class UpdateClassRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ClassId'] = isset($data['ClassId']) ? $data['ClassId'] : null;
         $this->container['ThemeName'] = isset($data['ThemeName']) ? $data['ThemeName'] : null;
@@ -138,7 +138,7 @@ class UpdateClassRequest extends BaseModel
      *
      * @return int
      */
-    public function getClassId()
+    public function getClassId(): int
     {
         return $this->container['ClassId'];
     }
@@ -150,7 +150,9 @@ class UpdateClassRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClassId($ClassId): self
+
+
+    public function setClassId(int $ClassId): static
     {
         $this->container['ClassId'] = $ClassId;
 
@@ -162,7 +164,7 @@ class UpdateClassRequest extends BaseModel
      *
      * @return string
      */
-    public function getThemeName()
+    public function getThemeName(): string
     {
         return $this->container['ThemeName'];
     }
@@ -174,7 +176,9 @@ class UpdateClassRequest extends BaseModel
      *
      * @return $this
      */
-    public function setThemeName($ThemeName): self
+
+
+    public function setThemeName(string $ThemeName): static
     {
         $this->container['ThemeName'] = $ThemeName;
 

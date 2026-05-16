@@ -55,14 +55,14 @@ class GetClassDescriptionsRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetClassDescriptionsRequest';
+    protected static string $swaggerModelName = 'GetClassDescriptionsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ClassDescriptionId' => 'int',
         'ProgramIds' => 'int[]',
         'StartClassDateTime' => '\DateTime',
@@ -79,7 +79,7 @@ class GetClassDescriptionsRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ClassDescriptionId' => 'int32',
         'ProgramIds' => 'int32',
         'StartClassDateTime' => 'date-time',
@@ -98,7 +98,7 @@ class GetClassDescriptionsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ClassDescriptionId' => 'ClassDescriptionId',
         'ProgramIds' => 'ProgramIds',
         'StartClassDateTime' => 'StartClassDateTime',
@@ -115,7 +115,7 @@ class GetClassDescriptionsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ClassDescriptionId' => 'setClassDescriptionId',
         'ProgramIds' => 'setProgramIds',
         'StartClassDateTime' => 'setStartClassDateTime',
@@ -132,7 +132,7 @@ class GetClassDescriptionsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ClassDescriptionId' => 'getClassDescriptionId',
         'ProgramIds' => 'getProgramIds',
         'StartClassDateTime' => 'getStartClassDateTime',
@@ -155,7 +155,7 @@ class GetClassDescriptionsRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ClassDescriptionId'] = isset($data['ClassDescriptionId']) ? $data['ClassDescriptionId'] : null;
         $this->container['ProgramIds'] = isset($data['ProgramIds']) ? $data['ProgramIds'] : null;
@@ -186,7 +186,7 @@ class GetClassDescriptionsRequest extends BaseModel
      *
      * @return int
      */
-    public function getClassDescriptionId()
+    public function getClassDescriptionId(): int
     {
         return $this->container['ClassDescriptionId'];
     }
@@ -198,7 +198,9 @@ class GetClassDescriptionsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClassDescriptionId($ClassDescriptionId): self
+
+
+    public function setClassDescriptionId(int $ClassDescriptionId): static
     {
         $this->container['ClassDescriptionId'] = $ClassDescriptionId;
 
@@ -210,7 +212,7 @@ class GetClassDescriptionsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getProgramIds()
+    public function getProgramIds(): array
     {
         return $this->container['ProgramIds'];
     }
@@ -222,7 +224,9 @@ class GetClassDescriptionsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setProgramIds($ProgramIds): self
+
+
+    public function setProgramIds(array $ProgramIds): static
     {
         $this->container['ProgramIds'] = $ProgramIds;
 
@@ -234,7 +238,7 @@ class GetClassDescriptionsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartClassDateTime()
+    public function getStartClassDateTime(): \DateTime
     {
         return $this->container['StartClassDateTime'];
     }
@@ -246,7 +250,9 @@ class GetClassDescriptionsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStartClassDateTime($StartClassDateTime): self
+
+
+    public function setStartClassDateTime(\DateTime $StartClassDateTime): static
     {
         $this->container['StartClassDateTime'] = $StartClassDateTime;
 
@@ -258,7 +264,7 @@ class GetClassDescriptionsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndClassDateTime()
+    public function getEndClassDateTime(): \DateTime
     {
         return $this->container['EndClassDateTime'];
     }
@@ -270,7 +276,9 @@ class GetClassDescriptionsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setEndClassDateTime($EndClassDateTime): self
+
+
+    public function setEndClassDateTime(\DateTime $EndClassDateTime): static
     {
         $this->container['EndClassDateTime'] = $EndClassDateTime;
 
@@ -282,7 +290,7 @@ class GetClassDescriptionsRequest extends BaseModel
      *
      * @return int
      */
-    public function getStaffId()
+    public function getStaffId(): int
     {
         return $this->container['StaffId'];
     }
@@ -294,7 +302,9 @@ class GetClassDescriptionsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStaffId($StaffId): self
+
+
+    public function setStaffId(int $StaffId): static
     {
         $this->container['StaffId'] = $StaffId;
 
@@ -306,7 +316,7 @@ class GetClassDescriptionsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLocationId()
+    public function getLocationId(): int
     {
         return $this->container['LocationId'];
     }
@@ -318,7 +328,9 @@ class GetClassDescriptionsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLocationId($LocationId): self
+
+
+    public function setLocationId(int $LocationId): static
     {
         $this->container['LocationId'] = $LocationId;
 
@@ -330,7 +342,7 @@ class GetClassDescriptionsRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIncludeInactive()
+    public function getIncludeInactive(): bool
     {
         return $this->container['IncludeInactive'];
     }
@@ -342,7 +354,9 @@ class GetClassDescriptionsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setIncludeInactive($IncludeInactive): self
+
+
+    public function setIncludeInactive(bool $IncludeInactive): static
     {
         $this->container['IncludeInactive'] = $IncludeInactive;
 
@@ -354,7 +368,7 @@ class GetClassDescriptionsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit()
+    public function getLimit(): int
     {
         return $this->container['Limit'];
     }
@@ -366,7 +380,9 @@ class GetClassDescriptionsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLimit($Limit): self
+
+
+    public function setLimit(int $Limit): static
     {
         $this->container['Limit'] = $Limit;
 
@@ -378,7 +394,7 @@ class GetClassDescriptionsRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset()
+    public function getOffset(): int
     {
         return $this->container['Offset'];
     }
@@ -390,7 +406,9 @@ class GetClassDescriptionsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOffset($Offset): self
+
+
+    public function setOffset(int $Offset): static
     {
         $this->container['Offset'] = $Offset;
 

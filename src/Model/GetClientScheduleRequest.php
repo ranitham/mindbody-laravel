@@ -55,14 +55,14 @@ class GetClientScheduleRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetClientScheduleRequest';
+    protected static string $swaggerModelName = 'GetClientScheduleRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ClientId' => 'string',
         'UniqueClientId' => 'int',
         'ClientAssociatedSitesOffset' => 'int',
@@ -79,7 +79,7 @@ class GetClientScheduleRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ClientId' => null,
         'UniqueClientId' => 'int64',
         'ClientAssociatedSitesOffset' => 'int32',
@@ -98,7 +98,7 @@ class GetClientScheduleRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ClientId' => 'ClientId',
         'UniqueClientId' => 'UniqueClientId',
         'ClientAssociatedSitesOffset' => 'ClientAssociatedSitesOffset',
@@ -115,7 +115,7 @@ class GetClientScheduleRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ClientId' => 'setClientId',
         'UniqueClientId' => 'setUniqueClientId',
         'ClientAssociatedSitesOffset' => 'setClientAssociatedSitesOffset',
@@ -132,7 +132,7 @@ class GetClientScheduleRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ClientId' => 'getClientId',
         'UniqueClientId' => 'getUniqueClientId',
         'ClientAssociatedSitesOffset' => 'getClientAssociatedSitesOffset',
@@ -155,7 +155,7 @@ class GetClientScheduleRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
         $this->container['UniqueClientId'] = isset($data['UniqueClientId']) ? $data['UniqueClientId'] : null;
@@ -186,7 +186,7 @@ class GetClientScheduleRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId()
+    public function getClientId(): string
     {
         return $this->container['ClientId'];
     }
@@ -198,7 +198,9 @@ class GetClientScheduleRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClientId($ClientId): self
+
+
+    public function setClientId(string $ClientId): static
     {
         $this->container['ClientId'] = $ClientId;
 
@@ -210,7 +212,7 @@ class GetClientScheduleRequest extends BaseModel
      *
      * @return int
      */
-    public function getUniqueClientId()
+    public function getUniqueClientId(): int
     {
         return $this->container['UniqueClientId'];
     }
@@ -222,7 +224,9 @@ class GetClientScheduleRequest extends BaseModel
      *
      * @return $this
      */
-    public function setUniqueClientId($UniqueClientId): self
+
+
+    public function setUniqueClientId(int $UniqueClientId): static
     {
         $this->container['UniqueClientId'] = $UniqueClientId;
 
@@ -234,7 +238,7 @@ class GetClientScheduleRequest extends BaseModel
      *
      * @return int
      */
-    public function getClientAssociatedSitesOffset()
+    public function getClientAssociatedSitesOffset(): int
     {
         return $this->container['ClientAssociatedSitesOffset'];
     }
@@ -246,7 +250,9 @@ class GetClientScheduleRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClientAssociatedSitesOffset($ClientAssociatedSitesOffset): self
+
+
+    public function setClientAssociatedSitesOffset(int $ClientAssociatedSitesOffset): static
     {
         $this->container['ClientAssociatedSitesOffset'] = $ClientAssociatedSitesOffset;
 
@@ -258,7 +264,7 @@ class GetClientScheduleRequest extends BaseModel
      *
      * @return bool
      */
-    public function getCrossRegionalLookup()
+    public function getCrossRegionalLookup(): bool
     {
         return $this->container['CrossRegionalLookup'];
     }
@@ -270,7 +276,9 @@ class GetClientScheduleRequest extends BaseModel
      *
      * @return $this
      */
-    public function setCrossRegionalLookup($CrossRegionalLookup): self
+
+
+    public function setCrossRegionalLookup(bool $CrossRegionalLookup): static
     {
         $this->container['CrossRegionalLookup'] = $CrossRegionalLookup;
 
@@ -282,7 +290,7 @@ class GetClientScheduleRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDate()
+    public function getEndDate(): \DateTime
     {
         return $this->container['EndDate'];
     }
@@ -294,7 +302,9 @@ class GetClientScheduleRequest extends BaseModel
      *
      * @return $this
      */
-    public function setEndDate($EndDate): self
+
+
+    public function setEndDate(\DateTime $EndDate): static
     {
         $this->container['EndDate'] = $EndDate;
 
@@ -306,7 +316,7 @@ class GetClientScheduleRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDate()
+    public function getStartDate(): \DateTime
     {
         return $this->container['StartDate'];
     }
@@ -318,7 +328,9 @@ class GetClientScheduleRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStartDate($StartDate): self
+
+
+    public function setStartDate(\DateTime $StartDate): static
     {
         $this->container['StartDate'] = $StartDate;
 
@@ -330,7 +342,7 @@ class GetClientScheduleRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIncludeWaitlistEntries()
+    public function getIncludeWaitlistEntries(): bool
     {
         return $this->container['IncludeWaitlistEntries'];
     }
@@ -342,7 +354,9 @@ class GetClientScheduleRequest extends BaseModel
      *
      * @return $this
      */
-    public function setIncludeWaitlistEntries($IncludeWaitlistEntries): self
+
+
+    public function setIncludeWaitlistEntries(bool $IncludeWaitlistEntries): static
     {
         $this->container['IncludeWaitlistEntries'] = $IncludeWaitlistEntries;
 
@@ -354,7 +368,7 @@ class GetClientScheduleRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit()
+    public function getLimit(): int
     {
         return $this->container['Limit'];
     }
@@ -366,7 +380,9 @@ class GetClientScheduleRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLimit($Limit): self
+
+
+    public function setLimit(int $Limit): static
     {
         $this->container['Limit'] = $Limit;
 
@@ -378,7 +394,7 @@ class GetClientScheduleRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset()
+    public function getOffset(): int
     {
         return $this->container['Offset'];
     }
@@ -390,7 +406,9 @@ class GetClientScheduleRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOffset($Offset): self
+
+
+    public function setOffset(int $Offset): static
     {
         $this->container['Offset'] = $Offset;
 

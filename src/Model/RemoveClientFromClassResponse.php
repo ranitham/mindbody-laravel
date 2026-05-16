@@ -47,14 +47,14 @@ class RemoveClientFromClassResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'RemoveClientFromClassResponse';
+    protected static string $swaggerModelName = 'RemoveClientFromClassResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Class' => '\Nlocascio\Mindbody\Model\ModelClass'
     ];
 
@@ -63,7 +63,7 @@ class RemoveClientFromClassResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Class' => null
     ];
 
@@ -74,7 +74,7 @@ class RemoveClientFromClassResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Class' => 'Class'
     ];
 
@@ -83,7 +83,7 @@ class RemoveClientFromClassResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Class' => 'setClass'
     ];
 
@@ -92,7 +92,7 @@ class RemoveClientFromClassResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Class' => 'getClass'
     ];
 
@@ -107,7 +107,7 @@ class RemoveClientFromClassResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Class'] = isset($data['Class']) ? $data['Class'] : null;
     }
@@ -130,7 +130,7 @@ class RemoveClientFromClassResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ModelClass
      */
-    public function getClass()
+    public function getClass(): \Nlocascio\Mindbody\Model\ModelClass
     {
         return $this->container['Class'];
     }
@@ -142,7 +142,9 @@ class RemoveClientFromClassResponse extends BaseModel
      *
      * @return $this
      */
-    public function setClass($Class): self
+
+
+    public function setClass(\Nlocascio\Mindbody\Model\ModelClass $Class): static
     {
         $this->container['Class'] = $Class;
 

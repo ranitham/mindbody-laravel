@@ -41,7 +41,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property string $Name The name of the client index value.
  *
  */
-class ClientIndexValue extends BaseModel implements ModelWithId
+class ClientIndexValue extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -50,14 +50,14 @@ class ClientIndexValue extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ClientIndexValue';
+    protected static string $swaggerModelName = 'ClientIndexValue';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Active' => 'bool',
         'Id' => 'int',
         'Name' => 'string'
@@ -68,7 +68,7 @@ class ClientIndexValue extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Active' => null,
         'Id' => 'int32',
         'Name' => null
@@ -81,7 +81,7 @@ class ClientIndexValue extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Active' => 'Active',
         'Id' => 'Id',
         'Name' => 'Name'
@@ -92,7 +92,7 @@ class ClientIndexValue extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Active' => 'setActive',
         'Id' => 'setId',
         'Name' => 'setName'
@@ -103,7 +103,7 @@ class ClientIndexValue extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Active' => 'getActive',
         'Id' => 'getId',
         'Name' => 'getName'
@@ -120,7 +120,7 @@ class ClientIndexValue extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Active'] = isset($data['Active']) ? $data['Active'] : null;
         $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
@@ -145,7 +145,7 @@ class ClientIndexValue extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getActive()
+    public function getActive(): bool
     {
         return $this->container['Active'];
     }
@@ -157,7 +157,9 @@ class ClientIndexValue extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setActive($Active): self
+
+
+    public function setActive(bool $Active): static
     {
         $this->container['Active'] = $Active;
 
@@ -169,7 +171,7 @@ class ClientIndexValue extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -181,7 +183,9 @@ class ClientIndexValue extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -193,7 +197,7 @@ class ClientIndexValue extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->container['Name'];
     }
@@ -205,7 +209,9 @@ class ClientIndexValue extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setName($Name): self
+
+
+    public function setName(string $Name): static
     {
         $this->container['Name'] = $Name;
 

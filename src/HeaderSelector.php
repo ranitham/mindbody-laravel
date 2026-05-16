@@ -43,7 +43,7 @@ class HeaderSelector
     /**
      * @param string[] $accept
      * @param string[] $contentTypes
-     * @return array<string, string>
+     * @return string[]
      */
     public function selectHeaders($accept, $contentTypes)
     {
@@ -60,7 +60,7 @@ class HeaderSelector
 
     /**
      * @param string[] $accept
-     * @return array<string, string>
+     * @return string[]
      */
     public function selectHeadersForMultipart($accept)
     {

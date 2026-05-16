@@ -49,14 +49,14 @@ class GetContactLogTypesRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetContactLogTypesRequest';
+    protected static string $swaggerModelName = 'GetContactLogTypesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ContactLogTypeId' => 'int',
         'Limit' => 'int',
         'Offset' => 'int'
@@ -67,7 +67,7 @@ class GetContactLogTypesRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ContactLogTypeId' => 'int32',
         'Limit' => 'int32',
         'Offset' => 'int32'
@@ -80,7 +80,7 @@ class GetContactLogTypesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ContactLogTypeId' => 'ContactLogTypeId',
         'Limit' => 'Limit',
         'Offset' => 'Offset'
@@ -91,7 +91,7 @@ class GetContactLogTypesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ContactLogTypeId' => 'setContactLogTypeId',
         'Limit' => 'setLimit',
         'Offset' => 'setOffset'
@@ -102,7 +102,7 @@ class GetContactLogTypesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ContactLogTypeId' => 'getContactLogTypeId',
         'Limit' => 'getLimit',
         'Offset' => 'getOffset'
@@ -119,7 +119,7 @@ class GetContactLogTypesRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ContactLogTypeId'] = isset($data['ContactLogTypeId']) ? $data['ContactLogTypeId'] : null;
         $this->container['Limit'] = isset($data['Limit']) ? $data['Limit'] : null;
@@ -144,7 +144,7 @@ class GetContactLogTypesRequest extends BaseModel
      *
      * @return int
      */
-    public function getContactLogTypeId()
+    public function getContactLogTypeId(): int
     {
         return $this->container['ContactLogTypeId'];
     }
@@ -156,7 +156,9 @@ class GetContactLogTypesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setContactLogTypeId($ContactLogTypeId): self
+
+
+    public function setContactLogTypeId(int $ContactLogTypeId): static
     {
         $this->container['ContactLogTypeId'] = $ContactLogTypeId;
 
@@ -168,7 +170,7 @@ class GetContactLogTypesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit()
+    public function getLimit(): int
     {
         return $this->container['Limit'];
     }
@@ -180,7 +182,9 @@ class GetContactLogTypesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLimit($Limit): self
+
+
+    public function setLimit(int $Limit): static
     {
         $this->container['Limit'] = $Limit;
 
@@ -192,7 +196,7 @@ class GetContactLogTypesRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset()
+    public function getOffset(): int
     {
         return $this->container['Offset'];
     }
@@ -204,7 +208,9 @@ class GetContactLogTypesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOffset($Offset): self
+
+
+    public function setOffset(int $Offset): static
     {
         $this->container['Offset'] = $Offset;
 

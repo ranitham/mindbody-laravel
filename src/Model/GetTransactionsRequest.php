@@ -56,14 +56,14 @@ class GetTransactionsRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetTransactionsRequest';
+    protected static string $swaggerModelName = 'GetTransactionsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'SaleId' => 'int',
         'TransactionId' => 'int',
         'ClientId' => 'int',
@@ -80,7 +80,7 @@ class GetTransactionsRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'SaleId' => 'int64',
         'TransactionId' => 'int32',
         'ClientId' => 'int64',
@@ -99,7 +99,7 @@ class GetTransactionsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'SaleId' => 'SaleId',
         'TransactionId' => 'TransactionId',
         'ClientId' => 'ClientId',
@@ -116,7 +116,7 @@ class GetTransactionsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'SaleId' => 'setSaleId',
         'TransactionId' => 'setTransactionId',
         'ClientId' => 'setClientId',
@@ -133,7 +133,7 @@ class GetTransactionsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'SaleId' => 'getSaleId',
         'TransactionId' => 'getTransactionId',
         'ClientId' => 'getClientId',
@@ -156,7 +156,7 @@ class GetTransactionsRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['SaleId'] = isset($data['SaleId']) ? $data['SaleId'] : null;
         $this->container['TransactionId'] = isset($data['TransactionId']) ? $data['TransactionId'] : null;
@@ -187,7 +187,7 @@ class GetTransactionsRequest extends BaseModel
      *
      * @return int
      */
-    public function getSaleId()
+    public function getSaleId(): int
     {
         return $this->container['SaleId'];
     }
@@ -199,7 +199,9 @@ class GetTransactionsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSaleId($SaleId): self
+
+
+    public function setSaleId(int $SaleId): static
     {
         $this->container['SaleId'] = $SaleId;
 
@@ -211,7 +213,7 @@ class GetTransactionsRequest extends BaseModel
      *
      * @return int
      */
-    public function getTransactionId()
+    public function getTransactionId(): int
     {
         return $this->container['TransactionId'];
     }
@@ -223,7 +225,9 @@ class GetTransactionsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setTransactionId($TransactionId): self
+
+
+    public function setTransactionId(int $TransactionId): static
     {
         $this->container['TransactionId'] = $TransactionId;
 
@@ -235,7 +239,7 @@ class GetTransactionsRequest extends BaseModel
      *
      * @return int
      */
-    public function getClientId()
+    public function getClientId(): int
     {
         return $this->container['ClientId'];
     }
@@ -247,7 +251,9 @@ class GetTransactionsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClientId($ClientId): self
+
+
+    public function setClientId(int $ClientId): static
     {
         $this->container['ClientId'] = $ClientId;
 
@@ -259,7 +265,7 @@ class GetTransactionsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLocationId()
+    public function getLocationId(): int
     {
         return $this->container['LocationId'];
     }
@@ -271,7 +277,9 @@ class GetTransactionsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLocationId($LocationId): self
+
+
+    public function setLocationId(int $LocationId): static
     {
         $this->container['LocationId'] = $LocationId;
 
@@ -283,7 +291,7 @@ class GetTransactionsRequest extends BaseModel
      *
      * @return string
      */
-    public function getStatus()
+    public function getStatus(): string
     {
         return $this->container['Status'];
     }
@@ -295,7 +303,9 @@ class GetTransactionsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStatus($Status): self
+
+
+    public function setStatus(string $Status): static
     {
         $this->container['Status'] = $Status;
 
@@ -307,7 +317,7 @@ class GetTransactionsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getTransactionStartDateTime()
+    public function getTransactionStartDateTime(): \DateTime
     {
         return $this->container['TransactionStartDateTime'];
     }
@@ -319,7 +329,9 @@ class GetTransactionsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setTransactionStartDateTime($TransactionStartDateTime): self
+
+
+    public function setTransactionStartDateTime(\DateTime $TransactionStartDateTime): static
     {
         $this->container['TransactionStartDateTime'] = $TransactionStartDateTime;
 
@@ -331,7 +343,7 @@ class GetTransactionsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getTransactionEndDateTime()
+    public function getTransactionEndDateTime(): \DateTime
     {
         return $this->container['TransactionEndDateTime'];
     }
@@ -343,7 +355,9 @@ class GetTransactionsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setTransactionEndDateTime($TransactionEndDateTime): self
+
+
+    public function setTransactionEndDateTime(\DateTime $TransactionEndDateTime): static
     {
         $this->container['TransactionEndDateTime'] = $TransactionEndDateTime;
 
@@ -355,7 +369,7 @@ class GetTransactionsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit()
+    public function getLimit(): int
     {
         return $this->container['Limit'];
     }
@@ -367,7 +381,9 @@ class GetTransactionsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLimit($Limit): self
+
+
+    public function setLimit(int $Limit): static
     {
         $this->container['Limit'] = $Limit;
 
@@ -379,7 +395,7 @@ class GetTransactionsRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset()
+    public function getOffset(): int
     {
         return $this->container['Offset'];
     }
@@ -391,7 +407,9 @@ class GetTransactionsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOffset($Offset): self
+
+
+    public function setOffset(int $Offset): static
     {
         $this->container['Offset'] = $Offset;
 

@@ -47,14 +47,14 @@ class UpdateClientServiceResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UpdateClientServiceResponse';
+    protected static string $swaggerModelName = 'UpdateClientServiceResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ClientService' => '\Nlocascio\Mindbody\Model\ClientService'
     ];
 
@@ -63,7 +63,7 @@ class UpdateClientServiceResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ClientService' => null
     ];
 
@@ -74,7 +74,7 @@ class UpdateClientServiceResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ClientService' => 'ClientService'
     ];
 
@@ -83,7 +83,7 @@ class UpdateClientServiceResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ClientService' => 'setClientService'
     ];
 
@@ -92,7 +92,7 @@ class UpdateClientServiceResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ClientService' => 'getClientService'
     ];
 
@@ -107,7 +107,7 @@ class UpdateClientServiceResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ClientService'] = isset($data['ClientService']) ? $data['ClientService'] : null;
     }
@@ -130,7 +130,7 @@ class UpdateClientServiceResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClientService
      */
-    public function getClientService()
+    public function getClientService(): \Nlocascio\Mindbody\Model\ClientService
     {
         return $this->container['ClientService'];
     }
@@ -142,7 +142,9 @@ class UpdateClientServiceResponse extends BaseModel
      *
      * @return $this
      */
-    public function setClientService($ClientService): self
+
+
+    public function setClientService(\Nlocascio\Mindbody\Model\ClientService $ClientService): static
     {
         $this->container['ClientService'] = $ClientService;
 

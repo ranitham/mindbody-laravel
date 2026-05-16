@@ -53,14 +53,14 @@ class TimeCardEvent extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TimeCardEvent';
+    protected static string $swaggerModelName = 'TimeCardEvent';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'StaffId' => 'int',
         'Task' => 'string',
         'TimeIn' => '\DateTime',
@@ -75,7 +75,7 @@ class TimeCardEvent extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'StaffId' => 'int64',
         'Task' => null,
         'TimeIn' => 'date-time',
@@ -92,7 +92,7 @@ class TimeCardEvent extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'StaffId' => 'StaffId',
         'Task' => 'Task',
         'TimeIn' => 'TimeIn',
@@ -107,7 +107,7 @@ class TimeCardEvent extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'StaffId' => 'setStaffId',
         'Task' => 'setTask',
         'TimeIn' => 'setTimeIn',
@@ -122,7 +122,7 @@ class TimeCardEvent extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'StaffId' => 'getStaffId',
         'Task' => 'getTask',
         'TimeIn' => 'getTimeIn',
@@ -143,7 +143,7 @@ class TimeCardEvent extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['StaffId'] = isset($data['StaffId']) ? $data['StaffId'] : null;
         $this->container['Task'] = isset($data['Task']) ? $data['Task'] : null;
@@ -172,7 +172,7 @@ class TimeCardEvent extends BaseModel
      *
      * @return int
      */
-    public function getStaffId()
+    public function getStaffId(): int
     {
         return $this->container['StaffId'];
     }
@@ -184,7 +184,9 @@ class TimeCardEvent extends BaseModel
      *
      * @return $this
      */
-    public function setStaffId($StaffId): self
+
+
+    public function setStaffId(int $StaffId): static
     {
         $this->container['StaffId'] = $StaffId;
 
@@ -196,7 +198,7 @@ class TimeCardEvent extends BaseModel
      *
      * @return string
      */
-    public function getTask()
+    public function getTask(): string
     {
         return $this->container['Task'];
     }
@@ -208,7 +210,9 @@ class TimeCardEvent extends BaseModel
      *
      * @return $this
      */
-    public function setTask($Task): self
+
+
+    public function setTask(string $Task): static
     {
         $this->container['Task'] = $Task;
 
@@ -220,7 +224,7 @@ class TimeCardEvent extends BaseModel
      *
      * @return \DateTime
      */
-    public function getTimeIn()
+    public function getTimeIn(): \DateTime
     {
         return $this->container['TimeIn'];
     }
@@ -232,7 +236,9 @@ class TimeCardEvent extends BaseModel
      *
      * @return $this
      */
-    public function setTimeIn($TimeIn): self
+
+
+    public function setTimeIn(\DateTime $TimeIn): static
     {
         $this->container['TimeIn'] = $TimeIn;
 
@@ -244,7 +250,7 @@ class TimeCardEvent extends BaseModel
      *
      * @return \DateTime
      */
-    public function getTimeOut()
+    public function getTimeOut(): \DateTime
     {
         return $this->container['TimeOut'];
     }
@@ -256,7 +262,9 @@ class TimeCardEvent extends BaseModel
      *
      * @return $this
      */
-    public function setTimeOut($TimeOut): self
+
+
+    public function setTimeOut(\DateTime $TimeOut): static
     {
         $this->container['TimeOut'] = $TimeOut;
 
@@ -268,7 +276,7 @@ class TimeCardEvent extends BaseModel
      *
      * @return double
      */
-    public function getHours()
+    public function getHours(): float
     {
         return $this->container['Hours'];
     }
@@ -280,7 +288,9 @@ class TimeCardEvent extends BaseModel
      *
      * @return $this
      */
-    public function setHours($Hours): self
+
+
+    public function setHours(float $Hours): static
     {
         $this->container['Hours'] = $Hours;
 
@@ -292,7 +302,7 @@ class TimeCardEvent extends BaseModel
      *
      * @return double
      */
-    public function getHourlyRate()
+    public function getHourlyRate(): float
     {
         return $this->container['HourlyRate'];
     }
@@ -304,7 +314,9 @@ class TimeCardEvent extends BaseModel
      *
      * @return $this
      */
-    public function setHourlyRate($HourlyRate): self
+
+
+    public function setHourlyRate(float $HourlyRate): static
     {
         $this->container['HourlyRate'] = $HourlyRate;
 
@@ -316,7 +328,7 @@ class TimeCardEvent extends BaseModel
      *
      * @return double
      */
-    public function getEarnings()
+    public function getEarnings(): float
     {
         return $this->container['Earnings'];
     }
@@ -328,7 +340,9 @@ class TimeCardEvent extends BaseModel
      *
      * @return $this
      */
-    public function setEarnings($Earnings): self
+
+
+    public function setEarnings(float $Earnings): static
     {
         $this->container['Earnings'] = $Earnings;
 

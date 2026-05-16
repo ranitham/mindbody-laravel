@@ -51,14 +51,14 @@ class UpdateClientRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UpdateClientRequest';
+    protected static string $swaggerModelName = 'UpdateClientRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Client' => '\Nlocascio\Mindbody\Model\ClientWithSuspensionInfo',
         'Test' => 'bool',
         'CrossRegionalUpdate' => 'bool',
@@ -71,7 +71,7 @@ class UpdateClientRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Client' => null,
         'Test' => null,
         'CrossRegionalUpdate' => null,
@@ -86,7 +86,7 @@ class UpdateClientRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Client' => 'Client',
         'Test' => 'Test',
         'CrossRegionalUpdate' => 'CrossRegionalUpdate',
@@ -99,7 +99,7 @@ class UpdateClientRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Client' => 'setClient',
         'Test' => 'setTest',
         'CrossRegionalUpdate' => 'setCrossRegionalUpdate',
@@ -112,7 +112,7 @@ class UpdateClientRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Client' => 'getClient',
         'Test' => 'getTest',
         'CrossRegionalUpdate' => 'getCrossRegionalUpdate',
@@ -131,7 +131,7 @@ class UpdateClientRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Client'] = isset($data['Client']) ? $data['Client'] : null;
         $this->container['Test'] = isset($data['Test']) ? $data['Test'] : null;
@@ -161,7 +161,7 @@ class UpdateClientRequest extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClientWithSuspensionInfo
      */
-    public function getClient()
+    public function getClient(): \Nlocascio\Mindbody\Model\ClientWithSuspensionInfo
     {
         return $this->container['Client'];
     }
@@ -173,7 +173,9 @@ class UpdateClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClient($Client): self
+
+
+    public function setClient(\Nlocascio\Mindbody\Model\ClientWithSuspensionInfo $Client): static
     {
         $this->container['Client'] = $Client;
 
@@ -185,7 +187,7 @@ class UpdateClientRequest extends BaseModel
      *
      * @return bool
      */
-    public function getTest()
+    public function getTest(): bool
     {
         return $this->container['Test'];
     }
@@ -197,7 +199,9 @@ class UpdateClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setTest($Test): self
+
+
+    public function setTest(bool $Test): static
     {
         $this->container['Test'] = $Test;
 
@@ -209,7 +213,7 @@ class UpdateClientRequest extends BaseModel
      *
      * @return bool
      */
-    public function getCrossRegionalUpdate()
+    public function getCrossRegionalUpdate(): bool
     {
         return $this->container['CrossRegionalUpdate'];
     }
@@ -221,7 +225,9 @@ class UpdateClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setCrossRegionalUpdate($CrossRegionalUpdate): self
+
+
+    public function setCrossRegionalUpdate(bool $CrossRegionalUpdate): static
     {
         $this->container['CrossRegionalUpdate'] = $CrossRegionalUpdate;
 
@@ -233,7 +239,7 @@ class UpdateClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getNewId()
+    public function getNewId(): string
     {
         return $this->container['NewId'];
     }
@@ -245,7 +251,9 @@ class UpdateClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setNewId($NewId): self
+
+
+    public function setNewId(string $NewId): static
     {
         $this->container['NewId'] = $NewId;
 
@@ -257,7 +265,7 @@ class UpdateClientRequest extends BaseModel
      *
      * @return int
      */
-    public function getLeadChannelId()
+    public function getLeadChannelId(): int
     {
         return $this->container['LeadChannelId'];
     }
@@ -269,7 +277,9 @@ class UpdateClientRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLeadChannelId($LeadChannelId): self
+
+
+    public function setLeadChannelId(int $LeadChannelId): static
     {
         $this->container['LeadChannelId'] = $LeadChannelId;
 

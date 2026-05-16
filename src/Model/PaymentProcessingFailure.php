@@ -50,14 +50,14 @@ class PaymentProcessingFailure extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'PaymentProcessingFailure';
+    protected static string $swaggerModelName = 'PaymentProcessingFailure';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Type' => 'string',
         'Message' => 'string',
         'AuthenticationRedirectUrl' => 'string'
@@ -68,7 +68,7 @@ class PaymentProcessingFailure extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Type' => null,
         'Message' => null,
         'AuthenticationRedirectUrl' => null
@@ -81,7 +81,7 @@ class PaymentProcessingFailure extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Type' => 'Type',
         'Message' => 'Message',
         'AuthenticationRedirectUrl' => 'AuthenticationRedirectUrl'
@@ -92,7 +92,7 @@ class PaymentProcessingFailure extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Type' => 'setType',
         'Message' => 'setMessage',
         'AuthenticationRedirectUrl' => 'setAuthenticationRedirectUrl'
@@ -103,7 +103,7 @@ class PaymentProcessingFailure extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Type' => 'getType',
         'Message' => 'getMessage',
         'AuthenticationRedirectUrl' => 'getAuthenticationRedirectUrl'
@@ -120,7 +120,7 @@ class PaymentProcessingFailure extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Type'] = isset($data['Type']) ? $data['Type'] : null;
         $this->container['Message'] = isset($data['Message']) ? $data['Message'] : null;
@@ -145,7 +145,7 @@ class PaymentProcessingFailure extends BaseModel
      *
      * @return string
      */
-    public function getType()
+    public function getType(): string
     {
         return $this->container['Type'];
     }
@@ -157,7 +157,9 @@ class PaymentProcessingFailure extends BaseModel
      *
      * @return $this
      */
-    public function setType($Type): self
+
+
+    public function setType(string $Type): static
     {
         $this->container['Type'] = $Type;
 
@@ -169,7 +171,7 @@ class PaymentProcessingFailure extends BaseModel
      *
      * @return string
      */
-    public function getMessage()
+    public function getMessage(): string
     {
         return $this->container['Message'];
     }
@@ -181,7 +183,9 @@ class PaymentProcessingFailure extends BaseModel
      *
      * @return $this
      */
-    public function setMessage($Message): self
+
+
+    public function setMessage(string $Message): static
     {
         $this->container['Message'] = $Message;
 
@@ -193,7 +197,7 @@ class PaymentProcessingFailure extends BaseModel
      *
      * @return string
      */
-    public function getAuthenticationRedirectUrl()
+    public function getAuthenticationRedirectUrl(): string
     {
         return $this->container['AuthenticationRedirectUrl'];
     }
@@ -205,7 +209,9 @@ class PaymentProcessingFailure extends BaseModel
      *
      * @return $this
      */
-    public function setAuthenticationRedirectUrl($AuthenticationRedirectUrl): self
+
+
+    public function setAuthenticationRedirectUrl(string $AuthenticationRedirectUrl): static
     {
         $this->container['AuthenticationRedirectUrl'] = $AuthenticationRedirectUrl;
 

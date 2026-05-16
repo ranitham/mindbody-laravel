@@ -49,14 +49,14 @@ class ApiError extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ApiError';
+    protected static string $swaggerModelName = 'ApiError';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Message' => 'string',
         'Code' => 'string',
         'ReasonCode' => 'string'
@@ -67,7 +67,7 @@ class ApiError extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Message' => null,
         'Code' => null,
         'ReasonCode' => null
@@ -80,7 +80,7 @@ class ApiError extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Message' => 'Message',
         'Code' => 'Code',
         'ReasonCode' => 'ReasonCode'
@@ -91,7 +91,7 @@ class ApiError extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Message' => 'setMessage',
         'Code' => 'setCode',
         'ReasonCode' => 'setReasonCode'
@@ -102,7 +102,7 @@ class ApiError extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Message' => 'getMessage',
         'Code' => 'getCode',
         'ReasonCode' => 'getReasonCode'
@@ -119,7 +119,7 @@ class ApiError extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Message'] = isset($data['Message']) ? $data['Message'] : null;
         $this->container['Code'] = isset($data['Code']) ? $data['Code'] : null;
@@ -144,7 +144,7 @@ class ApiError extends BaseModel
      *
      * @return string
      */
-    public function getMessage()
+    public function getMessage(): string
     {
         return $this->container['Message'];
     }
@@ -156,7 +156,9 @@ class ApiError extends BaseModel
      *
      * @return $this
      */
-    public function setMessage($Message): self
+
+
+    public function setMessage(string $Message): static
     {
         $this->container['Message'] = $Message;
 
@@ -168,7 +170,7 @@ class ApiError extends BaseModel
      *
      * @return string
      */
-    public function getCode()
+    public function getCode(): string
     {
         return $this->container['Code'];
     }
@@ -180,7 +182,9 @@ class ApiError extends BaseModel
      *
      * @return $this
      */
-    public function setCode($Code): self
+
+
+    public function setCode(string $Code): static
     {
         $this->container['Code'] = $Code;
 
@@ -192,7 +196,7 @@ class ApiError extends BaseModel
      *
      * @return string
      */
-    public function getReasonCode()
+    public function getReasonCode(): string
     {
         return $this->container['ReasonCode'];
     }
@@ -204,7 +208,9 @@ class ApiError extends BaseModel
      *
      * @return $this
      */
-    public function setReasonCode($ReasonCode): self
+
+
+    public function setReasonCode(string $ReasonCode): static
     {
         $this->container['ReasonCode'] = $ReasonCode;
 

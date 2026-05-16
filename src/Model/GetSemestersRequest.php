@@ -53,14 +53,14 @@ class GetSemestersRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetSemestersRequest';
+    protected static string $swaggerModelName = 'GetSemestersRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'SemesterIDs' => 'int[]',
         'StartDate' => '\DateTime',
         'EndDate' => '\DateTime',
@@ -74,7 +74,7 @@ class GetSemestersRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'SemesterIDs' => 'int32',
         'StartDate' => 'date-time',
         'EndDate' => 'date-time',
@@ -90,7 +90,7 @@ class GetSemestersRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'SemesterIDs' => 'SemesterIDs',
         'StartDate' => 'StartDate',
         'EndDate' => 'EndDate',
@@ -104,7 +104,7 @@ class GetSemestersRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'SemesterIDs' => 'setSemesterIDs',
         'StartDate' => 'setStartDate',
         'EndDate' => 'setEndDate',
@@ -118,7 +118,7 @@ class GetSemestersRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'SemesterIDs' => 'getSemesterIDs',
         'StartDate' => 'getStartDate',
         'EndDate' => 'getEndDate',
@@ -138,7 +138,7 @@ class GetSemestersRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['SemesterIDs'] = isset($data['SemesterIDs']) ? $data['SemesterIDs'] : null;
         $this->container['StartDate'] = isset($data['StartDate']) ? $data['StartDate'] : null;
@@ -166,7 +166,7 @@ class GetSemestersRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getSemesterIDs()
+    public function getSemesterIDs(): array
     {
         return $this->container['SemesterIDs'];
     }
@@ -178,7 +178,9 @@ class GetSemestersRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSemesterIDs($SemesterIDs): self
+
+
+    public function setSemesterIDs(array $SemesterIDs): static
     {
         $this->container['SemesterIDs'] = $SemesterIDs;
 
@@ -190,7 +192,7 @@ class GetSemestersRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDate()
+    public function getStartDate(): \DateTime
     {
         return $this->container['StartDate'];
     }
@@ -202,7 +204,9 @@ class GetSemestersRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStartDate($StartDate): self
+
+
+    public function setStartDate(\DateTime $StartDate): static
     {
         $this->container['StartDate'] = $StartDate;
 
@@ -214,7 +218,7 @@ class GetSemestersRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDate()
+    public function getEndDate(): \DateTime
     {
         return $this->container['EndDate'];
     }
@@ -226,7 +230,9 @@ class GetSemestersRequest extends BaseModel
      *
      * @return $this
      */
-    public function setEndDate($EndDate): self
+
+
+    public function setEndDate(\DateTime $EndDate): static
     {
         $this->container['EndDate'] = $EndDate;
 
@@ -238,7 +244,7 @@ class GetSemestersRequest extends BaseModel
      *
      * @return bool
      */
-    public function getActive()
+    public function getActive(): bool
     {
         return $this->container['Active'];
     }
@@ -250,7 +256,9 @@ class GetSemestersRequest extends BaseModel
      *
      * @return $this
      */
-    public function setActive($Active): self
+
+
+    public function setActive(bool $Active): static
     {
         $this->container['Active'] = $Active;
 
@@ -262,7 +270,7 @@ class GetSemestersRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit()
+    public function getLimit(): int
     {
         return $this->container['Limit'];
     }
@@ -274,7 +282,9 @@ class GetSemestersRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLimit($Limit): self
+
+
+    public function setLimit(int $Limit): static
     {
         $this->container['Limit'] = $Limit;
 
@@ -286,7 +296,7 @@ class GetSemestersRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset()
+    public function getOffset(): int
     {
         return $this->container['Offset'];
     }
@@ -298,7 +308,9 @@ class GetSemestersRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOffset($Offset): self
+
+
+    public function setOffset(int $Offset): static
     {
         $this->container['Offset'] = $Offset;
 

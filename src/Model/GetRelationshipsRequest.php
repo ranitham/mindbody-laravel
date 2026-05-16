@@ -50,14 +50,14 @@ class GetRelationshipsRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetRelationshipsRequest';
+    protected static string $swaggerModelName = 'GetRelationshipsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Active' => 'bool',
         'Limit' => 'int',
         'Offset' => 'int'
@@ -68,7 +68,7 @@ class GetRelationshipsRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Active' => null,
         'Limit' => 'int32',
         'Offset' => 'int32'
@@ -81,7 +81,7 @@ class GetRelationshipsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Active' => 'Active',
         'Limit' => 'Limit',
         'Offset' => 'Offset'
@@ -92,7 +92,7 @@ class GetRelationshipsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Active' => 'setActive',
         'Limit' => 'setLimit',
         'Offset' => 'setOffset'
@@ -103,7 +103,7 @@ class GetRelationshipsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Active' => 'getActive',
         'Limit' => 'getLimit',
         'Offset' => 'getOffset'
@@ -120,7 +120,7 @@ class GetRelationshipsRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Active'] = isset($data['Active']) ? $data['Active'] : null;
         $this->container['Limit'] = isset($data['Limit']) ? $data['Limit'] : null;
@@ -145,7 +145,7 @@ class GetRelationshipsRequest extends BaseModel
      *
      * @return bool
      */
-    public function getActive()
+    public function getActive(): bool
     {
         return $this->container['Active'];
     }
@@ -157,7 +157,9 @@ class GetRelationshipsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setActive($Active): self
+
+
+    public function setActive(bool $Active): static
     {
         $this->container['Active'] = $Active;
 
@@ -169,7 +171,7 @@ class GetRelationshipsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit()
+    public function getLimit(): int
     {
         return $this->container['Limit'];
     }
@@ -181,7 +183,9 @@ class GetRelationshipsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLimit($Limit): self
+
+
+    public function setLimit(int $Limit): static
     {
         $this->container['Limit'] = $Limit;
 
@@ -193,7 +197,7 @@ class GetRelationshipsRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset()
+    public function getOffset(): int
     {
         return $this->container['Offset'];
     }
@@ -205,7 +209,9 @@ class GetRelationshipsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOffset($Offset): self
+
+
+    public function setOffset(int $Offset): static
     {
         $this->container['Offset'] = $Offset;
 

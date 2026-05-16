@@ -48,14 +48,14 @@ class GetLocationsResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetLocationsResponse';
+    protected static string $swaggerModelName = 'GetLocationsResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'PaginationResponse' => '\Nlocascio\Mindbody\Model\PaginationResponse',
         'Locations' => '\Nlocascio\Mindbody\Model\Location[]'
     ];
@@ -65,7 +65,7 @@ class GetLocationsResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'PaginationResponse' => null,
         'Locations' => null
     ];
@@ -77,7 +77,7 @@ class GetLocationsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'PaginationResponse' => 'PaginationResponse',
         'Locations' => 'Locations'
     ];
@@ -87,7 +87,7 @@ class GetLocationsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'PaginationResponse' => 'setPaginationResponse',
         'Locations' => 'setLocations'
     ];
@@ -97,7 +97,7 @@ class GetLocationsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'PaginationResponse' => 'getPaginationResponse',
         'Locations' => 'getLocations'
     ];
@@ -113,7 +113,7 @@ class GetLocationsResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['PaginationResponse'] = isset($data['PaginationResponse']) ? $data['PaginationResponse'] : null;
         $this->container['Locations'] = isset($data['Locations']) ? $data['Locations'] : null;
@@ -137,7 +137,7 @@ class GetLocationsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse()
+    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
     {
         return $this->container['PaginationResponse'];
     }
@@ -149,7 +149,9 @@ class GetLocationsResponse extends BaseModel
      *
      * @return $this
      */
-    public function setPaginationResponse($PaginationResponse): self
+
+
+    public function setPaginationResponse(\Nlocascio\Mindbody\Model\PaginationResponse $PaginationResponse): static
     {
         $this->container['PaginationResponse'] = $PaginationResponse;
 
@@ -161,7 +163,7 @@ class GetLocationsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Location[]
      */
-    public function getLocations()
+    public function getLocations(): array
     {
         return $this->container['Locations'];
     }
@@ -173,7 +175,9 @@ class GetLocationsResponse extends BaseModel
      *
      * @return $this
      */
-    public function setLocations($Locations): self
+
+
+    public function setLocations(array $Locations): static
     {
         $this->container['Locations'] = $Locations;
 

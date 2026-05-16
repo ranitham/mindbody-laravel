@@ -48,14 +48,14 @@ class GetActiveSessionTimesResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetActiveSessionTimesResponse';
+    protected static string $swaggerModelName = 'GetActiveSessionTimesResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'PaginationResponse' => '\Nlocascio\Mindbody\Model\PaginationResponse',
         'ActiveSessionTimes' => 'string[]'
     ];
@@ -65,7 +65,7 @@ class GetActiveSessionTimesResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'PaginationResponse' => null,
         'ActiveSessionTimes' => null
     ];
@@ -77,7 +77,7 @@ class GetActiveSessionTimesResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'PaginationResponse' => 'PaginationResponse',
         'ActiveSessionTimes' => 'ActiveSessionTimes'
     ];
@@ -87,7 +87,7 @@ class GetActiveSessionTimesResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'PaginationResponse' => 'setPaginationResponse',
         'ActiveSessionTimes' => 'setActiveSessionTimes'
     ];
@@ -97,7 +97,7 @@ class GetActiveSessionTimesResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'PaginationResponse' => 'getPaginationResponse',
         'ActiveSessionTimes' => 'getActiveSessionTimes'
     ];
@@ -113,7 +113,7 @@ class GetActiveSessionTimesResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['PaginationResponse'] = isset($data['PaginationResponse']) ? $data['PaginationResponse'] : null;
         $this->container['ActiveSessionTimes'] = isset($data['ActiveSessionTimes']) ? $data['ActiveSessionTimes'] : null;
@@ -137,7 +137,7 @@ class GetActiveSessionTimesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse()
+    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
     {
         return $this->container['PaginationResponse'];
     }
@@ -149,7 +149,9 @@ class GetActiveSessionTimesResponse extends BaseModel
      *
      * @return $this
      */
-    public function setPaginationResponse($PaginationResponse): self
+
+
+    public function setPaginationResponse(\Nlocascio\Mindbody\Model\PaginationResponse $PaginationResponse): static
     {
         $this->container['PaginationResponse'] = $PaginationResponse;
 
@@ -161,7 +163,7 @@ class GetActiveSessionTimesResponse extends BaseModel
      *
      * @return string[]
      */
-    public function getActiveSessionTimes()
+    public function getActiveSessionTimes(): array
     {
         return $this->container['ActiveSessionTimes'];
     }
@@ -173,7 +175,9 @@ class GetActiveSessionTimesResponse extends BaseModel
      *
      * @return $this
      */
-    public function setActiveSessionTimes($ActiveSessionTimes): self
+
+
+    public function setActiveSessionTimes(array $ActiveSessionTimes): static
     {
         $this->container['ActiveSessionTimes'] = $ActiveSessionTimes;
 

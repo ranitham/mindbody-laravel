@@ -51,14 +51,14 @@ class ScheduledServiceEarningsEvent extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ScheduledServiceEarningsEvent';
+    protected static string $swaggerModelName = 'ScheduledServiceEarningsEvent';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'StaffId' => 'int',
         'ScheduledServiceId' => 'int',
         'ScheduledServiceType' => 'string',
@@ -71,7 +71,7 @@ class ScheduledServiceEarningsEvent extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'StaffId' => 'int64',
         'ScheduledServiceId' => 'int64',
         'ScheduledServiceType' => null,
@@ -86,7 +86,7 @@ class ScheduledServiceEarningsEvent extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'StaffId' => 'StaffId',
         'ScheduledServiceId' => 'ScheduledServiceId',
         'ScheduledServiceType' => 'ScheduledServiceType',
@@ -99,7 +99,7 @@ class ScheduledServiceEarningsEvent extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'StaffId' => 'setStaffId',
         'ScheduledServiceId' => 'setScheduledServiceId',
         'ScheduledServiceType' => 'setScheduledServiceType',
@@ -112,7 +112,7 @@ class ScheduledServiceEarningsEvent extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'StaffId' => 'getStaffId',
         'ScheduledServiceId' => 'getScheduledServiceId',
         'ScheduledServiceType' => 'getScheduledServiceType',
@@ -150,7 +150,7 @@ class ScheduledServiceEarningsEvent extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['StaffId'] = isset($data['StaffId']) ? $data['StaffId'] : null;
         $this->container['ScheduledServiceId'] = isset($data['ScheduledServiceId']) ? $data['ScheduledServiceId'] : null;
@@ -185,7 +185,7 @@ class ScheduledServiceEarningsEvent extends BaseModel
      *
      * @return int
      */
-    public function getStaffId()
+    public function getStaffId(): int
     {
         return $this->container['StaffId'];
     }
@@ -197,7 +197,9 @@ class ScheduledServiceEarningsEvent extends BaseModel
      *
      * @return $this
      */
-    public function setStaffId($StaffId): self
+
+
+    public function setStaffId(int $StaffId): static
     {
         $this->container['StaffId'] = $StaffId;
 
@@ -209,7 +211,7 @@ class ScheduledServiceEarningsEvent extends BaseModel
      *
      * @return int
      */
-    public function getScheduledServiceId()
+    public function getScheduledServiceId(): int
     {
         return $this->container['ScheduledServiceId'];
     }
@@ -221,7 +223,9 @@ class ScheduledServiceEarningsEvent extends BaseModel
      *
      * @return $this
      */
-    public function setScheduledServiceId($ScheduledServiceId): self
+
+
+    public function setScheduledServiceId(int $ScheduledServiceId): static
     {
         $this->container['ScheduledServiceId'] = $ScheduledServiceId;
 
@@ -233,7 +237,7 @@ class ScheduledServiceEarningsEvent extends BaseModel
      *
      * @return string
      */
-    public function getScheduledServiceType()
+    public function getScheduledServiceType(): string
     {
         return $this->container['ScheduledServiceType'];
     }
@@ -245,7 +249,9 @@ class ScheduledServiceEarningsEvent extends BaseModel
      *
      * @return $this
      */
-    public function setScheduledServiceType($ScheduledServiceType): self
+
+
+    public function setScheduledServiceType(string $ScheduledServiceType): static
     {
         $allowedValues = $this->getScheduledServiceTypeAllowableValues();
         if (!is_null($ScheduledServiceType) && !in_array($ScheduledServiceType, $allowedValues, true)) {
@@ -266,7 +272,7 @@ class ScheduledServiceEarningsEvent extends BaseModel
      *
      * @return double
      */
-    public function getEarnings()
+    public function getEarnings(): float
     {
         return $this->container['Earnings'];
     }
@@ -278,7 +284,9 @@ class ScheduledServiceEarningsEvent extends BaseModel
      *
      * @return $this
      */
-    public function setEarnings($Earnings): self
+
+
+    public function setEarnings(float $Earnings): static
     {
         $this->container['Earnings'] = $Earnings;
 
@@ -290,7 +298,7 @@ class ScheduledServiceEarningsEvent extends BaseModel
      *
      * @return \DateTime
      */
-    public function getDateTime()
+    public function getDateTime(): \DateTime
     {
         return $this->container['DateTime'];
     }
@@ -302,7 +310,9 @@ class ScheduledServiceEarningsEvent extends BaseModel
      *
      * @return $this
      */
-    public function setDateTime($DateTime): self
+
+
+    public function setDateTime(\DateTime $DateTime): static
     {
         $this->container['DateTime'] = $DateTime;
 

@@ -53,14 +53,14 @@ class GetScheduleItemsRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetScheduleItemsRequest';
+    protected static string $swaggerModelName = 'GetScheduleItemsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'LocationIds' => 'int[]',
         'StaffIds' => 'int[]',
         'StartDate' => '\DateTime',
@@ -75,7 +75,7 @@ class GetScheduleItemsRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'LocationIds' => 'int32',
         'StaffIds' => 'int64',
         'StartDate' => 'date-time',
@@ -92,7 +92,7 @@ class GetScheduleItemsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'LocationIds' => 'LocationIds',
         'StaffIds' => 'StaffIds',
         'StartDate' => 'StartDate',
@@ -107,7 +107,7 @@ class GetScheduleItemsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'LocationIds' => 'setLocationIds',
         'StaffIds' => 'setStaffIds',
         'StartDate' => 'setStartDate',
@@ -122,7 +122,7 @@ class GetScheduleItemsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'LocationIds' => 'getLocationIds',
         'StaffIds' => 'getStaffIds',
         'StartDate' => 'getStartDate',
@@ -143,7 +143,7 @@ class GetScheduleItemsRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['LocationIds'] = isset($data['LocationIds']) ? $data['LocationIds'] : null;
         $this->container['StaffIds'] = isset($data['StaffIds']) ? $data['StaffIds'] : null;
@@ -172,7 +172,7 @@ class GetScheduleItemsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getLocationIds()
+    public function getLocationIds(): array
     {
         return $this->container['LocationIds'];
     }
@@ -184,7 +184,9 @@ class GetScheduleItemsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLocationIds($LocationIds): self
+
+
+    public function setLocationIds(array $LocationIds): static
     {
         $this->container['LocationIds'] = $LocationIds;
 
@@ -196,7 +198,7 @@ class GetScheduleItemsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getStaffIds()
+    public function getStaffIds(): array
     {
         return $this->container['StaffIds'];
     }
@@ -208,7 +210,9 @@ class GetScheduleItemsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStaffIds($StaffIds): self
+
+
+    public function setStaffIds(array $StaffIds): static
     {
         $this->container['StaffIds'] = $StaffIds;
 
@@ -220,7 +224,7 @@ class GetScheduleItemsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDate()
+    public function getStartDate(): \DateTime
     {
         return $this->container['StartDate'];
     }
@@ -232,7 +236,9 @@ class GetScheduleItemsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStartDate($StartDate): self
+
+
+    public function setStartDate(\DateTime $StartDate): static
     {
         $this->container['StartDate'] = $StartDate;
 
@@ -244,7 +250,7 @@ class GetScheduleItemsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDate()
+    public function getEndDate(): \DateTime
     {
         return $this->container['EndDate'];
     }
@@ -256,7 +262,9 @@ class GetScheduleItemsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setEndDate($EndDate): self
+
+
+    public function setEndDate(\DateTime $EndDate): static
     {
         $this->container['EndDate'] = $EndDate;
 
@@ -268,7 +276,7 @@ class GetScheduleItemsRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIgnorePrepFinishTimes()
+    public function getIgnorePrepFinishTimes(): bool
     {
         return $this->container['IgnorePrepFinishTimes'];
     }
@@ -280,7 +288,9 @@ class GetScheduleItemsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setIgnorePrepFinishTimes($IgnorePrepFinishTimes): self
+
+
+    public function setIgnorePrepFinishTimes(bool $IgnorePrepFinishTimes): static
     {
         $this->container['IgnorePrepFinishTimes'] = $IgnorePrepFinishTimes;
 
@@ -292,7 +302,7 @@ class GetScheduleItemsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit()
+    public function getLimit(): int
     {
         return $this->container['Limit'];
     }
@@ -304,7 +314,9 @@ class GetScheduleItemsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLimit($Limit): self
+
+
+    public function setLimit(int $Limit): static
     {
         $this->container['Limit'] = $Limit;
 
@@ -316,7 +328,7 @@ class GetScheduleItemsRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset()
+    public function getOffset(): int
     {
         return $this->container['Offset'];
     }
@@ -328,7 +340,9 @@ class GetScheduleItemsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOffset($Offset): self
+
+
+    public function setOffset(int $Offset): static
     {
         $this->container['Offset'] = $Offset;
 

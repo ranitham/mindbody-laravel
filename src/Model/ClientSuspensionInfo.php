@@ -50,14 +50,14 @@ class ClientSuspensionInfo extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ClientSuspensionInfo';
+    protected static string $swaggerModelName = 'ClientSuspensionInfo';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'BookingSuspended' => 'bool',
         'SuspensionStartDate' => 'string',
         'SuspensionEndDate' => 'string'
@@ -68,7 +68,7 @@ class ClientSuspensionInfo extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'BookingSuspended' => null,
         'SuspensionStartDate' => null,
         'SuspensionEndDate' => null
@@ -81,7 +81,7 @@ class ClientSuspensionInfo extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'BookingSuspended' => 'BookingSuspended',
         'SuspensionStartDate' => 'SuspensionStartDate',
         'SuspensionEndDate' => 'SuspensionEndDate'
@@ -92,7 +92,7 @@ class ClientSuspensionInfo extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'BookingSuspended' => 'setBookingSuspended',
         'SuspensionStartDate' => 'setSuspensionStartDate',
         'SuspensionEndDate' => 'setSuspensionEndDate'
@@ -103,7 +103,7 @@ class ClientSuspensionInfo extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'BookingSuspended' => 'getBookingSuspended',
         'SuspensionStartDate' => 'getSuspensionStartDate',
         'SuspensionEndDate' => 'getSuspensionEndDate'
@@ -120,7 +120,7 @@ class ClientSuspensionInfo extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['BookingSuspended'] = isset($data['BookingSuspended']) ? $data['BookingSuspended'] : null;
         $this->container['SuspensionStartDate'] = isset($data['SuspensionStartDate']) ? $data['SuspensionStartDate'] : null;
@@ -145,7 +145,7 @@ class ClientSuspensionInfo extends BaseModel
      *
      * @return bool
      */
-    public function getBookingSuspended()
+    public function getBookingSuspended(): bool
     {
         return $this->container['BookingSuspended'];
     }
@@ -157,7 +157,9 @@ class ClientSuspensionInfo extends BaseModel
      *
      * @return $this
      */
-    public function setBookingSuspended($BookingSuspended): self
+
+
+    public function setBookingSuspended(bool $BookingSuspended): static
     {
         $this->container['BookingSuspended'] = $BookingSuspended;
 
@@ -169,7 +171,7 @@ class ClientSuspensionInfo extends BaseModel
      *
      * @return string
      */
-    public function getSuspensionStartDate()
+    public function getSuspensionStartDate(): string
     {
         return $this->container['SuspensionStartDate'];
     }
@@ -181,7 +183,9 @@ class ClientSuspensionInfo extends BaseModel
      *
      * @return $this
      */
-    public function setSuspensionStartDate($SuspensionStartDate): self
+
+
+    public function setSuspensionStartDate(string $SuspensionStartDate): static
     {
         $this->container['SuspensionStartDate'] = $SuspensionStartDate;
 
@@ -193,7 +197,7 @@ class ClientSuspensionInfo extends BaseModel
      *
      * @return string
      */
-    public function getSuspensionEndDate()
+    public function getSuspensionEndDate(): string
     {
         return $this->container['SuspensionEndDate'];
     }
@@ -205,7 +209,9 @@ class ClientSuspensionInfo extends BaseModel
      *
      * @return $this
      */
-    public function setSuspensionEndDate($SuspensionEndDate): self
+
+
+    public function setSuspensionEndDate(string $SuspensionEndDate): static
     {
         $this->container['SuspensionEndDate'] = $SuspensionEndDate;
 

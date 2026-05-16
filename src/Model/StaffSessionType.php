@@ -52,7 +52,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property double $PayRateAmount The pay rate amount
  *
  */
-class StaffSessionType extends BaseModel implements ModelWithId
+class StaffSessionType extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -61,14 +61,14 @@ class StaffSessionType extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'StaffSessionType';
+    protected static string $swaggerModelName = 'StaffSessionType';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'StaffId' => 'int',
         'Type' => 'string',
         'Id' => 'int',
@@ -91,7 +91,7 @@ class StaffSessionType extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'StaffId' => 'int64',
         'Type' => null,
         'Id' => 'int32',
@@ -116,7 +116,7 @@ class StaffSessionType extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'StaffId' => 'StaffId',
         'Type' => 'Type',
         'Id' => 'Id',
@@ -139,7 +139,7 @@ class StaffSessionType extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'StaffId' => 'setStaffId',
         'Type' => 'setType',
         'Id' => 'setId',
@@ -162,7 +162,7 @@ class StaffSessionType extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'StaffId' => 'getStaffId',
         'Type' => 'getType',
         'Id' => 'getId',
@@ -216,7 +216,7 @@ class StaffSessionType extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['StaffId'] = isset($data['StaffId']) ? $data['StaffId'] : null;
         $this->container['Type'] = isset($data['Type']) ? $data['Type'] : null;
@@ -261,7 +261,7 @@ class StaffSessionType extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getStaffId()
+    public function getStaffId(): int
     {
         return $this->container['StaffId'];
     }
@@ -273,7 +273,9 @@ class StaffSessionType extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setStaffId($StaffId): self
+
+
+    public function setStaffId(int $StaffId): static
     {
         $this->container['StaffId'] = $StaffId;
 
@@ -285,7 +287,7 @@ class StaffSessionType extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getType()
+    public function getType(): string
     {
         return $this->container['Type'];
     }
@@ -297,7 +299,9 @@ class StaffSessionType extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setType($Type): self
+
+
+    public function setType(string $Type): static
     {
         $allowedValues = $this->getTypeAllowableValues();
         if (!is_null($Type) && !in_array($Type, $allowedValues, true)) {
@@ -318,7 +322,7 @@ class StaffSessionType extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -330,7 +334,9 @@ class StaffSessionType extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -342,7 +348,7 @@ class StaffSessionType extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->container['Name'];
     }
@@ -354,7 +360,9 @@ class StaffSessionType extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setName($Name): self
+
+
+    public function setName(string $Name): static
     {
         $this->container['Name'] = $Name;
 
@@ -366,7 +374,7 @@ class StaffSessionType extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getNumDeducted()
+    public function getNumDeducted(): int
     {
         return $this->container['NumDeducted'];
     }
@@ -378,7 +386,9 @@ class StaffSessionType extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setNumDeducted($NumDeducted): self
+
+
+    public function setNumDeducted(int $NumDeducted): static
     {
         $this->container['NumDeducted'] = $NumDeducted;
 
@@ -390,7 +400,7 @@ class StaffSessionType extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getProgramId()
+    public function getProgramId(): int
     {
         return $this->container['ProgramId'];
     }
@@ -402,7 +412,9 @@ class StaffSessionType extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setProgramId($ProgramId): self
+
+
+    public function setProgramId(int $ProgramId): static
     {
         $this->container['ProgramId'] = $ProgramId;
 
@@ -414,7 +426,7 @@ class StaffSessionType extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getCategory()
+    public function getCategory(): string
     {
         return $this->container['Category'];
     }
@@ -426,7 +438,9 @@ class StaffSessionType extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setCategory($Category): self
+
+
+    public function setCategory(string $Category): static
     {
         $this->container['Category'] = $Category;
 
@@ -438,7 +452,7 @@ class StaffSessionType extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getCategoryId()
+    public function getCategoryId(): int
     {
         return $this->container['CategoryId'];
     }
@@ -450,7 +464,9 @@ class StaffSessionType extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setCategoryId($CategoryId): self
+
+
+    public function setCategoryId(int $CategoryId): static
     {
         $this->container['CategoryId'] = $CategoryId;
 
@@ -462,7 +478,7 @@ class StaffSessionType extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getSubcategory()
+    public function getSubcategory(): string
     {
         return $this->container['Subcategory'];
     }
@@ -474,7 +490,9 @@ class StaffSessionType extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSubcategory($Subcategory): self
+
+
+    public function setSubcategory(string $Subcategory): static
     {
         $this->container['Subcategory'] = $Subcategory;
 
@@ -486,7 +504,7 @@ class StaffSessionType extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getSubcategoryId()
+    public function getSubcategoryId(): int
     {
         return $this->container['SubcategoryId'];
     }
@@ -498,7 +516,9 @@ class StaffSessionType extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSubcategoryId($SubcategoryId): self
+
+
+    public function setSubcategoryId(int $SubcategoryId): static
     {
         $this->container['SubcategoryId'] = $SubcategoryId;
 
@@ -510,7 +530,7 @@ class StaffSessionType extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getTimeLength()
+    public function getTimeLength(): int
     {
         return $this->container['TimeLength'];
     }
@@ -522,7 +542,9 @@ class StaffSessionType extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setTimeLength($TimeLength): self
+
+
+    public function setTimeLength(int $TimeLength): static
     {
         $this->container['TimeLength'] = $TimeLength;
 
@@ -534,7 +556,7 @@ class StaffSessionType extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getPrepTime()
+    public function getPrepTime(): int
     {
         return $this->container['PrepTime'];
     }
@@ -546,7 +568,9 @@ class StaffSessionType extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setPrepTime($PrepTime): self
+
+
+    public function setPrepTime(int $PrepTime): static
     {
         $this->container['PrepTime'] = $PrepTime;
 
@@ -558,7 +582,7 @@ class StaffSessionType extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getFinishTime()
+    public function getFinishTime(): int
     {
         return $this->container['FinishTime'];
     }
@@ -570,7 +594,9 @@ class StaffSessionType extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setFinishTime($FinishTime): self
+
+
+    public function setFinishTime(int $FinishTime): static
     {
         $this->container['FinishTime'] = $FinishTime;
 
@@ -582,7 +608,7 @@ class StaffSessionType extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getPayRateType()
+    public function getPayRateType(): string
     {
         return $this->container['PayRateType'];
     }
@@ -594,7 +620,9 @@ class StaffSessionType extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setPayRateType($PayRateType): self
+
+
+    public function setPayRateType(string $PayRateType): static
     {
         $this->container['PayRateType'] = $PayRateType;
 
@@ -606,7 +634,7 @@ class StaffSessionType extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getPayRateAmount()
+    public function getPayRateAmount(): float
     {
         return $this->container['PayRateAmount'];
     }
@@ -618,7 +646,9 @@ class StaffSessionType extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setPayRateAmount($PayRateAmount): self
+
+
+    public function setPayRateAmount(float $PayRateAmount): static
     {
         $this->container['PayRateAmount'] = $PayRateAmount;
 

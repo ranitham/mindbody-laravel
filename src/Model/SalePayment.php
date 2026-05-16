@@ -43,7 +43,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property int $TransactionId The ID of transaction. Use this ID when calling the GET Transactions endpoint.
  *
  */
-class SalePayment extends BaseModel implements ModelWithId
+class SalePayment extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -52,14 +52,14 @@ class SalePayment extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SalePayment';
+    protected static string $swaggerModelName = 'SalePayment';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Id' => 'int',
         'Amount' => 'double',
         'Method' => 'int',
@@ -73,7 +73,7 @@ class SalePayment extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Id' => 'int64',
         'Amount' => 'double',
         'Method' => 'int32',
@@ -89,7 +89,7 @@ class SalePayment extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Id' => 'Id',
         'Amount' => 'Amount',
         'Method' => 'Method',
@@ -103,7 +103,7 @@ class SalePayment extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Id' => 'setId',
         'Amount' => 'setAmount',
         'Method' => 'setMethod',
@@ -117,7 +117,7 @@ class SalePayment extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Id' => 'getId',
         'Amount' => 'getAmount',
         'Method' => 'getMethod',
@@ -137,7 +137,7 @@ class SalePayment extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
         $this->container['Amount'] = isset($data['Amount']) ? $data['Amount'] : null;
@@ -165,7 +165,7 @@ class SalePayment extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -177,7 +177,9 @@ class SalePayment extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -189,7 +191,7 @@ class SalePayment extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getAmount()
+    public function getAmount(): float
     {
         return $this->container['Amount'];
     }
@@ -201,7 +203,9 @@ class SalePayment extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAmount($Amount): self
+
+
+    public function setAmount(float $Amount): static
     {
         $this->container['Amount'] = $Amount;
 
@@ -213,7 +217,7 @@ class SalePayment extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getMethod()
+    public function getMethod(): int
     {
         return $this->container['Method'];
     }
@@ -225,7 +229,9 @@ class SalePayment extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setMethod($Method): self
+
+
+    public function setMethod(int $Method): static
     {
         $this->container['Method'] = $Method;
 
@@ -237,7 +243,7 @@ class SalePayment extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getType()
+    public function getType(): string
     {
         return $this->container['Type'];
     }
@@ -249,7 +255,9 @@ class SalePayment extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setType($Type): self
+
+
+    public function setType(string $Type): static
     {
         $this->container['Type'] = $Type;
 
@@ -261,7 +269,7 @@ class SalePayment extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getNotes()
+    public function getNotes(): string
     {
         return $this->container['Notes'];
     }
@@ -273,7 +281,9 @@ class SalePayment extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setNotes($Notes): self
+
+
+    public function setNotes(string $Notes): static
     {
         $this->container['Notes'] = $Notes;
 
@@ -285,7 +295,7 @@ class SalePayment extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getTransactionId()
+    public function getTransactionId(): int
     {
         return $this->container['TransactionId'];
     }
@@ -297,7 +307,9 @@ class SalePayment extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setTransactionId($TransactionId): self
+
+
+    public function setTransactionId(int $TransactionId): static
     {
         $this->container['TransactionId'] = $TransactionId;
 

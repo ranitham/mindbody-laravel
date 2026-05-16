@@ -51,14 +51,14 @@ class PurchaseContractResponseTotals extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'PurchaseContractResponseTotals';
+    protected static string $swaggerModelName = 'PurchaseContractResponseTotals';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Total' => 'double',
         'SubTotal' => 'double',
         'Discount' => 'double',
@@ -70,7 +70,7 @@ class PurchaseContractResponseTotals extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Total' => 'double',
         'SubTotal' => 'double',
         'Discount' => 'double',
@@ -84,7 +84,7 @@ class PurchaseContractResponseTotals extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Total' => 'Total',
         'SubTotal' => 'SubTotal',
         'Discount' => 'Discount',
@@ -96,7 +96,7 @@ class PurchaseContractResponseTotals extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Total' => 'setTotal',
         'SubTotal' => 'setSubTotal',
         'Discount' => 'setDiscount',
@@ -108,7 +108,7 @@ class PurchaseContractResponseTotals extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Total' => 'getTotal',
         'SubTotal' => 'getSubTotal',
         'Discount' => 'getDiscount',
@@ -126,7 +126,7 @@ class PurchaseContractResponseTotals extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Total'] = isset($data['Total']) ? $data['Total'] : null;
         $this->container['SubTotal'] = isset($data['SubTotal']) ? $data['SubTotal'] : null;
@@ -152,7 +152,7 @@ class PurchaseContractResponseTotals extends BaseModel
      *
      * @return double
      */
-    public function getTotal()
+    public function getTotal(): float
     {
         return $this->container['Total'];
     }
@@ -164,7 +164,9 @@ class PurchaseContractResponseTotals extends BaseModel
      *
      * @return $this
      */
-    public function setTotal($Total): self
+
+
+    public function setTotal(float $Total): static
     {
         $this->container['Total'] = $Total;
 
@@ -176,7 +178,7 @@ class PurchaseContractResponseTotals extends BaseModel
      *
      * @return double
      */
-    public function getSubTotal()
+    public function getSubTotal(): float
     {
         return $this->container['SubTotal'];
     }
@@ -188,7 +190,9 @@ class PurchaseContractResponseTotals extends BaseModel
      *
      * @return $this
      */
-    public function setSubTotal($SubTotal): self
+
+
+    public function setSubTotal(float $SubTotal): static
     {
         $this->container['SubTotal'] = $SubTotal;
 
@@ -200,7 +204,7 @@ class PurchaseContractResponseTotals extends BaseModel
      *
      * @return double
      */
-    public function getDiscount()
+    public function getDiscount(): float
     {
         return $this->container['Discount'];
     }
@@ -212,7 +216,9 @@ class PurchaseContractResponseTotals extends BaseModel
      *
      * @return $this
      */
-    public function setDiscount($Discount): self
+
+
+    public function setDiscount(float $Discount): static
     {
         $this->container['Discount'] = $Discount;
 
@@ -224,7 +230,7 @@ class PurchaseContractResponseTotals extends BaseModel
      *
      * @return double
      */
-    public function getTax()
+    public function getTax(): float
     {
         return $this->container['Tax'];
     }
@@ -236,7 +242,9 @@ class PurchaseContractResponseTotals extends BaseModel
      *
      * @return $this
      */
-    public function setTax($Tax): self
+
+
+    public function setTax(float $Tax): static
     {
         $this->container['Tax'] = $Tax;
 

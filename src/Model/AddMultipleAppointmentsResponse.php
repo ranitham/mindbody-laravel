@@ -48,14 +48,14 @@ class AddMultipleAppointmentsResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AddMultipleAppointmentsResponse';
+    protected static string $swaggerModelName = 'AddMultipleAppointmentsResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'AddAppointmentOutcomes' => '\Nlocascio\Mindbody\Model\AddAppointmentOutcome[]'
     ];
 
@@ -64,7 +64,7 @@ class AddMultipleAppointmentsResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'AddAppointmentOutcomes' => null
     ];
 
@@ -75,7 +75,7 @@ class AddMultipleAppointmentsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'AddAppointmentOutcomes' => 'AddAppointmentOutcomes'
     ];
 
@@ -84,7 +84,7 @@ class AddMultipleAppointmentsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'AddAppointmentOutcomes' => 'setAddAppointmentOutcomes'
     ];
 
@@ -93,7 +93,7 @@ class AddMultipleAppointmentsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'AddAppointmentOutcomes' => 'getAddAppointmentOutcomes'
     ];
 
@@ -108,7 +108,7 @@ class AddMultipleAppointmentsResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['AddAppointmentOutcomes'] = isset($data['AddAppointmentOutcomes']) ? $data['AddAppointmentOutcomes'] : null;
     }
@@ -131,7 +131,7 @@ class AddMultipleAppointmentsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\AddAppointmentOutcome[]
      */
-    public function getAddAppointmentOutcomes()
+    public function getAddAppointmentOutcomes(): array
     {
         return $this->container['AddAppointmentOutcomes'];
     }
@@ -143,7 +143,9 @@ class AddMultipleAppointmentsResponse extends BaseModel
      *
      * @return $this
      */
-    public function setAddAppointmentOutcomes($AddAppointmentOutcomes): self
+
+
+    public function setAddAppointmentOutcomes(array $AddAppointmentOutcomes): static
     {
         $this->container['AddAppointmentOutcomes'] = $AddAppointmentOutcomes;
 

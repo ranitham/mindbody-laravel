@@ -48,14 +48,14 @@ class UpdateClassScheduleNotesRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UpdateClassScheduleNotesRequest';
+    protected static string $swaggerModelName = 'UpdateClassScheduleNotesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Notes' => 'string'
     ];
 
@@ -64,7 +64,7 @@ class UpdateClassScheduleNotesRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Notes' => null
     ];
 
@@ -75,7 +75,7 @@ class UpdateClassScheduleNotesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Notes' => 'Notes'
     ];
 
@@ -84,7 +84,7 @@ class UpdateClassScheduleNotesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Notes' => 'setNotes'
     ];
 
@@ -93,7 +93,7 @@ class UpdateClassScheduleNotesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Notes' => 'getNotes'
     ];
 
@@ -108,7 +108,7 @@ class UpdateClassScheduleNotesRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Notes'] = isset($data['Notes']) ? $data['Notes'] : null;
     }
@@ -131,7 +131,7 @@ class UpdateClassScheduleNotesRequest extends BaseModel
      *
      * @return string
      */
-    public function getNotes()
+    public function getNotes(): string
     {
         return $this->container['Notes'];
     }
@@ -143,7 +143,9 @@ class UpdateClassScheduleNotesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setNotes($Notes): self
+
+
+    public function setNotes(string $Notes): static
     {
         $this->container['Notes'] = $Notes;
 

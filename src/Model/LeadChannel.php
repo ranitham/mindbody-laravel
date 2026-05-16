@@ -42,7 +42,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property int $StudioId StudioId
  *
  */
-class LeadChannel extends BaseModel implements ModelWithId
+class LeadChannel extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -51,14 +51,14 @@ class LeadChannel extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'LeadChannel';
+    protected static string $swaggerModelName = 'LeadChannel';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Id' => 'int',
         'Name' => 'string',
         'SalespipelineId' => 'int',
@@ -71,7 +71,7 @@ class LeadChannel extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Id' => 'int32',
         'Name' => null,
         'SalespipelineId' => 'int32',
@@ -86,7 +86,7 @@ class LeadChannel extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Id' => 'Id',
         'Name' => 'Name',
         'SalespipelineId' => 'SalespipelineId',
@@ -99,7 +99,7 @@ class LeadChannel extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Id' => 'setId',
         'Name' => 'setName',
         'SalespipelineId' => 'setSalespipelineId',
@@ -112,7 +112,7 @@ class LeadChannel extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Id' => 'getId',
         'Name' => 'getName',
         'SalespipelineId' => 'getSalespipelineId',
@@ -131,7 +131,7 @@ class LeadChannel extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
         $this->container['Name'] = isset($data['Name']) ? $data['Name'] : null;
@@ -158,7 +158,7 @@ class LeadChannel extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -170,7 +170,9 @@ class LeadChannel extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -182,7 +184,7 @@ class LeadChannel extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->container['Name'];
     }
@@ -194,7 +196,9 @@ class LeadChannel extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setName($Name): self
+
+
+    public function setName(string $Name): static
     {
         $this->container['Name'] = $Name;
 
@@ -206,7 +210,7 @@ class LeadChannel extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getSalespipelineId()
+    public function getSalespipelineId(): int
     {
         return $this->container['SalespipelineId'];
     }
@@ -218,7 +222,9 @@ class LeadChannel extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSalespipelineId($SalespipelineId): self
+
+
+    public function setSalespipelineId(int $SalespipelineId): static
     {
         $this->container['SalespipelineId'] = $SalespipelineId;
 
@@ -230,7 +236,7 @@ class LeadChannel extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getUniversalCustomerId()
+    public function getUniversalCustomerId(): string
     {
         return $this->container['UniversalCustomerId'];
     }
@@ -242,7 +248,9 @@ class LeadChannel extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setUniversalCustomerId($UniversalCustomerId): self
+
+
+    public function setUniversalCustomerId(string $UniversalCustomerId): static
     {
         $this->container['UniversalCustomerId'] = $UniversalCustomerId;
 
@@ -254,7 +262,7 @@ class LeadChannel extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getStudioId()
+    public function getStudioId(): int
     {
         return $this->container['StudioId'];
     }
@@ -266,7 +274,9 @@ class LeadChannel extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setStudioId($StudioId): self
+
+
+    public function setStudioId(int $StudioId): static
     {
         $this->container['StudioId'] = $StudioId;
 

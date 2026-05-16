@@ -75,14 +75,14 @@ class UpdateStaffRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UpdateStaffRequest';
+    protected static string $swaggerModelName = 'UpdateStaffRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ID' => 'int',
         'FirstName' => 'string',
         'LastName' => 'string',
@@ -119,7 +119,7 @@ class UpdateStaffRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ID' => 'int64',
         'FirstName' => null,
         'LastName' => null,
@@ -158,7 +158,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ID' => 'ID',
         'FirstName' => 'FirstName',
         'LastName' => 'LastName',
@@ -195,7 +195,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ID' => 'setID',
         'FirstName' => 'setFirstName',
         'LastName' => 'setLastName',
@@ -232,7 +232,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ID' => 'getID',
         'FirstName' => 'getFirstName',
         'LastName' => 'getLastName',
@@ -275,7 +275,7 @@ class UpdateStaffRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ID'] = isset($data['ID']) ? $data['ID'] : null;
         $this->container['FirstName'] = isset($data['FirstName']) ? $data['FirstName'] : null;
@@ -329,7 +329,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return int
      */
-    public function getID()
+    public function getID(): int
     {
         return $this->container['ID'];
     }
@@ -341,7 +341,9 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return $this
      */
-    public function setID($ID): self
+
+
+    public function setID(int $ID): static
     {
         $this->container['ID'] = $ID;
 
@@ -353,7 +355,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return string
      */
-    public function getFirstName()
+    public function getFirstName(): string
     {
         return $this->container['FirstName'];
     }
@@ -365,7 +367,9 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return $this
      */
-    public function setFirstName($FirstName): self
+
+
+    public function setFirstName(string $FirstName): static
     {
         $this->container['FirstName'] = $FirstName;
 
@@ -377,7 +381,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return string
      */
-    public function getLastName()
+    public function getLastName(): string
     {
         return $this->container['LastName'];
     }
@@ -389,7 +393,9 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLastName($LastName): self
+
+
+    public function setLastName(string $LastName): static
     {
         $this->container['LastName'] = $LastName;
 
@@ -401,7 +407,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return string
      */
-    public function getEmail()
+    public function getEmail(): string
     {
         return $this->container['Email'];
     }
@@ -413,7 +419,9 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return $this
      */
-    public function setEmail($Email): self
+
+
+    public function setEmail(string $Email): static
     {
         $this->container['Email'] = $Email;
 
@@ -425,7 +433,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIsMale()
+    public function getIsMale(): bool
     {
         return $this->container['IsMale'];
     }
@@ -437,7 +445,9 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return $this
      */
-    public function setIsMale($IsMale): self
+
+
+    public function setIsMale(bool $IsMale): static
     {
         $this->container['IsMale'] = $IsMale;
 
@@ -449,7 +459,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return string
      */
-    public function getHomePhone()
+    public function getHomePhone(): string
     {
         return $this->container['HomePhone'];
     }
@@ -461,7 +471,9 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return $this
      */
-    public function setHomePhone($HomePhone): self
+
+
+    public function setHomePhone(string $HomePhone): static
     {
         $this->container['HomePhone'] = $HomePhone;
 
@@ -473,7 +485,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return string
      */
-    public function getWorkPhone()
+    public function getWorkPhone(): string
     {
         return $this->container['WorkPhone'];
     }
@@ -485,7 +497,9 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return $this
      */
-    public function setWorkPhone($WorkPhone): self
+
+
+    public function setWorkPhone(string $WorkPhone): static
     {
         $this->container['WorkPhone'] = $WorkPhone;
 
@@ -497,7 +511,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return string
      */
-    public function getMobilePhone()
+    public function getMobilePhone(): string
     {
         return $this->container['MobilePhone'];
     }
@@ -509,7 +523,9 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return $this
      */
-    public function setMobilePhone($MobilePhone): self
+
+
+    public function setMobilePhone(string $MobilePhone): static
     {
         $this->container['MobilePhone'] = $MobilePhone;
 
@@ -521,7 +537,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return string
      */
-    public function getBio()
+    public function getBio(): string
     {
         return $this->container['Bio'];
     }
@@ -533,7 +549,9 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return $this
      */
-    public function setBio($Bio): self
+
+
+    public function setBio(string $Bio): static
     {
         $this->container['Bio'] = $Bio;
 
@@ -545,7 +563,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return string
      */
-    public function getAddress()
+    public function getAddress(): string
     {
         return $this->container['Address'];
     }
@@ -557,7 +575,9 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return $this
      */
-    public function setAddress($Address): self
+
+
+    public function setAddress(string $Address): static
     {
         $this->container['Address'] = $Address;
 
@@ -569,7 +589,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return string
      */
-    public function getAddress2()
+    public function getAddress2(): string
     {
         return $this->container['Address2'];
     }
@@ -581,7 +601,9 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return $this
      */
-    public function setAddress2($Address2): self
+
+
+    public function setAddress2(string $Address2): static
     {
         $this->container['Address2'] = $Address2;
 
@@ -593,7 +615,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return string
      */
-    public function getCity()
+    public function getCity(): string
     {
         return $this->container['City'];
     }
@@ -605,7 +627,9 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return $this
      */
-    public function setCity($City): self
+
+
+    public function setCity(string $City): static
     {
         $this->container['City'] = $City;
 
@@ -617,7 +641,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return string
      */
-    public function getState()
+    public function getState(): string
     {
         return $this->container['State'];
     }
@@ -629,7 +653,9 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return $this
      */
-    public function setState($State): self
+
+
+    public function setState(string $State): static
     {
         $this->container['State'] = $State;
 
@@ -641,7 +667,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return string
      */
-    public function getCountry()
+    public function getCountry(): string
     {
         return $this->container['Country'];
     }
@@ -653,7 +679,9 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return $this
      */
-    public function setCountry($Country): self
+
+
+    public function setCountry(string $Country): static
     {
         $this->container['Country'] = $Country;
 
@@ -665,7 +693,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return string
      */
-    public function getPostalCode()
+    public function getPostalCode(): string
     {
         return $this->container['PostalCode'];
     }
@@ -677,7 +705,9 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return $this
      */
-    public function setPostalCode($PostalCode): self
+
+
+    public function setPostalCode(string $PostalCode): static
     {
         $this->container['PostalCode'] = $PostalCode;
 
@@ -689,7 +719,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return bool
      */
-    public function getClassAssistant()
+    public function getClassAssistant(): bool
     {
         return $this->container['ClassAssistant'];
     }
@@ -701,7 +731,9 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClassAssistant($ClassAssistant): self
+
+
+    public function setClassAssistant(bool $ClassAssistant): static
     {
         $this->container['ClassAssistant'] = $ClassAssistant;
 
@@ -713,7 +745,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return bool
      */
-    public function getClassAssistant2()
+    public function getClassAssistant2(): bool
     {
         return $this->container['ClassAssistant2'];
     }
@@ -725,7 +757,9 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClassAssistant2($ClassAssistant2): self
+
+
+    public function setClassAssistant2(bool $ClassAssistant2): static
     {
         $this->container['ClassAssistant2'] = $ClassAssistant2;
 
@@ -737,7 +771,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIndependentContractor()
+    public function getIndependentContractor(): bool
     {
         return $this->container['IndependentContractor'];
     }
@@ -749,7 +783,9 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return $this
      */
-    public function setIndependentContractor($IndependentContractor): self
+
+
+    public function setIndependentContractor(bool $IndependentContractor): static
     {
         $this->container['IndependentContractor'] = $IndependentContractor;
 
@@ -761,7 +797,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return bool
      */
-    public function getAppointmentInstructor()
+    public function getAppointmentInstructor(): bool
     {
         return $this->container['AppointmentInstructor'];
     }
@@ -773,7 +809,9 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return $this
      */
-    public function setAppointmentInstructor($AppointmentInstructor): self
+
+
+    public function setAppointmentInstructor(bool $AppointmentInstructor): static
     {
         $this->container['AppointmentInstructor'] = $AppointmentInstructor;
 
@@ -785,7 +823,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return bool
      */
-    public function getAlwaysAllowDoubleBooking()
+    public function getAlwaysAllowDoubleBooking(): bool
     {
         return $this->container['AlwaysAllowDoubleBooking'];
     }
@@ -797,7 +835,9 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return $this
      */
-    public function setAlwaysAllowDoubleBooking($AlwaysAllowDoubleBooking): self
+
+
+    public function setAlwaysAllowDoubleBooking(bool $AlwaysAllowDoubleBooking): static
     {
         $this->container['AlwaysAllowDoubleBooking'] = $AlwaysAllowDoubleBooking;
 
@@ -809,7 +849,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return bool
      */
-    public function getClassTeacher()
+    public function getClassTeacher(): bool
     {
         return $this->container['ClassTeacher'];
     }
@@ -821,7 +861,9 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClassTeacher($ClassTeacher): self
+
+
+    public function setClassTeacher(bool $ClassTeacher): static
     {
         $this->container['ClassTeacher'] = $ClassTeacher;
 
@@ -833,7 +875,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEmploymentStart()
+    public function getEmploymentStart(): \DateTime
     {
         return $this->container['EmploymentStart'];
     }
@@ -845,7 +887,9 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return $this
      */
-    public function setEmploymentStart($EmploymentStart): self
+
+
+    public function setEmploymentStart(\DateTime $EmploymentStart): static
     {
         $this->container['EmploymentStart'] = $EmploymentStart;
 
@@ -857,7 +901,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEmploymentEnd()
+    public function getEmploymentEnd(): \DateTime
     {
         return $this->container['EmploymentEnd'];
     }
@@ -869,7 +913,9 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return $this
      */
-    public function setEmploymentEnd($EmploymentEnd): self
+
+
+    public function setEmploymentEnd(\DateTime $EmploymentEnd): static
     {
         $this->container['EmploymentEnd'] = $EmploymentEnd;
 
@@ -881,7 +927,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return int
      */
-    public function getSortOrder()
+    public function getSortOrder(): int
     {
         return $this->container['SortOrder'];
     }
@@ -893,7 +939,9 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSortOrder($SortOrder): self
+
+
+    public function setSortOrder(int $SortOrder): static
     {
         $this->container['SortOrder'] = $SortOrder;
 
@@ -905,7 +953,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return string[]
      */
-    public function getProviderIDs()
+    public function getProviderIDs(): array
     {
         return $this->container['ProviderIDs'];
     }
@@ -917,7 +965,9 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return $this
      */
-    public function setProviderIDs($ProviderIDs): self
+
+
+    public function setProviderIDs(array $ProviderIDs): static
     {
         $this->container['ProviderIDs'] = $ProviderIDs;
 
@@ -929,7 +979,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return bool
      */
-    public function getActive()
+    public function getActive(): bool
     {
         return $this->container['Active'];
     }
@@ -941,7 +991,9 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return $this
      */
-    public function setActive($Active): self
+
+
+    public function setActive(bool $Active): static
     {
         $this->container['Active'] = $Active;
 
@@ -953,7 +1005,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return string
      */
-    public function getNotes()
+    public function getNotes(): string
     {
         return $this->container['Notes'];
     }
@@ -965,7 +1017,9 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return $this
      */
-    public function setNotes($Notes): self
+
+
+    public function setNotes(string $Notes): static
     {
         $this->container['Notes'] = $Notes;
 
@@ -977,7 +1031,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return string
      */
-    public function getEmpID()
+    public function getEmpID(): string
     {
         return $this->container['EmpID'];
     }
@@ -989,7 +1043,9 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return $this
      */
-    public function setEmpID($EmpID): self
+
+
+    public function setEmpID(string $EmpID): static
     {
         $this->container['EmpID'] = $EmpID;
 
@@ -1001,7 +1057,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return int
      */
-    public function getDefaultClassPayRate()
+    public function getDefaultClassPayRate(): int
     {
         return $this->container['DefaultClassPayRate'];
     }
@@ -1013,7 +1069,9 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return $this
      */
-    public function setDefaultClassPayRate($DefaultClassPayRate): self
+
+
+    public function setDefaultClassPayRate(int $DefaultClassPayRate): static
     {
         $this->container['DefaultClassPayRate'] = $DefaultClassPayRate;
 

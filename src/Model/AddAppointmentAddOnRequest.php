@@ -52,14 +52,14 @@ class AddAppointmentAddOnRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AddAppointmentAddOnRequest';
+    protected static string $swaggerModelName = 'AddAppointmentAddOnRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ApplyPayment' => 'bool',
         'AppointmentId' => 'int',
         'SessionTypeId' => 'int',
@@ -72,7 +72,7 @@ class AddAppointmentAddOnRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ApplyPayment' => null,
         'AppointmentId' => 'int64',
         'SessionTypeId' => 'int32',
@@ -87,7 +87,7 @@ class AddAppointmentAddOnRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ApplyPayment' => 'ApplyPayment',
         'AppointmentId' => 'AppointmentId',
         'SessionTypeId' => 'SessionTypeId',
@@ -100,7 +100,7 @@ class AddAppointmentAddOnRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ApplyPayment' => 'setApplyPayment',
         'AppointmentId' => 'setAppointmentId',
         'SessionTypeId' => 'setSessionTypeId',
@@ -113,7 +113,7 @@ class AddAppointmentAddOnRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ApplyPayment' => 'getApplyPayment',
         'AppointmentId' => 'getAppointmentId',
         'SessionTypeId' => 'getSessionTypeId',
@@ -132,7 +132,7 @@ class AddAppointmentAddOnRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ApplyPayment'] = isset($data['ApplyPayment']) ? $data['ApplyPayment'] : null;
         $this->container['AppointmentId'] = isset($data['AppointmentId']) ? $data['AppointmentId'] : null;
@@ -159,7 +159,7 @@ class AddAppointmentAddOnRequest extends BaseModel
      *
      * @return bool
      */
-    public function getApplyPayment()
+    public function getApplyPayment(): bool
     {
         return $this->container['ApplyPayment'];
     }
@@ -171,7 +171,9 @@ class AddAppointmentAddOnRequest extends BaseModel
      *
      * @return $this
      */
-    public function setApplyPayment($ApplyPayment): self
+
+
+    public function setApplyPayment(bool $ApplyPayment): static
     {
         $this->container['ApplyPayment'] = $ApplyPayment;
 
@@ -183,7 +185,7 @@ class AddAppointmentAddOnRequest extends BaseModel
      *
      * @return int
      */
-    public function getAppointmentId()
+    public function getAppointmentId(): int
     {
         return $this->container['AppointmentId'];
     }
@@ -195,7 +197,9 @@ class AddAppointmentAddOnRequest extends BaseModel
      *
      * @return $this
      */
-    public function setAppointmentId($AppointmentId): self
+
+
+    public function setAppointmentId(int $AppointmentId): static
     {
         $this->container['AppointmentId'] = $AppointmentId;
 
@@ -207,7 +211,7 @@ class AddAppointmentAddOnRequest extends BaseModel
      *
      * @return int
      */
-    public function getSessionTypeId()
+    public function getSessionTypeId(): int
     {
         return $this->container['SessionTypeId'];
     }
@@ -219,7 +223,9 @@ class AddAppointmentAddOnRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSessionTypeId($SessionTypeId): self
+
+
+    public function setSessionTypeId(int $SessionTypeId): static
     {
         $this->container['SessionTypeId'] = $SessionTypeId;
 
@@ -231,7 +237,7 @@ class AddAppointmentAddOnRequest extends BaseModel
      *
      * @return int
      */
-    public function getStaffId()
+    public function getStaffId(): int
     {
         return $this->container['StaffId'];
     }
@@ -243,7 +249,9 @@ class AddAppointmentAddOnRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStaffId($StaffId): self
+
+
+    public function setStaffId(int $StaffId): static
     {
         $this->container['StaffId'] = $StaffId;
 
@@ -255,7 +263,7 @@ class AddAppointmentAddOnRequest extends BaseModel
      *
      * @return bool
      */
-    public function getTest()
+    public function getTest(): bool
     {
         return $this->container['Test'];
     }
@@ -267,7 +275,9 @@ class AddAppointmentAddOnRequest extends BaseModel
      *
      * @return $this
      */
-    public function setTest($Test): self
+
+
+    public function setTest(bool $Test): static
     {
         $this->container['Test'] = $Test;
 

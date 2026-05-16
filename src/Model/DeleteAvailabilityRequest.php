@@ -49,14 +49,14 @@ class DeleteAvailabilityRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DeleteAvailabilityRequest';
+    protected static string $swaggerModelName = 'DeleteAvailabilityRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'AvailabilityId' => 'int',
         'Test' => 'bool'
     ];
@@ -66,7 +66,7 @@ class DeleteAvailabilityRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'AvailabilityId' => 'int32',
         'Test' => null
     ];
@@ -78,7 +78,7 @@ class DeleteAvailabilityRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'AvailabilityId' => 'AvailabilityId',
         'Test' => 'Test'
     ];
@@ -88,7 +88,7 @@ class DeleteAvailabilityRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'AvailabilityId' => 'setAvailabilityId',
         'Test' => 'setTest'
     ];
@@ -98,7 +98,7 @@ class DeleteAvailabilityRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'AvailabilityId' => 'getAvailabilityId',
         'Test' => 'getTest'
     ];
@@ -114,7 +114,7 @@ class DeleteAvailabilityRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['AvailabilityId'] = isset($data['AvailabilityId']) ? $data['AvailabilityId'] : null;
         $this->container['Test'] = isset($data['Test']) ? $data['Test'] : null;
@@ -138,7 +138,7 @@ class DeleteAvailabilityRequest extends BaseModel
      *
      * @return int
      */
-    public function getAvailabilityId()
+    public function getAvailabilityId(): int
     {
         return $this->container['AvailabilityId'];
     }
@@ -150,7 +150,9 @@ class DeleteAvailabilityRequest extends BaseModel
      *
      * @return $this
      */
-    public function setAvailabilityId($AvailabilityId): self
+
+
+    public function setAvailabilityId(int $AvailabilityId): static
     {
         $this->container['AvailabilityId'] = $AvailabilityId;
 
@@ -162,7 +164,7 @@ class DeleteAvailabilityRequest extends BaseModel
      *
      * @return bool
      */
-    public function getTest()
+    public function getTest(): bool
     {
         return $this->container['Test'];
     }
@@ -174,7 +176,9 @@ class DeleteAvailabilityRequest extends BaseModel
      *
      * @return $this
      */
-    public function setTest($Test): self
+
+
+    public function setTest(bool $Test): static
     {
         $this->container['Test'] = $Test;
 

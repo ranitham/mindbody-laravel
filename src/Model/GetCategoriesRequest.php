@@ -53,14 +53,14 @@ class GetCategoriesRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetCategoriesRequest';
+    protected static string $swaggerModelName = 'GetCategoriesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'CategoryIds' => 'int[]',
         'SubCategoryIds' => 'int[]',
         'Service' => 'bool',
@@ -74,7 +74,7 @@ class GetCategoriesRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'CategoryIds' => 'int32',
         'SubCategoryIds' => 'int32',
         'Service' => null,
@@ -90,7 +90,7 @@ class GetCategoriesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'CategoryIds' => 'CategoryIds',
         'SubCategoryIds' => 'SubCategoryIds',
         'Service' => 'Service',
@@ -104,7 +104,7 @@ class GetCategoriesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'CategoryIds' => 'setCategoryIds',
         'SubCategoryIds' => 'setSubCategoryIds',
         'Service' => 'setService',
@@ -118,7 +118,7 @@ class GetCategoriesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'CategoryIds' => 'getCategoryIds',
         'SubCategoryIds' => 'getSubCategoryIds',
         'Service' => 'getService',
@@ -138,7 +138,7 @@ class GetCategoriesRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['CategoryIds'] = isset($data['CategoryIds']) ? $data['CategoryIds'] : null;
         $this->container['SubCategoryIds'] = isset($data['SubCategoryIds']) ? $data['SubCategoryIds'] : null;
@@ -166,7 +166,7 @@ class GetCategoriesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getCategoryIds()
+    public function getCategoryIds(): array
     {
         return $this->container['CategoryIds'];
     }
@@ -178,7 +178,9 @@ class GetCategoriesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setCategoryIds($CategoryIds): self
+
+
+    public function setCategoryIds(array $CategoryIds): static
     {
         $this->container['CategoryIds'] = $CategoryIds;
 
@@ -190,7 +192,7 @@ class GetCategoriesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getSubCategoryIds()
+    public function getSubCategoryIds(): array
     {
         return $this->container['SubCategoryIds'];
     }
@@ -202,7 +204,9 @@ class GetCategoriesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSubCategoryIds($SubCategoryIds): self
+
+
+    public function setSubCategoryIds(array $SubCategoryIds): static
     {
         $this->container['SubCategoryIds'] = $SubCategoryIds;
 
@@ -214,7 +218,7 @@ class GetCategoriesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getService()
+    public function getService(): bool
     {
         return $this->container['Service'];
     }
@@ -226,7 +230,9 @@ class GetCategoriesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setService($Service): self
+
+
+    public function setService(bool $Service): static
     {
         $this->container['Service'] = $Service;
 
@@ -238,7 +244,7 @@ class GetCategoriesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getActive()
+    public function getActive(): bool
     {
         return $this->container['Active'];
     }
@@ -250,7 +256,9 @@ class GetCategoriesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setActive($Active): self
+
+
+    public function setActive(bool $Active): static
     {
         $this->container['Active'] = $Active;
 
@@ -262,7 +270,7 @@ class GetCategoriesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit()
+    public function getLimit(): int
     {
         return $this->container['Limit'];
     }
@@ -274,7 +282,9 @@ class GetCategoriesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLimit($Limit): self
+
+
+    public function setLimit(int $Limit): static
     {
         $this->container['Limit'] = $Limit;
 
@@ -286,7 +296,7 @@ class GetCategoriesRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset()
+    public function getOffset(): int
     {
         return $this->container['Offset'];
     }
@@ -298,7 +308,9 @@ class GetCategoriesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOffset($Offset): self
+
+
+    public function setOffset(int $Offset): static
     {
         $this->container['Offset'] = $Offset;
 

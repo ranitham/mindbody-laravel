@@ -69,7 +69,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property string $ThemeName The class instance theme name.<br />  The theme name is free optional custom name suffix which can be added to highlight the class instance.
  *
  */
-class ModelClass extends BaseModel implements ModelWithId
+class ModelClass extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -78,14 +78,14 @@ class ModelClass extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Class';
+    protected static string $swaggerModelName = 'Class';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ClassScheduleId' => 'int',
         'Visits' => '\Nlocascio\Mindbody\Model\Visit[]',
         'Clients' => '\Nlocascio\Mindbody\Model\Client[]',
@@ -124,7 +124,7 @@ class ModelClass extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ClassScheduleId' => 'int32',
         'Visits' => null,
         'Clients' => null,
@@ -165,7 +165,7 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ClassScheduleId' => 'ClassScheduleId',
         'Visits' => 'Visits',
         'Clients' => 'Clients',
@@ -204,7 +204,7 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ClassScheduleId' => 'setClassScheduleId',
         'Visits' => 'setVisits',
         'Clients' => 'setClients',
@@ -243,7 +243,7 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ClassScheduleId' => 'getClassScheduleId',
         'Visits' => 'getVisits',
         'Clients' => 'getClients',
@@ -305,7 +305,7 @@ class ModelClass extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ClassScheduleId'] = isset($data['ClassScheduleId']) ? $data['ClassScheduleId'] : null;
         $this->container['Visits'] = isset($data['Visits']) ? $data['Visits'] : null;
@@ -366,7 +366,7 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getClassScheduleId()
+    public function getClassScheduleId(): int
     {
         return $this->container['ClassScheduleId'];
     }
@@ -378,7 +378,9 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setClassScheduleId($ClassScheduleId): self
+
+
+    public function setClassScheduleId(int $ClassScheduleId): static
     {
         $this->container['ClassScheduleId'] = $ClassScheduleId;
 
@@ -390,7 +392,7 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\Visit[]
      */
-    public function getVisits()
+    public function getVisits(): array
     {
         return $this->container['Visits'];
     }
@@ -402,7 +404,9 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setVisits($Visits): self
+
+
+    public function setVisits(array $Visits): static
     {
         $this->container['Visits'] = $Visits;
 
@@ -414,7 +418,7 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\Client[]
      */
-    public function getClients()
+    public function getClients(): array
     {
         return $this->container['Clients'];
     }
@@ -426,7 +430,9 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setClients($Clients): self
+
+
+    public function setClients(array $Clients): static
     {
         $this->container['Clients'] = $Clients;
 
@@ -438,7 +444,7 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\Location
      */
-    public function getLocation()
+    public function getLocation(): \Nlocascio\Mindbody\Model\Location
     {
         return $this->container['Location'];
     }
@@ -450,7 +456,9 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setLocation($Location): self
+
+
+    public function setLocation(\Nlocascio\Mindbody\Model\Location $Location): static
     {
         $this->container['Location'] = $Location;
 
@@ -462,7 +470,7 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\ResourceSlim
      */
-    public function getResource()
+    public function getResource(): \Nlocascio\Mindbody\Model\ResourceSlim
     {
         return $this->container['Resource'];
     }
@@ -474,7 +482,9 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setResource($Resource): self
+
+
+    public function setResource(\Nlocascio\Mindbody\Model\ResourceSlim $Resource): static
     {
         $this->container['Resource'] = $Resource;
 
@@ -486,7 +496,7 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getMaxCapacity()
+    public function getMaxCapacity(): int
     {
         return $this->container['MaxCapacity'];
     }
@@ -498,7 +508,9 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setMaxCapacity($MaxCapacity): self
+
+
+    public function setMaxCapacity(int $MaxCapacity): static
     {
         $this->container['MaxCapacity'] = $MaxCapacity;
 
@@ -510,7 +522,7 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getWebCapacity()
+    public function getWebCapacity(): int
     {
         return $this->container['WebCapacity'];
     }
@@ -522,7 +534,9 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setWebCapacity($WebCapacity): self
+
+
+    public function setWebCapacity(int $WebCapacity): static
     {
         $this->container['WebCapacity'] = $WebCapacity;
 
@@ -534,7 +548,7 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getTotalBooked()
+    public function getTotalBooked(): int
     {
         return $this->container['TotalBooked'];
     }
@@ -546,7 +560,9 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setTotalBooked($TotalBooked): self
+
+
+    public function setTotalBooked(int $TotalBooked): static
     {
         $this->container['TotalBooked'] = $TotalBooked;
 
@@ -558,7 +574,7 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getTotalSignedIn()
+    public function getTotalSignedIn(): int
     {
         return $this->container['TotalSignedIn'];
     }
@@ -570,7 +586,9 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setTotalSignedIn($TotalSignedIn): self
+
+
+    public function setTotalSignedIn(int $TotalSignedIn): static
     {
         $this->container['TotalSignedIn'] = $TotalSignedIn;
 
@@ -582,7 +600,7 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getTotalBookedWaitlist()
+    public function getTotalBookedWaitlist(): int
     {
         return $this->container['TotalBookedWaitlist'];
     }
@@ -594,7 +612,9 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setTotalBookedWaitlist($TotalBookedWaitlist): self
+
+
+    public function setTotalBookedWaitlist(int $TotalBookedWaitlist): static
     {
         $this->container['TotalBookedWaitlist'] = $TotalBookedWaitlist;
 
@@ -606,7 +626,7 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getWebBooked()
+    public function getWebBooked(): int
     {
         return $this->container['WebBooked'];
     }
@@ -618,7 +638,9 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setWebBooked($WebBooked): self
+
+
+    public function setWebBooked(int $WebBooked): static
     {
         $this->container['WebBooked'] = $WebBooked;
 
@@ -630,7 +652,7 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getSemesterId()
+    public function getSemesterId(): int
     {
         return $this->container['SemesterId'];
     }
@@ -642,7 +664,9 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSemesterId($SemesterId): self
+
+
+    public function setSemesterId(int $SemesterId): static
     {
         $this->container['SemesterId'] = $SemesterId;
 
@@ -654,7 +678,7 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getIsCanceled()
+    public function getIsCanceled(): bool
     {
         return $this->container['IsCanceled'];
     }
@@ -666,7 +690,9 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setIsCanceled($IsCanceled): self
+
+
+    public function setIsCanceled(bool $IsCanceled): static
     {
         $this->container['IsCanceled'] = $IsCanceled;
 
@@ -678,7 +704,7 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getSubstitute()
+    public function getSubstitute(): bool
     {
         return $this->container['Substitute'];
     }
@@ -690,7 +716,9 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSubstitute($Substitute): self
+
+
+    public function setSubstitute(bool $Substitute): static
     {
         $this->container['Substitute'] = $Substitute;
 
@@ -702,7 +730,7 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getActive()
+    public function getActive(): bool
     {
         return $this->container['Active'];
     }
@@ -714,7 +742,9 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setActive($Active): self
+
+
+    public function setActive(bool $Active): static
     {
         $this->container['Active'] = $Active;
 
@@ -726,7 +756,7 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getIsWaitlistAvailable()
+    public function getIsWaitlistAvailable(): bool
     {
         return $this->container['IsWaitlistAvailable'];
     }
@@ -738,7 +768,9 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setIsWaitlistAvailable($IsWaitlistAvailable): self
+
+
+    public function setIsWaitlistAvailable(bool $IsWaitlistAvailable): static
     {
         $this->container['IsWaitlistAvailable'] = $IsWaitlistAvailable;
 
@@ -750,7 +782,7 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getIsEnrolled()
+    public function getIsEnrolled(): bool
     {
         return $this->container['IsEnrolled'];
     }
@@ -762,7 +794,9 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setIsEnrolled($IsEnrolled): self
+
+
+    public function setIsEnrolled(bool $IsEnrolled): static
     {
         $this->container['IsEnrolled'] = $IsEnrolled;
 
@@ -774,7 +808,7 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getHideCancel()
+    public function getHideCancel(): bool
     {
         return $this->container['HideCancel'];
     }
@@ -786,7 +820,9 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setHideCancel($HideCancel): self
+
+
+    public function setHideCancel(bool $HideCancel): static
     {
         $this->container['HideCancel'] = $HideCancel;
 
@@ -798,7 +834,7 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -810,7 +846,9 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -822,7 +860,7 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getIsAvailable()
+    public function getIsAvailable(): bool
     {
         return $this->container['IsAvailable'];
     }
@@ -834,7 +872,9 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setIsAvailable($IsAvailable): self
+
+
+    public function setIsAvailable(bool $IsAvailable): static
     {
         $this->container['IsAvailable'] = $IsAvailable;
 
@@ -846,7 +886,7 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getStartDateTime()
+    public function getStartDateTime(): \DateTime
     {
         return $this->container['StartDateTime'];
     }
@@ -858,7 +898,9 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setStartDateTime($StartDateTime): self
+
+
+    public function setStartDateTime(\DateTime $StartDateTime): static
     {
         $this->container['StartDateTime'] = $StartDateTime;
 
@@ -870,7 +912,7 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getEndDateTime()
+    public function getEndDateTime(): \DateTime
     {
         return $this->container['EndDateTime'];
     }
@@ -882,7 +924,9 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setEndDateTime($EndDateTime): self
+
+
+    public function setEndDateTime(\DateTime $EndDateTime): static
     {
         $this->container['EndDateTime'] = $EndDateTime;
 
@@ -894,7 +938,7 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getLastModifiedDateTime()
+    public function getLastModifiedDateTime(): \DateTime
     {
         return $this->container['LastModifiedDateTime'];
     }
@@ -906,7 +950,9 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setLastModifiedDateTime($LastModifiedDateTime): self
+
+
+    public function setLastModifiedDateTime(\DateTime $LastModifiedDateTime): static
     {
         $this->container['LastModifiedDateTime'] = $LastModifiedDateTime;
 
@@ -918,7 +964,7 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\ClassDescription
      */
-    public function getClassDescription()
+    public function getClassDescription(): \Nlocascio\Mindbody\Model\ClassDescription
     {
         return $this->container['ClassDescription'];
     }
@@ -930,7 +976,9 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setClassDescription($ClassDescription): self
+
+
+    public function setClassDescription(\Nlocascio\Mindbody\Model\ClassDescription $ClassDescription): static
     {
         $this->container['ClassDescription'] = $ClassDescription;
 
@@ -942,7 +990,7 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\Staff
      */
-    public function getStaff()
+    public function getStaff(): \Nlocascio\Mindbody\Model\Staff
     {
         return $this->container['Staff'];
     }
@@ -954,7 +1002,9 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setStaff($Staff): self
+
+
+    public function setStaff(\Nlocascio\Mindbody\Model\Staff $Staff): static
     {
         $this->container['Staff'] = $Staff;
 
@@ -966,7 +1016,7 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\BookingWindow
      */
-    public function getBookingWindow()
+    public function getBookingWindow(): \Nlocascio\Mindbody\Model\BookingWindow
     {
         return $this->container['BookingWindow'];
     }
@@ -978,7 +1028,9 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setBookingWindow($BookingWindow): self
+
+
+    public function setBookingWindow(\Nlocascio\Mindbody\Model\BookingWindow $BookingWindow): static
     {
         $this->container['BookingWindow'] = $BookingWindow;
 
@@ -990,7 +1042,7 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getBookingStatus()
+    public function getBookingStatus(): string
     {
         return $this->container['BookingStatus'];
     }
@@ -1002,7 +1054,9 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setBookingStatus($BookingStatus): self
+
+
+    public function setBookingStatus(string $BookingStatus): static
     {
         $allowedValues = $this->getBookingStatusAllowableValues();
         if (!is_null($BookingStatus) && !in_array($BookingStatus, $allowedValues, true)) {
@@ -1023,7 +1077,7 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getVirtualStreamLink()
+    public function getVirtualStreamLink(): string
     {
         return $this->container['VirtualStreamLink'];
     }
@@ -1035,7 +1089,9 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setVirtualStreamLink($VirtualStreamLink): self
+
+
+    public function setVirtualStreamLink(string $VirtualStreamLink): static
     {
         $this->container['VirtualStreamLink'] = $VirtualStreamLink;
 
@@ -1047,7 +1103,7 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getWaitListSize()
+    public function getWaitListSize(): int
     {
         return $this->container['WaitListSize'];
     }
@@ -1059,7 +1115,9 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setWaitListSize($WaitListSize): self
+
+
+    public function setWaitListSize(int $WaitListSize): static
     {
         $this->container['WaitListSize'] = $WaitListSize;
 
@@ -1071,7 +1129,7 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getClassNotes()
+    public function getClassNotes(): string
     {
         return $this->container['ClassNotes'];
     }
@@ -1083,7 +1141,9 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setClassNotes($ClassNotes): self
+
+
+    public function setClassNotes(string $ClassNotes): static
     {
         $this->container['ClassNotes'] = $ClassNotes;
 
@@ -1095,7 +1155,7 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getThemeName()
+    public function getThemeName(): string
     {
         return $this->container['ThemeName'];
     }
@@ -1107,7 +1167,9 @@ class ModelClass extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setThemeName($ThemeName): self
+
+
+    public function setThemeName(string $ThemeName): static
     {
         $this->container['ThemeName'] = $ThemeName;
 

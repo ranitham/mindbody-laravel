@@ -49,14 +49,14 @@ class UpdateAvailabilityResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UpdateAvailabilityResponse';
+    protected static string $swaggerModelName = 'UpdateAvailabilityResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'StaffMembers' => '\Nlocascio\Mindbody\Model\Staff[]',
         'Errors' => '\Nlocascio\Mindbody\Model\ApiError[]'
     ];
@@ -66,7 +66,7 @@ class UpdateAvailabilityResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'StaffMembers' => null,
         'Errors' => null
     ];
@@ -78,7 +78,7 @@ class UpdateAvailabilityResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'StaffMembers' => 'StaffMembers',
         'Errors' => 'Errors'
     ];
@@ -88,7 +88,7 @@ class UpdateAvailabilityResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'StaffMembers' => 'setStaffMembers',
         'Errors' => 'setErrors'
     ];
@@ -98,7 +98,7 @@ class UpdateAvailabilityResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'StaffMembers' => 'getStaffMembers',
         'Errors' => 'getErrors'
     ];
@@ -114,7 +114,7 @@ class UpdateAvailabilityResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['StaffMembers'] = isset($data['StaffMembers']) ? $data['StaffMembers'] : null;
         $this->container['Errors'] = isset($data['Errors']) ? $data['Errors'] : null;
@@ -138,7 +138,7 @@ class UpdateAvailabilityResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Staff[]
      */
-    public function getStaffMembers()
+    public function getStaffMembers(): array
     {
         return $this->container['StaffMembers'];
     }
@@ -150,7 +150,9 @@ class UpdateAvailabilityResponse extends BaseModel
      *
      * @return $this
      */
-    public function setStaffMembers($StaffMembers): self
+
+
+    public function setStaffMembers(array $StaffMembers): static
     {
         $this->container['StaffMembers'] = $StaffMembers;
 
@@ -162,7 +164,7 @@ class UpdateAvailabilityResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ApiError[]
      */
-    public function getErrors()
+    public function getErrors(): array
     {
         return $this->container['Errors'];
     }
@@ -174,7 +176,9 @@ class UpdateAvailabilityResponse extends BaseModel
      *
      * @return $this
      */
-    public function setErrors($Errors): self
+
+
+    public function setErrors(array $Errors): static
     {
         $this->container['Errors'] = $Errors;
 

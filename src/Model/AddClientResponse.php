@@ -49,14 +49,14 @@ class AddClientResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AddClientResponse';
+    protected static string $swaggerModelName = 'AddClientResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Client' => '\Nlocascio\Mindbody\Model\Client',
         'Status' => 'string',
         'Errors' => '\Nlocascio\Mindbody\Model\OperationErrorResponse[]'
@@ -67,7 +67,7 @@ class AddClientResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Client' => null,
         'Status' => null,
         'Errors' => null
@@ -80,7 +80,7 @@ class AddClientResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Client' => 'Client',
         'Status' => 'Status',
         'Errors' => 'Errors'
@@ -91,7 +91,7 @@ class AddClientResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Client' => 'setClient',
         'Status' => 'setStatus',
         'Errors' => 'setErrors'
@@ -102,7 +102,7 @@ class AddClientResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Client' => 'getClient',
         'Status' => 'getStatus',
         'Errors' => 'getErrors'
@@ -119,7 +119,7 @@ class AddClientResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Client'] = isset($data['Client']) ? $data['Client'] : null;
         $this->container['Status'] = isset($data['Status']) ? $data['Status'] : null;
@@ -144,7 +144,7 @@ class AddClientResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Client
      */
-    public function getClient()
+    public function getClient(): \Nlocascio\Mindbody\Model\Client
     {
         return $this->container['Client'];
     }
@@ -156,7 +156,9 @@ class AddClientResponse extends BaseModel
      *
      * @return $this
      */
-    public function setClient($Client): self
+
+
+    public function setClient(\Nlocascio\Mindbody\Model\Client $Client): static
     {
         $this->container['Client'] = $Client;
 
@@ -168,7 +170,7 @@ class AddClientResponse extends BaseModel
      *
      * @return string
      */
-    public function getStatus()
+    public function getStatus(): string
     {
         return $this->container['Status'];
     }
@@ -180,7 +182,9 @@ class AddClientResponse extends BaseModel
      *
      * @return $this
      */
-    public function setStatus($Status): self
+
+
+    public function setStatus(string $Status): static
     {
         $this->container['Status'] = $Status;
 
@@ -192,7 +196,7 @@ class AddClientResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\OperationErrorResponse[]
      */
-    public function getErrors()
+    public function getErrors(): array
     {
         return $this->container['Errors'];
     }
@@ -204,7 +208,9 @@ class AddClientResponse extends BaseModel
      *
      * @return $this
      */
-    public function setErrors($Errors): self
+
+
+    public function setErrors(array $Errors): static
     {
         $this->container['Errors'] = $Errors;
 

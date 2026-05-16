@@ -67,7 +67,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property string $TypeTaken Indicates the service type taken.
  *
  */
-class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
+class VisitWithWaitlistInfo extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -76,14 +76,14 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VisitWithWaitlistInfo';
+    protected static string $swaggerModelName = 'VisitWithWaitlistInfo';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'WaitlistInfo' => '\Nlocascio\Mindbody\Model\VisitWaitlistInfo',
         'AppointmentId' => 'int',
         'AppointmentGenderPreference' => 'string',
@@ -120,7 +120,7 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'WaitlistInfo' => null,
         'AppointmentId' => 'int32',
         'AppointmentGenderPreference' => null,
@@ -159,7 +159,7 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'WaitlistInfo' => 'WaitlistInfo',
         'AppointmentId' => 'AppointmentId',
         'AppointmentGenderPreference' => 'AppointmentGenderPreference',
@@ -196,7 +196,7 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'WaitlistInfo' => 'setWaitlistInfo',
         'AppointmentId' => 'setAppointmentId',
         'AppointmentGenderPreference' => 'setAppointmentGenderPreference',
@@ -233,7 +233,7 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'WaitlistInfo' => 'getWaitlistInfo',
         'AppointmentId' => 'getAppointmentId',
         'AppointmentGenderPreference' => 'getAppointmentGenderPreference',
@@ -343,7 +343,7 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['WaitlistInfo'] = isset($data['WaitlistInfo']) ? $data['WaitlistInfo'] : null;
         $this->container['AppointmentId'] = isset($data['AppointmentId']) ? $data['AppointmentId'] : null;
@@ -418,7 +418,7 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\VisitWaitlistInfo
      */
-    public function getWaitlistInfo()
+    public function getWaitlistInfo(): \Nlocascio\Mindbody\Model\VisitWaitlistInfo
     {
         return $this->container['WaitlistInfo'];
     }
@@ -430,7 +430,9 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setWaitlistInfo($WaitlistInfo): self
+
+
+    public function setWaitlistInfo(\Nlocascio\Mindbody\Model\VisitWaitlistInfo $WaitlistInfo): static
     {
         $this->container['WaitlistInfo'] = $WaitlistInfo;
 
@@ -442,7 +444,7 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getAppointmentId()
+    public function getAppointmentId(): int
     {
         return $this->container['AppointmentId'];
     }
@@ -454,7 +456,9 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAppointmentId($AppointmentId): self
+
+
+    public function setAppointmentId(int $AppointmentId): static
     {
         $this->container['AppointmentId'] = $AppointmentId;
 
@@ -466,7 +470,7 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getAppointmentGenderPreference()
+    public function getAppointmentGenderPreference(): string
     {
         return $this->container['AppointmentGenderPreference'];
     }
@@ -478,7 +482,9 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAppointmentGenderPreference($AppointmentGenderPreference): self
+
+
+    public function setAppointmentGenderPreference(string $AppointmentGenderPreference): static
     {
         $allowedValues = $this->getAppointmentGenderPreferenceAllowableValues();
         if (!is_null($AppointmentGenderPreference) && !in_array($AppointmentGenderPreference, $allowedValues, true)) {
@@ -499,7 +505,7 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getAppointmentStatus()
+    public function getAppointmentStatus(): string
     {
         return $this->container['AppointmentStatus'];
     }
@@ -511,7 +517,9 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAppointmentStatus($AppointmentStatus): self
+
+
+    public function setAppointmentStatus(string $AppointmentStatus): static
     {
         $allowedValues = $this->getAppointmentStatusAllowableValues();
         if (!is_null($AppointmentStatus) && !in_array($AppointmentStatus, $allowedValues, true)) {
@@ -532,7 +540,7 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getClassId()
+    public function getClassId(): int
     {
         return $this->container['ClassId'];
     }
@@ -544,7 +552,9 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setClassId($ClassId): self
+
+
+    public function setClassId(int $ClassId): static
     {
         $this->container['ClassId'] = $ClassId;
 
@@ -556,7 +566,7 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getClientId()
+    public function getClientId(): string
     {
         return $this->container['ClientId'];
     }
@@ -568,7 +578,9 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setClientId($ClientId): self
+
+
+    public function setClientId(string $ClientId): static
     {
         $this->container['ClientId'] = $ClientId;
 
@@ -580,7 +592,7 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getClientPhotoUrl()
+    public function getClientPhotoUrl(): string
     {
         return $this->container['ClientPhotoUrl'];
     }
@@ -592,7 +604,9 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setClientPhotoUrl($ClientPhotoUrl): self
+
+
+    public function setClientPhotoUrl(string $ClientPhotoUrl): static
     {
         $this->container['ClientPhotoUrl'] = $ClientPhotoUrl;
 
@@ -604,7 +618,7 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getClientUniqueId()
+    public function getClientUniqueId(): int
     {
         return $this->container['ClientUniqueId'];
     }
@@ -616,7 +630,9 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setClientUniqueId($ClientUniqueId): self
+
+
+    public function setClientUniqueId(int $ClientUniqueId): static
     {
         $this->container['ClientUniqueId'] = $ClientUniqueId;
 
@@ -628,7 +644,7 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getStartDateTime()
+    public function getStartDateTime(): \DateTime
     {
         return $this->container['StartDateTime'];
     }
@@ -640,7 +656,9 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setStartDateTime($StartDateTime): self
+
+
+    public function setStartDateTime(\DateTime $StartDateTime): static
     {
         $this->container['StartDateTime'] = $StartDateTime;
 
@@ -652,7 +670,7 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getEndDateTime()
+    public function getEndDateTime(): \DateTime
     {
         return $this->container['EndDateTime'];
     }
@@ -664,7 +682,9 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setEndDateTime($EndDateTime): self
+
+
+    public function setEndDateTime(\DateTime $EndDateTime): static
     {
         $this->container['EndDateTime'] = $EndDateTime;
 
@@ -676,7 +696,7 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -688,7 +708,9 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -700,7 +722,7 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getLastModifiedDateTime()
+    public function getLastModifiedDateTime(): \DateTime
     {
         return $this->container['LastModifiedDateTime'];
     }
@@ -712,7 +734,9 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setLastModifiedDateTime($LastModifiedDateTime): self
+
+
+    public function setLastModifiedDateTime(\DateTime $LastModifiedDateTime): static
     {
         $this->container['LastModifiedDateTime'] = $LastModifiedDateTime;
 
@@ -724,7 +748,7 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getLateCancelled()
+    public function getLateCancelled(): bool
     {
         return $this->container['LateCancelled'];
     }
@@ -736,7 +760,9 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setLateCancelled($LateCancelled): self
+
+
+    public function setLateCancelled(bool $LateCancelled): static
     {
         $this->container['LateCancelled'] = $LateCancelled;
 
@@ -748,7 +774,7 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getSiteId()
+    public function getSiteId(): int
     {
         return $this->container['SiteId'];
     }
@@ -760,7 +786,9 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSiteId($SiteId): self
+
+
+    public function setSiteId(int $SiteId): static
     {
         $this->container['SiteId'] = $SiteId;
 
@@ -772,7 +800,7 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getLocationId()
+    public function getLocationId(): int
     {
         return $this->container['LocationId'];
     }
@@ -784,7 +812,9 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setLocationId($LocationId): self
+
+
+    public function setLocationId(int $LocationId): static
     {
         $this->container['LocationId'] = $LocationId;
 
@@ -796,7 +826,7 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getMakeUp()
+    public function getMakeUp(): bool
     {
         return $this->container['MakeUp'];
     }
@@ -808,7 +838,9 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setMakeUp($MakeUp): self
+
+
+    public function setMakeUp(bool $MakeUp): static
     {
         $this->container['MakeUp'] = $MakeUp;
 
@@ -820,7 +852,7 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->container['Name'];
     }
@@ -832,7 +864,9 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setName($Name): self
+
+
+    public function setName(string $Name): static
     {
         $this->container['Name'] = $Name;
 
@@ -844,7 +878,7 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getServiceId()
+    public function getServiceId(): int
     {
         return $this->container['ServiceId'];
     }
@@ -856,7 +890,9 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setServiceId($ServiceId): self
+
+
+    public function setServiceId(int $ServiceId): static
     {
         $this->container['ServiceId'] = $ServiceId;
 
@@ -868,7 +904,7 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getServiceName()
+    public function getServiceName(): string
     {
         return $this->container['ServiceName'];
     }
@@ -880,7 +916,9 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setServiceName($ServiceName): self
+
+
+    public function setServiceName(string $ServiceName): static
     {
         $this->container['ServiceName'] = $ServiceName;
 
@@ -892,7 +930,7 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\ClientService
      */
-    public function getService()
+    public function getService(): \Nlocascio\Mindbody\Model\ClientService
     {
         return $this->container['Service'];
     }
@@ -904,7 +942,9 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setService($Service): self
+
+
+    public function setService(\Nlocascio\Mindbody\Model\ClientService $Service): static
     {
         $this->container['Service'] = $Service;
 
@@ -916,7 +956,7 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getProductId()
+    public function getProductId(): int
     {
         return $this->container['ProductId'];
     }
@@ -928,7 +968,9 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setProductId($ProductId): self
+
+
+    public function setProductId(int $ProductId): static
     {
         $this->container['ProductId'] = $ProductId;
 
@@ -940,7 +982,7 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getSignedIn()
+    public function getSignedIn(): bool
     {
         return $this->container['SignedIn'];
     }
@@ -952,7 +994,9 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSignedIn($SignedIn): self
+
+
+    public function setSignedIn(bool $SignedIn): static
     {
         $this->container['SignedIn'] = $SignedIn;
 
@@ -964,7 +1008,7 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getStaffId()
+    public function getStaffId(): int
     {
         return $this->container['StaffId'];
     }
@@ -976,7 +1020,9 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setStaffId($StaffId): self
+
+
+    public function setStaffId(int $StaffId): static
     {
         $this->container['StaffId'] = $StaffId;
 
@@ -988,7 +1034,7 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getWebSignup()
+    public function getWebSignup(): bool
     {
         return $this->container['WebSignup'];
     }
@@ -1000,7 +1046,9 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setWebSignup($WebSignup): self
+
+
+    public function setWebSignup(bool $WebSignup): static
     {
         $this->container['WebSignup'] = $WebSignup;
 
@@ -1012,7 +1060,7 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getAction()
+    public function getAction(): string
     {
         return $this->container['Action'];
     }
@@ -1024,7 +1072,9 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAction($Action): self
+
+
+    public function setAction(string $Action): static
     {
         $allowedValues = $this->getActionAllowableValues();
         if (!is_null($Action) && !in_array($Action, $allowedValues, true)) {
@@ -1045,7 +1095,7 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getMissed()
+    public function getMissed(): bool
     {
         return $this->container['Missed'];
     }
@@ -1057,7 +1107,9 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setMissed($Missed): self
+
+
+    public function setMissed(bool $Missed): static
     {
         $this->container['Missed'] = $Missed;
 
@@ -1069,7 +1121,7 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getVisitType()
+    public function getVisitType(): int
     {
         return $this->container['VisitType'];
     }
@@ -1081,7 +1133,9 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setVisitType($VisitType): self
+
+
+    public function setVisitType(int $VisitType): static
     {
         $this->container['VisitType'] = $VisitType;
 
@@ -1093,7 +1147,7 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getTypeGroup()
+    public function getTypeGroup(): int
     {
         return $this->container['TypeGroup'];
     }
@@ -1105,7 +1159,9 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setTypeGroup($TypeGroup): self
+
+
+    public function setTypeGroup(int $TypeGroup): static
     {
         $this->container['TypeGroup'] = $TypeGroup;
 
@@ -1117,7 +1173,7 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getTypeTaken()
+    public function getTypeTaken(): string
     {
         return $this->container['TypeTaken'];
     }
@@ -1129,7 +1185,9 @@ class VisitWithWaitlistInfo extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setTypeTaken($TypeTaken): self
+
+
+    public function setTypeTaken(string $TypeTaken): static
     {
         $this->container['TypeTaken'] = $TypeTaken;
 

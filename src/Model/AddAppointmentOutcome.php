@@ -50,14 +50,14 @@ class AddAppointmentOutcome extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AddAppointmentOutcome';
+    protected static string $swaggerModelName = 'AddAppointmentOutcome';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Appointment' => '\Nlocascio\Mindbody\Model\Appointment',
         'Error' => '\Nlocascio\Mindbody\Model\ApiError',
         'Request' => '\Nlocascio\Mindbody\Model\AddAppointmentRequest'
@@ -68,7 +68,7 @@ class AddAppointmentOutcome extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Appointment' => null,
         'Error' => null,
         'Request' => null
@@ -81,7 +81,7 @@ class AddAppointmentOutcome extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Appointment' => 'Appointment',
         'Error' => 'Error',
         'Request' => 'Request'
@@ -92,7 +92,7 @@ class AddAppointmentOutcome extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Appointment' => 'setAppointment',
         'Error' => 'setError',
         'Request' => 'setRequest'
@@ -103,7 +103,7 @@ class AddAppointmentOutcome extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Appointment' => 'getAppointment',
         'Error' => 'getError',
         'Request' => 'getRequest'
@@ -120,7 +120,7 @@ class AddAppointmentOutcome extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Appointment'] = isset($data['Appointment']) ? $data['Appointment'] : null;
         $this->container['Error'] = isset($data['Error']) ? $data['Error'] : null;
@@ -145,7 +145,7 @@ class AddAppointmentOutcome extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Appointment
      */
-    public function getAppointment()
+    public function getAppointment(): \Nlocascio\Mindbody\Model\Appointment
     {
         return $this->container['Appointment'];
     }
@@ -157,7 +157,9 @@ class AddAppointmentOutcome extends BaseModel
      *
      * @return $this
      */
-    public function setAppointment($Appointment): self
+
+
+    public function setAppointment(\Nlocascio\Mindbody\Model\Appointment $Appointment): static
     {
         $this->container['Appointment'] = $Appointment;
 
@@ -169,7 +171,7 @@ class AddAppointmentOutcome extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ApiError
      */
-    public function getError()
+    public function getError(): \Nlocascio\Mindbody\Model\ApiError
     {
         return $this->container['Error'];
     }
@@ -181,7 +183,9 @@ class AddAppointmentOutcome extends BaseModel
      *
      * @return $this
      */
-    public function setError($Error): self
+
+
+    public function setError(\Nlocascio\Mindbody\Model\ApiError $Error): static
     {
         $this->container['Error'] = $Error;
 
@@ -193,7 +197,7 @@ class AddAppointmentOutcome extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\AddAppointmentRequest
      */
-    public function getRequest()
+    public function getRequest(): \Nlocascio\Mindbody\Model\AddAppointmentRequest
     {
         return $this->container['Request'];
     }
@@ -205,7 +209,9 @@ class AddAppointmentOutcome extends BaseModel
      *
      * @return $this
      */
-    public function setRequest($Request): self
+
+
+    public function setRequest(\Nlocascio\Mindbody\Model\AddAppointmentRequest $Request): static
     {
         $this->container['Request'] = $Request;
 

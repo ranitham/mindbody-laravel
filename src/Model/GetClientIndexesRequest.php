@@ -47,14 +47,14 @@ class GetClientIndexesRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetClientIndexesRequest';
+    protected static string $swaggerModelName = 'GetClientIndexesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'RequiredOnly' => 'bool'
     ];
 
@@ -63,7 +63,7 @@ class GetClientIndexesRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'RequiredOnly' => null
     ];
 
@@ -74,7 +74,7 @@ class GetClientIndexesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'RequiredOnly' => 'RequiredOnly'
     ];
 
@@ -83,7 +83,7 @@ class GetClientIndexesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'RequiredOnly' => 'setRequiredOnly'
     ];
 
@@ -92,7 +92,7 @@ class GetClientIndexesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'RequiredOnly' => 'getRequiredOnly'
     ];
 
@@ -107,7 +107,7 @@ class GetClientIndexesRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['RequiredOnly'] = isset($data['RequiredOnly']) ? $data['RequiredOnly'] : null;
     }
@@ -130,7 +130,7 @@ class GetClientIndexesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getRequiredOnly()
+    public function getRequiredOnly(): bool
     {
         return $this->container['RequiredOnly'];
     }
@@ -142,7 +142,9 @@ class GetClientIndexesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setRequiredOnly($RequiredOnly): self
+
+
+    public function setRequiredOnly(bool $RequiredOnly): static
     {
         $this->container['RequiredOnly'] = $RequiredOnly;
 

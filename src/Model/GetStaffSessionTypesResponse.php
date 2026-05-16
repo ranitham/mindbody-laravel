@@ -48,14 +48,14 @@ class GetStaffSessionTypesResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetStaffSessionTypesResponse';
+    protected static string $swaggerModelName = 'GetStaffSessionTypesResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'PaginationResponse' => '\Nlocascio\Mindbody\Model\PaginationResponse',
         'StaffSessionTypes' => '\Nlocascio\Mindbody\Model\StaffSessionType[]'
     ];
@@ -65,7 +65,7 @@ class GetStaffSessionTypesResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'PaginationResponse' => null,
         'StaffSessionTypes' => null
     ];
@@ -77,7 +77,7 @@ class GetStaffSessionTypesResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'PaginationResponse' => 'PaginationResponse',
         'StaffSessionTypes' => 'StaffSessionTypes'
     ];
@@ -87,7 +87,7 @@ class GetStaffSessionTypesResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'PaginationResponse' => 'setPaginationResponse',
         'StaffSessionTypes' => 'setStaffSessionTypes'
     ];
@@ -97,7 +97,7 @@ class GetStaffSessionTypesResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'PaginationResponse' => 'getPaginationResponse',
         'StaffSessionTypes' => 'getStaffSessionTypes'
     ];
@@ -113,7 +113,7 @@ class GetStaffSessionTypesResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['PaginationResponse'] = isset($data['PaginationResponse']) ? $data['PaginationResponse'] : null;
         $this->container['StaffSessionTypes'] = isset($data['StaffSessionTypes']) ? $data['StaffSessionTypes'] : null;
@@ -137,7 +137,7 @@ class GetStaffSessionTypesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse()
+    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
     {
         return $this->container['PaginationResponse'];
     }
@@ -149,7 +149,9 @@ class GetStaffSessionTypesResponse extends BaseModel
      *
      * @return $this
      */
-    public function setPaginationResponse($PaginationResponse): self
+
+
+    public function setPaginationResponse(\Nlocascio\Mindbody\Model\PaginationResponse $PaginationResponse): static
     {
         $this->container['PaginationResponse'] = $PaginationResponse;
 
@@ -161,7 +163,7 @@ class GetStaffSessionTypesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\StaffSessionType[]
      */
-    public function getStaffSessionTypes()
+    public function getStaffSessionTypes(): array
     {
         return $this->container['StaffSessionTypes'];
     }
@@ -173,7 +175,9 @@ class GetStaffSessionTypesResponse extends BaseModel
      *
      * @return $this
      */
-    public function setStaffSessionTypes($StaffSessionTypes): self
+
+
+    public function setStaffSessionTypes(array $StaffSessionTypes): static
     {
         $this->container['StaffSessionTypes'] = $StaffSessionTypes;
 

@@ -48,14 +48,14 @@ class AddAppointmentAddOnResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AddAppointmentAddOnResponse';
+    protected static string $swaggerModelName = 'AddAppointmentAddOnResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'AppointmentId' => 'int',
         'AddOnAppointmentId' => 'int'
     ];
@@ -65,7 +65,7 @@ class AddAppointmentAddOnResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'AppointmentId' => 'int64',
         'AddOnAppointmentId' => 'int64'
     ];
@@ -77,7 +77,7 @@ class AddAppointmentAddOnResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'AppointmentId' => 'AppointmentId',
         'AddOnAppointmentId' => 'AddOnAppointmentId'
     ];
@@ -87,7 +87,7 @@ class AddAppointmentAddOnResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'AppointmentId' => 'setAppointmentId',
         'AddOnAppointmentId' => 'setAddOnAppointmentId'
     ];
@@ -97,7 +97,7 @@ class AddAppointmentAddOnResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'AppointmentId' => 'getAppointmentId',
         'AddOnAppointmentId' => 'getAddOnAppointmentId'
     ];
@@ -113,7 +113,7 @@ class AddAppointmentAddOnResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['AppointmentId'] = isset($data['AppointmentId']) ? $data['AppointmentId'] : null;
         $this->container['AddOnAppointmentId'] = isset($data['AddOnAppointmentId']) ? $data['AddOnAppointmentId'] : null;
@@ -137,7 +137,7 @@ class AddAppointmentAddOnResponse extends BaseModel
      *
      * @return int
      */
-    public function getAppointmentId()
+    public function getAppointmentId(): int
     {
         return $this->container['AppointmentId'];
     }
@@ -149,7 +149,9 @@ class AddAppointmentAddOnResponse extends BaseModel
      *
      * @return $this
      */
-    public function setAppointmentId($AppointmentId): self
+
+
+    public function setAppointmentId(int $AppointmentId): static
     {
         $this->container['AppointmentId'] = $AppointmentId;
 
@@ -161,7 +163,7 @@ class AddAppointmentAddOnResponse extends BaseModel
      *
      * @return int
      */
-    public function getAddOnAppointmentId()
+    public function getAddOnAppointmentId(): int
     {
         return $this->container['AddOnAppointmentId'];
     }
@@ -173,7 +175,9 @@ class AddAppointmentAddOnResponse extends BaseModel
      *
      * @return $this
      */
-    public function setAddOnAppointmentId($AddOnAppointmentId): self
+
+
+    public function setAddOnAppointmentId(int $AddOnAppointmentId): static
     {
         $this->container['AddOnAppointmentId'] = $AddOnAppointmentId;
 

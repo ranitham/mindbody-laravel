@@ -57,14 +57,14 @@ class InitiatePurchaseContractRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'InitiatePurchaseContractRequest';
+    protected static string $swaggerModelName = 'InitiatePurchaseContractRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Test' => 'bool',
         'LocationId' => 'int',
         'ClientId' => 'string',
@@ -82,7 +82,7 @@ class InitiatePurchaseContractRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Test' => null,
         'LocationId' => 'int32',
         'ClientId' => null,
@@ -102,7 +102,7 @@ class InitiatePurchaseContractRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Test' => 'Test',
         'LocationId' => 'LocationId',
         'ClientId' => 'ClientId',
@@ -120,7 +120,7 @@ class InitiatePurchaseContractRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Test' => 'setTest',
         'LocationId' => 'setLocationId',
         'ClientId' => 'setClientId',
@@ -138,7 +138,7 @@ class InitiatePurchaseContractRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Test' => 'getTest',
         'LocationId' => 'getLocationId',
         'ClientId' => 'getClientId',
@@ -162,7 +162,7 @@ class InitiatePurchaseContractRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Test'] = isset($data['Test']) ? $data['Test'] : null;
         $this->container['LocationId'] = isset($data['LocationId']) ? $data['LocationId'] : null;
@@ -203,7 +203,7 @@ class InitiatePurchaseContractRequest extends BaseModel
      *
      * @return bool
      */
-    public function getTest()
+    public function getTest(): bool
     {
         return $this->container['Test'];
     }
@@ -215,7 +215,9 @@ class InitiatePurchaseContractRequest extends BaseModel
      *
      * @return $this
      */
-    public function setTest($Test): self
+
+
+    public function setTest(bool $Test): static
     {
         $this->container['Test'] = $Test;
 
@@ -227,7 +229,7 @@ class InitiatePurchaseContractRequest extends BaseModel
      *
      * @return int
      */
-    public function getLocationId()
+    public function getLocationId(): int
     {
         return $this->container['LocationId'];
     }
@@ -239,7 +241,9 @@ class InitiatePurchaseContractRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLocationId($LocationId): self
+
+
+    public function setLocationId(int $LocationId): static
     {
         $this->container['LocationId'] = $LocationId;
 
@@ -251,7 +255,7 @@ class InitiatePurchaseContractRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId()
+    public function getClientId(): string
     {
         return $this->container['ClientId'];
     }
@@ -263,7 +267,9 @@ class InitiatePurchaseContractRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClientId($ClientId): self
+
+
+    public function setClientId(string $ClientId): static
     {
         $this->container['ClientId'] = $ClientId;
 
@@ -275,7 +281,7 @@ class InitiatePurchaseContractRequest extends BaseModel
      *
      * @return int
      */
-    public function getContractId()
+    public function getContractId(): int
     {
         return $this->container['ContractId'];
     }
@@ -287,7 +293,9 @@ class InitiatePurchaseContractRequest extends BaseModel
      *
      * @return $this
      */
-    public function setContractId($ContractId): self
+
+
+    public function setContractId(int $ContractId): static
     {
         $this->container['ContractId'] = $ContractId;
 
@@ -299,7 +307,7 @@ class InitiatePurchaseContractRequest extends BaseModel
      *
      * @return string
      */
-    public function getPromotionCode()
+    public function getPromotionCode(): string
     {
         return $this->container['PromotionCode'];
     }
@@ -311,7 +319,9 @@ class InitiatePurchaseContractRequest extends BaseModel
      *
      * @return $this
      */
-    public function setPromotionCode($PromotionCode): self
+
+
+    public function setPromotionCode(string $PromotionCode): static
     {
         $this->container['PromotionCode'] = $PromotionCode;
 
@@ -323,7 +333,7 @@ class InitiatePurchaseContractRequest extends BaseModel
      *
      * @return string[]
      */
-    public function getPromotionCodes()
+    public function getPromotionCodes(): array
     {
         return $this->container['PromotionCodes'];
     }
@@ -335,7 +345,9 @@ class InitiatePurchaseContractRequest extends BaseModel
      *
      * @return $this
      */
-    public function setPromotionCodes($PromotionCodes): self
+
+
+    public function setPromotionCodes(array $PromotionCodes): static
     {
         $this->container['PromotionCodes'] = $PromotionCodes;
 
@@ -347,7 +359,7 @@ class InitiatePurchaseContractRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSendNotifications()
+    public function getSendNotifications(): bool
     {
         return $this->container['SendNotifications'];
     }
@@ -359,7 +371,9 @@ class InitiatePurchaseContractRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSendNotifications($SendNotifications): self
+
+
+    public function setSendNotifications(bool $SendNotifications): static
     {
         $this->container['SendNotifications'] = $SendNotifications;
 
@@ -371,7 +385,7 @@ class InitiatePurchaseContractRequest extends BaseModel
      *
      * @return int
      */
-    public function getSalesRepId()
+    public function getSalesRepId(): int
     {
         return $this->container['SalesRepId'];
     }
@@ -383,7 +397,9 @@ class InitiatePurchaseContractRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSalesRepId($SalesRepId): self
+
+
+    public function setSalesRepId(int $SalesRepId): static
     {
         $this->container['SalesRepId'] = $SalesRepId;
 
@@ -395,7 +411,7 @@ class InitiatePurchaseContractRequest extends BaseModel
      *
      * @return string
      */
-    public function getPaymentAuthenticationCallbackUrl()
+    public function getPaymentAuthenticationCallbackUrl(): string
     {
         return $this->container['PaymentAuthenticationCallbackUrl'];
     }
@@ -407,7 +423,9 @@ class InitiatePurchaseContractRequest extends BaseModel
      *
      * @return $this
      */
-    public function setPaymentAuthenticationCallbackUrl($PaymentAuthenticationCallbackUrl): self
+
+
+    public function setPaymentAuthenticationCallbackUrl(string $PaymentAuthenticationCallbackUrl): static
     {
         $this->container['PaymentAuthenticationCallbackUrl'] = $PaymentAuthenticationCallbackUrl;
 
@@ -419,7 +437,7 @@ class InitiatePurchaseContractRequest extends BaseModel
      *
      * @return int
      */
-    public function getPaymentMethodId()
+    public function getPaymentMethodId(): int
     {
         return $this->container['PaymentMethodId'];
     }
@@ -431,7 +449,9 @@ class InitiatePurchaseContractRequest extends BaseModel
      *
      * @return $this
      */
-    public function setPaymentMethodId($PaymentMethodId): self
+
+
+    public function setPaymentMethodId(int $PaymentMethodId): static
     {
         $this->container['PaymentMethodId'] = $PaymentMethodId;
 

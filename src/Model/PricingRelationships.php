@@ -48,14 +48,14 @@ class PricingRelationships extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'PricingRelationships';
+    protected static string $swaggerModelName = 'PricingRelationships';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'PaysFor' => 'int[]',
         'PaidBy' => 'int[]'
     ];
@@ -65,7 +65,7 @@ class PricingRelationships extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'PaysFor' => 'int32',
         'PaidBy' => 'int32'
     ];
@@ -77,7 +77,7 @@ class PricingRelationships extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'PaysFor' => 'PaysFor',
         'PaidBy' => 'PaidBy'
     ];
@@ -87,7 +87,7 @@ class PricingRelationships extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'PaysFor' => 'setPaysFor',
         'PaidBy' => 'setPaidBy'
     ];
@@ -97,7 +97,7 @@ class PricingRelationships extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'PaysFor' => 'getPaysFor',
         'PaidBy' => 'getPaidBy'
     ];
@@ -113,7 +113,7 @@ class PricingRelationships extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['PaysFor'] = isset($data['PaysFor']) ? $data['PaysFor'] : null;
         $this->container['PaidBy'] = isset($data['PaidBy']) ? $data['PaidBy'] : null;
@@ -137,7 +137,7 @@ class PricingRelationships extends BaseModel
      *
      * @return int[]
      */
-    public function getPaysFor()
+    public function getPaysFor(): array
     {
         return $this->container['PaysFor'];
     }
@@ -149,7 +149,9 @@ class PricingRelationships extends BaseModel
      *
      * @return $this
      */
-    public function setPaysFor($PaysFor): self
+
+
+    public function setPaysFor(array $PaysFor): static
     {
         $this->container['PaysFor'] = $PaysFor;
 
@@ -161,7 +163,7 @@ class PricingRelationships extends BaseModel
      *
      * @return int[]
      */
-    public function getPaidBy()
+    public function getPaidBy(): array
     {
         return $this->container['PaidBy'];
     }
@@ -173,7 +175,9 @@ class PricingRelationships extends BaseModel
      *
      * @return $this
      */
-    public function setPaidBy($PaidBy): self
+
+
+    public function setPaidBy(array $PaidBy): static
     {
         $this->container['PaidBy'] = $PaidBy;
 

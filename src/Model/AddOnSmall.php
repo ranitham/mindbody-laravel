@@ -41,7 +41,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property int $TypeId The ID of the session type of this appointment.
  *
  */
-class AddOnSmall extends BaseModel implements ModelWithId
+class AddOnSmall extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -50,14 +50,14 @@ class AddOnSmall extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AddOnSmall';
+    protected static string $swaggerModelName = 'AddOnSmall';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Id' => 'int',
         'Name' => 'string',
         'StaffId' => 'int',
@@ -69,7 +69,7 @@ class AddOnSmall extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Id' => 'int64',
         'Name' => null,
         'StaffId' => 'int64',
@@ -83,7 +83,7 @@ class AddOnSmall extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Id' => 'Id',
         'Name' => 'Name',
         'StaffId' => 'StaffId',
@@ -95,7 +95,7 @@ class AddOnSmall extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Id' => 'setId',
         'Name' => 'setName',
         'StaffId' => 'setStaffId',
@@ -107,7 +107,7 @@ class AddOnSmall extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Id' => 'getId',
         'Name' => 'getName',
         'StaffId' => 'getStaffId',
@@ -125,7 +125,7 @@ class AddOnSmall extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
         $this->container['Name'] = isset($data['Name']) ? $data['Name'] : null;
@@ -151,7 +151,7 @@ class AddOnSmall extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -163,7 +163,9 @@ class AddOnSmall extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -175,7 +177,7 @@ class AddOnSmall extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->container['Name'];
     }
@@ -187,7 +189,9 @@ class AddOnSmall extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setName($Name): self
+
+
+    public function setName(string $Name): static
     {
         $this->container['Name'] = $Name;
 
@@ -199,7 +203,7 @@ class AddOnSmall extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getStaffId()
+    public function getStaffId(): int
     {
         return $this->container['StaffId'];
     }
@@ -211,7 +215,9 @@ class AddOnSmall extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setStaffId($StaffId): self
+
+
+    public function setStaffId(int $StaffId): static
     {
         $this->container['StaffId'] = $StaffId;
 
@@ -223,7 +229,7 @@ class AddOnSmall extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getTypeId()
+    public function getTypeId(): int
     {
         return $this->container['TypeId'];
     }
@@ -235,7 +241,9 @@ class AddOnSmall extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setTypeId($TypeId): self
+
+
+    public function setTypeId(int $TypeId): static
     {
         $this->container['TypeId'] = $TypeId;
 

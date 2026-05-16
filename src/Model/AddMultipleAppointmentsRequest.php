@@ -48,14 +48,14 @@ class AddMultipleAppointmentsRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AddMultipleAppointmentsRequest';
+    protected static string $swaggerModelName = 'AddMultipleAppointmentsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'AddAppointmentRequests' => '\Nlocascio\Mindbody\Model\AddAppointmentRequest[]'
     ];
 
@@ -64,7 +64,7 @@ class AddMultipleAppointmentsRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'AddAppointmentRequests' => null
     ];
 
@@ -75,7 +75,7 @@ class AddMultipleAppointmentsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'AddAppointmentRequests' => 'AddAppointmentRequests'
     ];
 
@@ -84,7 +84,7 @@ class AddMultipleAppointmentsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'AddAppointmentRequests' => 'setAddAppointmentRequests'
     ];
 
@@ -93,7 +93,7 @@ class AddMultipleAppointmentsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'AddAppointmentRequests' => 'getAddAppointmentRequests'
     ];
 
@@ -108,7 +108,7 @@ class AddMultipleAppointmentsRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['AddAppointmentRequests'] = isset($data['AddAppointmentRequests']) ? $data['AddAppointmentRequests'] : null;
     }
@@ -131,7 +131,7 @@ class AddMultipleAppointmentsRequest extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\AddAppointmentRequest[]
      */
-    public function getAddAppointmentRequests()
+    public function getAddAppointmentRequests(): array
     {
         return $this->container['AddAppointmentRequests'];
     }
@@ -143,7 +143,9 @@ class AddMultipleAppointmentsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setAddAppointmentRequests($AddAppointmentRequests): self
+
+
+    public function setAddAppointmentRequests(array $AddAppointmentRequests): static
     {
         $this->container['AddAppointmentRequests'] = $AddAppointmentRequests;
 

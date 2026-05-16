@@ -48,7 +48,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property string $StaffDisplayName The display name of the staff for the optional associated appointment. If no appointment ID is provided, or no display name is specified for the staff member, this will be null.
  *
  */
-class FormulaNoteResponse extends BaseModel implements ModelWithId
+class FormulaNoteResponse extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -57,14 +57,14 @@ class FormulaNoteResponse extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'FormulaNoteResponse';
+    protected static string $swaggerModelName = 'FormulaNoteResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Id' => 'int',
         'ClientId' => 'string',
         'AppointmentId' => 'int',
@@ -82,7 +82,7 @@ class FormulaNoteResponse extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Id' => 'int64',
         'ClientId' => null,
         'AppointmentId' => 'int64',
@@ -102,7 +102,7 @@ class FormulaNoteResponse extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Id' => 'Id',
         'ClientId' => 'ClientId',
         'AppointmentId' => 'AppointmentId',
@@ -120,7 +120,7 @@ class FormulaNoteResponse extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Id' => 'setId',
         'ClientId' => 'setClientId',
         'AppointmentId' => 'setAppointmentId',
@@ -138,7 +138,7 @@ class FormulaNoteResponse extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Id' => 'getId',
         'ClientId' => 'getClientId',
         'AppointmentId' => 'getAppointmentId',
@@ -162,7 +162,7 @@ class FormulaNoteResponse extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
@@ -194,7 +194,7 @@ class FormulaNoteResponse extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -206,7 +206,9 @@ class FormulaNoteResponse extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -218,7 +220,7 @@ class FormulaNoteResponse extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getClientId()
+    public function getClientId(): string
     {
         return $this->container['ClientId'];
     }
@@ -230,7 +232,9 @@ class FormulaNoteResponse extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setClientId($ClientId): self
+
+
+    public function setClientId(string $ClientId): static
     {
         $this->container['ClientId'] = $ClientId;
 
@@ -242,7 +246,7 @@ class FormulaNoteResponse extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getAppointmentId()
+    public function getAppointmentId(): int
     {
         return $this->container['AppointmentId'];
     }
@@ -254,7 +258,9 @@ class FormulaNoteResponse extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAppointmentId($AppointmentId): self
+
+
+    public function setAppointmentId(int $AppointmentId): static
     {
         $this->container['AppointmentId'] = $AppointmentId;
 
@@ -266,7 +272,7 @@ class FormulaNoteResponse extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getEntryDate()
+    public function getEntryDate(): \DateTime
     {
         return $this->container['EntryDate'];
     }
@@ -278,7 +284,9 @@ class FormulaNoteResponse extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setEntryDate($EntryDate): self
+
+
+    public function setEntryDate(\DateTime $EntryDate): static
     {
         $this->container['EntryDate'] = $EntryDate;
 
@@ -290,7 +298,7 @@ class FormulaNoteResponse extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getNote()
+    public function getNote(): string
     {
         return $this->container['Note'];
     }
@@ -302,7 +310,9 @@ class FormulaNoteResponse extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setNote($Note): self
+
+
+    public function setNote(string $Note): static
     {
         $this->container['Note'] = $Note;
 
@@ -314,7 +324,7 @@ class FormulaNoteResponse extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getSiteId()
+    public function getSiteId(): int
     {
         return $this->container['SiteId'];
     }
@@ -326,7 +336,9 @@ class FormulaNoteResponse extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSiteId($SiteId): self
+
+
+    public function setSiteId(int $SiteId): static
     {
         $this->container['SiteId'] = $SiteId;
 
@@ -338,7 +350,7 @@ class FormulaNoteResponse extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getSiteName()
+    public function getSiteName(): string
     {
         return $this->container['SiteName'];
     }
@@ -350,7 +362,9 @@ class FormulaNoteResponse extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSiteName($SiteName): self
+
+
+    public function setSiteName(string $SiteName): static
     {
         $this->container['SiteName'] = $SiteName;
 
@@ -362,7 +376,7 @@ class FormulaNoteResponse extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getStaffFirstName()
+    public function getStaffFirstName(): string
     {
         return $this->container['StaffFirstName'];
     }
@@ -374,7 +388,9 @@ class FormulaNoteResponse extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setStaffFirstName($StaffFirstName): self
+
+
+    public function setStaffFirstName(string $StaffFirstName): static
     {
         $this->container['StaffFirstName'] = $StaffFirstName;
 
@@ -386,7 +402,7 @@ class FormulaNoteResponse extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getStaffLastName()
+    public function getStaffLastName(): string
     {
         return $this->container['StaffLastName'];
     }
@@ -398,7 +414,9 @@ class FormulaNoteResponse extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setStaffLastName($StaffLastName): self
+
+
+    public function setStaffLastName(string $StaffLastName): static
     {
         $this->container['StaffLastName'] = $StaffLastName;
 
@@ -410,7 +428,7 @@ class FormulaNoteResponse extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getStaffDisplayName()
+    public function getStaffDisplayName(): string
     {
         return $this->container['StaffDisplayName'];
     }
@@ -422,7 +440,9 @@ class FormulaNoteResponse extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setStaffDisplayName($StaffDisplayName): self
+
+
+    public function setStaffDisplayName(string $StaffDisplayName): static
     {
         $this->container['StaffDisplayName'] = $StaffDisplayName;
 

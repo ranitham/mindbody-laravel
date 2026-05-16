@@ -52,14 +52,14 @@ class ResourceAvailability extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ResourceAvailability';
+    protected static string $swaggerModelName = 'ResourceAvailability';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ResourceId' => 'int',
         'StartDateTime' => '\DateTime',
         'EndDateTime' => '\DateTime',
@@ -72,7 +72,7 @@ class ResourceAvailability extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ResourceId' => 'int32',
         'StartDateTime' => 'date-time',
         'EndDateTime' => 'date-time',
@@ -87,7 +87,7 @@ class ResourceAvailability extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ResourceId' => 'ResourceId',
         'StartDateTime' => 'StartDateTime',
         'EndDateTime' => 'EndDateTime',
@@ -100,7 +100,7 @@ class ResourceAvailability extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ResourceId' => 'setResourceId',
         'StartDateTime' => 'setStartDateTime',
         'EndDateTime' => 'setEndDateTime',
@@ -113,7 +113,7 @@ class ResourceAvailability extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ResourceId' => 'getResourceId',
         'StartDateTime' => 'getStartDateTime',
         'EndDateTime' => 'getEndDateTime',
@@ -132,7 +132,7 @@ class ResourceAvailability extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ResourceId'] = isset($data['ResourceId']) ? $data['ResourceId'] : null;
         $this->container['StartDateTime'] = isset($data['StartDateTime']) ? $data['StartDateTime'] : null;
@@ -159,7 +159,7 @@ class ResourceAvailability extends BaseModel
      *
      * @return int
      */
-    public function getResourceId()
+    public function getResourceId(): int
     {
         return $this->container['ResourceId'];
     }
@@ -171,7 +171,9 @@ class ResourceAvailability extends BaseModel
      *
      * @return $this
      */
-    public function setResourceId($ResourceId): self
+
+
+    public function setResourceId(int $ResourceId): static
     {
         $this->container['ResourceId'] = $ResourceId;
 
@@ -183,7 +185,7 @@ class ResourceAvailability extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDateTime()
+    public function getStartDateTime(): \DateTime
     {
         return $this->container['StartDateTime'];
     }
@@ -195,7 +197,9 @@ class ResourceAvailability extends BaseModel
      *
      * @return $this
      */
-    public function setStartDateTime($StartDateTime): self
+
+
+    public function setStartDateTime(\DateTime $StartDateTime): static
     {
         $this->container['StartDateTime'] = $StartDateTime;
 
@@ -207,7 +211,7 @@ class ResourceAvailability extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDateTime()
+    public function getEndDateTime(): \DateTime
     {
         return $this->container['EndDateTime'];
     }
@@ -219,7 +223,9 @@ class ResourceAvailability extends BaseModel
      *
      * @return $this
      */
-    public function setEndDateTime($EndDateTime): self
+
+
+    public function setEndDateTime(\DateTime $EndDateTime): static
     {
         $this->container['EndDateTime'] = $EndDateTime;
 
@@ -231,7 +237,7 @@ class ResourceAvailability extends BaseModel
      *
      * @return int[]
      */
-    public function getSessionTypeIds()
+    public function getSessionTypeIds(): array
     {
         return $this->container['SessionTypeIds'];
     }
@@ -243,7 +249,9 @@ class ResourceAvailability extends BaseModel
      *
      * @return $this
      */
-    public function setSessionTypeIds($SessionTypeIds): self
+
+
+    public function setSessionTypeIds(array $SessionTypeIds): static
     {
         $this->container['SessionTypeIds'] = $SessionTypeIds;
 
@@ -255,7 +263,7 @@ class ResourceAvailability extends BaseModel
      *
      * @return int[]
      */
-    public function getProgramIds()
+    public function getProgramIds(): array
     {
         return $this->container['ProgramIds'];
     }
@@ -267,7 +275,9 @@ class ResourceAvailability extends BaseModel
      *
      * @return $this
      */
-    public function setProgramIds($ProgramIds): self
+
+
+    public function setProgramIds(array $ProgramIds): static
     {
         $this->container['ProgramIds'] = $ProgramIds;
 

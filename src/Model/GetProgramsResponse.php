@@ -48,14 +48,14 @@ class GetProgramsResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetProgramsResponse';
+    protected static string $swaggerModelName = 'GetProgramsResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'PaginationResponse' => '\Nlocascio\Mindbody\Model\PaginationResponse',
         'Programs' => '\Nlocascio\Mindbody\Model\Program[]'
     ];
@@ -65,7 +65,7 @@ class GetProgramsResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'PaginationResponse' => null,
         'Programs' => null
     ];
@@ -77,7 +77,7 @@ class GetProgramsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'PaginationResponse' => 'PaginationResponse',
         'Programs' => 'Programs'
     ];
@@ -87,7 +87,7 @@ class GetProgramsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'PaginationResponse' => 'setPaginationResponse',
         'Programs' => 'setPrograms'
     ];
@@ -97,7 +97,7 @@ class GetProgramsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'PaginationResponse' => 'getPaginationResponse',
         'Programs' => 'getPrograms'
     ];
@@ -113,7 +113,7 @@ class GetProgramsResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['PaginationResponse'] = isset($data['PaginationResponse']) ? $data['PaginationResponse'] : null;
         $this->container['Programs'] = isset($data['Programs']) ? $data['Programs'] : null;
@@ -137,7 +137,7 @@ class GetProgramsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse()
+    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
     {
         return $this->container['PaginationResponse'];
     }
@@ -149,7 +149,9 @@ class GetProgramsResponse extends BaseModel
      *
      * @return $this
      */
-    public function setPaginationResponse($PaginationResponse): self
+
+
+    public function setPaginationResponse(\Nlocascio\Mindbody\Model\PaginationResponse $PaginationResponse): static
     {
         $this->container['PaginationResponse'] = $PaginationResponse;
 
@@ -161,7 +163,7 @@ class GetProgramsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Program[]
      */
-    public function getPrograms()
+    public function getPrograms(): array
     {
         return $this->container['Programs'];
     }
@@ -173,7 +175,9 @@ class GetProgramsResponse extends BaseModel
      *
      * @return $this
      */
-    public function setPrograms($Programs): self
+
+
+    public function setPrograms(array $Programs): static
     {
         $this->container['Programs'] = $Programs;
 

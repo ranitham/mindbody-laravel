@@ -50,14 +50,14 @@ class PickASpotSpot extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'PickASpot.Spot';
+    protected static string $swaggerModelName = 'PickASpot.Spot';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ReservedSpotNumbers' => 'int[]',
         'AvailableSpotNumbers' => 'int[]',
         'UnavailableSpotNumbers' => 'int[]'
@@ -68,7 +68,7 @@ class PickASpotSpot extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ReservedSpotNumbers' => 'int32',
         'AvailableSpotNumbers' => 'int32',
         'UnavailableSpotNumbers' => 'int32'
@@ -81,7 +81,7 @@ class PickASpotSpot extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ReservedSpotNumbers' => 'ReservedSpotNumbers',
         'AvailableSpotNumbers' => 'AvailableSpotNumbers',
         'UnavailableSpotNumbers' => 'UnavailableSpotNumbers'
@@ -92,7 +92,7 @@ class PickASpotSpot extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ReservedSpotNumbers' => 'setReservedSpotNumbers',
         'AvailableSpotNumbers' => 'setAvailableSpotNumbers',
         'UnavailableSpotNumbers' => 'setUnavailableSpotNumbers'
@@ -103,7 +103,7 @@ class PickASpotSpot extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ReservedSpotNumbers' => 'getReservedSpotNumbers',
         'AvailableSpotNumbers' => 'getAvailableSpotNumbers',
         'UnavailableSpotNumbers' => 'getUnavailableSpotNumbers'
@@ -120,7 +120,7 @@ class PickASpotSpot extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ReservedSpotNumbers'] = isset($data['ReservedSpotNumbers']) ? $data['ReservedSpotNumbers'] : null;
         $this->container['AvailableSpotNumbers'] = isset($data['AvailableSpotNumbers']) ? $data['AvailableSpotNumbers'] : null;
@@ -145,7 +145,7 @@ class PickASpotSpot extends BaseModel
      *
      * @return int[]
      */
-    public function getReservedSpotNumbers()
+    public function getReservedSpotNumbers(): array
     {
         return $this->container['ReservedSpotNumbers'];
     }
@@ -157,7 +157,9 @@ class PickASpotSpot extends BaseModel
      *
      * @return $this
      */
-    public function setReservedSpotNumbers($ReservedSpotNumbers): self
+
+
+    public function setReservedSpotNumbers(array $ReservedSpotNumbers): static
     {
         $this->container['ReservedSpotNumbers'] = $ReservedSpotNumbers;
 
@@ -169,7 +171,7 @@ class PickASpotSpot extends BaseModel
      *
      * @return int[]
      */
-    public function getAvailableSpotNumbers()
+    public function getAvailableSpotNumbers(): array
     {
         return $this->container['AvailableSpotNumbers'];
     }
@@ -181,7 +183,9 @@ class PickASpotSpot extends BaseModel
      *
      * @return $this
      */
-    public function setAvailableSpotNumbers($AvailableSpotNumbers): self
+
+
+    public function setAvailableSpotNumbers(array $AvailableSpotNumbers): static
     {
         $this->container['AvailableSpotNumbers'] = $AvailableSpotNumbers;
 
@@ -193,7 +197,7 @@ class PickASpotSpot extends BaseModel
      *
      * @return int[]
      */
-    public function getUnavailableSpotNumbers()
+    public function getUnavailableSpotNumbers(): array
     {
         return $this->container['UnavailableSpotNumbers'];
     }
@@ -205,7 +209,9 @@ class PickASpotSpot extends BaseModel
      *
      * @return $this
      */
-    public function setUnavailableSpotNumbers($UnavailableSpotNumbers): self
+
+
+    public function setUnavailableSpotNumbers(array $UnavailableSpotNumbers): static
     {
         $this->container['UnavailableSpotNumbers'] = $UnavailableSpotNumbers;
 

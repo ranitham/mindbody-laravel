@@ -48,14 +48,14 @@ class GetPaymentTypesResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetPaymentTypesResponse';
+    protected static string $swaggerModelName = 'GetPaymentTypesResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'PaymentTypes' => '\Nlocascio\Mindbody\Model\PaymentType[]'
     ];
 
@@ -64,7 +64,7 @@ class GetPaymentTypesResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'PaymentTypes' => null
     ];
 
@@ -75,7 +75,7 @@ class GetPaymentTypesResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'PaymentTypes' => 'PaymentTypes'
     ];
 
@@ -84,7 +84,7 @@ class GetPaymentTypesResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'PaymentTypes' => 'setPaymentTypes'
     ];
 
@@ -93,7 +93,7 @@ class GetPaymentTypesResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'PaymentTypes' => 'getPaymentTypes'
     ];
 
@@ -108,7 +108,7 @@ class GetPaymentTypesResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['PaymentTypes'] = isset($data['PaymentTypes']) ? $data['PaymentTypes'] : null;
     }
@@ -131,7 +131,7 @@ class GetPaymentTypesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaymentType[]
      */
-    public function getPaymentTypes()
+    public function getPaymentTypes(): array
     {
         return $this->container['PaymentTypes'];
     }
@@ -143,7 +143,9 @@ class GetPaymentTypesResponse extends BaseModel
      *
      * @return $this
      */
-    public function setPaymentTypes($PaymentTypes): self
+
+
+    public function setPaymentTypes(array $PaymentTypes): static
     {
         $this->container['PaymentTypes'] = $PaymentTypes;
 

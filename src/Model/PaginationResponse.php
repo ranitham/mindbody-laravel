@@ -51,14 +51,14 @@ class PaginationResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'PaginationResponse';
+    protected static string $swaggerModelName = 'PaginationResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'RequestedLimit' => 'int',
         'RequestedOffset' => 'int',
         'PageSize' => 'int',
@@ -70,7 +70,7 @@ class PaginationResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'RequestedLimit' => 'int32',
         'RequestedOffset' => 'int32',
         'PageSize' => 'int32',
@@ -84,7 +84,7 @@ class PaginationResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'RequestedLimit' => 'RequestedLimit',
         'RequestedOffset' => 'RequestedOffset',
         'PageSize' => 'PageSize',
@@ -96,7 +96,7 @@ class PaginationResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'RequestedLimit' => 'setRequestedLimit',
         'RequestedOffset' => 'setRequestedOffset',
         'PageSize' => 'setPageSize',
@@ -108,7 +108,7 @@ class PaginationResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'RequestedLimit' => 'getRequestedLimit',
         'RequestedOffset' => 'getRequestedOffset',
         'PageSize' => 'getPageSize',
@@ -126,7 +126,7 @@ class PaginationResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['RequestedLimit'] = isset($data['RequestedLimit']) ? $data['RequestedLimit'] : null;
         $this->container['RequestedOffset'] = isset($data['RequestedOffset']) ? $data['RequestedOffset'] : null;
@@ -152,7 +152,7 @@ class PaginationResponse extends BaseModel
      *
      * @return int
      */
-    public function getRequestedLimit()
+    public function getRequestedLimit(): int
     {
         return $this->container['RequestedLimit'];
     }
@@ -164,7 +164,9 @@ class PaginationResponse extends BaseModel
      *
      * @return $this
      */
-    public function setRequestedLimit($RequestedLimit): self
+
+
+    public function setRequestedLimit(int $RequestedLimit): static
     {
         $this->container['RequestedLimit'] = $RequestedLimit;
 
@@ -176,7 +178,7 @@ class PaginationResponse extends BaseModel
      *
      * @return int
      */
-    public function getRequestedOffset()
+    public function getRequestedOffset(): int
     {
         return $this->container['RequestedOffset'];
     }
@@ -188,7 +190,9 @@ class PaginationResponse extends BaseModel
      *
      * @return $this
      */
-    public function setRequestedOffset($RequestedOffset): self
+
+
+    public function setRequestedOffset(int $RequestedOffset): static
     {
         $this->container['RequestedOffset'] = $RequestedOffset;
 
@@ -200,7 +204,7 @@ class PaginationResponse extends BaseModel
      *
      * @return int
      */
-    public function getPageSize()
+    public function getPageSize(): int
     {
         return $this->container['PageSize'];
     }
@@ -212,7 +216,9 @@ class PaginationResponse extends BaseModel
      *
      * @return $this
      */
-    public function setPageSize($PageSize): self
+
+
+    public function setPageSize(int $PageSize): static
     {
         $this->container['PageSize'] = $PageSize;
 
@@ -224,7 +230,7 @@ class PaginationResponse extends BaseModel
      *
      * @return int
      */
-    public function getTotalResults()
+    public function getTotalResults(): int
     {
         return $this->container['TotalResults'];
     }
@@ -236,7 +242,9 @@ class PaginationResponse extends BaseModel
      *
      * @return $this
      */
-    public function setTotalResults($TotalResults): self
+
+
+    public function setTotalResults(int $TotalResults): static
     {
         $this->container['TotalResults'] = $TotalResults;
 

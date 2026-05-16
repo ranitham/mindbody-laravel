@@ -60,14 +60,14 @@ class PromoCode extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'PromoCode';
+    protected static string $swaggerModelName = 'PromoCode';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'PromotionID' => 'int',
         'Name' => 'string',
         'Code' => 'string',
@@ -89,7 +89,7 @@ class PromoCode extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'PromotionID' => 'int32',
         'Name' => null,
         'Code' => null,
@@ -113,7 +113,7 @@ class PromoCode extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'PromotionID' => 'PromotionID',
         'Name' => 'Name',
         'Code' => 'Code',
@@ -135,7 +135,7 @@ class PromoCode extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'PromotionID' => 'setPromotionID',
         'Name' => 'setName',
         'Code' => 'setCode',
@@ -157,7 +157,7 @@ class PromoCode extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'PromotionID' => 'getPromotionID',
         'Name' => 'getName',
         'Code' => 'getCode',
@@ -210,7 +210,7 @@ class PromoCode extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['PromotionID'] = isset($data['PromotionID']) ? $data['PromotionID'] : null;
         $this->container['Name'] = isset($data['Name']) ? $data['Name'] : null;
@@ -246,7 +246,7 @@ class PromoCode extends BaseModel
      *
      * @return int
      */
-    public function getPromotionID()
+    public function getPromotionID(): int
     {
         return $this->container['PromotionID'];
     }
@@ -258,7 +258,9 @@ class PromoCode extends BaseModel
      *
      * @return $this
      */
-    public function setPromotionID($PromotionID): self
+
+
+    public function setPromotionID(int $PromotionID): static
     {
         $this->container['PromotionID'] = $PromotionID;
 
@@ -270,7 +272,7 @@ class PromoCode extends BaseModel
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->container['Name'];
     }
@@ -282,7 +284,9 @@ class PromoCode extends BaseModel
      *
      * @return $this
      */
-    public function setName($Name): self
+
+
+    public function setName(string $Name): static
     {
         $this->container['Name'] = $Name;
 
@@ -294,7 +298,7 @@ class PromoCode extends BaseModel
      *
      * @return string
      */
-    public function getCode()
+    public function getCode(): string
     {
         return $this->container['Code'];
     }
@@ -306,7 +310,9 @@ class PromoCode extends BaseModel
      *
      * @return $this
      */
-    public function setCode($Code): self
+
+
+    public function setCode(string $Code): static
     {
         $this->container['Code'] = $Code;
 
@@ -318,7 +324,7 @@ class PromoCode extends BaseModel
      *
      * @return bool
      */
-    public function getActive()
+    public function getActive(): bool
     {
         return $this->container['Active'];
     }
@@ -330,7 +336,9 @@ class PromoCode extends BaseModel
      *
      * @return $this
      */
-    public function setActive($Active): self
+
+
+    public function setActive(bool $Active): static
     {
         $this->container['Active'] = $Active;
 
@@ -342,7 +350,7 @@ class PromoCode extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Discount
      */
-    public function getDiscount()
+    public function getDiscount(): \Nlocascio\Mindbody\Model\Discount
     {
         return $this->container['Discount'];
     }
@@ -354,7 +362,9 @@ class PromoCode extends BaseModel
      *
      * @return $this
      */
-    public function setDiscount($Discount): self
+
+
+    public function setDiscount(\Nlocascio\Mindbody\Model\Discount $Discount): static
     {
         $this->container['Discount'] = $Discount;
 
@@ -366,7 +376,7 @@ class PromoCode extends BaseModel
      *
      * @return \DateTime
      */
-    public function getActivationDate()
+    public function getActivationDate(): \DateTime
     {
         return $this->container['ActivationDate'];
     }
@@ -378,7 +388,9 @@ class PromoCode extends BaseModel
      *
      * @return $this
      */
-    public function setActivationDate($ActivationDate): self
+
+
+    public function setActivationDate(\DateTime $ActivationDate): static
     {
         $this->container['ActivationDate'] = $ActivationDate;
 
@@ -390,7 +402,7 @@ class PromoCode extends BaseModel
      *
      * @return \DateTime
      */
-    public function getExpirationDate()
+    public function getExpirationDate(): \DateTime
     {
         return $this->container['ExpirationDate'];
     }
@@ -402,7 +414,9 @@ class PromoCode extends BaseModel
      *
      * @return $this
      */
-    public function setExpirationDate($ExpirationDate): self
+
+
+    public function setExpirationDate(\DateTime $ExpirationDate): static
     {
         $this->container['ExpirationDate'] = $ExpirationDate;
 
@@ -414,7 +428,7 @@ class PromoCode extends BaseModel
      *
      * @return int
      */
-    public function getMaxUses()
+    public function getMaxUses(): int
     {
         return $this->container['MaxUses'];
     }
@@ -426,7 +440,9 @@ class PromoCode extends BaseModel
      *
      * @return $this
      */
-    public function setMaxUses($MaxUses): self
+
+
+    public function setMaxUses(int $MaxUses): static
     {
         $this->container['MaxUses'] = $MaxUses;
 
@@ -438,7 +454,7 @@ class PromoCode extends BaseModel
      *
      * @return int
      */
-    public function getNumberOfAutopays()
+    public function getNumberOfAutopays(): int
     {
         return $this->container['NumberOfAutopays'];
     }
@@ -450,7 +466,9 @@ class PromoCode extends BaseModel
      *
      * @return $this
      */
-    public function setNumberOfAutopays($NumberOfAutopays): self
+
+
+    public function setNumberOfAutopays(int $NumberOfAutopays): static
     {
         $this->container['NumberOfAutopays'] = $NumberOfAutopays;
 
@@ -462,7 +480,7 @@ class PromoCode extends BaseModel
      *
      * @return int
      */
-    public function getDaysAfterCloseDate()
+    public function getDaysAfterCloseDate(): int
     {
         return $this->container['DaysAfterCloseDate'];
     }
@@ -474,7 +492,9 @@ class PromoCode extends BaseModel
      *
      * @return $this
      */
-    public function setDaysAfterCloseDate($DaysAfterCloseDate): self
+
+
+    public function setDaysAfterCloseDate(int $DaysAfterCloseDate): static
     {
         $this->container['DaysAfterCloseDate'] = $DaysAfterCloseDate;
 
@@ -486,7 +506,7 @@ class PromoCode extends BaseModel
      *
      * @return bool
      */
-    public function getAllowOnline()
+    public function getAllowOnline(): bool
     {
         return $this->container['AllowOnline'];
     }
@@ -498,7 +518,9 @@ class PromoCode extends BaseModel
      *
      * @return $this
      */
-    public function setAllowOnline($AllowOnline): self
+
+
+    public function setAllowOnline(bool $AllowOnline): static
     {
         $this->container['AllowOnline'] = $AllowOnline;
 
@@ -510,7 +532,7 @@ class PromoCode extends BaseModel
      *
      * @return \DateTime
      */
-    public function getLastModifiedDateTime()
+    public function getLastModifiedDateTime(): \DateTime
     {
         return $this->container['LastModifiedDateTime'];
     }
@@ -522,7 +544,9 @@ class PromoCode extends BaseModel
      *
      * @return $this
      */
-    public function setLastModifiedDateTime($LastModifiedDateTime): self
+
+
+    public function setLastModifiedDateTime(\DateTime $LastModifiedDateTime): static
     {
         $this->container['LastModifiedDateTime'] = $LastModifiedDateTime;
 
@@ -534,7 +558,7 @@ class PromoCode extends BaseModel
      *
      * @return string[]
      */
-    public function getDaysValid()
+    public function getDaysValid(): array
     {
         return $this->container['DaysValid'];
     }
@@ -546,7 +570,9 @@ class PromoCode extends BaseModel
      *
      * @return $this
      */
-    public function setDaysValid($DaysValid): self
+
+
+    public function setDaysValid(array $DaysValid): static
     {
         $allowedValues = $this->getDaysValidAllowableValues();
         if (!is_null($DaysValid) && array_diff($DaysValid, $allowedValues)) {
@@ -567,7 +593,7 @@ class PromoCode extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ApplicableItem[]
      */
-    public function getApplicableItems()
+    public function getApplicableItems(): array
     {
         return $this->container['ApplicableItems'];
     }
@@ -579,7 +605,9 @@ class PromoCode extends BaseModel
      *
      * @return $this
      */
-    public function setApplicableItems($ApplicableItems): self
+
+
+    public function setApplicableItems(array $ApplicableItems): static
     {
         $this->container['ApplicableItems'] = $ApplicableItems;
 

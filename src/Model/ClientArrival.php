@@ -50,14 +50,14 @@ class ClientArrival extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ClientArrival';
+    protected static string $swaggerModelName = 'ClientArrival';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ArrivalProgramID' => 'int',
         'ArrivalProgramName' => 'string',
         'CanAccess' => 'bool',
@@ -69,7 +69,7 @@ class ClientArrival extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ArrivalProgramID' => 'int32',
         'ArrivalProgramName' => null,
         'CanAccess' => null,
@@ -83,7 +83,7 @@ class ClientArrival extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ArrivalProgramID' => 'ArrivalProgramID',
         'ArrivalProgramName' => 'ArrivalProgramName',
         'CanAccess' => 'CanAccess',
@@ -95,7 +95,7 @@ class ClientArrival extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ArrivalProgramID' => 'setArrivalProgramID',
         'ArrivalProgramName' => 'setArrivalProgramName',
         'CanAccess' => 'setCanAccess',
@@ -107,7 +107,7 @@ class ClientArrival extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ArrivalProgramID' => 'getArrivalProgramID',
         'ArrivalProgramName' => 'getArrivalProgramName',
         'CanAccess' => 'getCanAccess',
@@ -125,7 +125,7 @@ class ClientArrival extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ArrivalProgramID'] = isset($data['ArrivalProgramID']) ? $data['ArrivalProgramID'] : null;
         $this->container['ArrivalProgramName'] = isset($data['ArrivalProgramName']) ? $data['ArrivalProgramName'] : null;
@@ -151,7 +151,7 @@ class ClientArrival extends BaseModel
      *
      * @return int
      */
-    public function getArrivalProgramID()
+    public function getArrivalProgramID(): int
     {
         return $this->container['ArrivalProgramID'];
     }
@@ -163,7 +163,9 @@ class ClientArrival extends BaseModel
      *
      * @return $this
      */
-    public function setArrivalProgramID($ArrivalProgramID): self
+
+
+    public function setArrivalProgramID(int $ArrivalProgramID): static
     {
         $this->container['ArrivalProgramID'] = $ArrivalProgramID;
 
@@ -175,7 +177,7 @@ class ClientArrival extends BaseModel
      *
      * @return string
      */
-    public function getArrivalProgramName()
+    public function getArrivalProgramName(): string
     {
         return $this->container['ArrivalProgramName'];
     }
@@ -187,7 +189,9 @@ class ClientArrival extends BaseModel
      *
      * @return $this
      */
-    public function setArrivalProgramName($ArrivalProgramName): self
+
+
+    public function setArrivalProgramName(string $ArrivalProgramName): static
     {
         $this->container['ArrivalProgramName'] = $ArrivalProgramName;
 
@@ -199,7 +203,7 @@ class ClientArrival extends BaseModel
      *
      * @return bool
      */
-    public function getCanAccess()
+    public function getCanAccess(): bool
     {
         return $this->container['CanAccess'];
     }
@@ -211,7 +215,9 @@ class ClientArrival extends BaseModel
      *
      * @return $this
      */
-    public function setCanAccess($CanAccess): self
+
+
+    public function setCanAccess(bool $CanAccess): static
     {
         $this->container['CanAccess'] = $CanAccess;
 
@@ -223,7 +229,7 @@ class ClientArrival extends BaseModel
      *
      * @return int[]
      */
-    public function getLocationsIDs()
+    public function getLocationsIDs(): array
     {
         return $this->container['LocationsIDs'];
     }
@@ -235,7 +241,9 @@ class ClientArrival extends BaseModel
      *
      * @return $this
      */
-    public function setLocationsIDs($LocationsIDs): self
+
+
+    public function setLocationsIDs(array $LocationsIDs): static
     {
         $this->container['LocationsIDs'] = $LocationsIDs;
 

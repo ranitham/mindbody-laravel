@@ -48,14 +48,14 @@ class GetAvailableDatesResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetAvailableDatesResponse';
+    protected static string $swaggerModelName = 'GetAvailableDatesResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'AvailableDates' => '\DateTime[]'
     ];
 
@@ -64,7 +64,7 @@ class GetAvailableDatesResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'AvailableDates' => 'date-time'
     ];
 
@@ -75,7 +75,7 @@ class GetAvailableDatesResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'AvailableDates' => 'AvailableDates'
     ];
 
@@ -84,7 +84,7 @@ class GetAvailableDatesResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'AvailableDates' => 'setAvailableDates'
     ];
 
@@ -93,7 +93,7 @@ class GetAvailableDatesResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'AvailableDates' => 'getAvailableDates'
     ];
 
@@ -108,7 +108,7 @@ class GetAvailableDatesResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['AvailableDates'] = isset($data['AvailableDates']) ? $data['AvailableDates'] : null;
     }
@@ -131,7 +131,7 @@ class GetAvailableDatesResponse extends BaseModel
      *
      * @return \DateTime[]
      */
-    public function getAvailableDates()
+    public function getAvailableDates(): array
     {
         return $this->container['AvailableDates'];
     }
@@ -143,7 +143,9 @@ class GetAvailableDatesResponse extends BaseModel
      *
      * @return $this
      */
-    public function setAvailableDates($AvailableDates): self
+
+
+    public function setAvailableDates(array $AvailableDates): static
     {
         $this->container['AvailableDates'] = $AvailableDates;
 

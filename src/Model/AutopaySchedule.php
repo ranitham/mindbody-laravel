@@ -49,14 +49,14 @@ class AutopaySchedule extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AutopaySchedule';
+    protected static string $swaggerModelName = 'AutopaySchedule';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'FrequencyType' => 'string',
         'FrequencyValue' => 'int',
         'FrequencyTimeUnit' => 'string'
@@ -67,7 +67,7 @@ class AutopaySchedule extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'FrequencyType' => null,
         'FrequencyValue' => 'int32',
         'FrequencyTimeUnit' => null
@@ -80,7 +80,7 @@ class AutopaySchedule extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'FrequencyType' => 'FrequencyType',
         'FrequencyValue' => 'FrequencyValue',
         'FrequencyTimeUnit' => 'FrequencyTimeUnit'
@@ -91,7 +91,7 @@ class AutopaySchedule extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'FrequencyType' => 'setFrequencyType',
         'FrequencyValue' => 'setFrequencyValue',
         'FrequencyTimeUnit' => 'setFrequencyTimeUnit'
@@ -102,7 +102,7 @@ class AutopaySchedule extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'FrequencyType' => 'getFrequencyType',
         'FrequencyValue' => 'getFrequencyValue',
         'FrequencyTimeUnit' => 'getFrequencyTimeUnit'
@@ -119,7 +119,7 @@ class AutopaySchedule extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['FrequencyType'] = isset($data['FrequencyType']) ? $data['FrequencyType'] : null;
         $this->container['FrequencyValue'] = isset($data['FrequencyValue']) ? $data['FrequencyValue'] : null;
@@ -144,7 +144,7 @@ class AutopaySchedule extends BaseModel
      *
      * @return string
      */
-    public function getFrequencyType()
+    public function getFrequencyType(): string
     {
         return $this->container['FrequencyType'];
     }
@@ -156,7 +156,9 @@ class AutopaySchedule extends BaseModel
      *
      * @return $this
      */
-    public function setFrequencyType($FrequencyType): self
+
+
+    public function setFrequencyType(string $FrequencyType): static
     {
         $this->container['FrequencyType'] = $FrequencyType;
 
@@ -168,7 +170,7 @@ class AutopaySchedule extends BaseModel
      *
      * @return int
      */
-    public function getFrequencyValue()
+    public function getFrequencyValue(): int
     {
         return $this->container['FrequencyValue'];
     }
@@ -180,7 +182,9 @@ class AutopaySchedule extends BaseModel
      *
      * @return $this
      */
-    public function setFrequencyValue($FrequencyValue): self
+
+
+    public function setFrequencyValue(int $FrequencyValue): static
     {
         $this->container['FrequencyValue'] = $FrequencyValue;
 
@@ -192,7 +196,7 @@ class AutopaySchedule extends BaseModel
      *
      * @return string
      */
-    public function getFrequencyTimeUnit()
+    public function getFrequencyTimeUnit(): string
     {
         return $this->container['FrequencyTimeUnit'];
     }
@@ -204,7 +208,9 @@ class AutopaySchedule extends BaseModel
      *
      * @return $this
      */
-    public function setFrequencyTimeUnit($FrequencyTimeUnit): self
+
+
+    public function setFrequencyTimeUnit(string $FrequencyTimeUnit): static
     {
         $this->container['FrequencyTimeUnit'] = $FrequencyTimeUnit;
 

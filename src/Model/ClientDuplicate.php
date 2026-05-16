@@ -43,7 +43,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property string $Email The client’s email address.
  *
  */
-class ClientDuplicate extends BaseModel implements ModelWithId
+class ClientDuplicate extends BaseModel implements ModelWithStringId
 {
     const DISCRIMINATOR = null;
 
@@ -52,14 +52,14 @@ class ClientDuplicate extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ClientDuplicate';
+    protected static string $swaggerModelName = 'ClientDuplicate';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Id' => 'string',
         'UniqueId' => 'int',
         'FirstName' => 'string',
@@ -72,7 +72,7 @@ class ClientDuplicate extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Id' => null,
         'UniqueId' => 'int64',
         'FirstName' => null,
@@ -87,7 +87,7 @@ class ClientDuplicate extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Id' => 'Id',
         'UniqueId' => 'UniqueId',
         'FirstName' => 'FirstName',
@@ -100,7 +100,7 @@ class ClientDuplicate extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Id' => 'setId',
         'UniqueId' => 'setUniqueId',
         'FirstName' => 'setFirstName',
@@ -113,7 +113,7 @@ class ClientDuplicate extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Id' => 'getId',
         'UniqueId' => 'getUniqueId',
         'FirstName' => 'getFirstName',
@@ -132,7 +132,7 @@ class ClientDuplicate extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
         $this->container['UniqueId'] = isset($data['UniqueId']) ? $data['UniqueId'] : null;
@@ -159,7 +159,7 @@ class ClientDuplicate extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getId()
+    public function getId(): string
     {
         return $this->container['Id'];
     }
@@ -171,7 +171,9 @@ class ClientDuplicate extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(string $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -183,7 +185,7 @@ class ClientDuplicate extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getUniqueId()
+    public function getUniqueId(): int
     {
         return $this->container['UniqueId'];
     }
@@ -195,7 +197,9 @@ class ClientDuplicate extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setUniqueId($UniqueId): self
+
+
+    public function setUniqueId(int $UniqueId): static
     {
         $this->container['UniqueId'] = $UniqueId;
 
@@ -207,7 +211,7 @@ class ClientDuplicate extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getFirstName()
+    public function getFirstName(): string
     {
         return $this->container['FirstName'];
     }
@@ -219,7 +223,9 @@ class ClientDuplicate extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setFirstName($FirstName): self
+
+
+    public function setFirstName(string $FirstName): static
     {
         $this->container['FirstName'] = $FirstName;
 
@@ -231,7 +237,7 @@ class ClientDuplicate extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getLastName()
+    public function getLastName(): string
     {
         return $this->container['LastName'];
     }
@@ -243,7 +249,9 @@ class ClientDuplicate extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setLastName($LastName): self
+
+
+    public function setLastName(string $LastName): static
     {
         $this->container['LastName'] = $LastName;
 
@@ -255,7 +263,7 @@ class ClientDuplicate extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getEmail()
+    public function getEmail(): string
     {
         return $this->container['Email'];
     }
@@ -267,7 +275,9 @@ class ClientDuplicate extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setEmail($Email): self
+
+
+    public function setEmail(string $Email): static
     {
         $this->container['Email'] = $Email;
 

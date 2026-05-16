@@ -49,14 +49,14 @@ class MergeClientsRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'MergeClientsRequest';
+    protected static string $swaggerModelName = 'MergeClientsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'SourceClientId' => 'int',
         'TargetClientId' => 'int'
     ];
@@ -66,7 +66,7 @@ class MergeClientsRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'SourceClientId' => 'int64',
         'TargetClientId' => 'int64'
     ];
@@ -78,7 +78,7 @@ class MergeClientsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'SourceClientId' => 'SourceClientId',
         'TargetClientId' => 'TargetClientId'
     ];
@@ -88,7 +88,7 @@ class MergeClientsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'SourceClientId' => 'setSourceClientId',
         'TargetClientId' => 'setTargetClientId'
     ];
@@ -98,7 +98,7 @@ class MergeClientsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'SourceClientId' => 'getSourceClientId',
         'TargetClientId' => 'getTargetClientId'
     ];
@@ -114,7 +114,7 @@ class MergeClientsRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['SourceClientId'] = isset($data['SourceClientId']) ? $data['SourceClientId'] : null;
         $this->container['TargetClientId'] = isset($data['TargetClientId']) ? $data['TargetClientId'] : null;
@@ -138,7 +138,7 @@ class MergeClientsRequest extends BaseModel
      *
      * @return int
      */
-    public function getSourceClientId()
+    public function getSourceClientId(): int
     {
         return $this->container['SourceClientId'];
     }
@@ -150,7 +150,9 @@ class MergeClientsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSourceClientId($SourceClientId): self
+
+
+    public function setSourceClientId(int $SourceClientId): static
     {
         $this->container['SourceClientId'] = $SourceClientId;
 
@@ -162,7 +164,7 @@ class MergeClientsRequest extends BaseModel
      *
      * @return int
      */
-    public function getTargetClientId()
+    public function getTargetClientId(): int
     {
         return $this->container['TargetClientId'];
     }
@@ -174,7 +176,9 @@ class MergeClientsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setTargetClientId($TargetClientId): self
+
+
+    public function setTargetClientId(int $TargetClientId): static
     {
         $this->container['TargetClientId'] = $TargetClientId;
 

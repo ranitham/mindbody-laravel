@@ -52,14 +52,14 @@ class GetSalesRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetSalesRequest';
+    protected static string $swaggerModelName = 'GetSalesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'SaleId' => 'int',
         'StartSaleDateTime' => '\DateTime',
         'EndSaleDateTime' => '\DateTime',
@@ -73,7 +73,7 @@ class GetSalesRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'SaleId' => 'int64',
         'StartSaleDateTime' => 'date-time',
         'EndSaleDateTime' => 'date-time',
@@ -89,7 +89,7 @@ class GetSalesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'SaleId' => 'SaleId',
         'StartSaleDateTime' => 'StartSaleDateTime',
         'EndSaleDateTime' => 'EndSaleDateTime',
@@ -103,7 +103,7 @@ class GetSalesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'SaleId' => 'setSaleId',
         'StartSaleDateTime' => 'setStartSaleDateTime',
         'EndSaleDateTime' => 'setEndSaleDateTime',
@@ -117,7 +117,7 @@ class GetSalesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'SaleId' => 'getSaleId',
         'StartSaleDateTime' => 'getStartSaleDateTime',
         'EndSaleDateTime' => 'getEndSaleDateTime',
@@ -137,7 +137,7 @@ class GetSalesRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['SaleId'] = isset($data['SaleId']) ? $data['SaleId'] : null;
         $this->container['StartSaleDateTime'] = isset($data['StartSaleDateTime']) ? $data['StartSaleDateTime'] : null;
@@ -165,7 +165,7 @@ class GetSalesRequest extends BaseModel
      *
      * @return int
      */
-    public function getSaleId()
+    public function getSaleId(): int
     {
         return $this->container['SaleId'];
     }
@@ -177,7 +177,9 @@ class GetSalesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSaleId($SaleId): self
+
+
+    public function setSaleId(int $SaleId): static
     {
         $this->container['SaleId'] = $SaleId;
 
@@ -189,7 +191,7 @@ class GetSalesRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartSaleDateTime()
+    public function getStartSaleDateTime(): \DateTime
     {
         return $this->container['StartSaleDateTime'];
     }
@@ -201,7 +203,9 @@ class GetSalesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStartSaleDateTime($StartSaleDateTime): self
+
+
+    public function setStartSaleDateTime(\DateTime $StartSaleDateTime): static
     {
         $this->container['StartSaleDateTime'] = $StartSaleDateTime;
 
@@ -213,7 +217,7 @@ class GetSalesRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndSaleDateTime()
+    public function getEndSaleDateTime(): \DateTime
     {
         return $this->container['EndSaleDateTime'];
     }
@@ -225,7 +229,9 @@ class GetSalesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setEndSaleDateTime($EndSaleDateTime): self
+
+
+    public function setEndSaleDateTime(\DateTime $EndSaleDateTime): static
     {
         $this->container['EndSaleDateTime'] = $EndSaleDateTime;
 
@@ -237,7 +243,7 @@ class GetSalesRequest extends BaseModel
      *
      * @return int
      */
-    public function getPaymentMethodId()
+    public function getPaymentMethodId(): int
     {
         return $this->container['PaymentMethodId'];
     }
@@ -249,7 +255,9 @@ class GetSalesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setPaymentMethodId($PaymentMethodId): self
+
+
+    public function setPaymentMethodId(int $PaymentMethodId): static
     {
         $this->container['PaymentMethodId'] = $PaymentMethodId;
 
@@ -261,7 +269,7 @@ class GetSalesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit()
+    public function getLimit(): int
     {
         return $this->container['Limit'];
     }
@@ -273,7 +281,9 @@ class GetSalesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLimit($Limit): self
+
+
+    public function setLimit(int $Limit): static
     {
         $this->container['Limit'] = $Limit;
 
@@ -285,7 +295,7 @@ class GetSalesRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset()
+    public function getOffset(): int
     {
         return $this->container['Offset'];
     }
@@ -297,7 +307,9 @@ class GetSalesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOffset($Offset): self
+
+
+    public function setOffset(int $Offset): static
     {
         $this->container['Offset'] = $Offset;
 

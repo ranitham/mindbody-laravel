@@ -59,14 +59,14 @@ class GetServicesRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetServicesRequest';
+    protected static string $swaggerModelName = 'GetServicesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ProgramIds' => 'int[]',
         'SessionTypeIds' => 'int[]',
         'ServiceIds' => 'string[]',
@@ -87,7 +87,7 @@ class GetServicesRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ProgramIds' => 'int32',
         'SessionTypeIds' => 'int32',
         'ServiceIds' => null,
@@ -110,7 +110,7 @@ class GetServicesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ProgramIds' => 'ProgramIds',
         'SessionTypeIds' => 'SessionTypeIds',
         'ServiceIds' => 'ServiceIds',
@@ -131,7 +131,7 @@ class GetServicesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ProgramIds' => 'setProgramIds',
         'SessionTypeIds' => 'setSessionTypeIds',
         'ServiceIds' => 'setServiceIds',
@@ -152,7 +152,7 @@ class GetServicesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ProgramIds' => 'getProgramIds',
         'SessionTypeIds' => 'getSessionTypeIds',
         'ServiceIds' => 'getServiceIds',
@@ -179,7 +179,7 @@ class GetServicesRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ProgramIds'] = isset($data['ProgramIds']) ? $data['ProgramIds'] : null;
         $this->container['SessionTypeIds'] = isset($data['SessionTypeIds']) ? $data['SessionTypeIds'] : null;
@@ -214,7 +214,7 @@ class GetServicesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getProgramIds()
+    public function getProgramIds(): array
     {
         return $this->container['ProgramIds'];
     }
@@ -226,7 +226,9 @@ class GetServicesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setProgramIds($ProgramIds): self
+
+
+    public function setProgramIds(array $ProgramIds): static
     {
         $this->container['ProgramIds'] = $ProgramIds;
 
@@ -238,7 +240,7 @@ class GetServicesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getSessionTypeIds()
+    public function getSessionTypeIds(): array
     {
         return $this->container['SessionTypeIds'];
     }
@@ -250,7 +252,9 @@ class GetServicesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSessionTypeIds($SessionTypeIds): self
+
+
+    public function setSessionTypeIds(array $SessionTypeIds): static
     {
         $this->container['SessionTypeIds'] = $SessionTypeIds;
 
@@ -262,7 +266,7 @@ class GetServicesRequest extends BaseModel
      *
      * @return string[]
      */
-    public function getServiceIds()
+    public function getServiceIds(): array
     {
         return $this->container['ServiceIds'];
     }
@@ -274,7 +278,9 @@ class GetServicesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setServiceIds($ServiceIds): self
+
+
+    public function setServiceIds(array $ServiceIds): static
     {
         $this->container['ServiceIds'] = $ServiceIds;
 
@@ -286,7 +292,7 @@ class GetServicesRequest extends BaseModel
      *
      * @return int
      */
-    public function getClassId()
+    public function getClassId(): int
     {
         return $this->container['ClassId'];
     }
@@ -298,7 +304,9 @@ class GetServicesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClassId($ClassId): self
+
+
+    public function setClassId(int $ClassId): static
     {
         $this->container['ClassId'] = $ClassId;
 
@@ -310,7 +318,7 @@ class GetServicesRequest extends BaseModel
      *
      * @return int
      */
-    public function getClassScheduleId()
+    public function getClassScheduleId(): int
     {
         return $this->container['ClassScheduleId'];
     }
@@ -322,7 +330,9 @@ class GetServicesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClassScheduleId($ClassScheduleId): self
+
+
+    public function setClassScheduleId(int $ClassScheduleId): static
     {
         $this->container['ClassScheduleId'] = $ClassScheduleId;
 
@@ -334,7 +344,7 @@ class GetServicesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSellOnline()
+    public function getSellOnline(): bool
     {
         return $this->container['SellOnline'];
     }
@@ -346,7 +356,9 @@ class GetServicesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSellOnline($SellOnline): self
+
+
+    public function setSellOnline(bool $SellOnline): static
     {
         $this->container['SellOnline'] = $SellOnline;
 
@@ -358,7 +370,7 @@ class GetServicesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLocationId()
+    public function getLocationId(): int
     {
         return $this->container['LocationId'];
     }
@@ -370,7 +382,9 @@ class GetServicesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLocationId($LocationId): self
+
+
+    public function setLocationId(int $LocationId): static
     {
         $this->container['LocationId'] = $LocationId;
 
@@ -382,7 +396,7 @@ class GetServicesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getHideRelatedPrograms()
+    public function getHideRelatedPrograms(): bool
     {
         return $this->container['HideRelatedPrograms'];
     }
@@ -394,7 +408,9 @@ class GetServicesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setHideRelatedPrograms($HideRelatedPrograms): self
+
+
+    public function setHideRelatedPrograms(bool $HideRelatedPrograms): static
     {
         $this->container['HideRelatedPrograms'] = $HideRelatedPrograms;
 
@@ -406,7 +422,7 @@ class GetServicesRequest extends BaseModel
      *
      * @return int
      */
-    public function getStaffId()
+    public function getStaffId(): int
     {
         return $this->container['StaffId'];
     }
@@ -418,7 +434,9 @@ class GetServicesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStaffId($StaffId): self
+
+
+    public function setStaffId(int $StaffId): static
     {
         $this->container['StaffId'] = $StaffId;
 
@@ -430,7 +448,7 @@ class GetServicesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIncludeDiscontinued()
+    public function getIncludeDiscontinued(): bool
     {
         return $this->container['IncludeDiscontinued'];
     }
@@ -442,7 +460,9 @@ class GetServicesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setIncludeDiscontinued($IncludeDiscontinued): self
+
+
+    public function setIncludeDiscontinued(bool $IncludeDiscontinued): static
     {
         $this->container['IncludeDiscontinued'] = $IncludeDiscontinued;
 
@@ -454,7 +474,7 @@ class GetServicesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIncludeSaleInContractOnly()
+    public function getIncludeSaleInContractOnly(): bool
     {
         return $this->container['IncludeSaleInContractOnly'];
     }
@@ -466,7 +486,9 @@ class GetServicesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setIncludeSaleInContractOnly($IncludeSaleInContractOnly): self
+
+
+    public function setIncludeSaleInContractOnly(bool $IncludeSaleInContractOnly): static
     {
         $this->container['IncludeSaleInContractOnly'] = $IncludeSaleInContractOnly;
 
@@ -478,7 +500,7 @@ class GetServicesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit()
+    public function getLimit(): int
     {
         return $this->container['Limit'];
     }
@@ -490,7 +512,9 @@ class GetServicesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLimit($Limit): self
+
+
+    public function setLimit(int $Limit): static
     {
         $this->container['Limit'] = $Limit;
 
@@ -502,7 +526,7 @@ class GetServicesRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset()
+    public function getOffset(): int
     {
         return $this->container['Offset'];
     }
@@ -514,7 +538,9 @@ class GetServicesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOffset($Offset): self
+
+
+    public function setOffset(int $Offset): static
     {
         $this->container['Offset'] = $Offset;
 

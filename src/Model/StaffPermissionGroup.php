@@ -50,14 +50,14 @@ class StaffPermissionGroup extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'StaffPermissionGroup';
+    protected static string $swaggerModelName = 'StaffPermissionGroup';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'PermissionGroupName' => 'string',
         'IpRestricted' => 'bool',
         'AllowedPermissions' => 'string[]',
@@ -69,7 +69,7 @@ class StaffPermissionGroup extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'PermissionGroupName' => null,
         'IpRestricted' => null,
         'AllowedPermissions' => null,
@@ -83,7 +83,7 @@ class StaffPermissionGroup extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'PermissionGroupName' => 'PermissionGroupName',
         'IpRestricted' => 'IpRestricted',
         'AllowedPermissions' => 'AllowedPermissions',
@@ -95,7 +95,7 @@ class StaffPermissionGroup extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'PermissionGroupName' => 'setPermissionGroupName',
         'IpRestricted' => 'setIpRestricted',
         'AllowedPermissions' => 'setAllowedPermissions',
@@ -107,7 +107,7 @@ class StaffPermissionGroup extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'PermissionGroupName' => 'getPermissionGroupName',
         'IpRestricted' => 'getIpRestricted',
         'AllowedPermissions' => 'getAllowedPermissions',
@@ -879,7 +879,7 @@ class StaffPermissionGroup extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['PermissionGroupName'] = isset($data['PermissionGroupName']) ? $data['PermissionGroupName'] : null;
         $this->container['IpRestricted'] = isset($data['IpRestricted']) ? $data['IpRestricted'] : null;
@@ -905,7 +905,7 @@ class StaffPermissionGroup extends BaseModel
      *
      * @return string
      */
-    public function getPermissionGroupName()
+    public function getPermissionGroupName(): string
     {
         return $this->container['PermissionGroupName'];
     }
@@ -917,7 +917,9 @@ class StaffPermissionGroup extends BaseModel
      *
      * @return $this
      */
-    public function setPermissionGroupName($PermissionGroupName): self
+
+
+    public function setPermissionGroupName(string $PermissionGroupName): static
     {
         $this->container['PermissionGroupName'] = $PermissionGroupName;
 
@@ -929,7 +931,7 @@ class StaffPermissionGroup extends BaseModel
      *
      * @return bool
      */
-    public function getIpRestricted()
+    public function getIpRestricted(): bool
     {
         return $this->container['IpRestricted'];
     }
@@ -941,7 +943,9 @@ class StaffPermissionGroup extends BaseModel
      *
      * @return $this
      */
-    public function setIpRestricted($IpRestricted): self
+
+
+    public function setIpRestricted(bool $IpRestricted): static
     {
         $this->container['IpRestricted'] = $IpRestricted;
 
@@ -953,7 +957,7 @@ class StaffPermissionGroup extends BaseModel
      *
      * @return string[]
      */
-    public function getAllowedPermissions()
+    public function getAllowedPermissions(): array
     {
         return $this->container['AllowedPermissions'];
     }
@@ -965,7 +969,9 @@ class StaffPermissionGroup extends BaseModel
      *
      * @return $this
      */
-    public function setAllowedPermissions($AllowedPermissions): self
+
+
+    public function setAllowedPermissions(array $AllowedPermissions): static
     {
         $allowedValues = $this->getAllowedPermissionsAllowableValues();
         if (!is_null($AllowedPermissions) && array_diff($AllowedPermissions, $allowedValues)) {
@@ -986,7 +992,7 @@ class StaffPermissionGroup extends BaseModel
      *
      * @return string[]
      */
-    public function getDeniedPermissions()
+    public function getDeniedPermissions(): array
     {
         return $this->container['DeniedPermissions'];
     }
@@ -998,7 +1004,9 @@ class StaffPermissionGroup extends BaseModel
      *
      * @return $this
      */
-    public function setDeniedPermissions($DeniedPermissions): self
+
+
+    public function setDeniedPermissions(array $DeniedPermissions): static
     {
         $allowedValues = $this->getDeniedPermissionsAllowableValues();
         if (!is_null($DeniedPermissions) && array_diff($DeniedPermissions, $allowedValues)) {

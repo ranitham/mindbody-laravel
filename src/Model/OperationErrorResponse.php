@@ -49,14 +49,14 @@ class OperationErrorResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'OperationErrorResponse';
+    protected static string $swaggerModelName = 'OperationErrorResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Operation' => 'string',
         'Message' => 'string'
     ];
@@ -66,7 +66,7 @@ class OperationErrorResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Operation' => null,
         'Message' => null
     ];
@@ -78,7 +78,7 @@ class OperationErrorResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Operation' => 'Operation',
         'Message' => 'Message'
     ];
@@ -88,7 +88,7 @@ class OperationErrorResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Operation' => 'setOperation',
         'Message' => 'setMessage'
     ];
@@ -98,7 +98,7 @@ class OperationErrorResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Operation' => 'getOperation',
         'Message' => 'getMessage'
     ];
@@ -114,7 +114,7 @@ class OperationErrorResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Operation'] = isset($data['Operation']) ? $data['Operation'] : null;
         $this->container['Message'] = isset($data['Message']) ? $data['Message'] : null;
@@ -138,7 +138,7 @@ class OperationErrorResponse extends BaseModel
      *
      * @return string
      */
-    public function getOperation()
+    public function getOperation(): string
     {
         return $this->container['Operation'];
     }
@@ -150,7 +150,9 @@ class OperationErrorResponse extends BaseModel
      *
      * @return $this
      */
-    public function setOperation($Operation): self
+
+
+    public function setOperation(string $Operation): static
     {
         $this->container['Operation'] = $Operation;
 
@@ -162,7 +164,7 @@ class OperationErrorResponse extends BaseModel
      *
      * @return string
      */
-    public function getMessage()
+    public function getMessage(): string
     {
         return $this->container['Message'];
     }
@@ -174,7 +176,9 @@ class OperationErrorResponse extends BaseModel
      *
      * @return $this
      */
-    public function setMessage($Message): self
+
+
+    public function setMessage(string $Message): static
     {
         $this->container['Message'] = $Message;
 

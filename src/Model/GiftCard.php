@@ -49,7 +49,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property \Nlocascio\Mindbody\Model\GiftCardLayout[] $Layouts A list of layouts available for the gift card.
  *
  */
-class GiftCard extends BaseModel implements ModelWithId
+class GiftCard extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -58,14 +58,14 @@ class GiftCard extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GiftCard';
+    protected static string $swaggerModelName = 'GiftCard';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Id' => 'int',
         'LocationIds' => 'int[]',
         'Description' => 'string',
@@ -85,7 +85,7 @@ class GiftCard extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Id' => 'int32',
         'LocationIds' => 'int32',
         'Description' => null,
@@ -107,7 +107,7 @@ class GiftCard extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Id' => 'Id',
         'LocationIds' => 'LocationIds',
         'Description' => 'Description',
@@ -127,7 +127,7 @@ class GiftCard extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Id' => 'setId',
         'LocationIds' => 'setLocationIds',
         'Description' => 'setDescription',
@@ -147,7 +147,7 @@ class GiftCard extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Id' => 'getId',
         'LocationIds' => 'getLocationIds',
         'Description' => 'getDescription',
@@ -173,7 +173,7 @@ class GiftCard extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
         $this->container['LocationIds'] = isset($data['LocationIds']) ? $data['LocationIds'] : null;
@@ -207,7 +207,7 @@ class GiftCard extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -219,7 +219,9 @@ class GiftCard extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -231,7 +233,7 @@ class GiftCard extends BaseModel implements ModelWithId
      *
      * @return int[]
      */
-    public function getLocationIds()
+    public function getLocationIds(): array
     {
         return $this->container['LocationIds'];
     }
@@ -243,7 +245,9 @@ class GiftCard extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setLocationIds($LocationIds): self
+
+
+    public function setLocationIds(array $LocationIds): static
     {
         $this->container['LocationIds'] = $LocationIds;
 
@@ -255,7 +259,7 @@ class GiftCard extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->container['Description'];
     }
@@ -267,7 +271,9 @@ class GiftCard extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setDescription($Description): self
+
+
+    public function setDescription(string $Description): static
     {
         $this->container['Description'] = $Description;
 
@@ -279,7 +285,7 @@ class GiftCard extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getEditableByConsumer()
+    public function getEditableByConsumer(): bool
     {
         return $this->container['EditableByConsumer'];
     }
@@ -291,7 +297,9 @@ class GiftCard extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setEditableByConsumer($EditableByConsumer): self
+
+
+    public function setEditableByConsumer(bool $EditableByConsumer): static
     {
         $this->container['EditableByConsumer'] = $EditableByConsumer;
 
@@ -303,7 +311,7 @@ class GiftCard extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getCardValue()
+    public function getCardValue(): float
     {
         return $this->container['CardValue'];
     }
@@ -315,7 +323,9 @@ class GiftCard extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setCardValue($CardValue): self
+
+
+    public function setCardValue(float $CardValue): static
     {
         $this->container['CardValue'] = $CardValue;
 
@@ -327,7 +337,7 @@ class GiftCard extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getSalePrice()
+    public function getSalePrice(): float
     {
         return $this->container['SalePrice'];
     }
@@ -339,7 +349,9 @@ class GiftCard extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSalePrice($SalePrice): self
+
+
+    public function setSalePrice(float $SalePrice): static
     {
         $this->container['SalePrice'] = $SalePrice;
 
@@ -351,7 +363,7 @@ class GiftCard extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getSoldOnline()
+    public function getSoldOnline(): bool
     {
         return $this->container['SoldOnline'];
     }
@@ -363,7 +375,9 @@ class GiftCard extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSoldOnline($SoldOnline): self
+
+
+    public function setSoldOnline(bool $SoldOnline): static
     {
         $this->container['SoldOnline'] = $SoldOnline;
 
@@ -375,7 +389,7 @@ class GiftCard extends BaseModel implements ModelWithId
      *
      * @return int[]
      */
-    public function getMembershipRestrictionIds()
+    public function getMembershipRestrictionIds(): array
     {
         return $this->container['MembershipRestrictionIds'];
     }
@@ -387,7 +401,9 @@ class GiftCard extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setMembershipRestrictionIds($MembershipRestrictionIds): self
+
+
+    public function setMembershipRestrictionIds(array $MembershipRestrictionIds): static
     {
         $this->container['MembershipRestrictionIds'] = $MembershipRestrictionIds;
 
@@ -399,7 +415,7 @@ class GiftCard extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getGiftCardTerms()
+    public function getGiftCardTerms(): string
     {
         return $this->container['GiftCardTerms'];
     }
@@ -411,7 +427,9 @@ class GiftCard extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setGiftCardTerms($GiftCardTerms): self
+
+
+    public function setGiftCardTerms(string $GiftCardTerms): static
     {
         $this->container['GiftCardTerms'] = $GiftCardTerms;
 
@@ -423,7 +441,7 @@ class GiftCard extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getContactInfo()
+    public function getContactInfo(): string
     {
         return $this->container['ContactInfo'];
     }
@@ -435,7 +453,9 @@ class GiftCard extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setContactInfo($ContactInfo): self
+
+
+    public function setContactInfo(string $ContactInfo): static
     {
         $this->container['ContactInfo'] = $ContactInfo;
 
@@ -447,7 +467,7 @@ class GiftCard extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getDisplayLogo()
+    public function getDisplayLogo(): bool
     {
         return $this->container['DisplayLogo'];
     }
@@ -459,7 +479,9 @@ class GiftCard extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setDisplayLogo($DisplayLogo): self
+
+
+    public function setDisplayLogo(bool $DisplayLogo): static
     {
         $this->container['DisplayLogo'] = $DisplayLogo;
 
@@ -471,7 +493,7 @@ class GiftCard extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\GiftCardLayout[]
      */
-    public function getLayouts()
+    public function getLayouts(): array
     {
         return $this->container['Layouts'];
     }
@@ -483,7 +505,9 @@ class GiftCard extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setLayouts($Layouts): self
+
+
+    public function setLayouts(array $Layouts): static
     {
         $this->container['Layouts'] = $Layouts;
 

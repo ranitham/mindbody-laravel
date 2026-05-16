@@ -50,14 +50,14 @@ class PickASpotGetPickASpotClassResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'PickASpot.GetPickASpotClassResponse';
+    protected static string $swaggerModelName = 'PickASpot.GetPickASpotClassResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Classes' => '\Nlocascio\Mindbody\Model\PickASpotPickASpotClass[]',
         'Pagination' => '\Nlocascio\Mindbody\Model\PickASpotPagination',
         'ResponseDetails' => '\Nlocascio\Mindbody\Model\PickASpotResponseDetails'
@@ -68,7 +68,7 @@ class PickASpotGetPickASpotClassResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Classes' => null,
         'Pagination' => null,
         'ResponseDetails' => null
@@ -81,7 +81,7 @@ class PickASpotGetPickASpotClassResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Classes' => 'classes',
         'Pagination' => 'pagination',
         'ResponseDetails' => 'responseDetails'
@@ -92,7 +92,7 @@ class PickASpotGetPickASpotClassResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Classes' => 'setClasses',
         'Pagination' => 'setPagination',
         'ResponseDetails' => 'setResponseDetails'
@@ -103,7 +103,7 @@ class PickASpotGetPickASpotClassResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Classes' => 'getClasses',
         'Pagination' => 'getPagination',
         'ResponseDetails' => 'getResponseDetails'
@@ -120,7 +120,7 @@ class PickASpotGetPickASpotClassResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Classes'] = isset($data['Classes']) ? $data['Classes'] : null;
         $this->container['Pagination'] = isset($data['Pagination']) ? $data['Pagination'] : null;
@@ -145,7 +145,7 @@ class PickASpotGetPickASpotClassResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PickASpotPickASpotClass[]
      */
-    public function getClasses()
+    public function getClasses(): array
     {
         return $this->container['Classes'];
     }
@@ -157,7 +157,9 @@ class PickASpotGetPickASpotClassResponse extends BaseModel
      *
      * @return $this
      */
-    public function setClasses($Classes): self
+
+
+    public function setClasses(array $Classes): static
     {
         $this->container['Classes'] = $Classes;
 
@@ -169,7 +171,7 @@ class PickASpotGetPickASpotClassResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PickASpotPagination
      */
-    public function getPagination()
+    public function getPagination(): \Nlocascio\Mindbody\Model\PickASpotPagination
     {
         return $this->container['Pagination'];
     }
@@ -181,7 +183,9 @@ class PickASpotGetPickASpotClassResponse extends BaseModel
      *
      * @return $this
      */
-    public function setPagination($Pagination): self
+
+
+    public function setPagination(\Nlocascio\Mindbody\Model\PickASpotPagination $Pagination): static
     {
         $this->container['Pagination'] = $Pagination;
 
@@ -193,7 +197,7 @@ class PickASpotGetPickASpotClassResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PickASpotResponseDetails
      */
-    public function getResponseDetails()
+    public function getResponseDetails(): \Nlocascio\Mindbody\Model\PickASpotResponseDetails
     {
         return $this->container['ResponseDetails'];
     }
@@ -205,7 +209,9 @@ class PickASpotGetPickASpotClassResponse extends BaseModel
      *
      * @return $this
      */
-    public function setResponseDetails($ResponseDetails): self
+
+
+    public function setResponseDetails(\Nlocascio\Mindbody\Model\PickASpotResponseDetails $ResponseDetails): static
     {
         $this->container['ResponseDetails'] = $ResponseDetails;
 

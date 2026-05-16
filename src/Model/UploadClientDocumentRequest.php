@@ -48,14 +48,14 @@ class UploadClientDocumentRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UploadClientDocumentRequest';
+    protected static string $swaggerModelName = 'UploadClientDocumentRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ClientId' => 'string',
         'File' => '\Nlocascio\Mindbody\Model\ClientDocument'
     ];
@@ -65,7 +65,7 @@ class UploadClientDocumentRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ClientId' => null,
         'File' => null
     ];
@@ -77,7 +77,7 @@ class UploadClientDocumentRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ClientId' => 'ClientId',
         'File' => 'File'
     ];
@@ -87,7 +87,7 @@ class UploadClientDocumentRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ClientId' => 'setClientId',
         'File' => 'setFile'
     ];
@@ -97,7 +97,7 @@ class UploadClientDocumentRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ClientId' => 'getClientId',
         'File' => 'getFile'
     ];
@@ -113,7 +113,7 @@ class UploadClientDocumentRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
         $this->container['File'] = isset($data['File']) ? $data['File'] : null;
@@ -143,7 +143,7 @@ class UploadClientDocumentRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId()
+    public function getClientId(): string
     {
         return $this->container['ClientId'];
     }
@@ -155,7 +155,9 @@ class UploadClientDocumentRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClientId($ClientId): self
+
+
+    public function setClientId(string $ClientId): static
     {
         $this->container['ClientId'] = $ClientId;
 
@@ -167,7 +169,7 @@ class UploadClientDocumentRequest extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClientDocument
      */
-    public function getFile()
+    public function getFile(): \Nlocascio\Mindbody\Model\ClientDocument
     {
         return $this->container['File'];
     }
@@ -179,7 +181,9 @@ class UploadClientDocumentRequest extends BaseModel
      *
      * @return $this
      */
-    public function setFile($File): self
+
+
+    public function setFile(\Nlocascio\Mindbody\Model\ClientDocument $File): static
     {
         $this->container['File'] = $File;
 

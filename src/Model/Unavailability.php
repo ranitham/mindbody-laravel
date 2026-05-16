@@ -41,7 +41,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property string $Description Description of the unavailability.
  *
  */
-class Unavailability extends BaseModel implements ModelWithId
+class Unavailability extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -50,14 +50,14 @@ class Unavailability extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Unavailability';
+    protected static string $swaggerModelName = 'Unavailability';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Id' => 'int',
         'StartDateTime' => '\DateTime',
         'EndDateTime' => '\DateTime',
@@ -69,7 +69,7 @@ class Unavailability extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Id' => 'int32',
         'StartDateTime' => 'date-time',
         'EndDateTime' => 'date-time',
@@ -83,7 +83,7 @@ class Unavailability extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Id' => 'Id',
         'StartDateTime' => 'StartDateTime',
         'EndDateTime' => 'EndDateTime',
@@ -95,7 +95,7 @@ class Unavailability extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Id' => 'setId',
         'StartDateTime' => 'setStartDateTime',
         'EndDateTime' => 'setEndDateTime',
@@ -107,7 +107,7 @@ class Unavailability extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Id' => 'getId',
         'StartDateTime' => 'getStartDateTime',
         'EndDateTime' => 'getEndDateTime',
@@ -125,7 +125,7 @@ class Unavailability extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
         $this->container['StartDateTime'] = isset($data['StartDateTime']) ? $data['StartDateTime'] : null;
@@ -151,7 +151,7 @@ class Unavailability extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -163,7 +163,9 @@ class Unavailability extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -175,7 +177,7 @@ class Unavailability extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getStartDateTime()
+    public function getStartDateTime(): \DateTime
     {
         return $this->container['StartDateTime'];
     }
@@ -187,7 +189,9 @@ class Unavailability extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setStartDateTime($StartDateTime): self
+
+
+    public function setStartDateTime(\DateTime $StartDateTime): static
     {
         $this->container['StartDateTime'] = $StartDateTime;
 
@@ -199,7 +203,7 @@ class Unavailability extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getEndDateTime()
+    public function getEndDateTime(): \DateTime
     {
         return $this->container['EndDateTime'];
     }
@@ -211,7 +215,9 @@ class Unavailability extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setEndDateTime($EndDateTime): self
+
+
+    public function setEndDateTime(\DateTime $EndDateTime): static
     {
         $this->container['EndDateTime'] = $EndDateTime;
 
@@ -223,7 +229,7 @@ class Unavailability extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->container['Description'];
     }
@@ -235,7 +241,9 @@ class Unavailability extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setDescription($Description): self
+
+
+    public function setDescription(string $Description): static
     {
         $this->container['Description'] = $Description;
 

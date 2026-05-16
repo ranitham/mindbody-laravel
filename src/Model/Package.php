@@ -43,7 +43,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property \Nlocascio\Mindbody\Model\Product[] $Products Information about the products in the packages.
  *
  */
-class Package extends BaseModel implements ModelWithId
+class Package extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -52,14 +52,14 @@ class Package extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Package';
+    protected static string $swaggerModelName = 'Package';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Id' => 'int',
         'Name' => 'string',
         'DiscountPercentage' => 'double',
@@ -73,7 +73,7 @@ class Package extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Id' => 'int32',
         'Name' => null,
         'DiscountPercentage' => 'double',
@@ -89,7 +89,7 @@ class Package extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Id' => 'Id',
         'Name' => 'Name',
         'DiscountPercentage' => 'DiscountPercentage',
@@ -103,7 +103,7 @@ class Package extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Id' => 'setId',
         'Name' => 'setName',
         'DiscountPercentage' => 'setDiscountPercentage',
@@ -117,7 +117,7 @@ class Package extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Id' => 'getId',
         'Name' => 'getName',
         'DiscountPercentage' => 'getDiscountPercentage',
@@ -137,7 +137,7 @@ class Package extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
         $this->container['Name'] = isset($data['Name']) ? $data['Name'] : null;
@@ -165,7 +165,7 @@ class Package extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -177,7 +177,9 @@ class Package extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -189,7 +191,7 @@ class Package extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->container['Name'];
     }
@@ -201,7 +203,9 @@ class Package extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setName($Name): self
+
+
+    public function setName(string $Name): static
     {
         $this->container['Name'] = $Name;
 
@@ -213,7 +217,7 @@ class Package extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getDiscountPercentage()
+    public function getDiscountPercentage(): float
     {
         return $this->container['DiscountPercentage'];
     }
@@ -225,7 +229,9 @@ class Package extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setDiscountPercentage($DiscountPercentage): self
+
+
+    public function setDiscountPercentage(float $DiscountPercentage): static
     {
         $this->container['DiscountPercentage'] = $DiscountPercentage;
 
@@ -237,7 +243,7 @@ class Package extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getSellOnline()
+    public function getSellOnline(): bool
     {
         return $this->container['SellOnline'];
     }
@@ -249,7 +255,9 @@ class Package extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSellOnline($SellOnline): self
+
+
+    public function setSellOnline(bool $SellOnline): static
     {
         $this->container['SellOnline'] = $SellOnline;
 
@@ -261,7 +269,7 @@ class Package extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\Service[]
      */
-    public function getServices()
+    public function getServices(): array
     {
         return $this->container['Services'];
     }
@@ -273,7 +281,9 @@ class Package extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setServices($Services): self
+
+
+    public function setServices(array $Services): static
     {
         $this->container['Services'] = $Services;
 
@@ -285,7 +295,7 @@ class Package extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\Product[]
      */
-    public function getProducts()
+    public function getProducts(): array
     {
         return $this->container['Products'];
     }
@@ -297,7 +307,9 @@ class Package extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setProducts($Products): self
+
+
+    public function setProducts(array $Products): static
     {
         $this->container['Products'] = $Products;
 

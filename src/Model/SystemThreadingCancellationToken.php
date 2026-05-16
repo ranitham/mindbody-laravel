@@ -49,14 +49,14 @@ class SystemThreadingCancellationToken extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'System.Threading.CancellationToken';
+    protected static string $swaggerModelName = 'System.Threading.CancellationToken';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'IsCancellationRequested' => 'bool',
         'CanBeCanceled' => 'bool',
         'WaitHandle' => '\Nlocascio\Mindbody\Model\SystemThreadingWaitHandle'
@@ -67,7 +67,7 @@ class SystemThreadingCancellationToken extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'IsCancellationRequested' => null,
         'CanBeCanceled' => null,
         'WaitHandle' => null
@@ -80,7 +80,7 @@ class SystemThreadingCancellationToken extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'IsCancellationRequested' => 'IsCancellationRequested',
         'CanBeCanceled' => 'CanBeCanceled',
         'WaitHandle' => 'WaitHandle'
@@ -91,7 +91,7 @@ class SystemThreadingCancellationToken extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'IsCancellationRequested' => 'setIsCancellationRequested',
         'CanBeCanceled' => 'setCanBeCanceled',
         'WaitHandle' => 'setWaitHandle'
@@ -102,7 +102,7 @@ class SystemThreadingCancellationToken extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'IsCancellationRequested' => 'getIsCancellationRequested',
         'CanBeCanceled' => 'getCanBeCanceled',
         'WaitHandle' => 'getWaitHandle'
@@ -119,7 +119,7 @@ class SystemThreadingCancellationToken extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['IsCancellationRequested'] = isset($data['IsCancellationRequested']) ? $data['IsCancellationRequested'] : null;
         $this->container['CanBeCanceled'] = isset($data['CanBeCanceled']) ? $data['CanBeCanceled'] : null;
@@ -144,7 +144,7 @@ class SystemThreadingCancellationToken extends BaseModel
      *
      * @return bool
      */
-    public function getIsCancellationRequested()
+    public function getIsCancellationRequested(): bool
     {
         return $this->container['IsCancellationRequested'];
     }
@@ -156,7 +156,9 @@ class SystemThreadingCancellationToken extends BaseModel
      *
      * @return $this
      */
-    public function setIsCancellationRequested($IsCancellationRequested): self
+
+
+    public function setIsCancellationRequested(bool $IsCancellationRequested): static
     {
         $this->container['IsCancellationRequested'] = $IsCancellationRequested;
 
@@ -168,7 +170,7 @@ class SystemThreadingCancellationToken extends BaseModel
      *
      * @return bool
      */
-    public function getCanBeCanceled()
+    public function getCanBeCanceled(): bool
     {
         return $this->container['CanBeCanceled'];
     }
@@ -180,7 +182,9 @@ class SystemThreadingCancellationToken extends BaseModel
      *
      * @return $this
      */
-    public function setCanBeCanceled($CanBeCanceled): self
+
+
+    public function setCanBeCanceled(bool $CanBeCanceled): static
     {
         $this->container['CanBeCanceled'] = $CanBeCanceled;
 
@@ -192,7 +196,7 @@ class SystemThreadingCancellationToken extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\SystemThreadingWaitHandle
      */
-    public function getWaitHandle()
+    public function getWaitHandle(): \Nlocascio\Mindbody\Model\SystemThreadingWaitHandle
     {
         return $this->container['WaitHandle'];
     }
@@ -204,7 +208,9 @@ class SystemThreadingCancellationToken extends BaseModel
      *
      * @return $this
      */
-    public function setWaitHandle($WaitHandle): self
+
+
+    public function setWaitHandle(\Nlocascio\Mindbody\Model\SystemThreadingWaitHandle $WaitHandle): static
     {
         $this->container['WaitHandle'] = $WaitHandle;
 

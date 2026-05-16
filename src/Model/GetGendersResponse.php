@@ -47,14 +47,14 @@ class GetGendersResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetGendersResponse';
+    protected static string $swaggerModelName = 'GetGendersResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'GenderOptions' => '\Nlocascio\Mindbody\Model\GenderOption[]'
     ];
 
@@ -63,7 +63,7 @@ class GetGendersResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'GenderOptions' => null
     ];
 
@@ -74,7 +74,7 @@ class GetGendersResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'GenderOptions' => 'GenderOptions'
     ];
 
@@ -83,7 +83,7 @@ class GetGendersResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'GenderOptions' => 'setGenderOptions'
     ];
 
@@ -92,7 +92,7 @@ class GetGendersResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'GenderOptions' => 'getGenderOptions'
     ];
 
@@ -107,7 +107,7 @@ class GetGendersResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['GenderOptions'] = isset($data['GenderOptions']) ? $data['GenderOptions'] : null;
     }
@@ -130,7 +130,7 @@ class GetGendersResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\GenderOption[]
      */
-    public function getGenderOptions()
+    public function getGenderOptions(): array
     {
         return $this->container['GenderOptions'];
     }
@@ -142,7 +142,9 @@ class GetGendersResponse extends BaseModel
      *
      * @return $this
      */
-    public function setGenderOptions($GenderOptions): self
+
+
+    public function setGenderOptions(array $GenderOptions): static
     {
         $this->container['GenderOptions'] = $GenderOptions;
 

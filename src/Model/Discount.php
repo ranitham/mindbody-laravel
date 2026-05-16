@@ -49,14 +49,14 @@ class Discount extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Discount';
+    protected static string $swaggerModelName = 'Discount';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Type' => 'string',
         'Amount' => 'double'
     ];
@@ -66,7 +66,7 @@ class Discount extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Type' => null,
         'Amount' => 'double'
     ];
@@ -78,7 +78,7 @@ class Discount extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Type' => 'Type',
         'Amount' => 'Amount'
     ];
@@ -88,7 +88,7 @@ class Discount extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Type' => 'setType',
         'Amount' => 'setAmount'
     ];
@@ -98,7 +98,7 @@ class Discount extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Type' => 'getType',
         'Amount' => 'getAmount'
     ];
@@ -114,7 +114,7 @@ class Discount extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Type'] = isset($data['Type']) ? $data['Type'] : null;
         $this->container['Amount'] = isset($data['Amount']) ? $data['Amount'] : null;
@@ -138,7 +138,7 @@ class Discount extends BaseModel
      *
      * @return string
      */
-    public function getType()
+    public function getType(): string
     {
         return $this->container['Type'];
     }
@@ -150,7 +150,9 @@ class Discount extends BaseModel
      *
      * @return $this
      */
-    public function setType($Type): self
+
+
+    public function setType(string $Type): static
     {
         $this->container['Type'] = $Type;
 
@@ -162,7 +164,7 @@ class Discount extends BaseModel
      *
      * @return double
      */
-    public function getAmount()
+    public function getAmount(): float
     {
         return $this->container['Amount'];
     }
@@ -174,7 +176,9 @@ class Discount extends BaseModel
      *
      * @return $this
      */
-    public function setAmount($Amount): self
+
+
+    public function setAmount(float $Amount): static
     {
         $this->container['Amount'] = $Amount;
 

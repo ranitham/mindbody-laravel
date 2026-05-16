@@ -53,14 +53,14 @@ class GetWaitlistEntriesRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetWaitlistEntriesRequest';
+    protected static string $swaggerModelName = 'GetWaitlistEntriesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ClassIds' => 'int[]',
         'ClassScheduleIds' => 'int[]',
         'ClientIds' => 'string[]',
@@ -75,7 +75,7 @@ class GetWaitlistEntriesRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ClassIds' => 'int32',
         'ClassScheduleIds' => 'int32',
         'ClientIds' => null,
@@ -92,7 +92,7 @@ class GetWaitlistEntriesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ClassIds' => 'ClassIds',
         'ClassScheduleIds' => 'ClassScheduleIds',
         'ClientIds' => 'ClientIds',
@@ -107,7 +107,7 @@ class GetWaitlistEntriesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ClassIds' => 'setClassIds',
         'ClassScheduleIds' => 'setClassScheduleIds',
         'ClientIds' => 'setClientIds',
@@ -122,7 +122,7 @@ class GetWaitlistEntriesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ClassIds' => 'getClassIds',
         'ClassScheduleIds' => 'getClassScheduleIds',
         'ClientIds' => 'getClientIds',
@@ -143,7 +143,7 @@ class GetWaitlistEntriesRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ClassIds'] = isset($data['ClassIds']) ? $data['ClassIds'] : null;
         $this->container['ClassScheduleIds'] = isset($data['ClassScheduleIds']) ? $data['ClassScheduleIds'] : null;
@@ -172,7 +172,7 @@ class GetWaitlistEntriesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getClassIds()
+    public function getClassIds(): array
     {
         return $this->container['ClassIds'];
     }
@@ -184,7 +184,9 @@ class GetWaitlistEntriesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClassIds($ClassIds): self
+
+
+    public function setClassIds(array $ClassIds): static
     {
         $this->container['ClassIds'] = $ClassIds;
 
@@ -196,7 +198,7 @@ class GetWaitlistEntriesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getClassScheduleIds()
+    public function getClassScheduleIds(): array
     {
         return $this->container['ClassScheduleIds'];
     }
@@ -208,7 +210,9 @@ class GetWaitlistEntriesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClassScheduleIds($ClassScheduleIds): self
+
+
+    public function setClassScheduleIds(array $ClassScheduleIds): static
     {
         $this->container['ClassScheduleIds'] = $ClassScheduleIds;
 
@@ -220,7 +224,7 @@ class GetWaitlistEntriesRequest extends BaseModel
      *
      * @return string[]
      */
-    public function getClientIds()
+    public function getClientIds(): array
     {
         return $this->container['ClientIds'];
     }
@@ -232,7 +236,9 @@ class GetWaitlistEntriesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClientIds($ClientIds): self
+
+
+    public function setClientIds(array $ClientIds): static
     {
         $this->container['ClientIds'] = $ClientIds;
 
@@ -244,7 +250,7 @@ class GetWaitlistEntriesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getHidePastEntries()
+    public function getHidePastEntries(): bool
     {
         return $this->container['HidePastEntries'];
     }
@@ -256,7 +262,9 @@ class GetWaitlistEntriesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setHidePastEntries($HidePastEntries): self
+
+
+    public function setHidePastEntries(bool $HidePastEntries): static
     {
         $this->container['HidePastEntries'] = $HidePastEntries;
 
@@ -268,7 +276,7 @@ class GetWaitlistEntriesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getWaitlistEntryIds()
+    public function getWaitlistEntryIds(): array
     {
         return $this->container['WaitlistEntryIds'];
     }
@@ -280,7 +288,9 @@ class GetWaitlistEntriesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setWaitlistEntryIds($WaitlistEntryIds): self
+
+
+    public function setWaitlistEntryIds(array $WaitlistEntryIds): static
     {
         $this->container['WaitlistEntryIds'] = $WaitlistEntryIds;
 
@@ -292,7 +302,7 @@ class GetWaitlistEntriesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit()
+    public function getLimit(): int
     {
         return $this->container['Limit'];
     }
@@ -304,7 +314,9 @@ class GetWaitlistEntriesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLimit($Limit): self
+
+
+    public function setLimit(int $Limit): static
     {
         $this->container['Limit'] = $Limit;
 
@@ -316,7 +328,7 @@ class GetWaitlistEntriesRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset()
+    public function getOffset(): int
     {
         return $this->container['Offset'];
     }
@@ -328,7 +340,9 @@ class GetWaitlistEntriesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOffset($Offset): self
+
+
+    public function setOffset(int $Offset): static
     {
         $this->container['Offset'] = $Offset;
 

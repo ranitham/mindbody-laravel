@@ -53,14 +53,14 @@ class RemoveClientsFromClassesRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'RemoveClientsFromClassesRequest';
+    protected static string $swaggerModelName = 'RemoveClientsFromClassesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Details' => '\Nlocascio\Mindbody\Model\ClassClientDetail[]',
         'Test' => 'bool',
         'SendEmail' => 'bool',
@@ -74,7 +74,7 @@ class RemoveClientsFromClassesRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Details' => null,
         'Test' => null,
         'SendEmail' => null,
@@ -90,7 +90,7 @@ class RemoveClientsFromClassesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Details' => 'Details',
         'Test' => 'Test',
         'SendEmail' => 'SendEmail',
@@ -104,7 +104,7 @@ class RemoveClientsFromClassesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Details' => 'setDetails',
         'Test' => 'setTest',
         'SendEmail' => 'setSendEmail',
@@ -118,7 +118,7 @@ class RemoveClientsFromClassesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Details' => 'getDetails',
         'Test' => 'getTest',
         'SendEmail' => 'getSendEmail',
@@ -138,7 +138,7 @@ class RemoveClientsFromClassesRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Details'] = isset($data['Details']) ? $data['Details'] : null;
         $this->container['Test'] = isset($data['Test']) ? $data['Test'] : null;
@@ -166,7 +166,7 @@ class RemoveClientsFromClassesRequest extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClassClientDetail[]
      */
-    public function getDetails()
+    public function getDetails(): array
     {
         return $this->container['Details'];
     }
@@ -178,7 +178,9 @@ class RemoveClientsFromClassesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setDetails($Details): self
+
+
+    public function setDetails(array $Details): static
     {
         $this->container['Details'] = $Details;
 
@@ -190,7 +192,7 @@ class RemoveClientsFromClassesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getTest()
+    public function getTest(): bool
     {
         return $this->container['Test'];
     }
@@ -202,7 +204,9 @@ class RemoveClientsFromClassesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setTest($Test): self
+
+
+    public function setTest(bool $Test): static
     {
         $this->container['Test'] = $Test;
 
@@ -214,7 +218,7 @@ class RemoveClientsFromClassesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSendEmail()
+    public function getSendEmail(): bool
     {
         return $this->container['SendEmail'];
     }
@@ -226,7 +230,9 @@ class RemoveClientsFromClassesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSendEmail($SendEmail): self
+
+
+    public function setSendEmail(bool $SendEmail): static
     {
         $this->container['SendEmail'] = $SendEmail;
 
@@ -238,7 +244,7 @@ class RemoveClientsFromClassesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getLateCancel()
+    public function getLateCancel(): bool
     {
         return $this->container['LateCancel'];
     }
@@ -250,7 +256,9 @@ class RemoveClientsFromClassesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLateCancel($LateCancel): self
+
+
+    public function setLateCancel(bool $LateCancel): static
     {
         $this->container['LateCancel'] = $LateCancel;
 
@@ -262,7 +270,7 @@ class RemoveClientsFromClassesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit()
+    public function getLimit(): int
     {
         return $this->container['Limit'];
     }
@@ -274,7 +282,9 @@ class RemoveClientsFromClassesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLimit($Limit): self
+
+
+    public function setLimit(int $Limit): static
     {
         $this->container['Limit'] = $Limit;
 
@@ -286,7 +296,7 @@ class RemoveClientsFromClassesRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset()
+    public function getOffset(): int
     {
         return $this->container['Offset'];
     }
@@ -298,7 +308,9 @@ class RemoveClientsFromClassesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOffset($Offset): self
+
+
+    public function setOffset(int $Offset): static
     {
         $this->container['Offset'] = $Offset;
 

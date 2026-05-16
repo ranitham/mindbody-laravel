@@ -49,14 +49,14 @@ class GetSemestersResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetSemestersResponse';
+    protected static string $swaggerModelName = 'GetSemestersResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'PaginationResponse' => '\Nlocascio\Mindbody\Model\PaginationResponse',
         'Semesters' => '\Nlocascio\Mindbody\Model\Semester[]'
     ];
@@ -66,7 +66,7 @@ class GetSemestersResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'PaginationResponse' => null,
         'Semesters' => null
     ];
@@ -78,7 +78,7 @@ class GetSemestersResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'PaginationResponse' => 'PaginationResponse',
         'Semesters' => 'Semesters'
     ];
@@ -88,7 +88,7 @@ class GetSemestersResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'PaginationResponse' => 'setPaginationResponse',
         'Semesters' => 'setSemesters'
     ];
@@ -98,7 +98,7 @@ class GetSemestersResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'PaginationResponse' => 'getPaginationResponse',
         'Semesters' => 'getSemesters'
     ];
@@ -114,7 +114,7 @@ class GetSemestersResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['PaginationResponse'] = isset($data['PaginationResponse']) ? $data['PaginationResponse'] : null;
         $this->container['Semesters'] = isset($data['Semesters']) ? $data['Semesters'] : null;
@@ -138,7 +138,7 @@ class GetSemestersResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse()
+    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
     {
         return $this->container['PaginationResponse'];
     }
@@ -150,7 +150,9 @@ class GetSemestersResponse extends BaseModel
      *
      * @return $this
      */
-    public function setPaginationResponse($PaginationResponse): self
+
+
+    public function setPaginationResponse(\Nlocascio\Mindbody\Model\PaginationResponse $PaginationResponse): static
     {
         $this->container['PaginationResponse'] = $PaginationResponse;
 
@@ -162,7 +164,7 @@ class GetSemestersResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Semester[]
      */
-    public function getSemesters()
+    public function getSemesters(): array
     {
         return $this->container['Semesters'];
     }
@@ -174,7 +176,9 @@ class GetSemestersResponse extends BaseModel
      *
      * @return $this
      */
-    public function setSemesters($Semesters): self
+
+
+    public function setSemesters(array $Semesters): static
     {
         $this->container['Semesters'] = $Semesters;
 

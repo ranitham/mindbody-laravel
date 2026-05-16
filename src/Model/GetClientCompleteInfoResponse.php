@@ -52,14 +52,14 @@ class GetClientCompleteInfoResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetClientCompleteInfoResponse';
+    protected static string $swaggerModelName = 'GetClientCompleteInfoResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Client' => '\Nlocascio\Mindbody\Model\ClientWithSuspensionInfo',
         'ClientServices' => '\Nlocascio\Mindbody\Model\ClientServiceWithActivationType[]',
         'ClientContracts' => '\Nlocascio\Mindbody\Model\ClientContract[]',
@@ -72,7 +72,7 @@ class GetClientCompleteInfoResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Client' => null,
         'ClientServices' => null,
         'ClientContracts' => null,
@@ -87,7 +87,7 @@ class GetClientCompleteInfoResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Client' => 'Client',
         'ClientServices' => 'ClientServices',
         'ClientContracts' => 'ClientContracts',
@@ -100,7 +100,7 @@ class GetClientCompleteInfoResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Client' => 'setClient',
         'ClientServices' => 'setClientServices',
         'ClientContracts' => 'setClientContracts',
@@ -113,7 +113,7 @@ class GetClientCompleteInfoResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Client' => 'getClient',
         'ClientServices' => 'getClientServices',
         'ClientContracts' => 'getClientContracts',
@@ -132,7 +132,7 @@ class GetClientCompleteInfoResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Client'] = isset($data['Client']) ? $data['Client'] : null;
         $this->container['ClientServices'] = isset($data['ClientServices']) ? $data['ClientServices'] : null;
@@ -159,7 +159,7 @@ class GetClientCompleteInfoResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClientWithSuspensionInfo
      */
-    public function getClient()
+    public function getClient(): \Nlocascio\Mindbody\Model\ClientWithSuspensionInfo
     {
         return $this->container['Client'];
     }
@@ -171,7 +171,9 @@ class GetClientCompleteInfoResponse extends BaseModel
      *
      * @return $this
      */
-    public function setClient($Client): self
+
+
+    public function setClient(\Nlocascio\Mindbody\Model\ClientWithSuspensionInfo $Client): static
     {
         $this->container['Client'] = $Client;
 
@@ -183,7 +185,7 @@ class GetClientCompleteInfoResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClientServiceWithActivationType[]
      */
-    public function getClientServices()
+    public function getClientServices(): array
     {
         return $this->container['ClientServices'];
     }
@@ -195,7 +197,9 @@ class GetClientCompleteInfoResponse extends BaseModel
      *
      * @return $this
      */
-    public function setClientServices($ClientServices): self
+
+
+    public function setClientServices(array $ClientServices): static
     {
         $this->container['ClientServices'] = $ClientServices;
 
@@ -207,7 +211,7 @@ class GetClientCompleteInfoResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClientContract[]
      */
-    public function getClientContracts()
+    public function getClientContracts(): array
     {
         return $this->container['ClientContracts'];
     }
@@ -219,7 +223,9 @@ class GetClientCompleteInfoResponse extends BaseModel
      *
      * @return $this
      */
-    public function setClientContracts($ClientContracts): self
+
+
+    public function setClientContracts(array $ClientContracts): static
     {
         $this->container['ClientContracts'] = $ClientContracts;
 
@@ -231,7 +237,7 @@ class GetClientCompleteInfoResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClientMembership[]
      */
-    public function getClientMemberships()
+    public function getClientMemberships(): array
     {
         return $this->container['ClientMemberships'];
     }
@@ -243,7 +249,9 @@ class GetClientCompleteInfoResponse extends BaseModel
      *
      * @return $this
      */
-    public function setClientMemberships($ClientMemberships): self
+
+
+    public function setClientMemberships(array $ClientMemberships): static
     {
         $this->container['ClientMemberships'] = $ClientMemberships;
 
@@ -255,7 +263,7 @@ class GetClientCompleteInfoResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClientArrival[]
      */
-    public function getClientArrivals()
+    public function getClientArrivals(): array
     {
         return $this->container['ClientArrivals'];
     }
@@ -267,7 +275,9 @@ class GetClientCompleteInfoResponse extends BaseModel
      *
      * @return $this
      */
-    public function setClientArrivals($ClientArrivals): self
+
+
+    public function setClientArrivals(array $ClientArrivals): static
     {
         $this->container['ClientArrivals'] = $ClientArrivals;
 

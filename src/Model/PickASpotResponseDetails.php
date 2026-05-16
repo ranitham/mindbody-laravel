@@ -50,14 +50,14 @@ class PickASpotResponseDetails extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'PickASpot.ResponseDetails';
+    protected static string $swaggerModelName = 'PickASpot.ResponseDetails';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Status' => 'string',
         'TransactionId' => 'string',
         'Message' => 'string'
@@ -68,7 +68,7 @@ class PickASpotResponseDetails extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Status' => null,
         'TransactionId' => null,
         'Message' => null
@@ -81,7 +81,7 @@ class PickASpotResponseDetails extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Status' => 'Status',
         'TransactionId' => 'TransactionId',
         'Message' => 'Message'
@@ -92,7 +92,7 @@ class PickASpotResponseDetails extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Status' => 'setStatus',
         'TransactionId' => 'setTransactionId',
         'Message' => 'setMessage'
@@ -103,7 +103,7 @@ class PickASpotResponseDetails extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Status' => 'getStatus',
         'TransactionId' => 'getTransactionId',
         'Message' => 'getMessage'
@@ -120,7 +120,7 @@ class PickASpotResponseDetails extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Status'] = isset($data['Status']) ? $data['Status'] : null;
         $this->container['TransactionId'] = isset($data['TransactionId']) ? $data['TransactionId'] : null;
@@ -145,7 +145,7 @@ class PickASpotResponseDetails extends BaseModel
      *
      * @return string
      */
-    public function getStatus()
+    public function getStatus(): string
     {
         return $this->container['Status'];
     }
@@ -157,7 +157,9 @@ class PickASpotResponseDetails extends BaseModel
      *
      * @return $this
      */
-    public function setStatus($Status): self
+
+
+    public function setStatus(string $Status): static
     {
         $this->container['Status'] = $Status;
 
@@ -169,7 +171,7 @@ class PickASpotResponseDetails extends BaseModel
      *
      * @return string
      */
-    public function getTransactionId()
+    public function getTransactionId(): string
     {
         return $this->container['TransactionId'];
     }
@@ -181,7 +183,9 @@ class PickASpotResponseDetails extends BaseModel
      *
      * @return $this
      */
-    public function setTransactionId($TransactionId): self
+
+
+    public function setTransactionId(string $TransactionId): static
     {
         $this->container['TransactionId'] = $TransactionId;
 
@@ -193,7 +197,7 @@ class PickASpotResponseDetails extends BaseModel
      *
      * @return string
      */
-    public function getMessage()
+    public function getMessage(): string
     {
         return $this->container['Message'];
     }
@@ -205,7 +209,9 @@ class PickASpotResponseDetails extends BaseModel
      *
      * @return $this
      */
-    public function setMessage($Message): self
+
+
+    public function setMessage(string $Message): static
     {
         $this->container['Message'] = $Message;
 

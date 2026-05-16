@@ -55,14 +55,14 @@ class GetStaffAppointmentsRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetStaffAppointmentsRequest';
+    protected static string $swaggerModelName = 'GetStaffAppointmentsRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'AppointmentIds' => 'int[]',
         'LocationIds' => 'int[]',
         'StartDate' => '\DateTime',
@@ -79,7 +79,7 @@ class GetStaffAppointmentsRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'AppointmentIds' => 'int32',
         'LocationIds' => 'int32',
         'StartDate' => 'date-time',
@@ -98,7 +98,7 @@ class GetStaffAppointmentsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'AppointmentIds' => 'AppointmentIds',
         'LocationIds' => 'LocationIds',
         'StartDate' => 'StartDate',
@@ -115,7 +115,7 @@ class GetStaffAppointmentsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'AppointmentIds' => 'setAppointmentIds',
         'LocationIds' => 'setLocationIds',
         'StartDate' => 'setStartDate',
@@ -132,7 +132,7 @@ class GetStaffAppointmentsRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'AppointmentIds' => 'getAppointmentIds',
         'LocationIds' => 'getLocationIds',
         'StartDate' => 'getStartDate',
@@ -155,7 +155,7 @@ class GetStaffAppointmentsRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['AppointmentIds'] = isset($data['AppointmentIds']) ? $data['AppointmentIds'] : null;
         $this->container['LocationIds'] = isset($data['LocationIds']) ? $data['LocationIds'] : null;
@@ -186,7 +186,7 @@ class GetStaffAppointmentsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getAppointmentIds()
+    public function getAppointmentIds(): array
     {
         return $this->container['AppointmentIds'];
     }
@@ -198,7 +198,9 @@ class GetStaffAppointmentsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setAppointmentIds($AppointmentIds): self
+
+
+    public function setAppointmentIds(array $AppointmentIds): static
     {
         $this->container['AppointmentIds'] = $AppointmentIds;
 
@@ -210,7 +212,7 @@ class GetStaffAppointmentsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getLocationIds()
+    public function getLocationIds(): array
     {
         return $this->container['LocationIds'];
     }
@@ -222,7 +224,9 @@ class GetStaffAppointmentsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLocationIds($LocationIds): self
+
+
+    public function setLocationIds(array $LocationIds): static
     {
         $this->container['LocationIds'] = $LocationIds;
 
@@ -234,7 +238,7 @@ class GetStaffAppointmentsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDate()
+    public function getStartDate(): \DateTime
     {
         return $this->container['StartDate'];
     }
@@ -246,7 +250,9 @@ class GetStaffAppointmentsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStartDate($StartDate): self
+
+
+    public function setStartDate(\DateTime $StartDate): static
     {
         $this->container['StartDate'] = $StartDate;
 
@@ -258,7 +264,7 @@ class GetStaffAppointmentsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDate()
+    public function getEndDate(): \DateTime
     {
         return $this->container['EndDate'];
     }
@@ -270,7 +276,9 @@ class GetStaffAppointmentsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setEndDate($EndDate): self
+
+
+    public function setEndDate(\DateTime $EndDate): static
     {
         $this->container['EndDate'] = $EndDate;
 
@@ -282,7 +290,7 @@ class GetStaffAppointmentsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getStaffIds()
+    public function getStaffIds(): array
     {
         return $this->container['StaffIds'];
     }
@@ -294,7 +302,9 @@ class GetStaffAppointmentsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStaffIds($StaffIds): self
+
+
+    public function setStaffIds(array $StaffIds): static
     {
         $this->container['StaffIds'] = $StaffIds;
 
@@ -306,7 +316,7 @@ class GetStaffAppointmentsRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId()
+    public function getClientId(): string
     {
         return $this->container['ClientId'];
     }
@@ -318,7 +328,9 @@ class GetStaffAppointmentsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClientId($ClientId): self
+
+
+    public function setClientId(string $ClientId): static
     {
         $this->container['ClientId'] = $ClientId;
 
@@ -330,7 +342,7 @@ class GetStaffAppointmentsRequest extends BaseModel
      *
      * @return bool
      */
-    public function getUseSiteSettingsStaffName()
+    public function getUseSiteSettingsStaffName(): bool
     {
         return $this->container['UseSiteSettingsStaffName'];
     }
@@ -342,7 +354,9 @@ class GetStaffAppointmentsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setUseSiteSettingsStaffName($UseSiteSettingsStaffName): self
+
+
+    public function setUseSiteSettingsStaffName(bool $UseSiteSettingsStaffName): static
     {
         $this->container['UseSiteSettingsStaffName'] = $UseSiteSettingsStaffName;
 
@@ -354,7 +368,7 @@ class GetStaffAppointmentsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit()
+    public function getLimit(): int
     {
         return $this->container['Limit'];
     }
@@ -366,7 +380,9 @@ class GetStaffAppointmentsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLimit($Limit): self
+
+
+    public function setLimit(int $Limit): static
     {
         $this->container['Limit'] = $Limit;
 
@@ -378,7 +394,7 @@ class GetStaffAppointmentsRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset()
+    public function getOffset(): int
     {
         return $this->container['Offset'];
     }
@@ -390,7 +406,9 @@ class GetStaffAppointmentsRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOffset($Offset): self
+
+
+    public function setOffset(int $Offset): static
     {
         $this->container['Offset'] = $Offset;
 

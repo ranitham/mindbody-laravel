@@ -75,7 +75,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property int $NumberOfPromoAutopays Number of times that the AutoPay runs under the promotional period
  *
  */
-class Contract extends BaseModel implements ModelWithId
+class Contract extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -84,14 +84,14 @@ class Contract extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Contract';
+    protected static string $swaggerModelName = 'Contract';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Id' => 'int',
         'Name' => 'string',
         'Description' => 'string',
@@ -137,7 +137,7 @@ class Contract extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Id' => 'int32',
         'Name' => null,
         'Description' => null,
@@ -185,7 +185,7 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Id' => 'Id',
         'Name' => 'Name',
         'Description' => 'Description',
@@ -231,7 +231,7 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Id' => 'setId',
         'Name' => 'setName',
         'Description' => 'setDescription',
@@ -277,7 +277,7 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Id' => 'getId',
         'Name' => 'getName',
         'Description' => 'getDescription',
@@ -329,7 +329,7 @@ class Contract extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
         $this->container['Name'] = isset($data['Name']) ? $data['Name'] : null;
@@ -389,7 +389,7 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -401,7 +401,9 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -413,7 +415,7 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->container['Name'];
     }
@@ -425,7 +427,9 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setName($Name): self
+
+
+    public function setName(string $Name): static
     {
         $this->container['Name'] = $Name;
 
@@ -437,7 +441,7 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->container['Description'];
     }
@@ -449,7 +453,9 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setDescription($Description): self
+
+
+    public function setDescription(string $Description): static
     {
         $this->container['Description'] = $Description;
 
@@ -461,7 +467,7 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getAssignsMembershipId()
+    public function getAssignsMembershipId(): int
     {
         return $this->container['AssignsMembershipId'];
     }
@@ -473,7 +479,9 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAssignsMembershipId($AssignsMembershipId): self
+
+
+    public function setAssignsMembershipId(int $AssignsMembershipId): static
     {
         $this->container['AssignsMembershipId'] = $AssignsMembershipId;
 
@@ -485,7 +493,7 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getAssignsMembershipName()
+    public function getAssignsMembershipName(): string
     {
         return $this->container['AssignsMembershipName'];
     }
@@ -497,7 +505,9 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAssignsMembershipName($AssignsMembershipName): self
+
+
+    public function setAssignsMembershipName(string $AssignsMembershipName): static
     {
         $this->container['AssignsMembershipName'] = $AssignsMembershipName;
 
@@ -509,7 +519,7 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getSoldOnline()
+    public function getSoldOnline(): bool
     {
         return $this->container['SoldOnline'];
     }
@@ -521,7 +531,9 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSoldOnline($SoldOnline): self
+
+
+    public function setSoldOnline(bool $SoldOnline): static
     {
         $this->container['SoldOnline'] = $SoldOnline;
 
@@ -533,7 +545,7 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\ContractItem[]
      */
-    public function getContractItems()
+    public function getContractItems(): array
     {
         return $this->container['ContractItems'];
     }
@@ -545,7 +557,9 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setContractItems($ContractItems): self
+
+
+    public function setContractItems(array $ContractItems): static
     {
         $this->container['ContractItems'] = $ContractItems;
 
@@ -557,7 +571,7 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getIntroOffer()
+    public function getIntroOffer(): string
     {
         return $this->container['IntroOffer'];
     }
@@ -569,7 +583,9 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setIntroOffer($IntroOffer): self
+
+
+    public function setIntroOffer(string $IntroOffer): static
     {
         $this->container['IntroOffer'] = $IntroOffer;
 
@@ -581,7 +597,7 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\AutopaySchedule
      */
-    public function getAutopaySchedule()
+    public function getAutopaySchedule(): \Nlocascio\Mindbody\Model\AutopaySchedule
     {
         return $this->container['AutopaySchedule'];
     }
@@ -593,7 +609,9 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAutopaySchedule($AutopaySchedule): self
+
+
+    public function setAutopaySchedule(\Nlocascio\Mindbody\Model\AutopaySchedule $AutopaySchedule): static
     {
         $this->container['AutopaySchedule'] = $AutopaySchedule;
 
@@ -605,7 +623,7 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getNumberOfAutopays()
+    public function getNumberOfAutopays(): int
     {
         return $this->container['NumberOfAutopays'];
     }
@@ -617,7 +635,9 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setNumberOfAutopays($NumberOfAutopays): self
+
+
+    public function setNumberOfAutopays(int $NumberOfAutopays): static
     {
         $this->container['NumberOfAutopays'] = $NumberOfAutopays;
 
@@ -629,7 +649,7 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getAutopayTriggerType()
+    public function getAutopayTriggerType(): string
     {
         return $this->container['AutopayTriggerType'];
     }
@@ -641,7 +661,9 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAutopayTriggerType($AutopayTriggerType): self
+
+
+    public function setAutopayTriggerType(string $AutopayTriggerType): static
     {
         $this->container['AutopayTriggerType'] = $AutopayTriggerType;
 
@@ -653,7 +675,7 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getActionUponCompletionOfAutopays()
+    public function getActionUponCompletionOfAutopays(): string
     {
         return $this->container['ActionUponCompletionOfAutopays'];
     }
@@ -665,7 +687,9 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setActionUponCompletionOfAutopays($ActionUponCompletionOfAutopays): self
+
+
+    public function setActionUponCompletionOfAutopays(string $ActionUponCompletionOfAutopays): static
     {
         $this->container['ActionUponCompletionOfAutopays'] = $ActionUponCompletionOfAutopays;
 
@@ -677,7 +701,7 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getClientsChargedOn()
+    public function getClientsChargedOn(): string
     {
         return $this->container['ClientsChargedOn'];
     }
@@ -689,7 +713,9 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setClientsChargedOn($ClientsChargedOn): self
+
+
+    public function setClientsChargedOn(string $ClientsChargedOn): static
     {
         $this->container['ClientsChargedOn'] = $ClientsChargedOn;
 
@@ -701,7 +727,7 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getClientsChargedOnSpecificDate()
+    public function getClientsChargedOnSpecificDate(): \DateTime
     {
         return $this->container['ClientsChargedOnSpecificDate'];
     }
@@ -713,7 +739,9 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setClientsChargedOnSpecificDate($ClientsChargedOnSpecificDate): self
+
+
+    public function setClientsChargedOnSpecificDate(\DateTime $ClientsChargedOnSpecificDate): static
     {
         $this->container['ClientsChargedOnSpecificDate'] = $ClientsChargedOnSpecificDate;
 
@@ -725,7 +753,7 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getDiscountAmount()
+    public function getDiscountAmount(): float
     {
         return $this->container['DiscountAmount'];
     }
@@ -737,7 +765,9 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setDiscountAmount($DiscountAmount): self
+
+
+    public function setDiscountAmount(float $DiscountAmount): static
     {
         $this->container['DiscountAmount'] = $DiscountAmount;
 
@@ -749,7 +779,7 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getDepositAmount()
+    public function getDepositAmount(): float
     {
         return $this->container['DepositAmount'];
     }
@@ -761,7 +791,9 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setDepositAmount($DepositAmount): self
+
+
+    public function setDepositAmount(float $DepositAmount): static
     {
         $this->container['DepositAmount'] = $DepositAmount;
 
@@ -773,7 +805,7 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getFirstAutopayFree()
+    public function getFirstAutopayFree(): bool
     {
         return $this->container['FirstAutopayFree'];
     }
@@ -785,7 +817,9 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setFirstAutopayFree($FirstAutopayFree): self
+
+
+    public function setFirstAutopayFree(bool $FirstAutopayFree): static
     {
         $this->container['FirstAutopayFree'] = $FirstAutopayFree;
 
@@ -797,7 +831,7 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getLastAutopayFree()
+    public function getLastAutopayFree(): bool
     {
         return $this->container['LastAutopayFree'];
     }
@@ -809,7 +843,9 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setLastAutopayFree($LastAutopayFree): self
+
+
+    public function setLastAutopayFree(bool $LastAutopayFree): static
     {
         $this->container['LastAutopayFree'] = $LastAutopayFree;
 
@@ -821,7 +857,7 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getClientTerminateOnline()
+    public function getClientTerminateOnline(): bool
     {
         return $this->container['ClientTerminateOnline'];
     }
@@ -833,7 +869,9 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setClientTerminateOnline($ClientTerminateOnline): self
+
+
+    public function setClientTerminateOnline(bool $ClientTerminateOnline): static
     {
         $this->container['ClientTerminateOnline'] = $ClientTerminateOnline;
 
@@ -845,7 +883,7 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\MembershipTypeRestriction[]
      */
-    public function getMembershipTypeRestrictions()
+    public function getMembershipTypeRestrictions(): array
     {
         return $this->container['MembershipTypeRestrictions'];
     }
@@ -857,7 +895,9 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setMembershipTypeRestrictions($MembershipTypeRestrictions): self
+
+
+    public function setMembershipTypeRestrictions(array $MembershipTypeRestrictions): static
     {
         $this->container['MembershipTypeRestrictions'] = $MembershipTypeRestrictions;
 
@@ -869,7 +909,7 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return int[]
      */
-    public function getLocationPurchaseRestrictionIds()
+    public function getLocationPurchaseRestrictionIds(): array
     {
         return $this->container['LocationPurchaseRestrictionIds'];
     }
@@ -881,7 +921,9 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setLocationPurchaseRestrictionIds($LocationPurchaseRestrictionIds): self
+
+
+    public function setLocationPurchaseRestrictionIds(array $LocationPurchaseRestrictionIds): static
     {
         $this->container['LocationPurchaseRestrictionIds'] = $LocationPurchaseRestrictionIds;
 
@@ -893,7 +935,7 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return string[]
      */
-    public function getLocationPurchaseRestrictionNames()
+    public function getLocationPurchaseRestrictionNames(): array
     {
         return $this->container['LocationPurchaseRestrictionNames'];
     }
@@ -905,7 +947,9 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setLocationPurchaseRestrictionNames($LocationPurchaseRestrictionNames): self
+
+
+    public function setLocationPurchaseRestrictionNames(array $LocationPurchaseRestrictionNames): static
     {
         $this->container['LocationPurchaseRestrictionNames'] = $LocationPurchaseRestrictionNames;
 
@@ -917,7 +961,7 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getAgreementTerms()
+    public function getAgreementTerms(): string
     {
         return $this->container['AgreementTerms'];
     }
@@ -929,7 +973,9 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAgreementTerms($AgreementTerms): self
+
+
+    public function setAgreementTerms(string $AgreementTerms): static
     {
         $this->container['AgreementTerms'] = $AgreementTerms;
 
@@ -941,7 +987,7 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getRequiresElectronicConfirmation()
+    public function getRequiresElectronicConfirmation(): bool
     {
         return $this->container['RequiresElectronicConfirmation'];
     }
@@ -953,7 +999,9 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setRequiresElectronicConfirmation($RequiresElectronicConfirmation): self
+
+
+    public function setRequiresElectronicConfirmation(bool $RequiresElectronicConfirmation): static
     {
         $this->container['RequiresElectronicConfirmation'] = $RequiresElectronicConfirmation;
 
@@ -965,7 +1013,7 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getAutopayEnabled()
+    public function getAutopayEnabled(): bool
     {
         return $this->container['AutopayEnabled'];
     }
@@ -977,7 +1025,9 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAutopayEnabled($AutopayEnabled): self
+
+
+    public function setAutopayEnabled(bool $AutopayEnabled): static
     {
         $this->container['AutopayEnabled'] = $AutopayEnabled;
 
@@ -989,7 +1039,7 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getFirstPaymentAmountSubtotal()
+    public function getFirstPaymentAmountSubtotal(): float
     {
         return $this->container['FirstPaymentAmountSubtotal'];
     }
@@ -1001,7 +1051,9 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setFirstPaymentAmountSubtotal($FirstPaymentAmountSubtotal): self
+
+
+    public function setFirstPaymentAmountSubtotal(float $FirstPaymentAmountSubtotal): static
     {
         $this->container['FirstPaymentAmountSubtotal'] = $FirstPaymentAmountSubtotal;
 
@@ -1013,7 +1065,7 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getFirstPaymentAmountTax()
+    public function getFirstPaymentAmountTax(): float
     {
         return $this->container['FirstPaymentAmountTax'];
     }
@@ -1025,7 +1077,9 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setFirstPaymentAmountTax($FirstPaymentAmountTax): self
+
+
+    public function setFirstPaymentAmountTax(float $FirstPaymentAmountTax): static
     {
         $this->container['FirstPaymentAmountTax'] = $FirstPaymentAmountTax;
 
@@ -1037,7 +1091,7 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getFirstPaymentAmountTotal()
+    public function getFirstPaymentAmountTotal(): float
     {
         return $this->container['FirstPaymentAmountTotal'];
     }
@@ -1049,7 +1103,9 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setFirstPaymentAmountTotal($FirstPaymentAmountTotal): self
+
+
+    public function setFirstPaymentAmountTotal(float $FirstPaymentAmountTotal): static
     {
         $this->container['FirstPaymentAmountTotal'] = $FirstPaymentAmountTotal;
 
@@ -1061,7 +1117,7 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getRecurringPaymentAmountSubtotal()
+    public function getRecurringPaymentAmountSubtotal(): float
     {
         return $this->container['RecurringPaymentAmountSubtotal'];
     }
@@ -1073,7 +1129,9 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setRecurringPaymentAmountSubtotal($RecurringPaymentAmountSubtotal): self
+
+
+    public function setRecurringPaymentAmountSubtotal(float $RecurringPaymentAmountSubtotal): static
     {
         $this->container['RecurringPaymentAmountSubtotal'] = $RecurringPaymentAmountSubtotal;
 
@@ -1085,7 +1143,7 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getRecurringPaymentAmountTax()
+    public function getRecurringPaymentAmountTax(): float
     {
         return $this->container['RecurringPaymentAmountTax'];
     }
@@ -1097,7 +1155,9 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setRecurringPaymentAmountTax($RecurringPaymentAmountTax): self
+
+
+    public function setRecurringPaymentAmountTax(float $RecurringPaymentAmountTax): static
     {
         $this->container['RecurringPaymentAmountTax'] = $RecurringPaymentAmountTax;
 
@@ -1109,7 +1169,7 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getRecurringPaymentAmountTotal()
+    public function getRecurringPaymentAmountTotal(): float
     {
         return $this->container['RecurringPaymentAmountTotal'];
     }
@@ -1121,7 +1181,9 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setRecurringPaymentAmountTotal($RecurringPaymentAmountTotal): self
+
+
+    public function setRecurringPaymentAmountTotal(float $RecurringPaymentAmountTotal): static
     {
         $this->container['RecurringPaymentAmountTotal'] = $RecurringPaymentAmountTotal;
 
@@ -1133,7 +1195,7 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getTotalContractAmountSubtotal()
+    public function getTotalContractAmountSubtotal(): float
     {
         return $this->container['TotalContractAmountSubtotal'];
     }
@@ -1145,7 +1207,9 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setTotalContractAmountSubtotal($TotalContractAmountSubtotal): self
+
+
+    public function setTotalContractAmountSubtotal(float $TotalContractAmountSubtotal): static
     {
         $this->container['TotalContractAmountSubtotal'] = $TotalContractAmountSubtotal;
 
@@ -1157,7 +1221,7 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getTotalContractAmountTax()
+    public function getTotalContractAmountTax(): float
     {
         return $this->container['TotalContractAmountTax'];
     }
@@ -1169,7 +1233,9 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setTotalContractAmountTax($TotalContractAmountTax): self
+
+
+    public function setTotalContractAmountTax(float $TotalContractAmountTax): static
     {
         $this->container['TotalContractAmountTax'] = $TotalContractAmountTax;
 
@@ -1181,7 +1247,7 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getTotalContractAmountTotal()
+    public function getTotalContractAmountTotal(): float
     {
         return $this->container['TotalContractAmountTotal'];
     }
@@ -1193,7 +1259,9 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setTotalContractAmountTotal($TotalContractAmountTotal): self
+
+
+    public function setTotalContractAmountTotal(float $TotalContractAmountTotal): static
     {
         $this->container['TotalContractAmountTotal'] = $TotalContractAmountTotal;
 
@@ -1205,7 +1273,7 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getPromoPaymentAmountSubtotal()
+    public function getPromoPaymentAmountSubtotal(): float
     {
         return $this->container['PromoPaymentAmountSubtotal'];
     }
@@ -1217,7 +1285,9 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setPromoPaymentAmountSubtotal($PromoPaymentAmountSubtotal): self
+
+
+    public function setPromoPaymentAmountSubtotal(float $PromoPaymentAmountSubtotal): static
     {
         $this->container['PromoPaymentAmountSubtotal'] = $PromoPaymentAmountSubtotal;
 
@@ -1229,7 +1299,7 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getPromoPaymentAmountTax()
+    public function getPromoPaymentAmountTax(): float
     {
         return $this->container['PromoPaymentAmountTax'];
     }
@@ -1241,7 +1311,9 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setPromoPaymentAmountTax($PromoPaymentAmountTax): self
+
+
+    public function setPromoPaymentAmountTax(float $PromoPaymentAmountTax): static
     {
         $this->container['PromoPaymentAmountTax'] = $PromoPaymentAmountTax;
 
@@ -1253,7 +1325,7 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getPromoPaymentAmountTotal()
+    public function getPromoPaymentAmountTotal(): float
     {
         return $this->container['PromoPaymentAmountTotal'];
     }
@@ -1265,7 +1337,9 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setPromoPaymentAmountTotal($PromoPaymentAmountTotal): self
+
+
+    public function setPromoPaymentAmountTotal(float $PromoPaymentAmountTotal): static
     {
         $this->container['PromoPaymentAmountTotal'] = $PromoPaymentAmountTotal;
 
@@ -1277,7 +1351,7 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getNumberOfPromoAutopays()
+    public function getNumberOfPromoAutopays(): int
     {
         return $this->container['NumberOfPromoAutopays'];
     }
@@ -1289,7 +1363,9 @@ class Contract extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setNumberOfPromoAutopays($NumberOfPromoAutopays): self
+
+
+    public function setNumberOfPromoAutopays(int $NumberOfPromoAutopays): static
     {
         $this->container['NumberOfPromoAutopays'] = $NumberOfPromoAutopays;
 

@@ -46,7 +46,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property \Nlocascio\Mindbody\Model\PricingRelationships $PricingRelationships PricingRelationships
  *
  */
-class Program extends BaseModel implements ModelWithId
+class Program extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -55,14 +55,14 @@ class Program extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Program';
+    protected static string $swaggerModelName = 'Program';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'CancelOffset' => 'int',
         'Id' => 'int',
         'Name' => 'string',
@@ -79,7 +79,7 @@ class Program extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'CancelOffset' => 'int32',
         'Id' => 'int32',
         'Name' => null,
@@ -98,7 +98,7 @@ class Program extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'CancelOffset' => 'CancelOffset',
         'Id' => 'Id',
         'Name' => 'Name',
@@ -115,7 +115,7 @@ class Program extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'CancelOffset' => 'setCancelOffset',
         'Id' => 'setId',
         'Name' => 'setName',
@@ -132,7 +132,7 @@ class Program extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'CancelOffset' => 'getCancelOffset',
         'Id' => 'getId',
         'Name' => 'getName',
@@ -199,7 +199,7 @@ class Program extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['CancelOffset'] = isset($data['CancelOffset']) ? $data['CancelOffset'] : null;
         $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
@@ -246,7 +246,7 @@ class Program extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getCancelOffset()
+    public function getCancelOffset(): int
     {
         return $this->container['CancelOffset'];
     }
@@ -258,7 +258,9 @@ class Program extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setCancelOffset($CancelOffset): self
+
+
+    public function setCancelOffset(int $CancelOffset): static
     {
         $this->container['CancelOffset'] = $CancelOffset;
 
@@ -270,7 +272,7 @@ class Program extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -282,7 +284,9 @@ class Program extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -294,7 +298,7 @@ class Program extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->container['Name'];
     }
@@ -306,7 +310,9 @@ class Program extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setName($Name): self
+
+
+    public function setName(string $Name): static
     {
         $this->container['Name'] = $Name;
 
@@ -318,7 +324,7 @@ class Program extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getScheduleType()
+    public function getScheduleType(): string
     {
         return $this->container['ScheduleType'];
     }
@@ -330,7 +336,9 @@ class Program extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setScheduleType($ScheduleType): self
+
+
+    public function setScheduleType(string $ScheduleType): static
     {
         $allowedValues = $this->getScheduleTypeAllowableValues();
         if (!is_null($ScheduleType) && !in_array($ScheduleType, $allowedValues, true)) {
@@ -351,7 +359,7 @@ class Program extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getContentFormat()
+    public function getContentFormat(): string
     {
         return $this->container['ContentFormat'];
     }
@@ -363,7 +371,9 @@ class Program extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setContentFormat($ContentFormat): self
+
+
+    public function setContentFormat(string $ContentFormat): static
     {
         $allowedValues = $this->getContentFormatAllowableValues();
         if (!is_null($ContentFormat) && !in_array($ContentFormat, $allowedValues, true)) {
@@ -384,7 +394,7 @@ class Program extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getOnlineBookingDisabled()
+    public function getOnlineBookingDisabled(): bool
     {
         return $this->container['OnlineBookingDisabled'];
     }
@@ -396,7 +406,9 @@ class Program extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setOnlineBookingDisabled($OnlineBookingDisabled): self
+
+
+    public function setOnlineBookingDisabled(bool $OnlineBookingDisabled): static
     {
         $this->container['OnlineBookingDisabled'] = $OnlineBookingDisabled;
 
@@ -408,7 +420,7 @@ class Program extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getScheduleOffset()
+    public function getScheduleOffset(): int
     {
         return $this->container['ScheduleOffset'];
     }
@@ -420,7 +432,9 @@ class Program extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setScheduleOffset($ScheduleOffset): self
+
+
+    public function setScheduleOffset(int $ScheduleOffset): static
     {
         $this->container['ScheduleOffset'] = $ScheduleOffset;
 
@@ -432,7 +446,7 @@ class Program extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getScheduleOffsetEnd()
+    public function getScheduleOffsetEnd(): int
     {
         return $this->container['ScheduleOffsetEnd'];
     }
@@ -444,7 +458,9 @@ class Program extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setScheduleOffsetEnd($ScheduleOffsetEnd): self
+
+
+    public function setScheduleOffsetEnd(int $ScheduleOffsetEnd): static
     {
         $this->container['ScheduleOffsetEnd'] = $ScheduleOffsetEnd;
 
@@ -456,7 +472,7 @@ class Program extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\PricingRelationships
      */
-    public function getPricingRelationships()
+    public function getPricingRelationships(): \Nlocascio\Mindbody\Model\PricingRelationships
     {
         return $this->container['PricingRelationships'];
     }
@@ -468,7 +484,9 @@ class Program extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setPricingRelationships($PricingRelationships): self
+
+
+    public function setPricingRelationships(\Nlocascio\Mindbody\Model\PricingRelationships $PricingRelationships): static
     {
         $this->container['PricingRelationships'] = $PricingRelationships;
 

@@ -48,14 +48,14 @@ class GetClassSchedulesResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetClassSchedulesResponse';
+    protected static string $swaggerModelName = 'GetClassSchedulesResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'PaginationResponse' => '\Nlocascio\Mindbody\Model\PaginationResponse',
         'ClassSchedules' => '\Nlocascio\Mindbody\Model\ClassSchedule[]'
     ];
@@ -65,7 +65,7 @@ class GetClassSchedulesResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'PaginationResponse' => null,
         'ClassSchedules' => null
     ];
@@ -77,7 +77,7 @@ class GetClassSchedulesResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'PaginationResponse' => 'PaginationResponse',
         'ClassSchedules' => 'ClassSchedules'
     ];
@@ -87,7 +87,7 @@ class GetClassSchedulesResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'PaginationResponse' => 'setPaginationResponse',
         'ClassSchedules' => 'setClassSchedules'
     ];
@@ -97,7 +97,7 @@ class GetClassSchedulesResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'PaginationResponse' => 'getPaginationResponse',
         'ClassSchedules' => 'getClassSchedules'
     ];
@@ -113,7 +113,7 @@ class GetClassSchedulesResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['PaginationResponse'] = isset($data['PaginationResponse']) ? $data['PaginationResponse'] : null;
         $this->container['ClassSchedules'] = isset($data['ClassSchedules']) ? $data['ClassSchedules'] : null;
@@ -137,7 +137,7 @@ class GetClassSchedulesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse()
+    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
     {
         return $this->container['PaginationResponse'];
     }
@@ -149,7 +149,9 @@ class GetClassSchedulesResponse extends BaseModel
      *
      * @return $this
      */
-    public function setPaginationResponse($PaginationResponse): self
+
+
+    public function setPaginationResponse(\Nlocascio\Mindbody\Model\PaginationResponse $PaginationResponse): static
     {
         $this->container['PaginationResponse'] = $PaginationResponse;
 
@@ -161,7 +163,7 @@ class GetClassSchedulesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClassSchedule[]
      */
-    public function getClassSchedules()
+    public function getClassSchedules(): array
     {
         return $this->container['ClassSchedules'];
     }
@@ -173,7 +175,9 @@ class GetClassSchedulesResponse extends BaseModel
      *
      * @return $this
      */
-    public function setClassSchedules($ClassSchedules): self
+
+
+    public function setClassSchedules(array $ClassSchedules): static
     {
         $this->container['ClassSchedules'] = $ClassSchedules;
 

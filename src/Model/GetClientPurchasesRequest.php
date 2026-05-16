@@ -53,14 +53,14 @@ class GetClientPurchasesRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetClientPurchasesRequest';
+    protected static string $swaggerModelName = 'GetClientPurchasesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ClientId' => 'string',
         'UniqueClientId' => 'int',
         'StartDate' => '\DateTime',
@@ -75,7 +75,7 @@ class GetClientPurchasesRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ClientId' => null,
         'UniqueClientId' => 'int64',
         'StartDate' => 'date-time',
@@ -92,7 +92,7 @@ class GetClientPurchasesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ClientId' => 'ClientId',
         'UniqueClientId' => 'UniqueClientId',
         'StartDate' => 'StartDate',
@@ -107,7 +107,7 @@ class GetClientPurchasesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ClientId' => 'setClientId',
         'UniqueClientId' => 'setUniqueClientId',
         'StartDate' => 'setStartDate',
@@ -122,7 +122,7 @@ class GetClientPurchasesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ClientId' => 'getClientId',
         'UniqueClientId' => 'getUniqueClientId',
         'StartDate' => 'getStartDate',
@@ -143,7 +143,7 @@ class GetClientPurchasesRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
         $this->container['UniqueClientId'] = isset($data['UniqueClientId']) ? $data['UniqueClientId'] : null;
@@ -175,7 +175,7 @@ class GetClientPurchasesRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId()
+    public function getClientId(): string
     {
         return $this->container['ClientId'];
     }
@@ -187,7 +187,9 @@ class GetClientPurchasesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClientId($ClientId): self
+
+
+    public function setClientId(string $ClientId): static
     {
         $this->container['ClientId'] = $ClientId;
 
@@ -199,7 +201,7 @@ class GetClientPurchasesRequest extends BaseModel
      *
      * @return int
      */
-    public function getUniqueClientId()
+    public function getUniqueClientId(): int
     {
         return $this->container['UniqueClientId'];
     }
@@ -211,7 +213,9 @@ class GetClientPurchasesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setUniqueClientId($UniqueClientId): self
+
+
+    public function setUniqueClientId(int $UniqueClientId): static
     {
         $this->container['UniqueClientId'] = $UniqueClientId;
 
@@ -223,7 +227,7 @@ class GetClientPurchasesRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDate()
+    public function getStartDate(): \DateTime
     {
         return $this->container['StartDate'];
     }
@@ -235,7 +239,9 @@ class GetClientPurchasesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStartDate($StartDate): self
+
+
+    public function setStartDate(\DateTime $StartDate): static
     {
         $this->container['StartDate'] = $StartDate;
 
@@ -247,7 +253,7 @@ class GetClientPurchasesRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDate()
+    public function getEndDate(): \DateTime
     {
         return $this->container['EndDate'];
     }
@@ -259,7 +265,9 @@ class GetClientPurchasesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setEndDate($EndDate): self
+
+
+    public function setEndDate(\DateTime $EndDate): static
     {
         $this->container['EndDate'] = $EndDate;
 
@@ -271,7 +279,7 @@ class GetClientPurchasesRequest extends BaseModel
      *
      * @return int
      */
-    public function getSaleId()
+    public function getSaleId(): int
     {
         return $this->container['SaleId'];
     }
@@ -283,7 +291,9 @@ class GetClientPurchasesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSaleId($SaleId): self
+
+
+    public function setSaleId(int $SaleId): static
     {
         $this->container['SaleId'] = $SaleId;
 
@@ -295,7 +305,7 @@ class GetClientPurchasesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit()
+    public function getLimit(): int
     {
         return $this->container['Limit'];
     }
@@ -307,7 +317,9 @@ class GetClientPurchasesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLimit($Limit): self
+
+
+    public function setLimit(int $Limit): static
     {
         $this->container['Limit'] = $Limit;
 
@@ -319,7 +331,7 @@ class GetClientPurchasesRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset()
+    public function getOffset(): int
     {
         return $this->container['Offset'];
     }
@@ -331,7 +343,9 @@ class GetClientPurchasesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOffset($Offset): self
+
+
+    public function setOffset(int $Offset): static
     {
         $this->container['Offset'] = $Offset;
 

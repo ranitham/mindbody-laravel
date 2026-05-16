@@ -54,14 +54,14 @@ class PurchaseAccountCreditRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'PurchaseAccountCreditRequest';
+    protected static string $swaggerModelName = 'PurchaseAccountCreditRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Test' => 'bool',
         'LocationId' => 'int',
         'ClientId' => 'string',
@@ -77,7 +77,7 @@ class PurchaseAccountCreditRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Test' => null,
         'LocationId' => 'int32',
         'ClientId' => null,
@@ -95,7 +95,7 @@ class PurchaseAccountCreditRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Test' => 'Test',
         'LocationId' => 'LocationId',
         'ClientId' => 'ClientId',
@@ -111,7 +111,7 @@ class PurchaseAccountCreditRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Test' => 'setTest',
         'LocationId' => 'setLocationId',
         'ClientId' => 'setClientId',
@@ -127,7 +127,7 @@ class PurchaseAccountCreditRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Test' => 'getTest',
         'LocationId' => 'getLocationId',
         'ClientId' => 'getClientId',
@@ -149,7 +149,7 @@ class PurchaseAccountCreditRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Test'] = isset($data['Test']) ? $data['Test'] : null;
         $this->container['LocationId'] = isset($data['LocationId']) ? $data['LocationId'] : null;
@@ -182,7 +182,7 @@ class PurchaseAccountCreditRequest extends BaseModel
      *
      * @return bool
      */
-    public function getTest()
+    public function getTest(): bool
     {
         return $this->container['Test'];
     }
@@ -194,7 +194,9 @@ class PurchaseAccountCreditRequest extends BaseModel
      *
      * @return $this
      */
-    public function setTest($Test): self
+
+
+    public function setTest(bool $Test): static
     {
         $this->container['Test'] = $Test;
 
@@ -206,7 +208,7 @@ class PurchaseAccountCreditRequest extends BaseModel
      *
      * @return int
      */
-    public function getLocationId()
+    public function getLocationId(): int
     {
         return $this->container['LocationId'];
     }
@@ -218,7 +220,9 @@ class PurchaseAccountCreditRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLocationId($LocationId): self
+
+
+    public function setLocationId(int $LocationId): static
     {
         $this->container['LocationId'] = $LocationId;
 
@@ -230,7 +234,7 @@ class PurchaseAccountCreditRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId()
+    public function getClientId(): string
     {
         return $this->container['ClientId'];
     }
@@ -242,7 +246,9 @@ class PurchaseAccountCreditRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClientId($ClientId): self
+
+
+    public function setClientId(string $ClientId): static
     {
         $this->container['ClientId'] = $ClientId;
 
@@ -254,7 +260,7 @@ class PurchaseAccountCreditRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSendEmailReceipt()
+    public function getSendEmailReceipt(): bool
     {
         return $this->container['SendEmailReceipt'];
     }
@@ -266,7 +272,9 @@ class PurchaseAccountCreditRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSendEmailReceipt($SendEmailReceipt): self
+
+
+    public function setSendEmailReceipt(bool $SendEmailReceipt): static
     {
         $this->container['SendEmailReceipt'] = $SendEmailReceipt;
 
@@ -278,7 +286,7 @@ class PurchaseAccountCreditRequest extends BaseModel
      *
      * @return int
      */
-    public function getSalesRepId()
+    public function getSalesRepId(): int
     {
         return $this->container['SalesRepId'];
     }
@@ -290,7 +298,9 @@ class PurchaseAccountCreditRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSalesRepId($SalesRepId): self
+
+
+    public function setSalesRepId(int $SalesRepId): static
     {
         $this->container['SalesRepId'] = $SalesRepId;
 
@@ -302,7 +312,7 @@ class PurchaseAccountCreditRequest extends BaseModel
      *
      * @return bool
      */
-    public function getConsumerPresent()
+    public function getConsumerPresent(): bool
     {
         return $this->container['ConsumerPresent'];
     }
@@ -314,7 +324,9 @@ class PurchaseAccountCreditRequest extends BaseModel
      *
      * @return $this
      */
-    public function setConsumerPresent($ConsumerPresent): self
+
+
+    public function setConsumerPresent(bool $ConsumerPresent): static
     {
         $this->container['ConsumerPresent'] = $ConsumerPresent;
 
@@ -326,7 +338,7 @@ class PurchaseAccountCreditRequest extends BaseModel
      *
      * @return string
      */
-    public function getPaymentAuthenticationCallbackUrl()
+    public function getPaymentAuthenticationCallbackUrl(): string
     {
         return $this->container['PaymentAuthenticationCallbackUrl'];
     }
@@ -338,7 +350,9 @@ class PurchaseAccountCreditRequest extends BaseModel
      *
      * @return $this
      */
-    public function setPaymentAuthenticationCallbackUrl($PaymentAuthenticationCallbackUrl): self
+
+
+    public function setPaymentAuthenticationCallbackUrl(string $PaymentAuthenticationCallbackUrl): static
     {
         $this->container['PaymentAuthenticationCallbackUrl'] = $PaymentAuthenticationCallbackUrl;
 
@@ -350,7 +364,7 @@ class PurchaseAccountCreditRequest extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\CheckoutPaymentInfo
      */
-    public function getPaymentInfo()
+    public function getPaymentInfo(): \Nlocascio\Mindbody\Model\CheckoutPaymentInfo
     {
         return $this->container['PaymentInfo'];
     }
@@ -362,7 +376,9 @@ class PurchaseAccountCreditRequest extends BaseModel
      *
      * @return $this
      */
-    public function setPaymentInfo($PaymentInfo): self
+
+
+    public function setPaymentInfo(\Nlocascio\Mindbody\Model\CheckoutPaymentInfo $PaymentInfo): static
     {
         $this->container['PaymentInfo'] = $PaymentInfo;
 

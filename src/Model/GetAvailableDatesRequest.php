@@ -51,14 +51,14 @@ class GetAvailableDatesRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetAvailableDatesRequest';
+    protected static string $swaggerModelName = 'GetAvailableDatesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'SessionTypeId' => 'int',
         'LocationId' => 'int',
         'StaffId' => 'int',
@@ -71,7 +71,7 @@ class GetAvailableDatesRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'SessionTypeId' => 'int32',
         'LocationId' => 'int32',
         'StaffId' => 'int64',
@@ -86,7 +86,7 @@ class GetAvailableDatesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'SessionTypeId' => 'SessionTypeId',
         'LocationId' => 'LocationId',
         'StaffId' => 'StaffId',
@@ -99,7 +99,7 @@ class GetAvailableDatesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'SessionTypeId' => 'setSessionTypeId',
         'LocationId' => 'setLocationId',
         'StaffId' => 'setStaffId',
@@ -112,7 +112,7 @@ class GetAvailableDatesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'SessionTypeId' => 'getSessionTypeId',
         'LocationId' => 'getLocationId',
         'StaffId' => 'getStaffId',
@@ -131,7 +131,7 @@ class GetAvailableDatesRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['SessionTypeId'] = isset($data['SessionTypeId']) ? $data['SessionTypeId'] : null;
         $this->container['LocationId'] = isset($data['LocationId']) ? $data['LocationId'] : null;
@@ -161,7 +161,7 @@ class GetAvailableDatesRequest extends BaseModel
      *
      * @return int
      */
-    public function getSessionTypeId()
+    public function getSessionTypeId(): int
     {
         return $this->container['SessionTypeId'];
     }
@@ -173,7 +173,9 @@ class GetAvailableDatesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSessionTypeId($SessionTypeId): self
+
+
+    public function setSessionTypeId(int $SessionTypeId): static
     {
         $this->container['SessionTypeId'] = $SessionTypeId;
 
@@ -185,7 +187,7 @@ class GetAvailableDatesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLocationId()
+    public function getLocationId(): int
     {
         return $this->container['LocationId'];
     }
@@ -197,7 +199,9 @@ class GetAvailableDatesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLocationId($LocationId): self
+
+
+    public function setLocationId(int $LocationId): static
     {
         $this->container['LocationId'] = $LocationId;
 
@@ -209,7 +213,7 @@ class GetAvailableDatesRequest extends BaseModel
      *
      * @return int
      */
-    public function getStaffId()
+    public function getStaffId(): int
     {
         return $this->container['StaffId'];
     }
@@ -221,7 +225,9 @@ class GetAvailableDatesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStaffId($StaffId): self
+
+
+    public function setStaffId(int $StaffId): static
     {
         $this->container['StaffId'] = $StaffId;
 
@@ -233,7 +239,7 @@ class GetAvailableDatesRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDate()
+    public function getStartDate(): \DateTime
     {
         return $this->container['StartDate'];
     }
@@ -245,7 +251,9 @@ class GetAvailableDatesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStartDate($StartDate): self
+
+
+    public function setStartDate(\DateTime $StartDate): static
     {
         $this->container['StartDate'] = $StartDate;
 
@@ -257,7 +265,7 @@ class GetAvailableDatesRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDate()
+    public function getEndDate(): \DateTime
     {
         return $this->container['EndDate'];
     }
@@ -269,7 +277,9 @@ class GetAvailableDatesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setEndDate($EndDate): self
+
+
+    public function setEndDate(\DateTime $EndDate): static
     {
         $this->container['EndDate'] = $EndDate;
 

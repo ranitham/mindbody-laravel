@@ -57,14 +57,14 @@ class PurchaseGiftCardResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'PurchaseGiftCardResponse';
+    protected static string $swaggerModelName = 'PurchaseGiftCardResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'BarcodeId' => 'string',
         'Value' => 'double',
         'AmountPaid' => 'double',
@@ -83,7 +83,7 @@ class PurchaseGiftCardResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'BarcodeId' => null,
         'Value' => 'double',
         'AmountPaid' => 'double',
@@ -104,7 +104,7 @@ class PurchaseGiftCardResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'BarcodeId' => 'BarcodeId',
         'Value' => 'Value',
         'AmountPaid' => 'AmountPaid',
@@ -123,7 +123,7 @@ class PurchaseGiftCardResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'BarcodeId' => 'setBarcodeId',
         'Value' => 'setValue',
         'AmountPaid' => 'setAmountPaid',
@@ -142,7 +142,7 @@ class PurchaseGiftCardResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'BarcodeId' => 'getBarcodeId',
         'Value' => 'getValue',
         'AmountPaid' => 'getAmountPaid',
@@ -167,7 +167,7 @@ class PurchaseGiftCardResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['BarcodeId'] = isset($data['BarcodeId']) ? $data['BarcodeId'] : null;
         $this->container['Value'] = isset($data['Value']) ? $data['Value'] : null;
@@ -200,7 +200,7 @@ class PurchaseGiftCardResponse extends BaseModel
      *
      * @return string
      */
-    public function getBarcodeId()
+    public function getBarcodeId(): string
     {
         return $this->container['BarcodeId'];
     }
@@ -212,7 +212,9 @@ class PurchaseGiftCardResponse extends BaseModel
      *
      * @return $this
      */
-    public function setBarcodeId($BarcodeId): self
+
+
+    public function setBarcodeId(string $BarcodeId): static
     {
         $this->container['BarcodeId'] = $BarcodeId;
 
@@ -224,7 +226,7 @@ class PurchaseGiftCardResponse extends BaseModel
      *
      * @return double
      */
-    public function getValue()
+    public function getValue(): float
     {
         return $this->container['Value'];
     }
@@ -236,7 +238,9 @@ class PurchaseGiftCardResponse extends BaseModel
      *
      * @return $this
      */
-    public function setValue($Value): self
+
+
+    public function setValue(float $Value): static
     {
         $this->container['Value'] = $Value;
 
@@ -248,7 +252,7 @@ class PurchaseGiftCardResponse extends BaseModel
      *
      * @return double
      */
-    public function getAmountPaid()
+    public function getAmountPaid(): float
     {
         return $this->container['AmountPaid'];
     }
@@ -260,7 +264,9 @@ class PurchaseGiftCardResponse extends BaseModel
      *
      * @return $this
      */
-    public function setAmountPaid($AmountPaid): self
+
+
+    public function setAmountPaid(float $AmountPaid): static
     {
         $this->container['AmountPaid'] = $AmountPaid;
 
@@ -272,7 +278,7 @@ class PurchaseGiftCardResponse extends BaseModel
      *
      * @return string
      */
-    public function getFromName()
+    public function getFromName(): string
     {
         return $this->container['FromName'];
     }
@@ -284,7 +290,9 @@ class PurchaseGiftCardResponse extends BaseModel
      *
      * @return $this
      */
-    public function setFromName($FromName): self
+
+
+    public function setFromName(string $FromName): static
     {
         $this->container['FromName'] = $FromName;
 
@@ -296,7 +304,7 @@ class PurchaseGiftCardResponse extends BaseModel
      *
      * @return int
      */
-    public function getLayoutId()
+    public function getLayoutId(): int
     {
         return $this->container['LayoutId'];
     }
@@ -308,7 +316,9 @@ class PurchaseGiftCardResponse extends BaseModel
      *
      * @return $this
      */
-    public function setLayoutId($LayoutId): self
+
+
+    public function setLayoutId(int $LayoutId): static
     {
         $this->container['LayoutId'] = $LayoutId;
 
@@ -320,7 +330,7 @@ class PurchaseGiftCardResponse extends BaseModel
      *
      * @return bool
      */
-    public function getEmailReceipt()
+    public function getEmailReceipt(): bool
     {
         return $this->container['EmailReceipt'];
     }
@@ -332,7 +342,9 @@ class PurchaseGiftCardResponse extends BaseModel
      *
      * @return $this
      */
-    public function setEmailReceipt($EmailReceipt): self
+
+
+    public function setEmailReceipt(bool $EmailReceipt): static
     {
         $this->container['EmailReceipt'] = $EmailReceipt;
 
@@ -344,7 +356,7 @@ class PurchaseGiftCardResponse extends BaseModel
      *
      * @return string
      */
-    public function getPurchaserClientId()
+    public function getPurchaserClientId(): string
     {
         return $this->container['PurchaserClientId'];
     }
@@ -356,7 +368,9 @@ class PurchaseGiftCardResponse extends BaseModel
      *
      * @return $this
      */
-    public function setPurchaserClientId($PurchaserClientId): self
+
+
+    public function setPurchaserClientId(string $PurchaserClientId): static
     {
         $this->container['PurchaserClientId'] = $PurchaserClientId;
 
@@ -368,7 +382,7 @@ class PurchaseGiftCardResponse extends BaseModel
      *
      * @return string
      */
-    public function getPurchaserEmail()
+    public function getPurchaserEmail(): string
     {
         return $this->container['PurchaserEmail'];
     }
@@ -380,7 +394,9 @@ class PurchaseGiftCardResponse extends BaseModel
      *
      * @return $this
      */
-    public function setPurchaserEmail($PurchaserEmail): self
+
+
+    public function setPurchaserEmail(string $PurchaserEmail): static
     {
         $this->container['PurchaserEmail'] = $PurchaserEmail;
 
@@ -392,7 +408,7 @@ class PurchaseGiftCardResponse extends BaseModel
      *
      * @return string
      */
-    public function getRecipientEmail()
+    public function getRecipientEmail(): string
     {
         return $this->container['RecipientEmail'];
     }
@@ -404,7 +420,9 @@ class PurchaseGiftCardResponse extends BaseModel
      *
      * @return $this
      */
-    public function setRecipientEmail($RecipientEmail): self
+
+
+    public function setRecipientEmail(string $RecipientEmail): static
     {
         $this->container['RecipientEmail'] = $RecipientEmail;
 
@@ -416,7 +434,7 @@ class PurchaseGiftCardResponse extends BaseModel
      *
      * @return int
      */
-    public function getSaleId()
+    public function getSaleId(): int
     {
         return $this->container['SaleId'];
     }
@@ -428,7 +446,9 @@ class PurchaseGiftCardResponse extends BaseModel
      *
      * @return $this
      */
-    public function setSaleId($SaleId): self
+
+
+    public function setSaleId(int $SaleId): static
     {
         $this->container['SaleId'] = $SaleId;
 
@@ -440,7 +460,7 @@ class PurchaseGiftCardResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaymentProcessingFailure[]
      */
-    public function getPaymentProcessingFailures()
+    public function getPaymentProcessingFailures(): array
     {
         return $this->container['PaymentProcessingFailures'];
     }
@@ -452,7 +472,9 @@ class PurchaseGiftCardResponse extends BaseModel
      *
      * @return $this
      */
-    public function setPaymentProcessingFailures($PaymentProcessingFailures): self
+
+
+    public function setPaymentProcessingFailures(array $PaymentProcessingFailures): static
     {
         $this->container['PaymentProcessingFailures'] = $PaymentProcessingFailures;
 

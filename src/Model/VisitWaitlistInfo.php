@@ -49,14 +49,14 @@ class VisitWaitlistInfo extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VisitWaitlistInfo';
+    protected static string $swaggerModelName = 'VisitWaitlistInfo';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'WaitlistId' => 'int',
         'WaitlistOrderNumber' => 'int'
     ];
@@ -66,7 +66,7 @@ class VisitWaitlistInfo extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'WaitlistId' => 'int32',
         'WaitlistOrderNumber' => 'int32'
     ];
@@ -78,7 +78,7 @@ class VisitWaitlistInfo extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'WaitlistId' => 'WaitlistId',
         'WaitlistOrderNumber' => 'WaitlistOrderNumber'
     ];
@@ -88,7 +88,7 @@ class VisitWaitlistInfo extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'WaitlistId' => 'setWaitlistId',
         'WaitlistOrderNumber' => 'setWaitlistOrderNumber'
     ];
@@ -98,7 +98,7 @@ class VisitWaitlistInfo extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'WaitlistId' => 'getWaitlistId',
         'WaitlistOrderNumber' => 'getWaitlistOrderNumber'
     ];
@@ -114,7 +114,7 @@ class VisitWaitlistInfo extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['WaitlistId'] = isset($data['WaitlistId']) ? $data['WaitlistId'] : null;
         $this->container['WaitlistOrderNumber'] = isset($data['WaitlistOrderNumber']) ? $data['WaitlistOrderNumber'] : null;
@@ -138,7 +138,7 @@ class VisitWaitlistInfo extends BaseModel
      *
      * @return int
      */
-    public function getWaitlistId()
+    public function getWaitlistId(): int
     {
         return $this->container['WaitlistId'];
     }
@@ -150,7 +150,9 @@ class VisitWaitlistInfo extends BaseModel
      *
      * @return $this
      */
-    public function setWaitlistId($WaitlistId): self
+
+
+    public function setWaitlistId(int $WaitlistId): static
     {
         $this->container['WaitlistId'] = $WaitlistId;
 
@@ -162,7 +164,7 @@ class VisitWaitlistInfo extends BaseModel
      *
      * @return int
      */
-    public function getWaitlistOrderNumber()
+    public function getWaitlistOrderNumber(): int
     {
         return $this->container['WaitlistOrderNumber'];
     }
@@ -174,7 +176,9 @@ class VisitWaitlistInfo extends BaseModel
      *
      * @return $this
      */
-    public function setWaitlistOrderNumber($WaitlistOrderNumber): self
+
+
+    public function setWaitlistOrderNumber(int $WaitlistOrderNumber): static
     {
         $this->container['WaitlistOrderNumber'] = $WaitlistOrderNumber;
 

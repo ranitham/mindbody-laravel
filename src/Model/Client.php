@@ -96,7 +96,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property \Nlocascio\Mindbody\Model\ClientType $ClientType The client's assigned client type.  Returns null if the client has no client type assigned.  For more information, see [Client Types](https://support.mindbodyonline.com/s/article/203259193-Client-Types).
  *
  */
-class Client extends BaseModel implements ModelWithId
+class Client extends BaseModel implements ModelWithStringId
 {
     const DISCRIMINATOR = null;
 
@@ -105,14 +105,14 @@ class Client extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Client';
+    protected static string $swaggerModelName = 'Client';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'AppointmentGenderPreference' => 'string',
         'BirthDate' => '\DateTime',
         'Country' => 'string',
@@ -178,7 +178,7 @@ class Client extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'AppointmentGenderPreference' => null,
         'BirthDate' => 'date-time',
         'Country' => null,
@@ -246,7 +246,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'AppointmentGenderPreference' => 'AppointmentGenderPreference',
         'BirthDate' => 'BirthDate',
         'Country' => 'Country',
@@ -312,7 +312,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'AppointmentGenderPreference' => 'setAppointmentGenderPreference',
         'BirthDate' => 'setBirthDate',
         'Country' => 'setCountry',
@@ -378,7 +378,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'AppointmentGenderPreference' => 'getAppointmentGenderPreference',
         'BirthDate' => 'getBirthDate',
         'Country' => 'getCountry',
@@ -488,7 +488,7 @@ class Client extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['AppointmentGenderPreference'] = isset($data['AppointmentGenderPreference']) ? $data['AppointmentGenderPreference'] : null;
         $this->container['BirthDate'] = isset($data['BirthDate']) ? $data['BirthDate'] : null;
@@ -584,7 +584,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getAppointmentGenderPreference()
+    public function getAppointmentGenderPreference(): string
     {
         return $this->container['AppointmentGenderPreference'];
     }
@@ -596,7 +596,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAppointmentGenderPreference($AppointmentGenderPreference): self
+
+
+    public function setAppointmentGenderPreference(string $AppointmentGenderPreference): static
     {
         $allowedValues = $this->getAppointmentGenderPreferenceAllowableValues();
         if (!is_null($AppointmentGenderPreference) && !in_array($AppointmentGenderPreference, $allowedValues, true)) {
@@ -617,7 +619,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getBirthDate()
+    public function getBirthDate(): \DateTime
     {
         return $this->container['BirthDate'];
     }
@@ -629,7 +631,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setBirthDate($BirthDate): self
+
+
+    public function setBirthDate(\DateTime $BirthDate): static
     {
         $this->container['BirthDate'] = $BirthDate;
 
@@ -641,7 +645,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getCountry()
+    public function getCountry(): string
     {
         return $this->container['Country'];
     }
@@ -653,7 +657,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setCountry($Country): self
+
+
+    public function setCountry(string $Country): static
     {
         $this->container['Country'] = $Country;
 
@@ -665,7 +671,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getCreationDate()
+    public function getCreationDate(): \DateTime
     {
         return $this->container['CreationDate'];
     }
@@ -677,7 +683,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setCreationDate($CreationDate): self
+
+
+    public function setCreationDate(\DateTime $CreationDate): static
     {
         $this->container['CreationDate'] = $CreationDate;
 
@@ -689,7 +697,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\CustomClientFieldValue[]
      */
-    public function getCustomClientFields()
+    public function getCustomClientFields(): array
     {
         return $this->container['CustomClientFields'];
     }
@@ -701,7 +709,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setCustomClientFields($CustomClientFields): self
+
+
+    public function setCustomClientFields(array $CustomClientFields): static
     {
         $this->container['CustomClientFields'] = $CustomClientFields;
 
@@ -713,7 +723,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\ClientCreditCard
      */
-    public function getClientCreditCard()
+    public function getClientCreditCard(): \Nlocascio\Mindbody\Model\ClientCreditCard
     {
         return $this->container['ClientCreditCard'];
     }
@@ -725,7 +735,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setClientCreditCard($ClientCreditCard): self
+
+
+    public function setClientCreditCard(\Nlocascio\Mindbody\Model\ClientCreditCard $ClientCreditCard): static
     {
         $this->container['ClientCreditCard'] = $ClientCreditCard;
 
@@ -737,7 +749,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\AssignedClientIndex[]
      */
-    public function getClientIndexes()
+    public function getClientIndexes(): array
     {
         return $this->container['ClientIndexes'];
     }
@@ -749,7 +761,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setClientIndexes($ClientIndexes): self
+
+
+    public function setClientIndexes(array $ClientIndexes): static
     {
         $this->container['ClientIndexes'] = $ClientIndexes;
 
@@ -761,7 +775,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\ClientRelationship[]
      */
-    public function getClientRelationships()
+    public function getClientRelationships(): array
     {
         return $this->container['ClientRelationships'];
     }
@@ -773,7 +787,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setClientRelationships($ClientRelationships): self
+
+
+    public function setClientRelationships(array $ClientRelationships): static
     {
         $this->container['ClientRelationships'] = $ClientRelationships;
 
@@ -785,7 +801,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getFirstAppointmentDate()
+    public function getFirstAppointmentDate(): \DateTime
     {
         return $this->container['FirstAppointmentDate'];
     }
@@ -797,7 +813,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setFirstAppointmentDate($FirstAppointmentDate): self
+
+
+    public function setFirstAppointmentDate(\DateTime $FirstAppointmentDate): static
     {
         $this->container['FirstAppointmentDate'] = $FirstAppointmentDate;
 
@@ -809,7 +827,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getFirstClassDate()
+    public function getFirstClassDate(): \DateTime
     {
         return $this->container['FirstClassDate'];
     }
@@ -821,7 +839,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setFirstClassDate($FirstClassDate): self
+
+
+    public function setFirstClassDate(\DateTime $FirstClassDate): static
     {
         $this->container['FirstClassDate'] = $FirstClassDate;
 
@@ -833,7 +853,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getFirstName()
+    public function getFirstName(): string
     {
         return $this->container['FirstName'];
     }
@@ -845,7 +865,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setFirstName($FirstName): self
+
+
+    public function setFirstName(string $FirstName): static
     {
         $this->container['FirstName'] = $FirstName;
 
@@ -857,7 +879,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getId()
+    public function getId(): string
     {
         return $this->container['Id'];
     }
@@ -869,7 +891,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(string $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -881,7 +905,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getIsCompany()
+    public function getIsCompany(): bool
     {
         return $this->container['IsCompany'];
     }
@@ -893,7 +917,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setIsCompany($IsCompany): self
+
+
+    public function setIsCompany(bool $IsCompany): static
     {
         $this->container['IsCompany'] = $IsCompany;
 
@@ -905,7 +931,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getIsProspect()
+    public function getIsProspect(): bool
     {
         return $this->container['IsProspect'];
     }
@@ -917,7 +943,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setIsProspect($IsProspect): self
+
+
+    public function setIsProspect(bool $IsProspect): static
     {
         $this->container['IsProspect'] = $IsProspect;
 
@@ -929,7 +957,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getLastName()
+    public function getLastName(): string
     {
         return $this->container['LastName'];
     }
@@ -941,7 +969,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setLastName($LastName): self
+
+
+    public function setLastName(string $LastName): static
     {
         $this->container['LastName'] = $LastName;
 
@@ -953,7 +983,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\Liability
      */
-    public function getLiability()
+    public function getLiability(): \Nlocascio\Mindbody\Model\Liability
     {
         return $this->container['Liability'];
     }
@@ -965,7 +995,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setLiability($Liability): self
+
+
+    public function setLiability(\Nlocascio\Mindbody\Model\Liability $Liability): static
     {
         $this->container['Liability'] = $Liability;
 
@@ -977,7 +1009,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getLiabilityRelease()
+    public function getLiabilityRelease(): bool
     {
         return $this->container['LiabilityRelease'];
     }
@@ -989,7 +1021,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setLiabilityRelease($LiabilityRelease): self
+
+
+    public function setLiabilityRelease(bool $LiabilityRelease): static
     {
         $this->container['LiabilityRelease'] = $LiabilityRelease;
 
@@ -1001,7 +1035,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getMembershipIcon()
+    public function getMembershipIcon(): int
     {
         return $this->container['MembershipIcon'];
     }
@@ -1013,7 +1047,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setMembershipIcon($MembershipIcon): self
+
+
+    public function setMembershipIcon(int $MembershipIcon): static
     {
         $this->container['MembershipIcon'] = $MembershipIcon;
 
@@ -1025,7 +1061,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getMobileProvider()
+    public function getMobileProvider(): int
     {
         return $this->container['MobileProvider'];
     }
@@ -1037,7 +1073,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setMobileProvider($MobileProvider): self
+
+
+    public function setMobileProvider(int $MobileProvider): static
     {
         $this->container['MobileProvider'] = $MobileProvider;
 
@@ -1049,7 +1087,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getNotes()
+    public function getNotes(): string
     {
         return $this->container['Notes'];
     }
@@ -1061,7 +1099,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setNotes($Notes): self
+
+
+    public function setNotes(string $Notes): static
     {
         $this->container['Notes'] = $Notes;
 
@@ -1073,7 +1113,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getState()
+    public function getState(): string
     {
         return $this->container['State'];
     }
@@ -1085,7 +1125,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setState($State): self
+
+
+    public function setState(string $State): static
     {
         $this->container['State'] = $State;
 
@@ -1097,7 +1139,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getUniqueId()
+    public function getUniqueId(): int
     {
         return $this->container['UniqueId'];
     }
@@ -1109,7 +1151,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setUniqueId($UniqueId): self
+
+
+    public function setUniqueId(int $UniqueId): static
     {
         $this->container['UniqueId'] = $UniqueId;
 
@@ -1121,7 +1165,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getLastModifiedDateTime()
+    public function getLastModifiedDateTime(): \DateTime
     {
         return $this->container['LastModifiedDateTime'];
     }
@@ -1133,7 +1177,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setLastModifiedDateTime($LastModifiedDateTime): self
+
+
+    public function setLastModifiedDateTime(\DateTime $LastModifiedDateTime): static
     {
         $this->container['LastModifiedDateTime'] = $LastModifiedDateTime;
 
@@ -1145,7 +1191,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getRedAlert()
+    public function getRedAlert(): string
     {
         return $this->container['RedAlert'];
     }
@@ -1157,7 +1203,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setRedAlert($RedAlert): self
+
+
+    public function setRedAlert(string $RedAlert): static
     {
         $this->container['RedAlert'] = $RedAlert;
 
@@ -1169,7 +1217,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getYellowAlert()
+    public function getYellowAlert(): string
     {
         return $this->container['YellowAlert'];
     }
@@ -1181,7 +1229,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setYellowAlert($YellowAlert): self
+
+
+    public function setYellowAlert(string $YellowAlert): static
     {
         $this->container['YellowAlert'] = $YellowAlert;
 
@@ -1193,7 +1243,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getMiddleName()
+    public function getMiddleName(): string
     {
         return $this->container['MiddleName'];
     }
@@ -1205,7 +1255,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setMiddleName($MiddleName): self
+
+
+    public function setMiddleName(string $MiddleName): static
     {
         $this->container['MiddleName'] = $MiddleName;
 
@@ -1217,7 +1269,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\ProspectStage
      */
-    public function getProspectStage()
+    public function getProspectStage(): \Nlocascio\Mindbody\Model\ProspectStage
     {
         return $this->container['ProspectStage'];
     }
@@ -1229,7 +1281,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setProspectStage($ProspectStage): self
+
+
+    public function setProspectStage(\Nlocascio\Mindbody\Model\ProspectStage $ProspectStage): static
     {
         $this->container['ProspectStage'] = $ProspectStage;
 
@@ -1241,7 +1295,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getEmail()
+    public function getEmail(): string
     {
         return $this->container['Email'];
     }
@@ -1253,7 +1307,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setEmail($Email): self
+
+
+    public function setEmail(string $Email): static
     {
         $this->container['Email'] = $Email;
 
@@ -1265,7 +1321,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getMobilePhone()
+    public function getMobilePhone(): string
     {
         return $this->container['MobilePhone'];
     }
@@ -1277,7 +1333,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setMobilePhone($MobilePhone): self
+
+
+    public function setMobilePhone(string $MobilePhone): static
     {
         $this->container['MobilePhone'] = $MobilePhone;
 
@@ -1289,7 +1347,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getHomePhone()
+    public function getHomePhone(): string
     {
         return $this->container['HomePhone'];
     }
@@ -1301,7 +1359,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setHomePhone($HomePhone): self
+
+
+    public function setHomePhone(string $HomePhone): static
     {
         $this->container['HomePhone'] = $HomePhone;
 
@@ -1313,7 +1373,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getWorkPhone()
+    public function getWorkPhone(): string
     {
         return $this->container['WorkPhone'];
     }
@@ -1325,7 +1385,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setWorkPhone($WorkPhone): self
+
+
+    public function setWorkPhone(string $WorkPhone): static
     {
         $this->container['WorkPhone'] = $WorkPhone;
 
@@ -1337,7 +1399,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getAccountBalance()
+    public function getAccountBalance(): float
     {
         return $this->container['AccountBalance'];
     }
@@ -1349,7 +1411,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAccountBalance($AccountBalance): self
+
+
+    public function setAccountBalance(float $AccountBalance): static
     {
         $this->container['AccountBalance'] = $AccountBalance;
 
@@ -1361,7 +1425,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getAddressLine1()
+    public function getAddressLine1(): string
     {
         return $this->container['AddressLine1'];
     }
@@ -1373,7 +1437,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAddressLine1($AddressLine1): self
+
+
+    public function setAddressLine1(string $AddressLine1): static
     {
         $this->container['AddressLine1'] = $AddressLine1;
 
@@ -1385,7 +1451,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getAddressLine2()
+    public function getAddressLine2(): string
     {
         return $this->container['AddressLine2'];
     }
@@ -1397,7 +1463,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAddressLine2($AddressLine2): self
+
+
+    public function setAddressLine2(string $AddressLine2): static
     {
         $this->container['AddressLine2'] = $AddressLine2;
 
@@ -1409,7 +1477,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getCity()
+    public function getCity(): string
     {
         return $this->container['City'];
     }
@@ -1421,7 +1489,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setCity($City): self
+
+
+    public function setCity(string $City): static
     {
         $this->container['City'] = $City;
 
@@ -1433,7 +1503,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getPostalCode()
+    public function getPostalCode(): string
     {
         return $this->container['PostalCode'];
     }
@@ -1445,7 +1515,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setPostalCode($PostalCode): self
+
+
+    public function setPostalCode(string $PostalCode): static
     {
         $this->container['PostalCode'] = $PostalCode;
 
@@ -1457,7 +1529,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getWorkExtension()
+    public function getWorkExtension(): string
     {
         return $this->container['WorkExtension'];
     }
@@ -1469,7 +1541,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setWorkExtension($WorkExtension): self
+
+
+    public function setWorkExtension(string $WorkExtension): static
     {
         $this->container['WorkExtension'] = $WorkExtension;
 
@@ -1481,7 +1555,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getReferredBy()
+    public function getReferredBy(): string
     {
         return $this->container['ReferredBy'];
     }
@@ -1493,7 +1567,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setReferredBy($ReferredBy): self
+
+
+    public function setReferredBy(string $ReferredBy): static
     {
         $this->container['ReferredBy'] = $ReferredBy;
 
@@ -1505,7 +1581,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getPhotoUrl()
+    public function getPhotoUrl(): string
     {
         return $this->container['PhotoUrl'];
     }
@@ -1517,7 +1593,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setPhotoUrl($PhotoUrl): self
+
+
+    public function setPhotoUrl(string $PhotoUrl): static
     {
         $this->container['PhotoUrl'] = $PhotoUrl;
 
@@ -1529,7 +1607,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getEmergencyContactInfoName()
+    public function getEmergencyContactInfoName(): string
     {
         return $this->container['EmergencyContactInfoName'];
     }
@@ -1541,7 +1619,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setEmergencyContactInfoName($EmergencyContactInfoName): self
+
+
+    public function setEmergencyContactInfoName(string $EmergencyContactInfoName): static
     {
         $this->container['EmergencyContactInfoName'] = $EmergencyContactInfoName;
 
@@ -1553,7 +1633,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getEmergencyContactInfoEmail()
+    public function getEmergencyContactInfoEmail(): string
     {
         return $this->container['EmergencyContactInfoEmail'];
     }
@@ -1565,7 +1645,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setEmergencyContactInfoEmail($EmergencyContactInfoEmail): self
+
+
+    public function setEmergencyContactInfoEmail(string $EmergencyContactInfoEmail): static
     {
         $this->container['EmergencyContactInfoEmail'] = $EmergencyContactInfoEmail;
 
@@ -1577,7 +1659,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getEmergencyContactInfoPhone()
+    public function getEmergencyContactInfoPhone(): string
     {
         return $this->container['EmergencyContactInfoPhone'];
     }
@@ -1589,7 +1671,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setEmergencyContactInfoPhone($EmergencyContactInfoPhone): self
+
+
+    public function setEmergencyContactInfoPhone(string $EmergencyContactInfoPhone): static
     {
         $this->container['EmergencyContactInfoPhone'] = $EmergencyContactInfoPhone;
 
@@ -1601,7 +1685,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getEmergencyContactInfoRelationship()
+    public function getEmergencyContactInfoRelationship(): string
     {
         return $this->container['EmergencyContactInfoRelationship'];
     }
@@ -1613,7 +1697,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setEmergencyContactInfoRelationship($EmergencyContactInfoRelationship): self
+
+
+    public function setEmergencyContactInfoRelationship(string $EmergencyContactInfoRelationship): static
     {
         $this->container['EmergencyContactInfoRelationship'] = $EmergencyContactInfoRelationship;
 
@@ -1625,7 +1711,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getGender()
+    public function getGender(): string
     {
         return $this->container['Gender'];
     }
@@ -1637,7 +1723,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setGender($Gender): self
+
+
+    public function setGender(string $Gender): static
     {
         $this->container['Gender'] = $Gender;
 
@@ -1649,7 +1737,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getLastFormulaNotes()
+    public function getLastFormulaNotes(): string
     {
         return $this->container['LastFormulaNotes'];
     }
@@ -1661,7 +1749,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setLastFormulaNotes($LastFormulaNotes): self
+
+
+    public function setLastFormulaNotes(string $LastFormulaNotes): static
     {
         $this->container['LastFormulaNotes'] = $LastFormulaNotes;
 
@@ -1673,7 +1763,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getActive()
+    public function getActive(): bool
     {
         return $this->container['Active'];
     }
@@ -1685,7 +1775,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setActive($Active): self
+
+
+    public function setActive(bool $Active): static
     {
         $this->container['Active'] = $Active;
 
@@ -1697,7 +1789,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\SalesRep[]
      */
-    public function getSalesReps()
+    public function getSalesReps(): array
     {
         return $this->container['SalesReps'];
     }
@@ -1709,7 +1801,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSalesReps($SalesReps): self
+
+
+    public function setSalesReps(array $SalesReps): static
     {
         $this->container['SalesReps'] = $SalesReps;
 
@@ -1721,7 +1815,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getStatus()
+    public function getStatus(): string
     {
         return $this->container['Status'];
     }
@@ -1733,7 +1827,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setStatus($Status): self
+
+
+    public function setStatus(string $Status): static
     {
         $this->container['Status'] = $Status;
 
@@ -1745,7 +1841,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getAction()
+    public function getAction(): string
     {
         return $this->container['Action'];
     }
@@ -1757,7 +1853,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAction($Action): self
+
+
+    public function setAction(string $Action): static
     {
         $allowedValues = $this->getActionAllowableValues();
         if (!is_null($Action) && !in_array($Action, $allowedValues, true)) {
@@ -1778,7 +1876,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getSendAccountEmails()
+    public function getSendAccountEmails(): bool
     {
         return $this->container['SendAccountEmails'];
     }
@@ -1790,7 +1888,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSendAccountEmails($SendAccountEmails): self
+
+
+    public function setSendAccountEmails(bool $SendAccountEmails): static
     {
         $this->container['SendAccountEmails'] = $SendAccountEmails;
 
@@ -1802,7 +1902,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getSendAccountTexts()
+    public function getSendAccountTexts(): bool
     {
         return $this->container['SendAccountTexts'];
     }
@@ -1814,7 +1914,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSendAccountTexts($SendAccountTexts): self
+
+
+    public function setSendAccountTexts(bool $SendAccountTexts): static
     {
         $this->container['SendAccountTexts'] = $SendAccountTexts;
 
@@ -1826,7 +1928,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getSendPromotionalEmails()
+    public function getSendPromotionalEmails(): bool
     {
         return $this->container['SendPromotionalEmails'];
     }
@@ -1838,7 +1940,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSendPromotionalEmails($SendPromotionalEmails): self
+
+
+    public function setSendPromotionalEmails(bool $SendPromotionalEmails): static
     {
         $this->container['SendPromotionalEmails'] = $SendPromotionalEmails;
 
@@ -1850,7 +1954,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getSendPromotionalTexts()
+    public function getSendPromotionalTexts(): bool
     {
         return $this->container['SendPromotionalTexts'];
     }
@@ -1862,7 +1966,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSendPromotionalTexts($SendPromotionalTexts): self
+
+
+    public function setSendPromotionalTexts(bool $SendPromotionalTexts): static
     {
         $this->container['SendPromotionalTexts'] = $SendPromotionalTexts;
 
@@ -1874,7 +1980,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getSendScheduleEmails()
+    public function getSendScheduleEmails(): bool
     {
         return $this->container['SendScheduleEmails'];
     }
@@ -1886,7 +1992,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSendScheduleEmails($SendScheduleEmails): self
+
+
+    public function setSendScheduleEmails(bool $SendScheduleEmails): static
     {
         $this->container['SendScheduleEmails'] = $SendScheduleEmails;
 
@@ -1898,7 +2006,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getSendScheduleTexts()
+    public function getSendScheduleTexts(): bool
     {
         return $this->container['SendScheduleTexts'];
     }
@@ -1910,7 +2018,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSendScheduleTexts($SendScheduleTexts): self
+
+
+    public function setSendScheduleTexts(bool $SendScheduleTexts): static
     {
         $this->container['SendScheduleTexts'] = $SendScheduleTexts;
 
@@ -1922,7 +2032,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\Location
      */
-    public function getHomeLocation()
+    public function getHomeLocation(): \Nlocascio\Mindbody\Model\Location
     {
         return $this->container['HomeLocation'];
     }
@@ -1934,7 +2044,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setHomeLocation($HomeLocation): self
+
+
+    public function setHomeLocation(\Nlocascio\Mindbody\Model\Location $HomeLocation): static
     {
         $this->container['HomeLocation'] = $HomeLocation;
 
@@ -1946,7 +2058,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getLockerNumber()
+    public function getLockerNumber(): string
     {
         return $this->container['LockerNumber'];
     }
@@ -1958,7 +2070,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setLockerNumber($LockerNumber): self
+
+
+    public function setLockerNumber(string $LockerNumber): static
     {
         $this->container['LockerNumber'] = $LockerNumber;
 
@@ -1970,7 +2084,7 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\ClientType
      */
-    public function getClientType()
+    public function getClientType(): \Nlocascio\Mindbody\Model\ClientType
     {
         return $this->container['ClientType'];
     }
@@ -1982,7 +2096,9 @@ class Client extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setClientType($ClientType): self
+
+
+    public function setClientType(\Nlocascio\Mindbody\Model\ClientType $ClientType): static
     {
         $this->container['ClientType'] = $ClientType;
 

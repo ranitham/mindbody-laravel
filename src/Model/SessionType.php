@@ -51,7 +51,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property bool $AvailableForAddOn AvailableForAddOn
  *
  */
-class SessionType extends BaseModel implements ModelWithId
+class SessionType extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -60,14 +60,14 @@ class SessionType extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'SessionType';
+    protected static string $swaggerModelName = 'SessionType';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Type' => 'string',
         'DefaultTimeLength' => 'int',
         'StaffTimeLength' => 'int',
@@ -89,7 +89,7 @@ class SessionType extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Type' => null,
         'DefaultTimeLength' => 'int32',
         'StaffTimeLength' => 'int32',
@@ -113,7 +113,7 @@ class SessionType extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Type' => 'Type',
         'DefaultTimeLength' => 'DefaultTimeLength',
         'StaffTimeLength' => 'StaffTimeLength',
@@ -135,7 +135,7 @@ class SessionType extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Type' => 'setType',
         'DefaultTimeLength' => 'setDefaultTimeLength',
         'StaffTimeLength' => 'setStaffTimeLength',
@@ -157,7 +157,7 @@ class SessionType extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Type' => 'getType',
         'DefaultTimeLength' => 'getDefaultTimeLength',
         'StaffTimeLength' => 'getStaffTimeLength',
@@ -210,7 +210,7 @@ class SessionType extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Type'] = isset($data['Type']) ? $data['Type'] : null;
         $this->container['DefaultTimeLength'] = isset($data['DefaultTimeLength']) ? $data['DefaultTimeLength'] : null;
@@ -254,7 +254,7 @@ class SessionType extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getType()
+    public function getType(): string
     {
         return $this->container['Type'];
     }
@@ -266,7 +266,9 @@ class SessionType extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setType($Type): self
+
+
+    public function setType(string $Type): static
     {
         $allowedValues = $this->getTypeAllowableValues();
         if (!is_null($Type) && !in_array($Type, $allowedValues, true)) {
@@ -287,7 +289,7 @@ class SessionType extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getDefaultTimeLength()
+    public function getDefaultTimeLength(): int
     {
         return $this->container['DefaultTimeLength'];
     }
@@ -299,7 +301,9 @@ class SessionType extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setDefaultTimeLength($DefaultTimeLength): self
+
+
+    public function setDefaultTimeLength(int $DefaultTimeLength): static
     {
         $this->container['DefaultTimeLength'] = $DefaultTimeLength;
 
@@ -311,7 +315,7 @@ class SessionType extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getStaffTimeLength()
+    public function getStaffTimeLength(): int
     {
         return $this->container['StaffTimeLength'];
     }
@@ -323,7 +327,9 @@ class SessionType extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setStaffTimeLength($StaffTimeLength): self
+
+
+    public function setStaffTimeLength(int $StaffTimeLength): static
     {
         $this->container['StaffTimeLength'] = $StaffTimeLength;
 
@@ -335,7 +341,7 @@ class SessionType extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getProgramId()
+    public function getProgramId(): int
     {
         return $this->container['ProgramId'];
     }
@@ -347,7 +353,9 @@ class SessionType extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setProgramId($ProgramId): self
+
+
+    public function setProgramId(int $ProgramId): static
     {
         $this->container['ProgramId'] = $ProgramId;
 
@@ -359,7 +367,7 @@ class SessionType extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getNumDeducted()
+    public function getNumDeducted(): int
     {
         return $this->container['NumDeducted'];
     }
@@ -371,7 +379,9 @@ class SessionType extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setNumDeducted($NumDeducted): self
+
+
+    public function setNumDeducted(int $NumDeducted): static
     {
         $this->container['NumDeducted'] = $NumDeducted;
 
@@ -383,7 +393,7 @@ class SessionType extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -395,7 +405,9 @@ class SessionType extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -407,7 +419,7 @@ class SessionType extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->container['Name'];
     }
@@ -419,7 +431,9 @@ class SessionType extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setName($Name): self
+
+
+    public function setName(string $Name): static
     {
         $this->container['Name'] = $Name;
 
@@ -431,7 +445,7 @@ class SessionType extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getActive()
+    public function getActive(): bool
     {
         return $this->container['Active'];
     }
@@ -443,7 +457,9 @@ class SessionType extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setActive($Active): self
+
+
+    public function setActive(bool $Active): static
     {
         $this->container['Active'] = $Active;
 
@@ -455,7 +471,7 @@ class SessionType extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getCapacity()
+    public function getCapacity(): int
     {
         return $this->container['Capacity'];
     }
@@ -467,7 +483,9 @@ class SessionType extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setCapacity($Capacity): self
+
+
+    public function setCapacity(int $Capacity): static
     {
         $this->container['Capacity'] = $Capacity;
 
@@ -479,7 +497,7 @@ class SessionType extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getResourceRequired()
+    public function getResourceRequired(): bool
     {
         return $this->container['ResourceRequired'];
     }
@@ -491,7 +509,9 @@ class SessionType extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setResourceRequired($ResourceRequired): self
+
+
+    public function setResourceRequired(bool $ResourceRequired): static
     {
         $this->container['ResourceRequired'] = $ResourceRequired;
 
@@ -503,7 +523,7 @@ class SessionType extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\ServiceTag
      */
-    public function getCategory()
+    public function getCategory(): \Nlocascio\Mindbody\Model\ServiceTag
     {
         return $this->container['Category'];
     }
@@ -515,7 +535,9 @@ class SessionType extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setCategory($Category): self
+
+
+    public function setCategory(\Nlocascio\Mindbody\Model\ServiceTag $Category): static
     {
         $this->container['Category'] = $Category;
 
@@ -527,7 +549,7 @@ class SessionType extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\ServiceTag
      */
-    public function getSubcategory()
+    public function getSubcategory(): \Nlocascio\Mindbody\Model\ServiceTag
     {
         return $this->container['Subcategory'];
     }
@@ -539,7 +561,9 @@ class SessionType extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSubcategory($Subcategory): self
+
+
+    public function setSubcategory(\Nlocascio\Mindbody\Model\ServiceTag $Subcategory): static
     {
         $this->container['Subcategory'] = $Subcategory;
 
@@ -551,7 +575,7 @@ class SessionType extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getOnlineDescription()
+    public function getOnlineDescription(): string
     {
         return $this->container['OnlineDescription'];
     }
@@ -563,7 +587,9 @@ class SessionType extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setOnlineDescription($OnlineDescription): self
+
+
+    public function setOnlineDescription(string $OnlineDescription): static
     {
         $this->container['OnlineDescription'] = $OnlineDescription;
 
@@ -575,7 +601,7 @@ class SessionType extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getAvailableForAddOn()
+    public function getAvailableForAddOn(): bool
     {
         return $this->container['AvailableForAddOn'];
     }
@@ -587,7 +613,9 @@ class SessionType extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAvailableForAddOn($AvailableForAddOn): self
+
+
+    public function setAvailableForAddOn(bool $AvailableForAddOn): static
     {
         $this->container['AvailableForAddOn'] = $AvailableForAddOn;
 

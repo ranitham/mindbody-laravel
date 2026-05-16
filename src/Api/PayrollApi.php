@@ -86,7 +86,7 @@ class PayrollApi implements ApiInterface
      */
     public function payrollGetCommissions($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestStaffId = null, $RequestStartDateTime = null): \Nlocascio\Mindbody\Model\GetCommissionsResponse
     {
-        list($response) = $this->payrollGetCommissionsWithHttpInfo($RequestEndDateTime, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestStaffId, $RequestStartDateTime);
+        ['response' => $response] = $this->payrollGetCommissionsWithHttpInfo($RequestEndDateTime, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestStaffId, $RequestStartDateTime);
         return $response;
     }
 
@@ -104,7 +104,7 @@ class PayrollApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\GetCommissionsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\GetCommissionsResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function payrollGetCommissionsWithHttpInfo($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestStaffId = null, $RequestStartDateTime = null): array
     {
@@ -140,19 +140,24 @@ class PayrollApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -160,8 +165,7 @@ class PayrollApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\GetCommissionsResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\GetCommissionsResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -219,20 +223,14 @@ class PayrollApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -265,7 +263,7 @@ class PayrollApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function payrollGetCommissionsRequest($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestStaffId = null, $RequestStartDateTime = null): \GuzzleHttp\Psr7\Request
+    protected function payrollGetCommissionsRequest(?\DateTime $RequestEndDateTime = null, ?int $RequestLimit = null, ?int $RequestLocationId = null, ?int $RequestOffset = null, ?int $RequestStaffId = null, ?\DateTime $RequestStartDateTime = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/payroll/commissions';
@@ -273,7 +271,6 @@ class PayrollApi implements ApiInterface
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
         // query params
         if ($RequestEndDateTime !== null) {
@@ -304,16 +301,10 @@ class PayrollApi implements ApiInterface
         // body params
         $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            []
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -331,18 +322,7 @@ class PayrollApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -407,7 +387,7 @@ class PayrollApi implements ApiInterface
      */
     public function payrollGetScheduledServiceEarnings($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestScheduledServiceId = null, $RequestScheduledServiceType = null, $RequestStaffId = null, $RequestStartDateTime = null): \Nlocascio\Mindbody\Model\GetScheduledServiceEarningsResponse
     {
-        list($response) = $this->payrollGetScheduledServiceEarningsWithHttpInfo($RequestEndDateTime, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestScheduledServiceId, $RequestScheduledServiceType, $RequestStaffId, $RequestStartDateTime);
+        ['response' => $response] = $this->payrollGetScheduledServiceEarningsWithHttpInfo($RequestEndDateTime, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestScheduledServiceId, $RequestScheduledServiceType, $RequestStaffId, $RequestStartDateTime);
         return $response;
     }
 
@@ -427,7 +407,7 @@ class PayrollApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\GetScheduledServiceEarningsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\GetScheduledServiceEarningsResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function payrollGetScheduledServiceEarningsWithHttpInfo($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestScheduledServiceId = null, $RequestScheduledServiceType = null, $RequestStaffId = null, $RequestStartDateTime = null): array
     {
@@ -463,19 +443,24 @@ class PayrollApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -483,8 +468,7 @@ class PayrollApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\GetScheduledServiceEarningsResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\GetScheduledServiceEarningsResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -546,20 +530,14 @@ class PayrollApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -594,7 +572,7 @@ class PayrollApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function payrollGetScheduledServiceEarningsRequest($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestScheduledServiceId = null, $RequestScheduledServiceType = null, $RequestStaffId = null, $RequestStartDateTime = null): \GuzzleHttp\Psr7\Request
+    protected function payrollGetScheduledServiceEarningsRequest(?\DateTime $RequestEndDateTime = null, ?int $RequestLimit = null, ?int $RequestLocationId = null, ?int $RequestOffset = null, ?int $RequestScheduledServiceId = null, ?string $RequestScheduledServiceType = null, ?int $RequestStaffId = null, ?\DateTime $RequestStartDateTime = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/payroll/scheduledserviceearnings';
@@ -602,7 +580,6 @@ class PayrollApi implements ApiInterface
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
         // query params
         if ($RequestEndDateTime !== null) {
@@ -641,16 +618,10 @@ class PayrollApi implements ApiInterface
         // body params
         $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            []
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -668,18 +639,7 @@ class PayrollApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -742,7 +702,7 @@ class PayrollApi implements ApiInterface
      */
     public function payrollGetTimeCards($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestStaffId = null, $RequestStartDateTime = null): \Nlocascio\Mindbody\Model\GetTimeCardsResponse
     {
-        list($response) = $this->payrollGetTimeCardsWithHttpInfo($RequestEndDateTime, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestStaffId, $RequestStartDateTime);
+        ['response' => $response] = $this->payrollGetTimeCardsWithHttpInfo($RequestEndDateTime, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestStaffId, $RequestStartDateTime);
         return $response;
     }
 
@@ -760,7 +720,7 @@ class PayrollApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\GetTimeCardsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\GetTimeCardsResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function payrollGetTimeCardsWithHttpInfo($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestStaffId = null, $RequestStartDateTime = null): array
     {
@@ -796,19 +756,24 @@ class PayrollApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -816,8 +781,7 @@ class PayrollApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\GetTimeCardsResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\GetTimeCardsResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -875,20 +839,14 @@ class PayrollApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -921,7 +879,7 @@ class PayrollApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function payrollGetTimeCardsRequest($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestStaffId = null, $RequestStartDateTime = null): \GuzzleHttp\Psr7\Request
+    protected function payrollGetTimeCardsRequest(?\DateTime $RequestEndDateTime = null, ?int $RequestLimit = null, ?int $RequestLocationId = null, ?int $RequestOffset = null, ?int $RequestStaffId = null, ?\DateTime $RequestStartDateTime = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/payroll/timecards';
@@ -929,7 +887,6 @@ class PayrollApi implements ApiInterface
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
         // query params
         if ($RequestEndDateTime !== null) {
@@ -960,16 +917,10 @@ class PayrollApi implements ApiInterface
         // body params
         $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            []
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -987,18 +938,7 @@ class PayrollApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -1061,7 +1001,7 @@ class PayrollApi implements ApiInterface
      */
     public function payrollGetTips($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestStaffId = null, $RequestStartDateTime = null): \Nlocascio\Mindbody\Model\GetTipsResponse
     {
-        list($response) = $this->payrollGetTipsWithHttpInfo($RequestEndDateTime, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestStaffId, $RequestStartDateTime);
+        ['response' => $response] = $this->payrollGetTipsWithHttpInfo($RequestEndDateTime, $RequestLimit, $RequestLocationId, $RequestOffset, $RequestStaffId, $RequestStartDateTime);
         return $response;
     }
 
@@ -1079,7 +1019,7 @@ class PayrollApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\GetTipsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\GetTipsResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function payrollGetTipsWithHttpInfo($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestStaffId = null, $RequestStartDateTime = null): array
     {
@@ -1115,19 +1055,24 @@ class PayrollApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -1135,8 +1080,7 @@ class PayrollApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\GetTipsResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\GetTipsResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -1194,20 +1138,14 @@ class PayrollApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -1240,7 +1178,7 @@ class PayrollApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function payrollGetTipsRequest($RequestEndDateTime = null, $RequestLimit = null, $RequestLocationId = null, $RequestOffset = null, $RequestStaffId = null, $RequestStartDateTime = null): \GuzzleHttp\Psr7\Request
+    protected function payrollGetTipsRequest(?\DateTime $RequestEndDateTime = null, ?int $RequestLimit = null, ?int $RequestLocationId = null, ?int $RequestOffset = null, ?int $RequestStaffId = null, ?\DateTime $RequestStartDateTime = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/payroll/tips';
@@ -1248,7 +1186,6 @@ class PayrollApi implements ApiInterface
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
         // query params
         if ($RequestEndDateTime !== null) {
@@ -1279,16 +1216,10 @@ class PayrollApi implements ApiInterface
         // body params
         $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            []
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -1306,18 +1237,7 @@ class PayrollApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {

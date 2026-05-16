@@ -57,14 +57,14 @@ class ClientCreditCard extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ClientCreditCard';
+    protected static string $swaggerModelName = 'ClientCreditCard';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Address' => 'string',
         'CardHolder' => 'string',
         'CardNumber' => 'string',
@@ -82,7 +82,7 @@ class ClientCreditCard extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Address' => null,
         'CardHolder' => null,
         'CardNumber' => null,
@@ -102,7 +102,7 @@ class ClientCreditCard extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Address' => 'Address',
         'CardHolder' => 'CardHolder',
         'CardNumber' => 'CardNumber',
@@ -120,7 +120,7 @@ class ClientCreditCard extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Address' => 'setAddress',
         'CardHolder' => 'setCardHolder',
         'CardNumber' => 'setCardNumber',
@@ -138,7 +138,7 @@ class ClientCreditCard extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Address' => 'getAddress',
         'CardHolder' => 'getCardHolder',
         'CardNumber' => 'getCardNumber',
@@ -162,7 +162,7 @@ class ClientCreditCard extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Address'] = isset($data['Address']) ? $data['Address'] : null;
         $this->container['CardHolder'] = isset($data['CardHolder']) ? $data['CardHolder'] : null;
@@ -194,7 +194,7 @@ class ClientCreditCard extends BaseModel
      *
      * @return string
      */
-    public function getAddress()
+    public function getAddress(): string
     {
         return $this->container['Address'];
     }
@@ -206,7 +206,9 @@ class ClientCreditCard extends BaseModel
      *
      * @return $this
      */
-    public function setAddress($Address): self
+
+
+    public function setAddress(string $Address): static
     {
         $this->container['Address'] = $Address;
 
@@ -218,7 +220,7 @@ class ClientCreditCard extends BaseModel
      *
      * @return string
      */
-    public function getCardHolder()
+    public function getCardHolder(): string
     {
         return $this->container['CardHolder'];
     }
@@ -230,7 +232,9 @@ class ClientCreditCard extends BaseModel
      *
      * @return $this
      */
-    public function setCardHolder($CardHolder): self
+
+
+    public function setCardHolder(string $CardHolder): static
     {
         $this->container['CardHolder'] = $CardHolder;
 
@@ -242,7 +246,7 @@ class ClientCreditCard extends BaseModel
      *
      * @return string
      */
-    public function getCardNumber()
+    public function getCardNumber(): string
     {
         return $this->container['CardNumber'];
     }
@@ -254,7 +258,9 @@ class ClientCreditCard extends BaseModel
      *
      * @return $this
      */
-    public function setCardNumber($CardNumber): self
+
+
+    public function setCardNumber(string $CardNumber): static
     {
         $this->container['CardNumber'] = $CardNumber;
 
@@ -266,7 +272,7 @@ class ClientCreditCard extends BaseModel
      *
      * @return string
      */
-    public function getCardType()
+    public function getCardType(): string
     {
         return $this->container['CardType'];
     }
@@ -278,7 +284,9 @@ class ClientCreditCard extends BaseModel
      *
      * @return $this
      */
-    public function setCardType($CardType): self
+
+
+    public function setCardType(string $CardType): static
     {
         $this->container['CardType'] = $CardType;
 
@@ -290,7 +298,7 @@ class ClientCreditCard extends BaseModel
      *
      * @return string
      */
-    public function getCity()
+    public function getCity(): string
     {
         return $this->container['City'];
     }
@@ -302,7 +310,9 @@ class ClientCreditCard extends BaseModel
      *
      * @return $this
      */
-    public function setCity($City): self
+
+
+    public function setCity(string $City): static
     {
         $this->container['City'] = $City;
 
@@ -314,7 +324,7 @@ class ClientCreditCard extends BaseModel
      *
      * @return string
      */
-    public function getExpMonth()
+    public function getExpMonth(): string
     {
         return $this->container['ExpMonth'];
     }
@@ -326,7 +336,9 @@ class ClientCreditCard extends BaseModel
      *
      * @return $this
      */
-    public function setExpMonth($ExpMonth): self
+
+
+    public function setExpMonth(string $ExpMonth): static
     {
         $this->container['ExpMonth'] = $ExpMonth;
 
@@ -338,7 +350,7 @@ class ClientCreditCard extends BaseModel
      *
      * @return string
      */
-    public function getExpYear()
+    public function getExpYear(): string
     {
         return $this->container['ExpYear'];
     }
@@ -350,7 +362,9 @@ class ClientCreditCard extends BaseModel
      *
      * @return $this
      */
-    public function setExpYear($ExpYear): self
+
+
+    public function setExpYear(string $ExpYear): static
     {
         $this->container['ExpYear'] = $ExpYear;
 
@@ -362,7 +376,7 @@ class ClientCreditCard extends BaseModel
      *
      * @return string
      */
-    public function getLastFour()
+    public function getLastFour(): string
     {
         return $this->container['LastFour'];
     }
@@ -374,7 +388,9 @@ class ClientCreditCard extends BaseModel
      *
      * @return $this
      */
-    public function setLastFour($LastFour): self
+
+
+    public function setLastFour(string $LastFour): static
     {
         $this->container['LastFour'] = $LastFour;
 
@@ -386,7 +402,7 @@ class ClientCreditCard extends BaseModel
      *
      * @return string
      */
-    public function getPostalCode()
+    public function getPostalCode(): string
     {
         return $this->container['PostalCode'];
     }
@@ -398,7 +414,9 @@ class ClientCreditCard extends BaseModel
      *
      * @return $this
      */
-    public function setPostalCode($PostalCode): self
+
+
+    public function setPostalCode(string $PostalCode): static
     {
         $this->container['PostalCode'] = $PostalCode;
 
@@ -410,7 +428,7 @@ class ClientCreditCard extends BaseModel
      *
      * @return string
      */
-    public function getState()
+    public function getState(): string
     {
         return $this->container['State'];
     }
@@ -422,7 +440,9 @@ class ClientCreditCard extends BaseModel
      *
      * @return $this
      */
-    public function setState($State): self
+
+
+    public function setState(string $State): static
     {
         $this->container['State'] = $State;
 

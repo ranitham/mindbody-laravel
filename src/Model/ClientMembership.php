@@ -54,7 +54,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property bool $Returned Identification for purchased service is returned or not.
  *
  */
-class ClientMembership extends BaseModel implements ModelWithId
+class ClientMembership extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -63,14 +63,14 @@ class ClientMembership extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ClientMembership';
+    protected static string $swaggerModelName = 'ClientMembership';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'RestrictedLocations' => '\Nlocascio\Mindbody\Model\Location[]',
         'IconCode' => 'string',
         'MembershipId' => 'int',
@@ -95,7 +95,7 @@ class ClientMembership extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'RestrictedLocations' => null,
         'IconCode' => null,
         'MembershipId' => 'int32',
@@ -122,7 +122,7 @@ class ClientMembership extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'RestrictedLocations' => 'RestrictedLocations',
         'IconCode' => 'IconCode',
         'MembershipId' => 'MembershipId',
@@ -147,7 +147,7 @@ class ClientMembership extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'RestrictedLocations' => 'setRestrictedLocations',
         'IconCode' => 'setIconCode',
         'MembershipId' => 'setMembershipId',
@@ -172,7 +172,7 @@ class ClientMembership extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'RestrictedLocations' => 'getRestrictedLocations',
         'IconCode' => 'getIconCode',
         'MembershipId' => 'getMembershipId',
@@ -224,7 +224,7 @@ class ClientMembership extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['RestrictedLocations'] = isset($data['RestrictedLocations']) ? $data['RestrictedLocations'] : null;
         $this->container['IconCode'] = isset($data['IconCode']) ? $data['IconCode'] : null;
@@ -271,7 +271,7 @@ class ClientMembership extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\Location[]
      */
-    public function getRestrictedLocations()
+    public function getRestrictedLocations(): array
     {
         return $this->container['RestrictedLocations'];
     }
@@ -283,7 +283,9 @@ class ClientMembership extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setRestrictedLocations($RestrictedLocations): self
+
+
+    public function setRestrictedLocations(array $RestrictedLocations): static
     {
         $this->container['RestrictedLocations'] = $RestrictedLocations;
 
@@ -295,7 +297,7 @@ class ClientMembership extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getIconCode()
+    public function getIconCode(): string
     {
         return $this->container['IconCode'];
     }
@@ -307,7 +309,9 @@ class ClientMembership extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setIconCode($IconCode): self
+
+
+    public function setIconCode(string $IconCode): static
     {
         $this->container['IconCode'] = $IconCode;
 
@@ -319,7 +323,7 @@ class ClientMembership extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getMembershipId()
+    public function getMembershipId(): int
     {
         return $this->container['MembershipId'];
     }
@@ -331,7 +335,9 @@ class ClientMembership extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setMembershipId($MembershipId): self
+
+
+    public function setMembershipId(int $MembershipId): static
     {
         $this->container['MembershipId'] = $MembershipId;
 
@@ -343,7 +349,7 @@ class ClientMembership extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getActiveDate()
+    public function getActiveDate(): \DateTime
     {
         return $this->container['ActiveDate'];
     }
@@ -355,7 +361,9 @@ class ClientMembership extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setActiveDate($ActiveDate): self
+
+
+    public function setActiveDate(\DateTime $ActiveDate): static
     {
         $this->container['ActiveDate'] = $ActiveDate;
 
@@ -367,7 +375,7 @@ class ClientMembership extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getCount()
+    public function getCount(): int
     {
         return $this->container['Count'];
     }
@@ -379,7 +387,9 @@ class ClientMembership extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setCount($Count): self
+
+
+    public function setCount(int $Count): static
     {
         $this->container['Count'] = $Count;
 
@@ -391,7 +401,7 @@ class ClientMembership extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getCurrent()
+    public function getCurrent(): bool
     {
         return $this->container['Current'];
     }
@@ -403,7 +413,9 @@ class ClientMembership extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setCurrent($Current): self
+
+
+    public function setCurrent(bool $Current): static
     {
         $this->container['Current'] = $Current;
 
@@ -415,7 +427,7 @@ class ClientMembership extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getExpirationDate()
+    public function getExpirationDate(): \DateTime
     {
         return $this->container['ExpirationDate'];
     }
@@ -427,7 +439,9 @@ class ClientMembership extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setExpirationDate($ExpirationDate): self
+
+
+    public function setExpirationDate(\DateTime $ExpirationDate): static
     {
         $this->container['ExpirationDate'] = $ExpirationDate;
 
@@ -439,7 +453,7 @@ class ClientMembership extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -451,7 +465,9 @@ class ClientMembership extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -463,7 +479,7 @@ class ClientMembership extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getProductId()
+    public function getProductId(): int
     {
         return $this->container['ProductId'];
     }
@@ -475,7 +491,9 @@ class ClientMembership extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setProductId($ProductId): self
+
+
+    public function setProductId(int $ProductId): static
     {
         $this->container['ProductId'] = $ProductId;
 
@@ -487,7 +505,7 @@ class ClientMembership extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->container['Name'];
     }
@@ -499,7 +517,9 @@ class ClientMembership extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setName($Name): self
+
+
+    public function setName(string $Name): static
     {
         $this->container['Name'] = $Name;
 
@@ -511,7 +531,7 @@ class ClientMembership extends BaseModel implements ModelWithId
      *
      * @return \DateTime
      */
-    public function getPaymentDate()
+    public function getPaymentDate(): \DateTime
     {
         return $this->container['PaymentDate'];
     }
@@ -523,7 +543,9 @@ class ClientMembership extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setPaymentDate($PaymentDate): self
+
+
+    public function setPaymentDate(\DateTime $PaymentDate): static
     {
         $this->container['PaymentDate'] = $PaymentDate;
 
@@ -535,7 +557,7 @@ class ClientMembership extends BaseModel implements ModelWithId
      *
      * @return \Nlocascio\Mindbody\Model\Program
      */
-    public function getProgram()
+    public function getProgram(): \Nlocascio\Mindbody\Model\Program
     {
         return $this->container['Program'];
     }
@@ -547,7 +569,9 @@ class ClientMembership extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setProgram($Program): self
+
+
+    public function setProgram(\Nlocascio\Mindbody\Model\Program $Program): static
     {
         $this->container['Program'] = $Program;
 
@@ -559,7 +583,7 @@ class ClientMembership extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getRemaining()
+    public function getRemaining(): int
     {
         return $this->container['Remaining'];
     }
@@ -571,7 +595,9 @@ class ClientMembership extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setRemaining($Remaining): self
+
+
+    public function setRemaining(int $Remaining): static
     {
         $this->container['Remaining'] = $Remaining;
 
@@ -583,7 +609,7 @@ class ClientMembership extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getSiteId()
+    public function getSiteId(): int
     {
         return $this->container['SiteId'];
     }
@@ -595,7 +621,9 @@ class ClientMembership extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setSiteId($SiteId): self
+
+
+    public function setSiteId(int $SiteId): static
     {
         $this->container['SiteId'] = $SiteId;
 
@@ -607,7 +635,7 @@ class ClientMembership extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getAction()
+    public function getAction(): string
     {
         return $this->container['Action'];
     }
@@ -619,7 +647,9 @@ class ClientMembership extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setAction($Action): self
+
+
+    public function setAction(string $Action): static
     {
         $allowedValues = $this->getActionAllowableValues();
         if (!is_null($Action) && !in_array($Action, $allowedValues, true)) {
@@ -640,7 +670,7 @@ class ClientMembership extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getClientID()
+    public function getClientID(): string
     {
         return $this->container['ClientID'];
     }
@@ -652,7 +682,9 @@ class ClientMembership extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setClientID($ClientID): self
+
+
+    public function setClientID(string $ClientID): static
     {
         $this->container['ClientID'] = $ClientID;
 
@@ -664,7 +696,7 @@ class ClientMembership extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getReturned()
+    public function getReturned(): bool
     {
         return $this->container['Returned'];
     }
@@ -676,7 +708,9 @@ class ClientMembership extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setReturned($Returned): self
+
+
+    public function setReturned(bool $Returned): static
     {
         $this->container['Returned'] = $Returned;
 

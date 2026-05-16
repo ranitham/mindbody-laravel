@@ -81,7 +81,7 @@ class AppointmentApi implements ApiInterface
      */
     public function appointmentAddAppointment($Request): \Nlocascio\Mindbody\Model\AddAppointmentResponse
     {
-        list($response) = $this->appointmentAddAppointmentWithHttpInfo($Request);
+        ['response' => $response] = $this->appointmentAddAppointmentWithHttpInfo($Request);
         return $response;
     }
 
@@ -94,7 +94,7 @@ class AppointmentApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\AddAppointmentResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\AddAppointmentResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function appointmentAddAppointmentWithHttpInfo($Request): array
     {
@@ -130,19 +130,24 @@ class AppointmentApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -150,8 +155,7 @@ class AppointmentApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\AddAppointmentResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\AddAppointmentResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -199,20 +203,14 @@ class AppointmentApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -240,21 +238,14 @@ class AppointmentApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function appointmentAddAppointmentRequest($Request): \GuzzleHttp\Psr7\Request
+    protected function appointmentAddAppointmentRequest(\Nlocascio\Mindbody\Model\AddAppointmentRequest $Request): \GuzzleHttp\Psr7\Request
     {
-        // verify the required parameter 'Request' is set
-        if ($Request === null || (is_array($Request) && count($Request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $Request when calling appointmentAddAppointment'
-            );
-        }
 
         $resourcePath = '/public/v6/appointment/addappointment';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
 
 
@@ -264,16 +255,10 @@ class AppointmentApi implements ApiInterface
             $_tempBody = $Request;
         }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -291,18 +276,7 @@ class AppointmentApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -360,7 +334,7 @@ class AppointmentApi implements ApiInterface
      */
     public function appointmentAddAppointmentAddOn($Request): \Nlocascio\Mindbody\Model\AddAppointmentAddOnResponse
     {
-        list($response) = $this->appointmentAddAppointmentAddOnWithHttpInfo($Request);
+        ['response' => $response] = $this->appointmentAddAppointmentAddOnWithHttpInfo($Request);
         return $response;
     }
 
@@ -373,7 +347,7 @@ class AppointmentApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\AddAppointmentAddOnResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\AddAppointmentAddOnResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function appointmentAddAppointmentAddOnWithHttpInfo($Request): array
     {
@@ -409,19 +383,24 @@ class AppointmentApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -429,8 +408,7 @@ class AppointmentApi implements ApiInterface
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\AddAppointmentAddOnResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\AddAppointmentAddOnResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -478,20 +456,14 @@ class AppointmentApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -519,21 +491,14 @@ class AppointmentApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function appointmentAddAppointmentAddOnRequest($Request): \GuzzleHttp\Psr7\Request
+    protected function appointmentAddAppointmentAddOnRequest(\Nlocascio\Mindbody\Model\AddAppointmentAddOnRequest $Request): \GuzzleHttp\Psr7\Request
     {
-        // verify the required parameter 'Request' is set
-        if ($Request === null || (is_array($Request) && count($Request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $Request when calling appointmentAddAppointmentAddOn'
-            );
-        }
 
         $resourcePath = '/public/v6/appointment/addappointmentaddon';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
 
 
@@ -543,16 +508,10 @@ class AppointmentApi implements ApiInterface
             $_tempBody = $Request;
         }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -570,18 +529,7 @@ class AppointmentApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -639,7 +587,7 @@ class AppointmentApi implements ApiInterface
      */
     public function appointmentAddAvailabilities($Request): \Nlocascio\Mindbody\Model\AddAvailabilitiesResponse
     {
-        list($response) = $this->appointmentAddAvailabilitiesWithHttpInfo($Request);
+        ['response' => $response] = $this->appointmentAddAvailabilitiesWithHttpInfo($Request);
         return $response;
     }
 
@@ -652,7 +600,7 @@ class AppointmentApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\AddAvailabilitiesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\AddAvailabilitiesResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function appointmentAddAvailabilitiesWithHttpInfo($Request): array
     {
@@ -688,19 +636,24 @@ class AppointmentApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -708,8 +661,7 @@ class AppointmentApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\AddAvailabilitiesResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\AddAvailabilitiesResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -757,20 +709,14 @@ class AppointmentApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -798,21 +744,14 @@ class AppointmentApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function appointmentAddAvailabilitiesRequest($Request): \GuzzleHttp\Psr7\Request
+    protected function appointmentAddAvailabilitiesRequest(\Nlocascio\Mindbody\Model\AddAvailabilitiesRequest $Request): \GuzzleHttp\Psr7\Request
     {
-        // verify the required parameter 'Request' is set
-        if ($Request === null || (is_array($Request) && count($Request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $Request when calling appointmentAddAvailabilities'
-            );
-        }
 
         $resourcePath = '/public/v6/appointment/availabilities';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
 
 
@@ -822,16 +761,10 @@ class AppointmentApi implements ApiInterface
             $_tempBody = $Request;
         }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -849,18 +782,7 @@ class AppointmentApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -918,7 +840,7 @@ class AppointmentApi implements ApiInterface
      */
     public function appointmentAddMultipleAppointments($Request): \Nlocascio\Mindbody\Model\AddMultipleAppointmentsResponse
     {
-        list($response) = $this->appointmentAddMultipleAppointmentsWithHttpInfo($Request);
+        ['response' => $response] = $this->appointmentAddMultipleAppointmentsWithHttpInfo($Request);
         return $response;
     }
 
@@ -931,7 +853,7 @@ class AppointmentApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\AddMultipleAppointmentsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\AddMultipleAppointmentsResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function appointmentAddMultipleAppointmentsWithHttpInfo($Request): array
     {
@@ -967,19 +889,24 @@ class AppointmentApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -987,8 +914,7 @@ class AppointmentApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\AddMultipleAppointmentsResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\AddMultipleAppointmentsResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -1036,20 +962,14 @@ class AppointmentApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -1077,21 +997,14 @@ class AppointmentApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function appointmentAddMultipleAppointmentsRequest($Request): \GuzzleHttp\Psr7\Request
+    protected function appointmentAddMultipleAppointmentsRequest(\Nlocascio\Mindbody\Model\AddMultipleAppointmentsRequest $Request): \GuzzleHttp\Psr7\Request
     {
-        // verify the required parameter 'Request' is set
-        if ($Request === null || (is_array($Request) && count($Request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $Request when calling appointmentAddMultipleAppointments'
-            );
-        }
 
         $resourcePath = '/public/v6/appointment/addmultipleappointments';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
 
 
@@ -1101,16 +1014,10 @@ class AppointmentApi implements ApiInterface
             $_tempBody = $Request;
         }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -1128,18 +1035,7 @@ class AppointmentApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -1209,7 +1105,7 @@ class AppointmentApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: null, statusCode: int, headers: array<string, string[]>}
      */
     public function appointmentDeleteAppointmentAddOnWithHttpInfo($Id): array
     {
@@ -1244,7 +1140,7 @@ class AppointmentApi implements ApiInterface
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            return ['response' => null, 'statusCode' => $statusCode, 'headers' => $response->getHeaders()];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
@@ -1319,21 +1215,14 @@ class AppointmentApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function appointmentDeleteAppointmentAddOnRequest($Id): \GuzzleHttp\Psr7\Request
+    protected function appointmentDeleteAppointmentAddOnRequest(int $Id): \GuzzleHttp\Psr7\Request
     {
-        // verify the required parameter 'Id' is set
-        if ($Id === null || (is_array($Id) && count($Id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $Id when calling appointmentDeleteAppointmentAddOn'
-            );
-        }
 
         $resourcePath = '/public/v6/appointment/deleteappointmentaddon';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
         // query params
         if ($Id !== null) {
@@ -1344,16 +1233,10 @@ class AppointmentApi implements ApiInterface
         // body params
         $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            []
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -1371,18 +1254,7 @@ class AppointmentApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -1454,7 +1326,7 @@ class AppointmentApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: null, statusCode: int, headers: array<string, string[]>}
      */
     public function appointmentDeleteAvailabilityWithHttpInfo($DeleteAvailabilityRequestAvailabilityId = null, $DeleteAvailabilityRequestTest = null): array
     {
@@ -1489,7 +1361,7 @@ class AppointmentApi implements ApiInterface
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            return ['response' => null, 'statusCode' => $statusCode, 'headers' => $response->getHeaders()];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
@@ -1567,7 +1439,7 @@ class AppointmentApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function appointmentDeleteAvailabilityRequest($DeleteAvailabilityRequestAvailabilityId = null, $DeleteAvailabilityRequestTest = null): \GuzzleHttp\Psr7\Request
+    protected function appointmentDeleteAvailabilityRequest(?int $DeleteAvailabilityRequestAvailabilityId = null, ?bool $DeleteAvailabilityRequestTest = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/appointment/availability';
@@ -1575,7 +1447,6 @@ class AppointmentApi implements ApiInterface
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
         // query params
         if ($DeleteAvailabilityRequestAvailabilityId !== null) {
@@ -1590,16 +1461,10 @@ class AppointmentApi implements ApiInterface
         // body params
         $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            []
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -1617,18 +1482,7 @@ class AppointmentApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -1691,7 +1545,7 @@ class AppointmentApi implements ApiInterface
      */
     public function appointmentGetActiveSessionTimes($RequestEndTime = null, $RequestLimit = null, $RequestOffset = null, $RequestScheduleType = null, $RequestSessionTypeIds = null, $RequestStartTime = null): \Nlocascio\Mindbody\Model\GetActiveSessionTimesResponse
     {
-        list($response) = $this->appointmentGetActiveSessionTimesWithHttpInfo($RequestEndTime, $RequestLimit, $RequestOffset, $RequestScheduleType, $RequestSessionTypeIds, $RequestStartTime);
+        ['response' => $response] = $this->appointmentGetActiveSessionTimesWithHttpInfo($RequestEndTime, $RequestLimit, $RequestOffset, $RequestScheduleType, $RequestSessionTypeIds, $RequestStartTime);
         return $response;
     }
 
@@ -1709,7 +1563,7 @@ class AppointmentApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\GetActiveSessionTimesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\GetActiveSessionTimesResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function appointmentGetActiveSessionTimesWithHttpInfo($RequestEndTime = null, $RequestLimit = null, $RequestOffset = null, $RequestScheduleType = null, $RequestSessionTypeIds = null, $RequestStartTime = null): array
     {
@@ -1745,19 +1599,24 @@ class AppointmentApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -1765,8 +1624,7 @@ class AppointmentApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\GetActiveSessionTimesResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\GetActiveSessionTimesResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -1824,20 +1682,14 @@ class AppointmentApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -1870,7 +1722,7 @@ class AppointmentApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function appointmentGetActiveSessionTimesRequest($RequestEndTime = null, $RequestLimit = null, $RequestOffset = null, $RequestScheduleType = null, $RequestSessionTypeIds = null, $RequestStartTime = null): \GuzzleHttp\Psr7\Request
+    protected function appointmentGetActiveSessionTimesRequest(?\DateTime $RequestEndTime = null, ?int $RequestLimit = null, ?int $RequestOffset = null, ?string $RequestScheduleType = null, ?array $RequestSessionTypeIds = null, ?\DateTime $RequestStartTime = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/appointment/activesessiontimes';
@@ -1878,7 +1730,6 @@ class AppointmentApi implements ApiInterface
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
         // query params
         if ($RequestEndTime !== null) {
@@ -1912,16 +1763,10 @@ class AppointmentApi implements ApiInterface
         // body params
         $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            []
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -1939,18 +1784,7 @@ class AppointmentApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -2010,7 +1844,7 @@ class AppointmentApi implements ApiInterface
      */
     public function appointmentGetAddOns($RequestLimit = null, $RequestOffset = null, $RequestStaffId = null): \Nlocascio\Mindbody\Model\GetAddOnsResponse
     {
-        list($response) = $this->appointmentGetAddOnsWithHttpInfo($RequestLimit, $RequestOffset, $RequestStaffId);
+        ['response' => $response] = $this->appointmentGetAddOnsWithHttpInfo($RequestLimit, $RequestOffset, $RequestStaffId);
         return $response;
     }
 
@@ -2025,7 +1859,7 @@ class AppointmentApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\GetAddOnsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\GetAddOnsResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function appointmentGetAddOnsWithHttpInfo($RequestLimit = null, $RequestOffset = null, $RequestStaffId = null): array
     {
@@ -2061,19 +1895,24 @@ class AppointmentApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -2081,8 +1920,7 @@ class AppointmentApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\GetAddOnsResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\GetAddOnsResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -2134,20 +1972,14 @@ class AppointmentApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -2177,7 +2009,7 @@ class AppointmentApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function appointmentGetAddOnsRequest($RequestLimit = null, $RequestOffset = null, $RequestStaffId = null): \GuzzleHttp\Psr7\Request
+    protected function appointmentGetAddOnsRequest(?int $RequestLimit = null, ?int $RequestOffset = null, ?int $RequestStaffId = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/appointment/addons';
@@ -2185,7 +2017,6 @@ class AppointmentApi implements ApiInterface
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
         // query params
         if ($RequestLimit !== null) {
@@ -2204,16 +2035,10 @@ class AppointmentApi implements ApiInterface
         // body params
         $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            []
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -2231,18 +2056,7 @@ class AppointmentApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -2299,7 +2113,7 @@ class AppointmentApi implements ApiInterface
      */
     public function appointmentGetAppointmentOptions(): \Nlocascio\Mindbody\Model\GetAppointmentOptionsResponse
     {
-        list($response) = $this->appointmentGetAppointmentOptionsWithHttpInfo();
+        ['response' => $response] = $this->appointmentGetAppointmentOptionsWithHttpInfo();
         return $response;
     }
 
@@ -2311,7 +2125,7 @@ class AppointmentApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\GetAppointmentOptionsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\GetAppointmentOptionsResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function appointmentGetAppointmentOptionsWithHttpInfo(): array
     {
@@ -2347,19 +2161,24 @@ class AppointmentApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -2367,8 +2186,7 @@ class AppointmentApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\GetAppointmentOptionsResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\GetAppointmentOptionsResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -2414,20 +2232,14 @@ class AppointmentApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -2462,23 +2274,16 @@ class AppointmentApi implements ApiInterface
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
 
 
         // body params
         $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            []
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -2496,18 +2301,7 @@ class AppointmentApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -2569,7 +2363,7 @@ class AppointmentApi implements ApiInterface
      */
     public function appointmentGetAvailableDates($RequestSessionTypeId, $RequestEndDate = null, $RequestLocationId = null, $RequestStaffId = null, $RequestStartDate = null): \Nlocascio\Mindbody\Model\GetAvailableDatesResponse
     {
-        list($response) = $this->appointmentGetAvailableDatesWithHttpInfo($RequestSessionTypeId, $RequestEndDate, $RequestLocationId, $RequestStaffId, $RequestStartDate);
+        ['response' => $response] = $this->appointmentGetAvailableDatesWithHttpInfo($RequestSessionTypeId, $RequestEndDate, $RequestLocationId, $RequestStaffId, $RequestStartDate);
         return $response;
     }
 
@@ -2586,7 +2380,7 @@ class AppointmentApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\GetAvailableDatesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\GetAvailableDatesResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function appointmentGetAvailableDatesWithHttpInfo($RequestSessionTypeId, $RequestEndDate = null, $RequestLocationId = null, $RequestStaffId = null, $RequestStartDate = null): array
     {
@@ -2622,19 +2416,24 @@ class AppointmentApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -2642,8 +2441,7 @@ class AppointmentApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\GetAvailableDatesResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\GetAvailableDatesResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -2699,20 +2497,14 @@ class AppointmentApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -2744,21 +2536,14 @@ class AppointmentApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function appointmentGetAvailableDatesRequest($RequestSessionTypeId, $RequestEndDate = null, $RequestLocationId = null, $RequestStaffId = null, $RequestStartDate = null): \GuzzleHttp\Psr7\Request
+    protected function appointmentGetAvailableDatesRequest(int $RequestSessionTypeId, ?\DateTime $RequestEndDate = null, ?int $RequestLocationId = null, ?int $RequestStaffId = null, ?\DateTime $RequestStartDate = null): \GuzzleHttp\Psr7\Request
     {
-        // verify the required parameter 'RequestSessionTypeId' is set
-        if ($RequestSessionTypeId === null || (is_array($RequestSessionTypeId) && count($RequestSessionTypeId) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $RequestSessionTypeId when calling appointmentGetAvailableDates'
-            );
-        }
 
         $resourcePath = '/public/v6/appointment/availabledates';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
         // query params
         if ($RequestEndDate !== null) {
@@ -2785,16 +2570,10 @@ class AppointmentApi implements ApiInterface
         // body params
         $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            []
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -2812,18 +2591,7 @@ class AppointmentApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -2890,7 +2658,7 @@ class AppointmentApi implements ApiInterface
      */
     public function appointmentGetBookableItems($RequestSessionTypeIds, $RequestAppointmentId = null, $RequestEndDate = null, $RequestIgnoreDefaultSessionLength = null, $RequestIncludeResourceAvailability = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null): \Nlocascio\Mindbody\Model\GetBookableItemsResponse
     {
-        list($response) = $this->appointmentGetBookableItemsWithHttpInfo($RequestSessionTypeIds, $RequestAppointmentId, $RequestEndDate, $RequestIgnoreDefaultSessionLength, $RequestIncludeResourceAvailability, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestStaffIds, $RequestStartDate);
+        ['response' => $response] = $this->appointmentGetBookableItemsWithHttpInfo($RequestSessionTypeIds, $RequestAppointmentId, $RequestEndDate, $RequestIgnoreDefaultSessionLength, $RequestIncludeResourceAvailability, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestStaffIds, $RequestStartDate);
         return $response;
     }
 
@@ -2912,7 +2680,7 @@ class AppointmentApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\GetBookableItemsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\GetBookableItemsResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function appointmentGetBookableItemsWithHttpInfo($RequestSessionTypeIds, $RequestAppointmentId = null, $RequestEndDate = null, $RequestIgnoreDefaultSessionLength = null, $RequestIncludeResourceAvailability = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null): array
     {
@@ -2948,19 +2716,24 @@ class AppointmentApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -2968,8 +2741,7 @@ class AppointmentApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\GetBookableItemsResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\GetBookableItemsResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -3035,20 +2807,14 @@ class AppointmentApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -3085,21 +2851,14 @@ class AppointmentApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function appointmentGetBookableItemsRequest($RequestSessionTypeIds, $RequestAppointmentId = null, $RequestEndDate = null, $RequestIgnoreDefaultSessionLength = null, $RequestIncludeResourceAvailability = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null): \GuzzleHttp\Psr7\Request
+    protected function appointmentGetBookableItemsRequest(array $RequestSessionTypeIds, ?int $RequestAppointmentId = null, ?\DateTime $RequestEndDate = null, ?bool $RequestIgnoreDefaultSessionLength = null, ?bool $RequestIncludeResourceAvailability = null, ?int $RequestLimit = null, ?array $RequestLocationIds = null, ?int $RequestOffset = null, ?array $RequestStaffIds = null, ?\DateTime $RequestStartDate = null): \GuzzleHttp\Psr7\Request
     {
-        // verify the required parameter 'RequestSessionTypeIds' is set
-        if ($RequestSessionTypeIds === null || (is_array($RequestSessionTypeIds) && count($RequestSessionTypeIds) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $RequestSessionTypeIds when calling appointmentGetBookableItems'
-            );
-        }
 
         $resourcePath = '/public/v6/appointment/bookableitems';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
         // query params
         if ($RequestAppointmentId !== null) {
@@ -3155,16 +2914,10 @@ class AppointmentApi implements ApiInterface
         // body params
         $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            []
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -3182,18 +2935,7 @@ class AppointmentApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -3257,7 +2999,7 @@ class AppointmentApi implements ApiInterface
      */
     public function appointmentGetScheduleItems($RequestEndDate = null, $RequestIgnorePrepFinishTimes = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null): \Nlocascio\Mindbody\Model\GetScheduleItemsResponse
     {
-        list($response) = $this->appointmentGetScheduleItemsWithHttpInfo($RequestEndDate, $RequestIgnorePrepFinishTimes, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestStaffIds, $RequestStartDate);
+        ['response' => $response] = $this->appointmentGetScheduleItemsWithHttpInfo($RequestEndDate, $RequestIgnorePrepFinishTimes, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestStaffIds, $RequestStartDate);
         return $response;
     }
 
@@ -3276,7 +3018,7 @@ class AppointmentApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\GetScheduleItemsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\GetScheduleItemsResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function appointmentGetScheduleItemsWithHttpInfo($RequestEndDate = null, $RequestIgnorePrepFinishTimes = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null): array
     {
@@ -3312,19 +3054,24 @@ class AppointmentApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -3332,8 +3079,7 @@ class AppointmentApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\GetScheduleItemsResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\GetScheduleItemsResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -3393,20 +3139,14 @@ class AppointmentApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -3440,7 +3180,7 @@ class AppointmentApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function appointmentGetScheduleItemsRequest($RequestEndDate = null, $RequestIgnorePrepFinishTimes = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null): \GuzzleHttp\Psr7\Request
+    protected function appointmentGetScheduleItemsRequest(?\DateTime $RequestEndDate = null, ?bool $RequestIgnorePrepFinishTimes = null, ?int $RequestLimit = null, ?array $RequestLocationIds = null, ?int $RequestOffset = null, ?array $RequestStaffIds = null, ?\DateTime $RequestStartDate = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/appointment/scheduleitems';
@@ -3448,7 +3188,6 @@ class AppointmentApi implements ApiInterface
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
         // query params
         if ($RequestEndDate !== null) {
@@ -3489,16 +3228,10 @@ class AppointmentApi implements ApiInterface
         // body params
         $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            []
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -3516,18 +3249,7 @@ class AppointmentApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -3593,7 +3315,7 @@ class AppointmentApi implements ApiInterface
      */
     public function appointmentGetStaffAppointments($RequestAppointmentIds = null, $RequestClientId = null, $RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null, $RequestUseSiteSettingsStaffName = null): \Nlocascio\Mindbody\Model\GetStaffAppointmentsResponse
     {
-        list($response) = $this->appointmentGetStaffAppointmentsWithHttpInfo($RequestAppointmentIds, $RequestClientId, $RequestEndDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestStaffIds, $RequestStartDate, $RequestUseSiteSettingsStaffName);
+        ['response' => $response] = $this->appointmentGetStaffAppointmentsWithHttpInfo($RequestAppointmentIds, $RequestClientId, $RequestEndDate, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestStaffIds, $RequestStartDate, $RequestUseSiteSettingsStaffName);
         return $response;
     }
 
@@ -3614,7 +3336,7 @@ class AppointmentApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\GetStaffAppointmentsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\GetStaffAppointmentsResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function appointmentGetStaffAppointmentsWithHttpInfo($RequestAppointmentIds = null, $RequestClientId = null, $RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null, $RequestUseSiteSettingsStaffName = null): array
     {
@@ -3650,19 +3372,24 @@ class AppointmentApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -3670,8 +3397,7 @@ class AppointmentApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\GetStaffAppointmentsResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\GetStaffAppointmentsResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -3735,20 +3461,14 @@ class AppointmentApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -3784,7 +3504,7 @@ class AppointmentApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function appointmentGetStaffAppointmentsRequest($RequestAppointmentIds = null, $RequestClientId = null, $RequestEndDate = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null, $RequestUseSiteSettingsStaffName = null): \GuzzleHttp\Psr7\Request
+    protected function appointmentGetStaffAppointmentsRequest(?array $RequestAppointmentIds = null, ?string $RequestClientId = null, ?\DateTime $RequestEndDate = null, ?int $RequestLimit = null, ?array $RequestLocationIds = null, ?int $RequestOffset = null, ?array $RequestStaffIds = null, ?\DateTime $RequestStartDate = null, ?bool $RequestUseSiteSettingsStaffName = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/appointment/staffappointments';
@@ -3792,7 +3512,6 @@ class AppointmentApi implements ApiInterface
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
         // query params
         if (is_array($RequestAppointmentIds)) {
@@ -3844,16 +3563,10 @@ class AppointmentApi implements ApiInterface
         // body params
         $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            []
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -3871,18 +3584,7 @@ class AppointmentApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -3944,7 +3646,7 @@ class AppointmentApi implements ApiInterface
      */
     public function appointmentGetUnavailabilities($RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null): \Nlocascio\Mindbody\Model\GetUnavailabilitiesResponse
     {
-        list($response) = $this->appointmentGetUnavailabilitiesWithHttpInfo($RequestEndDate, $RequestLimit, $RequestOffset, $RequestStaffIds, $RequestStartDate);
+        ['response' => $response] = $this->appointmentGetUnavailabilitiesWithHttpInfo($RequestEndDate, $RequestLimit, $RequestOffset, $RequestStaffIds, $RequestStartDate);
         return $response;
     }
 
@@ -3961,7 +3663,7 @@ class AppointmentApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\GetUnavailabilitiesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\GetUnavailabilitiesResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function appointmentGetUnavailabilitiesWithHttpInfo($RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null): array
     {
@@ -3997,19 +3699,24 @@ class AppointmentApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -4017,8 +3724,7 @@ class AppointmentApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\GetUnavailabilitiesResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\GetUnavailabilitiesResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -4074,20 +3780,14 @@ class AppointmentApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -4119,7 +3819,7 @@ class AppointmentApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function appointmentGetUnavailabilitiesRequest($RequestEndDate = null, $RequestLimit = null, $RequestOffset = null, $RequestStaffIds = null, $RequestStartDate = null): \GuzzleHttp\Psr7\Request
+    protected function appointmentGetUnavailabilitiesRequest(?\DateTime $RequestEndDate = null, ?int $RequestLimit = null, ?int $RequestOffset = null, ?array $RequestStaffIds = null, ?\DateTime $RequestStartDate = null): \GuzzleHttp\Psr7\Request
     {
 
         $resourcePath = '/public/v6/appointment/unavailabilities';
@@ -4127,7 +3827,6 @@ class AppointmentApi implements ApiInterface
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
         // query params
         if ($RequestEndDate !== null) {
@@ -4157,16 +3856,10 @@ class AppointmentApi implements ApiInterface
         // body params
         $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            []
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -4184,18 +3877,7 @@ class AppointmentApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -4265,7 +3947,7 @@ class AppointmentApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: null, statusCode: int, headers: array<string, string[]>}
      */
     public function appointmentRemoveFromWaitlistWithHttpInfo($RequestWaitlistEntryIds): array
     {
@@ -4300,7 +3982,7 @@ class AppointmentApi implements ApiInterface
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            return ['response' => null, 'statusCode' => $statusCode, 'headers' => $response->getHeaders()];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
@@ -4375,21 +4057,14 @@ class AppointmentApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function appointmentRemoveFromWaitlistRequest($RequestWaitlistEntryIds): \GuzzleHttp\Psr7\Request
+    protected function appointmentRemoveFromWaitlistRequest(array $RequestWaitlistEntryIds): \GuzzleHttp\Psr7\Request
     {
-        // verify the required parameter 'RequestWaitlistEntryIds' is set
-        if ($RequestWaitlistEntryIds === null || (is_array($RequestWaitlistEntryIds) && count($RequestWaitlistEntryIds) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $RequestWaitlistEntryIds when calling appointmentRemoveFromWaitlist'
-            );
-        }
 
         $resourcePath = '/public/v6/appointment/appointmentfromwaitlist';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
         // query params
         if (is_array($RequestWaitlistEntryIds)) {
@@ -4403,16 +4078,10 @@ class AppointmentApi implements ApiInterface
         // body params
         $_tempBody = null;
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                []
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            []
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -4430,18 +4099,7 @@ class AppointmentApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -4499,7 +4157,7 @@ class AppointmentApi implements ApiInterface
      */
     public function appointmentUpdateAppointment($Request): \Nlocascio\Mindbody\Model\UpdateAppointmentResponse
     {
-        list($response) = $this->appointmentUpdateAppointmentWithHttpInfo($Request);
+        ['response' => $response] = $this->appointmentUpdateAppointmentWithHttpInfo($Request);
         return $response;
     }
 
@@ -4512,7 +4170,7 @@ class AppointmentApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\UpdateAppointmentResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\UpdateAppointmentResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function appointmentUpdateAppointmentWithHttpInfo($Request): array
     {
@@ -4548,19 +4206,24 @@ class AppointmentApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -4568,8 +4231,7 @@ class AppointmentApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\UpdateAppointmentResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\UpdateAppointmentResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -4617,20 +4279,14 @@ class AppointmentApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -4658,21 +4314,14 @@ class AppointmentApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function appointmentUpdateAppointmentRequest($Request): \GuzzleHttp\Psr7\Request
+    protected function appointmentUpdateAppointmentRequest(\Nlocascio\Mindbody\Model\UpdateAppointmentRequest $Request): \GuzzleHttp\Psr7\Request
     {
-        // verify the required parameter 'Request' is set
-        if ($Request === null || (is_array($Request) && count($Request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $Request when calling appointmentUpdateAppointment'
-            );
-        }
 
         $resourcePath = '/public/v6/appointment/updateappointment';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
 
 
@@ -4682,16 +4331,10 @@ class AppointmentApi implements ApiInterface
             $_tempBody = $Request;
         }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -4709,18 +4352,7 @@ class AppointmentApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {
@@ -4778,7 +4410,7 @@ class AppointmentApi implements ApiInterface
      */
     public function appointmentUpdateAvailability($UpdateAvailabilityRequest): \Nlocascio\Mindbody\Model\UpdateAvailabilityResponse
     {
-        list($response) = $this->appointmentUpdateAvailabilityWithHttpInfo($UpdateAvailabilityRequest);
+        ['response' => $response] = $this->appointmentUpdateAvailabilityWithHttpInfo($UpdateAvailabilityRequest);
         return $response;
     }
 
@@ -4791,7 +4423,7 @@ class AppointmentApi implements ApiInterface
      *
      * @throws \Nlocascio\Mindbody\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Nlocascio\Mindbody\Model\UpdateAvailabilityResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array{response: \Nlocascio\Mindbody\Model\UpdateAvailabilityResponse, statusCode: int, headers: array<string, string[]>}
      */
     public function appointmentUpdateAvailabilityWithHttpInfo($UpdateAvailabilityRequest): array
     {
@@ -4827,19 +4459,24 @@ class AppointmentApi implements ApiInterface
             }
 
             $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
+            $content = json_decode($responseBody->getContents());
+            $reponse = ObjectSerializer::deserialize($content, $returnType);
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+                throw new ApiException(
+                    sprintf(
+                        'Unable to deserialize the response to %s, got %s',
+                        $returnType,
+                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
             }
-
             return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
+                'response' => $reponse,
+                'statusCode' => $response->getStatusCode(),
+                'headers' => $response->getHeaders()
             ];
 
         } catch (ApiException $e) {
@@ -4847,8 +4484,7 @@ class AppointmentApi implements ApiInterface
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Nlocascio\Mindbody\Model\UpdateAvailabilityResponse',
-                        $e->getResponseHeaders()
+                        '\Nlocascio\Mindbody\Model\UpdateAvailabilityResponse'
                     );
                     $e->setResponseObject($data);
                     break;
@@ -4896,20 +4532,14 @@ class AppointmentApi implements ApiInterface
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
+                    
                     $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
+                    $content = json_decode($responseBody->getContents());
 
                     return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
+                        'response' => ObjectSerializer::deserialize($content, $returnType),
+                        'statusCode' => $response->getStatusCode(),
+                        'headers' => $response->getHeaders()
                     ];
                 },
                 function ($exception) {
@@ -4937,21 +4567,14 @@ class AppointmentApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function appointmentUpdateAvailabilityRequest($UpdateAvailabilityRequest): \GuzzleHttp\Psr7\Request
+    protected function appointmentUpdateAvailabilityRequest(\Nlocascio\Mindbody\Model\UpdateAvailabilityRequest $UpdateAvailabilityRequest): \GuzzleHttp\Psr7\Request
     {
-        // verify the required parameter 'UpdateAvailabilityRequest' is set
-        if ($UpdateAvailabilityRequest === null || (is_array($UpdateAvailabilityRequest) && count($UpdateAvailabilityRequest) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $UpdateAvailabilityRequest when calling appointmentUpdateAvailability'
-            );
-        }
 
         $resourcePath = '/public/v6/appointment/availabilities';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = false;
 
 
 
@@ -4961,16 +4584,10 @@ class AppointmentApi implements ApiInterface
             $_tempBody = $UpdateAvailabilityRequest;
         }
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
-            );
-        }
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'multipart/form-data'],
+            ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded', 'multipart/form-data']
+        );
 
         // for model (json/xml)
         if (isset($_tempBody)) {
@@ -4988,18 +4605,7 @@ class AppointmentApi implements ApiInterface
                 }
             }
         } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
+            if ($headers['Content-Type'] === 'application/json') {
                 $httpBody = Utils::jsonEncode($formParams);
 
             } else {

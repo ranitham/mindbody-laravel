@@ -47,14 +47,14 @@ class SystemNetHttpHttpContent extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'System.Net.Http.HttpContent';
+    protected static string $swaggerModelName = 'System.Net.Http.HttpContent';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Headers' => '\Nlocascio\Mindbody\Model\KeyValuePair[]'
     ];
 
@@ -63,7 +63,7 @@ class SystemNetHttpHttpContent extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Headers' => null
     ];
 
@@ -74,7 +74,7 @@ class SystemNetHttpHttpContent extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Headers' => 'Headers'
     ];
 
@@ -83,7 +83,7 @@ class SystemNetHttpHttpContent extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Headers' => 'setHeaders'
     ];
 
@@ -92,7 +92,7 @@ class SystemNetHttpHttpContent extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Headers' => 'getHeaders'
     ];
 
@@ -107,7 +107,7 @@ class SystemNetHttpHttpContent extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Headers'] = isset($data['Headers']) ? $data['Headers'] : null;
     }
@@ -130,7 +130,7 @@ class SystemNetHttpHttpContent extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\KeyValuePair[]
      */
-    public function getHeaders()
+    public function getHeaders(): array
     {
         return $this->container['Headers'];
     }
@@ -142,7 +142,9 @@ class SystemNetHttpHttpContent extends BaseModel
      *
      * @return $this
      */
-    public function setHeaders($Headers): self
+
+
+    public function setHeaders(array $Headers): static
     {
         $this->container['Headers'] = $Headers;
 

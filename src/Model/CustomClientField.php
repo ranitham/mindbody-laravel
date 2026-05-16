@@ -41,7 +41,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property string $Name The name of the field.
  *
  */
-class CustomClientField extends BaseModel implements ModelWithId
+class CustomClientField extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -50,14 +50,14 @@ class CustomClientField extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CustomClientField';
+    protected static string $swaggerModelName = 'CustomClientField';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Id' => 'int',
         'DataType' => 'string',
         'Name' => 'string'
@@ -68,7 +68,7 @@ class CustomClientField extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Id' => 'int32',
         'DataType' => null,
         'Name' => null
@@ -81,7 +81,7 @@ class CustomClientField extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Id' => 'Id',
         'DataType' => 'DataType',
         'Name' => 'Name'
@@ -92,7 +92,7 @@ class CustomClientField extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Id' => 'setId',
         'DataType' => 'setDataType',
         'Name' => 'setName'
@@ -103,7 +103,7 @@ class CustomClientField extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Id' => 'getId',
         'DataType' => 'getDataType',
         'Name' => 'getName'
@@ -120,7 +120,7 @@ class CustomClientField extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
         $this->container['DataType'] = isset($data['DataType']) ? $data['DataType'] : null;
@@ -145,7 +145,7 @@ class CustomClientField extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -157,7 +157,9 @@ class CustomClientField extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -169,7 +171,7 @@ class CustomClientField extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getDataType()
+    public function getDataType(): string
     {
         return $this->container['DataType'];
     }
@@ -181,7 +183,9 @@ class CustomClientField extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setDataType($DataType): self
+
+
+    public function setDataType(string $DataType): static
     {
         $this->container['DataType'] = $DataType;
 
@@ -193,7 +197,7 @@ class CustomClientField extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->container['Name'];
     }
@@ -205,7 +209,9 @@ class CustomClientField extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setName($Name): self
+
+
+    public function setName(string $Name): static
     {
         $this->container['Name'] = $Name;
 

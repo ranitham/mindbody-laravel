@@ -56,14 +56,14 @@ class AddAvailabilitiesRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AddAvailabilitiesRequest';
+    protected static string $swaggerModelName = 'AddAvailabilitiesRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Test' => 'bool',
         'LocationID' => 'int',
         'StaffIDs' => 'int[]',
@@ -81,7 +81,7 @@ class AddAvailabilitiesRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Test' => null,
         'LocationID' => 'int32',
         'StaffIDs' => 'int64',
@@ -101,7 +101,7 @@ class AddAvailabilitiesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Test' => 'Test',
         'LocationID' => 'LocationID',
         'StaffIDs' => 'StaffIDs',
@@ -119,7 +119,7 @@ class AddAvailabilitiesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Test' => 'setTest',
         'LocationID' => 'setLocationID',
         'StaffIDs' => 'setStaffIDs',
@@ -137,7 +137,7 @@ class AddAvailabilitiesRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Test' => 'getTest',
         'LocationID' => 'getLocationID',
         'StaffIDs' => 'getStaffIDs',
@@ -203,7 +203,7 @@ class AddAvailabilitiesRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Test'] = isset($data['Test']) ? $data['Test'] : null;
         $this->container['LocationID'] = isset($data['LocationID']) ? $data['LocationID'] : null;
@@ -243,7 +243,7 @@ class AddAvailabilitiesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getTest()
+    public function getTest(): bool
     {
         return $this->container['Test'];
     }
@@ -255,7 +255,9 @@ class AddAvailabilitiesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setTest($Test): self
+
+
+    public function setTest(bool $Test): static
     {
         $this->container['Test'] = $Test;
 
@@ -267,7 +269,7 @@ class AddAvailabilitiesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLocationID()
+    public function getLocationID(): int
     {
         return $this->container['LocationID'];
     }
@@ -279,7 +281,9 @@ class AddAvailabilitiesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLocationID($LocationID): self
+
+
+    public function setLocationID(int $LocationID): static
     {
         $this->container['LocationID'] = $LocationID;
 
@@ -291,7 +295,7 @@ class AddAvailabilitiesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getStaffIDs()
+    public function getStaffIDs(): array
     {
         return $this->container['StaffIDs'];
     }
@@ -303,7 +307,9 @@ class AddAvailabilitiesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStaffIDs($StaffIDs): self
+
+
+    public function setStaffIDs(array $StaffIDs): static
     {
         $this->container['StaffIDs'] = $StaffIDs;
 
@@ -315,7 +321,7 @@ class AddAvailabilitiesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getProgramIDs()
+    public function getProgramIDs(): array
     {
         return $this->container['ProgramIDs'];
     }
@@ -327,7 +333,9 @@ class AddAvailabilitiesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setProgramIDs($ProgramIDs): self
+
+
+    public function setProgramIDs(array $ProgramIDs): static
     {
         $this->container['ProgramIDs'] = $ProgramIDs;
 
@@ -339,7 +347,7 @@ class AddAvailabilitiesRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDateTime()
+    public function getStartDateTime(): \DateTime
     {
         return $this->container['StartDateTime'];
     }
@@ -351,7 +359,9 @@ class AddAvailabilitiesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStartDateTime($StartDateTime): self
+
+
+    public function setStartDateTime(\DateTime $StartDateTime): static
     {
         $this->container['StartDateTime'] = $StartDateTime;
 
@@ -363,7 +373,7 @@ class AddAvailabilitiesRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDateTime()
+    public function getEndDateTime(): \DateTime
     {
         return $this->container['EndDateTime'];
     }
@@ -375,7 +385,9 @@ class AddAvailabilitiesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setEndDateTime($EndDateTime): self
+
+
+    public function setEndDateTime(\DateTime $EndDateTime): static
     {
         $this->container['EndDateTime'] = $EndDateTime;
 
@@ -387,7 +399,7 @@ class AddAvailabilitiesRequest extends BaseModel
      *
      * @return string[]
      */
-    public function getDaysOfWeek()
+    public function getDaysOfWeek(): array
     {
         return $this->container['DaysOfWeek'];
     }
@@ -399,7 +411,9 @@ class AddAvailabilitiesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setDaysOfWeek($DaysOfWeek): self
+
+
+    public function setDaysOfWeek(array $DaysOfWeek): static
     {
         $allowedValues = $this->getDaysOfWeekAllowableValues();
         if (!is_null($DaysOfWeek) && array_diff($DaysOfWeek, $allowedValues)) {
@@ -420,7 +434,7 @@ class AddAvailabilitiesRequest extends BaseModel
      *
      * @return string
      */
-    public function getUnavailableDescription()
+    public function getUnavailableDescription(): string
     {
         return $this->container['UnavailableDescription'];
     }
@@ -432,7 +446,9 @@ class AddAvailabilitiesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setUnavailableDescription($UnavailableDescription): self
+
+
+    public function setUnavailableDescription(string $UnavailableDescription): static
     {
         $this->container['UnavailableDescription'] = $UnavailableDescription;
 
@@ -444,7 +460,7 @@ class AddAvailabilitiesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIsUnavailable()
+    public function getIsUnavailable(): bool
     {
         return $this->container['IsUnavailable'];
     }
@@ -456,7 +472,9 @@ class AddAvailabilitiesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setIsUnavailable($IsUnavailable): self
+
+
+    public function setIsUnavailable(bool $IsUnavailable): static
     {
         $this->container['IsUnavailable'] = $IsUnavailable;
 
@@ -468,7 +486,7 @@ class AddAvailabilitiesRequest extends BaseModel
      *
      * @return string
      */
-    public function getPublicDisplay()
+    public function getPublicDisplay(): string
     {
         return $this->container['PublicDisplay'];
     }
@@ -480,7 +498,9 @@ class AddAvailabilitiesRequest extends BaseModel
      *
      * @return $this
      */
-    public function setPublicDisplay($PublicDisplay): self
+
+
+    public function setPublicDisplay(string $PublicDisplay): static
     {
         $allowedValues = $this->getPublicDisplayAllowableValues();
         if (!is_null($PublicDisplay) && !in_array($PublicDisplay, $allowedValues, true)) {

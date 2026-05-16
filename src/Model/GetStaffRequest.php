@@ -53,14 +53,14 @@ class GetStaffRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetStaffRequest';
+    protected static string $swaggerModelName = 'GetStaffRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'StaffIds' => 'int[]',
         'Filters' => 'string[]',
         'SessionTypeId' => 'int',
@@ -75,7 +75,7 @@ class GetStaffRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'StaffIds' => 'int64',
         'Filters' => null,
         'SessionTypeId' => 'int32',
@@ -92,7 +92,7 @@ class GetStaffRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'StaffIds' => 'StaffIds',
         'Filters' => 'Filters',
         'SessionTypeId' => 'SessionTypeId',
@@ -107,7 +107,7 @@ class GetStaffRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'StaffIds' => 'setStaffIds',
         'Filters' => 'setFilters',
         'SessionTypeId' => 'setSessionTypeId',
@@ -122,7 +122,7 @@ class GetStaffRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'StaffIds' => 'getStaffIds',
         'Filters' => 'getFilters',
         'SessionTypeId' => 'getSessionTypeId',
@@ -143,7 +143,7 @@ class GetStaffRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['StaffIds'] = isset($data['StaffIds']) ? $data['StaffIds'] : null;
         $this->container['Filters'] = isset($data['Filters']) ? $data['Filters'] : null;
@@ -172,7 +172,7 @@ class GetStaffRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getStaffIds()
+    public function getStaffIds(): array
     {
         return $this->container['StaffIds'];
     }
@@ -184,7 +184,9 @@ class GetStaffRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStaffIds($StaffIds): self
+
+
+    public function setStaffIds(array $StaffIds): static
     {
         $this->container['StaffIds'] = $StaffIds;
 
@@ -196,7 +198,7 @@ class GetStaffRequest extends BaseModel
      *
      * @return string[]
      */
-    public function getFilters()
+    public function getFilters(): array
     {
         return $this->container['Filters'];
     }
@@ -208,7 +210,9 @@ class GetStaffRequest extends BaseModel
      *
      * @return $this
      */
-    public function setFilters($Filters): self
+
+
+    public function setFilters(array $Filters): static
     {
         $this->container['Filters'] = $Filters;
 
@@ -220,7 +224,7 @@ class GetStaffRequest extends BaseModel
      *
      * @return int
      */
-    public function getSessionTypeId()
+    public function getSessionTypeId(): int
     {
         return $this->container['SessionTypeId'];
     }
@@ -232,7 +236,9 @@ class GetStaffRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSessionTypeId($SessionTypeId): self
+
+
+    public function setSessionTypeId(int $SessionTypeId): static
     {
         $this->container['SessionTypeId'] = $SessionTypeId;
 
@@ -244,7 +250,7 @@ class GetStaffRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDateTime()
+    public function getStartDateTime(): \DateTime
     {
         return $this->container['StartDateTime'];
     }
@@ -256,7 +262,9 @@ class GetStaffRequest extends BaseModel
      *
      * @return $this
      */
-    public function setStartDateTime($StartDateTime): self
+
+
+    public function setStartDateTime(\DateTime $StartDateTime): static
     {
         $this->container['StartDateTime'] = $StartDateTime;
 
@@ -268,7 +276,7 @@ class GetStaffRequest extends BaseModel
      *
      * @return int
      */
-    public function getLocationId()
+    public function getLocationId(): int
     {
         return $this->container['LocationId'];
     }
@@ -280,7 +288,9 @@ class GetStaffRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLocationId($LocationId): self
+
+
+    public function setLocationId(int $LocationId): static
     {
         $this->container['LocationId'] = $LocationId;
 
@@ -292,7 +302,7 @@ class GetStaffRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit()
+    public function getLimit(): int
     {
         return $this->container['Limit'];
     }
@@ -304,7 +314,9 @@ class GetStaffRequest extends BaseModel
      *
      * @return $this
      */
-    public function setLimit($Limit): self
+
+
+    public function setLimit(int $Limit): static
     {
         $this->container['Limit'] = $Limit;
 
@@ -316,7 +328,7 @@ class GetStaffRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset()
+    public function getOffset(): int
     {
         return $this->container['Offset'];
     }
@@ -328,7 +340,9 @@ class GetStaffRequest extends BaseModel
      *
      * @return $this
      */
-    public function setOffset($Offset): self
+
+
+    public function setOffset(int $Offset): static
     {
         $this->container['Offset'] = $Offset;
 

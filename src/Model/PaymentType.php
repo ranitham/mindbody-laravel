@@ -41,7 +41,7 @@ namespace Nlocascio\Mindbody\Model;
  * @property double $Fee Payment type fee.
  *
  */
-class PaymentType extends BaseModel implements ModelWithId
+class PaymentType extends BaseModel implements ModelWithIntId
 {
     const DISCRIMINATOR = null;
 
@@ -50,14 +50,14 @@ class PaymentType extends BaseModel implements ModelWithId
       *
       * @var string
       */
-    protected static $swaggerModelName = 'PaymentType';
+    protected static string $swaggerModelName = 'PaymentType';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'Id' => 'int',
         'PaymentTypeName' => 'string',
         'Active' => 'bool',
@@ -69,7 +69,7 @@ class PaymentType extends BaseModel implements ModelWithId
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'Id' => 'int32',
         'PaymentTypeName' => null,
         'Active' => null,
@@ -83,7 +83,7 @@ class PaymentType extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'Id' => 'Id',
         'PaymentTypeName' => 'PaymentTypeName',
         'Active' => 'Active',
@@ -95,7 +95,7 @@ class PaymentType extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'Id' => 'setId',
         'PaymentTypeName' => 'setPaymentTypeName',
         'Active' => 'setActive',
@@ -107,7 +107,7 @@ class PaymentType extends BaseModel implements ModelWithId
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'Id' => 'getId',
         'PaymentTypeName' => 'getPaymentTypeName',
         'Active' => 'getActive',
@@ -125,7 +125,7 @@ class PaymentType extends BaseModel implements ModelWithId
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['Id'] = isset($data['Id']) ? $data['Id'] : null;
         $this->container['PaymentTypeName'] = isset($data['PaymentTypeName']) ? $data['PaymentTypeName'] : null;
@@ -151,7 +151,7 @@ class PaymentType extends BaseModel implements ModelWithId
      *
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->container['Id'];
     }
@@ -163,7 +163,9 @@ class PaymentType extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setId($Id): self
+
+
+    public function setId(int $Id): static
     {
         $this->container['Id'] = $Id;
 
@@ -175,7 +177,7 @@ class PaymentType extends BaseModel implements ModelWithId
      *
      * @return string
      */
-    public function getPaymentTypeName()
+    public function getPaymentTypeName(): string
     {
         return $this->container['PaymentTypeName'];
     }
@@ -187,7 +189,9 @@ class PaymentType extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setPaymentTypeName($PaymentTypeName): self
+
+
+    public function setPaymentTypeName(string $PaymentTypeName): static
     {
         $this->container['PaymentTypeName'] = $PaymentTypeName;
 
@@ -199,7 +203,7 @@ class PaymentType extends BaseModel implements ModelWithId
      *
      * @return bool
      */
-    public function getActive()
+    public function getActive(): bool
     {
         return $this->container['Active'];
     }
@@ -211,7 +215,9 @@ class PaymentType extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setActive($Active): self
+
+
+    public function setActive(bool $Active): static
     {
         $this->container['Active'] = $Active;
 
@@ -223,7 +229,7 @@ class PaymentType extends BaseModel implements ModelWithId
      *
      * @return double
      */
-    public function getFee()
+    public function getFee(): float
     {
         return $this->container['Fee'];
     }
@@ -235,7 +241,9 @@ class PaymentType extends BaseModel implements ModelWithId
      *
      * @return $this
      */
-    public function setFee($Fee): self
+
+
+    public function setFee(float $Fee): static
     {
         $this->container['Fee'] = $Fee;
 

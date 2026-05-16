@@ -58,14 +58,14 @@ class CreditCardInfo extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'CreditCardInfo';
+    protected static string $swaggerModelName = 'CreditCardInfo';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'CreditCardNumber' => 'string',
         'ExpMonth' => 'string',
         'ExpYear' => 'string',
@@ -84,7 +84,7 @@ class CreditCardInfo extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'CreditCardNumber' => null,
         'ExpMonth' => null,
         'ExpYear' => null,
@@ -105,7 +105,7 @@ class CreditCardInfo extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'CreditCardNumber' => 'CreditCardNumber',
         'ExpMonth' => 'ExpMonth',
         'ExpYear' => 'ExpYear',
@@ -124,7 +124,7 @@ class CreditCardInfo extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'CreditCardNumber' => 'setCreditCardNumber',
         'ExpMonth' => 'setExpMonth',
         'ExpYear' => 'setExpYear',
@@ -143,7 +143,7 @@ class CreditCardInfo extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'CreditCardNumber' => 'getCreditCardNumber',
         'ExpMonth' => 'getExpMonth',
         'ExpYear' => 'getExpYear',
@@ -168,7 +168,7 @@ class CreditCardInfo extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['CreditCardNumber'] = isset($data['CreditCardNumber']) ? $data['CreditCardNumber'] : null;
         $this->container['ExpMonth'] = isset($data['ExpMonth']) ? $data['ExpMonth'] : null;
@@ -201,7 +201,7 @@ class CreditCardInfo extends BaseModel
      *
      * @return string
      */
-    public function getCreditCardNumber()
+    public function getCreditCardNumber(): string
     {
         return $this->container['CreditCardNumber'];
     }
@@ -213,7 +213,9 @@ class CreditCardInfo extends BaseModel
      *
      * @return $this
      */
-    public function setCreditCardNumber($CreditCardNumber): self
+
+
+    public function setCreditCardNumber(string $CreditCardNumber): static
     {
         $this->container['CreditCardNumber'] = $CreditCardNumber;
 
@@ -225,7 +227,7 @@ class CreditCardInfo extends BaseModel
      *
      * @return string
      */
-    public function getExpMonth()
+    public function getExpMonth(): string
     {
         return $this->container['ExpMonth'];
     }
@@ -237,7 +239,9 @@ class CreditCardInfo extends BaseModel
      *
      * @return $this
      */
-    public function setExpMonth($ExpMonth): self
+
+
+    public function setExpMonth(string $ExpMonth): static
     {
         $this->container['ExpMonth'] = $ExpMonth;
 
@@ -249,7 +253,7 @@ class CreditCardInfo extends BaseModel
      *
      * @return string
      */
-    public function getExpYear()
+    public function getExpYear(): string
     {
         return $this->container['ExpYear'];
     }
@@ -261,7 +265,9 @@ class CreditCardInfo extends BaseModel
      *
      * @return $this
      */
-    public function setExpYear($ExpYear): self
+
+
+    public function setExpYear(string $ExpYear): static
     {
         $this->container['ExpYear'] = $ExpYear;
 
@@ -273,7 +279,7 @@ class CreditCardInfo extends BaseModel
      *
      * @return string
      */
-    public function getBillingName()
+    public function getBillingName(): string
     {
         return $this->container['BillingName'];
     }
@@ -285,7 +291,9 @@ class CreditCardInfo extends BaseModel
      *
      * @return $this
      */
-    public function setBillingName($BillingName): self
+
+
+    public function setBillingName(string $BillingName): static
     {
         $this->container['BillingName'] = $BillingName;
 
@@ -297,7 +305,7 @@ class CreditCardInfo extends BaseModel
      *
      * @return string
      */
-    public function getBillingAddress()
+    public function getBillingAddress(): string
     {
         return $this->container['BillingAddress'];
     }
@@ -309,7 +317,9 @@ class CreditCardInfo extends BaseModel
      *
      * @return $this
      */
-    public function setBillingAddress($BillingAddress): self
+
+
+    public function setBillingAddress(string $BillingAddress): static
     {
         $this->container['BillingAddress'] = $BillingAddress;
 
@@ -321,7 +331,7 @@ class CreditCardInfo extends BaseModel
      *
      * @return string
      */
-    public function getBillingCity()
+    public function getBillingCity(): string
     {
         return $this->container['BillingCity'];
     }
@@ -333,7 +343,9 @@ class CreditCardInfo extends BaseModel
      *
      * @return $this
      */
-    public function setBillingCity($BillingCity): self
+
+
+    public function setBillingCity(string $BillingCity): static
     {
         $this->container['BillingCity'] = $BillingCity;
 
@@ -345,7 +357,7 @@ class CreditCardInfo extends BaseModel
      *
      * @return string
      */
-    public function getBillingState()
+    public function getBillingState(): string
     {
         return $this->container['BillingState'];
     }
@@ -357,7 +369,9 @@ class CreditCardInfo extends BaseModel
      *
      * @return $this
      */
-    public function setBillingState($BillingState): self
+
+
+    public function setBillingState(string $BillingState): static
     {
         $this->container['BillingState'] = $BillingState;
 
@@ -369,7 +383,7 @@ class CreditCardInfo extends BaseModel
      *
      * @return string
      */
-    public function getBillingPostalCode()
+    public function getBillingPostalCode(): string
     {
         return $this->container['BillingPostalCode'];
     }
@@ -381,7 +395,9 @@ class CreditCardInfo extends BaseModel
      *
      * @return $this
      */
-    public function setBillingPostalCode($BillingPostalCode): self
+
+
+    public function setBillingPostalCode(string $BillingPostalCode): static
     {
         $this->container['BillingPostalCode'] = $BillingPostalCode;
 
@@ -393,7 +409,7 @@ class CreditCardInfo extends BaseModel
      *
      * @return bool
      */
-    public function getSaveInfo()
+    public function getSaveInfo(): bool
     {
         return $this->container['SaveInfo'];
     }
@@ -405,7 +421,9 @@ class CreditCardInfo extends BaseModel
      *
      * @return $this
      */
-    public function setSaveInfo($SaveInfo): self
+
+
+    public function setSaveInfo(bool $SaveInfo): static
     {
         $this->container['SaveInfo'] = $SaveInfo;
 
@@ -417,7 +435,7 @@ class CreditCardInfo extends BaseModel
      *
      * @return string
      */
-    public function getCardId()
+    public function getCardId(): string
     {
         return $this->container['CardId'];
     }
@@ -429,7 +447,9 @@ class CreditCardInfo extends BaseModel
      *
      * @return $this
      */
-    public function setCardId($CardId): self
+
+
+    public function setCardId(string $CardId): static
     {
         $this->container['CardId'] = $CardId;
 
@@ -441,7 +461,7 @@ class CreditCardInfo extends BaseModel
      *
      * @return string
      */
-    public function getCVV()
+    public function getCVV(): string
     {
         return $this->container['CVV'];
     }
@@ -453,7 +473,9 @@ class CreditCardInfo extends BaseModel
      *
      * @return $this
      */
-    public function setCVV($CVV): self
+
+
+    public function setCVV(string $CVV): static
     {
         $this->container['CVV'] = $CVV;
 

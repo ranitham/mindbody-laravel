@@ -60,14 +60,14 @@ class Membership extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Membership';
+    protected static string $swaggerModelName = 'Membership';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'MembershipId' => 'int',
         'MembershipName' => 'string',
         'Priority' => 'int',
@@ -89,7 +89,7 @@ class Membership extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'MembershipId' => 'int32',
         'MembershipName' => null,
         'Priority' => 'int32',
@@ -113,7 +113,7 @@ class Membership extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'MembershipId' => 'MembershipId',
         'MembershipName' => 'MembershipName',
         'Priority' => 'Priority',
@@ -135,7 +135,7 @@ class Membership extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'MembershipId' => 'setMembershipId',
         'MembershipName' => 'setMembershipName',
         'Priority' => 'setPriority',
@@ -157,7 +157,7 @@ class Membership extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'MembershipId' => 'getMembershipId',
         'MembershipName' => 'getMembershipName',
         'Priority' => 'getPriority',
@@ -185,7 +185,7 @@ class Membership extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['MembershipId'] = isset($data['MembershipId']) ? $data['MembershipId'] : null;
         $this->container['MembershipName'] = isset($data['MembershipName']) ? $data['MembershipName'] : null;
@@ -221,7 +221,7 @@ class Membership extends BaseModel
      *
      * @return int
      */
-    public function getMembershipId()
+    public function getMembershipId(): int
     {
         return $this->container['MembershipId'];
     }
@@ -233,7 +233,9 @@ class Membership extends BaseModel
      *
      * @return $this
      */
-    public function setMembershipId($MembershipId): self
+
+
+    public function setMembershipId(int $MembershipId): static
     {
         $this->container['MembershipId'] = $MembershipId;
 
@@ -245,7 +247,7 @@ class Membership extends BaseModel
      *
      * @return string
      */
-    public function getMembershipName()
+    public function getMembershipName(): string
     {
         return $this->container['MembershipName'];
     }
@@ -257,7 +259,9 @@ class Membership extends BaseModel
      *
      * @return $this
      */
-    public function setMembershipName($MembershipName): self
+
+
+    public function setMembershipName(string $MembershipName): static
     {
         $this->container['MembershipName'] = $MembershipName;
 
@@ -269,7 +273,7 @@ class Membership extends BaseModel
      *
      * @return int
      */
-    public function getPriority()
+    public function getPriority(): int
     {
         return $this->container['Priority'];
     }
@@ -281,7 +285,9 @@ class Membership extends BaseModel
      *
      * @return $this
      */
-    public function setPriority($Priority): self
+
+
+    public function setPriority(int $Priority): static
     {
         $this->container['Priority'] = $Priority;
 
@@ -293,7 +299,7 @@ class Membership extends BaseModel
      *
      * @return double
      */
-    public function getMemberRetailDiscount()
+    public function getMemberRetailDiscount(): float
     {
         return $this->container['MemberRetailDiscount'];
     }
@@ -305,7 +311,9 @@ class Membership extends BaseModel
      *
      * @return $this
      */
-    public function setMemberRetailDiscount($MemberRetailDiscount): self
+
+
+    public function setMemberRetailDiscount(float $MemberRetailDiscount): static
     {
         $this->container['MemberRetailDiscount'] = $MemberRetailDiscount;
 
@@ -317,7 +325,7 @@ class Membership extends BaseModel
      *
      * @return double
      */
-    public function getMemberServiceDiscount()
+    public function getMemberServiceDiscount(): float
     {
         return $this->container['MemberServiceDiscount'];
     }
@@ -329,7 +337,9 @@ class Membership extends BaseModel
      *
      * @return $this
      */
-    public function setMemberServiceDiscount($MemberServiceDiscount): self
+
+
+    public function setMemberServiceDiscount(float $MemberServiceDiscount): static
     {
         $this->container['MemberServiceDiscount'] = $MemberServiceDiscount;
 
@@ -341,7 +351,7 @@ class Membership extends BaseModel
      *
      * @return bool
      */
-    public function getAllowClientsToScheduleUnpaid()
+    public function getAllowClientsToScheduleUnpaid(): bool
     {
         return $this->container['AllowClientsToScheduleUnpaid'];
     }
@@ -353,7 +363,9 @@ class Membership extends BaseModel
      *
      * @return $this
      */
-    public function setAllowClientsToScheduleUnpaid($AllowClientsToScheduleUnpaid): self
+
+
+    public function setAllowClientsToScheduleUnpaid(bool $AllowClientsToScheduleUnpaid): static
     {
         $this->container['AllowClientsToScheduleUnpaid'] = $AllowClientsToScheduleUnpaid;
 
@@ -365,7 +377,7 @@ class Membership extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ProgramMembership[]
      */
-    public function getOnlineBookingRestrictedToMembersOnly()
+    public function getOnlineBookingRestrictedToMembersOnly(): array
     {
         return $this->container['OnlineBookingRestrictedToMembersOnly'];
     }
@@ -377,7 +389,9 @@ class Membership extends BaseModel
      *
      * @return $this
      */
-    public function setOnlineBookingRestrictedToMembersOnly($OnlineBookingRestrictedToMembersOnly): self
+
+
+    public function setOnlineBookingRestrictedToMembersOnly(array $OnlineBookingRestrictedToMembersOnly): static
     {
         $this->container['OnlineBookingRestrictedToMembersOnly'] = $OnlineBookingRestrictedToMembersOnly;
 
@@ -389,7 +403,7 @@ class Membership extends BaseModel
      *
      * @return int
      */
-    public function getDayOfMonthSchedulingOpensForNextMonth()
+    public function getDayOfMonthSchedulingOpensForNextMonth(): int
     {
         return $this->container['DayOfMonthSchedulingOpensForNextMonth'];
     }
@@ -401,7 +415,9 @@ class Membership extends BaseModel
      *
      * @return $this
      */
-    public function setDayOfMonthSchedulingOpensForNextMonth($DayOfMonthSchedulingOpensForNextMonth): self
+
+
+    public function setDayOfMonthSchedulingOpensForNextMonth(int $DayOfMonthSchedulingOpensForNextMonth): static
     {
         $this->container['DayOfMonthSchedulingOpensForNextMonth'] = $DayOfMonthSchedulingOpensForNextMonth;
 
@@ -413,7 +429,7 @@ class Membership extends BaseModel
      *
      * @return bool
      */
-    public function getRestrictSelfSignInToMembersOnly()
+    public function getRestrictSelfSignInToMembersOnly(): bool
     {
         return $this->container['RestrictSelfSignInToMembersOnly'];
     }
@@ -425,7 +441,9 @@ class Membership extends BaseModel
      *
      * @return $this
      */
-    public function setRestrictSelfSignInToMembersOnly($RestrictSelfSignInToMembersOnly): self
+
+
+    public function setRestrictSelfSignInToMembersOnly(bool $RestrictSelfSignInToMembersOnly): static
     {
         $this->container['RestrictSelfSignInToMembersOnly'] = $RestrictSelfSignInToMembersOnly;
 
@@ -437,7 +455,7 @@ class Membership extends BaseModel
      *
      * @return bool
      */
-    public function getAllowMembersToBookAppointmentsWithoutPaying()
+    public function getAllowMembersToBookAppointmentsWithoutPaying(): bool
     {
         return $this->container['AllowMembersToBookAppointmentsWithoutPaying'];
     }
@@ -449,7 +467,9 @@ class Membership extends BaseModel
      *
      * @return $this
      */
-    public function setAllowMembersToBookAppointmentsWithoutPaying($AllowMembersToBookAppointmentsWithoutPaying): self
+
+
+    public function setAllowMembersToBookAppointmentsWithoutPaying(bool $AllowMembersToBookAppointmentsWithoutPaying): static
     {
         $this->container['AllowMembersToBookAppointmentsWithoutPaying'] = $AllowMembersToBookAppointmentsWithoutPaying;
 
@@ -461,7 +481,7 @@ class Membership extends BaseModel
      *
      * @return bool
      */
-    public function getAllowMembersToPurchaseNonMembersServices()
+    public function getAllowMembersToPurchaseNonMembersServices(): bool
     {
         return $this->container['AllowMembersToPurchaseNonMembersServices'];
     }
@@ -473,7 +493,9 @@ class Membership extends BaseModel
      *
      * @return $this
      */
-    public function setAllowMembersToPurchaseNonMembersServices($AllowMembersToPurchaseNonMembersServices): self
+
+
+    public function setAllowMembersToPurchaseNonMembersServices(bool $AllowMembersToPurchaseNonMembersServices): static
     {
         $this->container['AllowMembersToPurchaseNonMembersServices'] = $AllowMembersToPurchaseNonMembersServices;
 
@@ -485,7 +507,7 @@ class Membership extends BaseModel
      *
      * @return bool
      */
-    public function getAllowMembersToPurchaseNonMembersProducts()
+    public function getAllowMembersToPurchaseNonMembersProducts(): bool
     {
         return $this->container['AllowMembersToPurchaseNonMembersProducts'];
     }
@@ -497,7 +519,9 @@ class Membership extends BaseModel
      *
      * @return $this
      */
-    public function setAllowMembersToPurchaseNonMembersProducts($AllowMembersToPurchaseNonMembersProducts): self
+
+
+    public function setAllowMembersToPurchaseNonMembersProducts(bool $AllowMembersToPurchaseNonMembersProducts): static
     {
         $this->container['AllowMembersToPurchaseNonMembersProducts'] = $AllowMembersToPurchaseNonMembersProducts;
 
@@ -509,7 +533,7 @@ class Membership extends BaseModel
      *
      * @return bool
      */
-    public function getIsActive()
+    public function getIsActive(): bool
     {
         return $this->container['IsActive'];
     }
@@ -521,7 +545,9 @@ class Membership extends BaseModel
      *
      * @return $this
      */
-    public function setIsActive($IsActive): self
+
+
+    public function setIsActive(bool $IsActive): static
     {
         $this->container['IsActive'] = $IsActive;
 
@@ -533,7 +559,7 @@ class Membership extends BaseModel
      *
      * @return int
      */
-    public function getEarlyAccessDaysBeforeSchedulingWindow()
+    public function getEarlyAccessDaysBeforeSchedulingWindow(): int
     {
         return $this->container['EarlyAccessDaysBeforeSchedulingWindow'];
     }
@@ -545,7 +571,9 @@ class Membership extends BaseModel
      *
      * @return $this
      */
-    public function setEarlyAccessDaysBeforeSchedulingWindow($EarlyAccessDaysBeforeSchedulingWindow): self
+
+
+    public function setEarlyAccessDaysBeforeSchedulingWindow(int $EarlyAccessDaysBeforeSchedulingWindow): static
     {
         $this->container['EarlyAccessDaysBeforeSchedulingWindow'] = $EarlyAccessDaysBeforeSchedulingWindow;
 

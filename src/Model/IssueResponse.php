@@ -51,14 +51,14 @@ class IssueResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'IssueResponse';
+    protected static string $swaggerModelName = 'IssueResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'TokenType' => 'string',
         'AccessToken' => 'string',
         'Expires' => '\DateTime',
@@ -70,7 +70,7 @@ class IssueResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'TokenType' => null,
         'AccessToken' => null,
         'Expires' => 'date-time',
@@ -84,7 +84,7 @@ class IssueResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'TokenType' => 'TokenType',
         'AccessToken' => 'AccessToken',
         'Expires' => 'Expires',
@@ -96,7 +96,7 @@ class IssueResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'TokenType' => 'setTokenType',
         'AccessToken' => 'setAccessToken',
         'Expires' => 'setExpires',
@@ -108,7 +108,7 @@ class IssueResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'TokenType' => 'getTokenType',
         'AccessToken' => 'getAccessToken',
         'Expires' => 'getExpires',
@@ -126,7 +126,7 @@ class IssueResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['TokenType'] = isset($data['TokenType']) ? $data['TokenType'] : null;
         $this->container['AccessToken'] = isset($data['AccessToken']) ? $data['AccessToken'] : null;
@@ -152,7 +152,7 @@ class IssueResponse extends BaseModel
      *
      * @return string
      */
-    public function getTokenType()
+    public function getTokenType(): string
     {
         return $this->container['TokenType'];
     }
@@ -164,7 +164,9 @@ class IssueResponse extends BaseModel
      *
      * @return $this
      */
-    public function setTokenType($TokenType): self
+
+
+    public function setTokenType(string $TokenType): static
     {
         $this->container['TokenType'] = $TokenType;
 
@@ -176,7 +178,7 @@ class IssueResponse extends BaseModel
      *
      * @return string
      */
-    public function getAccessToken()
+    public function getAccessToken(): string
     {
         return $this->container['AccessToken'];
     }
@@ -188,7 +190,9 @@ class IssueResponse extends BaseModel
      *
      * @return $this
      */
-    public function setAccessToken($AccessToken): self
+
+
+    public function setAccessToken(string $AccessToken): static
     {
         $this->container['AccessToken'] = $AccessToken;
 
@@ -200,7 +204,7 @@ class IssueResponse extends BaseModel
      *
      * @return \DateTime
      */
-    public function getExpires()
+    public function getExpires(): \DateTime
     {
         return $this->container['Expires'];
     }
@@ -212,7 +216,9 @@ class IssueResponse extends BaseModel
      *
      * @return $this
      */
-    public function setExpires($Expires): self
+
+
+    public function setExpires(\DateTime $Expires): static
     {
         $this->container['Expires'] = $Expires;
 
@@ -224,7 +230,7 @@ class IssueResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\User
      */
-    public function getUser()
+    public function getUser(): \Nlocascio\Mindbody\Model\User
     {
         return $this->container['User'];
     }
@@ -236,7 +242,9 @@ class IssueResponse extends BaseModel
      *
      * @return $this
      */
-    public function setUser($User): self
+
+
+    public function setUser(\Nlocascio\Mindbody\Model\User $User): static
     {
         $this->container['User'] = $User;
 

@@ -48,14 +48,14 @@ class UploadClientDocumentResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'UploadClientDocumentResponse';
+    protected static string $swaggerModelName = 'UploadClientDocumentResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'FileSize' => 'int',
         'FileName' => 'string'
     ];
@@ -65,7 +65,7 @@ class UploadClientDocumentResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'FileSize' => 'int64',
         'FileName' => null
     ];
@@ -77,7 +77,7 @@ class UploadClientDocumentResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'FileSize' => 'FileSize',
         'FileName' => 'FileName'
     ];
@@ -87,7 +87,7 @@ class UploadClientDocumentResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'FileSize' => 'setFileSize',
         'FileName' => 'setFileName'
     ];
@@ -97,7 +97,7 @@ class UploadClientDocumentResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'FileSize' => 'getFileSize',
         'FileName' => 'getFileName'
     ];
@@ -113,7 +113,7 @@ class UploadClientDocumentResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['FileSize'] = isset($data['FileSize']) ? $data['FileSize'] : null;
         $this->container['FileName'] = isset($data['FileName']) ? $data['FileName'] : null;
@@ -137,7 +137,7 @@ class UploadClientDocumentResponse extends BaseModel
      *
      * @return int
      */
-    public function getFileSize()
+    public function getFileSize(): int
     {
         return $this->container['FileSize'];
     }
@@ -149,7 +149,9 @@ class UploadClientDocumentResponse extends BaseModel
      *
      * @return $this
      */
-    public function setFileSize($FileSize): self
+
+
+    public function setFileSize(int $FileSize): static
     {
         $this->container['FileSize'] = $FileSize;
 
@@ -161,7 +163,7 @@ class UploadClientDocumentResponse extends BaseModel
      *
      * @return string
      */
-    public function getFileName()
+    public function getFileName(): string
     {
         return $this->container['FileName'];
     }
@@ -173,7 +175,9 @@ class UploadClientDocumentResponse extends BaseModel
      *
      * @return $this
      */
-    public function setFileName($FileName): self
+
+
+    public function setFileName(string $FileName): static
     {
         $this->container['FileName'] = $FileName;
 

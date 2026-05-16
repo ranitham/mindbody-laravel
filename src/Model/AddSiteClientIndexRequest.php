@@ -55,14 +55,14 @@ class AddSiteClientIndexRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'AddSiteClientIndexRequest';
+    protected static string $swaggerModelName = 'AddSiteClientIndexRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ClientIndexName' => 'string',
         'Active' => 'bool',
         'ShowOnNewClient' => 'bool',
@@ -79,7 +79,7 @@ class AddSiteClientIndexRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ClientIndexName' => null,
         'Active' => null,
         'ShowOnNewClient' => null,
@@ -98,7 +98,7 @@ class AddSiteClientIndexRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ClientIndexName' => 'ClientIndexName',
         'Active' => 'Active',
         'ShowOnNewClient' => 'ShowOnNewClient',
@@ -115,7 +115,7 @@ class AddSiteClientIndexRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ClientIndexName' => 'setClientIndexName',
         'Active' => 'setActive',
         'ShowOnNewClient' => 'setShowOnNewClient',
@@ -132,7 +132,7 @@ class AddSiteClientIndexRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ClientIndexName' => 'getClientIndexName',
         'Active' => 'getActive',
         'ShowOnNewClient' => 'getShowOnNewClient',
@@ -155,7 +155,7 @@ class AddSiteClientIndexRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ClientIndexName'] = isset($data['ClientIndexName']) ? $data['ClientIndexName'] : null;
         $this->container['Active'] = isset($data['Active']) ? $data['Active'] : null;
@@ -189,7 +189,7 @@ class AddSiteClientIndexRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientIndexName()
+    public function getClientIndexName(): string
     {
         return $this->container['ClientIndexName'];
     }
@@ -201,7 +201,9 @@ class AddSiteClientIndexRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClientIndexName($ClientIndexName): self
+
+
+    public function setClientIndexName(string $ClientIndexName): static
     {
         $this->container['ClientIndexName'] = $ClientIndexName;
 
@@ -213,7 +215,7 @@ class AddSiteClientIndexRequest extends BaseModel
      *
      * @return bool
      */
-    public function getActive()
+    public function getActive(): bool
     {
         return $this->container['Active'];
     }
@@ -225,7 +227,9 @@ class AddSiteClientIndexRequest extends BaseModel
      *
      * @return $this
      */
-    public function setActive($Active): self
+
+
+    public function setActive(bool $Active): static
     {
         $this->container['Active'] = $Active;
 
@@ -237,7 +241,7 @@ class AddSiteClientIndexRequest extends BaseModel
      *
      * @return bool
      */
-    public function getShowOnNewClient()
+    public function getShowOnNewClient(): bool
     {
         return $this->container['ShowOnNewClient'];
     }
@@ -249,7 +253,9 @@ class AddSiteClientIndexRequest extends BaseModel
      *
      * @return $this
      */
-    public function setShowOnNewClient($ShowOnNewClient): self
+
+
+    public function setShowOnNewClient(bool $ShowOnNewClient): static
     {
         $this->container['ShowOnNewClient'] = $ShowOnNewClient;
 
@@ -261,7 +267,7 @@ class AddSiteClientIndexRequest extends BaseModel
      *
      * @return bool
      */
-    public function getShowOnEnrollmentRoster()
+    public function getShowOnEnrollmentRoster(): bool
     {
         return $this->container['ShowOnEnrollmentRoster'];
     }
@@ -273,7 +279,9 @@ class AddSiteClientIndexRequest extends BaseModel
      *
      * @return $this
      */
-    public function setShowOnEnrollmentRoster($ShowOnEnrollmentRoster): self
+
+
+    public function setShowOnEnrollmentRoster(bool $ShowOnEnrollmentRoster): static
     {
         $this->container['ShowOnEnrollmentRoster'] = $ShowOnEnrollmentRoster;
 
@@ -285,7 +293,7 @@ class AddSiteClientIndexRequest extends BaseModel
      *
      * @return bool
      */
-    public function getEditOnEnrollmentRoster()
+    public function getEditOnEnrollmentRoster(): bool
     {
         return $this->container['EditOnEnrollmentRoster'];
     }
@@ -297,7 +305,9 @@ class AddSiteClientIndexRequest extends BaseModel
      *
      * @return $this
      */
-    public function setEditOnEnrollmentRoster($EditOnEnrollmentRoster): self
+
+
+    public function setEditOnEnrollmentRoster(bool $EditOnEnrollmentRoster): static
     {
         $this->container['EditOnEnrollmentRoster'] = $EditOnEnrollmentRoster;
 
@@ -309,7 +319,7 @@ class AddSiteClientIndexRequest extends BaseModel
      *
      * @return int
      */
-    public function getSortOrder()
+    public function getSortOrder(): int
     {
         return $this->container['SortOrder'];
     }
@@ -321,7 +331,9 @@ class AddSiteClientIndexRequest extends BaseModel
      *
      * @return $this
      */
-    public function setSortOrder($SortOrder): self
+
+
+    public function setSortOrder(int $SortOrder): static
     {
         $this->container['SortOrder'] = $SortOrder;
 
@@ -333,7 +345,7 @@ class AddSiteClientIndexRequest extends BaseModel
      *
      * @return bool
      */
-    public function getShowInConsumerMode()
+    public function getShowInConsumerMode(): bool
     {
         return $this->container['ShowInConsumerMode'];
     }
@@ -345,7 +357,9 @@ class AddSiteClientIndexRequest extends BaseModel
      *
      * @return $this
      */
-    public function setShowInConsumerMode($ShowInConsumerMode): self
+
+
+    public function setShowInConsumerMode(bool $ShowInConsumerMode): static
     {
         $this->container['ShowInConsumerMode'] = $ShowInConsumerMode;
 
@@ -357,7 +371,7 @@ class AddSiteClientIndexRequest extends BaseModel
      *
      * @return bool
      */
-    public function getRequiredConsumerMode()
+    public function getRequiredConsumerMode(): bool
     {
         return $this->container['RequiredConsumerMode'];
     }
@@ -369,7 +383,9 @@ class AddSiteClientIndexRequest extends BaseModel
      *
      * @return $this
      */
-    public function setRequiredConsumerMode($RequiredConsumerMode): self
+
+
+    public function setRequiredConsumerMode(bool $RequiredConsumerMode): static
     {
         $this->container['RequiredConsumerMode'] = $RequiredConsumerMode;
 
@@ -381,7 +397,7 @@ class AddSiteClientIndexRequest extends BaseModel
      *
      * @return bool
      */
-    public function getRequiredBizMode()
+    public function getRequiredBizMode(): bool
     {
         return $this->container['RequiredBizMode'];
     }
@@ -393,7 +409,9 @@ class AddSiteClientIndexRequest extends BaseModel
      *
      * @return $this
      */
-    public function setRequiredBizMode($RequiredBizMode): self
+
+
+    public function setRequiredBizMode(bool $RequiredBizMode): static
     {
         $this->container['RequiredBizMode'] = $RequiredBizMode;
 

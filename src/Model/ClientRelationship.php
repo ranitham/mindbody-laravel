@@ -52,14 +52,14 @@ class ClientRelationship extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ClientRelationship';
+    protected static string $swaggerModelName = 'ClientRelationship';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'RelatedClientId' => 'string',
         'RelatedUniqueId' => 'int',
         'Relationship' => '\Nlocascio\Mindbody\Model\Relationship',
@@ -72,7 +72,7 @@ class ClientRelationship extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'RelatedClientId' => null,
         'RelatedUniqueId' => 'int64',
         'Relationship' => null,
@@ -87,7 +87,7 @@ class ClientRelationship extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'RelatedClientId' => 'RelatedClientId',
         'RelatedUniqueId' => 'RelatedUniqueId',
         'Relationship' => 'Relationship',
@@ -100,7 +100,7 @@ class ClientRelationship extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'RelatedClientId' => 'setRelatedClientId',
         'RelatedUniqueId' => 'setRelatedUniqueId',
         'Relationship' => 'setRelationship',
@@ -113,7 +113,7 @@ class ClientRelationship extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'RelatedClientId' => 'getRelatedClientId',
         'RelatedUniqueId' => 'getRelatedUniqueId',
         'Relationship' => 'getRelationship',
@@ -132,7 +132,7 @@ class ClientRelationship extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['RelatedClientId'] = isset($data['RelatedClientId']) ? $data['RelatedClientId'] : null;
         $this->container['RelatedUniqueId'] = isset($data['RelatedUniqueId']) ? $data['RelatedUniqueId'] : null;
@@ -159,7 +159,7 @@ class ClientRelationship extends BaseModel
      *
      * @return string
      */
-    public function getRelatedClientId()
+    public function getRelatedClientId(): string
     {
         return $this->container['RelatedClientId'];
     }
@@ -171,7 +171,9 @@ class ClientRelationship extends BaseModel
      *
      * @return $this
      */
-    public function setRelatedClientId($RelatedClientId): self
+
+
+    public function setRelatedClientId(string $RelatedClientId): static
     {
         $this->container['RelatedClientId'] = $RelatedClientId;
 
@@ -183,7 +185,7 @@ class ClientRelationship extends BaseModel
      *
      * @return int
      */
-    public function getRelatedUniqueId()
+    public function getRelatedUniqueId(): int
     {
         return $this->container['RelatedUniqueId'];
     }
@@ -195,7 +197,9 @@ class ClientRelationship extends BaseModel
      *
      * @return $this
      */
-    public function setRelatedUniqueId($RelatedUniqueId): self
+
+
+    public function setRelatedUniqueId(int $RelatedUniqueId): static
     {
         $this->container['RelatedUniqueId'] = $RelatedUniqueId;
 
@@ -207,7 +211,7 @@ class ClientRelationship extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Relationship
      */
-    public function getRelationship()
+    public function getRelationship(): \Nlocascio\Mindbody\Model\Relationship
     {
         return $this->container['Relationship'];
     }
@@ -219,7 +223,9 @@ class ClientRelationship extends BaseModel
      *
      * @return $this
      */
-    public function setRelationship($Relationship): self
+
+
+    public function setRelationship(\Nlocascio\Mindbody\Model\Relationship $Relationship): static
     {
         $this->container['Relationship'] = $Relationship;
 
@@ -231,7 +237,7 @@ class ClientRelationship extends BaseModel
      *
      * @return string
      */
-    public function getRelationshipName()
+    public function getRelationshipName(): string
     {
         return $this->container['RelationshipName'];
     }
@@ -243,7 +249,9 @@ class ClientRelationship extends BaseModel
      *
      * @return $this
      */
-    public function setRelationshipName($RelationshipName): self
+
+
+    public function setRelationshipName(string $RelationshipName): static
     {
         $this->container['RelationshipName'] = $RelationshipName;
 
@@ -255,7 +263,7 @@ class ClientRelationship extends BaseModel
      *
      * @return bool
      */
-    public function getDelete()
+    public function getDelete(): bool
     {
         return $this->container['Delete'];
     }
@@ -267,7 +275,9 @@ class ClientRelationship extends BaseModel
      *
      * @return $this
      */
-    public function setDelete($Delete): self
+
+
+    public function setDelete(bool $Delete): static
     {
         $this->container['Delete'] = $Delete;
 

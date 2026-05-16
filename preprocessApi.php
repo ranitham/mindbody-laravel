@@ -16,19 +16,19 @@ function fetchAPI(string $address): array
         $processedJSONAPI = processJSONApiAsText($swaggerAPIDoc);
         return json_decode($processedJSONAPI, true);
     } else {
-        throw new ErrorException('Could not fetch the Mindbody API from' + $address + '\n');
+        throw new ErrorException('Could not fetch the Mindbody API from' . $address . '\n');
     }
 }
 
 function processJSONApiAsText(string $jsonAPI): string
 {
-    $find = ['/public/v{version}/', 'ExtensionModels.', 'CheckoutRequest.Items.','CheckoutRequest.Payments.', 'CheckoutRequest.', 'System.Collections.Generic.KeyValuePair`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.Collections.Generic.IEnumerable`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]'];
-    $replace = ['/public/v6/','','','','','KeyValuePair'];
+    $find = ['/public/v{version}/', 'ExtensionModels.', 'CheckoutRequest.Items.', 'CheckoutRequest.Payments.', 'CheckoutRequest.', 'System.Collections.Generic.KeyValuePair`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.Collections.Generic.IEnumerable`1[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]'];
+    $replace = ['/public/v6/', '', '', '', '', 'KeyValuePair'];
 
     $processedJSONAPI = str_replace($find, $replace, $jsonAPI);
 
     $patterns = ['/Mindbody\.PublicApi\.Dto\.Models\.V6(\.[A-z]*Controller\.|\.)/', '/Mindbody\.PublicApi\.Common\.Models\./'];
-    $replacements =['',''];
+    $replacements = ['', ''];
 
 
     return preg_replace($patterns, $replacements, $processedJSONAPI);
@@ -78,6 +78,14 @@ function processAPI(array $api): array
             $definition['properties'] = new stdClass();
         }
 
+        foreach ($definition['properties'] as $propertyName => &$property) {
+            if (isset($property['type']) && $property['type'] === 'string') {
+                if (isset($property['minLength']) && $property['minLength'] === 0) {
+                    unset($property['minLength']);
+                }
+            }
+        }
+
         if ($definitionName === 'CheckoutPaymentInfo') {
             $definition['properties']['Metadata']['type'] = 'object';
             unset($definition['properties']['Metadata']['additionalProperties']);
@@ -106,7 +114,7 @@ function processAPI(array $api): array
                 'Tip',
             ];
         }
-        
+
         if ($definitionName === 'Program') {
             $definition['properties']['ScheduleType']['enum'] = [
                 'All',
@@ -152,7 +160,7 @@ function processAPI(array $api): array
     return $api;
 }
 
-function getSecurityDefinition(string $name, $description): array
+function getSecurityDefinition(string $name, string $description): array
 {
     return [
         'type' => 'apiKey',
@@ -182,5 +190,3 @@ function fetchSwaggerCodegen(bool $overwrite = false)
 }
 
 writeAPI(processAPI(fetchAPI('https://api.mindbodyonline.com/public/v6/swagger/doc')), './mindbody.json');
-
-?>

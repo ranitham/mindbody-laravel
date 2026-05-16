@@ -48,14 +48,14 @@ class GetActiveClientMembershipsResponse extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetActiveClientMembershipsResponse';
+    protected static string $swaggerModelName = 'GetActiveClientMembershipsResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'PaginationResponse' => '\Nlocascio\Mindbody\Model\PaginationResponse',
         'ClientMemberships' => '\Nlocascio\Mindbody\Model\ClientMembership[]'
     ];
@@ -65,7 +65,7 @@ class GetActiveClientMembershipsResponse extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'PaginationResponse' => null,
         'ClientMemberships' => null
     ];
@@ -77,7 +77,7 @@ class GetActiveClientMembershipsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'PaginationResponse' => 'PaginationResponse',
         'ClientMemberships' => 'ClientMemberships'
     ];
@@ -87,7 +87,7 @@ class GetActiveClientMembershipsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'PaginationResponse' => 'setPaginationResponse',
         'ClientMemberships' => 'setClientMemberships'
     ];
@@ -97,7 +97,7 @@ class GetActiveClientMembershipsResponse extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'PaginationResponse' => 'getPaginationResponse',
         'ClientMemberships' => 'getClientMemberships'
     ];
@@ -113,7 +113,7 @@ class GetActiveClientMembershipsResponse extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['PaginationResponse'] = isset($data['PaginationResponse']) ? $data['PaginationResponse'] : null;
         $this->container['ClientMemberships'] = isset($data['ClientMemberships']) ? $data['ClientMemberships'] : null;
@@ -137,7 +137,7 @@ class GetActiveClientMembershipsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse()
+    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
     {
         return $this->container['PaginationResponse'];
     }
@@ -149,7 +149,9 @@ class GetActiveClientMembershipsResponse extends BaseModel
      *
      * @return $this
      */
-    public function setPaginationResponse($PaginationResponse): self
+
+
+    public function setPaginationResponse(\Nlocascio\Mindbody\Model\PaginationResponse $PaginationResponse): static
     {
         $this->container['PaginationResponse'] = $PaginationResponse;
 
@@ -161,7 +163,7 @@ class GetActiveClientMembershipsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClientMembership[]
      */
-    public function getClientMemberships()
+    public function getClientMemberships(): array
     {
         return $this->container['ClientMemberships'];
     }
@@ -173,7 +175,9 @@ class GetActiveClientMembershipsResponse extends BaseModel
      *
      * @return $this
      */
-    public function setClientMemberships($ClientMemberships): self
+
+
+    public function setClientMemberships(array $ClientMemberships): static
     {
         $this->container['ClientMemberships'] = $ClientMemberships;
 

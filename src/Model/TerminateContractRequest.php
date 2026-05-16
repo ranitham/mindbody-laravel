@@ -51,14 +51,14 @@ class TerminateContractRequest extends BaseModel
       *
       * @var string
       */
-    protected static $swaggerModelName = 'TerminateContractRequest';
+    protected static string $swaggerModelName = 'TerminateContractRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       *
       * @var string[]
       */
-    protected static $swaggerTypes = [
+    protected static array $swaggerTypes = [
         'ClientId' => 'string',
         'ClientContractId' => 'int',
         'TerminationDate' => '\DateTime',
@@ -71,7 +71,7 @@ class TerminateContractRequest extends BaseModel
       *
       * @var array<string, string|null>
       */
-    protected static $swaggerFormats = [
+    protected static array $swaggerFormats = [
         'ClientId' => null,
         'ClientContractId' => 'int32',
         'TerminationDate' => 'date-time',
@@ -86,7 +86,7 @@ class TerminateContractRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $attributeMap = [
+    protected static array $attributeMap = [
         'ClientId' => 'ClientId',
         'ClientContractId' => 'ClientContractId',
         'TerminationDate' => 'TerminationDate',
@@ -99,7 +99,7 @@ class TerminateContractRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $setters = [
+    protected static array $setters = [
         'ClientId' => 'setClientId',
         'ClientContractId' => 'setClientContractId',
         'TerminationDate' => 'setTerminationDate',
@@ -112,7 +112,7 @@ class TerminateContractRequest extends BaseModel
      *
      * @var string[]
      */
-    protected static $getters = [
+    protected static array $getters = [
         'ClientId' => 'getClientId',
         'ClientContractId' => 'getClientContractId',
         'TerminationDate' => 'getTerminationDate',
@@ -131,7 +131,7 @@ class TerminateContractRequest extends BaseModel
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['ClientId'] = isset($data['ClientId']) ? $data['ClientId'] : null;
         $this->container['ClientContractId'] = isset($data['ClientContractId']) ? $data['ClientContractId'] : null;
@@ -167,7 +167,7 @@ class TerminateContractRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId()
+    public function getClientId(): string
     {
         return $this->container['ClientId'];
     }
@@ -179,7 +179,9 @@ class TerminateContractRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClientId($ClientId): self
+
+
+    public function setClientId(string $ClientId): static
     {
         $this->container['ClientId'] = $ClientId;
 
@@ -191,7 +193,7 @@ class TerminateContractRequest extends BaseModel
      *
      * @return int
      */
-    public function getClientContractId()
+    public function getClientContractId(): int
     {
         return $this->container['ClientContractId'];
     }
@@ -203,7 +205,9 @@ class TerminateContractRequest extends BaseModel
      *
      * @return $this
      */
-    public function setClientContractId($ClientContractId): self
+
+
+    public function setClientContractId(int $ClientContractId): static
     {
         $this->container['ClientContractId'] = $ClientContractId;
 
@@ -215,7 +219,7 @@ class TerminateContractRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getTerminationDate()
+    public function getTerminationDate(): \DateTime
     {
         return $this->container['TerminationDate'];
     }
@@ -227,7 +231,9 @@ class TerminateContractRequest extends BaseModel
      *
      * @return $this
      */
-    public function setTerminationDate($TerminationDate): self
+
+
+    public function setTerminationDate(\DateTime $TerminationDate): static
     {
         $this->container['TerminationDate'] = $TerminationDate;
 
@@ -239,7 +245,7 @@ class TerminateContractRequest extends BaseModel
      *
      * @return string
      */
-    public function getTerminationCode()
+    public function getTerminationCode(): string
     {
         return $this->container['TerminationCode'];
     }
@@ -251,7 +257,9 @@ class TerminateContractRequest extends BaseModel
      *
      * @return $this
      */
-    public function setTerminationCode($TerminationCode): self
+
+
+    public function setTerminationCode(string $TerminationCode): static
     {
         $this->container['TerminationCode'] = $TerminationCode;
 
@@ -263,7 +271,7 @@ class TerminateContractRequest extends BaseModel
      *
      * @return string
      */
-    public function getTerminationComments()
+    public function getTerminationComments(): string
     {
         return $this->container['TerminationComments'];
     }
@@ -275,7 +283,9 @@ class TerminateContractRequest extends BaseModel
      *
      * @return $this
      */
-    public function setTerminationComments($TerminationComments): self
+
+
+    public function setTerminationComments(string $TerminationComments): static
     {
         $this->container['TerminationComments'] = $TerminationComments;
 
