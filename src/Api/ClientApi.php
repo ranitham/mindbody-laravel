@@ -1453,25 +1453,17 @@ class ClientApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
         // query params
-        
-        
+        $queryParams['request.clientId'] = ObjectSerializer::toQueryValue($RequestClientId);
         // query params
-        
-        
+        $queryParams['request.formulaNoteId'] = ObjectSerializer::toQueryValue($RequestFormulaNoteId);
 
 
         // body params
@@ -1713,18 +1705,13 @@ class ClientApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestTest !== null) {
             $queryParams['request.test'] = ObjectSerializer::toQueryValue($RequestTest);
         }
-        
         // query params
-        
-        
+        $queryParams['request.clientId'] = ObjectSerializer::toQueryValue($RequestClientId);
         // query params
-        
-        
+        $queryParams['request.contactLogId'] = ObjectSerializer::toQueryValue($RequestContactLogId);
 
 
         // body params
@@ -1956,12 +1943,9 @@ class ClientApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($ClientId !== null) {
             $queryParams['clientId'] = ObjectSerializer::toQueryValue($ClientId);
         }
-        
 
 
         // body params
@@ -2234,50 +2218,31 @@ class ClientApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestClientAssociatedSitesOffset !== null) {
             $queryParams['request.clientAssociatedSitesOffset'] = ObjectSerializer::toQueryValue($RequestClientAssociatedSitesOffset);
         }
-        
         // query params
-        
-        
         if ($RequestCrossRegionalLookup !== null) {
             $queryParams['request.crossRegionalLookup'] = ObjectSerializer::toQueryValue($RequestCrossRegionalLookup);
         }
-        
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
-        
         if ($RequestLocationId !== null) {
             $queryParams['request.locationId'] = ObjectSerializer::toQueryValue($RequestLocationId);
         }
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
         // query params
-        
-        
         if ($RequestUniqueClientId !== null) {
             $queryParams['request.uniqueClientId'] = ObjectSerializer::toQueryValue($RequestUniqueClientId);
         }
-        
         // query params
-        
-        
+        $queryParams['request.clientId'] = ObjectSerializer::toQueryValue($RequestClientId);
 
 
         // body params
@@ -2545,43 +2510,27 @@ class ClientApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestClientAssociatedSitesOffset !== null) {
             $queryParams['request.clientAssociatedSitesOffset'] = ObjectSerializer::toQueryValue($RequestClientAssociatedSitesOffset);
         }
-        
         // query params
-        
-        
         if ($RequestCrossRegionalLookup !== null) {
             $queryParams['request.crossRegionalLookup'] = ObjectSerializer::toQueryValue($RequestCrossRegionalLookup);
         }
-        
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
-        
         if ($RequestLocationId !== null) {
             $queryParams['request.locationId'] = ObjectSerializer::toQueryValue($RequestLocationId);
         }
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
         // query params
-        
-        
+        $queryParams['request.clientIds'] = $RequestClientIds;
 
 
         // body params
@@ -2844,36 +2793,23 @@ class ClientApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestBalanceDate !== null) {
             $queryParams['request.balanceDate'] = ObjectSerializer::toQueryValue($RequestBalanceDate);
         }
-        
         // query params
-        
-        
         if ($RequestClassId !== null) {
             $queryParams['request.classId'] = ObjectSerializer::toQueryValue($RequestClassId);
         }
-        
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
         // query params
-        
-        
+        $queryParams['request.clientIds'] = $RequestClientIds;
 
 
         // body params
@@ -3166,71 +3102,43 @@ class ClientApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestClientAssociatedSitesOffset !== null) {
             $queryParams['request.clientAssociatedSitesOffset'] = ObjectSerializer::toQueryValue($RequestClientAssociatedSitesOffset);
         }
-        
         // query params
-        
-        
         if ($RequestCrossRegionalLookup !== null) {
             $queryParams['request.crossRegionalLookup'] = ObjectSerializer::toQueryValue($RequestCrossRegionalLookup);
         }
-        
         // query params
-        
-        
         if ($RequestEndDate !== null) {
             $queryParams['request.endDate'] = ObjectSerializer::toQueryValue($RequestEndDate);
         }
-        
         // query params
-        
-        
         if ($RequestExcludeInactiveSites !== null) {
             $queryParams['request.excludeInactiveSites'] = ObjectSerializer::toQueryValue($RequestExcludeInactiveSites);
         }
-        
         // query params
-        
         if (is_array($RequestRequiredClientData)) {
             $queryParams['request.requiredClientData'] = $RequestRequiredClientData;
         }
-        
-        
         // query params
-        
-        
         if ($RequestShowActiveOnly !== null) {
             $queryParams['request.showActiveOnly'] = ObjectSerializer::toQueryValue($RequestShowActiveOnly);
         }
-        
         // query params
-        
-        
         if ($RequestStartDate !== null) {
             $queryParams['request.startDate'] = ObjectSerializer::toQueryValue($RequestStartDate);
         }
-        
         // query params
-        
-        
         if ($RequestUniqueClientId !== null) {
             $queryParams['request.uniqueClientId'] = ObjectSerializer::toQueryValue($RequestUniqueClientId);
         }
-        
         // query params
-        
-        
         if ($RequestUseActivateDate !== null) {
             $queryParams['request.useActivateDate'] = ObjectSerializer::toQueryValue($RequestUseActivateDate);
         }
-        
         // query params
-        
-        
+        $queryParams['request.clientId'] = ObjectSerializer::toQueryValue($RequestClientId);
         // header params
         if ($ConsumerIdentityToken !== null) {
             $headerParams['consumer-identity-token'] = ObjectSerializer::toHeaderValue($ConsumerIdentityToken);
@@ -3502,43 +3410,27 @@ class ClientApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestClientAssociatedSitesOffset !== null) {
             $queryParams['request.clientAssociatedSitesOffset'] = ObjectSerializer::toQueryValue($RequestClientAssociatedSitesOffset);
         }
-        
         // query params
-        
-        
         if ($RequestCrossRegionalLookup !== null) {
             $queryParams['request.crossRegionalLookup'] = ObjectSerializer::toQueryValue($RequestCrossRegionalLookup);
         }
-        
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
         // query params
-        
-        
         if ($RequestUniqueClientId !== null) {
             $queryParams['request.uniqueClientId'] = ObjectSerializer::toQueryValue($RequestUniqueClientId);
         }
-        
         // query params
-        
-        
+        $queryParams['request.clientId'] = ObjectSerializer::toQueryValue($RequestClientId);
 
 
         // body params
@@ -3801,40 +3693,25 @@ class ClientApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestEmail !== null) {
             $queryParams['request.email'] = ObjectSerializer::toQueryValue($RequestEmail);
         }
-        
         // query params
-        
-        
         if ($RequestFirstName !== null) {
             $queryParams['request.firstName'] = ObjectSerializer::toQueryValue($RequestFirstName);
         }
-        
         // query params
-        
-        
         if ($RequestLastName !== null) {
             $queryParams['request.lastName'] = ObjectSerializer::toQueryValue($RequestLastName);
         }
-        
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
 
 
         // body params
@@ -4092,33 +3969,21 @@ class ClientApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestAppointmentId !== null) {
             $queryParams['request.appointmentId'] = ObjectSerializer::toQueryValue($RequestAppointmentId);
         }
-        
         // query params
-        
-        
         if ($RequestClientId !== null) {
             $queryParams['request.clientId'] = ObjectSerializer::toQueryValue($RequestClientId);
         }
-        
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
 
 
         // body params
@@ -4361,12 +4226,9 @@ class ClientApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestRequiredOnly !== null) {
             $queryParams['request.requiredOnly'] = ObjectSerializer::toQueryValue($RequestRequiredOnly);
         }
-        
 
 
         // body params
@@ -4639,50 +4501,31 @@ class ClientApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestEndDate !== null) {
             $queryParams['request.endDate'] = ObjectSerializer::toQueryValue($RequestEndDate);
         }
-        
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
         // query params
-        
-        
         if ($RequestSaleId !== null) {
             $queryParams['request.saleId'] = ObjectSerializer::toQueryValue($RequestSaleId);
         }
-        
         // query params
-        
-        
         if ($RequestStartDate !== null) {
             $queryParams['request.startDate'] = ObjectSerializer::toQueryValue($RequestStartDate);
         }
-        
         // query params
-        
-        
         if ($RequestUniqueClientId !== null) {
             $queryParams['request.uniqueClientId'] = ObjectSerializer::toQueryValue($RequestUniqueClientId);
         }
-        
         // query params
-        
-        
+        $queryParams['request.clientId'] = ObjectSerializer::toQueryValue($RequestClientId);
 
 
         // body params
@@ -4925,12 +4768,9 @@ class ClientApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestIncludeInactive !== null) {
             $queryParams['request.includeInactive'] = ObjectSerializer::toQueryValue($RequestIncludeInactive);
         }
-        
 
 
         // body params
@@ -5193,36 +5033,23 @@ class ClientApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestEndDate !== null) {
             $queryParams['request.endDate'] = ObjectSerializer::toQueryValue($RequestEndDate);
         }
-        
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
         // query params
-        
-        
         if ($RequestStartDate !== null) {
             $queryParams['request.startDate'] = ObjectSerializer::toQueryValue($RequestStartDate);
         }
-        
         // query params
-        
-        
+        $queryParams['request.clientId'] = ObjectSerializer::toQueryValue($RequestClientId);
 
 
         // body params
@@ -5505,68 +5332,41 @@ class ClientApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestClientAssociatedSitesOffset !== null) {
             $queryParams['request.clientAssociatedSitesOffset'] = ObjectSerializer::toQueryValue($RequestClientAssociatedSitesOffset);
         }
-        
         // query params
-        
-        
         if ($RequestClientId !== null) {
             $queryParams['request.clientId'] = ObjectSerializer::toQueryValue($RequestClientId);
         }
-        
         // query params
-        
-        
         if ($RequestCrossRegionalLookup !== null) {
             $queryParams['request.crossRegionalLookup'] = ObjectSerializer::toQueryValue($RequestCrossRegionalLookup);
         }
-        
         // query params
-        
-        
         if ($RequestEndDate !== null) {
             $queryParams['request.endDate'] = ObjectSerializer::toQueryValue($RequestEndDate);
         }
-        
         // query params
-        
-        
         if ($RequestIncludeWaitlistEntries !== null) {
             $queryParams['request.includeWaitlistEntries'] = ObjectSerializer::toQueryValue($RequestIncludeWaitlistEntries);
         }
-        
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
         // query params
-        
-        
         if ($RequestStartDate !== null) {
             $queryParams['request.startDate'] = ObjectSerializer::toQueryValue($RequestStartDate);
         }
-        
         // query params
-        
-        
         if ($RequestUniqueClientId !== null) {
             $queryParams['request.uniqueClientId'] = ObjectSerializer::toQueryValue($RequestUniqueClientId);
         }
-        
 
 
         // body params
@@ -5904,145 +5704,85 @@ class ClientApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestClassId !== null) {
             $queryParams['request.classId'] = ObjectSerializer::toQueryValue($RequestClassId);
         }
-        
         // query params
-        
         if (is_array($RequestClassScheduleID)) {
             $queryParams['request.classScheduleID'] = $RequestClassScheduleID;
         }
-        
-        
         // query params
-        
-        
         if ($RequestClientAssociatedSitesOffset !== null) {
             $queryParams['request.clientAssociatedSitesOffset'] = ObjectSerializer::toQueryValue($RequestClientAssociatedSitesOffset);
         }
-        
         // query params
-        
-        
         if ($RequestClientId !== null) {
             $queryParams['request.clientId'] = ObjectSerializer::toQueryValue($RequestClientId);
         }
-        
         // query params
-        
         if (is_array($RequestClientIds)) {
             $queryParams['request.clientIds'] = $RequestClientIds;
         }
-        
-        
         // query params
-        
-        
         if ($RequestCrossRegionalLookup !== null) {
             $queryParams['request.crossRegionalLookup'] = ObjectSerializer::toQueryValue($RequestCrossRegionalLookup);
         }
-        
         // query params
-        
-        
         if ($RequestEndDate !== null) {
             $queryParams['request.endDate'] = ObjectSerializer::toQueryValue($RequestEndDate);
         }
-        
         // query params
-        
-        
         if ($RequestExcludeInactiveSites !== null) {
             $queryParams['request.excludeInactiveSites'] = ObjectSerializer::toQueryValue($RequestExcludeInactiveSites);
         }
-        
         // query params
-        
-        
         if ($RequestIgnoreCrossRegionalSiteLimit !== null) {
             $queryParams['request.ignoreCrossRegionalSiteLimit'] = ObjectSerializer::toQueryValue($RequestIgnoreCrossRegionalSiteLimit);
         }
-        
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
         if (is_array($RequestLocationIds)) {
             $queryParams['request.locationIds'] = $RequestLocationIds;
         }
-        
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
         // query params
-        
         if (is_array($RequestProgramIds)) {
             $queryParams['request.programIds'] = $RequestProgramIds;
         }
-        
-        
         // query params
-        
-        
         if ($RequestSessionTypeId !== null) {
             $queryParams['request.sessionTypeId'] = ObjectSerializer::toQueryValue($RequestSessionTypeId);
         }
-        
         // query params
-        
-        
         if ($RequestShowActiveOnly !== null) {
             $queryParams['request.showActiveOnly'] = ObjectSerializer::toQueryValue($RequestShowActiveOnly);
         }
-        
         // query params
-        
-        
         if ($RequestStartDate !== null) {
             $queryParams['request.startDate'] = ObjectSerializer::toQueryValue($RequestStartDate);
         }
-        
         // query params
-        
-        
         if ($RequestUniqueClientId !== null) {
             $queryParams['request.uniqueClientId'] = ObjectSerializer::toQueryValue($RequestUniqueClientId);
         }
-        
         // query params
-        
         if (is_array($RequestUniqueClientIds)) {
             $queryParams['request.uniqueClientIds'] = $RequestUniqueClientIds;
         }
-        
-        
         // query params
-        
-        
         if ($RequestUseActivateDate !== null) {
             $queryParams['request.useActivateDate'] = ObjectSerializer::toQueryValue($RequestUseActivateDate);
         }
-        
         // query params
-        
-        
         if ($RequestVisitCount !== null) {
             $queryParams['request.visitCount'] = ObjectSerializer::toQueryValue($RequestVisitCount);
         }
-        
 
 
         // body params
@@ -6330,75 +6070,45 @@ class ClientApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestClientAssociatedSitesOffset !== null) {
             $queryParams['request.clientAssociatedSitesOffset'] = ObjectSerializer::toQueryValue($RequestClientAssociatedSitesOffset);
         }
-        
         // query params
-        
-        
         if ($RequestClientId !== null) {
             $queryParams['request.clientId'] = ObjectSerializer::toQueryValue($RequestClientId);
         }
-        
         // query params
-        
-        
         if ($RequestCrossRegionalLookup !== null) {
             $queryParams['request.crossRegionalLookup'] = ObjectSerializer::toQueryValue($RequestCrossRegionalLookup);
         }
-        
         // query params
-        
-        
         if ($RequestEndDate !== null) {
             $queryParams['request.endDate'] = ObjectSerializer::toQueryValue($RequestEndDate);
         }
-        
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
         // query params
-        
-        
         if ($RequestOrder !== null) {
             $queryParams['request.order'] = ObjectSerializer::toQueryValue($RequestOrder);
         }
-        
         // query params
-        
-        
         if ($RequestStartDate !== null) {
             $queryParams['request.startDate'] = ObjectSerializer::toQueryValue($RequestStartDate);
         }
-        
         // query params
-        
-        
         if ($RequestUniqueClientId !== null) {
             $queryParams['request.uniqueClientId'] = ObjectSerializer::toQueryValue($RequestUniqueClientId);
         }
-        
         // query params
-        
-        
         if ($RequestUnpaidsOnly !== null) {
             $queryParams['request.unpaidsOnly'] = ObjectSerializer::toQueryValue($RequestUnpaidsOnly);
         }
-        
 
 
         // body params
@@ -6676,61 +6386,37 @@ class ClientApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
         if (is_array($RequestClientIDs)) {
             $queryParams['request.clientIDs'] = $RequestClientIDs;
         }
-        
-        
         // query params
-        
-        
         if ($RequestIncludeInactive !== null) {
             $queryParams['request.includeInactive'] = ObjectSerializer::toQueryValue($RequestIncludeInactive);
         }
-        
         // query params
-        
-        
         if ($RequestIsProspect !== null) {
             $queryParams['request.isProspect'] = ObjectSerializer::toQueryValue($RequestIsProspect);
         }
-        
         // query params
-        
-        
         if ($RequestLastModifiedDate !== null) {
             $queryParams['request.lastModifiedDate'] = ObjectSerializer::toQueryValue($RequestLastModifiedDate);
         }
-        
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
         // query params
-        
-        
         if ($RequestSearchText !== null) {
             $queryParams['request.searchText'] = ObjectSerializer::toQueryValue($RequestSearchText);
         }
-        
         // query params
-        
         if (is_array($RequestUniqueIds)) {
             $queryParams['request.uniqueIds'] = $RequestUniqueIds;
         }
-        
-        
 
 
         // body params
@@ -6983,26 +6669,17 @@ class ClientApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestContactLogTypeId !== null) {
             $queryParams['request.contactLogTypeId'] = ObjectSerializer::toQueryValue($RequestContactLogTypeId);
         }
-        
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
 
 
         // body params
@@ -7285,64 +6962,39 @@ class ClientApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestEndDate !== null) {
             $queryParams['request.endDate'] = ObjectSerializer::toQueryValue($RequestEndDate);
         }
-        
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
         // query params
-        
-        
         if ($RequestShowSystemGenerated !== null) {
             $queryParams['request.showSystemGenerated'] = ObjectSerializer::toQueryValue($RequestShowSystemGenerated);
         }
-        
         // query params
-        
         if (is_array($RequestStaffIds)) {
             $queryParams['request.staffIds'] = $RequestStaffIds;
         }
-        
-        
         // query params
-        
-        
         if ($RequestStartDate !== null) {
             $queryParams['request.startDate'] = ObjectSerializer::toQueryValue($RequestStartDate);
         }
-        
         // query params
-        
         if (is_array($RequestSubtypeIds)) {
             $queryParams['request.subtypeIds'] = $RequestSubtypeIds;
         }
-        
-        
         // query params
-        
         if (is_array($RequestTypeIds)) {
             $queryParams['request.typeIds'] = $RequestTypeIds;
         }
-        
-        
         // query params
-        
-        
+        $queryParams['request.clientId'] = ObjectSerializer::toQueryValue($RequestClientId);
 
 
         // body params
@@ -7625,68 +7277,41 @@ class ClientApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestClientId !== null) {
             $queryParams['request.clientId'] = ObjectSerializer::toQueryValue($RequestClientId);
         }
-        
         // query params
-        
-        
         if ($RequestEmail !== null) {
             $queryParams['request.email'] = ObjectSerializer::toQueryValue($RequestEmail);
         }
-        
         // query params
-        
-        
         if ($RequestExcludeInactiveSites !== null) {
             $queryParams['request.excludeInactiveSites'] = ObjectSerializer::toQueryValue($RequestExcludeInactiveSites);
         }
-        
         // query params
-        
-        
         if ($RequestFirstName !== null) {
             $queryParams['request.firstName'] = ObjectSerializer::toQueryValue($RequestFirstName);
         }
-        
         // query params
-        
-        
         if ($RequestLastName !== null) {
             $queryParams['request.lastName'] = ObjectSerializer::toQueryValue($RequestLastName);
         }
-        
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
         // query params
-        
-        
         if ($RequestUniqueClientId !== null) {
             $queryParams['request.uniqueClientId'] = ObjectSerializer::toQueryValue($RequestUniqueClientId);
         }
-        
         // query params
-        
-        
         if ($RequestV2 !== null) {
             $queryParams['request.v2'] = ObjectSerializer::toQueryValue($RequestV2);
         }
-        
 
 
         // body params
@@ -7934,19 +7559,13 @@ class ClientApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
 
 
         // body params
@@ -8189,12 +7808,9 @@ class ClientApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($ClientId !== null) {
             $queryParams['clientId'] = ObjectSerializer::toQueryValue($ClientId);
         }
-        
 
 
         // body params

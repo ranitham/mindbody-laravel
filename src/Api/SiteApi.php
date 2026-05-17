@@ -1228,47 +1228,29 @@ class SiteApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestActive !== null) {
             $queryParams['request.active'] = ObjectSerializer::toQueryValue($RequestActive);
         }
-        
         // query params
-        
         if (is_array($RequestCategoryIds)) {
             $queryParams['request.categoryIds'] = $RequestCategoryIds;
         }
-        
-        
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
         // query params
-        
-        
         if ($RequestService !== null) {
             $queryParams['request.service'] = ObjectSerializer::toQueryValue($RequestService);
         }
-        
         // query params
-        
         if (is_array($RequestSubCategoryIds)) {
             $queryParams['request.subCategoryIds'] = $RequestSubCategoryIds;
         }
-        
-        
 
 
         // body params
@@ -1988,19 +1970,13 @@ class SiteApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
 
 
         // body params
@@ -2243,12 +2219,9 @@ class SiteApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
         if (is_array($RequestMembershipIds)) {
             $queryParams['request.membershipIds'] = $RequestMembershipIds;
         }
-        
-        
 
 
         // body params
@@ -2491,12 +2464,9 @@ class SiteApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestActive !== null) {
             $queryParams['request.active'] = ObjectSerializer::toQueryValue($RequestActive);
         }
-        
 
 
         // body params
@@ -2739,12 +2709,9 @@ class SiteApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestActive !== null) {
             $queryParams['request.active'] = ObjectSerializer::toQueryValue($RequestActive);
         }
-        
 
 
         // body params
@@ -3007,40 +2974,25 @@ class SiteApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
         // query params
-        
-        
         if ($RequestOnlineOnly !== null) {
             $queryParams['request.onlineOnly'] = ObjectSerializer::toQueryValue($RequestOnlineOnly);
         }
-        
         // query params
-        
         if (is_array($RequestProgramIds)) {
             $queryParams['request.programIds'] = $RequestProgramIds;
         }
-        
-        
         // query params
-        
-        
         if ($RequestScheduleType !== null) {
             $queryParams['request.scheduleType'] = ObjectSerializer::toQueryValue($RequestScheduleType);
         }
-        
 
 
         // body params
@@ -3313,54 +3265,33 @@ class SiteApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestActiveOnly !== null) {
             $queryParams['request.activeOnly'] = ObjectSerializer::toQueryValue($RequestActiveOnly);
         }
-        
         // query params
-        
-        
         if ($RequestEndDate !== null) {
             $queryParams['request.endDate'] = ObjectSerializer::toQueryValue($RequestEndDate);
         }
-        
         // query params
-        
-        
         if ($RequestLastModifiedDate !== null) {
             $queryParams['request.lastModifiedDate'] = ObjectSerializer::toQueryValue($RequestLastModifiedDate);
         }
-        
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
         // query params
-        
-        
         if ($RequestOnlineOnly !== null) {
             $queryParams['request.onlineOnly'] = ObjectSerializer::toQueryValue($RequestOnlineOnly);
         }
-        
         // query params
-        
-        
         if ($RequestStartDate !== null) {
             $queryParams['request.startDate'] = ObjectSerializer::toQueryValue($RequestStartDate);
         }
-        
 
 
         // body params
@@ -3603,12 +3534,9 @@ class SiteApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestActive !== null) {
             $queryParams['request.active'] = ObjectSerializer::toQueryValue($RequestActive);
         }
-        
 
 
         // body params
@@ -3861,26 +3789,17 @@ class SiteApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestActive !== null) {
             $queryParams['request.active'] = ObjectSerializer::toQueryValue($RequestActive);
         }
-        
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
 
 
         // body params
@@ -4158,61 +4077,37 @@ class SiteApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestEndDate !== null) {
             $queryParams['request.endDate'] = ObjectSerializer::toQueryValue($RequestEndDate);
         }
-        
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
         if (is_array($RequestLocationIds)) {
             $queryParams['request.locationIds'] = $RequestLocationIds;
         }
-        
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
         // query params
-        
         if (is_array($RequestProgramIds)) {
             $queryParams['request.programIds'] = $RequestProgramIds;
         }
-        
-        
         // query params
-        
         if (is_array($RequestResourceIds)) {
             $queryParams['request.resourceIds'] = $RequestResourceIds;
         }
-        
-        
         // query params
-        
         if (is_array($RequestScheduleTypes)) {
             $queryParams['request.scheduleTypes'] = $RequestScheduleTypes;
         }
-        
-        
         // query params
-        
-        
         if ($RequestStartDate !== null) {
             $queryParams['request.startDate'] = ObjectSerializer::toQueryValue($RequestStartDate);
         }
-        
 
 
         // body params
@@ -4474,54 +4369,33 @@ class SiteApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestIncludeInactive !== null) {
             $queryParams['request.includeInactive'] = ObjectSerializer::toQueryValue($RequestIncludeInactive);
         }
-        
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
         if (is_array($RequestLocationIds)) {
             $queryParams['request.locationIds'] = $RequestLocationIds;
         }
-        
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
         // query params
-        
         if (is_array($RequestProgramIds)) {
             $queryParams['request.programIds'] = $RequestProgramIds;
         }
-        
-        
         // query params
-        
         if (is_array($RequestResourceIds)) {
             $queryParams['request.resourceIds'] = $RequestResourceIds;
         }
-        
-        
         // query params
-        
         if (is_array($RequestScheduleTypes)) {
             $queryParams['request.scheduleTypes'] = $RequestScheduleTypes;
         }
-        
-        
 
 
         // body params
@@ -4779,33 +4653,21 @@ class SiteApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
         // query params
-        
-        
         if ($RequestOnlineOnly !== null) {
             $queryParams['request.onlineOnly'] = ObjectSerializer::toQueryValue($RequestOnlineOnly);
         }
-        
         // query params
-        
         if (is_array($RequestProgramIDs)) {
             $queryParams['request.programIDs'] = $RequestProgramIDs;
         }
-        
-        
 
 
         // body params
@@ -5068,40 +4930,25 @@ class SiteApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestIncludeLeadChannels !== null) {
             $queryParams['request.includeLeadChannels'] = ObjectSerializer::toQueryValue($RequestIncludeLeadChannels);
         }
-        
         // query params
-        
-        
         if ($RequestIncludePerStaffPricing !== null) {
             $queryParams['request.includePerStaffPricing'] = ObjectSerializer::toQueryValue($RequestIncludePerStaffPricing);
         }
-        
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
         // query params
-        
         if (is_array($RequestSiteIds)) {
             $queryParams['request.siteIds'] = $RequestSiteIds;
         }
-        
-        
 
 
         // body params

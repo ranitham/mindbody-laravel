@@ -968,19 +968,13 @@ class SaleApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestClientId !== null) {
             $queryParams['request.clientId'] = ObjectSerializer::toQueryValue($RequestClientId);
         }
-        
         // query params
-        
-        
         if ($RequestLocationId !== null) {
             $queryParams['request.locationId'] = ObjectSerializer::toQueryValue($RequestLocationId);
         }
-        
 
 
         // body params
@@ -1253,50 +1247,31 @@ class SaleApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
         if (is_array($RequestContractIds)) {
             $queryParams['request.contractIds'] = $RequestContractIds;
         }
-        
-        
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
         // query params
-        
-        
         if ($RequestPromoCode !== null) {
             $queryParams['request.promoCode'] = ObjectSerializer::toQueryValue($RequestPromoCode);
         }
-        
         // query params
-        
-        
         if ($RequestSoldOnline !== null) {
             $queryParams['request.soldOnline'] = ObjectSerializer::toQueryValue($RequestSoldOnline);
         }
-        
         // query params
-        
-        
         if ($RequestUniqueClientId !== null) {
             $queryParams['request.uniqueClientId'] = ObjectSerializer::toQueryValue($RequestUniqueClientId);
         }
-        
         // query params
-        
-        
+        $queryParams['request.locationId'] = ObjectSerializer::toQueryValue($RequestLocationId);
 
 
         // body params
@@ -1544,19 +1519,13 @@ class SaleApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
 
 
         // body params
@@ -1799,12 +1768,9 @@ class SaleApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($BarcodeId !== null) {
             $queryParams['barcodeId'] = ObjectSerializer::toQueryValue($BarcodeId);
         }
-        
 
 
         // body params
@@ -2072,47 +2038,29 @@ class SaleApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
         if (is_array($RequestIds)) {
             $queryParams['request.ids'] = $RequestIds;
         }
-        
-        
         // query params
-        
-        
         if ($RequestIncludeCustomLayouts !== null) {
             $queryParams['request.includeCustomLayouts'] = ObjectSerializer::toQueryValue($RequestIncludeCustomLayouts);
         }
-        
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
-        
         if ($RequestLocationId !== null) {
             $queryParams['request.locationId'] = ObjectSerializer::toQueryValue($RequestLocationId);
         }
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
         // query params
-        
-        
         if ($RequestSoldOnline !== null) {
             $queryParams['request.soldOnline'] = ObjectSerializer::toQueryValue($RequestSoldOnline);
         }
-        
 
 
         // body params
@@ -2375,40 +2323,25 @@ class SaleApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
-        
         if ($RequestLocationId !== null) {
             $queryParams['request.locationId'] = ObjectSerializer::toQueryValue($RequestLocationId);
         }
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
         // query params
-        
         if (is_array($RequestPackageIds)) {
             $queryParams['request.packageIds'] = $RequestPackageIds;
         }
-        
-        
         // query params
-        
-        
         if ($RequestSellOnline !== null) {
             $queryParams['request.sellOnline'] = ObjectSerializer::toQueryValue($RequestSellOnline);
         }
-        
 
 
         // body params
@@ -2691,68 +2624,41 @@ class SaleApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
         if (is_array($RequestCategoryIds)) {
             $queryParams['request.categoryIds'] = $RequestCategoryIds;
         }
-        
-        
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
-        
         if ($RequestLocationId !== null) {
             $queryParams['request.locationId'] = ObjectSerializer::toQueryValue($RequestLocationId);
         }
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
         // query params
-        
         if (is_array($RequestProductIds)) {
             $queryParams['request.productIds'] = $RequestProductIds;
         }
-        
-        
         // query params
-        
-        
         if ($RequestSearchText !== null) {
             $queryParams['request.searchText'] = ObjectSerializer::toQueryValue($RequestSearchText);
         }
-        
         // query params
-        
         if (is_array($RequestSecondaryCategoryIds)) {
             $queryParams['request.secondaryCategoryIds'] = $RequestSecondaryCategoryIds;
         }
-        
-        
         // query params
-        
-        
         if ($RequestSellOnline !== null) {
             $queryParams['request.sellOnline'] = ObjectSerializer::toQueryValue($RequestSellOnline);
         }
-        
         // query params
-        
         if (is_array($RequestSubCategoryIds)) {
             $queryParams['request.subCategoryIds'] = $RequestSubCategoryIds;
         }
-        
-        
 
 
         // body params
@@ -3015,40 +2921,25 @@ class SaleApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
         if (is_array($RequestBarcodeIds)) {
             $queryParams['request.barcodeIds'] = $RequestBarcodeIds;
         }
-        
-        
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
         if (is_array($RequestLocationIds)) {
             $queryParams['request.locationIds'] = $RequestLocationIds;
         }
-        
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
         // query params
-        
         if (is_array($RequestProductIds)) {
             $queryParams['request.productIds'] = $RequestProductIds;
         }
-        
-        
 
 
         // body params
@@ -3291,8 +3182,7 @@ class SaleApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
+        $queryParams['accessToken'] = ObjectSerializer::toQueryValue($AccessToken);
 
 
         // body params
@@ -3560,47 +3450,29 @@ class SaleApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestEndSaleDateTime !== null) {
             $queryParams['request.endSaleDateTime'] = ObjectSerializer::toQueryValue($RequestEndSaleDateTime);
         }
-        
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
         // query params
-        
-        
         if ($RequestPaymentMethodId !== null) {
             $queryParams['request.paymentMethodId'] = ObjectSerializer::toQueryValue($RequestPaymentMethodId);
         }
-        
         // query params
-        
-        
         if ($RequestSaleId !== null) {
             $queryParams['request.saleId'] = ObjectSerializer::toQueryValue($RequestSaleId);
         }
-        
         // query params
-        
-        
         if ($RequestStartSaleDateTime !== null) {
             $queryParams['request.startSaleDateTime'] = ObjectSerializer::toQueryValue($RequestStartSaleDateTime);
         }
-        
 
 
         // body params
@@ -3903,96 +3775,57 @@ class SaleApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestClassId !== null) {
             $queryParams['request.classId'] = ObjectSerializer::toQueryValue($RequestClassId);
         }
-        
         // query params
-        
-        
         if ($RequestClassScheduleId !== null) {
             $queryParams['request.classScheduleId'] = ObjectSerializer::toQueryValue($RequestClassScheduleId);
         }
-        
         // query params
-        
-        
         if ($RequestHideRelatedPrograms !== null) {
             $queryParams['request.hideRelatedPrograms'] = ObjectSerializer::toQueryValue($RequestHideRelatedPrograms);
         }
-        
         // query params
-        
-        
         if ($RequestIncludeDiscontinued !== null) {
             $queryParams['request.includeDiscontinued'] = ObjectSerializer::toQueryValue($RequestIncludeDiscontinued);
         }
-        
         // query params
-        
-        
         if ($RequestIncludeSaleInContractOnly !== null) {
             $queryParams['request.includeSaleInContractOnly'] = ObjectSerializer::toQueryValue($RequestIncludeSaleInContractOnly);
         }
-        
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
-        
         if ($RequestLocationId !== null) {
             $queryParams['request.locationId'] = ObjectSerializer::toQueryValue($RequestLocationId);
         }
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
         // query params
-        
         if (is_array($RequestProgramIds)) {
             $queryParams['request.programIds'] = $RequestProgramIds;
         }
-        
-        
         // query params
-        
-        
         if ($RequestSellOnline !== null) {
             $queryParams['request.sellOnline'] = ObjectSerializer::toQueryValue($RequestSellOnline);
         }
-        
         // query params
-        
         if (is_array($RequestServiceIds)) {
             $queryParams['request.serviceIds'] = $RequestServiceIds;
         }
-        
-        
         // query params
-        
         if (is_array($RequestSessionTypeIds)) {
             $queryParams['request.sessionTypeIds'] = $RequestSessionTypeIds;
         }
-        
-        
         // query params
-        
-        
         if ($RequestStaffId !== null) {
             $queryParams['request.staffId'] = ObjectSerializer::toQueryValue($RequestStaffId);
         }
-        
 
 
         // body params
@@ -4275,68 +4108,41 @@ class SaleApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestClientId !== null) {
             $queryParams['request.clientId'] = ObjectSerializer::toQueryValue($RequestClientId);
         }
-        
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
-        
         if ($RequestLocationId !== null) {
             $queryParams['request.locationId'] = ObjectSerializer::toQueryValue($RequestLocationId);
         }
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
         // query params
-        
-        
         if ($RequestSaleId !== null) {
             $queryParams['request.saleId'] = ObjectSerializer::toQueryValue($RequestSaleId);
         }
-        
         // query params
-        
-        
         if ($RequestStatus !== null) {
             $queryParams['request.status'] = ObjectSerializer::toQueryValue($RequestStatus);
         }
-        
         // query params
-        
-        
         if ($RequestTransactionEndDateTime !== null) {
             $queryParams['request.transactionEndDateTime'] = ObjectSerializer::toQueryValue($RequestTransactionEndDateTime);
         }
-        
         // query params
-        
-        
         if ($RequestTransactionId !== null) {
             $queryParams['request.transactionId'] = ObjectSerializer::toQueryValue($RequestTransactionId);
         }
-        
         // query params
-        
-        
         if ($RequestTransactionStartDateTime !== null) {
             $queryParams['request.transactionStartDateTime'] = ObjectSerializer::toQueryValue($RequestTransactionStartDateTime);
         }
-        
 
 
         // body params

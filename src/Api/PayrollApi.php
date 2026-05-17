@@ -273,47 +273,29 @@ class PayrollApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestEndDateTime !== null) {
             $queryParams['request.endDateTime'] = ObjectSerializer::toQueryValue($RequestEndDateTime);
         }
-        
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
-        
         if ($RequestLocationId !== null) {
             $queryParams['request.locationId'] = ObjectSerializer::toQueryValue($RequestLocationId);
         }
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
         // query params
-        
-        
         if ($RequestStaffId !== null) {
             $queryParams['request.staffId'] = ObjectSerializer::toQueryValue($RequestStaffId);
         }
-        
         // query params
-        
-        
         if ($RequestStartDateTime !== null) {
             $queryParams['request.startDateTime'] = ObjectSerializer::toQueryValue($RequestStartDateTime);
         }
-        
 
 
         // body params
@@ -591,61 +573,37 @@ class PayrollApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestEndDateTime !== null) {
             $queryParams['request.endDateTime'] = ObjectSerializer::toQueryValue($RequestEndDateTime);
         }
-        
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
-        
         if ($RequestLocationId !== null) {
             $queryParams['request.locationId'] = ObjectSerializer::toQueryValue($RequestLocationId);
         }
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
         // query params
-        
-        
         if ($RequestScheduledServiceId !== null) {
             $queryParams['request.scheduledServiceId'] = ObjectSerializer::toQueryValue($RequestScheduledServiceId);
         }
-        
         // query params
-        
-        
         if ($RequestScheduledServiceType !== null) {
             $queryParams['request.scheduledServiceType'] = ObjectSerializer::toQueryValue($RequestScheduledServiceType);
         }
-        
         // query params
-        
-        
         if ($RequestStaffId !== null) {
             $queryParams['request.staffId'] = ObjectSerializer::toQueryValue($RequestStaffId);
         }
-        
         // query params
-        
-        
         if ($RequestStartDateTime !== null) {
             $queryParams['request.startDateTime'] = ObjectSerializer::toQueryValue($RequestStartDateTime);
         }
-        
 
 
         // body params
@@ -913,47 +871,29 @@ class PayrollApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestEndDateTime !== null) {
             $queryParams['request.endDateTime'] = ObjectSerializer::toQueryValue($RequestEndDateTime);
         }
-        
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
-        
         if ($RequestLocationId !== null) {
             $queryParams['request.locationId'] = ObjectSerializer::toQueryValue($RequestLocationId);
         }
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
         // query params
-        
-        
         if ($RequestStaffId !== null) {
             $queryParams['request.staffId'] = ObjectSerializer::toQueryValue($RequestStaffId);
         }
-        
         // query params
-        
-        
         if ($RequestStartDateTime !== null) {
             $queryParams['request.startDateTime'] = ObjectSerializer::toQueryValue($RequestStartDateTime);
         }
-        
 
 
         // body params
@@ -1221,47 +1161,29 @@ class PayrollApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestEndDateTime !== null) {
             $queryParams['request.endDateTime'] = ObjectSerializer::toQueryValue($RequestEndDateTime);
         }
-        
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
-        
         if ($RequestLocationId !== null) {
             $queryParams['request.locationId'] = ObjectSerializer::toQueryValue($RequestLocationId);
         }
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
         // query params
-        
-        
         if ($RequestStaffId !== null) {
             $queryParams['request.staffId'] = ObjectSerializer::toQueryValue($RequestStaffId);
         }
-        
         // query params
-        
-        
         if ($RequestStartDateTime !== null) {
             $queryParams['request.startDateTime'] = ObjectSerializer::toQueryValue($RequestStartDateTime);
         }
-        
 
 
         // body params

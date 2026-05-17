@@ -1023,68 +1023,41 @@ class ClassApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestClassDescriptionId !== null) {
             $queryParams['request.classDescriptionId'] = ObjectSerializer::toQueryValue($RequestClassDescriptionId);
         }
-        
         // query params
-        
-        
         if ($RequestEndClassDateTime !== null) {
             $queryParams['request.endClassDateTime'] = ObjectSerializer::toQueryValue($RequestEndClassDateTime);
         }
-        
         // query params
-        
-        
         if ($RequestIncludeInactive !== null) {
             $queryParams['request.includeInactive'] = ObjectSerializer::toQueryValue($RequestIncludeInactive);
         }
-        
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
-        
         if ($RequestLocationId !== null) {
             $queryParams['request.locationId'] = ObjectSerializer::toQueryValue($RequestLocationId);
         }
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
         // query params
-        
         if (is_array($RequestProgramIds)) {
             $queryParams['request.programIds'] = $RequestProgramIds;
         }
-        
-        
         // query params
-        
-        
         if ($RequestStaffId !== null) {
             $queryParams['request.staffId'] = ObjectSerializer::toQueryValue($RequestStaffId);
         }
-        
         // query params
-        
-        
         if ($RequestStartClassDateTime !== null) {
             $queryParams['request.startClassDateTime'] = ObjectSerializer::toQueryValue($RequestStartClassDateTime);
         }
-        
 
 
         // body params
@@ -1367,68 +1340,41 @@ class ClassApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
         if (is_array($RequestClassScheduleIds)) {
             $queryParams['request.classScheduleIds'] = $RequestClassScheduleIds;
         }
-        
-        
         // query params
-        
-        
         if ($RequestEndDate !== null) {
             $queryParams['request.endDate'] = ObjectSerializer::toQueryValue($RequestEndDate);
         }
-        
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
         if (is_array($RequestLocationIds)) {
             $queryParams['request.locationIds'] = $RequestLocationIds;
         }
-        
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
         // query params
-        
         if (is_array($RequestProgramIds)) {
             $queryParams['request.programIds'] = $RequestProgramIds;
         }
-        
-        
         // query params
-        
         if (is_array($RequestSessionTypeIds)) {
             $queryParams['request.sessionTypeIds'] = $RequestSessionTypeIds;
         }
-        
-        
         // query params
-        
         if (is_array($RequestStaffIds)) {
             $queryParams['request.staffIds'] = $RequestStaffIds;
         }
-        
-        
         // query params
-        
-        
         if ($RequestStartDate !== null) {
             $queryParams['request.startDate'] = ObjectSerializer::toQueryValue($RequestStartDate);
         }
-        
 
 
         // body params
@@ -1681,22 +1627,15 @@ class ClassApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestLastModifiedDate !== null) {
             $queryParams['request.lastModifiedDate'] = ObjectSerializer::toQueryValue($RequestLastModifiedDate);
         }
-        
         // query params
-        
-        
         if ($RequestUseSiteSettingsStaffName !== null) {
             $queryParams['request.useSiteSettingsStaffName'] = ObjectSerializer::toQueryValue($RequestUseSiteSettingsStaffName);
         }
-        
         // query params
-        
-        
+        $queryParams['request.classID'] = ObjectSerializer::toQueryValue($RequestClassID);
 
 
         // body params
@@ -2019,124 +1958,73 @@ class ClassApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
         if (is_array($RequestClassDescriptionIds)) {
             $queryParams['request.classDescriptionIds'] = $RequestClassDescriptionIds;
         }
-        
-        
         // query params
-        
         if (is_array($RequestClassIds)) {
             $queryParams['request.classIds'] = $RequestClassIds;
         }
-        
-        
         // query params
-        
         if (is_array($RequestClassScheduleIds)) {
             $queryParams['request.classScheduleIds'] = $RequestClassScheduleIds;
         }
-        
-        
         // query params
-        
-        
         if ($RequestClientId !== null) {
             $queryParams['request.clientId'] = ObjectSerializer::toQueryValue($RequestClientId);
         }
-        
         // query params
-        
-        
         if ($RequestEndDateTime !== null) {
             $queryParams['request.endDateTime'] = ObjectSerializer::toQueryValue($RequestEndDateTime);
         }
-        
         // query params
-        
-        
         if ($RequestHideCanceledClasses !== null) {
             $queryParams['request.hideCanceledClasses'] = ObjectSerializer::toQueryValue($RequestHideCanceledClasses);
         }
-        
         // query params
-        
-        
         if ($RequestLastModifiedDate !== null) {
             $queryParams['request.lastModifiedDate'] = ObjectSerializer::toQueryValue($RequestLastModifiedDate);
         }
-        
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
         if (is_array($RequestLocationIds)) {
             $queryParams['request.locationIds'] = $RequestLocationIds;
         }
-        
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
         // query params
-        
         if (is_array($RequestProgramIds)) {
             $queryParams['request.programIds'] = $RequestProgramIds;
         }
-        
-        
         // query params
-        
-        
         if ($RequestSchedulingWindow !== null) {
             $queryParams['request.schedulingWindow'] = ObjectSerializer::toQueryValue($RequestSchedulingWindow);
         }
-        
         // query params
-        
         if (is_array($RequestSemesterIds)) {
             $queryParams['request.semesterIds'] = $RequestSemesterIds;
         }
-        
-        
         // query params
-        
         if (is_array($RequestSessionTypeIds)) {
             $queryParams['request.sessionTypeIds'] = $RequestSessionTypeIds;
         }
-        
-        
         // query params
-        
         if (is_array($RequestStaffIds)) {
             $queryParams['request.staffIds'] = $RequestStaffIds;
         }
-        
-        
         // query params
-        
-        
         if ($RequestStartDateTime !== null) {
             $queryParams['request.startDateTime'] = ObjectSerializer::toQueryValue($RequestStartDateTime);
         }
-        
         // query params
-        
-        
         if ($RequestUniqueClientId !== null) {
             $queryParams['request.uniqueClientId'] = ObjectSerializer::toQueryValue($RequestUniqueClientId);
         }
-        
 
 
         // body params
@@ -2419,68 +2307,41 @@ class ClassApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
         if (is_array($GetCoursesRequestCourseIDs)) {
             $queryParams['getCoursesRequest.courseIDs'] = $GetCoursesRequestCourseIDs;
         }
-        
-        
         // query params
-        
-        
         if ($GetCoursesRequestEndDate !== null) {
             $queryParams['getCoursesRequest.endDate'] = ObjectSerializer::toQueryValue($GetCoursesRequestEndDate);
         }
-        
         // query params
-        
-        
         if ($GetCoursesRequestLimit !== null) {
             $queryParams['getCoursesRequest.limit'] = ObjectSerializer::toQueryValue($GetCoursesRequestLimit);
         }
-        
         // query params
-        
         if (is_array($GetCoursesRequestLocationIDs)) {
             $queryParams['getCoursesRequest.locationIDs'] = $GetCoursesRequestLocationIDs;
         }
-        
-        
         // query params
-        
-        
         if ($GetCoursesRequestOffset !== null) {
             $queryParams['getCoursesRequest.offset'] = ObjectSerializer::toQueryValue($GetCoursesRequestOffset);
         }
-        
         // query params
-        
         if (is_array($GetCoursesRequestProgramIDs)) {
             $queryParams['getCoursesRequest.programIDs'] = $GetCoursesRequestProgramIDs;
         }
-        
-        
         // query params
-        
         if (is_array($GetCoursesRequestSemesterIDs)) {
             $queryParams['getCoursesRequest.semesterIDs'] = $GetCoursesRequestSemesterIDs;
         }
-        
-        
         // query params
-        
         if (is_array($GetCoursesRequestStaffIDs)) {
             $queryParams['getCoursesRequest.staffIDs'] = $GetCoursesRequestStaffIDs;
         }
-        
-        
         // query params
-        
-        
         if ($GetCoursesRequestStartDate !== null) {
             $queryParams['getCoursesRequest.startDate'] = ObjectSerializer::toQueryValue($GetCoursesRequestStartDate);
         }
-        
 
 
         // body params
@@ -2748,47 +2609,29 @@ class ClassApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestActive !== null) {
             $queryParams['request.active'] = ObjectSerializer::toQueryValue($RequestActive);
         }
-        
         // query params
-        
-        
         if ($RequestEndDate !== null) {
             $queryParams['request.endDate'] = ObjectSerializer::toQueryValue($RequestEndDate);
         }
-        
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
         // query params
-        
         if (is_array($RequestSemesterIDs)) {
             $queryParams['request.semesterIDs'] = $RequestSemesterIDs;
         }
-        
-        
         // query params
-        
-        
         if ($RequestStartDate !== null) {
             $queryParams['request.startDate'] = ObjectSerializer::toQueryValue($RequestStartDate);
         }
-        
 
 
         // body params
@@ -3061,54 +2904,33 @@ class ClassApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
         if (is_array($RequestClassIds)) {
             $queryParams['request.classIds'] = $RequestClassIds;
         }
-        
-        
         // query params
-        
         if (is_array($RequestClassScheduleIds)) {
             $queryParams['request.classScheduleIds'] = $RequestClassScheduleIds;
         }
-        
-        
         // query params
-        
         if (is_array($RequestClientIds)) {
             $queryParams['request.clientIds'] = $RequestClientIds;
         }
-        
-        
         // query params
-        
-        
         if ($RequestHidePastEntries !== null) {
             $queryParams['request.hidePastEntries'] = ObjectSerializer::toQueryValue($RequestHidePastEntries);
         }
-        
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
         // query params
-        
         if (is_array($RequestWaitlistEntryIds)) {
             $queryParams['request.waitlistEntryIds'] = $RequestWaitlistEntryIds;
         }
-        
-        
 
 
         // body params
@@ -3841,8 +3663,7 @@ class ClassApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
+        $queryParams['request.waitlistEntryIds'] = $RequestWaitlistEntryIds;
 
 
         // body params

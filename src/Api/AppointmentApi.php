@@ -1193,8 +1193,7 @@ class AppointmentApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
+        $queryParams['id'] = ObjectSerializer::toQueryValue($Id);
 
 
         // body params
@@ -1407,19 +1406,13 @@ class AppointmentApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($DeleteAvailabilityRequestAvailabilityId !== null) {
             $queryParams['deleteAvailabilityRequest.availabilityId'] = ObjectSerializer::toQueryValue($DeleteAvailabilityRequestAvailabilityId);
         }
-        
         // query params
-        
-        
         if ($DeleteAvailabilityRequestTest !== null) {
             $queryParams['deleteAvailabilityRequest.test'] = ObjectSerializer::toQueryValue($DeleteAvailabilityRequestTest);
         }
-        
 
 
         // body params
@@ -1687,47 +1680,29 @@ class AppointmentApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestEndTime !== null) {
             $queryParams['request.endTime'] = ObjectSerializer::toQueryValue($RequestEndTime);
         }
-        
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
         // query params
-        
-        
         if ($RequestScheduleType !== null) {
             $queryParams['request.scheduleType'] = ObjectSerializer::toQueryValue($RequestScheduleType);
         }
-        
         // query params
-        
         if (is_array($RequestSessionTypeIds)) {
             $queryParams['request.sessionTypeIds'] = $RequestSessionTypeIds;
         }
-        
-        
         // query params
-        
-        
         if ($RequestStartTime !== null) {
             $queryParams['request.startTime'] = ObjectSerializer::toQueryValue($RequestStartTime);
         }
-        
 
 
         // body params
@@ -1980,26 +1955,17 @@ class AppointmentApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
         // query params
-        
-        
         if ($RequestStaffId !== null) {
             $queryParams['request.staffId'] = ObjectSerializer::toQueryValue($RequestStaffId);
         }
-        
 
 
         // body params
@@ -2498,36 +2464,23 @@ class AppointmentApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestEndDate !== null) {
             $queryParams['request.endDate'] = ObjectSerializer::toQueryValue($RequestEndDate);
         }
-        
         // query params
-        
-        
         if ($RequestLocationId !== null) {
             $queryParams['request.locationId'] = ObjectSerializer::toQueryValue($RequestLocationId);
         }
-        
         // query params
-        
-        
         if ($RequestStaffId !== null) {
             $queryParams['request.staffId'] = ObjectSerializer::toQueryValue($RequestStaffId);
         }
-        
         // query params
-        
-        
         if ($RequestStartDate !== null) {
             $queryParams['request.startDate'] = ObjectSerializer::toQueryValue($RequestStartDate);
         }
-        
         // query params
-        
-        
+        $queryParams['request.sessionTypeId'] = ObjectSerializer::toQueryValue($RequestSessionTypeId);
 
 
         // body params
@@ -2815,71 +2768,43 @@ class AppointmentApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestAppointmentId !== null) {
             $queryParams['request.appointmentId'] = ObjectSerializer::toQueryValue($RequestAppointmentId);
         }
-        
         // query params
-        
-        
         if ($RequestEndDate !== null) {
             $queryParams['request.endDate'] = ObjectSerializer::toQueryValue($RequestEndDate);
         }
-        
         // query params
-        
-        
         if ($RequestIgnoreDefaultSessionLength !== null) {
             $queryParams['request.ignoreDefaultSessionLength'] = ObjectSerializer::toQueryValue($RequestIgnoreDefaultSessionLength);
         }
-        
         // query params
-        
-        
         if ($RequestIncludeResourceAvailability !== null) {
             $queryParams['request.includeResourceAvailability'] = ObjectSerializer::toQueryValue($RequestIncludeResourceAvailability);
         }
-        
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
         if (is_array($RequestLocationIds)) {
             $queryParams['request.locationIds'] = $RequestLocationIds;
         }
-        
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
         // query params
-        
         if (is_array($RequestStaffIds)) {
             $queryParams['request.staffIds'] = $RequestStaffIds;
         }
-        
-        
         // query params
-        
-        
         if ($RequestStartDate !== null) {
             $queryParams['request.startDate'] = ObjectSerializer::toQueryValue($RequestStartDate);
         }
-        
         // query params
-        
-        
+        $queryParams['request.sessionTypeIds'] = $RequestSessionTypeIds;
 
 
         // body params
@@ -3152,54 +3077,33 @@ class AppointmentApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestEndDate !== null) {
             $queryParams['request.endDate'] = ObjectSerializer::toQueryValue($RequestEndDate);
         }
-        
         // query params
-        
-        
         if ($RequestIgnorePrepFinishTimes !== null) {
             $queryParams['request.ignorePrepFinishTimes'] = ObjectSerializer::toQueryValue($RequestIgnorePrepFinishTimes);
         }
-        
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
         if (is_array($RequestLocationIds)) {
             $queryParams['request.locationIds'] = $RequestLocationIds;
         }
-        
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
         // query params
-        
         if (is_array($RequestStaffIds)) {
             $queryParams['request.staffIds'] = $RequestStaffIds;
         }
-        
-        
         // query params
-        
-        
         if ($RequestStartDate !== null) {
             $queryParams['request.startDate'] = ObjectSerializer::toQueryValue($RequestStartDate);
         }
-        
 
 
         // body params
@@ -3482,68 +3386,41 @@ class AppointmentApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
         if (is_array($RequestAppointmentIds)) {
             $queryParams['request.appointmentIds'] = $RequestAppointmentIds;
         }
-        
-        
         // query params
-        
-        
         if ($RequestClientId !== null) {
             $queryParams['request.clientId'] = ObjectSerializer::toQueryValue($RequestClientId);
         }
-        
         // query params
-        
-        
         if ($RequestEndDate !== null) {
             $queryParams['request.endDate'] = ObjectSerializer::toQueryValue($RequestEndDate);
         }
-        
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
         if (is_array($RequestLocationIds)) {
             $queryParams['request.locationIds'] = $RequestLocationIds;
         }
-        
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
         // query params
-        
         if (is_array($RequestStaffIds)) {
             $queryParams['request.staffIds'] = $RequestStaffIds;
         }
-        
-        
         // query params
-        
-        
         if ($RequestStartDate !== null) {
             $queryParams['request.startDate'] = ObjectSerializer::toQueryValue($RequestStartDate);
         }
-        
         // query params
-        
-        
         if ($RequestUseSiteSettingsStaffName !== null) {
             $queryParams['request.useSiteSettingsStaffName'] = ObjectSerializer::toQueryValue($RequestUseSiteSettingsStaffName);
         }
-        
 
 
         // body params
@@ -3806,40 +3683,25 @@ class AppointmentApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
         if ($RequestEndDate !== null) {
             $queryParams['request.endDate'] = ObjectSerializer::toQueryValue($RequestEndDate);
         }
-        
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
         // query params
-        
         if (is_array($RequestStaffIds)) {
             $queryParams['request.staffIds'] = $RequestStaffIds;
         }
-        
-        
         // query params
-        
-        
         if ($RequestStartDate !== null) {
             $queryParams['request.startDate'] = ObjectSerializer::toQueryValue($RequestStartDate);
         }
-        
 
 
         // body params
@@ -4047,8 +3909,7 @@ class AppointmentApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
-        
+        $queryParams['request.waitlistEntryIds'] = $RequestWaitlistEntryIds;
 
 
         // body params

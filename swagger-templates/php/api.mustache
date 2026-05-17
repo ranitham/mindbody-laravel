@@ -340,16 +340,26 @@ use {{invokerPackage}}\ObjectSerializer;
 
         {{#queryParams}}
         // query params
-        {{#collectionFormat}}{{^required}}
+        {{#collectionFormat}}
+        {{#required}}
+        $queryParams['{{baseName}}'] = ${{paramName}};
+        {{/required}}
+        {{^required}}
         if (is_array(${{paramName}})) {
             $queryParams['{{baseName}}'] = ${{paramName}};
         }
-        {{/required}}{{/collectionFormat}}
-        {{^required}}{{^collectionFormat}}
+        {{/required}}
+        {{/collectionFormat}}
+        {{^collectionFormat}}
+        {{#required}}
+        $queryParams['{{baseName}}'] = ObjectSerializer::toQueryValue(${{paramName}});
+        {{/required}}
+        {{^required}}
         if (${{paramName}} !== null) {
             $queryParams['{{baseName}}'] = ObjectSerializer::toQueryValue(${{paramName}});
         }
-        {{/collectionFormat}}{{/required}}
+        {{/required}}
+        {{/collectionFormat}}
         {{/queryParams}}
         {{#headerParams}}
         // header params

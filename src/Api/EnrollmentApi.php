@@ -778,68 +778,41 @@ class EnrollmentApi implements ApiInterface
         $httpBody = '';
 
         // query params
-        
         if (is_array($RequestClassScheduleIds)) {
             $queryParams['request.classScheduleIds'] = $RequestClassScheduleIds;
         }
-        
-        
         // query params
-        
-        
         if ($RequestEndDate !== null) {
             $queryParams['request.endDate'] = ObjectSerializer::toQueryValue($RequestEndDate);
         }
-        
         // query params
-        
-        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
-        
         // query params
-        
         if (is_array($RequestLocationIds)) {
             $queryParams['request.locationIds'] = $RequestLocationIds;
         }
-        
-        
         // query params
-        
-        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
-        
         // query params
-        
         if (is_array($RequestProgramIds)) {
             $queryParams['request.programIds'] = $RequestProgramIds;
         }
-        
-        
         // query params
-        
         if (is_array($RequestSessionTypeIds)) {
             $queryParams['request.sessionTypeIds'] = $RequestSessionTypeIds;
         }
-        
-        
         // query params
-        
         if (is_array($RequestStaffIds)) {
             $queryParams['request.staffIds'] = $RequestStaffIds;
         }
-        
-        
         // query params
-        
-        
         if ($RequestStartDate !== null) {
             $queryParams['request.startDate'] = ObjectSerializer::toQueryValue($RequestStartDate);
         }
-        
 
 
         // body params
