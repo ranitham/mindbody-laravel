@@ -137,7 +137,7 @@ class MicrosoftWin32SafeHandlesSafeWaitHandle extends BaseModel
      *
      * @return bool
      */
-    public function getIsInvalid(): bool
+    public function getIsInvalid(): bool|null
     {
         return $this->container['IsInvalid'];
     }
@@ -163,7 +163,7 @@ class MicrosoftWin32SafeHandlesSafeWaitHandle extends BaseModel
      *
      * @return bool
      */
-    public function getIsClosed(): bool
+    public function getIsClosed(): bool|null
     {
         return $this->container['IsClosed'];
     }

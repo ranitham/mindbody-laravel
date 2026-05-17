@@ -145,7 +145,7 @@ class GiftCardLayout extends BaseModel
      *
      * @return int
      */
-    public function getLayoutId(): int
+    public function getLayoutId(): int|null
     {
         return $this->container['LayoutId'];
     }
@@ -171,7 +171,7 @@ class GiftCardLayout extends BaseModel
      *
      * @return string
      */
-    public function getLayoutName(): string
+    public function getLayoutName(): string|null
     {
         return $this->container['LayoutName'];
     }
@@ -197,7 +197,7 @@ class GiftCardLayout extends BaseModel
      *
      * @return string
      */
-    public function getLayoutUrl(): string
+    public function getLayoutUrl(): string|null
     {
         return $this->container['LayoutUrl'];
     }

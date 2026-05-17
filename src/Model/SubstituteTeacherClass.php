@@ -271,7 +271,7 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getClassScheduleId(): int
+    public function getClassScheduleId(): int|null
     {
         return $this->container['ClassScheduleId'];
     }
@@ -297,7 +297,7 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\Location
      */
-    public function getLocation(): \Nlocascio\Mindbody\Model\Location
+    public function getLocation(): \Nlocascio\Mindbody\Model\Location|null
     {
         return $this->container['Location'];
     }
@@ -323,7 +323,7 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getMaxCapacity(): int
+    public function getMaxCapacity(): int|null
     {
         return $this->container['MaxCapacity'];
     }
@@ -349,7 +349,7 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getWebCapacity(): int
+    public function getWebCapacity(): int|null
     {
         return $this->container['WebCapacity'];
     }
@@ -375,7 +375,7 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getTotalBooked(): int
+    public function getTotalBooked(): int|null
     {
         return $this->container['TotalBooked'];
     }
@@ -401,7 +401,7 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getTotalBookedWaitlist(): int
+    public function getTotalBookedWaitlist(): int|null
     {
         return $this->container['TotalBookedWaitlist'];
     }
@@ -427,7 +427,7 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getWebBooked(): int
+    public function getWebBooked(): int|null
     {
         return $this->container['WebBooked'];
     }
@@ -453,7 +453,7 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getSemesterId(): int
+    public function getSemesterId(): int|null
     {
         return $this->container['SemesterId'];
     }
@@ -479,7 +479,7 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getIsCanceled(): bool
+    public function getIsCanceled(): bool|null
     {
         return $this->container['IsCanceled'];
     }
@@ -505,7 +505,7 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getSubstitute(): bool
+    public function getSubstitute(): bool|null
     {
         return $this->container['Substitute'];
     }
@@ -531,7 +531,7 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getActive(): bool
+    public function getActive(): bool|null
     {
         return $this->container['Active'];
     }
@@ -557,7 +557,7 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getIsWaitlistAvailable(): bool
+    public function getIsWaitlistAvailable(): bool|null
     {
         return $this->container['IsWaitlistAvailable'];
     }
@@ -583,7 +583,7 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getHideCancel(): bool
+    public function getHideCancel(): bool|null
     {
         return $this->container['HideCancel'];
     }
@@ -609,7 +609,7 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): int|null
     {
         return $this->container['Id'];
     }
@@ -635,7 +635,7 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getIsAvailable(): bool
+    public function getIsAvailable(): bool|null
     {
         return $this->container['IsAvailable'];
     }
@@ -661,7 +661,7 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getStartDateTime(): \DateTime
+    public function getStartDateTime(): \DateTime|null
     {
         return $this->container['StartDateTime'];
     }
@@ -687,7 +687,7 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getEndDateTime(): \DateTime
+    public function getEndDateTime(): \DateTime|null
     {
         return $this->container['EndDateTime'];
     }
@@ -713,7 +713,7 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getLastModifiedDateTime(): \DateTime
+    public function getLastModifiedDateTime(): \DateTime|null
     {
         return $this->container['LastModifiedDateTime'];
     }
@@ -739,7 +739,7 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\ClassDescription
      */
-    public function getClassDescription(): \Nlocascio\Mindbody\Model\ClassDescription
+    public function getClassDescription(): \Nlocascio\Mindbody\Model\ClassDescription|null
     {
         return $this->container['ClassDescription'];
     }
@@ -765,7 +765,7 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\Staff
      */
-    public function getStaff(): \Nlocascio\Mindbody\Model\Staff
+    public function getStaff(): \Nlocascio\Mindbody\Model\Staff|null
     {
         return $this->container['Staff'];
     }
@@ -791,7 +791,7 @@ class SubstituteTeacherClass extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getVirtualStreamLink(): string
+    public function getVirtualStreamLink(): string|null
     {
         return $this->container['VirtualStreamLink'];
     }

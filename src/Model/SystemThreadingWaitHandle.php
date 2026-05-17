@@ -130,7 +130,7 @@ class SystemThreadingWaitHandle extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\MicrosoftWin32SafeHandlesSafeWaitHandle
      */
-    public function getSafeWaitHandle(): \Nlocascio\Mindbody\Model\MicrosoftWin32SafeHandlesSafeWaitHandle
+    public function getSafeWaitHandle(): \Nlocascio\Mindbody\Model\MicrosoftWin32SafeHandlesSafeWaitHandle|null
     {
         return $this->container['SafeWaitHandle'];
     }

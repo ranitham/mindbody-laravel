@@ -175,7 +175,7 @@ class GetActiveClientMembershipsRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId(): string|null
     {
         return $this->container['ClientId'];
     }
@@ -201,7 +201,7 @@ class GetActiveClientMembershipsRequest extends BaseModel
      *
      * @return int
      */
-    public function getUniqueClientId(): int
+    public function getUniqueClientId(): int|null
     {
         return $this->container['UniqueClientId'];
     }
@@ -227,7 +227,7 @@ class GetActiveClientMembershipsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLocationId(): int
+    public function getLocationId(): int|null
     {
         return $this->container['LocationId'];
     }
@@ -253,7 +253,7 @@ class GetActiveClientMembershipsRequest extends BaseModel
      *
      * @return bool
      */
-    public function getCrossRegionalLookup(): bool
+    public function getCrossRegionalLookup(): bool|null
     {
         return $this->container['CrossRegionalLookup'];
     }
@@ -279,7 +279,7 @@ class GetActiveClientMembershipsRequest extends BaseModel
      *
      * @return int
      */
-    public function getClientAssociatedSitesOffset(): int
+    public function getClientAssociatedSitesOffset(): int|null
     {
         return $this->container['ClientAssociatedSitesOffset'];
     }
@@ -305,7 +305,7 @@ class GetActiveClientMembershipsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit(): int|null
     {
         return $this->container['Limit'];
     }
@@ -331,7 +331,7 @@ class GetActiveClientMembershipsRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset(): int|null
     {
         return $this->container['Offset'];
     }

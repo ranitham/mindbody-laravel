@@ -311,7 +311,7 @@ class Appointment extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getGenderPreference(): string
+    public function getGenderPreference(): string|null
     {
         return $this->container['GenderPreference'];
     }
@@ -337,7 +337,7 @@ class Appointment extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getDuration(): int
+    public function getDuration(): int|null
     {
         return $this->container['Duration'];
     }
@@ -363,7 +363,7 @@ class Appointment extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getProviderId(): string
+    public function getProviderId(): string|null
     {
         return $this->container['ProviderId'];
     }
@@ -389,7 +389,7 @@ class Appointment extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): int|null
     {
         return $this->container['Id'];
     }
@@ -415,7 +415,7 @@ class Appointment extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getStatus(): string
+    public function getStatus(): string|null
     {
         return $this->container['Status'];
     }
@@ -450,7 +450,7 @@ class Appointment extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getStartDateTime(): \DateTime
+    public function getStartDateTime(): \DateTime|null
     {
         return $this->container['StartDateTime'];
     }
@@ -476,7 +476,7 @@ class Appointment extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getEndDateTime(): \DateTime
+    public function getEndDateTime(): \DateTime|null
     {
         return $this->container['EndDateTime'];
     }
@@ -502,7 +502,7 @@ class Appointment extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getNotes(): string
+    public function getNotes(): string|null
     {
         return $this->container['Notes'];
     }
@@ -528,7 +528,7 @@ class Appointment extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getPartnerExternalId(): string
+    public function getPartnerExternalId(): string|null
     {
         return $this->container['PartnerExternalId'];
     }
@@ -554,7 +554,7 @@ class Appointment extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getStaffRequested(): bool
+    public function getStaffRequested(): bool|null
     {
         return $this->container['StaffRequested'];
     }
@@ -580,7 +580,7 @@ class Appointment extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getProgramId(): int
+    public function getProgramId(): int|null
     {
         return $this->container['ProgramId'];
     }
@@ -606,7 +606,7 @@ class Appointment extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getWaitlistEntryId(): int
+    public function getWaitlistEntryId(): int|null
     {
         return $this->container['WaitlistEntryId'];
     }
@@ -632,7 +632,7 @@ class Appointment extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getSessionTypeId(): int
+    public function getSessionTypeId(): int|null
     {
         return $this->container['SessionTypeId'];
     }
@@ -658,7 +658,7 @@ class Appointment extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getLocationId(): int
+    public function getLocationId(): int|null
     {
         return $this->container['LocationId'];
     }
@@ -684,7 +684,7 @@ class Appointment extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getStaffId(): int
+    public function getStaffId(): int|null
     {
         return $this->container['StaffId'];
     }
@@ -710,7 +710,7 @@ class Appointment extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId(): string|null
     {
         return $this->container['ClientId'];
     }
@@ -736,7 +736,7 @@ class Appointment extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getFirstAppointment(): bool
+    public function getFirstAppointment(): bool|null
     {
         return $this->container['FirstAppointment'];
     }
@@ -762,7 +762,7 @@ class Appointment extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getClientServiceId(): int
+    public function getClientServiceId(): int|null
     {
         return $this->container['ClientServiceId'];
     }
@@ -788,7 +788,7 @@ class Appointment extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\Resource[]
      */
-    public function getResources(): array
+    public function getResources(): array|null
     {
         return $this->container['Resources'];
     }
@@ -814,7 +814,7 @@ class Appointment extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\AddOnSmall[]
      */
-    public function getAddOns(): array
+    public function getAddOns(): array|null
     {
         return $this->container['AddOns'];
     }
@@ -840,7 +840,7 @@ class Appointment extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getIsWaitlist(): bool
+    public function getIsWaitlist(): bool|null
     {
         return $this->container['IsWaitlist'];
     }
@@ -866,7 +866,7 @@ class Appointment extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getOnlineDescription(): string
+    public function getOnlineDescription(): string|null
     {
         return $this->container['OnlineDescription'];
     }

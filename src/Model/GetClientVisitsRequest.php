@@ -193,7 +193,7 @@ class GetClientVisitsRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId(): string|null
     {
         return $this->container['ClientId'];
     }
@@ -219,7 +219,7 @@ class GetClientVisitsRequest extends BaseModel
      *
      * @return int
      */
-    public function getUniqueClientId(): int
+    public function getUniqueClientId(): int|null
     {
         return $this->container['UniqueClientId'];
     }
@@ -245,7 +245,7 @@ class GetClientVisitsRequest extends BaseModel
      *
      * @return int
      */
-    public function getClientAssociatedSitesOffset(): int
+    public function getClientAssociatedSitesOffset(): int|null
     {
         return $this->container['ClientAssociatedSitesOffset'];
     }
@@ -271,7 +271,7 @@ class GetClientVisitsRequest extends BaseModel
      *
      * @return bool
      */
-    public function getCrossRegionalLookup(): bool
+    public function getCrossRegionalLookup(): bool|null
     {
         return $this->container['CrossRegionalLookup'];
     }
@@ -297,7 +297,7 @@ class GetClientVisitsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDate(): \DateTime
+    public function getEndDate(): \DateTime|null
     {
         return $this->container['EndDate'];
     }
@@ -323,7 +323,7 @@ class GetClientVisitsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDate(): \DateTime
+    public function getStartDate(): \DateTime|null
     {
         return $this->container['StartDate'];
     }
@@ -349,7 +349,7 @@ class GetClientVisitsRequest extends BaseModel
      *
      * @return bool
      */
-    public function getUnpaidsOnly(): bool
+    public function getUnpaidsOnly(): bool|null
     {
         return $this->container['UnpaidsOnly'];
     }
@@ -375,7 +375,7 @@ class GetClientVisitsRequest extends BaseModel
      *
      * @return string
      */
-    public function getOrder(): string
+    public function getOrder(): string|null
     {
         return $this->container['Order'];
     }
@@ -401,7 +401,7 @@ class GetClientVisitsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit(): int|null
     {
         return $this->container['Limit'];
     }
@@ -427,7 +427,7 @@ class GetClientVisitsRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset(): int|null
     {
         return $this->container['Offset'];
     }

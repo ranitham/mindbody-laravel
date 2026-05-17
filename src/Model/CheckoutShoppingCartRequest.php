@@ -273,7 +273,7 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return string
      */
-    public function getCartId(): string
+    public function getCartId(): string|null
     {
         return $this->container['CartId'];
     }
@@ -299,7 +299,7 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId(): string|null
     {
         return $this->container['ClientId'];
     }
@@ -325,7 +325,7 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return int
      */
-    public function getUniqueClientId(): int
+    public function getUniqueClientId(): int|null
     {
         return $this->container['UniqueClientId'];
     }
@@ -351,7 +351,7 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return string
      */
-    public function getPayerClientId(): string
+    public function getPayerClientId(): string|null
     {
         return $this->container['PayerClientId'];
     }
@@ -377,7 +377,7 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return int
      */
-    public function getUniquePayerClientId(): int
+    public function getUniquePayerClientId(): int|null
     {
         return $this->container['UniquePayerClientId'];
     }
@@ -403,7 +403,7 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return bool
      */
-    public function getTest(): bool
+    public function getTest(): bool|null
     {
         return $this->container['Test'];
     }
@@ -429,7 +429,7 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\CheckoutItemWrapper[]
      */
-    public function getItems(): array
+    public function getItems(): array|null
     {
         return $this->container['Items'];
     }
@@ -455,7 +455,7 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return bool
      */
-    public function getInStore(): bool
+    public function getInStore(): bool|null
     {
         return $this->container['InStore'];
     }
@@ -481,7 +481,7 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return bool
      */
-    public function getCalculateTax(): bool
+    public function getCalculateTax(): bool|null
     {
         return $this->container['CalculateTax'];
     }
@@ -507,7 +507,7 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return string
      */
-    public function getPromotionCode(): string
+    public function getPromotionCode(): string|null
     {
         return $this->container['PromotionCode'];
     }
@@ -533,7 +533,7 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\CheckoutPaymentInfo[]
      */
-    public function getPayments(): array
+    public function getPayments(): array|null
     {
         return $this->container['Payments'];
     }
@@ -559,7 +559,7 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSendEmail(): bool
+    public function getSendEmail(): bool|null
     {
         return $this->container['SendEmail'];
     }
@@ -585,7 +585,7 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return int
      */
-    public function getLocationId(): int
+    public function getLocationId(): int|null
     {
         return $this->container['LocationId'];
     }
@@ -611,7 +611,7 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return string
      */
-    public function getImage(): string
+    public function getImage(): string|null
     {
         return $this->container['Image'];
     }
@@ -642,7 +642,7 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return string
      */
-    public function getImageFileName(): string
+    public function getImageFileName(): string|null
     {
         return $this->container['ImageFileName'];
     }
@@ -668,7 +668,7 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return bool
      */
-    public function getConsumerPresent(): bool
+    public function getConsumerPresent(): bool|null
     {
         return $this->container['ConsumerPresent'];
     }
@@ -694,7 +694,7 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return string
      */
-    public function getPaymentAuthenticationCallbackUrl(): string
+    public function getPaymentAuthenticationCallbackUrl(): string|null
     {
         return $this->container['PaymentAuthenticationCallbackUrl'];
     }
@@ -720,7 +720,7 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getTransactionIds(): array
+    public function getTransactionIds(): array|null
     {
         return $this->container['TransactionIds'];
     }
@@ -746,7 +746,7 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIsBillingPostalCodeRequired(): bool
+    public function getIsBillingPostalCodeRequired(): bool|null
     {
         return $this->container['IsBillingPostalCodeRequired'];
     }
@@ -772,7 +772,7 @@ class CheckoutShoppingCartRequest extends BaseModel
      *
      * @return bool
      */
-    public function getEnforceLocationRestrictions(): bool
+    public function getEnforceLocationRestrictions(): bool|null
     {
         return $this->container['EnforceLocationRestrictions'];
     }

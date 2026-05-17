@@ -180,7 +180,7 @@ class ItineraryEventRequest extends BaseModel
      *
      * @return int
      */
-    public function getSessionTypeId(): int
+    public function getSessionTypeId(): int|null
     {
         return $this->container['SessionTypeId'];
     }
@@ -206,7 +206,7 @@ class ItineraryEventRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDateTime(): \DateTime
+    public function getStartDateTime(): \DateTime|null
     {
         return $this->container['StartDateTime'];
     }
@@ -232,7 +232,7 @@ class ItineraryEventRequest extends BaseModel
      *
      * @return int
      */
-    public function getDuration(): int
+    public function getDuration(): int|null
     {
         return $this->container['Duration'];
     }
@@ -258,7 +258,7 @@ class ItineraryEventRequest extends BaseModel
      *
      * @return string
      */
-    public function getNotes(): string
+    public function getNotes(): string|null
     {
         return $this->container['Notes'];
     }
@@ -284,7 +284,7 @@ class ItineraryEventRequest extends BaseModel
      *
      * @return bool
      */
-    public function getStaffRequested(): bool
+    public function getStaffRequested(): bool|null
     {
         return $this->container['StaffRequested'];
     }
@@ -310,7 +310,7 @@ class ItineraryEventRequest extends BaseModel
      *
      * @return int
      */
-    public function getStaffId(): int
+    public function getStaffId(): int|null
     {
         return $this->container['StaffId'];
     }
@@ -336,7 +336,7 @@ class ItineraryEventRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getResourceIds(): array
+    public function getResourceIds(): array|null
     {
         return $this->container['ResourceIds'];
     }
@@ -362,7 +362,7 @@ class ItineraryEventRequest extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\AppointmentModelsItineraryAddOn[]
      */
-    public function getAddOns(): array
+    public function getAddOns(): array|null
     {
         return $this->container['AddOns'];
     }

@@ -130,7 +130,7 @@ class GetLiabilityWaiverResponse extends BaseModel
      *
      * @return string
      */
-    public function getLiabilityWaiver(): string
+    public function getLiabilityWaiver(): string|null
     {
         return $this->container['LiabilityWaiver'];
     }

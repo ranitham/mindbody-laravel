@@ -165,7 +165,7 @@ class Package extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): int|null
     {
         return $this->container['Id'];
     }
@@ -191,7 +191,7 @@ class Package extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getName(): string
+    public function getName(): string|null
     {
         return $this->container['Name'];
     }
@@ -217,7 +217,7 @@ class Package extends BaseModel implements ModelWithIntId
      *
      * @return double
      */
-    public function getDiscountPercentage(): float
+    public function getDiscountPercentage(): float|null
     {
         return $this->container['DiscountPercentage'];
     }
@@ -243,7 +243,7 @@ class Package extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getSellOnline(): bool
+    public function getSellOnline(): bool|null
     {
         return $this->container['SellOnline'];
     }
@@ -269,7 +269,7 @@ class Package extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\Service[]
      */
-    public function getServices(): array
+    public function getServices(): array|null
     {
         return $this->container['Services'];
     }
@@ -295,7 +295,7 @@ class Package extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\Product[]
      */
-    public function getProducts(): array
+    public function getProducts(): array|null
     {
         return $this->container['Products'];
     }

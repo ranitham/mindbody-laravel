@@ -130,7 +130,7 @@ class GetMembershipsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Membership[]
      */
-    public function getMemberships(): array
+    public function getMemberships(): array|null
     {
         return $this->container['Memberships'];
     }

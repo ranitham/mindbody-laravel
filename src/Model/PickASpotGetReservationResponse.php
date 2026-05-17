@@ -145,7 +145,7 @@ class PickASpotGetReservationResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PickASpotReservation[]
      */
-    public function getReservations(): array
+    public function getReservations(): array|null
     {
         return $this->container['Reservations'];
     }
@@ -171,7 +171,7 @@ class PickASpotGetReservationResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PickASpotPagination
      */
-    public function getPagination(): \Nlocascio\Mindbody\Model\PickASpotPagination
+    public function getPagination(): \Nlocascio\Mindbody\Model\PickASpotPagination|null
     {
         return $this->container['Pagination'];
     }
@@ -197,7 +197,7 @@ class PickASpotGetReservationResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PickASpotResponseDetails
      */
-    public function getResponseDetails(): \Nlocascio\Mindbody\Model\PickASpotResponseDetails
+    public function getResponseDetails(): \Nlocascio\Mindbody\Model\PickASpotResponseDetails|null
     {
         return $this->container['ResponseDetails'];
     }

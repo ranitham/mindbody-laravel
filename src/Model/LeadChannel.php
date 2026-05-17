@@ -158,7 +158,7 @@ class LeadChannel extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): int|null
     {
         return $this->container['Id'];
     }
@@ -184,7 +184,7 @@ class LeadChannel extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getName(): string
+    public function getName(): string|null
     {
         return $this->container['Name'];
     }
@@ -210,7 +210,7 @@ class LeadChannel extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getSalespipelineId(): int
+    public function getSalespipelineId(): int|null
     {
         return $this->container['SalespipelineId'];
     }
@@ -236,7 +236,7 @@ class LeadChannel extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getUniversalCustomerId(): string
+    public function getUniversalCustomerId(): string|null
     {
         return $this->container['UniversalCustomerId'];
     }
@@ -262,7 +262,7 @@ class LeadChannel extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getStudioId(): int
+    public function getStudioId(): int|null
     {
         return $this->container['StudioId'];
     }

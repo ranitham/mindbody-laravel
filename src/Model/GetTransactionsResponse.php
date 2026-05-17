@@ -138,7 +138,7 @@ class GetTransactionsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
+    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse|null
     {
         return $this->container['PaginationResponse'];
     }
@@ -164,7 +164,7 @@ class GetTransactionsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Transaction[]
      */
-    public function getTransactions(): array
+    public function getTransactions(): array|null
     {
         return $this->container['Transactions'];
     }

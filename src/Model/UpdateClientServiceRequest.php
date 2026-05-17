@@ -161,7 +161,7 @@ class UpdateClientServiceRequest extends BaseModel
      *
      * @return int
      */
-    public function getServiceId(): int
+    public function getServiceId(): int|null
     {
         return $this->container['ServiceId'];
     }
@@ -187,7 +187,7 @@ class UpdateClientServiceRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getActiveDate(): \DateTime
+    public function getActiveDate(): \DateTime|null
     {
         return $this->container['ActiveDate'];
     }
@@ -213,7 +213,7 @@ class UpdateClientServiceRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getExpirationDate(): \DateTime
+    public function getExpirationDate(): \DateTime|null
     {
         return $this->container['ExpirationDate'];
     }
@@ -239,7 +239,7 @@ class UpdateClientServiceRequest extends BaseModel
      *
      * @return int
      */
-    public function getCount(): int
+    public function getCount(): int|null
     {
         return $this->container['Count'];
     }
@@ -265,7 +265,7 @@ class UpdateClientServiceRequest extends BaseModel
      *
      * @return bool
      */
-    public function getTest(): bool
+    public function getTest(): bool|null
     {
         return $this->container['Test'];
     }

@@ -175,7 +175,7 @@ class GetClientPurchasesRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId(): string|null
     {
         return $this->container['ClientId'];
     }
@@ -201,7 +201,7 @@ class GetClientPurchasesRequest extends BaseModel
      *
      * @return int
      */
-    public function getUniqueClientId(): int
+    public function getUniqueClientId(): int|null
     {
         return $this->container['UniqueClientId'];
     }
@@ -227,7 +227,7 @@ class GetClientPurchasesRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDate(): \DateTime
+    public function getStartDate(): \DateTime|null
     {
         return $this->container['StartDate'];
     }
@@ -253,7 +253,7 @@ class GetClientPurchasesRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDate(): \DateTime
+    public function getEndDate(): \DateTime|null
     {
         return $this->container['EndDate'];
     }
@@ -279,7 +279,7 @@ class GetClientPurchasesRequest extends BaseModel
      *
      * @return int
      */
-    public function getSaleId(): int
+    public function getSaleId(): int|null
     {
         return $this->container['SaleId'];
     }
@@ -305,7 +305,7 @@ class GetClientPurchasesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit(): int|null
     {
         return $this->container['Limit'];
     }
@@ -331,7 +331,7 @@ class GetClientPurchasesRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset(): int|null
     {
         return $this->container['Offset'];
     }

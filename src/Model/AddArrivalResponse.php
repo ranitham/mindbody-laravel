@@ -137,7 +137,7 @@ class AddArrivalResponse extends BaseModel
      *
      * @return bool
      */
-    public function getArrivalAdded(): bool
+    public function getArrivalAdded(): bool|null
     {
         return $this->container['ArrivalAdded'];
     }
@@ -163,7 +163,7 @@ class AddArrivalResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClientService
      */
-    public function getClientService(): \Nlocascio\Mindbody\Model\ClientService
+    public function getClientService(): \Nlocascio\Mindbody\Model\ClientService|null
     {
         return $this->container['ClientService'];
     }

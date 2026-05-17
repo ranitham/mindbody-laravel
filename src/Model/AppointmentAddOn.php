@@ -158,7 +158,7 @@ class AppointmentAddOn extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): int|null
     {
         return $this->container['Id'];
     }
@@ -184,7 +184,7 @@ class AppointmentAddOn extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getName(): string
+    public function getName(): string|null
     {
         return $this->container['Name'];
     }
@@ -210,7 +210,7 @@ class AppointmentAddOn extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getNumDeducted(): int
+    public function getNumDeducted(): int|null
     {
         return $this->container['NumDeducted'];
     }
@@ -236,7 +236,7 @@ class AppointmentAddOn extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getCategoryId(): int
+    public function getCategoryId(): int|null
     {
         return $this->container['CategoryId'];
     }
@@ -262,7 +262,7 @@ class AppointmentAddOn extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getCategory(): string
+    public function getCategory(): string|null
     {
         return $this->container['Category'];
     }

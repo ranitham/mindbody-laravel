@@ -199,7 +199,7 @@ class UpdateSiteClientIndexRequest extends BaseModel
      *
      * @return int
      */
-    public function getClientIndexID(): int
+    public function getClientIndexID(): int|null
     {
         return $this->container['ClientIndexID'];
     }
@@ -225,7 +225,7 @@ class UpdateSiteClientIndexRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientIndexName(): string
+    public function getClientIndexName(): string|null
     {
         return $this->container['ClientIndexName'];
     }
@@ -251,7 +251,7 @@ class UpdateSiteClientIndexRequest extends BaseModel
      *
      * @return bool
      */
-    public function getActive(): bool
+    public function getActive(): bool|null
     {
         return $this->container['Active'];
     }
@@ -277,7 +277,7 @@ class UpdateSiteClientIndexRequest extends BaseModel
      *
      * @return bool
      */
-    public function getShowOnNewClient(): bool
+    public function getShowOnNewClient(): bool|null
     {
         return $this->container['ShowOnNewClient'];
     }
@@ -303,7 +303,7 @@ class UpdateSiteClientIndexRequest extends BaseModel
      *
      * @return bool
      */
-    public function getShowOnEnrollmentRoster(): bool
+    public function getShowOnEnrollmentRoster(): bool|null
     {
         return $this->container['ShowOnEnrollmentRoster'];
     }
@@ -329,7 +329,7 @@ class UpdateSiteClientIndexRequest extends BaseModel
      *
      * @return bool
      */
-    public function getEditOnEnrollmentRoster(): bool
+    public function getEditOnEnrollmentRoster(): bool|null
     {
         return $this->container['EditOnEnrollmentRoster'];
     }
@@ -355,7 +355,7 @@ class UpdateSiteClientIndexRequest extends BaseModel
      *
      * @return int
      */
-    public function getSortOrder(): int
+    public function getSortOrder(): int|null
     {
         return $this->container['SortOrder'];
     }
@@ -381,7 +381,7 @@ class UpdateSiteClientIndexRequest extends BaseModel
      *
      * @return bool
      */
-    public function getShowInConsumerMode(): bool
+    public function getShowInConsumerMode(): bool|null
     {
         return $this->container['ShowInConsumerMode'];
     }
@@ -407,7 +407,7 @@ class UpdateSiteClientIndexRequest extends BaseModel
      *
      * @return bool
      */
-    public function getRequiredConsumerMode(): bool
+    public function getRequiredConsumerMode(): bool|null
     {
         return $this->container['RequiredConsumerMode'];
     }
@@ -433,7 +433,7 @@ class UpdateSiteClientIndexRequest extends BaseModel
      *
      * @return bool
      */
-    public function getRequiredBizMode(): bool
+    public function getRequiredBizMode(): bool|null
     {
         return $this->container['RequiredBizMode'];
     }

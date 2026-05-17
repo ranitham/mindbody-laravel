@@ -138,7 +138,7 @@ class UpdateSaleDateRequest extends BaseModel
      *
      * @return int
      */
-    public function getSaleID(): int
+    public function getSaleID(): int|null
     {
         return $this->container['SaleID'];
     }
@@ -164,7 +164,7 @@ class UpdateSaleDateRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getSaleDate(): \DateTime
+    public function getSaleDate(): \DateTime|null
     {
         return $this->container['SaleDate'];
     }

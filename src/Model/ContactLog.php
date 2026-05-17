@@ -201,7 +201,7 @@ class ContactLog extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): int|null
     {
         return $this->container['Id'];
     }
@@ -227,7 +227,7 @@ class ContactLog extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getText(): string
+    public function getText(): string|null
     {
         return $this->container['Text'];
     }
@@ -253,7 +253,7 @@ class ContactLog extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getCreatedDateTime(): \DateTime
+    public function getCreatedDateTime(): \DateTime|null
     {
         return $this->container['CreatedDateTime'];
     }
@@ -279,7 +279,7 @@ class ContactLog extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getFollowupByDate(): \DateTime
+    public function getFollowupByDate(): \DateTime|null
     {
         return $this->container['FollowupByDate'];
     }
@@ -305,7 +305,7 @@ class ContactLog extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getContactMethod(): string
+    public function getContactMethod(): string|null
     {
         return $this->container['ContactMethod'];
     }
@@ -331,7 +331,7 @@ class ContactLog extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getContactName(): string
+    public function getContactName(): string|null
     {
         return $this->container['ContactName'];
     }
@@ -357,7 +357,7 @@ class ContactLog extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\Client
      */
-    public function getClient(): \Nlocascio\Mindbody\Model\Client
+    public function getClient(): \Nlocascio\Mindbody\Model\Client|null
     {
         return $this->container['Client'];
     }
@@ -383,7 +383,7 @@ class ContactLog extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\Staff
      */
-    public function getCreatedBy(): \Nlocascio\Mindbody\Model\Staff
+    public function getCreatedBy(): \Nlocascio\Mindbody\Model\Staff|null
     {
         return $this->container['CreatedBy'];
     }
@@ -409,7 +409,7 @@ class ContactLog extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\Staff
      */
-    public function getAssignedTo(): \Nlocascio\Mindbody\Model\Staff
+    public function getAssignedTo(): \Nlocascio\Mindbody\Model\Staff|null
     {
         return $this->container['AssignedTo'];
     }
@@ -435,7 +435,7 @@ class ContactLog extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\ContactLogComment[]
      */
-    public function getComments(): array
+    public function getComments(): array|null
     {
         return $this->container['Comments'];
     }
@@ -461,7 +461,7 @@ class ContactLog extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\ContactLogType[]
      */
-    public function getTypes(): array
+    public function getTypes(): array|null
     {
         return $this->container['Types'];
     }

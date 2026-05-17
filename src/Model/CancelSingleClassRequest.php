@@ -151,7 +151,7 @@ class CancelSingleClassRequest extends BaseModel
      *
      * @return int
      */
-    public function getClassID(): int
+    public function getClassID(): int|null
     {
         return $this->container['ClassID'];
     }
@@ -177,7 +177,7 @@ class CancelSingleClassRequest extends BaseModel
      *
      * @return bool
      */
-    public function getHideCancel(): bool
+    public function getHideCancel(): bool|null
     {
         return $this->container['HideCancel'];
     }
@@ -203,7 +203,7 @@ class CancelSingleClassRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSendClientEmail(): bool
+    public function getSendClientEmail(): bool|null
     {
         return $this->container['SendClientEmail'];
     }
@@ -229,7 +229,7 @@ class CancelSingleClassRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSendStaffEmail(): bool
+    public function getSendStaffEmail(): bool|null
     {
         return $this->container['SendStaffEmail'];
     }

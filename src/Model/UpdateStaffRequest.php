@@ -329,7 +329,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return int
      */
-    public function getID(): int
+    public function getID(): int|null
     {
         return $this->container['ID'];
     }
@@ -355,7 +355,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return string
      */
-    public function getFirstName(): string
+    public function getFirstName(): string|null
     {
         return $this->container['FirstName'];
     }
@@ -381,7 +381,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return string
      */
-    public function getLastName(): string
+    public function getLastName(): string|null
     {
         return $this->container['LastName'];
     }
@@ -407,7 +407,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return string
      */
-    public function getEmail(): string
+    public function getEmail(): string|null
     {
         return $this->container['Email'];
     }
@@ -433,7 +433,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIsMale(): bool
+    public function getIsMale(): bool|null
     {
         return $this->container['IsMale'];
     }
@@ -459,7 +459,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return string
      */
-    public function getHomePhone(): string
+    public function getHomePhone(): string|null
     {
         return $this->container['HomePhone'];
     }
@@ -485,7 +485,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return string
      */
-    public function getWorkPhone(): string
+    public function getWorkPhone(): string|null
     {
         return $this->container['WorkPhone'];
     }
@@ -511,7 +511,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return string
      */
-    public function getMobilePhone(): string
+    public function getMobilePhone(): string|null
     {
         return $this->container['MobilePhone'];
     }
@@ -537,7 +537,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return string
      */
-    public function getBio(): string
+    public function getBio(): string|null
     {
         return $this->container['Bio'];
     }
@@ -563,7 +563,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return string
      */
-    public function getAddress(): string
+    public function getAddress(): string|null
     {
         return $this->container['Address'];
     }
@@ -589,7 +589,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return string
      */
-    public function getAddress2(): string
+    public function getAddress2(): string|null
     {
         return $this->container['Address2'];
     }
@@ -615,7 +615,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return string
      */
-    public function getCity(): string
+    public function getCity(): string|null
     {
         return $this->container['City'];
     }
@@ -641,7 +641,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return string
      */
-    public function getState(): string
+    public function getState(): string|null
     {
         return $this->container['State'];
     }
@@ -667,7 +667,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return string
      */
-    public function getCountry(): string
+    public function getCountry(): string|null
     {
         return $this->container['Country'];
     }
@@ -693,7 +693,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return string
      */
-    public function getPostalCode(): string
+    public function getPostalCode(): string|null
     {
         return $this->container['PostalCode'];
     }
@@ -719,7 +719,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return bool
      */
-    public function getClassAssistant(): bool
+    public function getClassAssistant(): bool|null
     {
         return $this->container['ClassAssistant'];
     }
@@ -745,7 +745,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return bool
      */
-    public function getClassAssistant2(): bool
+    public function getClassAssistant2(): bool|null
     {
         return $this->container['ClassAssistant2'];
     }
@@ -771,7 +771,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIndependentContractor(): bool
+    public function getIndependentContractor(): bool|null
     {
         return $this->container['IndependentContractor'];
     }
@@ -797,7 +797,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return bool
      */
-    public function getAppointmentInstructor(): bool
+    public function getAppointmentInstructor(): bool|null
     {
         return $this->container['AppointmentInstructor'];
     }
@@ -823,7 +823,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return bool
      */
-    public function getAlwaysAllowDoubleBooking(): bool
+    public function getAlwaysAllowDoubleBooking(): bool|null
     {
         return $this->container['AlwaysAllowDoubleBooking'];
     }
@@ -849,7 +849,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return bool
      */
-    public function getClassTeacher(): bool
+    public function getClassTeacher(): bool|null
     {
         return $this->container['ClassTeacher'];
     }
@@ -875,7 +875,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEmploymentStart(): \DateTime
+    public function getEmploymentStart(): \DateTime|null
     {
         return $this->container['EmploymentStart'];
     }
@@ -901,7 +901,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEmploymentEnd(): \DateTime
+    public function getEmploymentEnd(): \DateTime|null
     {
         return $this->container['EmploymentEnd'];
     }
@@ -927,7 +927,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return int
      */
-    public function getSortOrder(): int
+    public function getSortOrder(): int|null
     {
         return $this->container['SortOrder'];
     }
@@ -953,7 +953,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return string[]
      */
-    public function getProviderIDs(): array
+    public function getProviderIDs(): array|null
     {
         return $this->container['ProviderIDs'];
     }
@@ -979,7 +979,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return bool
      */
-    public function getActive(): bool
+    public function getActive(): bool|null
     {
         return $this->container['Active'];
     }
@@ -1005,7 +1005,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return string
      */
-    public function getNotes(): string
+    public function getNotes(): string|null
     {
         return $this->container['Notes'];
     }
@@ -1031,7 +1031,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return string
      */
-    public function getEmpID(): string
+    public function getEmpID(): string|null
     {
         return $this->container['EmpID'];
     }
@@ -1057,7 +1057,7 @@ class UpdateStaffRequest extends BaseModel
      *
      * @return int
      */
-    public function getDefaultClassPayRate(): int
+    public function getDefaultClassPayRate(): int|null
     {
         return $this->container['DefaultClassPayRate'];
     }

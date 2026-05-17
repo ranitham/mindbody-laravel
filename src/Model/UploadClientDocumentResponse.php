@@ -137,7 +137,7 @@ class UploadClientDocumentResponse extends BaseModel
      *
      * @return int
      */
-    public function getFileSize(): int
+    public function getFileSize(): int|null
     {
         return $this->container['FileSize'];
     }
@@ -163,7 +163,7 @@ class UploadClientDocumentResponse extends BaseModel
      *
      * @return string
      */
-    public function getFileName(): string
+    public function getFileName(): string|null
     {
         return $this->container['FileName'];
     }

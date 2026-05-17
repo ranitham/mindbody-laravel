@@ -238,7 +238,7 @@ class AddStaffAvailabilityRequest extends BaseModel
      *
      * @return int
      */
-    public function getStaffId(): int
+    public function getStaffId(): int|null
     {
         return $this->container['StaffId'];
     }
@@ -264,7 +264,7 @@ class AddStaffAvailabilityRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIsAvailability(): bool
+    public function getIsAvailability(): bool|null
     {
         return $this->container['IsAvailability'];
     }
@@ -290,7 +290,7 @@ class AddStaffAvailabilityRequest extends BaseModel
      *
      * @return string
      */
-    public function getDescription(): string
+    public function getDescription(): string|null
     {
         return $this->container['Description'];
     }
@@ -316,7 +316,7 @@ class AddStaffAvailabilityRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getProgramIds(): array
+    public function getProgramIds(): array|null
     {
         return $this->container['ProgramIds'];
     }
@@ -342,7 +342,7 @@ class AddStaffAvailabilityRequest extends BaseModel
      *
      * @return int
      */
-    public function getLocationId(): int
+    public function getLocationId(): int|null
     {
         return $this->container['LocationId'];
     }
@@ -368,7 +368,7 @@ class AddStaffAvailabilityRequest extends BaseModel
      *
      * @return string[]
      */
-    public function getDaysOfWeek(): array
+    public function getDaysOfWeek(): array|null
     {
         return $this->container['DaysOfWeek'];
     }
@@ -394,7 +394,7 @@ class AddStaffAvailabilityRequest extends BaseModel
      *
      * @return string
      */
-    public function getStartTime(): string
+    public function getStartTime(): string|null
     {
         return $this->container['StartTime'];
     }
@@ -425,7 +425,7 @@ class AddStaffAvailabilityRequest extends BaseModel
      *
      * @return string
      */
-    public function getEndTime(): string
+    public function getEndTime(): string|null
     {
         return $this->container['EndTime'];
     }
@@ -456,7 +456,7 @@ class AddStaffAvailabilityRequest extends BaseModel
      *
      * @return string
      */
-    public function getStartDate(): string
+    public function getStartDate(): string|null
     {
         return $this->container['StartDate'];
     }
@@ -487,7 +487,7 @@ class AddStaffAvailabilityRequest extends BaseModel
      *
      * @return string
      */
-    public function getEndDate(): string
+    public function getEndDate(): string|null
     {
         return $this->container['EndDate'];
     }
@@ -518,7 +518,7 @@ class AddStaffAvailabilityRequest extends BaseModel
      *
      * @return string
      */
-    public function getStatus(): string
+    public function getStatus(): string|null
     {
         return $this->container['Status'];
     }

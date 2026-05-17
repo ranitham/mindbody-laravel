@@ -137,7 +137,7 @@ class GetCustomClientFieldsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit(): int|null
     {
         return $this->container['Limit'];
     }
@@ -163,7 +163,7 @@ class GetCustomClientFieldsRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset(): int|null
     {
         return $this->container['Offset'];
     }

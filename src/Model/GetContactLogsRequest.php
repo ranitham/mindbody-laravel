@@ -189,7 +189,7 @@ class GetContactLogsRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId(): string|null
     {
         return $this->container['ClientId'];
     }
@@ -215,7 +215,7 @@ class GetContactLogsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDate(): \DateTime
+    public function getStartDate(): \DateTime|null
     {
         return $this->container['StartDate'];
     }
@@ -241,7 +241,7 @@ class GetContactLogsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDate(): \DateTime
+    public function getEndDate(): \DateTime|null
     {
         return $this->container['EndDate'];
     }
@@ -267,7 +267,7 @@ class GetContactLogsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getStaffIds(): array
+    public function getStaffIds(): array|null
     {
         return $this->container['StaffIds'];
     }
@@ -293,7 +293,7 @@ class GetContactLogsRequest extends BaseModel
      *
      * @return bool
      */
-    public function getShowSystemGenerated(): bool
+    public function getShowSystemGenerated(): bool|null
     {
         return $this->container['ShowSystemGenerated'];
     }
@@ -319,7 +319,7 @@ class GetContactLogsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getTypeIds(): array
+    public function getTypeIds(): array|null
     {
         return $this->container['TypeIds'];
     }
@@ -345,7 +345,7 @@ class GetContactLogsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getSubtypeIds(): array
+    public function getSubtypeIds(): array|null
     {
         return $this->container['SubtypeIds'];
     }
@@ -371,7 +371,7 @@ class GetContactLogsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit(): int|null
     {
         return $this->container['Limit'];
     }
@@ -397,7 +397,7 @@ class GetContactLogsRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset(): int|null
     {
         return $this->container['Offset'];
     }

@@ -159,7 +159,7 @@ class ClientDuplicate extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getId(): string
+    public function getId(): string|null
     {
         return $this->container['Id'];
     }
@@ -185,7 +185,7 @@ class ClientDuplicate extends BaseModel implements ModelWithStringId
      *
      * @return int
      */
-    public function getUniqueId(): int
+    public function getUniqueId(): int|null
     {
         return $this->container['UniqueId'];
     }
@@ -211,7 +211,7 @@ class ClientDuplicate extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getFirstName(): string
+    public function getFirstName(): string|null
     {
         return $this->container['FirstName'];
     }
@@ -237,7 +237,7 @@ class ClientDuplicate extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getLastName(): string
+    public function getLastName(): string|null
     {
         return $this->container['LastName'];
     }
@@ -263,7 +263,7 @@ class ClientDuplicate extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getEmail(): string
+    public function getEmail(): string|null
     {
         return $this->container['Email'];
     }

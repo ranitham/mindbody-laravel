@@ -152,7 +152,7 @@ class CrossRegionalClientAssociation extends BaseModel
      *
      * @return int
      */
-    public function getSiteId(): int
+    public function getSiteId(): int|null
     {
         return $this->container['SiteId'];
     }
@@ -178,7 +178,7 @@ class CrossRegionalClientAssociation extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId(): string|null
     {
         return $this->container['ClientId'];
     }
@@ -204,7 +204,7 @@ class CrossRegionalClientAssociation extends BaseModel
      *
      * @return int
      */
-    public function getUniqueId(): int
+    public function getUniqueId(): int|null
     {
         return $this->container['UniqueId'];
     }
@@ -230,7 +230,7 @@ class CrossRegionalClientAssociation extends BaseModel
      *
      * @return bool
      */
-    public function getSiteIsActive(): bool
+    public function getSiteIsActive(): bool|null
     {
         return $this->container['SiteIsActive'];
     }

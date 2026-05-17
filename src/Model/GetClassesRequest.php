@@ -242,7 +242,7 @@ class GetClassesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getClassDescriptionIds(): array
+    public function getClassDescriptionIds(): array|null
     {
         return $this->container['ClassDescriptionIds'];
     }
@@ -268,7 +268,7 @@ class GetClassesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getClassIds(): array
+    public function getClassIds(): array|null
     {
         return $this->container['ClassIds'];
     }
@@ -294,7 +294,7 @@ class GetClassesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getClassScheduleIds(): array
+    public function getClassScheduleIds(): array|null
     {
         return $this->container['ClassScheduleIds'];
     }
@@ -320,7 +320,7 @@ class GetClassesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getStaffIds(): array
+    public function getStaffIds(): array|null
     {
         return $this->container['StaffIds'];
     }
@@ -346,7 +346,7 @@ class GetClassesRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDateTime(): \DateTime
+    public function getStartDateTime(): \DateTime|null
     {
         return $this->container['StartDateTime'];
     }
@@ -372,7 +372,7 @@ class GetClassesRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDateTime(): \DateTime
+    public function getEndDateTime(): \DateTime|null
     {
         return $this->container['EndDateTime'];
     }
@@ -398,7 +398,7 @@ class GetClassesRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId(): string|null
     {
         return $this->container['ClientId'];
     }
@@ -424,7 +424,7 @@ class GetClassesRequest extends BaseModel
      *
      * @return int
      */
-    public function getUniqueClientId(): int
+    public function getUniqueClientId(): int|null
     {
         return $this->container['UniqueClientId'];
     }
@@ -450,7 +450,7 @@ class GetClassesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getProgramIds(): array
+    public function getProgramIds(): array|null
     {
         return $this->container['ProgramIds'];
     }
@@ -476,7 +476,7 @@ class GetClassesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getSessionTypeIds(): array
+    public function getSessionTypeIds(): array|null
     {
         return $this->container['SessionTypeIds'];
     }
@@ -502,7 +502,7 @@ class GetClassesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getLocationIds(): array
+    public function getLocationIds(): array|null
     {
         return $this->container['LocationIds'];
     }
@@ -528,7 +528,7 @@ class GetClassesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getSemesterIds(): array
+    public function getSemesterIds(): array|null
     {
         return $this->container['SemesterIds'];
     }
@@ -554,7 +554,7 @@ class GetClassesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getHideCanceledClasses(): bool
+    public function getHideCanceledClasses(): bool|null
     {
         return $this->container['HideCanceledClasses'];
     }
@@ -580,7 +580,7 @@ class GetClassesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSchedulingWindow(): bool
+    public function getSchedulingWindow(): bool|null
     {
         return $this->container['SchedulingWindow'];
     }
@@ -606,7 +606,7 @@ class GetClassesRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getLastModifiedDate(): \DateTime
+    public function getLastModifiedDate(): \DateTime|null
     {
         return $this->container['LastModifiedDate'];
     }
@@ -632,7 +632,7 @@ class GetClassesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit(): int|null
     {
         return $this->container['Limit'];
     }
@@ -658,7 +658,7 @@ class GetClassesRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset(): int|null
     {
         return $this->container['Offset'];
     }

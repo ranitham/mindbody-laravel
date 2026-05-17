@@ -138,7 +138,7 @@ class Discount extends BaseModel
      *
      * @return string
      */
-    public function getType(): string
+    public function getType(): string|null
     {
         return $this->container['Type'];
     }
@@ -164,7 +164,7 @@ class Discount extends BaseModel
      *
      * @return double
      */
-    public function getAmount(): float
+    public function getAmount(): float|null
     {
         return $this->container['Amount'];
     }

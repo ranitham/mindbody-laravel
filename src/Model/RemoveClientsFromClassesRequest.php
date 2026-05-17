@@ -166,7 +166,7 @@ class RemoveClientsFromClassesRequest extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClassClientDetail[]
      */
-    public function getDetails(): array
+    public function getDetails(): array|null
     {
         return $this->container['Details'];
     }
@@ -192,7 +192,7 @@ class RemoveClientsFromClassesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getTest(): bool
+    public function getTest(): bool|null
     {
         return $this->container['Test'];
     }
@@ -218,7 +218,7 @@ class RemoveClientsFromClassesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSendEmail(): bool
+    public function getSendEmail(): bool|null
     {
         return $this->container['SendEmail'];
     }
@@ -244,7 +244,7 @@ class RemoveClientsFromClassesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getLateCancel(): bool
+    public function getLateCancel(): bool|null
     {
         return $this->container['LateCancel'];
     }
@@ -270,7 +270,7 @@ class RemoveClientsFromClassesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit(): int|null
     {
         return $this->container['Limit'];
     }
@@ -296,7 +296,7 @@ class RemoveClientsFromClassesRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset(): int|null
     {
         return $this->container['Offset'];
     }

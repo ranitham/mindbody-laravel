@@ -229,7 +229,7 @@ class ClassDescription extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getActive(): bool
+    public function getActive(): bool|null
     {
         return $this->container['Active'];
     }
@@ -255,7 +255,7 @@ class ClassDescription extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getDescription(): string
+    public function getDescription(): string|null
     {
         return $this->container['Description'];
     }
@@ -281,7 +281,7 @@ class ClassDescription extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): int|null
     {
         return $this->container['Id'];
     }
@@ -307,7 +307,7 @@ class ClassDescription extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getImageURL(): string
+    public function getImageURL(): string|null
     {
         return $this->container['ImageURL'];
     }
@@ -333,7 +333,7 @@ class ClassDescription extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getLastUpdated(): \DateTime
+    public function getLastUpdated(): \DateTime|null
     {
         return $this->container['LastUpdated'];
     }
@@ -359,7 +359,7 @@ class ClassDescription extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\Level
      */
-    public function getLevel(): \Nlocascio\Mindbody\Model\Level
+    public function getLevel(): \Nlocascio\Mindbody\Model\Level|null
     {
         return $this->container['Level'];
     }
@@ -385,7 +385,7 @@ class ClassDescription extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getName(): string
+    public function getName(): string|null
     {
         return $this->container['Name'];
     }
@@ -411,7 +411,7 @@ class ClassDescription extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getNotes(): string
+    public function getNotes(): string|null
     {
         return $this->container['Notes'];
     }
@@ -437,7 +437,7 @@ class ClassDescription extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getPrereq(): string
+    public function getPrereq(): string|null
     {
         return $this->container['Prereq'];
     }
@@ -463,7 +463,7 @@ class ClassDescription extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\Program
      */
-    public function getProgram(): \Nlocascio\Mindbody\Model\Program
+    public function getProgram(): \Nlocascio\Mindbody\Model\Program|null
     {
         return $this->container['Program'];
     }
@@ -489,7 +489,7 @@ class ClassDescription extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\SessionType
      */
-    public function getSessionType(): \Nlocascio\Mindbody\Model\SessionType
+    public function getSessionType(): \Nlocascio\Mindbody\Model\SessionType|null
     {
         return $this->container['SessionType'];
     }
@@ -515,7 +515,7 @@ class ClassDescription extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getCategory(): string
+    public function getCategory(): string|null
     {
         return $this->container['Category'];
     }
@@ -541,7 +541,7 @@ class ClassDescription extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getCategoryId(): int
+    public function getCategoryId(): int|null
     {
         return $this->container['CategoryId'];
     }
@@ -567,7 +567,7 @@ class ClassDescription extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getSubcategory(): string
+    public function getSubcategory(): string|null
     {
         return $this->container['Subcategory'];
     }
@@ -593,7 +593,7 @@ class ClassDescription extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getSubcategoryId(): int
+    public function getSubcategoryId(): int|null
     {
         return $this->container['SubcategoryId'];
     }

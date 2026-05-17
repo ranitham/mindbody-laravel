@@ -138,7 +138,7 @@ class VisitWaitlistInfo extends BaseModel
      *
      * @return int
      */
-    public function getWaitlistId(): int
+    public function getWaitlistId(): int|null
     {
         return $this->container['WaitlistId'];
     }
@@ -164,7 +164,7 @@ class VisitWaitlistInfo extends BaseModel
      *
      * @return int
      */
-    public function getWaitlistOrderNumber(): int
+    public function getWaitlistOrderNumber(): int|null
     {
         return $this->container['WaitlistOrderNumber'];
     }

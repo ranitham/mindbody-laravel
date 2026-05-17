@@ -335,7 +335,7 @@ class ClientContract extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getPayerClientId(): int
+    public function getPayerClientId(): int|null
     {
         return $this->container['PayerClientId'];
     }
@@ -361,7 +361,7 @@ class ClientContract extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getAgreementDate(): \DateTime
+    public function getAgreementDate(): \DateTime|null
     {
         return $this->container['AgreementDate'];
     }
@@ -387,7 +387,7 @@ class ClientContract extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getAutopayStatus(): string
+    public function getAutopayStatus(): string|null
     {
         return $this->container['AutopayStatus'];
     }
@@ -422,7 +422,7 @@ class ClientContract extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getAutoRenewing(): bool
+    public function getAutoRenewing(): bool|null
     {
         return $this->container['AutoRenewing'];
     }
@@ -448,7 +448,7 @@ class ClientContract extends BaseModel implements ModelWithIntId
      *
      * @return double
      */
-    public function getFirstAutoPay(): float
+    public function getFirstAutoPay(): float|null
     {
         return $this->container['FirstAutoPay'];
     }
@@ -474,7 +474,7 @@ class ClientContract extends BaseModel implements ModelWithIntId
      *
      * @return double
      */
-    public function getLastAutoPay(): float
+    public function getLastAutoPay(): float|null
     {
         return $this->container['LastAutoPay'];
     }
@@ -500,7 +500,7 @@ class ClientContract extends BaseModel implements ModelWithIntId
      *
      * @return double
      */
-    public function getNormalAutoPay(): float
+    public function getNormalAutoPay(): float|null
     {
         return $this->container['NormalAutoPay'];
     }
@@ -526,7 +526,7 @@ class ClientContract extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getIsMonthToMonth(): bool
+    public function getIsMonthToMonth(): bool|null
     {
         return $this->container['IsMonthToMonth'];
     }
@@ -552,7 +552,7 @@ class ClientContract extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getAutoRenewClientContractID(): int
+    public function getAutoRenewClientContractID(): int|null
     {
         return $this->container['AutoRenewClientContractID'];
     }
@@ -578,7 +578,7 @@ class ClientContract extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getContractText(): string
+    public function getContractText(): string|null
     {
         return $this->container['ContractText'];
     }
@@ -604,7 +604,7 @@ class ClientContract extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getContractAutoRenewed(): bool
+    public function getContractAutoRenewed(): bool|null
     {
         return $this->container['ContractAutoRenewed'];
     }
@@ -630,7 +630,7 @@ class ClientContract extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getContractName(): string
+    public function getContractName(): string|null
     {
         return $this->container['ContractName'];
     }
@@ -656,7 +656,7 @@ class ClientContract extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getEndDate(): \DateTime
+    public function getEndDate(): \DateTime|null
     {
         return $this->container['EndDate'];
     }
@@ -682,7 +682,7 @@ class ClientContract extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): int|null
     {
         return $this->container['Id'];
     }
@@ -708,7 +708,7 @@ class ClientContract extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getOriginationLocationId(): int
+    public function getOriginationLocationId(): int|null
     {
         return $this->container['OriginationLocationId'];
     }
@@ -734,7 +734,7 @@ class ClientContract extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getStartDate(): \DateTime
+    public function getStartDate(): \DateTime|null
     {
         return $this->container['StartDate'];
     }
@@ -760,7 +760,7 @@ class ClientContract extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getSiteId(): int
+    public function getSiteId(): int|null
     {
         return $this->container['SiteId'];
     }
@@ -786,7 +786,7 @@ class ClientContract extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\UpcomingAutopayEvent[]
      */
-    public function getUpcomingAutopayEvents(): array
+    public function getUpcomingAutopayEvents(): array|null
     {
         return $this->container['UpcomingAutopayEvents'];
     }
@@ -812,7 +812,7 @@ class ClientContract extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getContractID(): int
+    public function getContractID(): int|null
     {
         return $this->container['ContractID'];
     }
@@ -838,7 +838,7 @@ class ClientContract extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getTerminationDate(): \DateTime
+    public function getTerminationDate(): \DateTime|null
     {
         return $this->container['TerminationDate'];
     }
@@ -864,7 +864,7 @@ class ClientContract extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getMinimumCommitmentValue(): int
+    public function getMinimumCommitmentValue(): int|null
     {
         return $this->container['MinimumCommitmentValue'];
     }
@@ -890,7 +890,7 @@ class ClientContract extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getMinimumCommitmentUnit(): string
+    public function getMinimumCommitmentUnit(): string|null
     {
         return $this->container['MinimumCommitmentUnit'];
     }
@@ -925,7 +925,7 @@ class ClientContract extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getMinimumCommitmentEndDate(): \DateTime
+    public function getMinimumCommitmentEndDate(): \DateTime|null
     {
         return $this->container['MinimumCommitmentEndDate'];
     }

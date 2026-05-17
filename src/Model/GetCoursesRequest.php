@@ -187,7 +187,7 @@ class GetCoursesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getLocationIDs(): array
+    public function getLocationIDs(): array|null
     {
         return $this->container['LocationIDs'];
     }
@@ -213,7 +213,7 @@ class GetCoursesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getCourseIDs(): array
+    public function getCourseIDs(): array|null
     {
         return $this->container['CourseIDs'];
     }
@@ -239,7 +239,7 @@ class GetCoursesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getStaffIDs(): array
+    public function getStaffIDs(): array|null
     {
         return $this->container['StaffIDs'];
     }
@@ -265,7 +265,7 @@ class GetCoursesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getProgramIDs(): array
+    public function getProgramIDs(): array|null
     {
         return $this->container['ProgramIDs'];
     }
@@ -291,7 +291,7 @@ class GetCoursesRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDate(): \DateTime
+    public function getStartDate(): \DateTime|null
     {
         return $this->container['StartDate'];
     }
@@ -317,7 +317,7 @@ class GetCoursesRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDate(): \DateTime
+    public function getEndDate(): \DateTime|null
     {
         return $this->container['EndDate'];
     }
@@ -343,7 +343,7 @@ class GetCoursesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getSemesterIDs(): array
+    public function getSemesterIDs(): array|null
     {
         return $this->container['SemesterIDs'];
     }
@@ -369,7 +369,7 @@ class GetCoursesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit(): int|null
     {
         return $this->container['Limit'];
     }
@@ -395,7 +395,7 @@ class GetCoursesRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset(): int|null
     {
         return $this->container['Offset'];
     }

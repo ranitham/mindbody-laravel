@@ -130,7 +130,7 @@ class AddClientToClassResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\AddClientToClassVisit
      */
-    public function getVisit(): \Nlocascio\Mindbody\Model\AddClientToClassVisit
+    public function getVisit(): \Nlocascio\Mindbody\Model\AddClientToClassVisit|null
     {
         return $this->container['Visit'];
     }

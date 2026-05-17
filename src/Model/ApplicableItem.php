@@ -145,7 +145,7 @@ class ApplicableItem extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getType(): string
+    public function getType(): string|null
     {
         return $this->container['Type'];
     }
@@ -171,7 +171,7 @@ class ApplicableItem extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): int|null
     {
         return $this->container['Id'];
     }
@@ -197,7 +197,7 @@ class ApplicableItem extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getName(): string
+    public function getName(): string|null
     {
         return $this->container['Name'];
     }

@@ -148,7 +148,7 @@ class GetClassVisitsRequest extends BaseModel
      *
      * @return int
      */
-    public function getClassID(): int
+    public function getClassID(): int|null
     {
         return $this->container['ClassID'];
     }
@@ -174,7 +174,7 @@ class GetClassVisitsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getLastModifiedDate(): \DateTime
+    public function getLastModifiedDate(): \DateTime|null
     {
         return $this->container['LastModifiedDate'];
     }
@@ -200,7 +200,7 @@ class GetClassVisitsRequest extends BaseModel
      *
      * @return bool
      */
-    public function getUseSiteSettingsStaffName(): bool
+    public function getUseSiteSettingsStaffName(): bool|null
     {
         return $this->container['UseSiteSettingsStaffName'];
     }

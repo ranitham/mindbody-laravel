@@ -166,7 +166,7 @@ class AppointmentModelsItineraryAddOn extends BaseModel implements ModelWithIntI
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): int|null
     {
         return $this->container['Id'];
     }
@@ -192,7 +192,7 @@ class AppointmentModelsItineraryAddOn extends BaseModel implements ModelWithIntI
      *
      * @return int
      */
-    public function getSessionTypeId(): int
+    public function getSessionTypeId(): int|null
     {
         return $this->container['SessionTypeId'];
     }
@@ -218,7 +218,7 @@ class AppointmentModelsItineraryAddOn extends BaseModel implements ModelWithIntI
      *
      * @return \DateTime
      */
-    public function getStartTime(): \DateTime
+    public function getStartTime(): \DateTime|null
     {
         return $this->container['StartTime'];
     }
@@ -244,7 +244,7 @@ class AppointmentModelsItineraryAddOn extends BaseModel implements ModelWithIntI
      *
      * @return int
      */
-    public function getDurationOverrideInMinutes(): int
+    public function getDurationOverrideInMinutes(): int|null
     {
         return $this->container['DurationOverrideInMinutes'];
     }
@@ -270,7 +270,7 @@ class AppointmentModelsItineraryAddOn extends BaseModel implements ModelWithIntI
      *
      * @return \Nlocascio\Mindbody\Model\AppointmentModelsAppointmentResourceInfo[]
      */
-    public function getResources(): array
+    public function getResources(): array|null
     {
         return $this->container['Resources'];
     }
@@ -296,7 +296,7 @@ class AppointmentModelsItineraryAddOn extends BaseModel implements ModelWithIntI
      *
      * @return string
      */
-    public function getNotes(): string
+    public function getNotes(): string|null
     {
         return $this->container['Notes'];
     }

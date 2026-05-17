@@ -158,7 +158,7 @@ class GetClientDuplicatesRequest extends BaseModel
      *
      * @return string
      */
-    public function getFirstName(): string
+    public function getFirstName(): string|null
     {
         return $this->container['FirstName'];
     }
@@ -184,7 +184,7 @@ class GetClientDuplicatesRequest extends BaseModel
      *
      * @return string
      */
-    public function getLastName(): string
+    public function getLastName(): string|null
     {
         return $this->container['LastName'];
     }
@@ -210,7 +210,7 @@ class GetClientDuplicatesRequest extends BaseModel
      *
      * @return string
      */
-    public function getEmail(): string
+    public function getEmail(): string|null
     {
         return $this->container['Email'];
     }
@@ -236,7 +236,7 @@ class GetClientDuplicatesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit(): int|null
     {
         return $this->container['Limit'];
     }
@@ -262,7 +262,7 @@ class GetClientDuplicatesRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset(): int|null
     {
         return $this->container['Offset'];
     }

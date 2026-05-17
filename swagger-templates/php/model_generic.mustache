@@ -187,7 +187,7 @@ class {{classname}} extends BaseModel
      *
      * @return {{datatype}}
      */
-    {{#isContainer}}public function {{getter}}(): array{{/isContainer}}{{^isContainer}}public function {{getter}}(): {{#isDouble}}float{{/isDouble}}{{^isDouble}}{{datatype}}{{/isDouble}}{{/isContainer}}
+    public function {{getter}}(): {{#isContainer}}array{{/isContainer}}{{^isContainer}}{{#isDouble}}float{{/isDouble}}{{^isDouble}}{{datatype}}{{/isDouble}}{{/isContainer}}|null
     {
         return $this->container['{{name}}'];
     }

@@ -145,7 +145,7 @@ class ClientSuspensionInfo extends BaseModel
      *
      * @return bool
      */
-    public function getBookingSuspended(): bool
+    public function getBookingSuspended(): bool|null
     {
         return $this->container['BookingSuspended'];
     }
@@ -171,7 +171,7 @@ class ClientSuspensionInfo extends BaseModel
      *
      * @return string
      */
-    public function getSuspensionStartDate(): string
+    public function getSuspensionStartDate(): string|null
     {
         return $this->container['SuspensionStartDate'];
     }
@@ -197,7 +197,7 @@ class ClientSuspensionInfo extends BaseModel
      *
      * @return string
      */
-    public function getSuspensionEndDate(): string
+    public function getSuspensionEndDate(): string|null
     {
         return $this->container['SuspensionEndDate'];
     }

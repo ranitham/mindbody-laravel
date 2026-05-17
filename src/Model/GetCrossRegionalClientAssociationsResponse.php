@@ -137,7 +137,7 @@ class GetCrossRegionalClientAssociationsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
+    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse|null
     {
         return $this->container['PaginationResponse'];
     }
@@ -163,7 +163,7 @@ class GetCrossRegionalClientAssociationsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\CrossRegionalClientAssociation[]
      */
-    public function getCrossRegionalClientAssociations(): array
+    public function getCrossRegionalClientAssociations(): array|null
     {
         return $this->container['CrossRegionalClientAssociations'];
     }

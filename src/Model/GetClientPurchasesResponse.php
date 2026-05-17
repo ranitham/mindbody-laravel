@@ -137,7 +137,7 @@ class GetClientPurchasesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
+    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse|null
     {
         return $this->container['PaginationResponse'];
     }
@@ -163,7 +163,7 @@ class GetClientPurchasesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClientPurchaseRecord[]
      */
-    public function getPurchases(): array
+    public function getPurchases(): array|null
     {
         return $this->container['Purchases'];
     }

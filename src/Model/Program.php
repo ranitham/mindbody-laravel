@@ -246,7 +246,7 @@ class Program extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getCancelOffset(): int
+    public function getCancelOffset(): int|null
     {
         return $this->container['CancelOffset'];
     }
@@ -272,7 +272,7 @@ class Program extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): int|null
     {
         return $this->container['Id'];
     }
@@ -298,7 +298,7 @@ class Program extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getName(): string
+    public function getName(): string|null
     {
         return $this->container['Name'];
     }
@@ -324,7 +324,7 @@ class Program extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getScheduleType(): string
+    public function getScheduleType(): string|null
     {
         return $this->container['ScheduleType'];
     }
@@ -359,7 +359,7 @@ class Program extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getContentFormat(): string
+    public function getContentFormat(): string|null
     {
         return $this->container['ContentFormat'];
     }
@@ -394,7 +394,7 @@ class Program extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getOnlineBookingDisabled(): bool
+    public function getOnlineBookingDisabled(): bool|null
     {
         return $this->container['OnlineBookingDisabled'];
     }
@@ -420,7 +420,7 @@ class Program extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getScheduleOffset(): int
+    public function getScheduleOffset(): int|null
     {
         return $this->container['ScheduleOffset'];
     }
@@ -446,7 +446,7 @@ class Program extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getScheduleOffsetEnd(): int
+    public function getScheduleOffsetEnd(): int|null
     {
         return $this->container['ScheduleOffsetEnd'];
     }
@@ -472,7 +472,7 @@ class Program extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\PricingRelationships
      */
-    public function getPricingRelationships(): \Nlocascio\Mindbody\Model\PricingRelationships
+    public function getPricingRelationships(): \Nlocascio\Mindbody\Model\PricingRelationships|null
     {
         return $this->container['PricingRelationships'];
     }

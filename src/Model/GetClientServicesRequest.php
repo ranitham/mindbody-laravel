@@ -264,7 +264,7 @@ class GetClientServicesRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId(): string|null
     {
         return $this->container['ClientId'];
     }
@@ -290,7 +290,7 @@ class GetClientServicesRequest extends BaseModel
      *
      * @return int
      */
-    public function getUniqueClientId(): int
+    public function getUniqueClientId(): int|null
     {
         return $this->container['UniqueClientId'];
     }
@@ -316,7 +316,7 @@ class GetClientServicesRequest extends BaseModel
      *
      * @return string[]
      */
-    public function getClientIds(): array
+    public function getClientIds(): array|null
     {
         return $this->container['ClientIds'];
     }
@@ -342,7 +342,7 @@ class GetClientServicesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getUniqueClientIds(): array
+    public function getUniqueClientIds(): array|null
     {
         return $this->container['UniqueClientIds'];
     }
@@ -368,7 +368,7 @@ class GetClientServicesRequest extends BaseModel
      *
      * @return int
      */
-    public function getClassId(): int
+    public function getClassId(): int|null
     {
         return $this->container['ClassId'];
     }
@@ -394,7 +394,7 @@ class GetClientServicesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getProgramIds(): array
+    public function getProgramIds(): array|null
     {
         return $this->container['ProgramIds'];
     }
@@ -420,7 +420,7 @@ class GetClientServicesRequest extends BaseModel
      *
      * @return int
      */
-    public function getSessionTypeId(): int
+    public function getSessionTypeId(): int|null
     {
         return $this->container['SessionTypeId'];
     }
@@ -446,7 +446,7 @@ class GetClientServicesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getLocationIds(): array
+    public function getLocationIds(): array|null
     {
         return $this->container['LocationIds'];
     }
@@ -472,7 +472,7 @@ class GetClientServicesRequest extends BaseModel
      *
      * @return int
      */
-    public function getVisitCount(): int
+    public function getVisitCount(): int|null
     {
         return $this->container['VisitCount'];
     }
@@ -498,7 +498,7 @@ class GetClientServicesRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDate(): \DateTime
+    public function getStartDate(): \DateTime|null
     {
         return $this->container['StartDate'];
     }
@@ -524,7 +524,7 @@ class GetClientServicesRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDate(): \DateTime
+    public function getEndDate(): \DateTime|null
     {
         return $this->container['EndDate'];
     }
@@ -550,7 +550,7 @@ class GetClientServicesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getShowActiveOnly(): bool
+    public function getShowActiveOnly(): bool|null
     {
         return $this->container['ShowActiveOnly'];
     }
@@ -576,7 +576,7 @@ class GetClientServicesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getCrossRegionalLookup(): bool
+    public function getCrossRegionalLookup(): bool|null
     {
         return $this->container['CrossRegionalLookup'];
     }
@@ -602,7 +602,7 @@ class GetClientServicesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIgnoreCrossRegionalSiteLimit(): bool
+    public function getIgnoreCrossRegionalSiteLimit(): bool|null
     {
         return $this->container['IgnoreCrossRegionalSiteLimit'];
     }
@@ -628,7 +628,7 @@ class GetClientServicesRequest extends BaseModel
      *
      * @return int
      */
-    public function getClientAssociatedSitesOffset(): int
+    public function getClientAssociatedSitesOffset(): int|null
     {
         return $this->container['ClientAssociatedSitesOffset'];
     }
@@ -654,7 +654,7 @@ class GetClientServicesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getExcludeInactiveSites(): bool
+    public function getExcludeInactiveSites(): bool|null
     {
         return $this->container['ExcludeInactiveSites'];
     }
@@ -680,7 +680,7 @@ class GetClientServicesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getUseActivateDate(): bool
+    public function getUseActivateDate(): bool|null
     {
         return $this->container['UseActivateDate'];
     }
@@ -706,7 +706,7 @@ class GetClientServicesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getClassScheduleID(): array
+    public function getClassScheduleID(): array|null
     {
         return $this->container['ClassScheduleID'];
     }
@@ -732,7 +732,7 @@ class GetClientServicesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit(): int|null
     {
         return $this->container['Limit'];
     }
@@ -758,7 +758,7 @@ class GetClientServicesRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset(): int|null
     {
         return $this->container['Offset'];
     }

@@ -263,7 +263,7 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ItineraryEventRequest[]
      */
-    public function getItineraryEvents(): array
+    public function getItineraryEvents(): array|null
     {
         return $this->container['ItineraryEvents'];
     }
@@ -289,7 +289,7 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return bool
      */
-    public function getApplyPayment(): bool
+    public function getApplyPayment(): bool|null
     {
         return $this->container['ApplyPayment'];
     }
@@ -315,7 +315,7 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId(): string|null
     {
         return $this->container['ClientId'];
     }
@@ -341,7 +341,7 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return int
      */
-    public function getDuration(): int
+    public function getDuration(): int|null
     {
         return $this->container['Duration'];
     }
@@ -367,7 +367,7 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDateTime(): \DateTime
+    public function getEndDateTime(): \DateTime|null
     {
         return $this->container['EndDateTime'];
     }
@@ -393,7 +393,7 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return string
      */
-    public function getGenderPreference(): string
+    public function getGenderPreference(): string|null
     {
         return $this->container['GenderPreference'];
     }
@@ -419,7 +419,7 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return int
      */
-    public function getLocationId(): int
+    public function getLocationId(): int|null
     {
         return $this->container['LocationId'];
     }
@@ -445,7 +445,7 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return string
      */
-    public function getNotes(): string
+    public function getNotes(): string|null
     {
         return $this->container['Notes'];
     }
@@ -471,7 +471,7 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return string
      */
-    public function getProviderId(): string
+    public function getProviderId(): string|null
     {
         return $this->container['ProviderId'];
     }
@@ -497,7 +497,7 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getResourceIds(): array
+    public function getResourceIds(): array|null
     {
         return $this->container['ResourceIds'];
     }
@@ -523,7 +523,7 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSendEmail(): bool
+    public function getSendEmail(): bool|null
     {
         return $this->container['SendEmail'];
     }
@@ -549,7 +549,7 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return int
      */
-    public function getSessionTypeId(): int
+    public function getSessionTypeId(): int|null
     {
         return $this->container['SessionTypeId'];
     }
@@ -575,7 +575,7 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return int
      */
-    public function getStaffId(): int
+    public function getStaffId(): int|null
     {
         return $this->container['StaffId'];
     }
@@ -601,7 +601,7 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return bool
      */
-    public function getStaffRequested(): bool
+    public function getStaffRequested(): bool|null
     {
         return $this->container['StaffRequested'];
     }
@@ -627,7 +627,7 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDateTime(): \DateTime
+    public function getStartDateTime(): \DateTime|null
     {
         return $this->container['StartDateTime'];
     }
@@ -653,7 +653,7 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return bool
      */
-    public function getTest(): bool
+    public function getTest(): bool|null
     {
         return $this->container['Test'];
     }
@@ -679,7 +679,7 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIsWaitlist(): bool
+    public function getIsWaitlist(): bool|null
     {
         return $this->container['IsWaitlist'];
     }
@@ -705,7 +705,7 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return string
      */
-    public function getPartnerExternalId(): string
+    public function getPartnerExternalId(): string|null
     {
         return $this->container['PartnerExternalId'];
     }
@@ -731,7 +731,7 @@ class AddAppointmentRequest extends BaseModel
      *
      * @return int
      */
-    public function getAddAppointmentRequestId(): int
+    public function getAddAppointmentRequestId(): int|null
     {
         return $this->container['AddAppointmentRequestId'];
     }

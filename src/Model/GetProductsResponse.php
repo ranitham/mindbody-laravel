@@ -138,7 +138,7 @@ class GetProductsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
+    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse|null
     {
         return $this->container['PaginationResponse'];
     }
@@ -164,7 +164,7 @@ class GetProductsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Product[]
      */
-    public function getProducts(): array
+    public function getProducts(): array|null
     {
         return $this->container['Products'];
     }

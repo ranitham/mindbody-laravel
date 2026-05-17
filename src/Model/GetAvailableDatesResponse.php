@@ -131,7 +131,7 @@ class GetAvailableDatesResponse extends BaseModel
      *
      * @return \DateTime[]
      */
-    public function getAvailableDates(): array
+    public function getAvailableDates(): array|null
     {
         return $this->container['AvailableDates'];
     }

@@ -131,7 +131,7 @@ class AddMultipleAppointmentsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\AddAppointmentOutcome[]
      */
-    public function getAddAppointmentOutcomes(): array
+    public function getAddAppointmentOutcomes(): array|null
     {
         return $this->container['AddAppointmentOutcomes'];
     }

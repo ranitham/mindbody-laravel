@@ -201,7 +201,7 @@ class Sale extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): int|null
     {
         return $this->container['Id'];
     }
@@ -227,7 +227,7 @@ class Sale extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getSaleDate(): \DateTime
+    public function getSaleDate(): \DateTime|null
     {
         return $this->container['SaleDate'];
     }
@@ -253,7 +253,7 @@ class Sale extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getSaleTime(): string
+    public function getSaleTime(): string|null
     {
         return $this->container['SaleTime'];
     }
@@ -279,7 +279,7 @@ class Sale extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getSaleDateTime(): \DateTime
+    public function getSaleDateTime(): \DateTime|null
     {
         return $this->container['SaleDateTime'];
     }
@@ -305,7 +305,7 @@ class Sale extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getOriginalSaleDateTime(): \DateTime
+    public function getOriginalSaleDateTime(): \DateTime|null
     {
         return $this->container['OriginalSaleDateTime'];
     }
@@ -331,7 +331,7 @@ class Sale extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getSalesRepId(): int
+    public function getSalesRepId(): int|null
     {
         return $this->container['SalesRepId'];
     }
@@ -357,7 +357,7 @@ class Sale extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId(): string|null
     {
         return $this->container['ClientId'];
     }
@@ -383,7 +383,7 @@ class Sale extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getRecipientClientId(): int
+    public function getRecipientClientId(): int|null
     {
         return $this->container['RecipientClientId'];
     }
@@ -409,7 +409,7 @@ class Sale extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\PurchasedItem[]
      */
-    public function getPurchasedItems(): array
+    public function getPurchasedItems(): array|null
     {
         return $this->container['PurchasedItems'];
     }
@@ -435,7 +435,7 @@ class Sale extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getLocationId(): int
+    public function getLocationId(): int|null
     {
         return $this->container['LocationId'];
     }
@@ -461,7 +461,7 @@ class Sale extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\SalePayment[]
      */
-    public function getPayments(): array
+    public function getPayments(): array|null
     {
         return $this->container['Payments'];
     }

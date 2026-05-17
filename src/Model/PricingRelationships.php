@@ -137,7 +137,7 @@ class PricingRelationships extends BaseModel
      *
      * @return int[]
      */
-    public function getPaysFor(): array
+    public function getPaysFor(): array|null
     {
         return $this->container['PaysFor'];
     }
@@ -163,7 +163,7 @@ class PricingRelationships extends BaseModel
      *
      * @return int[]
      */
-    public function getPaidBy(): array
+    public function getPaidBy(): array|null
     {
         return $this->container['PaidBy'];
     }

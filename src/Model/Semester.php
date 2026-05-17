@@ -180,7 +180,7 @@ class Semester extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): int|null
     {
         return $this->container['Id'];
     }
@@ -206,7 +206,7 @@ class Semester extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getName(): string
+    public function getName(): string|null
     {
         return $this->container['Name'];
     }
@@ -232,7 +232,7 @@ class Semester extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getDescription(): string
+    public function getDescription(): string|null
     {
         return $this->container['Description'];
     }
@@ -258,7 +258,7 @@ class Semester extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getStartDate(): \DateTime
+    public function getStartDate(): \DateTime|null
     {
         return $this->container['StartDate'];
     }
@@ -284,7 +284,7 @@ class Semester extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getEndDate(): \DateTime
+    public function getEndDate(): \DateTime|null
     {
         return $this->container['EndDate'];
     }
@@ -310,7 +310,7 @@ class Semester extends BaseModel implements ModelWithIntId
      *
      * @return double
      */
-    public function getMultiRegistrationDiscount(): float
+    public function getMultiRegistrationDiscount(): float|null
     {
         return $this->container['MultiRegistrationDiscount'];
     }
@@ -336,7 +336,7 @@ class Semester extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getMultiRegistrationDeadline(): \DateTime
+    public function getMultiRegistrationDeadline(): \DateTime|null
     {
         return $this->container['MultiRegistrationDeadline'];
     }
@@ -362,7 +362,7 @@ class Semester extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getActive(): bool
+    public function getActive(): bool|null
     {
         return $this->container['Active'];
     }

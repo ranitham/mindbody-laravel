@@ -544,7 +544,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getBusinessId(): int
+    public function getBusinessId(): int|null
     {
         return $this->container['BusinessId'];
     }
@@ -570,7 +570,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getSiteId(): int
+    public function getSiteId(): int|null
     {
         return $this->container['SiteId'];
     }
@@ -596,7 +596,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getBusinessDescription(): string
+    public function getBusinessDescription(): string|null
     {
         return $this->container['BusinessDescription'];
     }
@@ -622,7 +622,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return string[]
      */
-    public function getAdditionalImageURLs(): array
+    public function getAdditionalImageURLs(): array|null
     {
         return $this->container['AdditionalImageURLs'];
     }
@@ -648,7 +648,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getFacilitySquareFeet(): int
+    public function getFacilitySquareFeet(): int|null
     {
         return $this->container['FacilitySquareFeet'];
     }
@@ -674,7 +674,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getProSpaFinderSite(): bool
+    public function getProSpaFinderSite(): bool|null
     {
         return $this->container['ProSpaFinderSite'];
     }
@@ -700,7 +700,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getHasClasses(): bool
+    public function getHasClasses(): bool|null
     {
         return $this->container['HasClasses'];
     }
@@ -726,7 +726,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getPhoneExtension(): string
+    public function getPhoneExtension(): string|null
     {
         return $this->container['PhoneExtension'];
     }
@@ -752,7 +752,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getAction(): string
+    public function getAction(): string|null
     {
         return $this->container['Action'];
     }
@@ -787,7 +787,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): int|null
     {
         return $this->container['Id'];
     }
@@ -813,7 +813,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getName(): string
+    public function getName(): string|null
     {
         return $this->container['Name'];
     }
@@ -839,7 +839,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getAddress(): string
+    public function getAddress(): string|null
     {
         return $this->container['Address'];
     }
@@ -865,7 +865,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getAddress2(): string
+    public function getAddress2(): string|null
     {
         return $this->container['Address2'];
     }
@@ -891,7 +891,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return float
      */
-    public function getTax1(): float
+    public function getTax1(): float|null
     {
         return $this->container['Tax1'];
     }
@@ -917,7 +917,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return float
      */
-    public function getTax2(): float
+    public function getTax2(): float|null
     {
         return $this->container['Tax2'];
     }
@@ -943,7 +943,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return float
      */
-    public function getTax3(): float
+    public function getTax3(): float|null
     {
         return $this->container['Tax3'];
     }
@@ -969,7 +969,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return float
      */
-    public function getTax4(): float
+    public function getTax4(): float|null
     {
         return $this->container['Tax4'];
     }
@@ -995,7 +995,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return float
      */
-    public function getTax5(): float
+    public function getTax5(): float|null
     {
         return $this->container['Tax5'];
     }
@@ -1021,7 +1021,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getPhone(): string
+    public function getPhone(): string|null
     {
         return $this->container['Phone'];
     }
@@ -1047,7 +1047,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getCity(): string
+    public function getCity(): string|null
     {
         return $this->container['City'];
     }
@@ -1073,7 +1073,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getStateProvCode(): string
+    public function getStateProvCode(): string|null
     {
         return $this->container['StateProvCode'];
     }
@@ -1099,7 +1099,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getPostalCode(): string
+    public function getPostalCode(): string|null
     {
         return $this->container['PostalCode'];
     }
@@ -1125,7 +1125,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return double
      */
-    public function getLatitude(): float
+    public function getLatitude(): float|null
     {
         return $this->container['Latitude'];
     }
@@ -1151,7 +1151,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return double
      */
-    public function getLongitude(): float
+    public function getLongitude(): float|null
     {
         return $this->container['Longitude'];
     }
@@ -1177,7 +1177,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return double
      */
-    public function getDistanceInMiles(): float
+    public function getDistanceInMiles(): float|null
     {
         return $this->container['DistanceInMiles'];
     }
@@ -1203,7 +1203,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getImageURL(): string
+    public function getImageURL(): string|null
     {
         return $this->container['ImageURL'];
     }
@@ -1229,7 +1229,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getDescription(): string
+    public function getDescription(): string|null
     {
         return $this->container['Description'];
     }
@@ -1255,7 +1255,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getHasSite(): bool
+    public function getHasSite(): bool|null
     {
         return $this->container['HasSite'];
     }
@@ -1281,7 +1281,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getCanBook(): bool
+    public function getCanBook(): bool|null
     {
         return $this->container['CanBook'];
     }
@@ -1307,7 +1307,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getNumberTreatmentRooms(): int
+    public function getNumberTreatmentRooms(): int|null
     {
         return $this->container['NumberTreatmentRooms'];
     }
@@ -1333,7 +1333,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getActive(): bool
+    public function getActive(): bool|null
     {
         return $this->container['Active'];
     }
@@ -1359,7 +1359,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getInvActive(): bool
+    public function getInvActive(): bool|null
     {
         return $this->container['InvActive'];
     }
@@ -1385,7 +1385,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getWsShow(): bool
+    public function getWsShow(): bool|null
     {
         return $this->container['WsShow'];
     }
@@ -1411,7 +1411,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getEmail(): string
+    public function getEmail(): string|null
     {
         return $this->container['Email'];
     }
@@ -1437,7 +1437,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getContactName(): string
+    public function getContactName(): string|null
     {
         return $this->container['ContactName'];
     }
@@ -1463,7 +1463,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getShipAddress(): string
+    public function getShipAddress(): string|null
     {
         return $this->container['ShipAddress'];
     }
@@ -1489,7 +1489,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getShipState(): string
+    public function getShipState(): string|null
     {
         return $this->container['ShipState'];
     }
@@ -1515,7 +1515,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getShipPostal(): string
+    public function getShipPostal(): string|null
     {
         return $this->container['ShipPostal'];
     }
@@ -1541,7 +1541,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getShipPhone(): string
+    public function getShipPhone(): string|null
     {
         return $this->container['ShipPhone'];
     }
@@ -1567,7 +1567,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getShipPOC(): string
+    public function getShipPOC(): string|null
     {
         return $this->container['ShipPOC'];
     }
@@ -1593,7 +1593,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getTaxGrouping(): bool
+    public function getTaxGrouping(): bool|null
     {
         return $this->container['TaxGrouping'];
     }
@@ -1619,7 +1619,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getLabelTax1(): string
+    public function getLabelTax1(): string|null
     {
         return $this->container['LabelTax1'];
     }
@@ -1645,7 +1645,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getLabelTax2(): string
+    public function getLabelTax2(): string|null
     {
         return $this->container['LabelTax2'];
     }
@@ -1671,7 +1671,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getLabelTax3(): string
+    public function getLabelTax3(): string|null
     {
         return $this->container['LabelTax3'];
     }
@@ -1697,7 +1697,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getLabelTax4(): string
+    public function getLabelTax4(): string|null
     {
         return $this->container['LabelTax4'];
     }
@@ -1723,7 +1723,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getLabelTax5(): string
+    public function getLabelTax5(): string|null
     {
         return $this->container['LabelTax5'];
     }
@@ -1749,7 +1749,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getWAC(): bool
+    public function getWAC(): bool|null
     {
         return $this->container['WAC'];
     }
@@ -1775,7 +1775,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getShipAddress2(): string
+    public function getShipAddress2(): string|null
     {
         return $this->container['ShipAddress2'];
     }
@@ -1801,7 +1801,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getMasterLocId(): int
+    public function getMasterLocId(): int|null
     {
         return $this->container['MasterLocId'];
     }
@@ -1827,7 +1827,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getStreetAddress(): string
+    public function getStreetAddress(): string|null
     {
         return $this->container['StreetAddress'];
     }
@@ -1853,7 +1853,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getCountry(): string
+    public function getCountry(): string|null
     {
         return $this->container['Country'];
     }
@@ -1879,7 +1879,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getExt(): string
+    public function getExt(): string|null
     {
         return $this->container['Ext'];
     }
@@ -1905,7 +1905,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\Amenity[]
      */
-    public function getAmenities(): array
+    public function getAmenities(): array|null
     {
         return $this->container['Amenities'];
     }
@@ -1931,7 +1931,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getTotalNumberOfDeals(): int
+    public function getTotalNumberOfDeals(): int|null
     {
         return $this->container['TotalNumberOfDeals'];
     }
@@ -1957,7 +1957,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getTotalNumberOfRatings(): int
+    public function getTotalNumberOfRatings(): int|null
     {
         return $this->container['TotalNumberOfRatings'];
     }
@@ -1983,7 +1983,7 @@ class Location extends BaseModel implements ModelWithIntId
      *
      * @return double
      */
-    public function getAverageRating(): float
+    public function getAverageRating(): float|null
     {
         return $this->container['AverageRating'];
     }

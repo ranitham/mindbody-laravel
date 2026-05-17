@@ -591,7 +591,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return \Nlocascio\Mindbody\Model\ClientSuspensionInfo
      */
-    public function getSuspensionInfo(): \Nlocascio\Mindbody\Model\ClientSuspensionInfo
+    public function getSuspensionInfo(): \Nlocascio\Mindbody\Model\ClientSuspensionInfo|null
     {
         return $this->container['SuspensionInfo'];
     }
@@ -617,7 +617,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getAppointmentGenderPreference(): string
+    public function getAppointmentGenderPreference(): string|null
     {
         return $this->container['AppointmentGenderPreference'];
     }
@@ -652,7 +652,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return \DateTime
      */
-    public function getBirthDate(): \DateTime
+    public function getBirthDate(): \DateTime|null
     {
         return $this->container['BirthDate'];
     }
@@ -678,7 +678,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getCountry(): string
+    public function getCountry(): string|null
     {
         return $this->container['Country'];
     }
@@ -704,7 +704,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return \DateTime
      */
-    public function getCreationDate(): \DateTime
+    public function getCreationDate(): \DateTime|null
     {
         return $this->container['CreationDate'];
     }
@@ -730,7 +730,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return \Nlocascio\Mindbody\Model\CustomClientFieldValue[]
      */
-    public function getCustomClientFields(): array
+    public function getCustomClientFields(): array|null
     {
         return $this->container['CustomClientFields'];
     }
@@ -756,7 +756,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return \Nlocascio\Mindbody\Model\ClientCreditCard
      */
-    public function getClientCreditCard(): \Nlocascio\Mindbody\Model\ClientCreditCard
+    public function getClientCreditCard(): \Nlocascio\Mindbody\Model\ClientCreditCard|null
     {
         return $this->container['ClientCreditCard'];
     }
@@ -782,7 +782,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return \Nlocascio\Mindbody\Model\AssignedClientIndex[]
      */
-    public function getClientIndexes(): array
+    public function getClientIndexes(): array|null
     {
         return $this->container['ClientIndexes'];
     }
@@ -808,7 +808,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return \Nlocascio\Mindbody\Model\ClientRelationship[]
      */
-    public function getClientRelationships(): array
+    public function getClientRelationships(): array|null
     {
         return $this->container['ClientRelationships'];
     }
@@ -834,7 +834,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return \DateTime
      */
-    public function getFirstAppointmentDate(): \DateTime
+    public function getFirstAppointmentDate(): \DateTime|null
     {
         return $this->container['FirstAppointmentDate'];
     }
@@ -860,7 +860,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return \DateTime
      */
-    public function getFirstClassDate(): \DateTime
+    public function getFirstClassDate(): \DateTime|null
     {
         return $this->container['FirstClassDate'];
     }
@@ -886,7 +886,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getFirstName(): string
+    public function getFirstName(): string|null
     {
         return $this->container['FirstName'];
     }
@@ -912,7 +912,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getId(): string
+    public function getId(): string|null
     {
         return $this->container['Id'];
     }
@@ -938,7 +938,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return bool
      */
-    public function getIsCompany(): bool
+    public function getIsCompany(): bool|null
     {
         return $this->container['IsCompany'];
     }
@@ -964,7 +964,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return bool
      */
-    public function getIsProspect(): bool
+    public function getIsProspect(): bool|null
     {
         return $this->container['IsProspect'];
     }
@@ -990,7 +990,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getLastName(): string
+    public function getLastName(): string|null
     {
         return $this->container['LastName'];
     }
@@ -1016,7 +1016,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return \Nlocascio\Mindbody\Model\Liability
      */
-    public function getLiability(): \Nlocascio\Mindbody\Model\Liability
+    public function getLiability(): \Nlocascio\Mindbody\Model\Liability|null
     {
         return $this->container['Liability'];
     }
@@ -1042,7 +1042,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return bool
      */
-    public function getLiabilityRelease(): bool
+    public function getLiabilityRelease(): bool|null
     {
         return $this->container['LiabilityRelease'];
     }
@@ -1068,7 +1068,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return int
      */
-    public function getMembershipIcon(): int
+    public function getMembershipIcon(): int|null
     {
         return $this->container['MembershipIcon'];
     }
@@ -1094,7 +1094,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return int
      */
-    public function getMobileProvider(): int
+    public function getMobileProvider(): int|null
     {
         return $this->container['MobileProvider'];
     }
@@ -1120,7 +1120,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getNotes(): string
+    public function getNotes(): string|null
     {
         return $this->container['Notes'];
     }
@@ -1146,7 +1146,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getState(): string
+    public function getState(): string|null
     {
         return $this->container['State'];
     }
@@ -1172,7 +1172,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return int
      */
-    public function getUniqueId(): int
+    public function getUniqueId(): int|null
     {
         return $this->container['UniqueId'];
     }
@@ -1198,7 +1198,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return \DateTime
      */
-    public function getLastModifiedDateTime(): \DateTime
+    public function getLastModifiedDateTime(): \DateTime|null
     {
         return $this->container['LastModifiedDateTime'];
     }
@@ -1224,7 +1224,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getRedAlert(): string
+    public function getRedAlert(): string|null
     {
         return $this->container['RedAlert'];
     }
@@ -1250,7 +1250,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getYellowAlert(): string
+    public function getYellowAlert(): string|null
     {
         return $this->container['YellowAlert'];
     }
@@ -1276,7 +1276,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getMiddleName(): string
+    public function getMiddleName(): string|null
     {
         return $this->container['MiddleName'];
     }
@@ -1302,7 +1302,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return \Nlocascio\Mindbody\Model\ProspectStage
      */
-    public function getProspectStage(): \Nlocascio\Mindbody\Model\ProspectStage
+    public function getProspectStage(): \Nlocascio\Mindbody\Model\ProspectStage|null
     {
         return $this->container['ProspectStage'];
     }
@@ -1328,7 +1328,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getEmail(): string
+    public function getEmail(): string|null
     {
         return $this->container['Email'];
     }
@@ -1354,7 +1354,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getMobilePhone(): string
+    public function getMobilePhone(): string|null
     {
         return $this->container['MobilePhone'];
     }
@@ -1380,7 +1380,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getHomePhone(): string
+    public function getHomePhone(): string|null
     {
         return $this->container['HomePhone'];
     }
@@ -1406,7 +1406,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getWorkPhone(): string
+    public function getWorkPhone(): string|null
     {
         return $this->container['WorkPhone'];
     }
@@ -1432,7 +1432,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return double
      */
-    public function getAccountBalance(): float
+    public function getAccountBalance(): float|null
     {
         return $this->container['AccountBalance'];
     }
@@ -1458,7 +1458,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getAddressLine1(): string
+    public function getAddressLine1(): string|null
     {
         return $this->container['AddressLine1'];
     }
@@ -1484,7 +1484,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getAddressLine2(): string
+    public function getAddressLine2(): string|null
     {
         return $this->container['AddressLine2'];
     }
@@ -1510,7 +1510,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getCity(): string
+    public function getCity(): string|null
     {
         return $this->container['City'];
     }
@@ -1536,7 +1536,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getPostalCode(): string
+    public function getPostalCode(): string|null
     {
         return $this->container['PostalCode'];
     }
@@ -1562,7 +1562,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getWorkExtension(): string
+    public function getWorkExtension(): string|null
     {
         return $this->container['WorkExtension'];
     }
@@ -1588,7 +1588,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getReferredBy(): string
+    public function getReferredBy(): string|null
     {
         return $this->container['ReferredBy'];
     }
@@ -1614,7 +1614,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getPhotoUrl(): string
+    public function getPhotoUrl(): string|null
     {
         return $this->container['PhotoUrl'];
     }
@@ -1640,7 +1640,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getEmergencyContactInfoName(): string
+    public function getEmergencyContactInfoName(): string|null
     {
         return $this->container['EmergencyContactInfoName'];
     }
@@ -1666,7 +1666,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getEmergencyContactInfoEmail(): string
+    public function getEmergencyContactInfoEmail(): string|null
     {
         return $this->container['EmergencyContactInfoEmail'];
     }
@@ -1692,7 +1692,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getEmergencyContactInfoPhone(): string
+    public function getEmergencyContactInfoPhone(): string|null
     {
         return $this->container['EmergencyContactInfoPhone'];
     }
@@ -1718,7 +1718,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getEmergencyContactInfoRelationship(): string
+    public function getEmergencyContactInfoRelationship(): string|null
     {
         return $this->container['EmergencyContactInfoRelationship'];
     }
@@ -1744,7 +1744,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getGender(): string
+    public function getGender(): string|null
     {
         return $this->container['Gender'];
     }
@@ -1770,7 +1770,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getLastFormulaNotes(): string
+    public function getLastFormulaNotes(): string|null
     {
         return $this->container['LastFormulaNotes'];
     }
@@ -1796,7 +1796,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return bool
      */
-    public function getActive(): bool
+    public function getActive(): bool|null
     {
         return $this->container['Active'];
     }
@@ -1822,7 +1822,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return \Nlocascio\Mindbody\Model\SalesRep[]
      */
-    public function getSalesReps(): array
+    public function getSalesReps(): array|null
     {
         return $this->container['SalesReps'];
     }
@@ -1848,7 +1848,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getStatus(): string
+    public function getStatus(): string|null
     {
         return $this->container['Status'];
     }
@@ -1874,7 +1874,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getAction(): string
+    public function getAction(): string|null
     {
         return $this->container['Action'];
     }
@@ -1909,7 +1909,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return bool
      */
-    public function getSendAccountEmails(): bool
+    public function getSendAccountEmails(): bool|null
     {
         return $this->container['SendAccountEmails'];
     }
@@ -1935,7 +1935,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return bool
      */
-    public function getSendAccountTexts(): bool
+    public function getSendAccountTexts(): bool|null
     {
         return $this->container['SendAccountTexts'];
     }
@@ -1961,7 +1961,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return bool
      */
-    public function getSendPromotionalEmails(): bool
+    public function getSendPromotionalEmails(): bool|null
     {
         return $this->container['SendPromotionalEmails'];
     }
@@ -1987,7 +1987,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return bool
      */
-    public function getSendPromotionalTexts(): bool
+    public function getSendPromotionalTexts(): bool|null
     {
         return $this->container['SendPromotionalTexts'];
     }
@@ -2013,7 +2013,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return bool
      */
-    public function getSendScheduleEmails(): bool
+    public function getSendScheduleEmails(): bool|null
     {
         return $this->container['SendScheduleEmails'];
     }
@@ -2039,7 +2039,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return bool
      */
-    public function getSendScheduleTexts(): bool
+    public function getSendScheduleTexts(): bool|null
     {
         return $this->container['SendScheduleTexts'];
     }
@@ -2065,7 +2065,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return \Nlocascio\Mindbody\Model\Location
      */
-    public function getHomeLocation(): \Nlocascio\Mindbody\Model\Location
+    public function getHomeLocation(): \Nlocascio\Mindbody\Model\Location|null
     {
         return $this->container['HomeLocation'];
     }
@@ -2091,7 +2091,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getLockerNumber(): string
+    public function getLockerNumber(): string|null
     {
         return $this->container['LockerNumber'];
     }
@@ -2117,7 +2117,7 @@ class ClientWithSuspensionInfo extends BaseModel implements ModelWithStringId
      *
      * @return \Nlocascio\Mindbody\Model\ClientType
      */
-    public function getClientType(): \Nlocascio\Mindbody\Model\ClientType
+    public function getClientType(): \Nlocascio\Mindbody\Model\ClientType|null
     {
         return $this->container['ClientType'];
     }

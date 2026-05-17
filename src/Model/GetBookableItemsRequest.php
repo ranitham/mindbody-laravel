@@ -196,7 +196,7 @@ class GetBookableItemsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getSessionTypeIds(): array
+    public function getSessionTypeIds(): array|null
     {
         return $this->container['SessionTypeIds'];
     }
@@ -222,7 +222,7 @@ class GetBookableItemsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getLocationIds(): array
+    public function getLocationIds(): array|null
     {
         return $this->container['LocationIds'];
     }
@@ -248,7 +248,7 @@ class GetBookableItemsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getStaffIds(): array
+    public function getStaffIds(): array|null
     {
         return $this->container['StaffIds'];
     }
@@ -274,7 +274,7 @@ class GetBookableItemsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDate(): \DateTime
+    public function getStartDate(): \DateTime|null
     {
         return $this->container['StartDate'];
     }
@@ -300,7 +300,7 @@ class GetBookableItemsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDate(): \DateTime
+    public function getEndDate(): \DateTime|null
     {
         return $this->container['EndDate'];
     }
@@ -326,7 +326,7 @@ class GetBookableItemsRequest extends BaseModel
      *
      * @return int
      */
-    public function getAppointmentId(): int
+    public function getAppointmentId(): int|null
     {
         return $this->container['AppointmentId'];
     }
@@ -352,7 +352,7 @@ class GetBookableItemsRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIgnoreDefaultSessionLength(): bool
+    public function getIgnoreDefaultSessionLength(): bool|null
     {
         return $this->container['IgnoreDefaultSessionLength'];
     }
@@ -378,7 +378,7 @@ class GetBookableItemsRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIncludeResourceAvailability(): bool
+    public function getIncludeResourceAvailability(): bool|null
     {
         return $this->container['IncludeResourceAvailability'];
     }
@@ -404,7 +404,7 @@ class GetBookableItemsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit(): int|null
     {
         return $this->container['Limit'];
     }
@@ -430,7 +430,7 @@ class GetBookableItemsRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset(): int|null
     {
         return $this->container['Offset'];
     }

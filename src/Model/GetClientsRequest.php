@@ -179,7 +179,7 @@ class GetClientsRequest extends BaseModel
      *
      * @return string[]
      */
-    public function getClientIDs(): array
+    public function getClientIDs(): array|null
     {
         return $this->container['ClientIDs'];
     }
@@ -205,7 +205,7 @@ class GetClientsRequest extends BaseModel
      *
      * @return string
      */
-    public function getSearchText(): string
+    public function getSearchText(): string|null
     {
         return $this->container['SearchText'];
     }
@@ -231,7 +231,7 @@ class GetClientsRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIsProspect(): bool
+    public function getIsProspect(): bool|null
     {
         return $this->container['IsProspect'];
     }
@@ -257,7 +257,7 @@ class GetClientsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getLastModifiedDate(): \DateTime
+    public function getLastModifiedDate(): \DateTime|null
     {
         return $this->container['LastModifiedDate'];
     }
@@ -283,7 +283,7 @@ class GetClientsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getUniqueIds(): array
+    public function getUniqueIds(): array|null
     {
         return $this->container['UniqueIds'];
     }
@@ -309,7 +309,7 @@ class GetClientsRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIncludeInactive(): bool
+    public function getIncludeInactive(): bool|null
     {
         return $this->container['IncludeInactive'];
     }
@@ -335,7 +335,7 @@ class GetClientsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit(): int|null
     {
         return $this->container['Limit'];
     }
@@ -361,7 +361,7 @@ class GetClientsRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset(): int|null
     {
         return $this->container['Offset'];
     }

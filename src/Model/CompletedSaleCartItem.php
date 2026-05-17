@@ -179,7 +179,7 @@ class CompletedSaleCartItem extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\CompletedSaleItemBase
      */
-    public function getItem(): \Nlocascio\Mindbody\Model\CompletedSaleItemBase
+    public function getItem(): \Nlocascio\Mindbody\Model\CompletedSaleItemBase|null
     {
         return $this->container['Item'];
     }
@@ -205,7 +205,7 @@ class CompletedSaleCartItem extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getSalesNotes(): string
+    public function getSalesNotes(): string|null
     {
         return $this->container['SalesNotes'];
     }
@@ -231,7 +231,7 @@ class CompletedSaleCartItem extends BaseModel implements ModelWithIntId
      *
      * @return double
      */
-    public function getDiscountAmount(): float
+    public function getDiscountAmount(): float|null
     {
         return $this->container['DiscountAmount'];
     }
@@ -257,7 +257,7 @@ class CompletedSaleCartItem extends BaseModel implements ModelWithIntId
      *
      * @return int[]
      */
-    public function getVisitIds(): array
+    public function getVisitIds(): array|null
     {
         return $this->container['VisitIds'];
     }
@@ -283,7 +283,7 @@ class CompletedSaleCartItem extends BaseModel implements ModelWithIntId
      *
      * @return int[]
      */
-    public function getAppointmentIds(): array
+    public function getAppointmentIds(): array|null
     {
         return $this->container['AppointmentIds'];
     }
@@ -309,7 +309,7 @@ class CompletedSaleCartItem extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\Appointment[]
      */
-    public function getAppointments(): array
+    public function getAppointments(): array|null
     {
         return $this->container['Appointments'];
     }
@@ -335,7 +335,7 @@ class CompletedSaleCartItem extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): int|null
     {
         return $this->container['Id'];
     }
@@ -361,7 +361,7 @@ class CompletedSaleCartItem extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getQuantity(): int
+    public function getQuantity(): int|null
     {
         return $this->container['Quantity'];
     }

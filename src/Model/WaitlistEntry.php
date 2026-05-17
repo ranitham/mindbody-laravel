@@ -186,7 +186,7 @@ class WaitlistEntry extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getClassDate(): \DateTime
+    public function getClassDate(): \DateTime|null
     {
         return $this->container['ClassDate'];
     }
@@ -212,7 +212,7 @@ class WaitlistEntry extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getClassId(): int
+    public function getClassId(): int|null
     {
         return $this->container['ClassId'];
     }
@@ -238,7 +238,7 @@ class WaitlistEntry extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\ClassSchedule
      */
-    public function getClassSchedule(): \Nlocascio\Mindbody\Model\ClassSchedule
+    public function getClassSchedule(): \Nlocascio\Mindbody\Model\ClassSchedule|null
     {
         return $this->container['ClassSchedule'];
     }
@@ -264,7 +264,7 @@ class WaitlistEntry extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\Client
      */
-    public function getClient(): \Nlocascio\Mindbody\Model\Client
+    public function getClient(): \Nlocascio\Mindbody\Model\Client|null
     {
         return $this->container['Client'];
     }
@@ -290,7 +290,7 @@ class WaitlistEntry extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getEnrollmentDateForward(): \DateTime
+    public function getEnrollmentDateForward(): \DateTime|null
     {
         return $this->container['EnrollmentDateForward'];
     }
@@ -316,7 +316,7 @@ class WaitlistEntry extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): int|null
     {
         return $this->container['Id'];
     }
@@ -342,7 +342,7 @@ class WaitlistEntry extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getRequestDateTime(): \DateTime
+    public function getRequestDateTime(): \DateTime|null
     {
         return $this->container['RequestDateTime'];
     }
@@ -368,7 +368,7 @@ class WaitlistEntry extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getVisitRefNo(): int
+    public function getVisitRefNo(): int|null
     {
         return $this->container['VisitRefNo'];
     }
@@ -394,7 +394,7 @@ class WaitlistEntry extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getWeb(): bool
+    public function getWeb(): bool|null
     {
         return $this->container['Web'];
     }

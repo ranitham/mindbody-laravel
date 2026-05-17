@@ -130,7 +130,7 @@ class GetMembershipsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getMembershipIds(): array
+    public function getMembershipIds(): array|null
     {
         return $this->container['MembershipIds'];
     }

@@ -243,7 +243,7 @@ class AddAvailabilitiesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getTest(): bool
+    public function getTest(): bool|null
     {
         return $this->container['Test'];
     }
@@ -269,7 +269,7 @@ class AddAvailabilitiesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLocationID(): int
+    public function getLocationID(): int|null
     {
         return $this->container['LocationID'];
     }
@@ -295,7 +295,7 @@ class AddAvailabilitiesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getStaffIDs(): array
+    public function getStaffIDs(): array|null
     {
         return $this->container['StaffIDs'];
     }
@@ -321,7 +321,7 @@ class AddAvailabilitiesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getProgramIDs(): array
+    public function getProgramIDs(): array|null
     {
         return $this->container['ProgramIDs'];
     }
@@ -347,7 +347,7 @@ class AddAvailabilitiesRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDateTime(): \DateTime
+    public function getStartDateTime(): \DateTime|null
     {
         return $this->container['StartDateTime'];
     }
@@ -373,7 +373,7 @@ class AddAvailabilitiesRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDateTime(): \DateTime
+    public function getEndDateTime(): \DateTime|null
     {
         return $this->container['EndDateTime'];
     }
@@ -399,7 +399,7 @@ class AddAvailabilitiesRequest extends BaseModel
      *
      * @return string[]
      */
-    public function getDaysOfWeek(): array
+    public function getDaysOfWeek(): array|null
     {
         return $this->container['DaysOfWeek'];
     }
@@ -434,7 +434,7 @@ class AddAvailabilitiesRequest extends BaseModel
      *
      * @return string
      */
-    public function getUnavailableDescription(): string
+    public function getUnavailableDescription(): string|null
     {
         return $this->container['UnavailableDescription'];
     }
@@ -460,7 +460,7 @@ class AddAvailabilitiesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIsUnavailable(): bool
+    public function getIsUnavailable(): bool|null
     {
         return $this->container['IsUnavailable'];
     }
@@ -486,7 +486,7 @@ class AddAvailabilitiesRequest extends BaseModel
      *
      * @return string
      */
-    public function getPublicDisplay(): string
+    public function getPublicDisplay(): string|null
     {
         return $this->container['PublicDisplay'];
     }

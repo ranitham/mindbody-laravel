@@ -197,7 +197,7 @@ class GetClientCompleteInfoRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId(): string|null
     {
         return $this->container['ClientId'];
     }
@@ -223,7 +223,7 @@ class GetClientCompleteInfoRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDate(): \DateTime
+    public function getStartDate(): \DateTime|null
     {
         return $this->container['StartDate'];
     }
@@ -249,7 +249,7 @@ class GetClientCompleteInfoRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDate(): \DateTime
+    public function getEndDate(): \DateTime|null
     {
         return $this->container['EndDate'];
     }
@@ -275,7 +275,7 @@ class GetClientCompleteInfoRequest extends BaseModel
      *
      * @return bool
      */
-    public function getCrossRegionalLookup(): bool
+    public function getCrossRegionalLookup(): bool|null
     {
         return $this->container['CrossRegionalLookup'];
     }
@@ -301,7 +301,7 @@ class GetClientCompleteInfoRequest extends BaseModel
      *
      * @return int
      */
-    public function getClientAssociatedSitesOffset(): int
+    public function getClientAssociatedSitesOffset(): int|null
     {
         return $this->container['ClientAssociatedSitesOffset'];
     }
@@ -327,7 +327,7 @@ class GetClientCompleteInfoRequest extends BaseModel
      *
      * @return string[]
      */
-    public function getRequiredClientData(): array
+    public function getRequiredClientData(): array|null
     {
         return $this->container['RequiredClientData'];
     }
@@ -353,7 +353,7 @@ class GetClientCompleteInfoRequest extends BaseModel
      *
      * @return bool
      */
-    public function getExcludeInactiveSites(): bool
+    public function getExcludeInactiveSites(): bool|null
     {
         return $this->container['ExcludeInactiveSites'];
     }
@@ -379,7 +379,7 @@ class GetClientCompleteInfoRequest extends BaseModel
      *
      * @return bool
      */
-    public function getUseActivateDate(): bool
+    public function getUseActivateDate(): bool|null
     {
         return $this->container['UseActivateDate'];
     }
@@ -405,7 +405,7 @@ class GetClientCompleteInfoRequest extends BaseModel
      *
      * @return bool
      */
-    public function getShowActiveOnly(): bool
+    public function getShowActiveOnly(): bool|null
     {
         return $this->container['ShowActiveOnly'];
     }
@@ -431,7 +431,7 @@ class GetClientCompleteInfoRequest extends BaseModel
      *
      * @return int
      */
-    public function getUniqueClientId(): int
+    public function getUniqueClientId(): int|null
     {
         return $this->container['UniqueClientId'];
     }

@@ -138,7 +138,7 @@ class CopyCreditCardResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\CopyCreditCardResponseClient
      */
-    public function getCopiedFrom(): \Nlocascio\Mindbody\Model\CopyCreditCardResponseClient
+    public function getCopiedFrom(): \Nlocascio\Mindbody\Model\CopyCreditCardResponseClient|null
     {
         return $this->container['CopiedFrom'];
     }
@@ -164,7 +164,7 @@ class CopyCreditCardResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\CopyCreditCardResponseClient
      */
-    public function getCopiedTo(): \Nlocascio\Mindbody\Model\CopyCreditCardResponseClient
+    public function getCopiedTo(): \Nlocascio\Mindbody\Model\CopyCreditCardResponseClient|null
     {
         return $this->container['CopiedTo'];
     }

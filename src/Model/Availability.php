@@ -215,7 +215,7 @@ class Availability extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): int|null
     {
         return $this->container['Id'];
     }
@@ -241,7 +241,7 @@ class Availability extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\Staff
      */
-    public function getStaff(): \Nlocascio\Mindbody\Model\Staff
+    public function getStaff(): \Nlocascio\Mindbody\Model\Staff|null
     {
         return $this->container['Staff'];
     }
@@ -267,7 +267,7 @@ class Availability extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\SessionType
      */
-    public function getSessionType(): \Nlocascio\Mindbody\Model\SessionType
+    public function getSessionType(): \Nlocascio\Mindbody\Model\SessionType|null
     {
         return $this->container['SessionType'];
     }
@@ -293,7 +293,7 @@ class Availability extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\Program[]
      */
-    public function getPrograms(): array
+    public function getPrograms(): array|null
     {
         return $this->container['Programs'];
     }
@@ -319,7 +319,7 @@ class Availability extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getStartDateTime(): \DateTime
+    public function getStartDateTime(): \DateTime|null
     {
         return $this->container['StartDateTime'];
     }
@@ -345,7 +345,7 @@ class Availability extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getEndDateTime(): \DateTime
+    public function getEndDateTime(): \DateTime|null
     {
         return $this->container['EndDateTime'];
     }
@@ -371,7 +371,7 @@ class Availability extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getBookableEndDateTime(): \DateTime
+    public function getBookableEndDateTime(): \DateTime|null
     {
         return $this->container['BookableEndDateTime'];
     }
@@ -397,7 +397,7 @@ class Availability extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\Location
      */
-    public function getLocation(): \Nlocascio\Mindbody\Model\Location
+    public function getLocation(): \Nlocascio\Mindbody\Model\Location|null
     {
         return $this->container['Location'];
     }
@@ -423,7 +423,7 @@ class Availability extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getPrepTime(): int
+    public function getPrepTime(): int|null
     {
         return $this->container['PrepTime'];
     }
@@ -449,7 +449,7 @@ class Availability extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getFinishTime(): int
+    public function getFinishTime(): int|null
     {
         return $this->container['FinishTime'];
     }
@@ -475,7 +475,7 @@ class Availability extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getIsMasked(): bool
+    public function getIsMasked(): bool|null
     {
         return $this->container['IsMasked'];
     }
@@ -501,7 +501,7 @@ class Availability extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getShowPublic(): bool
+    public function getShowPublic(): bool|null
     {
         return $this->container['ShowPublic'];
     }
@@ -527,7 +527,7 @@ class Availability extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\ResourceAvailability[]
      */
-    public function getResourceAvailabilities(): array
+    public function getResourceAvailabilities(): array|null
     {
         return $this->container['ResourceAvailabilities'];
     }

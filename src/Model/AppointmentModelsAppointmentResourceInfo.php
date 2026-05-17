@@ -161,7 +161,7 @@ class AppointmentModelsAppointmentResourceInfo extends BaseModel implements Mode
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): int|null
     {
         return $this->container['Id'];
     }
@@ -187,7 +187,7 @@ class AppointmentModelsAppointmentResourceInfo extends BaseModel implements Mode
      *
      * @return string
      */
-    public function getType(): string
+    public function getType(): string|null
     {
         return $this->container['Type'];
     }

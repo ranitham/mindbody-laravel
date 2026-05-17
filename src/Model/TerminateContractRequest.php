@@ -167,7 +167,7 @@ class TerminateContractRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId(): string|null
     {
         return $this->container['ClientId'];
     }
@@ -193,7 +193,7 @@ class TerminateContractRequest extends BaseModel
      *
      * @return int
      */
-    public function getClientContractId(): int
+    public function getClientContractId(): int|null
     {
         return $this->container['ClientContractId'];
     }
@@ -219,7 +219,7 @@ class TerminateContractRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getTerminationDate(): \DateTime
+    public function getTerminationDate(): \DateTime|null
     {
         return $this->container['TerminationDate'];
     }
@@ -245,7 +245,7 @@ class TerminateContractRequest extends BaseModel
      *
      * @return string
      */
-    public function getTerminationCode(): string
+    public function getTerminationCode(): string|null
     {
         return $this->container['TerminationCode'];
     }
@@ -271,7 +271,7 @@ class TerminateContractRequest extends BaseModel
      *
      * @return string
      */
-    public function getTerminationComments(): string
+    public function getTerminationComments(): string|null
     {
         return $this->container['TerminationComments'];
     }

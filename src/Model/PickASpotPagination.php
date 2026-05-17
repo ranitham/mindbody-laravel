@@ -152,7 +152,7 @@ class PickASpotPagination extends BaseModel
      *
      * @return int
      */
-    public function getPageNumber(): int
+    public function getPageNumber(): int|null
     {
         return $this->container['PageNumber'];
     }
@@ -178,7 +178,7 @@ class PickASpotPagination extends BaseModel
      *
      * @return int
      */
-    public function getPageSize(): int
+    public function getPageSize(): int|null
     {
         return $this->container['PageSize'];
     }
@@ -204,7 +204,7 @@ class PickASpotPagination extends BaseModel
      *
      * @return int
      */
-    public function getTotalResultCount(): int
+    public function getTotalResultCount(): int|null
     {
         return $this->container['TotalResultCount'];
     }
@@ -230,7 +230,7 @@ class PickASpotPagination extends BaseModel
      *
      * @return int
      */
-    public function getTotalPageCount(): int
+    public function getTotalPageCount(): int|null
     {
         return $this->container['TotalPageCount'];
     }

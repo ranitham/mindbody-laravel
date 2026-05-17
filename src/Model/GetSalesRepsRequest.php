@@ -152,7 +152,7 @@ class GetSalesRepsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getSalesRepNumbers(): array
+    public function getSalesRepNumbers(): array|null
     {
         return $this->container['SalesRepNumbers'];
     }
@@ -178,7 +178,7 @@ class GetSalesRepsRequest extends BaseModel
      *
      * @return bool
      */
-    public function getActiveOnly(): bool
+    public function getActiveOnly(): bool|null
     {
         return $this->container['ActiveOnly'];
     }
@@ -204,7 +204,7 @@ class GetSalesRepsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit(): int|null
     {
         return $this->container['Limit'];
     }
@@ -230,7 +230,7 @@ class GetSalesRepsRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset(): int|null
     {
         return $this->container['Offset'];
     }

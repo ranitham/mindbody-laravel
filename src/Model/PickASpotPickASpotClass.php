@@ -201,7 +201,7 @@ class PickASpotPickASpotClass extends BaseModel
      *
      * @return int
      */
-    public function getSiteId(): int
+    public function getSiteId(): int|null
     {
         return $this->container['SiteId'];
     }
@@ -227,7 +227,7 @@ class PickASpotPickASpotClass extends BaseModel
      *
      * @return int
      */
-    public function getLocationId(): int
+    public function getLocationId(): int|null
     {
         return $this->container['LocationId'];
     }
@@ -253,7 +253,7 @@ class PickASpotPickASpotClass extends BaseModel
      *
      * @return string
      */
-    public function getClassId(): string
+    public function getClassId(): string|null
     {
         return $this->container['ClassId'];
     }
@@ -279,7 +279,7 @@ class PickASpotPickASpotClass extends BaseModel
      *
      * @return string
      */
-    public function getClassExternalId(): string
+    public function getClassExternalId(): string|null
     {
         return $this->container['ClassExternalId'];
     }
@@ -305,7 +305,7 @@ class PickASpotPickASpotClass extends BaseModel
      *
      * @return string
      */
-    public function getClassName(): string
+    public function getClassName(): string|null
     {
         return $this->container['ClassName'];
     }
@@ -331,7 +331,7 @@ class PickASpotPickASpotClass extends BaseModel
      *
      * @return \DateTime
      */
-    public function getClassStartTime(): \DateTime
+    public function getClassStartTime(): \DateTime|null
     {
         return $this->container['ClassStartTime'];
     }
@@ -357,7 +357,7 @@ class PickASpotPickASpotClass extends BaseModel
      *
      * @return \DateTime
      */
-    public function getClassEndTime(): \DateTime
+    public function getClassEndTime(): \DateTime|null
     {
         return $this->container['ClassEndTime'];
     }
@@ -383,7 +383,7 @@ class PickASpotPickASpotClass extends BaseModel
      *
      * @return int
      */
-    public function getClassMaximumCapacity(): int
+    public function getClassMaximumCapacity(): int|null
     {
         return $this->container['ClassMaximumCapacity'];
     }
@@ -409,7 +409,7 @@ class PickASpotPickASpotClass extends BaseModel
      *
      * @return string
      */
-    public function getRoomId(): string
+    public function getRoomId(): string|null
     {
         return $this->container['RoomId'];
     }
@@ -435,7 +435,7 @@ class PickASpotPickASpotClass extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PickASpotSpot
      */
-    public function getSpots(): \Nlocascio\Mindbody\Model\PickASpotSpot
+    public function getSpots(): \Nlocascio\Mindbody\Model\PickASpotSpot|null
     {
         return $this->container['Spots'];
     }
@@ -461,7 +461,7 @@ class PickASpotPickASpotClass extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PickASpotReservation[]
      */
-    public function getReservations(): array
+    public function getReservations(): array|null
     {
         return $this->container['Reservations'];
     }

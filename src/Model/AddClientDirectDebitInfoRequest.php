@@ -165,7 +165,7 @@ class AddClientDirectDebitInfoRequest extends BaseModel
      *
      * @return bool
      */
-    public function getTest(): bool
+    public function getTest(): bool|null
     {
         return $this->container['Test'];
     }
@@ -191,7 +191,7 @@ class AddClientDirectDebitInfoRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId(): string|null
     {
         return $this->container['ClientId'];
     }
@@ -217,7 +217,7 @@ class AddClientDirectDebitInfoRequest extends BaseModel
      *
      * @return string
      */
-    public function getNameOnAccount(): string
+    public function getNameOnAccount(): string|null
     {
         return $this->container['NameOnAccount'];
     }
@@ -243,7 +243,7 @@ class AddClientDirectDebitInfoRequest extends BaseModel
      *
      * @return string
      */
-    public function getRoutingNumber(): string
+    public function getRoutingNumber(): string|null
     {
         return $this->container['RoutingNumber'];
     }
@@ -269,7 +269,7 @@ class AddClientDirectDebitInfoRequest extends BaseModel
      *
      * @return string
      */
-    public function getAccountNumber(): string
+    public function getAccountNumber(): string|null
     {
         return $this->container['AccountNumber'];
     }
@@ -295,7 +295,7 @@ class AddClientDirectDebitInfoRequest extends BaseModel
      *
      * @return string
      */
-    public function getAccountType(): string
+    public function getAccountType(): string|null
     {
         return $this->container['AccountType'];
     }

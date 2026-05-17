@@ -366,7 +366,7 @@ class ModelClass extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getClassScheduleId(): int
+    public function getClassScheduleId(): int|null
     {
         return $this->container['ClassScheduleId'];
     }
@@ -392,7 +392,7 @@ class ModelClass extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\Visit[]
      */
-    public function getVisits(): array
+    public function getVisits(): array|null
     {
         return $this->container['Visits'];
     }
@@ -418,7 +418,7 @@ class ModelClass extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\Client[]
      */
-    public function getClients(): array
+    public function getClients(): array|null
     {
         return $this->container['Clients'];
     }
@@ -444,7 +444,7 @@ class ModelClass extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\Location
      */
-    public function getLocation(): \Nlocascio\Mindbody\Model\Location
+    public function getLocation(): \Nlocascio\Mindbody\Model\Location|null
     {
         return $this->container['Location'];
     }
@@ -470,7 +470,7 @@ class ModelClass extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\ResourceSlim
      */
-    public function getResource(): \Nlocascio\Mindbody\Model\ResourceSlim
+    public function getResource(): \Nlocascio\Mindbody\Model\ResourceSlim|null
     {
         return $this->container['Resource'];
     }
@@ -496,7 +496,7 @@ class ModelClass extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getMaxCapacity(): int
+    public function getMaxCapacity(): int|null
     {
         return $this->container['MaxCapacity'];
     }
@@ -522,7 +522,7 @@ class ModelClass extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getWebCapacity(): int
+    public function getWebCapacity(): int|null
     {
         return $this->container['WebCapacity'];
     }
@@ -548,7 +548,7 @@ class ModelClass extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getTotalBooked(): int
+    public function getTotalBooked(): int|null
     {
         return $this->container['TotalBooked'];
     }
@@ -574,7 +574,7 @@ class ModelClass extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getTotalSignedIn(): int
+    public function getTotalSignedIn(): int|null
     {
         return $this->container['TotalSignedIn'];
     }
@@ -600,7 +600,7 @@ class ModelClass extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getTotalBookedWaitlist(): int
+    public function getTotalBookedWaitlist(): int|null
     {
         return $this->container['TotalBookedWaitlist'];
     }
@@ -626,7 +626,7 @@ class ModelClass extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getWebBooked(): int
+    public function getWebBooked(): int|null
     {
         return $this->container['WebBooked'];
     }
@@ -652,7 +652,7 @@ class ModelClass extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getSemesterId(): int
+    public function getSemesterId(): int|null
     {
         return $this->container['SemesterId'];
     }
@@ -678,7 +678,7 @@ class ModelClass extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getIsCanceled(): bool
+    public function getIsCanceled(): bool|null
     {
         return $this->container['IsCanceled'];
     }
@@ -704,7 +704,7 @@ class ModelClass extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getSubstitute(): bool
+    public function getSubstitute(): bool|null
     {
         return $this->container['Substitute'];
     }
@@ -730,7 +730,7 @@ class ModelClass extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getActive(): bool
+    public function getActive(): bool|null
     {
         return $this->container['Active'];
     }
@@ -756,7 +756,7 @@ class ModelClass extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getIsWaitlistAvailable(): bool
+    public function getIsWaitlistAvailable(): bool|null
     {
         return $this->container['IsWaitlistAvailable'];
     }
@@ -782,7 +782,7 @@ class ModelClass extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getIsEnrolled(): bool
+    public function getIsEnrolled(): bool|null
     {
         return $this->container['IsEnrolled'];
     }
@@ -808,7 +808,7 @@ class ModelClass extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getHideCancel(): bool
+    public function getHideCancel(): bool|null
     {
         return $this->container['HideCancel'];
     }
@@ -834,7 +834,7 @@ class ModelClass extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): int|null
     {
         return $this->container['Id'];
     }
@@ -860,7 +860,7 @@ class ModelClass extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getIsAvailable(): bool
+    public function getIsAvailable(): bool|null
     {
         return $this->container['IsAvailable'];
     }
@@ -886,7 +886,7 @@ class ModelClass extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getStartDateTime(): \DateTime
+    public function getStartDateTime(): \DateTime|null
     {
         return $this->container['StartDateTime'];
     }
@@ -912,7 +912,7 @@ class ModelClass extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getEndDateTime(): \DateTime
+    public function getEndDateTime(): \DateTime|null
     {
         return $this->container['EndDateTime'];
     }
@@ -938,7 +938,7 @@ class ModelClass extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getLastModifiedDateTime(): \DateTime
+    public function getLastModifiedDateTime(): \DateTime|null
     {
         return $this->container['LastModifiedDateTime'];
     }
@@ -964,7 +964,7 @@ class ModelClass extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\ClassDescription
      */
-    public function getClassDescription(): \Nlocascio\Mindbody\Model\ClassDescription
+    public function getClassDescription(): \Nlocascio\Mindbody\Model\ClassDescription|null
     {
         return $this->container['ClassDescription'];
     }
@@ -990,7 +990,7 @@ class ModelClass extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\Staff
      */
-    public function getStaff(): \Nlocascio\Mindbody\Model\Staff
+    public function getStaff(): \Nlocascio\Mindbody\Model\Staff|null
     {
         return $this->container['Staff'];
     }
@@ -1016,7 +1016,7 @@ class ModelClass extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\BookingWindow
      */
-    public function getBookingWindow(): \Nlocascio\Mindbody\Model\BookingWindow
+    public function getBookingWindow(): \Nlocascio\Mindbody\Model\BookingWindow|null
     {
         return $this->container['BookingWindow'];
     }
@@ -1042,7 +1042,7 @@ class ModelClass extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getBookingStatus(): string
+    public function getBookingStatus(): string|null
     {
         return $this->container['BookingStatus'];
     }
@@ -1077,7 +1077,7 @@ class ModelClass extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getVirtualStreamLink(): string
+    public function getVirtualStreamLink(): string|null
     {
         return $this->container['VirtualStreamLink'];
     }
@@ -1103,7 +1103,7 @@ class ModelClass extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getWaitListSize(): int
+    public function getWaitListSize(): int|null
     {
         return $this->container['WaitListSize'];
     }
@@ -1129,7 +1129,7 @@ class ModelClass extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getClassNotes(): string
+    public function getClassNotes(): string|null
     {
         return $this->container['ClassNotes'];
     }
@@ -1155,7 +1155,7 @@ class ModelClass extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getThemeName(): string
+    public function getThemeName(): string|null
     {
         return $this->container['ThemeName'];
     }

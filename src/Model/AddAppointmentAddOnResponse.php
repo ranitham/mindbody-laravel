@@ -137,7 +137,7 @@ class AddAppointmentAddOnResponse extends BaseModel
      *
      * @return int
      */
-    public function getAppointmentId(): int
+    public function getAppointmentId(): int|null
     {
         return $this->container['AppointmentId'];
     }
@@ -163,7 +163,7 @@ class AddAppointmentAddOnResponse extends BaseModel
      *
      * @return int
      */
-    public function getAddOnAppointmentId(): int
+    public function getAddOnAppointmentId(): int|null
     {
         return $this->container['AddOnAppointmentId'];
     }

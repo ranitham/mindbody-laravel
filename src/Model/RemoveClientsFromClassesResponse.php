@@ -145,7 +145,7 @@ class RemoveClientsFromClassesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
+    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse|null
     {
         return $this->container['PaginationResponse'];
     }
@@ -171,7 +171,7 @@ class RemoveClientsFromClassesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ModelClass[]
      */
-    public function getClasses(): array
+    public function getClasses(): array|null
     {
         return $this->container['Classes'];
     }
@@ -197,7 +197,7 @@ class RemoveClientsFromClassesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ApiError[]
      */
-    public function getErrors(): array
+    public function getErrors(): array|null
     {
         return $this->container['Errors'];
     }

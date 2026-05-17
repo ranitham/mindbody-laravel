@@ -137,7 +137,7 @@ class KeyValuePair extends BaseModel
      *
      * @return string
      */
-    public function getKey(): string
+    public function getKey(): string|null
     {
         return $this->container['Key'];
     }
@@ -163,7 +163,7 @@ class KeyValuePair extends BaseModel
      *
      * @return string[]
      */
-    public function getValue(): array
+    public function getValue(): array|null
     {
         return $this->container['Value'];
     }

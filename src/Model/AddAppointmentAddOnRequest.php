@@ -159,7 +159,7 @@ class AddAppointmentAddOnRequest extends BaseModel
      *
      * @return bool
      */
-    public function getApplyPayment(): bool
+    public function getApplyPayment(): bool|null
     {
         return $this->container['ApplyPayment'];
     }
@@ -185,7 +185,7 @@ class AddAppointmentAddOnRequest extends BaseModel
      *
      * @return int
      */
-    public function getAppointmentId(): int
+    public function getAppointmentId(): int|null
     {
         return $this->container['AppointmentId'];
     }
@@ -211,7 +211,7 @@ class AddAppointmentAddOnRequest extends BaseModel
      *
      * @return int
      */
-    public function getSessionTypeId(): int
+    public function getSessionTypeId(): int|null
     {
         return $this->container['SessionTypeId'];
     }
@@ -237,7 +237,7 @@ class AddAppointmentAddOnRequest extends BaseModel
      *
      * @return int
      */
-    public function getStaffId(): int
+    public function getStaffId(): int|null
     {
         return $this->container['StaffId'];
     }
@@ -263,7 +263,7 @@ class AddAppointmentAddOnRequest extends BaseModel
      *
      * @return bool
      */
-    public function getTest(): bool
+    public function getTest(): bool|null
     {
         return $this->container['Test'];
     }

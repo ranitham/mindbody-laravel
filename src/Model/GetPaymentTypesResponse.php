@@ -131,7 +131,7 @@ class GetPaymentTypesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaymentType[]
      */
-    public function getPaymentTypes(): array
+    public function getPaymentTypes(): array|null
     {
         return $this->container['PaymentTypes'];
     }

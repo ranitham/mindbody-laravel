@@ -152,7 +152,7 @@ class CustomClientFieldValue extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getValue(): string
+    public function getValue(): string|null
     {
         return $this->container['Value'];
     }
@@ -178,7 +178,7 @@ class CustomClientFieldValue extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): int|null
     {
         return $this->container['Id'];
     }
@@ -204,7 +204,7 @@ class CustomClientFieldValue extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getDataType(): string
+    public function getDataType(): string|null
     {
         return $this->container['DataType'];
     }
@@ -230,7 +230,7 @@ class CustomClientFieldValue extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getName(): string
+    public function getName(): string|null
     {
         return $this->container['Name'];
     }

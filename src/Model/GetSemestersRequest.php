@@ -166,7 +166,7 @@ class GetSemestersRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getSemesterIDs(): array
+    public function getSemesterIDs(): array|null
     {
         return $this->container['SemesterIDs'];
     }
@@ -192,7 +192,7 @@ class GetSemestersRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDate(): \DateTime
+    public function getStartDate(): \DateTime|null
     {
         return $this->container['StartDate'];
     }
@@ -218,7 +218,7 @@ class GetSemestersRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDate(): \DateTime
+    public function getEndDate(): \DateTime|null
     {
         return $this->container['EndDate'];
     }
@@ -244,7 +244,7 @@ class GetSemestersRequest extends BaseModel
      *
      * @return bool
      */
-    public function getActive(): bool
+    public function getActive(): bool|null
     {
         return $this->container['Active'];
     }
@@ -270,7 +270,7 @@ class GetSemestersRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit(): int|null
     {
         return $this->container['Limit'];
     }
@@ -296,7 +296,7 @@ class GetSemestersRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset(): int|null
     {
         return $this->container['Offset'];
     }

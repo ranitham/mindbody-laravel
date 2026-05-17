@@ -138,7 +138,7 @@ class StaffSetting extends BaseModel
      *
      * @return bool
      */
-    public function getUseStaffNicknames(): bool
+    public function getUseStaffNicknames(): bool|null
     {
         return $this->container['UseStaffNicknames'];
     }
@@ -164,7 +164,7 @@ class StaffSetting extends BaseModel
      *
      * @return bool
      */
-    public function getShowStaffLastNamesOnSchedules(): bool
+    public function getShowStaffLastNamesOnSchedules(): bool|null
     {
         return $this->container['ShowStaffLastNamesOnSchedules'];
     }

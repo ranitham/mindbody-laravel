@@ -161,7 +161,7 @@ class GetClientAccountBalancesRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getBalanceDate(): \DateTime
+    public function getBalanceDate(): \DateTime|null
     {
         return $this->container['BalanceDate'];
     }
@@ -187,7 +187,7 @@ class GetClientAccountBalancesRequest extends BaseModel
      *
      * @return int
      */
-    public function getClassId(): int
+    public function getClassId(): int|null
     {
         return $this->container['ClassId'];
     }
@@ -213,7 +213,7 @@ class GetClientAccountBalancesRequest extends BaseModel
      *
      * @return string[]
      */
-    public function getClientIds(): array
+    public function getClientIds(): array|null
     {
         return $this->container['ClientIds'];
     }
@@ -239,7 +239,7 @@ class GetClientAccountBalancesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit(): int|null
     {
         return $this->container['Limit'];
     }
@@ -265,7 +265,7 @@ class GetClientAccountBalancesRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset(): int|null
     {
         return $this->container['Offset'];
     }

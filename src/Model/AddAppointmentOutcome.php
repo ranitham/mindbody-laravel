@@ -145,7 +145,7 @@ class AddAppointmentOutcome extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Appointment
      */
-    public function getAppointment(): \Nlocascio\Mindbody\Model\Appointment
+    public function getAppointment(): \Nlocascio\Mindbody\Model\Appointment|null
     {
         return $this->container['Appointment'];
     }
@@ -171,7 +171,7 @@ class AddAppointmentOutcome extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ApiError
      */
-    public function getError(): \Nlocascio\Mindbody\Model\ApiError
+    public function getError(): \Nlocascio\Mindbody\Model\ApiError|null
     {
         return $this->container['Error'];
     }
@@ -197,7 +197,7 @@ class AddAppointmentOutcome extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\AddAppointmentRequest
      */
-    public function getRequest(): \Nlocascio\Mindbody\Model\AddAppointmentRequest
+    public function getRequest(): \Nlocascio\Mindbody\Model\AddAppointmentRequest|null
     {
         return $this->container['Request'];
     }

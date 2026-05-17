@@ -161,7 +161,7 @@ class UpdateClientRequest extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClientWithSuspensionInfo
      */
-    public function getClient(): \Nlocascio\Mindbody\Model\ClientWithSuspensionInfo
+    public function getClient(): \Nlocascio\Mindbody\Model\ClientWithSuspensionInfo|null
     {
         return $this->container['Client'];
     }
@@ -187,7 +187,7 @@ class UpdateClientRequest extends BaseModel
      *
      * @return bool
      */
-    public function getTest(): bool
+    public function getTest(): bool|null
     {
         return $this->container['Test'];
     }
@@ -213,7 +213,7 @@ class UpdateClientRequest extends BaseModel
      *
      * @return bool
      */
-    public function getCrossRegionalUpdate(): bool
+    public function getCrossRegionalUpdate(): bool|null
     {
         return $this->container['CrossRegionalUpdate'];
     }
@@ -239,7 +239,7 @@ class UpdateClientRequest extends BaseModel
      *
      * @return string
      */
-    public function getNewId(): string
+    public function getNewId(): string|null
     {
         return $this->container['NewId'];
     }
@@ -265,7 +265,7 @@ class UpdateClientRequest extends BaseModel
      *
      * @return int
      */
-    public function getLeadChannelId(): int
+    public function getLeadChannelId(): int|null
     {
         return $this->container['LeadChannelId'];
     }

@@ -185,7 +185,7 @@ class ScheduledServiceEarningsEvent extends BaseModel
      *
      * @return int
      */
-    public function getStaffId(): int
+    public function getStaffId(): int|null
     {
         return $this->container['StaffId'];
     }
@@ -211,7 +211,7 @@ class ScheduledServiceEarningsEvent extends BaseModel
      *
      * @return int
      */
-    public function getScheduledServiceId(): int
+    public function getScheduledServiceId(): int|null
     {
         return $this->container['ScheduledServiceId'];
     }
@@ -237,7 +237,7 @@ class ScheduledServiceEarningsEvent extends BaseModel
      *
      * @return string
      */
-    public function getScheduledServiceType(): string
+    public function getScheduledServiceType(): string|null
     {
         return $this->container['ScheduledServiceType'];
     }
@@ -272,7 +272,7 @@ class ScheduledServiceEarningsEvent extends BaseModel
      *
      * @return double
      */
-    public function getEarnings(): float
+    public function getEarnings(): float|null
     {
         return $this->container['Earnings'];
     }
@@ -298,7 +298,7 @@ class ScheduledServiceEarningsEvent extends BaseModel
      *
      * @return \DateTime
      */
-    public function getDateTime(): \DateTime
+    public function getDateTime(): \DateTime|null
     {
         return $this->container['DateTime'];
     }

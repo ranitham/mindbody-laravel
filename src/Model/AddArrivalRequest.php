@@ -164,7 +164,7 @@ class AddArrivalRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId(): string|null
     {
         return $this->container['ClientId'];
     }
@@ -190,7 +190,7 @@ class AddArrivalRequest extends BaseModel
      *
      * @return int
      */
-    public function getLocationId(): int
+    public function getLocationId(): int|null
     {
         return $this->container['LocationId'];
     }
@@ -216,7 +216,7 @@ class AddArrivalRequest extends BaseModel
      *
      * @return int
      */
-    public function getArrivalTypeId(): int
+    public function getArrivalTypeId(): int|null
     {
         return $this->container['ArrivalTypeId'];
     }
@@ -242,7 +242,7 @@ class AddArrivalRequest extends BaseModel
      *
      * @return int
      */
-    public function getLeadChannelId(): int
+    public function getLeadChannelId(): int|null
     {
         return $this->container['LeadChannelId'];
     }
@@ -268,7 +268,7 @@ class AddArrivalRequest extends BaseModel
      *
      * @return bool
      */
-    public function getTest(): bool
+    public function getTest(): bool|null
     {
         return $this->container['Test'];
     }

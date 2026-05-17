@@ -131,7 +131,7 @@ class GetPaymentTypesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getActive(): bool
+    public function getActive(): bool|null
     {
         return $this->container['Active'];
     }

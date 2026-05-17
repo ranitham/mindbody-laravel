@@ -271,7 +271,7 @@ class ClientMembership extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\Location[]
      */
-    public function getRestrictedLocations(): array
+    public function getRestrictedLocations(): array|null
     {
         return $this->container['RestrictedLocations'];
     }
@@ -297,7 +297,7 @@ class ClientMembership extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getIconCode(): string
+    public function getIconCode(): string|null
     {
         return $this->container['IconCode'];
     }
@@ -323,7 +323,7 @@ class ClientMembership extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getMembershipId(): int
+    public function getMembershipId(): int|null
     {
         return $this->container['MembershipId'];
     }
@@ -349,7 +349,7 @@ class ClientMembership extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getActiveDate(): \DateTime
+    public function getActiveDate(): \DateTime|null
     {
         return $this->container['ActiveDate'];
     }
@@ -375,7 +375,7 @@ class ClientMembership extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getCount(): int
+    public function getCount(): int|null
     {
         return $this->container['Count'];
     }
@@ -401,7 +401,7 @@ class ClientMembership extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getCurrent(): bool
+    public function getCurrent(): bool|null
     {
         return $this->container['Current'];
     }
@@ -427,7 +427,7 @@ class ClientMembership extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getExpirationDate(): \DateTime
+    public function getExpirationDate(): \DateTime|null
     {
         return $this->container['ExpirationDate'];
     }
@@ -453,7 +453,7 @@ class ClientMembership extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): int|null
     {
         return $this->container['Id'];
     }
@@ -479,7 +479,7 @@ class ClientMembership extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getProductId(): int
+    public function getProductId(): int|null
     {
         return $this->container['ProductId'];
     }
@@ -505,7 +505,7 @@ class ClientMembership extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getName(): string
+    public function getName(): string|null
     {
         return $this->container['Name'];
     }
@@ -531,7 +531,7 @@ class ClientMembership extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getPaymentDate(): \DateTime
+    public function getPaymentDate(): \DateTime|null
     {
         return $this->container['PaymentDate'];
     }
@@ -557,7 +557,7 @@ class ClientMembership extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\Program
      */
-    public function getProgram(): \Nlocascio\Mindbody\Model\Program
+    public function getProgram(): \Nlocascio\Mindbody\Model\Program|null
     {
         return $this->container['Program'];
     }
@@ -583,7 +583,7 @@ class ClientMembership extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getRemaining(): int
+    public function getRemaining(): int|null
     {
         return $this->container['Remaining'];
     }
@@ -609,7 +609,7 @@ class ClientMembership extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getSiteId(): int
+    public function getSiteId(): int|null
     {
         return $this->container['SiteId'];
     }
@@ -635,7 +635,7 @@ class ClientMembership extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getAction(): string
+    public function getAction(): string|null
     {
         return $this->container['Action'];
     }
@@ -670,7 +670,7 @@ class ClientMembership extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getClientID(): string
+    public function getClientID(): string|null
     {
         return $this->container['ClientID'];
     }
@@ -696,7 +696,7 @@ class ClientMembership extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getReturned(): bool
+    public function getReturned(): bool|null
     {
         return $this->container['Returned'];
     }

@@ -165,7 +165,7 @@ class GetSalesRequest extends BaseModel
      *
      * @return int
      */
-    public function getSaleId(): int
+    public function getSaleId(): int|null
     {
         return $this->container['SaleId'];
     }
@@ -191,7 +191,7 @@ class GetSalesRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartSaleDateTime(): \DateTime
+    public function getStartSaleDateTime(): \DateTime|null
     {
         return $this->container['StartSaleDateTime'];
     }
@@ -217,7 +217,7 @@ class GetSalesRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndSaleDateTime(): \DateTime
+    public function getEndSaleDateTime(): \DateTime|null
     {
         return $this->container['EndSaleDateTime'];
     }
@@ -243,7 +243,7 @@ class GetSalesRequest extends BaseModel
      *
      * @return int
      */
-    public function getPaymentMethodId(): int
+    public function getPaymentMethodId(): int|null
     {
         return $this->container['PaymentMethodId'];
     }
@@ -269,7 +269,7 @@ class GetSalesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit(): int|null
     {
         return $this->container['Limit'];
     }
@@ -295,7 +295,7 @@ class GetSalesRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset(): int|null
     {
         return $this->container['Offset'];
     }

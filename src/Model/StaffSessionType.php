@@ -261,7 +261,7 @@ class StaffSessionType extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getStaffId(): int
+    public function getStaffId(): int|null
     {
         return $this->container['StaffId'];
     }
@@ -287,7 +287,7 @@ class StaffSessionType extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getType(): string
+    public function getType(): string|null
     {
         return $this->container['Type'];
     }
@@ -322,7 +322,7 @@ class StaffSessionType extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): int|null
     {
         return $this->container['Id'];
     }
@@ -348,7 +348,7 @@ class StaffSessionType extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getName(): string
+    public function getName(): string|null
     {
         return $this->container['Name'];
     }
@@ -374,7 +374,7 @@ class StaffSessionType extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getNumDeducted(): int
+    public function getNumDeducted(): int|null
     {
         return $this->container['NumDeducted'];
     }
@@ -400,7 +400,7 @@ class StaffSessionType extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getProgramId(): int
+    public function getProgramId(): int|null
     {
         return $this->container['ProgramId'];
     }
@@ -426,7 +426,7 @@ class StaffSessionType extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getCategory(): string
+    public function getCategory(): string|null
     {
         return $this->container['Category'];
     }
@@ -452,7 +452,7 @@ class StaffSessionType extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getCategoryId(): int
+    public function getCategoryId(): int|null
     {
         return $this->container['CategoryId'];
     }
@@ -478,7 +478,7 @@ class StaffSessionType extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getSubcategory(): string
+    public function getSubcategory(): string|null
     {
         return $this->container['Subcategory'];
     }
@@ -504,7 +504,7 @@ class StaffSessionType extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getSubcategoryId(): int
+    public function getSubcategoryId(): int|null
     {
         return $this->container['SubcategoryId'];
     }
@@ -530,7 +530,7 @@ class StaffSessionType extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getTimeLength(): int
+    public function getTimeLength(): int|null
     {
         return $this->container['TimeLength'];
     }
@@ -556,7 +556,7 @@ class StaffSessionType extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getPrepTime(): int
+    public function getPrepTime(): int|null
     {
         return $this->container['PrepTime'];
     }
@@ -582,7 +582,7 @@ class StaffSessionType extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getFinishTime(): int
+    public function getFinishTime(): int|null
     {
         return $this->container['FinishTime'];
     }
@@ -608,7 +608,7 @@ class StaffSessionType extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getPayRateType(): string
+    public function getPayRateType(): string|null
     {
         return $this->container['PayRateType'];
     }
@@ -634,7 +634,7 @@ class StaffSessionType extends BaseModel implements ModelWithIntId
      *
      * @return double
      */
-    public function getPayRateAmount(): float
+    public function getPayRateAmount(): float|null
     {
         return $this->container['PayRateAmount'];
     }

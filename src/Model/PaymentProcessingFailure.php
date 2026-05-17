@@ -145,7 +145,7 @@ class PaymentProcessingFailure extends BaseModel
      *
      * @return string
      */
-    public function getType(): string
+    public function getType(): string|null
     {
         return $this->container['Type'];
     }
@@ -171,7 +171,7 @@ class PaymentProcessingFailure extends BaseModel
      *
      * @return string
      */
-    public function getMessage(): string
+    public function getMessage(): string|null
     {
         return $this->container['Message'];
     }
@@ -197,7 +197,7 @@ class PaymentProcessingFailure extends BaseModel
      *
      * @return string
      */
-    public function getAuthenticationRedirectUrl(): string
+    public function getAuthenticationRedirectUrl(): string|null
     {
         return $this->container['AuthenticationRedirectUrl'];
     }

@@ -131,7 +131,7 @@ class AddMultipleAppointmentsRequest extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\AddAppointmentRequest[]
      */
-    public function getAddAppointmentRequests(): array
+    public function getAddAppointmentRequests(): array|null
     {
         return $this->container['AddAppointmentRequests'];
     }

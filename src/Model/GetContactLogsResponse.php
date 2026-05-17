@@ -137,7 +137,7 @@ class GetContactLogsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
+    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse|null
     {
         return $this->container['PaginationResponse'];
     }
@@ -163,7 +163,7 @@ class GetContactLogsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ContactLog[]
      */
-    public function getContactLogs(): array
+    public function getContactLogs(): array|null
     {
         return $this->container['ContactLogs'];
     }

@@ -130,7 +130,7 @@ class GetClientReferralTypesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIncludeInactive(): bool
+    public function getIncludeInactive(): bool|null
     {
         return $this->container['IncludeInactive'];
     }

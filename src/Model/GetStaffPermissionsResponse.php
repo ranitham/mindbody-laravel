@@ -130,7 +130,7 @@ class GetStaffPermissionsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\StaffPermissionGroup
      */
-    public function getUserGroup(): \Nlocascio\Mindbody\Model\StaffPermissionGroup
+    public function getUserGroup(): \Nlocascio\Mindbody\Model\StaffPermissionGroup|null
     {
         return $this->container['UserGroup'];
     }

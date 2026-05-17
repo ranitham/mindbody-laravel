@@ -197,7 +197,7 @@ class GetResourcesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getResourceIds(): array
+    public function getResourceIds(): array|null
     {
         return $this->container['ResourceIds'];
     }
@@ -223,7 +223,7 @@ class GetResourcesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getLocationIds(): array
+    public function getLocationIds(): array|null
     {
         return $this->container['LocationIds'];
     }
@@ -249,7 +249,7 @@ class GetResourcesRequest extends BaseModel
      *
      * @return string[]
      */
-    public function getScheduleTypes(): array
+    public function getScheduleTypes(): array|null
     {
         return $this->container['ScheduleTypes'];
     }
@@ -284,7 +284,7 @@ class GetResourcesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getProgramIds(): array
+    public function getProgramIds(): array|null
     {
         return $this->container['ProgramIds'];
     }
@@ -310,7 +310,7 @@ class GetResourcesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIncludeInactive(): bool
+    public function getIncludeInactive(): bool|null
     {
         return $this->container['IncludeInactive'];
     }
@@ -336,7 +336,7 @@ class GetResourcesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit(): int|null
     {
         return $this->container['Limit'];
     }
@@ -362,7 +362,7 @@ class GetResourcesRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset(): int|null
     {
         return $this->container['Offset'];
     }

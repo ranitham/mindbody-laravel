@@ -263,7 +263,7 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return bool
      */
-    public function getTest(): bool
+    public function getTest(): bool|null
     {
         return $this->container['Test'];
     }
@@ -289,7 +289,7 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return int
      */
-    public function getLocationId(): int
+    public function getLocationId(): int|null
     {
         return $this->container['LocationId'];
     }
@@ -315,7 +315,7 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId(): string|null
     {
         return $this->container['ClientId'];
     }
@@ -341,7 +341,7 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return int
      */
-    public function getUniqueClientId(): int
+    public function getUniqueClientId(): int|null
     {
         return $this->container['UniqueClientId'];
     }
@@ -367,7 +367,7 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return int
      */
-    public function getContractId(): int
+    public function getContractId(): int|null
     {
         return $this->container['ContractId'];
     }
@@ -393,7 +393,7 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDate(): \DateTime
+    public function getStartDate(): \DateTime|null
     {
         return $this->container['StartDate'];
     }
@@ -419,7 +419,7 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return string
      */
-    public function getFirstPaymentOccurs(): string
+    public function getFirstPaymentOccurs(): string|null
     {
         return $this->container['FirstPaymentOccurs'];
     }
@@ -445,7 +445,7 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientSignature(): string
+    public function getClientSignature(): string|null
     {
         return $this->container['ClientSignature'];
     }
@@ -476,7 +476,7 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return string
      */
-    public function getPromotionCode(): string
+    public function getPromotionCode(): string|null
     {
         return $this->container['PromotionCode'];
     }
@@ -502,7 +502,7 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return string[]
      */
-    public function getPromotionCodes(): array
+    public function getPromotionCodes(): array|null
     {
         return $this->container['PromotionCodes'];
     }
@@ -528,7 +528,7 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\CreditCardInfo
      */
-    public function getCreditCardInfo(): \Nlocascio\Mindbody\Model\CreditCardInfo
+    public function getCreditCardInfo(): \Nlocascio\Mindbody\Model\CreditCardInfo|null
     {
         return $this->container['CreditCardInfo'];
     }
@@ -554,7 +554,7 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\StoredCardInfo
      */
-    public function getStoredCardInfo(): \Nlocascio\Mindbody\Model\StoredCardInfo
+    public function getStoredCardInfo(): \Nlocascio\Mindbody\Model\StoredCardInfo|null
     {
         return $this->container['StoredCardInfo'];
     }
@@ -580,7 +580,7 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSendNotifications(): bool
+    public function getSendNotifications(): bool|null
     {
         return $this->container['SendNotifications'];
     }
@@ -606,7 +606,7 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return int
      */
-    public function getSalesRepId(): int
+    public function getSalesRepId(): int|null
     {
         return $this->container['SalesRepId'];
     }
@@ -632,7 +632,7 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return bool
      */
-    public function getUseDirectDebit(): bool
+    public function getUseDirectDebit(): bool|null
     {
         return $this->container['UseDirectDebit'];
     }
@@ -658,7 +658,7 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return bool
      */
-    public function getUseAccountCredit(): bool
+    public function getUseAccountCredit(): bool|null
     {
         return $this->container['UseAccountCredit'];
     }
@@ -684,7 +684,7 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return bool
      */
-    public function getConsumerPresent(): bool
+    public function getConsumerPresent(): bool|null
     {
         return $this->container['ConsumerPresent'];
     }
@@ -710,7 +710,7 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return string
      */
-    public function getPaymentAuthenticationCallbackUrl(): string
+    public function getPaymentAuthenticationCallbackUrl(): string|null
     {
         return $this->container['PaymentAuthenticationCallbackUrl'];
     }
@@ -736,7 +736,7 @@ class PurchaseContractRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getProrateDate(): \DateTime
+    public function getProrateDate(): \DateTime|null
     {
         return $this->container['ProrateDate'];
     }

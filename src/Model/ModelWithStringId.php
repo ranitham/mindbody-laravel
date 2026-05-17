@@ -44,7 +44,7 @@ interface ModelWithStringId extends ModelInterface
    * get the Id
    * @return string
    */
-  public function getId(): string;
+  public function getId(): string|null;
 
   /**
    * Sets Id

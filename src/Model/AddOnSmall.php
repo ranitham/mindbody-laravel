@@ -151,7 +151,7 @@ class AddOnSmall extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): int|null
     {
         return $this->container['Id'];
     }
@@ -177,7 +177,7 @@ class AddOnSmall extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getName(): string
+    public function getName(): string|null
     {
         return $this->container['Name'];
     }
@@ -203,7 +203,7 @@ class AddOnSmall extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getStaffId(): int
+    public function getStaffId(): int|null
     {
         return $this->container['StaffId'];
     }
@@ -229,7 +229,7 @@ class AddOnSmall extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getTypeId(): int
+    public function getTypeId(): int|null
     {
         return $this->container['TypeId'];
     }

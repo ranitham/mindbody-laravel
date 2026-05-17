@@ -186,7 +186,7 @@ class GetClientScheduleRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId(): string|null
     {
         return $this->container['ClientId'];
     }
@@ -212,7 +212,7 @@ class GetClientScheduleRequest extends BaseModel
      *
      * @return int
      */
-    public function getUniqueClientId(): int
+    public function getUniqueClientId(): int|null
     {
         return $this->container['UniqueClientId'];
     }
@@ -238,7 +238,7 @@ class GetClientScheduleRequest extends BaseModel
      *
      * @return int
      */
-    public function getClientAssociatedSitesOffset(): int
+    public function getClientAssociatedSitesOffset(): int|null
     {
         return $this->container['ClientAssociatedSitesOffset'];
     }
@@ -264,7 +264,7 @@ class GetClientScheduleRequest extends BaseModel
      *
      * @return bool
      */
-    public function getCrossRegionalLookup(): bool
+    public function getCrossRegionalLookup(): bool|null
     {
         return $this->container['CrossRegionalLookup'];
     }
@@ -290,7 +290,7 @@ class GetClientScheduleRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDate(): \DateTime
+    public function getEndDate(): \DateTime|null
     {
         return $this->container['EndDate'];
     }
@@ -316,7 +316,7 @@ class GetClientScheduleRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDate(): \DateTime
+    public function getStartDate(): \DateTime|null
     {
         return $this->container['StartDate'];
     }
@@ -342,7 +342,7 @@ class GetClientScheduleRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIncludeWaitlistEntries(): bool
+    public function getIncludeWaitlistEntries(): bool|null
     {
         return $this->container['IncludeWaitlistEntries'];
     }
@@ -368,7 +368,7 @@ class GetClientScheduleRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit(): int|null
     {
         return $this->container['Limit'];
     }
@@ -394,7 +394,7 @@ class GetClientScheduleRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset(): int|null
     {
         return $this->container['Offset'];
     }

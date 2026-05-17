@@ -284,7 +284,7 @@ class Site extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getAcceptsAmericanExpress(): bool
+    public function getAcceptsAmericanExpress(): bool|null
     {
         return $this->container['AcceptsAmericanExpress'];
     }
@@ -310,7 +310,7 @@ class Site extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getAcceptsDiscover(): bool
+    public function getAcceptsDiscover(): bool|null
     {
         return $this->container['AcceptsDiscover'];
     }
@@ -336,7 +336,7 @@ class Site extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getAcceptsMasterCard(): bool
+    public function getAcceptsMasterCard(): bool|null
     {
         return $this->container['AcceptsMasterCard'];
     }
@@ -362,7 +362,7 @@ class Site extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getAcceptsVisa(): bool
+    public function getAcceptsVisa(): bool|null
     {
         return $this->container['AcceptsVisa'];
     }
@@ -388,7 +388,7 @@ class Site extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getAllowsDashboardAccess(): bool
+    public function getAllowsDashboardAccess(): bool|null
     {
         return $this->container['AllowsDashboardAccess'];
     }
@@ -414,7 +414,7 @@ class Site extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getContactEmail(): string
+    public function getContactEmail(): string|null
     {
         return $this->container['ContactEmail'];
     }
@@ -440,7 +440,7 @@ class Site extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getDescription(): string
+    public function getDescription(): string|null
     {
         return $this->container['Description'];
     }
@@ -466,7 +466,7 @@ class Site extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): int|null
     {
         return $this->container['Id'];
     }
@@ -492,7 +492,7 @@ class Site extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getLogoUrl(): string
+    public function getLogoUrl(): string|null
     {
         return $this->container['LogoUrl'];
     }
@@ -518,7 +518,7 @@ class Site extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getName(): string
+    public function getName(): string|null
     {
         return $this->container['Name'];
     }
@@ -544,7 +544,7 @@ class Site extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getPageColor1(): string
+    public function getPageColor1(): string|null
     {
         return $this->container['PageColor1'];
     }
@@ -570,7 +570,7 @@ class Site extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getPageColor2(): string
+    public function getPageColor2(): string|null
     {
         return $this->container['PageColor2'];
     }
@@ -596,7 +596,7 @@ class Site extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getPageColor3(): string
+    public function getPageColor3(): string|null
     {
         return $this->container['PageColor3'];
     }
@@ -622,7 +622,7 @@ class Site extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getPageColor4(): string
+    public function getPageColor4(): string|null
     {
         return $this->container['PageColor4'];
     }
@@ -648,7 +648,7 @@ class Site extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getPricingLevel(): string
+    public function getPricingLevel(): string|null
     {
         return $this->container['PricingLevel'];
     }
@@ -674,7 +674,7 @@ class Site extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getSmsPackageEnabled(): bool
+    public function getSmsPackageEnabled(): bool|null
     {
         return $this->container['SmsPackageEnabled'];
     }
@@ -700,7 +700,7 @@ class Site extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getTaxInclusivePrices(): bool
+    public function getTaxInclusivePrices(): bool|null
     {
         return $this->container['TaxInclusivePrices'];
     }
@@ -726,7 +726,7 @@ class Site extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getCurrencyIsoCode(): string
+    public function getCurrencyIsoCode(): string|null
     {
         return $this->container['CurrencyIsoCode'];
     }
@@ -752,7 +752,7 @@ class Site extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getCountryCode(): string
+    public function getCountryCode(): string|null
     {
         return $this->container['CountryCode'];
     }
@@ -778,7 +778,7 @@ class Site extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getTimeZone(): string
+    public function getTimeZone(): string|null
     {
         return $this->container['TimeZone'];
     }
@@ -804,7 +804,7 @@ class Site extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getAcceptsDirectDebit(): bool
+    public function getAcceptsDirectDebit(): bool|null
     {
         return $this->container['AcceptsDirectDebit'];
     }
@@ -830,7 +830,7 @@ class Site extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\LeadChannel[]
      */
-    public function getLeadChannels(): array
+    public function getLeadChannels(): array|null
     {
         return $this->container['LeadChannels'];
     }
@@ -856,7 +856,7 @@ class Site extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getPerStaffPricing(): bool
+    public function getPerStaffPricing(): bool|null
     {
         return $this->container['PerStaffPricing'];
     }

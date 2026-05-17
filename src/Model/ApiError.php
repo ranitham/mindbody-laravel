@@ -144,7 +144,7 @@ class ApiError extends BaseModel
      *
      * @return string
      */
-    public function getMessage(): string
+    public function getMessage(): string|null
     {
         return $this->container['Message'];
     }
@@ -170,7 +170,7 @@ class ApiError extends BaseModel
      *
      * @return string
      */
-    public function getCode(): string
+    public function getCode(): string|null
     {
         return $this->container['Code'];
     }
@@ -196,7 +196,7 @@ class ApiError extends BaseModel
      *
      * @return string
      */
-    public function getReasonCode(): string
+    public function getReasonCode(): string|null
     {
         return $this->container['ReasonCode'];
     }

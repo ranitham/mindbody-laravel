@@ -254,7 +254,7 @@ class SessionType extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getType(): string
+    public function getType(): string|null
     {
         return $this->container['Type'];
     }
@@ -289,7 +289,7 @@ class SessionType extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getDefaultTimeLength(): int
+    public function getDefaultTimeLength(): int|null
     {
         return $this->container['DefaultTimeLength'];
     }
@@ -315,7 +315,7 @@ class SessionType extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getStaffTimeLength(): int
+    public function getStaffTimeLength(): int|null
     {
         return $this->container['StaffTimeLength'];
     }
@@ -341,7 +341,7 @@ class SessionType extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getProgramId(): int
+    public function getProgramId(): int|null
     {
         return $this->container['ProgramId'];
     }
@@ -367,7 +367,7 @@ class SessionType extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getNumDeducted(): int
+    public function getNumDeducted(): int|null
     {
         return $this->container['NumDeducted'];
     }
@@ -393,7 +393,7 @@ class SessionType extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): int|null
     {
         return $this->container['Id'];
     }
@@ -419,7 +419,7 @@ class SessionType extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getName(): string
+    public function getName(): string|null
     {
         return $this->container['Name'];
     }
@@ -445,7 +445,7 @@ class SessionType extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getActive(): bool
+    public function getActive(): bool|null
     {
         return $this->container['Active'];
     }
@@ -471,7 +471,7 @@ class SessionType extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getCapacity(): int
+    public function getCapacity(): int|null
     {
         return $this->container['Capacity'];
     }
@@ -497,7 +497,7 @@ class SessionType extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getResourceRequired(): bool
+    public function getResourceRequired(): bool|null
     {
         return $this->container['ResourceRequired'];
     }
@@ -523,7 +523,7 @@ class SessionType extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\ServiceTag
      */
-    public function getCategory(): \Nlocascio\Mindbody\Model\ServiceTag
+    public function getCategory(): \Nlocascio\Mindbody\Model\ServiceTag|null
     {
         return $this->container['Category'];
     }
@@ -549,7 +549,7 @@ class SessionType extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\ServiceTag
      */
-    public function getSubcategory(): \Nlocascio\Mindbody\Model\ServiceTag
+    public function getSubcategory(): \Nlocascio\Mindbody\Model\ServiceTag|null
     {
         return $this->container['Subcategory'];
     }
@@ -575,7 +575,7 @@ class SessionType extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getOnlineDescription(): string
+    public function getOnlineDescription(): string|null
     {
         return $this->container['OnlineDescription'];
     }
@@ -601,7 +601,7 @@ class SessionType extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getAvailableForAddOn(): bool
+    public function getAvailableForAddOn(): bool|null
     {
         return $this->container['AvailableForAddOn'];
     }

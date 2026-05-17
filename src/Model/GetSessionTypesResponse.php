@@ -137,7 +137,7 @@ class GetSessionTypesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
+    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse|null
     {
         return $this->container['PaginationResponse'];
     }
@@ -163,7 +163,7 @@ class GetSessionTypesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\SessionType[]
      */
-    public function getSessionTypes(): array
+    public function getSessionTypes(): array|null
     {
         return $this->container['SessionTypes'];
     }

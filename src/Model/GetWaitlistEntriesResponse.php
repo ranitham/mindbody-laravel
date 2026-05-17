@@ -137,7 +137,7 @@ class GetWaitlistEntriesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
+    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse|null
     {
         return $this->container['PaginationResponse'];
     }
@@ -163,7 +163,7 @@ class GetWaitlistEntriesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\WaitlistEntry[]
      */
-    public function getWaitlistEntries(): array
+    public function getWaitlistEntries(): array|null
     {
         return $this->container['WaitlistEntries'];
     }

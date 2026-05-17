@@ -194,7 +194,7 @@ class Course extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): int|null
     {
         return $this->container['Id'];
     }
@@ -220,7 +220,7 @@ class Course extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getName(): string
+    public function getName(): string|null
     {
         return $this->container['Name'];
     }
@@ -246,7 +246,7 @@ class Course extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getDescription(): string
+    public function getDescription(): string|null
     {
         return $this->container['Description'];
     }
@@ -272,7 +272,7 @@ class Course extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getNotes(): string
+    public function getNotes(): string|null
     {
         return $this->container['Notes'];
     }
@@ -298,7 +298,7 @@ class Course extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getStartDate(): \DateTime
+    public function getStartDate(): \DateTime|null
     {
         return $this->container['StartDate'];
     }
@@ -324,7 +324,7 @@ class Course extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getEndDate(): \DateTime
+    public function getEndDate(): \DateTime|null
     {
         return $this->container['EndDate'];
     }
@@ -350,7 +350,7 @@ class Course extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\Location
      */
-    public function getLocation(): \Nlocascio\Mindbody\Model\Location
+    public function getLocation(): \Nlocascio\Mindbody\Model\Location|null
     {
         return $this->container['Location'];
     }
@@ -376,7 +376,7 @@ class Course extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\Staff
      */
-    public function getOrganizer(): \Nlocascio\Mindbody\Model\Staff
+    public function getOrganizer(): \Nlocascio\Mindbody\Model\Staff|null
     {
         return $this->container['Organizer'];
     }
@@ -402,7 +402,7 @@ class Course extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\Program
      */
-    public function getProgram(): \Nlocascio\Mindbody\Model\Program
+    public function getProgram(): \Nlocascio\Mindbody\Model\Program|null
     {
         return $this->container['Program'];
     }
@@ -428,7 +428,7 @@ class Course extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getImageUrl(): string
+    public function getImageUrl(): string|null
     {
         return $this->container['ImageUrl'];
     }

@@ -144,7 +144,7 @@ class SystemThreadingCancellationToken extends BaseModel
      *
      * @return bool
      */
-    public function getIsCancellationRequested(): bool
+    public function getIsCancellationRequested(): bool|null
     {
         return $this->container['IsCancellationRequested'];
     }
@@ -170,7 +170,7 @@ class SystemThreadingCancellationToken extends BaseModel
      *
      * @return bool
      */
-    public function getCanBeCanceled(): bool
+    public function getCanBeCanceled(): bool|null
     {
         return $this->container['CanBeCanceled'];
     }
@@ -196,7 +196,7 @@ class SystemThreadingCancellationToken extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\SystemThreadingWaitHandle
      */
-    public function getWaitHandle(): \Nlocascio\Mindbody\Model\SystemThreadingWaitHandle
+    public function getWaitHandle(): \Nlocascio\Mindbody\Model\SystemThreadingWaitHandle|null
     {
         return $this->container['WaitHandle'];
     }

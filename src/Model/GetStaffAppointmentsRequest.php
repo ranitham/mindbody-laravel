@@ -186,7 +186,7 @@ class GetStaffAppointmentsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getAppointmentIds(): array
+    public function getAppointmentIds(): array|null
     {
         return $this->container['AppointmentIds'];
     }
@@ -212,7 +212,7 @@ class GetStaffAppointmentsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getLocationIds(): array
+    public function getLocationIds(): array|null
     {
         return $this->container['LocationIds'];
     }
@@ -238,7 +238,7 @@ class GetStaffAppointmentsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDate(): \DateTime
+    public function getStartDate(): \DateTime|null
     {
         return $this->container['StartDate'];
     }
@@ -264,7 +264,7 @@ class GetStaffAppointmentsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDate(): \DateTime
+    public function getEndDate(): \DateTime|null
     {
         return $this->container['EndDate'];
     }
@@ -290,7 +290,7 @@ class GetStaffAppointmentsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getStaffIds(): array
+    public function getStaffIds(): array|null
     {
         return $this->container['StaffIds'];
     }
@@ -316,7 +316,7 @@ class GetStaffAppointmentsRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId(): string|null
     {
         return $this->container['ClientId'];
     }
@@ -342,7 +342,7 @@ class GetStaffAppointmentsRequest extends BaseModel
      *
      * @return bool
      */
-    public function getUseSiteSettingsStaffName(): bool
+    public function getUseSiteSettingsStaffName(): bool|null
     {
         return $this->container['UseSiteSettingsStaffName'];
     }
@@ -368,7 +368,7 @@ class GetStaffAppointmentsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit(): int|null
     {
         return $this->container['Limit'];
     }
@@ -394,7 +394,7 @@ class GetStaffAppointmentsRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset(): int|null
     {
         return $this->container['Offset'];
     }

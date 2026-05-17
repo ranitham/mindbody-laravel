@@ -130,7 +130,7 @@ class CancelSingleClassResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ModelClass
      */
-    public function getClass(): \Nlocascio\Mindbody\Model\ModelClass
+    public function getClass(): \Nlocascio\Mindbody\Model\ModelClass|null
     {
         return $this->container['Class'];
     }

@@ -138,7 +138,7 @@ class GetRelationshipsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
+    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse|null
     {
         return $this->container['PaginationResponse'];
     }
@@ -164,7 +164,7 @@ class GetRelationshipsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Relationship[]
      */
-    public function getRelationships(): array
+    public function getRelationships(): array|null
     {
         return $this->container['Relationships'];
     }

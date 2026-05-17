@@ -159,7 +159,7 @@ class ResourceAvailability extends BaseModel
      *
      * @return int
      */
-    public function getResourceId(): int
+    public function getResourceId(): int|null
     {
         return $this->container['ResourceId'];
     }
@@ -185,7 +185,7 @@ class ResourceAvailability extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDateTime(): \DateTime
+    public function getStartDateTime(): \DateTime|null
     {
         return $this->container['StartDateTime'];
     }
@@ -211,7 +211,7 @@ class ResourceAvailability extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDateTime(): \DateTime
+    public function getEndDateTime(): \DateTime|null
     {
         return $this->container['EndDateTime'];
     }
@@ -237,7 +237,7 @@ class ResourceAvailability extends BaseModel
      *
      * @return int[]
      */
-    public function getSessionTypeIds(): array
+    public function getSessionTypeIds(): array|null
     {
         return $this->container['SessionTypeIds'];
     }
@@ -263,7 +263,7 @@ class ResourceAvailability extends BaseModel
      *
      * @return int[]
      */
-    public function getProgramIds(): array
+    public function getProgramIds(): array|null
     {
         return $this->container['ProgramIds'];
     }

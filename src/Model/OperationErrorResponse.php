@@ -138,7 +138,7 @@ class OperationErrorResponse extends BaseModel
      *
      * @return string
      */
-    public function getOperation(): string
+    public function getOperation(): string|null
     {
         return $this->container['Operation'];
     }
@@ -164,7 +164,7 @@ class OperationErrorResponse extends BaseModel
      *
      * @return string
      */
-    public function getMessage(): string
+    public function getMessage(): string|null
     {
         return $this->container['Message'];
     }

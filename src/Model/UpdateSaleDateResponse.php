@@ -131,7 +131,7 @@ class UpdateSaleDateResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Sale
      */
-    public function getSale(): \Nlocascio\Mindbody\Model\Sale
+    public function getSale(): \Nlocascio\Mindbody\Model\Sale|null
     {
         return $this->container['Sale'];
     }

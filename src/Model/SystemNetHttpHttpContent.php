@@ -130,7 +130,7 @@ class SystemNetHttpHttpContent extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\KeyValuePair[]
      */
-    public function getHeaders(): array
+    public function getHeaders(): array|null
     {
         return $this->container['Headers'];
     }

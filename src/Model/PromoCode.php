@@ -246,7 +246,7 @@ class PromoCode extends BaseModel
      *
      * @return int
      */
-    public function getPromotionID(): int
+    public function getPromotionID(): int|null
     {
         return $this->container['PromotionID'];
     }
@@ -272,7 +272,7 @@ class PromoCode extends BaseModel
      *
      * @return string
      */
-    public function getName(): string
+    public function getName(): string|null
     {
         return $this->container['Name'];
     }
@@ -298,7 +298,7 @@ class PromoCode extends BaseModel
      *
      * @return string
      */
-    public function getCode(): string
+    public function getCode(): string|null
     {
         return $this->container['Code'];
     }
@@ -324,7 +324,7 @@ class PromoCode extends BaseModel
      *
      * @return bool
      */
-    public function getActive(): bool
+    public function getActive(): bool|null
     {
         return $this->container['Active'];
     }
@@ -350,7 +350,7 @@ class PromoCode extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Discount
      */
-    public function getDiscount(): \Nlocascio\Mindbody\Model\Discount
+    public function getDiscount(): \Nlocascio\Mindbody\Model\Discount|null
     {
         return $this->container['Discount'];
     }
@@ -376,7 +376,7 @@ class PromoCode extends BaseModel
      *
      * @return \DateTime
      */
-    public function getActivationDate(): \DateTime
+    public function getActivationDate(): \DateTime|null
     {
         return $this->container['ActivationDate'];
     }
@@ -402,7 +402,7 @@ class PromoCode extends BaseModel
      *
      * @return \DateTime
      */
-    public function getExpirationDate(): \DateTime
+    public function getExpirationDate(): \DateTime|null
     {
         return $this->container['ExpirationDate'];
     }
@@ -428,7 +428,7 @@ class PromoCode extends BaseModel
      *
      * @return int
      */
-    public function getMaxUses(): int
+    public function getMaxUses(): int|null
     {
         return $this->container['MaxUses'];
     }
@@ -454,7 +454,7 @@ class PromoCode extends BaseModel
      *
      * @return int
      */
-    public function getNumberOfAutopays(): int
+    public function getNumberOfAutopays(): int|null
     {
         return $this->container['NumberOfAutopays'];
     }
@@ -480,7 +480,7 @@ class PromoCode extends BaseModel
      *
      * @return int
      */
-    public function getDaysAfterCloseDate(): int
+    public function getDaysAfterCloseDate(): int|null
     {
         return $this->container['DaysAfterCloseDate'];
     }
@@ -506,7 +506,7 @@ class PromoCode extends BaseModel
      *
      * @return bool
      */
-    public function getAllowOnline(): bool
+    public function getAllowOnline(): bool|null
     {
         return $this->container['AllowOnline'];
     }
@@ -532,7 +532,7 @@ class PromoCode extends BaseModel
      *
      * @return \DateTime
      */
-    public function getLastModifiedDateTime(): \DateTime
+    public function getLastModifiedDateTime(): \DateTime|null
     {
         return $this->container['LastModifiedDateTime'];
     }
@@ -558,7 +558,7 @@ class PromoCode extends BaseModel
      *
      * @return string[]
      */
-    public function getDaysValid(): array
+    public function getDaysValid(): array|null
     {
         return $this->container['DaysValid'];
     }
@@ -593,7 +593,7 @@ class PromoCode extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ApplicableItem[]
      */
-    public function getApplicableItems(): array
+    public function getApplicableItems(): array|null
     {
         return $this->container['ApplicableItems'];
     }

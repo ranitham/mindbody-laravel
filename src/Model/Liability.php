@@ -144,7 +144,7 @@ class Liability extends BaseModel
      *
      * @return \DateTime
      */
-    public function getAgreementDate(): \DateTime
+    public function getAgreementDate(): \DateTime|null
     {
         return $this->container['AgreementDate'];
     }
@@ -170,7 +170,7 @@ class Liability extends BaseModel
      *
      * @return bool
      */
-    public function getIsReleased(): bool
+    public function getIsReleased(): bool|null
     {
         return $this->container['IsReleased'];
     }
@@ -196,7 +196,7 @@ class Liability extends BaseModel
      *
      * @return int
      */
-    public function getReleasedBy(): int
+    public function getReleasedBy(): int|null
     {
         return $this->container['ReleasedBy'];
     }

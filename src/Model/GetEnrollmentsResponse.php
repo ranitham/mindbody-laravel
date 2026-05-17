@@ -137,7 +137,7 @@ class GetEnrollmentsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
+    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse|null
     {
         return $this->container['PaginationResponse'];
     }
@@ -163,7 +163,7 @@ class GetEnrollmentsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClassSchedule[]
      */
-    public function getEnrollments(): array
+    public function getEnrollments(): array|null
     {
         return $this->container['Enrollments'];
     }

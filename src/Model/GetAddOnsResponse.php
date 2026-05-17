@@ -138,7 +138,7 @@ class GetAddOnsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
+    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse|null
     {
         return $this->container['PaginationResponse'];
     }
@@ -164,7 +164,7 @@ class GetAddOnsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\AppointmentAddOn[]
      */
-    public function getAddOns(): array
+    public function getAddOns(): array|null
     {
         return $this->container['AddOns'];
     }

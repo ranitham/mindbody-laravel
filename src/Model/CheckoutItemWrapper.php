@@ -200,7 +200,7 @@ class CheckoutItemWrapper extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\CheckoutItem
      */
-    public function getItem(): \Nlocascio\Mindbody\Model\CheckoutItem
+    public function getItem(): \Nlocascio\Mindbody\Model\CheckoutItem|null
     {
         return $this->container['Item'];
     }
@@ -226,7 +226,7 @@ class CheckoutItemWrapper extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getSalesNotes(): string
+    public function getSalesNotes(): string|null
     {
         return $this->container['SalesNotes'];
     }
@@ -252,7 +252,7 @@ class CheckoutItemWrapper extends BaseModel implements ModelWithIntId
      *
      * @return double
      */
-    public function getDiscountAmount(): float
+    public function getDiscountAmount(): float|null
     {
         return $this->container['DiscountAmount'];
     }
@@ -278,7 +278,7 @@ class CheckoutItemWrapper extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\CheckoutAppointmentBookingRequest[]
      */
-    public function getAppointmentBookingRequests(): array
+    public function getAppointmentBookingRequests(): array|null
     {
         return $this->container['AppointmentBookingRequests'];
     }
@@ -304,7 +304,7 @@ class CheckoutItemWrapper extends BaseModel implements ModelWithIntId
      *
      * @return int[]
      */
-    public function getEnrollmentIds(): array
+    public function getEnrollmentIds(): array|null
     {
         return $this->container['EnrollmentIds'];
     }
@@ -330,7 +330,7 @@ class CheckoutItemWrapper extends BaseModel implements ModelWithIntId
      *
      * @return int[]
      */
-    public function getClassIds(): array
+    public function getClassIds(): array|null
     {
         return $this->container['ClassIds'];
     }
@@ -356,7 +356,7 @@ class CheckoutItemWrapper extends BaseModel implements ModelWithIntId
      *
      * @return int[]
      */
-    public function getCourseIds(): array
+    public function getCourseIds(): array|null
     {
         return $this->container['CourseIds'];
     }
@@ -382,7 +382,7 @@ class CheckoutItemWrapper extends BaseModel implements ModelWithIntId
      *
      * @return int[]
      */
-    public function getVisitIds(): array
+    public function getVisitIds(): array|null
     {
         return $this->container['VisitIds'];
     }
@@ -408,7 +408,7 @@ class CheckoutItemWrapper extends BaseModel implements ModelWithIntId
      *
      * @return int[]
      */
-    public function getAppointmentIds(): array
+    public function getAppointmentIds(): array|null
     {
         return $this->container['AppointmentIds'];
     }
@@ -434,7 +434,7 @@ class CheckoutItemWrapper extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): int|null
     {
         return $this->container['Id'];
     }
@@ -460,7 +460,7 @@ class CheckoutItemWrapper extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getQuantity(): int
+    public function getQuantity(): int|null
     {
         return $this->container['Quantity'];
     }

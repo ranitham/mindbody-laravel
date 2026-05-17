@@ -144,7 +144,7 @@ class ClassClientDetail extends BaseModel
      *
      * @return string[]
      */
-    public function getClientIds(): array
+    public function getClientIds(): array|null
     {
         return $this->container['ClientIds'];
     }
@@ -170,7 +170,7 @@ class ClassClientDetail extends BaseModel
      *
      * @return int
      */
-    public function getClassId(): int
+    public function getClassId(): int|null
     {
         return $this->container['ClassId'];
     }

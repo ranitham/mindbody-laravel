@@ -133,7 +133,7 @@ class DeactivatePromoCodeRequest extends BaseModel
      *
      * @return int
      */
-    public function getPromotionId(): int
+    public function getPromotionId(): int|null
     {
         return $this->container['PromotionId'];
     }

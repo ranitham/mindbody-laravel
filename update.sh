@@ -1,6 +1,6 @@
 #!/bin/bash
 # Run Codegen
-java  -jar swagger-codegen-cli.jar generate -l php -i mindbody.json -c swagger-php-config.json -t swagger-templates/php
+java  -DdebugModels=true -jar swagger-codegen-cli.jar generate -l php -i mindbody.json -c swagger-php-config.json -t swagger-templates/php
 
 #Delete src/tests
 rm -rf src/test

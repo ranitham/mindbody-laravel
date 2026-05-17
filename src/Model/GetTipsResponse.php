@@ -137,7 +137,7 @@ class GetTipsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
+    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse|null
     {
         return $this->container['PaginationResponse'];
     }
@@ -163,7 +163,7 @@ class GetTipsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Tip[]
      */
-    public function getTips(): array
+    public function getTips(): array|null
     {
         return $this->container['Tips'];
     }

@@ -145,7 +145,7 @@ class ContactLogType extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): int|null
     {
         return $this->container['Id'];
     }
@@ -171,7 +171,7 @@ class ContactLogType extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getName(): string
+    public function getName(): string|null
     {
         return $this->container['Name'];
     }
@@ -197,7 +197,7 @@ class ContactLogType extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\ContactLogSubType[]
      */
-    public function getSubTypes(): array
+    public function getSubTypes(): array|null
     {
         return $this->container['SubTypes'];
     }

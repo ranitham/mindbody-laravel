@@ -186,7 +186,7 @@ class GetClassSchedulesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getClassScheduleIds(): array
+    public function getClassScheduleIds(): array|null
     {
         return $this->container['ClassScheduleIds'];
     }
@@ -212,7 +212,7 @@ class GetClassSchedulesRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDate(): \DateTime
+    public function getEndDate(): \DateTime|null
     {
         return $this->container['EndDate'];
     }
@@ -238,7 +238,7 @@ class GetClassSchedulesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getLocationIds(): array
+    public function getLocationIds(): array|null
     {
         return $this->container['LocationIds'];
     }
@@ -264,7 +264,7 @@ class GetClassSchedulesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getProgramIds(): array
+    public function getProgramIds(): array|null
     {
         return $this->container['ProgramIds'];
     }
@@ -290,7 +290,7 @@ class GetClassSchedulesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getSessionTypeIds(): array
+    public function getSessionTypeIds(): array|null
     {
         return $this->container['SessionTypeIds'];
     }
@@ -316,7 +316,7 @@ class GetClassSchedulesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getStaffIds(): array
+    public function getStaffIds(): array|null
     {
         return $this->container['StaffIds'];
     }
@@ -342,7 +342,7 @@ class GetClassSchedulesRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDate(): \DateTime
+    public function getStartDate(): \DateTime|null
     {
         return $this->container['StartDate'];
     }
@@ -368,7 +368,7 @@ class GetClassSchedulesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit(): int|null
     {
         return $this->container['Limit'];
     }
@@ -394,7 +394,7 @@ class GetClassSchedulesRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset(): int|null
     {
         return $this->container['Offset'];
     }

@@ -131,7 +131,7 @@ class UpdateClassScheduleNotesRequest extends BaseModel
      *
      * @return string
      */
-    public function getNotes(): string
+    public function getNotes(): string|null
     {
         return $this->container['Notes'];
     }

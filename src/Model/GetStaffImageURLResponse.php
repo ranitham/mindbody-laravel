@@ -138,7 +138,7 @@ class GetStaffImageURLResponse extends BaseModel
      *
      * @return string
      */
-    public function getImageURL(): string
+    public function getImageURL(): string|null
     {
         return $this->container['ImageURL'];
     }
@@ -164,7 +164,7 @@ class GetStaffImageURLResponse extends BaseModel
      *
      * @return string
      */
-    public function getMobileImageURL(): string
+    public function getMobileImageURL(): string|null
     {
         return $this->container['MobileImageURL'];
     }

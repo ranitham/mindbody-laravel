@@ -193,7 +193,7 @@ class ProductsInventory extends BaseModel
      *
      * @return int
      */
-    public function getProductId(): int
+    public function getProductId(): int|null
     {
         return $this->container['ProductId'];
     }
@@ -219,7 +219,7 @@ class ProductsInventory extends BaseModel
      *
      * @return string
      */
-    public function getBarcodeId(): string
+    public function getBarcodeId(): string|null
     {
         return $this->container['BarcodeId'];
     }
@@ -245,7 +245,7 @@ class ProductsInventory extends BaseModel
      *
      * @return int
      */
-    public function getLocationId(): int
+    public function getLocationId(): int|null
     {
         return $this->container['LocationId'];
     }
@@ -271,7 +271,7 @@ class ProductsInventory extends BaseModel
      *
      * @return int
      */
-    public function getUnitsLogged(): int
+    public function getUnitsLogged(): int|null
     {
         return $this->container['UnitsLogged'];
     }
@@ -297,7 +297,7 @@ class ProductsInventory extends BaseModel
      *
      * @return int
      */
-    public function getUnitsSold(): int
+    public function getUnitsSold(): int|null
     {
         return $this->container['UnitsSold'];
     }
@@ -323,7 +323,7 @@ class ProductsInventory extends BaseModel
      *
      * @return int
      */
-    public function getUnitsInStock(): int
+    public function getUnitsInStock(): int|null
     {
         return $this->container['UnitsInStock'];
     }
@@ -349,7 +349,7 @@ class ProductsInventory extends BaseModel
      *
      * @return int
      */
-    public function getReorderLevel(): int
+    public function getReorderLevel(): int|null
     {
         return $this->container['ReorderLevel'];
     }
@@ -375,7 +375,7 @@ class ProductsInventory extends BaseModel
      *
      * @return int
      */
-    public function getMaxLevel(): int
+    public function getMaxLevel(): int|null
     {
         return $this->container['MaxLevel'];
     }
@@ -401,7 +401,7 @@ class ProductsInventory extends BaseModel
      *
      * @return \DateTime
      */
-    public function getCreatedDateTimeUTC(): \DateTime
+    public function getCreatedDateTimeUTC(): \DateTime|null
     {
         return $this->container['CreatedDateTimeUTC'];
     }
@@ -427,7 +427,7 @@ class ProductsInventory extends BaseModel
      *
      * @return \DateTime
      */
-    public function getModifiedDateTimeUTC(): \DateTime
+    public function getModifiedDateTimeUTC(): \DateTime|null
     {
         return $this->container['ModifiedDateTimeUTC'];
     }

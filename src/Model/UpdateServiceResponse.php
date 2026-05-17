@@ -131,7 +131,7 @@ class UpdateServiceResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Service[]
      */
-    public function getServices(): array
+    public function getServices(): array|null
     {
         return $this->container['Services'];
     }

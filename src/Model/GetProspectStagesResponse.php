@@ -131,7 +131,7 @@ class GetProspectStagesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ProspectStage[]
      */
-    public function getProspectStages(): array
+    public function getProspectStages(): array|null
     {
         return $this->container['ProspectStages'];
     }

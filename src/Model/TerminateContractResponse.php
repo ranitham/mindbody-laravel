@@ -130,7 +130,7 @@ class TerminateContractResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClientContract
      */
-    public function getContract(): \Nlocascio\Mindbody\Model\ClientContract
+    public function getContract(): \Nlocascio\Mindbody\Model\ClientContract|null
     {
         return $this->container['Contract'];
     }

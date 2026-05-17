@@ -354,7 +354,7 @@ class ItineraryEvent extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getGenderPreference(): string
+    public function getGenderPreference(): string|null
     {
         return $this->container['GenderPreference'];
     }
@@ -389,7 +389,7 @@ class ItineraryEvent extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getDuration(): int
+    public function getDuration(): int|null
     {
         return $this->container['Duration'];
     }
@@ -415,7 +415,7 @@ class ItineraryEvent extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getProviderId(): string
+    public function getProviderId(): string|null
     {
         return $this->container['ProviderId'];
     }
@@ -441,7 +441,7 @@ class ItineraryEvent extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): int|null
     {
         return $this->container['Id'];
     }
@@ -467,7 +467,7 @@ class ItineraryEvent extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getStatus(): string
+    public function getStatus(): string|null
     {
         return $this->container['Status'];
     }
@@ -502,7 +502,7 @@ class ItineraryEvent extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getStartDateTime(): \DateTime
+    public function getStartDateTime(): \DateTime|null
     {
         return $this->container['StartDateTime'];
     }
@@ -528,7 +528,7 @@ class ItineraryEvent extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getEndDateTime(): \DateTime
+    public function getEndDateTime(): \DateTime|null
     {
         return $this->container['EndDateTime'];
     }
@@ -554,7 +554,7 @@ class ItineraryEvent extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getNotes(): string
+    public function getNotes(): string|null
     {
         return $this->container['Notes'];
     }
@@ -580,7 +580,7 @@ class ItineraryEvent extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getStaffRequested(): bool
+    public function getStaffRequested(): bool|null
     {
         return $this->container['StaffRequested'];
     }
@@ -606,7 +606,7 @@ class ItineraryEvent extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getProgramId(): int
+    public function getProgramId(): int|null
     {
         return $this->container['ProgramId'];
     }
@@ -632,7 +632,7 @@ class ItineraryEvent extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getSessionTypeId(): int
+    public function getSessionTypeId(): int|null
     {
         return $this->container['SessionTypeId'];
     }
@@ -658,7 +658,7 @@ class ItineraryEvent extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getLocationId(): int
+    public function getLocationId(): int|null
     {
         return $this->container['LocationId'];
     }
@@ -684,7 +684,7 @@ class ItineraryEvent extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getStaffId(): int
+    public function getStaffId(): int|null
     {
         return $this->container['StaffId'];
     }
@@ -710,7 +710,7 @@ class ItineraryEvent extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\AppointmentStaff
      */
-    public function getStaff(): \Nlocascio\Mindbody\Model\AppointmentStaff
+    public function getStaff(): \Nlocascio\Mindbody\Model\AppointmentStaff|null
     {
         return $this->container['Staff'];
     }
@@ -736,7 +736,7 @@ class ItineraryEvent extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId(): string|null
     {
         return $this->container['ClientId'];
     }
@@ -762,7 +762,7 @@ class ItineraryEvent extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getFirstAppointment(): bool
+    public function getFirstAppointment(): bool|null
     {
         return $this->container['FirstAppointment'];
     }
@@ -788,7 +788,7 @@ class ItineraryEvent extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getIsWaitlist(): bool
+    public function getIsWaitlist(): bool|null
     {
         return $this->container['IsWaitlist'];
     }
@@ -814,7 +814,7 @@ class ItineraryEvent extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getWaitlistEntryId(): int
+    public function getWaitlistEntryId(): int|null
     {
         return $this->container['WaitlistEntryId'];
     }
@@ -840,7 +840,7 @@ class ItineraryEvent extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getClientServiceId(): int
+    public function getClientServiceId(): int|null
     {
         return $this->container['ClientServiceId'];
     }
@@ -866,7 +866,7 @@ class ItineraryEvent extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\ResourceSlim[]
      */
-    public function getResources(): array
+    public function getResources(): array|null
     {
         return $this->container['Resources'];
     }
@@ -892,7 +892,7 @@ class ItineraryEvent extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\AddOnSmall[]
      */
-    public function getAddOns(): array
+    public function getAddOns(): array|null
     {
         return $this->container['AddOns'];
     }
@@ -918,7 +918,7 @@ class ItineraryEvent extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getOnlineDescription(): string
+    public function getOnlineDescription(): string|null
     {
         return $this->container['OnlineDescription'];
     }
@@ -944,7 +944,7 @@ class ItineraryEvent extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getPreparationTime(): int
+    public function getPreparationTime(): int|null
     {
         return $this->container['PreparationTime'];
     }
@@ -970,7 +970,7 @@ class ItineraryEvent extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getFinishTime(): int
+    public function getFinishTime(): int|null
     {
         return $this->container['FinishTime'];
     }

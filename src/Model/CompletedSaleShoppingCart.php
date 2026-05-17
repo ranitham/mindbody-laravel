@@ -180,7 +180,7 @@ class CompletedSaleShoppingCart extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getId(): string
+    public function getId(): string|null
     {
         return $this->container['Id'];
     }
@@ -206,7 +206,7 @@ class CompletedSaleShoppingCart extends BaseModel implements ModelWithStringId
      *
      * @return \Nlocascio\Mindbody\Model\CompletedSaleCartItem[]
      */
-    public function getCartItems(): array
+    public function getCartItems(): array|null
     {
         return $this->container['CartItems'];
     }
@@ -232,7 +232,7 @@ class CompletedSaleShoppingCart extends BaseModel implements ModelWithStringId
      *
      * @return double
      */
-    public function getSubTotal(): float
+    public function getSubTotal(): float|null
     {
         return $this->container['SubTotal'];
     }
@@ -258,7 +258,7 @@ class CompletedSaleShoppingCart extends BaseModel implements ModelWithStringId
      *
      * @return double
      */
-    public function getDiscountTotal(): float
+    public function getDiscountTotal(): float|null
     {
         return $this->container['DiscountTotal'];
     }
@@ -284,7 +284,7 @@ class CompletedSaleShoppingCart extends BaseModel implements ModelWithStringId
      *
      * @return double
      */
-    public function getTaxTotal(): float
+    public function getTaxTotal(): float|null
     {
         return $this->container['TaxTotal'];
     }
@@ -310,7 +310,7 @@ class CompletedSaleShoppingCart extends BaseModel implements ModelWithStringId
      *
      * @return double
      */
-    public function getGrandTotal(): float
+    public function getGrandTotal(): float|null
     {
         return $this->container['GrandTotal'];
     }
@@ -336,7 +336,7 @@ class CompletedSaleShoppingCart extends BaseModel implements ModelWithStringId
      *
      * @return \Nlocascio\Mindbody\Model\CompletedSaleTransactionResponse[]
      */
-    public function getTransactions(): array
+    public function getTransactions(): array|null
     {
         return $this->container['Transactions'];
     }
@@ -362,7 +362,7 @@ class CompletedSaleShoppingCart extends BaseModel implements ModelWithStringId
      *
      * @return int
      */
-    public function getSaleId(): int
+    public function getSaleId(): int|null
     {
         return $this->container['SaleId'];
     }

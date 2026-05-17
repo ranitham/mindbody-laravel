@@ -133,7 +133,7 @@ class RemoveFromWaitlistRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getWaitlistEntryIds(): array
+    public function getWaitlistEntryIds(): array|null
     {
         return $this->container['WaitlistEntryIds'];
     }

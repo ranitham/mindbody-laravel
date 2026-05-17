@@ -203,7 +203,7 @@ class InitiatePurchaseContractRequest extends BaseModel
      *
      * @return bool
      */
-    public function getTest(): bool
+    public function getTest(): bool|null
     {
         return $this->container['Test'];
     }
@@ -229,7 +229,7 @@ class InitiatePurchaseContractRequest extends BaseModel
      *
      * @return int
      */
-    public function getLocationId(): int
+    public function getLocationId(): int|null
     {
         return $this->container['LocationId'];
     }
@@ -255,7 +255,7 @@ class InitiatePurchaseContractRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId(): string|null
     {
         return $this->container['ClientId'];
     }
@@ -281,7 +281,7 @@ class InitiatePurchaseContractRequest extends BaseModel
      *
      * @return int
      */
-    public function getContractId(): int
+    public function getContractId(): int|null
     {
         return $this->container['ContractId'];
     }
@@ -307,7 +307,7 @@ class InitiatePurchaseContractRequest extends BaseModel
      *
      * @return string
      */
-    public function getPromotionCode(): string
+    public function getPromotionCode(): string|null
     {
         return $this->container['PromotionCode'];
     }
@@ -333,7 +333,7 @@ class InitiatePurchaseContractRequest extends BaseModel
      *
      * @return string[]
      */
-    public function getPromotionCodes(): array
+    public function getPromotionCodes(): array|null
     {
         return $this->container['PromotionCodes'];
     }
@@ -359,7 +359,7 @@ class InitiatePurchaseContractRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSendNotifications(): bool
+    public function getSendNotifications(): bool|null
     {
         return $this->container['SendNotifications'];
     }
@@ -385,7 +385,7 @@ class InitiatePurchaseContractRequest extends BaseModel
      *
      * @return int
      */
-    public function getSalesRepId(): int
+    public function getSalesRepId(): int|null
     {
         return $this->container['SalesRepId'];
     }
@@ -411,7 +411,7 @@ class InitiatePurchaseContractRequest extends BaseModel
      *
      * @return string
      */
-    public function getPaymentAuthenticationCallbackUrl(): string
+    public function getPaymentAuthenticationCallbackUrl(): string|null
     {
         return $this->container['PaymentAuthenticationCallbackUrl'];
     }
@@ -437,7 +437,7 @@ class InitiatePurchaseContractRequest extends BaseModel
      *
      * @return int
      */
-    public function getPaymentMethodId(): int
+    public function getPaymentMethodId(): int|null
     {
         return $this->container['PaymentMethodId'];
     }

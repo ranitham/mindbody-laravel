@@ -237,7 +237,7 @@ class UpdateAvailabilityRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getAvailabilityIds(): array
+    public function getAvailabilityIds(): array|null
     {
         return $this->container['AvailabilityIds'];
     }
@@ -263,7 +263,7 @@ class UpdateAvailabilityRequest extends BaseModel
      *
      * @return string
      */
-    public function getPublicDisplay(): string
+    public function getPublicDisplay(): string|null
     {
         return $this->container['PublicDisplay'];
     }
@@ -298,7 +298,7 @@ class UpdateAvailabilityRequest extends BaseModel
      *
      * @return string[]
      */
-    public function getDaysOfWeek(): array
+    public function getDaysOfWeek(): array|null
     {
         return $this->container['DaysOfWeek'];
     }
@@ -333,7 +333,7 @@ class UpdateAvailabilityRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getProgramIds(): array
+    public function getProgramIds(): array|null
     {
         return $this->container['ProgramIds'];
     }
@@ -359,7 +359,7 @@ class UpdateAvailabilityRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDateTime(): \DateTime
+    public function getStartDateTime(): \DateTime|null
     {
         return $this->container['StartDateTime'];
     }
@@ -385,7 +385,7 @@ class UpdateAvailabilityRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDateTime(): \DateTime
+    public function getEndDateTime(): \DateTime|null
     {
         return $this->container['EndDateTime'];
     }
@@ -411,7 +411,7 @@ class UpdateAvailabilityRequest extends BaseModel
      *
      * @return int
      */
-    public function getLocationId(): int
+    public function getLocationId(): int|null
     {
         return $this->container['LocationId'];
     }
@@ -437,7 +437,7 @@ class UpdateAvailabilityRequest extends BaseModel
      *
      * @return string
      */
-    public function getUnavailableDescription(): string
+    public function getUnavailableDescription(): string|null
     {
         return $this->container['UnavailableDescription'];
     }
@@ -463,7 +463,7 @@ class UpdateAvailabilityRequest extends BaseModel
      *
      * @return bool
      */
-    public function getTest(): bool
+    public function getTest(): bool|null
     {
         return $this->container['Test'];
     }

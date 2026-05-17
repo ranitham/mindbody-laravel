@@ -200,7 +200,7 @@ class Category extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): int|null
     {
         return $this->container['Id'];
     }
@@ -226,7 +226,7 @@ class Category extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getCategoryName(): string
+    public function getCategoryName(): string|null
     {
         return $this->container['CategoryName'];
     }
@@ -252,7 +252,7 @@ class Category extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getDescription(): string
+    public function getDescription(): string|null
     {
         return $this->container['Description'];
     }
@@ -278,7 +278,7 @@ class Category extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getService(): bool
+    public function getService(): bool|null
     {
         return $this->container['Service'];
     }
@@ -304,7 +304,7 @@ class Category extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getActive(): bool
+    public function getActive(): bool|null
     {
         return $this->container['Active'];
     }
@@ -330,7 +330,7 @@ class Category extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getIsPrimary(): bool
+    public function getIsPrimary(): bool|null
     {
         return $this->container['IsPrimary'];
     }
@@ -356,7 +356,7 @@ class Category extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getIsSecondary(): bool
+    public function getIsSecondary(): bool|null
     {
         return $this->container['IsSecondary'];
     }
@@ -382,7 +382,7 @@ class Category extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getCreatedDateTimeUTC(): \DateTime
+    public function getCreatedDateTimeUTC(): \DateTime|null
     {
         return $this->container['CreatedDateTimeUTC'];
     }
@@ -408,7 +408,7 @@ class Category extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getModifiedDateTimeUTC(): \DateTime
+    public function getModifiedDateTimeUTC(): \DateTime|null
     {
         return $this->container['ModifiedDateTimeUTC'];
     }
@@ -434,7 +434,7 @@ class Category extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\SubCategory[]
      */
-    public function getSubCategories(): array
+    public function getSubCategories(): array|null
     {
         return $this->container['SubCategories'];
     }
@@ -460,7 +460,7 @@ class Category extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getTotalCount(): int
+    public function getTotalCount(): int|null
     {
         return $this->container['TotalCount'];
     }

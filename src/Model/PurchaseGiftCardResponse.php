@@ -200,7 +200,7 @@ class PurchaseGiftCardResponse extends BaseModel
      *
      * @return string
      */
-    public function getBarcodeId(): string
+    public function getBarcodeId(): string|null
     {
         return $this->container['BarcodeId'];
     }
@@ -226,7 +226,7 @@ class PurchaseGiftCardResponse extends BaseModel
      *
      * @return double
      */
-    public function getValue(): float
+    public function getValue(): float|null
     {
         return $this->container['Value'];
     }
@@ -252,7 +252,7 @@ class PurchaseGiftCardResponse extends BaseModel
      *
      * @return double
      */
-    public function getAmountPaid(): float
+    public function getAmountPaid(): float|null
     {
         return $this->container['AmountPaid'];
     }
@@ -278,7 +278,7 @@ class PurchaseGiftCardResponse extends BaseModel
      *
      * @return string
      */
-    public function getFromName(): string
+    public function getFromName(): string|null
     {
         return $this->container['FromName'];
     }
@@ -304,7 +304,7 @@ class PurchaseGiftCardResponse extends BaseModel
      *
      * @return int
      */
-    public function getLayoutId(): int
+    public function getLayoutId(): int|null
     {
         return $this->container['LayoutId'];
     }
@@ -330,7 +330,7 @@ class PurchaseGiftCardResponse extends BaseModel
      *
      * @return bool
      */
-    public function getEmailReceipt(): bool
+    public function getEmailReceipt(): bool|null
     {
         return $this->container['EmailReceipt'];
     }
@@ -356,7 +356,7 @@ class PurchaseGiftCardResponse extends BaseModel
      *
      * @return string
      */
-    public function getPurchaserClientId(): string
+    public function getPurchaserClientId(): string|null
     {
         return $this->container['PurchaserClientId'];
     }
@@ -382,7 +382,7 @@ class PurchaseGiftCardResponse extends BaseModel
      *
      * @return string
      */
-    public function getPurchaserEmail(): string
+    public function getPurchaserEmail(): string|null
     {
         return $this->container['PurchaserEmail'];
     }
@@ -408,7 +408,7 @@ class PurchaseGiftCardResponse extends BaseModel
      *
      * @return string
      */
-    public function getRecipientEmail(): string
+    public function getRecipientEmail(): string|null
     {
         return $this->container['RecipientEmail'];
     }
@@ -434,7 +434,7 @@ class PurchaseGiftCardResponse extends BaseModel
      *
      * @return int
      */
-    public function getSaleId(): int
+    public function getSaleId(): int|null
     {
         return $this->container['SaleId'];
     }
@@ -460,7 +460,7 @@ class PurchaseGiftCardResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaymentProcessingFailure[]
      */
-    public function getPaymentProcessingFailures(): array
+    public function getPaymentProcessingFailures(): array|null
     {
         return $this->container['PaymentProcessingFailures'];
     }

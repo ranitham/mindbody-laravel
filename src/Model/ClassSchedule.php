@@ -317,7 +317,7 @@ class ClassSchedule extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\ModelClass[]
      */
-    public function getClasses(): array
+    public function getClasses(): array|null
     {
         return $this->container['Classes'];
     }
@@ -343,7 +343,7 @@ class ClassSchedule extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\Client[]
      */
-    public function getClients(): array
+    public function getClients(): array|null
     {
         return $this->container['Clients'];
     }
@@ -369,7 +369,7 @@ class ClassSchedule extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\Course
      */
-    public function getCourse(): \Nlocascio\Mindbody\Model\Course
+    public function getCourse(): \Nlocascio\Mindbody\Model\Course|null
     {
         return $this->container['Course'];
     }
@@ -395,7 +395,7 @@ class ClassSchedule extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getSemesterId(): int
+    public function getSemesterId(): int|null
     {
         return $this->container['SemesterId'];
     }
@@ -421,7 +421,7 @@ class ClassSchedule extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getIsAvailable(): bool
+    public function getIsAvailable(): bool|null
     {
         return $this->container['IsAvailable'];
     }
@@ -447,7 +447,7 @@ class ClassSchedule extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): int|null
     {
         return $this->container['Id'];
     }
@@ -473,7 +473,7 @@ class ClassSchedule extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\ClassDescription
      */
-    public function getClassDescription(): \Nlocascio\Mindbody\Model\ClassDescription
+    public function getClassDescription(): \Nlocascio\Mindbody\Model\ClassDescription|null
     {
         return $this->container['ClassDescription'];
     }
@@ -499,7 +499,7 @@ class ClassSchedule extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getDaySunday(): bool
+    public function getDaySunday(): bool|null
     {
         return $this->container['DaySunday'];
     }
@@ -525,7 +525,7 @@ class ClassSchedule extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getDayMonday(): bool
+    public function getDayMonday(): bool|null
     {
         return $this->container['DayMonday'];
     }
@@ -551,7 +551,7 @@ class ClassSchedule extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getDayTuesday(): bool
+    public function getDayTuesday(): bool|null
     {
         return $this->container['DayTuesday'];
     }
@@ -577,7 +577,7 @@ class ClassSchedule extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getDayWednesday(): bool
+    public function getDayWednesday(): bool|null
     {
         return $this->container['DayWednesday'];
     }
@@ -603,7 +603,7 @@ class ClassSchedule extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getDayThursday(): bool
+    public function getDayThursday(): bool|null
     {
         return $this->container['DayThursday'];
     }
@@ -629,7 +629,7 @@ class ClassSchedule extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getDayFriday(): bool
+    public function getDayFriday(): bool|null
     {
         return $this->container['DayFriday'];
     }
@@ -655,7 +655,7 @@ class ClassSchedule extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getDaySaturday(): bool
+    public function getDaySaturday(): bool|null
     {
         return $this->container['DaySaturday'];
     }
@@ -681,7 +681,7 @@ class ClassSchedule extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getAllowOpenEnrollment(): bool
+    public function getAllowOpenEnrollment(): bool|null
     {
         return $this->container['AllowOpenEnrollment'];
     }
@@ -707,7 +707,7 @@ class ClassSchedule extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getAllowDateForwardEnrollment(): bool
+    public function getAllowDateForwardEnrollment(): bool|null
     {
         return $this->container['AllowDateForwardEnrollment'];
     }
@@ -733,7 +733,7 @@ class ClassSchedule extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getStartTime(): \DateTime
+    public function getStartTime(): \DateTime|null
     {
         return $this->container['StartTime'];
     }
@@ -759,7 +759,7 @@ class ClassSchedule extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getEndTime(): \DateTime
+    public function getEndTime(): \DateTime|null
     {
         return $this->container['EndTime'];
     }
@@ -785,7 +785,7 @@ class ClassSchedule extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getStartDate(): \DateTime
+    public function getStartDate(): \DateTime|null
     {
         return $this->container['StartDate'];
     }
@@ -811,7 +811,7 @@ class ClassSchedule extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getEndDate(): \DateTime
+    public function getEndDate(): \DateTime|null
     {
         return $this->container['EndDate'];
     }
@@ -837,7 +837,7 @@ class ClassSchedule extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\Staff
      */
-    public function getStaff(): \Nlocascio\Mindbody\Model\Staff
+    public function getStaff(): \Nlocascio\Mindbody\Model\Staff|null
     {
         return $this->container['Staff'];
     }
@@ -863,7 +863,7 @@ class ClassSchedule extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\Location
      */
-    public function getLocation(): \Nlocascio\Mindbody\Model\Location
+    public function getLocation(): \Nlocascio\Mindbody\Model\Location|null
     {
         return $this->container['Location'];
     }
@@ -889,7 +889,7 @@ class ClassSchedule extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getFrequencyType(): string
+    public function getFrequencyType(): string|null
     {
         return $this->container['FrequencyType'];
     }
@@ -924,7 +924,7 @@ class ClassSchedule extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getFrequencyInterval(): int
+    public function getFrequencyInterval(): int|null
     {
         return $this->container['FrequencyInterval'];
     }

@@ -411,7 +411,7 @@ class Visit extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getAppointmentId(): int
+    public function getAppointmentId(): int|null
     {
         return $this->container['AppointmentId'];
     }
@@ -437,7 +437,7 @@ class Visit extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getAppointmentGenderPreference(): string
+    public function getAppointmentGenderPreference(): string|null
     {
         return $this->container['AppointmentGenderPreference'];
     }
@@ -472,7 +472,7 @@ class Visit extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getAppointmentStatus(): string
+    public function getAppointmentStatus(): string|null
     {
         return $this->container['AppointmentStatus'];
     }
@@ -507,7 +507,7 @@ class Visit extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getClassId(): int
+    public function getClassId(): int|null
     {
         return $this->container['ClassId'];
     }
@@ -533,7 +533,7 @@ class Visit extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId(): string|null
     {
         return $this->container['ClientId'];
     }
@@ -559,7 +559,7 @@ class Visit extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getClientPhotoUrl(): string
+    public function getClientPhotoUrl(): string|null
     {
         return $this->container['ClientPhotoUrl'];
     }
@@ -585,7 +585,7 @@ class Visit extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getClientUniqueId(): int
+    public function getClientUniqueId(): int|null
     {
         return $this->container['ClientUniqueId'];
     }
@@ -611,7 +611,7 @@ class Visit extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getStartDateTime(): \DateTime
+    public function getStartDateTime(): \DateTime|null
     {
         return $this->container['StartDateTime'];
     }
@@ -637,7 +637,7 @@ class Visit extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getEndDateTime(): \DateTime
+    public function getEndDateTime(): \DateTime|null
     {
         return $this->container['EndDateTime'];
     }
@@ -663,7 +663,7 @@ class Visit extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): int|null
     {
         return $this->container['Id'];
     }
@@ -689,7 +689,7 @@ class Visit extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getLastModifiedDateTime(): \DateTime
+    public function getLastModifiedDateTime(): \DateTime|null
     {
         return $this->container['LastModifiedDateTime'];
     }
@@ -715,7 +715,7 @@ class Visit extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getLateCancelled(): bool
+    public function getLateCancelled(): bool|null
     {
         return $this->container['LateCancelled'];
     }
@@ -741,7 +741,7 @@ class Visit extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getSiteId(): int
+    public function getSiteId(): int|null
     {
         return $this->container['SiteId'];
     }
@@ -767,7 +767,7 @@ class Visit extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getLocationId(): int
+    public function getLocationId(): int|null
     {
         return $this->container['LocationId'];
     }
@@ -793,7 +793,7 @@ class Visit extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getMakeUp(): bool
+    public function getMakeUp(): bool|null
     {
         return $this->container['MakeUp'];
     }
@@ -819,7 +819,7 @@ class Visit extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getName(): string
+    public function getName(): string|null
     {
         return $this->container['Name'];
     }
@@ -845,7 +845,7 @@ class Visit extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getServiceId(): int
+    public function getServiceId(): int|null
     {
         return $this->container['ServiceId'];
     }
@@ -871,7 +871,7 @@ class Visit extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getServiceName(): string
+    public function getServiceName(): string|null
     {
         return $this->container['ServiceName'];
     }
@@ -897,7 +897,7 @@ class Visit extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\ClientService
      */
-    public function getService(): \Nlocascio\Mindbody\Model\ClientService
+    public function getService(): \Nlocascio\Mindbody\Model\ClientService|null
     {
         return $this->container['Service'];
     }
@@ -923,7 +923,7 @@ class Visit extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getProductId(): int
+    public function getProductId(): int|null
     {
         return $this->container['ProductId'];
     }
@@ -949,7 +949,7 @@ class Visit extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getSignedIn(): bool
+    public function getSignedIn(): bool|null
     {
         return $this->container['SignedIn'];
     }
@@ -975,7 +975,7 @@ class Visit extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getStaffId(): int
+    public function getStaffId(): int|null
     {
         return $this->container['StaffId'];
     }
@@ -1001,7 +1001,7 @@ class Visit extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getWebSignup(): bool
+    public function getWebSignup(): bool|null
     {
         return $this->container['WebSignup'];
     }
@@ -1027,7 +1027,7 @@ class Visit extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getAction(): string
+    public function getAction(): string|null
     {
         return $this->container['Action'];
     }
@@ -1062,7 +1062,7 @@ class Visit extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getMissed(): bool
+    public function getMissed(): bool|null
     {
         return $this->container['Missed'];
     }
@@ -1088,7 +1088,7 @@ class Visit extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getVisitType(): int
+    public function getVisitType(): int|null
     {
         return $this->container['VisitType'];
     }
@@ -1114,7 +1114,7 @@ class Visit extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getTypeGroup(): int
+    public function getTypeGroup(): int|null
     {
         return $this->container['TypeGroup'];
     }
@@ -1140,7 +1140,7 @@ class Visit extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getTypeTaken(): string
+    public function getTypeTaken(): string|null
     {
         return $this->container['TypeTaken'];
     }

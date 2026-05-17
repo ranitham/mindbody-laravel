@@ -130,7 +130,7 @@ class GetGendersResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\GenderOption[]
      */
-    public function getGenderOptions(): array
+    public function getGenderOptions(): array|null
     {
         return $this->container['GenderOptions'];
     }

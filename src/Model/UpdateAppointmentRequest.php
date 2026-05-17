@@ -224,7 +224,7 @@ class UpdateAppointmentRequest extends BaseModel
      *
      * @return int
      */
-    public function getAppointmentId(): int
+    public function getAppointmentId(): int|null
     {
         return $this->container['AppointmentId'];
     }
@@ -250,7 +250,7 @@ class UpdateAppointmentRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDateTime(): \DateTime
+    public function getEndDateTime(): \DateTime|null
     {
         return $this->container['EndDateTime'];
     }
@@ -276,7 +276,7 @@ class UpdateAppointmentRequest extends BaseModel
      *
      * @return string
      */
-    public function getExecute(): string
+    public function getExecute(): string|null
     {
         return $this->container['Execute'];
     }
@@ -302,7 +302,7 @@ class UpdateAppointmentRequest extends BaseModel
      *
      * @return string
      */
-    public function getGenderPreference(): string
+    public function getGenderPreference(): string|null
     {
         return $this->container['GenderPreference'];
     }
@@ -328,7 +328,7 @@ class UpdateAppointmentRequest extends BaseModel
      *
      * @return string
      */
-    public function getNotes(): string
+    public function getNotes(): string|null
     {
         return $this->container['Notes'];
     }
@@ -354,7 +354,7 @@ class UpdateAppointmentRequest extends BaseModel
      *
      * @return string
      */
-    public function getPartnerExternalId(): string
+    public function getPartnerExternalId(): string|null
     {
         return $this->container['PartnerExternalId'];
     }
@@ -380,7 +380,7 @@ class UpdateAppointmentRequest extends BaseModel
      *
      * @return string
      */
-    public function getProviderId(): string
+    public function getProviderId(): string|null
     {
         return $this->container['ProviderId'];
     }
@@ -406,7 +406,7 @@ class UpdateAppointmentRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getResourceIds(): array
+    public function getResourceIds(): array|null
     {
         return $this->container['ResourceIds'];
     }
@@ -432,7 +432,7 @@ class UpdateAppointmentRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSendEmail(): bool
+    public function getSendEmail(): bool|null
     {
         return $this->container['SendEmail'];
     }
@@ -458,7 +458,7 @@ class UpdateAppointmentRequest extends BaseModel
      *
      * @return int
      */
-    public function getSessionTypeId(): int
+    public function getSessionTypeId(): int|null
     {
         return $this->container['SessionTypeId'];
     }
@@ -484,7 +484,7 @@ class UpdateAppointmentRequest extends BaseModel
      *
      * @return int
      */
-    public function getStaffId(): int
+    public function getStaffId(): int|null
     {
         return $this->container['StaffId'];
     }
@@ -510,7 +510,7 @@ class UpdateAppointmentRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDateTime(): \DateTime
+    public function getStartDateTime(): \DateTime|null
     {
         return $this->container['StartDateTime'];
     }
@@ -536,7 +536,7 @@ class UpdateAppointmentRequest extends BaseModel
      *
      * @return bool
      */
-    public function getApplyPayment(): bool
+    public function getApplyPayment(): bool|null
     {
         return $this->container['ApplyPayment'];
     }
@@ -562,7 +562,7 @@ class UpdateAppointmentRequest extends BaseModel
      *
      * @return bool
      */
-    public function getTest(): bool
+    public function getTest(): bool|null
     {
         return $this->container['Test'];
     }

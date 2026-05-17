@@ -144,7 +144,7 @@ class CheckoutAlternativePaymentInfo extends BaseModel
      *
      * @return int
      */
-    public function getPaymentMethodId(): int
+    public function getPaymentMethodId(): int|null
     {
         return $this->container['PaymentMethodId'];
     }
@@ -170,7 +170,7 @@ class CheckoutAlternativePaymentInfo extends BaseModel
      *
      * @return double
      */
-    public function getAmount(): float
+    public function getAmount(): float|null
     {
         return $this->container['Amount'];
     }

@@ -138,7 +138,7 @@ class DeleteAvailabilityRequest extends BaseModel
      *
      * @return int
      */
-    public function getAvailabilityId(): int
+    public function getAvailabilityId(): int|null
     {
         return $this->container['AvailabilityId'];
     }
@@ -164,7 +164,7 @@ class DeleteAvailabilityRequest extends BaseModel
      *
      * @return bool
      */
-    public function getTest(): bool
+    public function getTest(): bool|null
     {
         return $this->container['Test'];
     }

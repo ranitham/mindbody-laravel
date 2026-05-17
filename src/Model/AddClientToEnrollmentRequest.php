@@ -186,7 +186,7 @@ class AddClientToEnrollmentRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId(): string|null
     {
         return $this->container['ClientId'];
     }
@@ -212,7 +212,7 @@ class AddClientToEnrollmentRequest extends BaseModel
      *
      * @return int
      */
-    public function getClassScheduleId(): int
+    public function getClassScheduleId(): int|null
     {
         return $this->container['ClassScheduleId'];
     }
@@ -238,7 +238,7 @@ class AddClientToEnrollmentRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEnrollDateForward(): \DateTime
+    public function getEnrollDateForward(): \DateTime|null
     {
         return $this->container['EnrollDateForward'];
     }
@@ -264,7 +264,7 @@ class AddClientToEnrollmentRequest extends BaseModel
      *
      * @return \DateTime[]
      */
-    public function getEnrollOpen(): array
+    public function getEnrollOpen(): array|null
     {
         return $this->container['EnrollOpen'];
     }
@@ -290,7 +290,7 @@ class AddClientToEnrollmentRequest extends BaseModel
      *
      * @return bool
      */
-    public function getTest(): bool
+    public function getTest(): bool|null
     {
         return $this->container['Test'];
     }
@@ -316,7 +316,7 @@ class AddClientToEnrollmentRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSendEmail(): bool
+    public function getSendEmail(): bool|null
     {
         return $this->container['SendEmail'];
     }
@@ -342,7 +342,7 @@ class AddClientToEnrollmentRequest extends BaseModel
      *
      * @return bool
      */
-    public function getWaitlist(): bool
+    public function getWaitlist(): bool|null
     {
         return $this->container['Waitlist'];
     }
@@ -368,7 +368,7 @@ class AddClientToEnrollmentRequest extends BaseModel
      *
      * @return int
      */
-    public function getWaitlistEntryId(): int
+    public function getWaitlistEntryId(): int|null
     {
         return $this->container['WaitlistEntryId'];
     }

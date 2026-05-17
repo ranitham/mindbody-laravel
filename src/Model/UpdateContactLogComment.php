@@ -137,7 +137,7 @@ class UpdateContactLogComment extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): int|null
     {
         return $this->container['Id'];
     }
@@ -163,7 +163,7 @@ class UpdateContactLogComment extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getText(): string
+    public function getText(): string|null
     {
         return $this->container['Text'];
     }

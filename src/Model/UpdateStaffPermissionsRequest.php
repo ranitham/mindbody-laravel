@@ -143,7 +143,7 @@ class UpdateStaffPermissionsRequest extends BaseModel
      *
      * @return int
      */
-    public function getStaffId(): int
+    public function getStaffId(): int|null
     {
         return $this->container['StaffId'];
     }
@@ -169,7 +169,7 @@ class UpdateStaffPermissionsRequest extends BaseModel
      *
      * @return string
      */
-    public function getPermissionGroupName(): string
+    public function getPermissionGroupName(): string|null
     {
         return $this->container['PermissionGroupName'];
     }

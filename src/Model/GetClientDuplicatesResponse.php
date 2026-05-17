@@ -137,7 +137,7 @@ class GetClientDuplicatesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
+    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse|null
     {
         return $this->container['PaginationResponse'];
     }
@@ -163,7 +163,7 @@ class GetClientDuplicatesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClientDuplicate[]
      */
-    public function getClientDuplicates(): array
+    public function getClientDuplicates(): array|null
     {
         return $this->container['ClientDuplicates'];
     }

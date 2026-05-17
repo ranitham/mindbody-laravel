@@ -137,7 +137,7 @@ class GetCommissionsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
+    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse|null
     {
         return $this->container['PaginationResponse'];
     }
@@ -163,7 +163,7 @@ class GetCommissionsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\CommissionPayrollPurchaseEvent[]
      */
-    public function getCommissions(): array
+    public function getCommissions(): array|null
     {
         return $this->container['Commissions'];
     }

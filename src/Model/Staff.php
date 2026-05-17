@@ -445,7 +445,7 @@ class Staff extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): int|null
     {
         return $this->container['Id'];
     }
@@ -471,7 +471,7 @@ class Staff extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getFirstName(): string
+    public function getFirstName(): string|null
     {
         return $this->container['FirstName'];
     }
@@ -497,7 +497,7 @@ class Staff extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getLastName(): string
+    public function getLastName(): string|null
     {
         return $this->container['LastName'];
     }
@@ -523,7 +523,7 @@ class Staff extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getDisplayName(): string
+    public function getDisplayName(): string|null
     {
         return $this->container['DisplayName'];
     }
@@ -549,7 +549,7 @@ class Staff extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getEmail(): string
+    public function getEmail(): string|null
     {
         return $this->container['Email'];
     }
@@ -575,7 +575,7 @@ class Staff extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getBio(): string
+    public function getBio(): string|null
     {
         return $this->container['Bio'];
     }
@@ -601,7 +601,7 @@ class Staff extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getAddress(): string
+    public function getAddress(): string|null
     {
         return $this->container['Address'];
     }
@@ -627,7 +627,7 @@ class Staff extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getAddress2(): string
+    public function getAddress2(): string|null
     {
         return $this->container['Address2'];
     }
@@ -653,7 +653,7 @@ class Staff extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getCity(): string
+    public function getCity(): string|null
     {
         return $this->container['City'];
     }
@@ -679,7 +679,7 @@ class Staff extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getState(): string
+    public function getState(): string|null
     {
         return $this->container['State'];
     }
@@ -705,7 +705,7 @@ class Staff extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getPostalCode(): string
+    public function getPostalCode(): string|null
     {
         return $this->container['PostalCode'];
     }
@@ -731,7 +731,7 @@ class Staff extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getForeignZip(): string
+    public function getForeignZip(): string|null
     {
         return $this->container['ForeignZip'];
     }
@@ -757,7 +757,7 @@ class Staff extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getCountry(): string
+    public function getCountry(): string|null
     {
         return $this->container['Country'];
     }
@@ -783,7 +783,7 @@ class Staff extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getWorkPhone(): string
+    public function getWorkPhone(): string|null
     {
         return $this->container['WorkPhone'];
     }
@@ -809,7 +809,7 @@ class Staff extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getHomePhone(): string
+    public function getHomePhone(): string|null
     {
         return $this->container['HomePhone'];
     }
@@ -835,7 +835,7 @@ class Staff extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getCellPhone(): string
+    public function getCellPhone(): string|null
     {
         return $this->container['CellPhone'];
     }
@@ -861,7 +861,7 @@ class Staff extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getActive(): bool
+    public function getActive(): bool|null
     {
         return $this->container['Active'];
     }
@@ -887,7 +887,7 @@ class Staff extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getIsSystem(): bool
+    public function getIsSystem(): bool|null
     {
         return $this->container['IsSystem'];
     }
@@ -913,7 +913,7 @@ class Staff extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getSmodeId(): int
+    public function getSmodeId(): int|null
     {
         return $this->container['SmodeId'];
     }
@@ -939,7 +939,7 @@ class Staff extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getAppointmentTrn(): bool
+    public function getAppointmentTrn(): bool|null
     {
         return $this->container['AppointmentTrn'];
     }
@@ -965,7 +965,7 @@ class Staff extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getAlwaysAllowDoubleBooking(): bool
+    public function getAlwaysAllowDoubleBooking(): bool|null
     {
         return $this->container['AlwaysAllowDoubleBooking'];
     }
@@ -991,7 +991,7 @@ class Staff extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getIndependentContractor(): bool
+    public function getIndependentContractor(): bool|null
     {
         return $this->container['IndependentContractor'];
     }
@@ -1017,7 +1017,7 @@ class Staff extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getImageUrl(): string
+    public function getImageUrl(): string|null
     {
         return $this->container['ImageUrl'];
     }
@@ -1043,7 +1043,7 @@ class Staff extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getIsMale(): bool
+    public function getIsMale(): bool|null
     {
         return $this->container['IsMale'];
     }
@@ -1069,7 +1069,7 @@ class Staff extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getReservationTrn(): bool
+    public function getReservationTrn(): bool|null
     {
         return $this->container['ReservationTrn'];
     }
@@ -1095,7 +1095,7 @@ class Staff extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getSortOrder(): int
+    public function getSortOrder(): int|null
     {
         return $this->container['SortOrder'];
     }
@@ -1121,7 +1121,7 @@ class Staff extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getMultiLocationPermission(): bool
+    public function getMultiLocationPermission(): bool|null
     {
         return $this->container['MultiLocationPermission'];
     }
@@ -1147,7 +1147,7 @@ class Staff extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getName(): string
+    public function getName(): string|null
     {
         return $this->container['Name'];
     }
@@ -1173,7 +1173,7 @@ class Staff extends BaseModel implements ModelWithIntId
      *
      * @return string[]
      */
-    public function getProviderIDs(): array
+    public function getProviderIDs(): array|null
     {
         return $this->container['ProviderIDs'];
     }
@@ -1199,7 +1199,7 @@ class Staff extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\StaffSetting
      */
-    public function getStaffSettings(): \Nlocascio\Mindbody\Model\StaffSetting
+    public function getStaffSettings(): \Nlocascio\Mindbody\Model\StaffSetting|null
     {
         return $this->container['StaffSettings'];
     }
@@ -1225,7 +1225,7 @@ class Staff extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getRep(): bool
+    public function getRep(): bool|null
     {
         return $this->container['Rep'];
     }
@@ -1251,7 +1251,7 @@ class Staff extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getRep2(): bool
+    public function getRep2(): bool|null
     {
         return $this->container['Rep2'];
     }
@@ -1277,7 +1277,7 @@ class Staff extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getRep3(): bool
+    public function getRep3(): bool|null
     {
         return $this->container['Rep3'];
     }
@@ -1303,7 +1303,7 @@ class Staff extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getRep4(): bool
+    public function getRep4(): bool|null
     {
         return $this->container['Rep4'];
     }
@@ -1329,7 +1329,7 @@ class Staff extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getRep5(): bool
+    public function getRep5(): bool|null
     {
         return $this->container['Rep5'];
     }
@@ -1355,7 +1355,7 @@ class Staff extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getRep6(): bool
+    public function getRep6(): bool|null
     {
         return $this->container['Rep6'];
     }
@@ -1381,7 +1381,7 @@ class Staff extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getAssistant(): bool
+    public function getAssistant(): bool|null
     {
         return $this->container['Assistant'];
     }
@@ -1407,7 +1407,7 @@ class Staff extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getAssistant2(): bool
+    public function getAssistant2(): bool|null
     {
         return $this->container['Assistant2'];
     }
@@ -1433,7 +1433,7 @@ class Staff extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getEmploymentStart(): \DateTime
+    public function getEmploymentStart(): \DateTime|null
     {
         return $this->container['EmploymentStart'];
     }
@@ -1459,7 +1459,7 @@ class Staff extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getEmploymentEnd(): \DateTime
+    public function getEmploymentEnd(): \DateTime|null
     {
         return $this->container['EmploymentEnd'];
     }
@@ -1485,7 +1485,7 @@ class Staff extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getEmpID(): string
+    public function getEmpID(): string|null
     {
         return $this->container['EmpID'];
     }
@@ -1511,7 +1511,7 @@ class Staff extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getDefaultClassPayRate(): int
+    public function getDefaultClassPayRate(): int|null
     {
         return $this->container['DefaultClassPayRate'];
     }
@@ -1537,7 +1537,7 @@ class Staff extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\Appointment[]
      */
-    public function getAppointments(): array
+    public function getAppointments(): array|null
     {
         return $this->container['Appointments'];
     }
@@ -1563,7 +1563,7 @@ class Staff extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\Unavailability[]
      */
-    public function getUnavailabilities(): array
+    public function getUnavailabilities(): array|null
     {
         return $this->container['Unavailabilities'];
     }
@@ -1589,7 +1589,7 @@ class Staff extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\Availability[]
      */
-    public function getAvailabilities(): array
+    public function getAvailabilities(): array|null
     {
         return $this->container['Availabilities'];
     }
@@ -1615,7 +1615,7 @@ class Staff extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\Location[]
      */
-    public function getLoginLocations(): array
+    public function getLoginLocations(): array|null
     {
         return $this->container['LoginLocations'];
     }

@@ -305,7 +305,7 @@ class PurchasedItem extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getSaleDetailId(): int
+    public function getSaleDetailId(): int|null
     {
         return $this->container['SaleDetailId'];
     }
@@ -331,7 +331,7 @@ class PurchasedItem extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): int|null
     {
         return $this->container['Id'];
     }
@@ -357,7 +357,7 @@ class PurchasedItem extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getIsService(): bool
+    public function getIsService(): bool|null
     {
         return $this->container['IsService'];
     }
@@ -383,7 +383,7 @@ class PurchasedItem extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getBarcodeId(): string
+    public function getBarcodeId(): string|null
     {
         return $this->container['BarcodeId'];
     }
@@ -409,7 +409,7 @@ class PurchasedItem extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getDescription(): string
+    public function getDescription(): string|null
     {
         return $this->container['Description'];
     }
@@ -435,7 +435,7 @@ class PurchasedItem extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getContractId(): int
+    public function getContractId(): int|null
     {
         return $this->container['ContractId'];
     }
@@ -461,7 +461,7 @@ class PurchasedItem extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getCategoryId(): int
+    public function getCategoryId(): int|null
     {
         return $this->container['CategoryId'];
     }
@@ -487,7 +487,7 @@ class PurchasedItem extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getSubCategoryId(): int
+    public function getSubCategoryId(): int|null
     {
         return $this->container['SubCategoryId'];
     }
@@ -513,7 +513,7 @@ class PurchasedItem extends BaseModel implements ModelWithIntId
      *
      * @return double
      */
-    public function getUnitPrice(): float
+    public function getUnitPrice(): float|null
     {
         return $this->container['UnitPrice'];
     }
@@ -539,7 +539,7 @@ class PurchasedItem extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getQuantity(): int
+    public function getQuantity(): int|null
     {
         return $this->container['Quantity'];
     }
@@ -565,7 +565,7 @@ class PurchasedItem extends BaseModel implements ModelWithIntId
      *
      * @return double
      */
-    public function getDiscountPercent(): float
+    public function getDiscountPercent(): float|null
     {
         return $this->container['DiscountPercent'];
     }
@@ -591,7 +591,7 @@ class PurchasedItem extends BaseModel implements ModelWithIntId
      *
      * @return double
      */
-    public function getDiscountAmount(): float
+    public function getDiscountAmount(): float|null
     {
         return $this->container['DiscountAmount'];
     }
@@ -617,7 +617,7 @@ class PurchasedItem extends BaseModel implements ModelWithIntId
      *
      * @return double
      */
-    public function getTax1(): float
+    public function getTax1(): float|null
     {
         return $this->container['Tax1'];
     }
@@ -643,7 +643,7 @@ class PurchasedItem extends BaseModel implements ModelWithIntId
      *
      * @return double
      */
-    public function getTax2(): float
+    public function getTax2(): float|null
     {
         return $this->container['Tax2'];
     }
@@ -669,7 +669,7 @@ class PurchasedItem extends BaseModel implements ModelWithIntId
      *
      * @return double
      */
-    public function getTax3(): float
+    public function getTax3(): float|null
     {
         return $this->container['Tax3'];
     }
@@ -695,7 +695,7 @@ class PurchasedItem extends BaseModel implements ModelWithIntId
      *
      * @return double
      */
-    public function getTax4(): float
+    public function getTax4(): float|null
     {
         return $this->container['Tax4'];
     }
@@ -721,7 +721,7 @@ class PurchasedItem extends BaseModel implements ModelWithIntId
      *
      * @return double
      */
-    public function getTax5(): float
+    public function getTax5(): float|null
     {
         return $this->container['Tax5'];
     }
@@ -747,7 +747,7 @@ class PurchasedItem extends BaseModel implements ModelWithIntId
      *
      * @return double
      */
-    public function getTaxAmount(): float
+    public function getTaxAmount(): float|null
     {
         return $this->container['TaxAmount'];
     }
@@ -773,7 +773,7 @@ class PurchasedItem extends BaseModel implements ModelWithIntId
      *
      * @return double
      */
-    public function getTotalAmount(): float
+    public function getTotalAmount(): float|null
     {
         return $this->container['TotalAmount'];
     }
@@ -799,7 +799,7 @@ class PurchasedItem extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getNotes(): string
+    public function getNotes(): string|null
     {
         return $this->container['Notes'];
     }
@@ -825,7 +825,7 @@ class PurchasedItem extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getReturned(): bool
+    public function getReturned(): bool|null
     {
         return $this->container['Returned'];
     }
@@ -851,7 +851,7 @@ class PurchasedItem extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getPaymentRefId(): int
+    public function getPaymentRefId(): int|null
     {
         return $this->container['PaymentRefId'];
     }
@@ -877,7 +877,7 @@ class PurchasedItem extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getExpDate(): \DateTime
+    public function getExpDate(): \DateTime|null
     {
         return $this->container['ExpDate'];
     }
@@ -903,7 +903,7 @@ class PurchasedItem extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getActiveDate(): \DateTime
+    public function getActiveDate(): \DateTime|null
     {
         return $this->container['ActiveDate'];
     }
@@ -929,7 +929,7 @@ class PurchasedItem extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getGiftCardBarcodeId(): string
+    public function getGiftCardBarcodeId(): string|null
     {
         return $this->container['GiftCardBarcodeId'];
     }
@@ -955,7 +955,7 @@ class PurchasedItem extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getRecipientClientId(): int
+    public function getRecipientClientId(): int|null
     {
         return $this->container['RecipientClientId'];
     }

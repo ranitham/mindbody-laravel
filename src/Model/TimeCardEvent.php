@@ -172,7 +172,7 @@ class TimeCardEvent extends BaseModel
      *
      * @return int
      */
-    public function getStaffId(): int
+    public function getStaffId(): int|null
     {
         return $this->container['StaffId'];
     }
@@ -198,7 +198,7 @@ class TimeCardEvent extends BaseModel
      *
      * @return string
      */
-    public function getTask(): string
+    public function getTask(): string|null
     {
         return $this->container['Task'];
     }
@@ -224,7 +224,7 @@ class TimeCardEvent extends BaseModel
      *
      * @return \DateTime
      */
-    public function getTimeIn(): \DateTime
+    public function getTimeIn(): \DateTime|null
     {
         return $this->container['TimeIn'];
     }
@@ -250,7 +250,7 @@ class TimeCardEvent extends BaseModel
      *
      * @return \DateTime
      */
-    public function getTimeOut(): \DateTime
+    public function getTimeOut(): \DateTime|null
     {
         return $this->container['TimeOut'];
     }
@@ -276,7 +276,7 @@ class TimeCardEvent extends BaseModel
      *
      * @return double
      */
-    public function getHours(): float
+    public function getHours(): float|null
     {
         return $this->container['Hours'];
     }
@@ -302,7 +302,7 @@ class TimeCardEvent extends BaseModel
      *
      * @return double
      */
-    public function getHourlyRate(): float
+    public function getHourlyRate(): float|null
     {
         return $this->container['HourlyRate'];
     }
@@ -328,7 +328,7 @@ class TimeCardEvent extends BaseModel
      *
      * @return double
      */
-    public function getEarnings(): float
+    public function getEarnings(): float|null
     {
         return $this->container['Earnings'];
     }

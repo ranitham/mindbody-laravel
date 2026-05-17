@@ -193,7 +193,7 @@ class UpdateContactLogRequest extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): int|null
     {
         return $this->container['Id'];
     }
@@ -219,7 +219,7 @@ class UpdateContactLogRequest extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getTest(): bool
+    public function getTest(): bool|null
     {
         return $this->container['Test'];
     }
@@ -245,7 +245,7 @@ class UpdateContactLogRequest extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getAssignedToStaffId(): int
+    public function getAssignedToStaffId(): int|null
     {
         return $this->container['AssignedToStaffId'];
     }
@@ -271,7 +271,7 @@ class UpdateContactLogRequest extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getText(): string
+    public function getText(): string|null
     {
         return $this->container['Text'];
     }
@@ -297,7 +297,7 @@ class UpdateContactLogRequest extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getContactName(): string
+    public function getContactName(): string|null
     {
         return $this->container['ContactName'];
     }
@@ -323,7 +323,7 @@ class UpdateContactLogRequest extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getFollowupByDate(): \DateTime
+    public function getFollowupByDate(): \DateTime|null
     {
         return $this->container['FollowupByDate'];
     }
@@ -349,7 +349,7 @@ class UpdateContactLogRequest extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getContactMethod(): string
+    public function getContactMethod(): string|null
     {
         return $this->container['ContactMethod'];
     }
@@ -375,7 +375,7 @@ class UpdateContactLogRequest extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getIsComplete(): bool
+    public function getIsComplete(): bool|null
     {
         return $this->container['IsComplete'];
     }
@@ -401,7 +401,7 @@ class UpdateContactLogRequest extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\UpdateContactLogComment[]
      */
-    public function getComments(): array
+    public function getComments(): array|null
     {
         return $this->container['Comments'];
     }
@@ -427,7 +427,7 @@ class UpdateContactLogRequest extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\UpdateContactLogType[]
      */
-    public function getTypes(): array
+    public function getTypes(): array|null
     {
         return $this->container['Types'];
     }

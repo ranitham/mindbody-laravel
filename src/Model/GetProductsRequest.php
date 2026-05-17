@@ -187,7 +187,7 @@ class GetProductsRequest extends BaseModel
      *
      * @return string[]
      */
-    public function getProductIds(): array
+    public function getProductIds(): array|null
     {
         return $this->container['ProductIds'];
     }
@@ -213,7 +213,7 @@ class GetProductsRequest extends BaseModel
      *
      * @return string
      */
-    public function getSearchText(): string
+    public function getSearchText(): string|null
     {
         return $this->container['SearchText'];
     }
@@ -239,7 +239,7 @@ class GetProductsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getCategoryIds(): array
+    public function getCategoryIds(): array|null
     {
         return $this->container['CategoryIds'];
     }
@@ -265,7 +265,7 @@ class GetProductsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getSubCategoryIds(): array
+    public function getSubCategoryIds(): array|null
     {
         return $this->container['SubCategoryIds'];
     }
@@ -291,7 +291,7 @@ class GetProductsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getSecondaryCategoryIds(): array
+    public function getSecondaryCategoryIds(): array|null
     {
         return $this->container['SecondaryCategoryIds'];
     }
@@ -317,7 +317,7 @@ class GetProductsRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSellOnline(): bool
+    public function getSellOnline(): bool|null
     {
         return $this->container['SellOnline'];
     }
@@ -343,7 +343,7 @@ class GetProductsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLocationId(): int
+    public function getLocationId(): int|null
     {
         return $this->container['LocationId'];
     }
@@ -369,7 +369,7 @@ class GetProductsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit(): int|null
     {
         return $this->container['Limit'];
     }
@@ -395,7 +395,7 @@ class GetProductsRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset(): int|null
     {
         return $this->container['Offset'];
     }

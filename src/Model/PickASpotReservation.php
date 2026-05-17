@@ -187,7 +187,7 @@ class PickASpotReservation extends BaseModel
      *
      * @return string
      */
-    public function getReservationId(): string
+    public function getReservationId(): string|null
     {
         return $this->container['ReservationId'];
     }
@@ -213,7 +213,7 @@ class PickASpotReservation extends BaseModel
      *
      * @return string
      */
-    public function getReservationExternalId(): string
+    public function getReservationExternalId(): string|null
     {
         return $this->container['ReservationExternalId'];
     }
@@ -239,7 +239,7 @@ class PickASpotReservation extends BaseModel
      *
      * @return string
      */
-    public function getClassId(): string
+    public function getClassId(): string|null
     {
         return $this->container['ClassId'];
     }
@@ -265,7 +265,7 @@ class PickASpotReservation extends BaseModel
      *
      * @return string
      */
-    public function getClassExternalId(): string
+    public function getClassExternalId(): string|null
     {
         return $this->container['ClassExternalId'];
     }
@@ -291,7 +291,7 @@ class PickASpotReservation extends BaseModel
      *
      * @return string
      */
-    public function getMemberExternalId(): string
+    public function getMemberExternalId(): string|null
     {
         return $this->container['MemberExternalId'];
     }
@@ -317,7 +317,7 @@ class PickASpotReservation extends BaseModel
      *
      * @return string
      */
-    public function getReservationType(): string
+    public function getReservationType(): string|null
     {
         return $this->container['ReservationType'];
     }
@@ -343,7 +343,7 @@ class PickASpotReservation extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PickASpotSpot
      */
-    public function getSpots(): \Nlocascio\Mindbody\Model\PickASpotSpot
+    public function getSpots(): \Nlocascio\Mindbody\Model\PickASpotSpot|null
     {
         return $this->container['Spots'];
     }
@@ -369,7 +369,7 @@ class PickASpotReservation extends BaseModel
      *
      * @return bool
      */
-    public function getIsConfirmed(): bool
+    public function getIsConfirmed(): bool|null
     {
         return $this->container['IsConfirmed'];
     }
@@ -395,7 +395,7 @@ class PickASpotReservation extends BaseModel
      *
      * @return \DateTime
      */
-    public function getConfirmationDate(): \DateTime
+    public function getConfirmationDate(): \DateTime|null
     {
         return $this->container['ConfirmationDate'];
     }

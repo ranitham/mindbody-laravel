@@ -172,7 +172,7 @@ class UpdateClientContractAutopaysRequest extends BaseModel
      *
      * @return int
      */
-    public function getClientContractId(): int
+    public function getClientContractId(): int|null
     {
         return $this->container['ClientContractId'];
     }
@@ -198,7 +198,7 @@ class UpdateClientContractAutopaysRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getAutopayStartDate(): \DateTime
+    public function getAutopayStartDate(): \DateTime|null
     {
         return $this->container['AutopayStartDate'];
     }
@@ -224,7 +224,7 @@ class UpdateClientContractAutopaysRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getAutopayEndDate(): \DateTime
+    public function getAutopayEndDate(): \DateTime|null
     {
         return $this->container['AutopayEndDate'];
     }
@@ -250,7 +250,7 @@ class UpdateClientContractAutopaysRequest extends BaseModel
      *
      * @return int
      */
-    public function getProductId(): int
+    public function getProductId(): int|null
     {
         return $this->container['ProductId'];
     }
@@ -276,7 +276,7 @@ class UpdateClientContractAutopaysRequest extends BaseModel
      *
      * @return int
      */
-    public function getReplaceWithProductId(): int
+    public function getReplaceWithProductId(): int|null
     {
         return $this->container['ReplaceWithProductId'];
     }
@@ -302,7 +302,7 @@ class UpdateClientContractAutopaysRequest extends BaseModel
      *
      * @return double
      */
-    public function getAmount(): float
+    public function getAmount(): float|null
     {
         return $this->container['Amount'];
     }
@@ -328,7 +328,7 @@ class UpdateClientContractAutopaysRequest extends BaseModel
      *
      * @return bool
      */
-    public function getOverwriteAllProductIDs(): bool
+    public function getOverwriteAllProductIDs(): bool|null
     {
         return $this->container['OverwriteAllProductIDs'];
     }

@@ -199,7 +199,7 @@ class UpcomingAutopayEvent extends BaseModel
      *
      * @return int
      */
-    public function getClientContractId(): int
+    public function getClientContractId(): int|null
     {
         return $this->container['ClientContractId'];
     }
@@ -225,7 +225,7 @@ class UpcomingAutopayEvent extends BaseModel
      *
      * @return double
      */
-    public function getChargeAmount(): float
+    public function getChargeAmount(): float|null
     {
         return $this->container['ChargeAmount'];
     }
@@ -251,7 +251,7 @@ class UpcomingAutopayEvent extends BaseModel
      *
      * @return double
      */
-    public function getSubtotal(): float
+    public function getSubtotal(): float|null
     {
         return $this->container['Subtotal'];
     }
@@ -277,7 +277,7 @@ class UpcomingAutopayEvent extends BaseModel
      *
      * @return double
      */
-    public function getTax(): float
+    public function getTax(): float|null
     {
         return $this->container['Tax'];
     }
@@ -303,7 +303,7 @@ class UpcomingAutopayEvent extends BaseModel
      *
      * @return string
      */
-    public function getPaymentMethod(): string
+    public function getPaymentMethod(): string|null
     {
         return $this->container['PaymentMethod'];
     }
@@ -338,7 +338,7 @@ class UpcomingAutopayEvent extends BaseModel
      *
      * @return \DateTime
      */
-    public function getScheduleDate(): \DateTime
+    public function getScheduleDate(): \DateTime|null
     {
         return $this->container['ScheduleDate'];
     }
@@ -364,7 +364,7 @@ class UpcomingAutopayEvent extends BaseModel
      *
      * @return int
      */
-    public function getProductId(): int
+    public function getProductId(): int|null
     {
         return $this->container['ProductId'];
     }

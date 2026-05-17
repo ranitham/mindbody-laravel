@@ -130,7 +130,7 @@ class GetClientReferralTypesResponse extends BaseModel
      *
      * @return string[]
      */
-    public function getReferralTypes(): array
+    public function getReferralTypes(): array|null
     {
         return $this->container['ReferralTypes'];
     }

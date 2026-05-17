@@ -221,7 +221,7 @@ class Membership extends BaseModel
      *
      * @return int
      */
-    public function getMembershipId(): int
+    public function getMembershipId(): int|null
     {
         return $this->container['MembershipId'];
     }
@@ -247,7 +247,7 @@ class Membership extends BaseModel
      *
      * @return string
      */
-    public function getMembershipName(): string
+    public function getMembershipName(): string|null
     {
         return $this->container['MembershipName'];
     }
@@ -273,7 +273,7 @@ class Membership extends BaseModel
      *
      * @return int
      */
-    public function getPriority(): int
+    public function getPriority(): int|null
     {
         return $this->container['Priority'];
     }
@@ -299,7 +299,7 @@ class Membership extends BaseModel
      *
      * @return double
      */
-    public function getMemberRetailDiscount(): float
+    public function getMemberRetailDiscount(): float|null
     {
         return $this->container['MemberRetailDiscount'];
     }
@@ -325,7 +325,7 @@ class Membership extends BaseModel
      *
      * @return double
      */
-    public function getMemberServiceDiscount(): float
+    public function getMemberServiceDiscount(): float|null
     {
         return $this->container['MemberServiceDiscount'];
     }
@@ -351,7 +351,7 @@ class Membership extends BaseModel
      *
      * @return bool
      */
-    public function getAllowClientsToScheduleUnpaid(): bool
+    public function getAllowClientsToScheduleUnpaid(): bool|null
     {
         return $this->container['AllowClientsToScheduleUnpaid'];
     }
@@ -377,7 +377,7 @@ class Membership extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ProgramMembership[]
      */
-    public function getOnlineBookingRestrictedToMembersOnly(): array
+    public function getOnlineBookingRestrictedToMembersOnly(): array|null
     {
         return $this->container['OnlineBookingRestrictedToMembersOnly'];
     }
@@ -403,7 +403,7 @@ class Membership extends BaseModel
      *
      * @return int
      */
-    public function getDayOfMonthSchedulingOpensForNextMonth(): int
+    public function getDayOfMonthSchedulingOpensForNextMonth(): int|null
     {
         return $this->container['DayOfMonthSchedulingOpensForNextMonth'];
     }
@@ -429,7 +429,7 @@ class Membership extends BaseModel
      *
      * @return bool
      */
-    public function getRestrictSelfSignInToMembersOnly(): bool
+    public function getRestrictSelfSignInToMembersOnly(): bool|null
     {
         return $this->container['RestrictSelfSignInToMembersOnly'];
     }
@@ -455,7 +455,7 @@ class Membership extends BaseModel
      *
      * @return bool
      */
-    public function getAllowMembersToBookAppointmentsWithoutPaying(): bool
+    public function getAllowMembersToBookAppointmentsWithoutPaying(): bool|null
     {
         return $this->container['AllowMembersToBookAppointmentsWithoutPaying'];
     }
@@ -481,7 +481,7 @@ class Membership extends BaseModel
      *
      * @return bool
      */
-    public function getAllowMembersToPurchaseNonMembersServices(): bool
+    public function getAllowMembersToPurchaseNonMembersServices(): bool|null
     {
         return $this->container['AllowMembersToPurchaseNonMembersServices'];
     }
@@ -507,7 +507,7 @@ class Membership extends BaseModel
      *
      * @return bool
      */
-    public function getAllowMembersToPurchaseNonMembersProducts(): bool
+    public function getAllowMembersToPurchaseNonMembersProducts(): bool|null
     {
         return $this->container['AllowMembersToPurchaseNonMembersProducts'];
     }
@@ -533,7 +533,7 @@ class Membership extends BaseModel
      *
      * @return bool
      */
-    public function getIsActive(): bool
+    public function getIsActive(): bool|null
     {
         return $this->container['IsActive'];
     }
@@ -559,7 +559,7 @@ class Membership extends BaseModel
      *
      * @return int
      */
-    public function getEarlyAccessDaysBeforeSchedulingWindow(): int
+    public function getEarlyAccessDaysBeforeSchedulingWindow(): int|null
     {
         return $this->container['EarlyAccessDaysBeforeSchedulingWindow'];
     }

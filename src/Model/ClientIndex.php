@@ -195,7 +195,7 @@ class ClientIndex extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): int|null
     {
         return $this->container['Id'];
     }
@@ -221,7 +221,7 @@ class ClientIndex extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getName(): string
+    public function getName(): string|null
     {
         return $this->container['Name'];
     }
@@ -247,7 +247,7 @@ class ClientIndex extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getRequiredBusinessMode(): bool
+    public function getRequiredBusinessMode(): bool|null
     {
         return $this->container['RequiredBusinessMode'];
     }
@@ -273,7 +273,7 @@ class ClientIndex extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getRequiredConsumerMode(): bool
+    public function getRequiredConsumerMode(): bool|null
     {
         return $this->container['RequiredConsumerMode'];
     }
@@ -299,7 +299,7 @@ class ClientIndex extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\ClientIndexValue[]
      */
-    public function getValues(): array
+    public function getValues(): array|null
     {
         return $this->container['Values'];
     }
@@ -325,7 +325,7 @@ class ClientIndex extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getAction(): string
+    public function getAction(): string|null
     {
         return $this->container['Action'];
     }

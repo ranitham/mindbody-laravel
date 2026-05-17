@@ -187,7 +187,7 @@ class ClientPurchaseRecord extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Sale
      */
-    public function getSale(): \Nlocascio\Mindbody\Model\Sale
+    public function getSale(): \Nlocascio\Mindbody\Model\Sale|null
     {
         return $this->container['Sale'];
     }
@@ -213,7 +213,7 @@ class ClientPurchaseRecord extends BaseModel
      *
      * @return string
      */
-    public function getDescription(): string
+    public function getDescription(): string|null
     {
         return $this->container['Description'];
     }
@@ -239,7 +239,7 @@ class ClientPurchaseRecord extends BaseModel
      *
      * @return bool
      */
-    public function getAccountPayment(): bool
+    public function getAccountPayment(): bool|null
     {
         return $this->container['AccountPayment'];
     }
@@ -265,7 +265,7 @@ class ClientPurchaseRecord extends BaseModel
      *
      * @return double
      */
-    public function getPrice(): float
+    public function getPrice(): float|null
     {
         return $this->container['Price'];
     }
@@ -291,7 +291,7 @@ class ClientPurchaseRecord extends BaseModel
      *
      * @return double
      */
-    public function getAmountPaid(): float
+    public function getAmountPaid(): float|null
     {
         return $this->container['AmountPaid'];
     }
@@ -317,7 +317,7 @@ class ClientPurchaseRecord extends BaseModel
      *
      * @return double
      */
-    public function getDiscount(): float
+    public function getDiscount(): float|null
     {
         return $this->container['Discount'];
     }
@@ -343,7 +343,7 @@ class ClientPurchaseRecord extends BaseModel
      *
      * @return double
      */
-    public function getTax(): float
+    public function getTax(): float|null
     {
         return $this->container['Tax'];
     }
@@ -369,7 +369,7 @@ class ClientPurchaseRecord extends BaseModel
      *
      * @return bool
      */
-    public function getReturned(): bool
+    public function getReturned(): bool|null
     {
         return $this->container['Returned'];
     }
@@ -395,7 +395,7 @@ class ClientPurchaseRecord extends BaseModel
      *
      * @return int
      */
-    public function getQuantity(): int
+    public function getQuantity(): int|null
     {
         return $this->container['Quantity'];
     }

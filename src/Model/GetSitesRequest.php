@@ -158,7 +158,7 @@ class GetSitesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getSiteIds(): array
+    public function getSiteIds(): array|null
     {
         return $this->container['SiteIds'];
     }
@@ -184,7 +184,7 @@ class GetSitesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIncludeLeadChannels(): bool
+    public function getIncludeLeadChannels(): bool|null
     {
         return $this->container['IncludeLeadChannels'];
     }
@@ -210,7 +210,7 @@ class GetSitesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIncludePerStaffPricing(): bool
+    public function getIncludePerStaffPricing(): bool|null
     {
         return $this->container['IncludePerStaffPricing'];
     }
@@ -236,7 +236,7 @@ class GetSitesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit(): int|null
     {
         return $this->container['Limit'];
     }
@@ -262,7 +262,7 @@ class GetSitesRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset(): int|null
     {
         return $this->container['Offset'];
     }

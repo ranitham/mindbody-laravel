@@ -138,7 +138,7 @@ class ReturnSaleRequest extends BaseModel
      *
      * @return int
      */
-    public function getSaleId(): int
+    public function getSaleId(): int|null
     {
         return $this->container['SaleId'];
     }
@@ -164,7 +164,7 @@ class ReturnSaleRequest extends BaseModel
      *
      * @return string
      */
-    public function getReturnReason(): string
+    public function getReturnReason(): string|null
     {
         return $this->container['ReturnReason'];
     }

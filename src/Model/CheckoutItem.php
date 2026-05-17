@@ -164,7 +164,7 @@ class CheckoutItem extends BaseModel
      *
      * @return string
      */
-    public function getType(): string
+    public function getType(): string|null
     {
         return $this->container['Type'];
     }
@@ -199,7 +199,7 @@ class CheckoutItem extends BaseModel
      *
      * @return object
      */
-    public function getMetadata(): object
+    public function getMetadata(): object|null
     {
         return $this->container['Metadata'];
     }

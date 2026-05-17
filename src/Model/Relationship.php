@@ -145,7 +145,7 @@ class Relationship extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): int|null
     {
         return $this->container['Id'];
     }
@@ -171,7 +171,7 @@ class Relationship extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getRelationshipName1(): string
+    public function getRelationshipName1(): string|null
     {
         return $this->container['RelationshipName1'];
     }
@@ -197,7 +197,7 @@ class Relationship extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getRelationshipName2(): string
+    public function getRelationshipName2(): string|null
     {
         return $this->container['RelationshipName2'];
     }

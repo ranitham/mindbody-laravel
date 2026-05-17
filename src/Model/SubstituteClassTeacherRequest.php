@@ -171,7 +171,7 @@ class SubstituteClassTeacherRequest extends BaseModel
      *
      * @return int
      */
-    public function getClassId(): int
+    public function getClassId(): int|null
     {
         return $this->container['ClassId'];
     }
@@ -197,7 +197,7 @@ class SubstituteClassTeacherRequest extends BaseModel
      *
      * @return int
      */
-    public function getStaffId(): int
+    public function getStaffId(): int|null
     {
         return $this->container['StaffId'];
     }
@@ -223,7 +223,7 @@ class SubstituteClassTeacherRequest extends BaseModel
      *
      * @return bool
      */
-    public function getOverrideConflicts(): bool
+    public function getOverrideConflicts(): bool|null
     {
         return $this->container['OverrideConflicts'];
     }
@@ -249,7 +249,7 @@ class SubstituteClassTeacherRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSendClientEmail(): bool
+    public function getSendClientEmail(): bool|null
     {
         return $this->container['SendClientEmail'];
     }
@@ -275,7 +275,7 @@ class SubstituteClassTeacherRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSendOriginalTeacherEmail(): bool
+    public function getSendOriginalTeacherEmail(): bool|null
     {
         return $this->container['SendOriginalTeacherEmail'];
     }
@@ -301,7 +301,7 @@ class SubstituteClassTeacherRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSendSubstituteTeacherEmail(): bool
+    public function getSendSubstituteTeacherEmail(): bool|null
     {
         return $this->container['SendSubstituteTeacherEmail'];
     }

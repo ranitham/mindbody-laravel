@@ -145,7 +145,7 @@ class PickASpotSpot extends BaseModel
      *
      * @return int[]
      */
-    public function getReservedSpotNumbers(): array
+    public function getReservedSpotNumbers(): array|null
     {
         return $this->container['ReservedSpotNumbers'];
     }
@@ -171,7 +171,7 @@ class PickASpotSpot extends BaseModel
      *
      * @return int[]
      */
-    public function getAvailableSpotNumbers(): array
+    public function getAvailableSpotNumbers(): array|null
     {
         return $this->container['AvailableSpotNumbers'];
     }
@@ -197,7 +197,7 @@ class PickASpotSpot extends BaseModel
      *
      * @return int[]
      */
-    public function getUnavailableSpotNumbers(): array
+    public function getUnavailableSpotNumbers(): array|null
     {
         return $this->container['UnavailableSpotNumbers'];
     }

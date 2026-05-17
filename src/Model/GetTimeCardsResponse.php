@@ -137,7 +137,7 @@ class GetTimeCardsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
+    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse|null
     {
         return $this->container['PaginationResponse'];
     }
@@ -163,7 +163,7 @@ class GetTimeCardsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\TimeCardEvent[]
      */
-    public function getTimeCards(): array
+    public function getTimeCards(): array|null
     {
         return $this->container['TimeCards'];
     }

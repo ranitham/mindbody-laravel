@@ -291,7 +291,7 @@ class UpdateClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return int
      */
-    public function getClassId(): int
+    public function getClassId(): int|null
     {
         return $this->container['ClassId'];
     }
@@ -317,7 +317,7 @@ class UpdateClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return int
      */
-    public function getClassDescriptionId(): int
+    public function getClassDescriptionId(): int|null
     {
         return $this->container['ClassDescriptionId'];
     }
@@ -343,7 +343,7 @@ class UpdateClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return int
      */
-    public function getLocationId(): int
+    public function getLocationId(): int|null
     {
         return $this->container['LocationId'];
     }
@@ -369,7 +369,7 @@ class UpdateClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDate(): \DateTime
+    public function getStartDate(): \DateTime|null
     {
         return $this->container['StartDate'];
     }
@@ -395,7 +395,7 @@ class UpdateClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDate(): \DateTime
+    public function getEndDate(): \DateTime|null
     {
         return $this->container['EndDate'];
     }
@@ -421,7 +421,7 @@ class UpdateClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartTime(): \DateTime
+    public function getStartTime(): \DateTime|null
     {
         return $this->container['StartTime'];
     }
@@ -447,7 +447,7 @@ class UpdateClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndTime(): \DateTime
+    public function getEndTime(): \DateTime|null
     {
         return $this->container['EndTime'];
     }
@@ -473,7 +473,7 @@ class UpdateClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return bool
      */
-    public function getDaySunday(): bool
+    public function getDaySunday(): bool|null
     {
         return $this->container['DaySunday'];
     }
@@ -499,7 +499,7 @@ class UpdateClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return bool
      */
-    public function getDayMonday(): bool
+    public function getDayMonday(): bool|null
     {
         return $this->container['DayMonday'];
     }
@@ -525,7 +525,7 @@ class UpdateClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return bool
      */
-    public function getDayTuesday(): bool
+    public function getDayTuesday(): bool|null
     {
         return $this->container['DayTuesday'];
     }
@@ -551,7 +551,7 @@ class UpdateClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return bool
      */
-    public function getDayWednesday(): bool
+    public function getDayWednesday(): bool|null
     {
         return $this->container['DayWednesday'];
     }
@@ -577,7 +577,7 @@ class UpdateClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return bool
      */
-    public function getDayThursday(): bool
+    public function getDayThursday(): bool|null
     {
         return $this->container['DayThursday'];
     }
@@ -603,7 +603,7 @@ class UpdateClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return bool
      */
-    public function getDayFriday(): bool
+    public function getDayFriday(): bool|null
     {
         return $this->container['DayFriday'];
     }
@@ -629,7 +629,7 @@ class UpdateClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return bool
      */
-    public function getDaySaturday(): bool
+    public function getDaySaturday(): bool|null
     {
         return $this->container['DaySaturday'];
     }
@@ -655,7 +655,7 @@ class UpdateClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return int
      */
-    public function getStaffId(): int
+    public function getStaffId(): int|null
     {
         return $this->container['StaffId'];
     }
@@ -681,7 +681,7 @@ class UpdateClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return int
      */
-    public function getStaffPayRate(): int
+    public function getStaffPayRate(): int|null
     {
         return $this->container['StaffPayRate'];
     }
@@ -707,7 +707,7 @@ class UpdateClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return int
      */
-    public function getResourceId(): int
+    public function getResourceId(): int|null
     {
         return $this->container['ResourceId'];
     }
@@ -733,7 +733,7 @@ class UpdateClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return int
      */
-    public function getMaxCapacity(): int
+    public function getMaxCapacity(): int|null
     {
         return $this->container['MaxCapacity'];
     }
@@ -759,7 +759,7 @@ class UpdateClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return int
      */
-    public function getWebCapacity(): int
+    public function getWebCapacity(): int|null
     {
         return $this->container['WebCapacity'];
     }
@@ -785,7 +785,7 @@ class UpdateClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return int
      */
-    public function getWaitlistCapacity(): int
+    public function getWaitlistCapacity(): int|null
     {
         return $this->container['WaitlistCapacity'];
     }
@@ -811,7 +811,7 @@ class UpdateClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return string
      */
-    public function getBookingStatus(): string
+    public function getBookingStatus(): string|null
     {
         return $this->container['BookingStatus'];
     }
@@ -837,7 +837,7 @@ class UpdateClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return bool
      */
-    public function getAllowOpenEnrollment(): bool
+    public function getAllowOpenEnrollment(): bool|null
     {
         return $this->container['AllowOpenEnrollment'];
     }
@@ -863,7 +863,7 @@ class UpdateClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return bool
      */
-    public function getAllowDateForwardEnrollment(): bool
+    public function getAllowDateForwardEnrollment(): bool|null
     {
         return $this->container['AllowDateForwardEnrollment'];
     }
@@ -889,7 +889,7 @@ class UpdateClassEnrollmentScheduleRequest extends BaseModel
      *
      * @return bool
      */
-    public function getRetainScheduleChanges(): bool
+    public function getRetainScheduleChanges(): bool|null
     {
         return $this->container['RetainScheduleChanges'];
     }

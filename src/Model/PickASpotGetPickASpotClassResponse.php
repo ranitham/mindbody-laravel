@@ -145,7 +145,7 @@ class PickASpotGetPickASpotClassResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PickASpotPickASpotClass[]
      */
-    public function getClasses(): array
+    public function getClasses(): array|null
     {
         return $this->container['Classes'];
     }
@@ -171,7 +171,7 @@ class PickASpotGetPickASpotClassResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PickASpotPagination
      */
-    public function getPagination(): \Nlocascio\Mindbody\Model\PickASpotPagination
+    public function getPagination(): \Nlocascio\Mindbody\Model\PickASpotPagination|null
     {
         return $this->container['Pagination'];
     }
@@ -197,7 +197,7 @@ class PickASpotGetPickASpotClassResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PickASpotResponseDetails
      */
-    public function getResponseDetails(): \Nlocascio\Mindbody\Model\PickASpotResponseDetails
+    public function getResponseDetails(): \Nlocascio\Mindbody\Model\PickASpotResponseDetails|null
     {
         return $this->container['ResponseDetails'];
     }

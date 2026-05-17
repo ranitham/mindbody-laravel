@@ -214,7 +214,7 @@ class GetServicesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getProgramIds(): array
+    public function getProgramIds(): array|null
     {
         return $this->container['ProgramIds'];
     }
@@ -240,7 +240,7 @@ class GetServicesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getSessionTypeIds(): array
+    public function getSessionTypeIds(): array|null
     {
         return $this->container['SessionTypeIds'];
     }
@@ -266,7 +266,7 @@ class GetServicesRequest extends BaseModel
      *
      * @return string[]
      */
-    public function getServiceIds(): array
+    public function getServiceIds(): array|null
     {
         return $this->container['ServiceIds'];
     }
@@ -292,7 +292,7 @@ class GetServicesRequest extends BaseModel
      *
      * @return int
      */
-    public function getClassId(): int
+    public function getClassId(): int|null
     {
         return $this->container['ClassId'];
     }
@@ -318,7 +318,7 @@ class GetServicesRequest extends BaseModel
      *
      * @return int
      */
-    public function getClassScheduleId(): int
+    public function getClassScheduleId(): int|null
     {
         return $this->container['ClassScheduleId'];
     }
@@ -344,7 +344,7 @@ class GetServicesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSellOnline(): bool
+    public function getSellOnline(): bool|null
     {
         return $this->container['SellOnline'];
     }
@@ -370,7 +370,7 @@ class GetServicesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLocationId(): int
+    public function getLocationId(): int|null
     {
         return $this->container['LocationId'];
     }
@@ -396,7 +396,7 @@ class GetServicesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getHideRelatedPrograms(): bool
+    public function getHideRelatedPrograms(): bool|null
     {
         return $this->container['HideRelatedPrograms'];
     }
@@ -422,7 +422,7 @@ class GetServicesRequest extends BaseModel
      *
      * @return int
      */
-    public function getStaffId(): int
+    public function getStaffId(): int|null
     {
         return $this->container['StaffId'];
     }
@@ -448,7 +448,7 @@ class GetServicesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIncludeDiscontinued(): bool
+    public function getIncludeDiscontinued(): bool|null
     {
         return $this->container['IncludeDiscontinued'];
     }
@@ -474,7 +474,7 @@ class GetServicesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIncludeSaleInContractOnly(): bool
+    public function getIncludeSaleInContractOnly(): bool|null
     {
         return $this->container['IncludeSaleInContractOnly'];
     }
@@ -500,7 +500,7 @@ class GetServicesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit(): int|null
     {
         return $this->container['Limit'];
     }
@@ -526,7 +526,7 @@ class GetServicesRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset(): int|null
     {
         return $this->container['Offset'];
     }

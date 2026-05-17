@@ -130,7 +130,7 @@ class GetAppointmentOptionsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\AppointmentOption[]
      */
-    public function getOptions(): array
+    public function getOptions(): array|null
     {
         return $this->container['Options'];
     }

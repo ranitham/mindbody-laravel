@@ -312,7 +312,7 @@ class Service extends BaseModel implements ModelWithStringId
      *
      * @return double
      */
-    public function getPrice(): float
+    public function getPrice(): float|null
     {
         return $this->container['Price'];
     }
@@ -338,7 +338,7 @@ class Service extends BaseModel implements ModelWithStringId
      *
      * @return double
      */
-    public function getOnlinePrice(): float
+    public function getOnlinePrice(): float|null
     {
         return $this->container['OnlinePrice'];
     }
@@ -364,7 +364,7 @@ class Service extends BaseModel implements ModelWithStringId
      *
      * @return double
      */
-    public function getTaxIncluded(): float
+    public function getTaxIncluded(): float|null
     {
         return $this->container['TaxIncluded'];
     }
@@ -390,7 +390,7 @@ class Service extends BaseModel implements ModelWithStringId
      *
      * @return int
      */
-    public function getProgramId(): int
+    public function getProgramId(): int|null
     {
         return $this->container['ProgramId'];
     }
@@ -416,7 +416,7 @@ class Service extends BaseModel implements ModelWithStringId
      *
      * @return double
      */
-    public function getTaxRate(): float
+    public function getTaxRate(): float|null
     {
         return $this->container['TaxRate'];
     }
@@ -442,7 +442,7 @@ class Service extends BaseModel implements ModelWithStringId
      *
      * @return int
      */
-    public function getProductId(): int
+    public function getProductId(): int|null
     {
         return $this->container['ProductId'];
     }
@@ -468,7 +468,7 @@ class Service extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getId(): string
+    public function getId(): string|null
     {
         return $this->container['Id'];
     }
@@ -494,7 +494,7 @@ class Service extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getName(): string
+    public function getName(): string|null
     {
         return $this->container['Name'];
     }
@@ -520,7 +520,7 @@ class Service extends BaseModel implements ModelWithStringId
      *
      * @return int
      */
-    public function getCount(): int
+    public function getCount(): int|null
     {
         return $this->container['Count'];
     }
@@ -546,7 +546,7 @@ class Service extends BaseModel implements ModelWithStringId
      *
      * @return bool
      */
-    public function getSellOnline(): bool
+    public function getSellOnline(): bool|null
     {
         return $this->container['SellOnline'];
     }
@@ -572,7 +572,7 @@ class Service extends BaseModel implements ModelWithStringId
      *
      * @return bool
      */
-    public function getSaleInContractOnly(): bool
+    public function getSaleInContractOnly(): bool|null
     {
         return $this->container['SaleInContractOnly'];
     }
@@ -598,7 +598,7 @@ class Service extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getType(): string
+    public function getType(): string|null
     {
         return $this->container['Type'];
     }
@@ -624,7 +624,7 @@ class Service extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getExpirationType(): string
+    public function getExpirationType(): string|null
     {
         return $this->container['ExpirationType'];
     }
@@ -650,7 +650,7 @@ class Service extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getExpirationUnit(): string
+    public function getExpirationUnit(): string|null
     {
         return $this->container['ExpirationUnit'];
     }
@@ -676,7 +676,7 @@ class Service extends BaseModel implements ModelWithStringId
      *
      * @return int
      */
-    public function getExpirationLength(): int
+    public function getExpirationLength(): int|null
     {
         return $this->container['ExpirationLength'];
     }
@@ -702,7 +702,7 @@ class Service extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getRevenueCategory(): string
+    public function getRevenueCategory(): string|null
     {
         return $this->container['RevenueCategory'];
     }
@@ -728,7 +728,7 @@ class Service extends BaseModel implements ModelWithStringId
      *
      * @return int
      */
-    public function getMembershipId(): int
+    public function getMembershipId(): int|null
     {
         return $this->container['MembershipId'];
     }
@@ -754,7 +754,7 @@ class Service extends BaseModel implements ModelWithStringId
      *
      * @return int[]
      */
-    public function getSellAtLocationIds(): array
+    public function getSellAtLocationIds(): array|null
     {
         return $this->container['SellAtLocationIds'];
     }
@@ -780,7 +780,7 @@ class Service extends BaseModel implements ModelWithStringId
      *
      * @return int[]
      */
-    public function getUseAtLocationIds(): array
+    public function getUseAtLocationIds(): array|null
     {
         return $this->container['UseAtLocationIds'];
     }
@@ -806,7 +806,7 @@ class Service extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getPriority(): string
+    public function getPriority(): string|null
     {
         return $this->container['Priority'];
     }
@@ -832,7 +832,7 @@ class Service extends BaseModel implements ModelWithStringId
      *
      * @return bool
      */
-    public function getIsIntroOffer(): bool
+    public function getIsIntroOffer(): bool|null
     {
         return $this->container['IsIntroOffer'];
     }
@@ -858,7 +858,7 @@ class Service extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getIntroOfferType(): string
+    public function getIntroOfferType(): string|null
     {
         return $this->container['IntroOfferType'];
     }
@@ -884,7 +884,7 @@ class Service extends BaseModel implements ModelWithStringId
      *
      * @return bool
      */
-    public function getIsThirdPartyDiscountPricing(): bool
+    public function getIsThirdPartyDiscountPricing(): bool|null
     {
         return $this->container['IsThirdPartyDiscountPricing'];
     }
@@ -910,7 +910,7 @@ class Service extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getProgram(): string
+    public function getProgram(): string|null
     {
         return $this->container['Program'];
     }
@@ -936,7 +936,7 @@ class Service extends BaseModel implements ModelWithStringId
      *
      * @return bool
      */
-    public function getDiscontinued(): bool
+    public function getDiscontinued(): bool|null
     {
         return $this->container['Discontinued'];
     }
@@ -962,7 +962,7 @@ class Service extends BaseModel implements ModelWithStringId
      *
      * @return int[]
      */
-    public function getRestrictToMembershipIds(): array
+    public function getRestrictToMembershipIds(): array|null
     {
         return $this->container['RestrictToMembershipIds'];
     }
@@ -988,7 +988,7 @@ class Service extends BaseModel implements ModelWithStringId
      *
      * @return int[]
      */
-    public function getApplyMemberDiscountsOfMembershipIds(): array
+    public function getApplyMemberDiscountsOfMembershipIds(): array|null
     {
         return $this->container['ApplyMemberDiscountsOfMembershipIds'];
     }

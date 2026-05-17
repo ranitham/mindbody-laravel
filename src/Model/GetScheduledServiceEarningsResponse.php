@@ -137,7 +137,7 @@ class GetScheduledServiceEarningsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
+    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse|null
     {
         return $this->container['PaginationResponse'];
     }
@@ -163,7 +163,7 @@ class GetScheduledServiceEarningsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ScheduledServiceEarningsEvent[]
      */
-    public function getScheduledServiceEarnings(): array
+    public function getScheduledServiceEarnings(): array|null
     {
         return $this->container['ScheduledServiceEarnings'];
     }

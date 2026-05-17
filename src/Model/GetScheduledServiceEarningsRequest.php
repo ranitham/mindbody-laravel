@@ -179,7 +179,7 @@ class GetScheduledServiceEarningsRequest extends BaseModel
      *
      * @return string
      */
-    public function getScheduledServiceType(): string
+    public function getScheduledServiceType(): string|null
     {
         return $this->container['ScheduledServiceType'];
     }
@@ -205,7 +205,7 @@ class GetScheduledServiceEarningsRequest extends BaseModel
      *
      * @return int
      */
-    public function getScheduledServiceId(): int
+    public function getScheduledServiceId(): int|null
     {
         return $this->container['ScheduledServiceId'];
     }
@@ -231,7 +231,7 @@ class GetScheduledServiceEarningsRequest extends BaseModel
      *
      * @return int
      */
-    public function getStaffId(): int
+    public function getStaffId(): int|null
     {
         return $this->container['StaffId'];
     }
@@ -257,7 +257,7 @@ class GetScheduledServiceEarningsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDateTime(): \DateTime
+    public function getStartDateTime(): \DateTime|null
     {
         return $this->container['StartDateTime'];
     }
@@ -283,7 +283,7 @@ class GetScheduledServiceEarningsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDateTime(): \DateTime
+    public function getEndDateTime(): \DateTime|null
     {
         return $this->container['EndDateTime'];
     }
@@ -309,7 +309,7 @@ class GetScheduledServiceEarningsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLocationId(): int
+    public function getLocationId(): int|null
     {
         return $this->container['LocationId'];
     }
@@ -335,7 +335,7 @@ class GetScheduledServiceEarningsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit(): int|null
     {
         return $this->container['Limit'];
     }
@@ -361,7 +361,7 @@ class GetScheduledServiceEarningsRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset(): int|null
     {
         return $this->container['Offset'];
     }

@@ -137,7 +137,7 @@ class AddAppointmentResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Appointment
      */
-    public function getAppointment(): \Nlocascio\Mindbody\Model\Appointment
+    public function getAppointment(): \Nlocascio\Mindbody\Model\Appointment|null
     {
         return $this->container['Appointment'];
     }
@@ -163,7 +163,7 @@ class AddAppointmentResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ItineraryEvent[]
      */
-    public function getItinerary(): array
+    public function getItinerary(): array|null
     {
         return $this->container['Itinerary'];
     }

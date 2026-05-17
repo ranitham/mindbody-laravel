@@ -176,7 +176,7 @@ class GetContractsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getContractIds(): array
+    public function getContractIds(): array|null
     {
         return $this->container['ContractIds'];
     }
@@ -202,7 +202,7 @@ class GetContractsRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSoldOnline(): bool
+    public function getSoldOnline(): bool|null
     {
         return $this->container['SoldOnline'];
     }
@@ -228,7 +228,7 @@ class GetContractsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLocationId(): int
+    public function getLocationId(): int|null
     {
         return $this->container['LocationId'];
     }
@@ -254,7 +254,7 @@ class GetContractsRequest extends BaseModel
      *
      * @return int
      */
-    public function getUniqueClientId(): int
+    public function getUniqueClientId(): int|null
     {
         return $this->container['UniqueClientId'];
     }
@@ -280,7 +280,7 @@ class GetContractsRequest extends BaseModel
      *
      * @return string
      */
-    public function getPromoCode(): string
+    public function getPromoCode(): string|null
     {
         return $this->container['PromoCode'];
     }
@@ -306,7 +306,7 @@ class GetContractsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit(): int|null
     {
         return $this->container['Limit'];
     }
@@ -332,7 +332,7 @@ class GetContractsRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset(): int|null
     {
         return $this->container['Offset'];
     }

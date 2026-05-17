@@ -153,7 +153,7 @@ class UpdateProductRequest extends BaseModel
      *
      * @return string
      */
-    public function getBarcodeId(): string
+    public function getBarcodeId(): string|null
     {
         return $this->container['BarcodeId'];
     }
@@ -179,7 +179,7 @@ class UpdateProductRequest extends BaseModel
      *
      * @return double
      */
-    public function getPrice(): float
+    public function getPrice(): float|null
     {
         return $this->container['Price'];
     }
@@ -210,7 +210,7 @@ class UpdateProductRequest extends BaseModel
      *
      * @return double
      */
-    public function getOnlinePrice(): float
+    public function getOnlinePrice(): float|null
     {
         return $this->container['OnlinePrice'];
     }

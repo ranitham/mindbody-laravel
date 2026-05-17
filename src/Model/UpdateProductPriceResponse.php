@@ -131,7 +131,7 @@ class UpdateProductPriceResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Product
      */
-    public function getProduct(): \Nlocascio\Mindbody\Model\Product
+    public function getProduct(): \Nlocascio\Mindbody\Model\Product|null
     {
         return $this->container['Product'];
     }

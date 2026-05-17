@@ -165,7 +165,7 @@ class SalePayment extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): int|null
     {
         return $this->container['Id'];
     }
@@ -191,7 +191,7 @@ class SalePayment extends BaseModel implements ModelWithIntId
      *
      * @return double
      */
-    public function getAmount(): float
+    public function getAmount(): float|null
     {
         return $this->container['Amount'];
     }
@@ -217,7 +217,7 @@ class SalePayment extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getMethod(): int
+    public function getMethod(): int|null
     {
         return $this->container['Method'];
     }
@@ -243,7 +243,7 @@ class SalePayment extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getType(): string
+    public function getType(): string|null
     {
         return $this->container['Type'];
     }
@@ -269,7 +269,7 @@ class SalePayment extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getNotes(): string
+    public function getNotes(): string|null
     {
         return $this->container['Notes'];
     }
@@ -295,7 +295,7 @@ class SalePayment extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getTransactionId(): int
+    public function getTransactionId(): int|null
     {
         return $this->container['TransactionId'];
     }

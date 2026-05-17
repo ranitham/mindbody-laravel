@@ -131,7 +131,7 @@ class GetMobileProvidersResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\MobileProvider[]
      */
-    public function getMobileProviders(): array
+    public function getMobileProviders(): array|null
     {
         return $this->container['MobileProviders'];
     }

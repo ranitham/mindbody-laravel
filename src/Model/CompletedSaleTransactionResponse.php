@@ -137,7 +137,7 @@ class CompletedSaleTransactionResponse extends BaseModel
      *
      * @return int
      */
-    public function getTransactionId(): int
+    public function getTransactionId(): int|null
     {
         return $this->container['TransactionId'];
     }
@@ -163,7 +163,7 @@ class CompletedSaleTransactionResponse extends BaseModel
      *
      * @return string
      */
-    public function getAuthenticationUrl(): string
+    public function getAuthenticationUrl(): string|null
     {
         return $this->container['AuthenticationUrl'];
     }

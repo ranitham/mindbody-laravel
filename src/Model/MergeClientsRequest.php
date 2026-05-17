@@ -138,7 +138,7 @@ class MergeClientsRequest extends BaseModel
      *
      * @return int
      */
-    public function getSourceClientId(): int
+    public function getSourceClientId(): int|null
     {
         return $this->container['SourceClientId'];
     }
@@ -164,7 +164,7 @@ class MergeClientsRequest extends BaseModel
      *
      * @return int
      */
-    public function getTargetClientId(): int
+    public function getTargetClientId(): int|null
     {
         return $this->container['TargetClientId'];
     }

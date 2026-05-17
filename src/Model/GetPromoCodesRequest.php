@@ -172,7 +172,7 @@ class GetPromoCodesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getActiveOnly(): bool
+    public function getActiveOnly(): bool|null
     {
         return $this->container['ActiveOnly'];
     }
@@ -198,7 +198,7 @@ class GetPromoCodesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getOnlineOnly(): bool
+    public function getOnlineOnly(): bool|null
     {
         return $this->container['OnlineOnly'];
     }
@@ -224,7 +224,7 @@ class GetPromoCodesRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartDate(): \DateTime
+    public function getStartDate(): \DateTime|null
     {
         return $this->container['StartDate'];
     }
@@ -250,7 +250,7 @@ class GetPromoCodesRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndDate(): \DateTime
+    public function getEndDate(): \DateTime|null
     {
         return $this->container['EndDate'];
     }
@@ -276,7 +276,7 @@ class GetPromoCodesRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getLastModifiedDate(): \DateTime
+    public function getLastModifiedDate(): \DateTime|null
     {
         return $this->container['LastModifiedDate'];
     }
@@ -302,7 +302,7 @@ class GetPromoCodesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit(): int|null
     {
         return $this->container['Limit'];
     }
@@ -328,7 +328,7 @@ class GetPromoCodesRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset(): int|null
     {
         return $this->container['Offset'];
     }

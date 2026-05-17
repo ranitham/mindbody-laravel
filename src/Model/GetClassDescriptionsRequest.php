@@ -186,7 +186,7 @@ class GetClassDescriptionsRequest extends BaseModel
      *
      * @return int
      */
-    public function getClassDescriptionId(): int
+    public function getClassDescriptionId(): int|null
     {
         return $this->container['ClassDescriptionId'];
     }
@@ -212,7 +212,7 @@ class GetClassDescriptionsRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getProgramIds(): array
+    public function getProgramIds(): array|null
     {
         return $this->container['ProgramIds'];
     }
@@ -238,7 +238,7 @@ class GetClassDescriptionsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getStartClassDateTime(): \DateTime
+    public function getStartClassDateTime(): \DateTime|null
     {
         return $this->container['StartClassDateTime'];
     }
@@ -264,7 +264,7 @@ class GetClassDescriptionsRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getEndClassDateTime(): \DateTime
+    public function getEndClassDateTime(): \DateTime|null
     {
         return $this->container['EndClassDateTime'];
     }
@@ -290,7 +290,7 @@ class GetClassDescriptionsRequest extends BaseModel
      *
      * @return int
      */
-    public function getStaffId(): int
+    public function getStaffId(): int|null
     {
         return $this->container['StaffId'];
     }
@@ -316,7 +316,7 @@ class GetClassDescriptionsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLocationId(): int
+    public function getLocationId(): int|null
     {
         return $this->container['LocationId'];
     }
@@ -342,7 +342,7 @@ class GetClassDescriptionsRequest extends BaseModel
      *
      * @return bool
      */
-    public function getIncludeInactive(): bool
+    public function getIncludeInactive(): bool|null
     {
         return $this->container['IncludeInactive'];
     }
@@ -368,7 +368,7 @@ class GetClassDescriptionsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit(): int|null
     {
         return $this->container['Limit'];
     }
@@ -394,7 +394,7 @@ class GetClassDescriptionsRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset(): int|null
     {
         return $this->container['Offset'];
     }

@@ -152,7 +152,7 @@ class PurchaseContractResponseTotals extends BaseModel
      *
      * @return double
      */
-    public function getTotal(): float
+    public function getTotal(): float|null
     {
         return $this->container['Total'];
     }
@@ -178,7 +178,7 @@ class PurchaseContractResponseTotals extends BaseModel
      *
      * @return double
      */
-    public function getSubTotal(): float
+    public function getSubTotal(): float|null
     {
         return $this->container['SubTotal'];
     }
@@ -204,7 +204,7 @@ class PurchaseContractResponseTotals extends BaseModel
      *
      * @return double
      */
-    public function getDiscount(): float
+    public function getDiscount(): float|null
     {
         return $this->container['Discount'];
     }
@@ -230,7 +230,7 @@ class PurchaseContractResponseTotals extends BaseModel
      *
      * @return double
      */
-    public function getTax(): float
+    public function getTax(): float|null
     {
         return $this->container['Tax'];
     }

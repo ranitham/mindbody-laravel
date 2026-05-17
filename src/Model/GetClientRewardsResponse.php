@@ -144,7 +144,7 @@ class GetClientRewardsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
+    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse|null
     {
         return $this->container['PaginationResponse'];
     }
@@ -170,7 +170,7 @@ class GetClientRewardsResponse extends BaseModel
      *
      * @return int
      */
-    public function getBalance(): int
+    public function getBalance(): int|null
     {
         return $this->container['Balance'];
     }
@@ -196,7 +196,7 @@ class GetClientRewardsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClientRewardTransaction[]
      */
-    public function getTransactions(): array
+    public function getTransactions(): array|null
     {
         return $this->container['Transactions'];
     }

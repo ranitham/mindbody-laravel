@@ -138,7 +138,7 @@ class PickASpotCreateReservationResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PickASpotReservation
      */
-    public function getReservation(): \Nlocascio\Mindbody\Model\PickASpotReservation
+    public function getReservation(): \Nlocascio\Mindbody\Model\PickASpotReservation|null
     {
         return $this->container['Reservation'];
     }
@@ -164,7 +164,7 @@ class PickASpotCreateReservationResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PickASpotResponseDetails
      */
-    public function getResponseDetails(): \Nlocascio\Mindbody\Model\PickASpotResponseDetails
+    public function getResponseDetails(): \Nlocascio\Mindbody\Model\PickASpotResponseDetails|null
     {
         return $this->container['ResponseDetails'];
     }

@@ -151,7 +151,7 @@ class CompleteCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return string
      */
-    public function getAccessToken(): string
+    public function getAccessToken(): string|null
     {
         return $this->container['AccessToken'];
     }
@@ -177,7 +177,7 @@ class CompleteCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId(): string|null
     {
         return $this->container['ClientId'];
     }
@@ -203,7 +203,7 @@ class CompleteCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return bool
      */
-    public function getTest(): bool
+    public function getTest(): bool|null
     {
         return $this->container['Test'];
     }

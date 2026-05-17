@@ -152,7 +152,7 @@ class ContactLogComment extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): int|null
     {
         return $this->container['Id'];
     }
@@ -178,7 +178,7 @@ class ContactLogComment extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getText(): string
+    public function getText(): string|null
     {
         return $this->container['Text'];
     }
@@ -204,7 +204,7 @@ class ContactLogComment extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getCreatedDateTime(): \DateTime
+    public function getCreatedDateTime(): \DateTime|null
     {
         return $this->container['CreatedDateTime'];
     }
@@ -230,7 +230,7 @@ class ContactLogComment extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\Staff
      */
-    public function getCreatedBy(): \Nlocascio\Mindbody\Model\Staff
+    public function getCreatedBy(): \Nlocascio\Mindbody\Model\Staff|null
     {
         return $this->container['CreatedBy'];
     }

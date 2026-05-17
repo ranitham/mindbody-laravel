@@ -152,7 +152,7 @@ class CheckoutShoppingCartResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\CompletedSaleShoppingCart
      */
-    public function getShoppingCart(): \Nlocascio\Mindbody\Model\CompletedSaleShoppingCart
+    public function getShoppingCart(): \Nlocascio\Mindbody\Model\CompletedSaleShoppingCart|null
     {
         return $this->container['ShoppingCart'];
     }
@@ -178,7 +178,7 @@ class CheckoutShoppingCartResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ModelClass[]
      */
-    public function getClasses(): array
+    public function getClasses(): array|null
     {
         return $this->container['Classes'];
     }
@@ -204,7 +204,7 @@ class CheckoutShoppingCartResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Appointment[]
      */
-    public function getAppointments(): array
+    public function getAppointments(): array|null
     {
         return $this->container['Appointments'];
     }
@@ -230,7 +230,7 @@ class CheckoutShoppingCartResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClassSchedule[]
      */
-    public function getEnrollments(): array
+    public function getEnrollments(): array|null
     {
         return $this->container['Enrollments'];
     }

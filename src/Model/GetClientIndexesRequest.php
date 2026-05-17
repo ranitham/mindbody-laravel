@@ -130,7 +130,7 @@ class GetClientIndexesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getRequiredOnly(): bool
+    public function getRequiredOnly(): bool|null
     {
         return $this->container['RequiredOnly'];
     }

@@ -200,7 +200,7 @@ class AssignStaffSessionTypeRequest extends BaseModel
      *
      * @return int
      */
-    public function getStaffId(): int
+    public function getStaffId(): int|null
     {
         return $this->container['StaffId'];
     }
@@ -231,7 +231,7 @@ class AssignStaffSessionTypeRequest extends BaseModel
      *
      * @return int
      */
-    public function getSessionTypeId(): int
+    public function getSessionTypeId(): int|null
     {
         return $this->container['SessionTypeId'];
     }
@@ -265,7 +265,7 @@ class AssignStaffSessionTypeRequest extends BaseModel
      *
      * @return bool
      */
-    public function getActive(): bool
+    public function getActive(): bool|null
     {
         return $this->container['Active'];
     }
@@ -291,7 +291,7 @@ class AssignStaffSessionTypeRequest extends BaseModel
      *
      * @return int
      */
-    public function getTimeLength(): int
+    public function getTimeLength(): int|null
     {
         return $this->container['TimeLength'];
     }
@@ -317,7 +317,7 @@ class AssignStaffSessionTypeRequest extends BaseModel
      *
      * @return int
      */
-    public function getPrepTime(): int
+    public function getPrepTime(): int|null
     {
         return $this->container['PrepTime'];
     }
@@ -343,7 +343,7 @@ class AssignStaffSessionTypeRequest extends BaseModel
      *
      * @return int
      */
-    public function getFinishTime(): int
+    public function getFinishTime(): int|null
     {
         return $this->container['FinishTime'];
     }
@@ -369,7 +369,7 @@ class AssignStaffSessionTypeRequest extends BaseModel
      *
      * @return string
      */
-    public function getPayRateType(): string
+    public function getPayRateType(): string|null
     {
         return $this->container['PayRateType'];
     }
@@ -395,7 +395,7 @@ class AssignStaffSessionTypeRequest extends BaseModel
      *
      * @return double
      */
-    public function getPayRateAmount(): float
+    public function getPayRateAmount(): float|null
     {
         return $this->container['PayRateAmount'];
     }

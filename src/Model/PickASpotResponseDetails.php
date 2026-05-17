@@ -145,7 +145,7 @@ class PickASpotResponseDetails extends BaseModel
      *
      * @return string
      */
-    public function getStatus(): string
+    public function getStatus(): string|null
     {
         return $this->container['Status'];
     }
@@ -171,7 +171,7 @@ class PickASpotResponseDetails extends BaseModel
      *
      * @return string
      */
-    public function getTransactionId(): string
+    public function getTransactionId(): string|null
     {
         return $this->container['TransactionId'];
     }
@@ -197,7 +197,7 @@ class PickASpotResponseDetails extends BaseModel
      *
      * @return string
      */
-    public function getMessage(): string
+    public function getMessage(): string|null
     {
         return $this->container['Message'];
     }

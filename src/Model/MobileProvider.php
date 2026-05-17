@@ -151,7 +151,7 @@ class MobileProvider extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): int|null
     {
         return $this->container['Id'];
     }
@@ -177,7 +177,7 @@ class MobileProvider extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getActive(): bool
+    public function getActive(): bool|null
     {
         return $this->container['Active'];
     }
@@ -203,7 +203,7 @@ class MobileProvider extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getProviderName(): string
+    public function getProviderName(): string|null
     {
         return $this->container['ProviderName'];
     }
@@ -229,7 +229,7 @@ class MobileProvider extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getProviderAddress(): string
+    public function getProviderAddress(): string|null
     {
         return $this->container['ProviderAddress'];
     }

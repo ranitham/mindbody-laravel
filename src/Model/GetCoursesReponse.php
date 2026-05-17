@@ -138,7 +138,7 @@ class GetCoursesReponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
+    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse|null
     {
         return $this->container['PaginationResponse'];
     }
@@ -164,7 +164,7 @@ class GetCoursesReponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Course[]
      */
-    public function getCourses(): array
+    public function getCourses(): array|null
     {
         return $this->container['Courses'];
     }

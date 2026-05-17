@@ -137,7 +137,7 @@ class UpdateContactLogType extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): int|null
     {
         return $this->container['Id'];
     }
@@ -163,7 +163,7 @@ class UpdateContactLogType extends BaseModel implements ModelWithIntId
      *
      * @return int[]
      */
-    public function getSubTypes(): array
+    public function getSubTypes(): array|null
     {
         return $this->container['SubTypes'];
     }

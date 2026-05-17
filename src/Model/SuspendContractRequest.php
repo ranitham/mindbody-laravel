@@ -192,7 +192,7 @@ class SuspendContractRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId(): string|null
     {
         return $this->container['ClientId'];
     }
@@ -218,7 +218,7 @@ class SuspendContractRequest extends BaseModel
      *
      * @return int
      */
-    public function getClientContractId(): int
+    public function getClientContractId(): int|null
     {
         return $this->container['ClientContractId'];
     }
@@ -244,7 +244,7 @@ class SuspendContractRequest extends BaseModel
      *
      * @return string
      */
-    public function getSuspensionType(): string
+    public function getSuspensionType(): string|null
     {
         return $this->container['SuspensionType'];
     }
@@ -270,7 +270,7 @@ class SuspendContractRequest extends BaseModel
      *
      * @return \DateTime
      */
-    public function getSuspensionStart(): \DateTime
+    public function getSuspensionStart(): \DateTime|null
     {
         return $this->container['SuspensionStart'];
     }
@@ -296,7 +296,7 @@ class SuspendContractRequest extends BaseModel
      *
      * @return int
      */
-    public function getDuration(): int
+    public function getDuration(): int|null
     {
         return $this->container['Duration'];
     }
@@ -322,7 +322,7 @@ class SuspendContractRequest extends BaseModel
      *
      * @return int
      */
-    public function getDurationUnit(): int
+    public function getDurationUnit(): int|null
     {
         return $this->container['DurationUnit'];
     }
@@ -348,7 +348,7 @@ class SuspendContractRequest extends BaseModel
      *
      * @return bool
      */
-    public function getOpenEnded(): bool
+    public function getOpenEnded(): bool|null
     {
         return $this->container['OpenEnded'];
     }
@@ -374,7 +374,7 @@ class SuspendContractRequest extends BaseModel
      *
      * @return string
      */
-    public function getSuspensionNotes(): string
+    public function getSuspensionNotes(): string|null
     {
         return $this->container['SuspensionNotes'];
     }
@@ -400,7 +400,7 @@ class SuspendContractRequest extends BaseModel
      *
      * @return double
      */
-    public function getSuspensionFee(): float
+    public function getSuspensionFee(): float|null
     {
         return $this->container['SuspensionFee'];
     }

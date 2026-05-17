@@ -207,7 +207,7 @@ class GiftCard extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): int|null
     {
         return $this->container['Id'];
     }
@@ -233,7 +233,7 @@ class GiftCard extends BaseModel implements ModelWithIntId
      *
      * @return int[]
      */
-    public function getLocationIds(): array
+    public function getLocationIds(): array|null
     {
         return $this->container['LocationIds'];
     }
@@ -259,7 +259,7 @@ class GiftCard extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getDescription(): string
+    public function getDescription(): string|null
     {
         return $this->container['Description'];
     }
@@ -285,7 +285,7 @@ class GiftCard extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getEditableByConsumer(): bool
+    public function getEditableByConsumer(): bool|null
     {
         return $this->container['EditableByConsumer'];
     }
@@ -311,7 +311,7 @@ class GiftCard extends BaseModel implements ModelWithIntId
      *
      * @return double
      */
-    public function getCardValue(): float
+    public function getCardValue(): float|null
     {
         return $this->container['CardValue'];
     }
@@ -337,7 +337,7 @@ class GiftCard extends BaseModel implements ModelWithIntId
      *
      * @return double
      */
-    public function getSalePrice(): float
+    public function getSalePrice(): float|null
     {
         return $this->container['SalePrice'];
     }
@@ -363,7 +363,7 @@ class GiftCard extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getSoldOnline(): bool
+    public function getSoldOnline(): bool|null
     {
         return $this->container['SoldOnline'];
     }
@@ -389,7 +389,7 @@ class GiftCard extends BaseModel implements ModelWithIntId
      *
      * @return int[]
      */
-    public function getMembershipRestrictionIds(): array
+    public function getMembershipRestrictionIds(): array|null
     {
         return $this->container['MembershipRestrictionIds'];
     }
@@ -415,7 +415,7 @@ class GiftCard extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getGiftCardTerms(): string
+    public function getGiftCardTerms(): string|null
     {
         return $this->container['GiftCardTerms'];
     }
@@ -441,7 +441,7 @@ class GiftCard extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getContactInfo(): string
+    public function getContactInfo(): string|null
     {
         return $this->container['ContactInfo'];
     }
@@ -467,7 +467,7 @@ class GiftCard extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getDisplayLogo(): bool
+    public function getDisplayLogo(): bool|null
     {
         return $this->container['DisplayLogo'];
     }
@@ -493,7 +493,7 @@ class GiftCard extends BaseModel implements ModelWithIntId
      *
      * @return \Nlocascio\Mindbody\Model\GiftCardLayout[]
      */
-    public function getLayouts(): array
+    public function getLayouts(): array|null
     {
         return $this->container['Layouts'];
     }

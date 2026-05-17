@@ -137,7 +137,7 @@ class CommissionDetail extends BaseModel
      *
      * @return string
      */
-    public function getCommissionType(): string
+    public function getCommissionType(): string|null
     {
         return $this->container['CommissionType'];
     }
@@ -163,7 +163,7 @@ class CommissionDetail extends BaseModel
      *
      * @return double
      */
-    public function getCommissionEarnings(): float
+    public function getCommissionEarnings(): float|null
     {
         return $this->container['CommissionEarnings'];
     }

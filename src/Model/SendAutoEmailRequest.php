@@ -143,7 +143,7 @@ class SendAutoEmailRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId(): string|null
     {
         return $this->container['ClientId'];
     }
@@ -169,7 +169,7 @@ class SendAutoEmailRequest extends BaseModel
      *
      * @return string
      */
-    public function getEmailType(): string
+    public function getEmailType(): string|null
     {
         return $this->container['EmailType'];
     }

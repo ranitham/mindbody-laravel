@@ -158,7 +158,7 @@ class CopyCreditCardResponseClient extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId(): string|null
     {
         return $this->container['ClientId'];
     }
@@ -184,7 +184,7 @@ class CopyCreditCardResponseClient extends BaseModel
      *
      * @return int
      */
-    public function getUniqueId(): int
+    public function getUniqueId(): int|null
     {
         return $this->container['UniqueId'];
     }
@@ -210,7 +210,7 @@ class CopyCreditCardResponseClient extends BaseModel
      *
      * @return int
      */
-    public function getSiteId(): int
+    public function getSiteId(): int|null
     {
         return $this->container['SiteId'];
     }
@@ -236,7 +236,7 @@ class CopyCreditCardResponseClient extends BaseModel
      *
      * @return string
      */
-    public function getFirstName(): string
+    public function getFirstName(): string|null
     {
         return $this->container['FirstName'];
     }
@@ -262,7 +262,7 @@ class CopyCreditCardResponseClient extends BaseModel
      *
      * @return string
      */
-    public function getLastName(): string
+    public function getLastName(): string|null
     {
         return $this->container['LastName'];
     }

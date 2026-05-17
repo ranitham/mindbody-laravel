@@ -161,7 +161,7 @@ class GetStaffSessionTypesRequest extends BaseModel
      *
      * @return int
      */
-    public function getStaffId(): int
+    public function getStaffId(): int|null
     {
         return $this->container['StaffId'];
     }
@@ -187,7 +187,7 @@ class GetStaffSessionTypesRequest extends BaseModel
      *
      * @return int[]
      */
-    public function getProgramIds(): array
+    public function getProgramIds(): array|null
     {
         return $this->container['ProgramIds'];
     }
@@ -213,7 +213,7 @@ class GetStaffSessionTypesRequest extends BaseModel
      *
      * @return bool
      */
-    public function getOnlineOnly(): bool
+    public function getOnlineOnly(): bool|null
     {
         return $this->container['OnlineOnly'];
     }
@@ -239,7 +239,7 @@ class GetStaffSessionTypesRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit(): int|null
     {
         return $this->container['Limit'];
     }
@@ -265,7 +265,7 @@ class GetStaffSessionTypesRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset(): int|null
     {
         return $this->container['Offset'];
     }

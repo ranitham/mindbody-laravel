@@ -186,7 +186,7 @@ class GetCrossRegionalClientAssociationsRequest extends BaseModel
      *
      * @return int
      */
-    public function getUniqueClientId(): int
+    public function getUniqueClientId(): int|null
     {
         return $this->container['UniqueClientId'];
     }
@@ -212,7 +212,7 @@ class GetCrossRegionalClientAssociationsRequest extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId(): string|null
     {
         return $this->container['ClientId'];
     }
@@ -238,7 +238,7 @@ class GetCrossRegionalClientAssociationsRequest extends BaseModel
      *
      * @return string
      */
-    public function getEmail(): string
+    public function getEmail(): string|null
     {
         return $this->container['Email'];
     }
@@ -264,7 +264,7 @@ class GetCrossRegionalClientAssociationsRequest extends BaseModel
      *
      * @return string
      */
-    public function getFirstName(): string
+    public function getFirstName(): string|null
     {
         return $this->container['FirstName'];
     }
@@ -290,7 +290,7 @@ class GetCrossRegionalClientAssociationsRequest extends BaseModel
      *
      * @return string
      */
-    public function getLastName(): string
+    public function getLastName(): string|null
     {
         return $this->container['LastName'];
     }
@@ -316,7 +316,7 @@ class GetCrossRegionalClientAssociationsRequest extends BaseModel
      *
      * @return bool
      */
-    public function getV2(): bool
+    public function getV2(): bool|null
     {
         return $this->container['V2'];
     }
@@ -342,7 +342,7 @@ class GetCrossRegionalClientAssociationsRequest extends BaseModel
      *
      * @return bool
      */
-    public function getExcludeInactiveSites(): bool
+    public function getExcludeInactiveSites(): bool|null
     {
         return $this->container['ExcludeInactiveSites'];
     }
@@ -368,7 +368,7 @@ class GetCrossRegionalClientAssociationsRequest extends BaseModel
      *
      * @return int
      */
-    public function getLimit(): int
+    public function getLimit(): int|null
     {
         return $this->container['Limit'];
     }
@@ -394,7 +394,7 @@ class GetCrossRegionalClientAssociationsRequest extends BaseModel
      *
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset(): int|null
     {
         return $this->container['Offset'];
     }

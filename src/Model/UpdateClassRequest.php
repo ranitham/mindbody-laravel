@@ -138,7 +138,7 @@ class UpdateClassRequest extends BaseModel
      *
      * @return int
      */
-    public function getClassId(): int
+    public function getClassId(): int|null
     {
         return $this->container['ClassId'];
     }
@@ -164,7 +164,7 @@ class UpdateClassRequest extends BaseModel
      *
      * @return string
      */
-    public function getThemeName(): string
+    public function getThemeName(): string|null
     {
         return $this->container['ThemeName'];
     }

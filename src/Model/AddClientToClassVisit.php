@@ -375,7 +375,7 @@ class AddClientToClassVisit extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getAppointmentId(): int
+    public function getAppointmentId(): int|null
     {
         return $this->container['AppointmentId'];
     }
@@ -401,7 +401,7 @@ class AddClientToClassVisit extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getAppointmentGenderPreference(): string
+    public function getAppointmentGenderPreference(): string|null
     {
         return $this->container['AppointmentGenderPreference'];
     }
@@ -436,7 +436,7 @@ class AddClientToClassVisit extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getAppointmentStatus(): string
+    public function getAppointmentStatus(): string|null
     {
         return $this->container['AppointmentStatus'];
     }
@@ -471,7 +471,7 @@ class AddClientToClassVisit extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getClassId(): int
+    public function getClassId(): int|null
     {
         return $this->container['ClassId'];
     }
@@ -497,7 +497,7 @@ class AddClientToClassVisit extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId(): string|null
     {
         return $this->container['ClientId'];
     }
@@ -523,7 +523,7 @@ class AddClientToClassVisit extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getStartDateTime(): \DateTime
+    public function getStartDateTime(): \DateTime|null
     {
         return $this->container['StartDateTime'];
     }
@@ -549,7 +549,7 @@ class AddClientToClassVisit extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getEndDateTime(): \DateTime
+    public function getEndDateTime(): \DateTime|null
     {
         return $this->container['EndDateTime'];
     }
@@ -575,7 +575,7 @@ class AddClientToClassVisit extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getId(): int
+    public function getId(): int|null
     {
         return $this->container['Id'];
     }
@@ -601,7 +601,7 @@ class AddClientToClassVisit extends BaseModel implements ModelWithIntId
      *
      * @return \DateTime
      */
-    public function getLastModifiedDateTime(): \DateTime
+    public function getLastModifiedDateTime(): \DateTime|null
     {
         return $this->container['LastModifiedDateTime'];
     }
@@ -627,7 +627,7 @@ class AddClientToClassVisit extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getLateCancelled(): bool
+    public function getLateCancelled(): bool|null
     {
         return $this->container['LateCancelled'];
     }
@@ -653,7 +653,7 @@ class AddClientToClassVisit extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getLocationId(): int
+    public function getLocationId(): int|null
     {
         return $this->container['LocationId'];
     }
@@ -679,7 +679,7 @@ class AddClientToClassVisit extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getMakeUp(): bool
+    public function getMakeUp(): bool|null
     {
         return $this->container['MakeUp'];
     }
@@ -705,7 +705,7 @@ class AddClientToClassVisit extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getName(): string
+    public function getName(): string|null
     {
         return $this->container['Name'];
     }
@@ -731,7 +731,7 @@ class AddClientToClassVisit extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getServiceId(): int
+    public function getServiceId(): int|null
     {
         return $this->container['ServiceId'];
     }
@@ -757,7 +757,7 @@ class AddClientToClassVisit extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getServiceName(): string
+    public function getServiceName(): string|null
     {
         return $this->container['ServiceName'];
     }
@@ -783,7 +783,7 @@ class AddClientToClassVisit extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getProductId(): int
+    public function getProductId(): int|null
     {
         return $this->container['ProductId'];
     }
@@ -809,7 +809,7 @@ class AddClientToClassVisit extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getSignedIn(): bool
+    public function getSignedIn(): bool|null
     {
         return $this->container['SignedIn'];
     }
@@ -835,7 +835,7 @@ class AddClientToClassVisit extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getStaffId(): int
+    public function getStaffId(): int|null
     {
         return $this->container['StaffId'];
     }
@@ -861,7 +861,7 @@ class AddClientToClassVisit extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getWebSignup(): bool
+    public function getWebSignup(): bool|null
     {
         return $this->container['WebSignup'];
     }
@@ -887,7 +887,7 @@ class AddClientToClassVisit extends BaseModel implements ModelWithIntId
      *
      * @return string
      */
-    public function getAction(): string
+    public function getAction(): string|null
     {
         return $this->container['Action'];
     }
@@ -922,7 +922,7 @@ class AddClientToClassVisit extends BaseModel implements ModelWithIntId
      *
      * @return bool
      */
-    public function getCrossRegionalBookingPerformed(): bool
+    public function getCrossRegionalBookingPerformed(): bool|null
     {
         return $this->container['CrossRegionalBookingPerformed'];
     }
@@ -948,7 +948,7 @@ class AddClientToClassVisit extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getSiteId(): int
+    public function getSiteId(): int|null
     {
         return $this->container['SiteId'];
     }
@@ -974,7 +974,7 @@ class AddClientToClassVisit extends BaseModel implements ModelWithIntId
      *
      * @return int
      */
-    public function getWaitlistEntryId(): int
+    public function getWaitlistEntryId(): int|null
     {
         return $this->container['WaitlistEntryId'];
     }

@@ -137,7 +137,7 @@ class GetActiveSessionTimesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
+    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse|null
     {
         return $this->container['PaginationResponse'];
     }
@@ -163,7 +163,7 @@ class GetActiveSessionTimesResponse extends BaseModel
      *
      * @return string[]
      */
-    public function getActiveSessionTimes(): array
+    public function getActiveSessionTimes(): array|null
     {
         return $this->container['ActiveSessionTimes'];
     }

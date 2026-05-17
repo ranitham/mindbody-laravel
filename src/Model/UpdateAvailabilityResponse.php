@@ -138,7 +138,7 @@ class UpdateAvailabilityResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Staff[]
      */
-    public function getStaffMembers(): array
+    public function getStaffMembers(): array|null
     {
         return $this->container['StaffMembers'];
     }
@@ -164,7 +164,7 @@ class UpdateAvailabilityResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ApiError[]
      */
-    public function getErrors(): array
+    public function getErrors(): array|null
     {
         return $this->container['Errors'];
     }

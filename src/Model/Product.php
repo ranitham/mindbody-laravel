@@ -264,7 +264,7 @@ class Product extends BaseModel implements ModelWithStringId
      *
      * @return int
      */
-    public function getProductId(): int
+    public function getProductId(): int|null
     {
         return $this->container['ProductId'];
     }
@@ -290,7 +290,7 @@ class Product extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getId(): string
+    public function getId(): string|null
     {
         return $this->container['Id'];
     }
@@ -316,7 +316,7 @@ class Product extends BaseModel implements ModelWithStringId
      *
      * @return int
      */
-    public function getCategoryId(): int
+    public function getCategoryId(): int|null
     {
         return $this->container['CategoryId'];
     }
@@ -342,7 +342,7 @@ class Product extends BaseModel implements ModelWithStringId
      *
      * @return int
      */
-    public function getSubCategoryId(): int
+    public function getSubCategoryId(): int|null
     {
         return $this->container['SubCategoryId'];
     }
@@ -368,7 +368,7 @@ class Product extends BaseModel implements ModelWithStringId
      *
      * @return int
      */
-    public function getSecondaryCategoryId(): int
+    public function getSecondaryCategoryId(): int|null
     {
         return $this->container['SecondaryCategoryId'];
     }
@@ -394,7 +394,7 @@ class Product extends BaseModel implements ModelWithStringId
      *
      * @return double
      */
-    public function getPrice(): float
+    public function getPrice(): float|null
     {
         return $this->container['Price'];
     }
@@ -420,7 +420,7 @@ class Product extends BaseModel implements ModelWithStringId
      *
      * @return double
      */
-    public function getTaxIncluded(): float
+    public function getTaxIncluded(): float|null
     {
         return $this->container['TaxIncluded'];
     }
@@ -446,7 +446,7 @@ class Product extends BaseModel implements ModelWithStringId
      *
      * @return double
      */
-    public function getTaxRate(): float
+    public function getTaxRate(): float|null
     {
         return $this->container['TaxRate'];
     }
@@ -472,7 +472,7 @@ class Product extends BaseModel implements ModelWithStringId
      *
      * @return int
      */
-    public function getGroupId(): int
+    public function getGroupId(): int|null
     {
         return $this->container['GroupId'];
     }
@@ -498,7 +498,7 @@ class Product extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getName(): string
+    public function getName(): string|null
     {
         return $this->container['Name'];
     }
@@ -524,7 +524,7 @@ class Product extends BaseModel implements ModelWithStringId
      *
      * @return double
      */
-    public function getOnlinePrice(): float
+    public function getOnlinePrice(): float|null
     {
         return $this->container['OnlinePrice'];
     }
@@ -550,7 +550,7 @@ class Product extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getShortDescription(): string
+    public function getShortDescription(): string|null
     {
         return $this->container['ShortDescription'];
     }
@@ -576,7 +576,7 @@ class Product extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getLongDescription(): string
+    public function getLongDescription(): string|null
     {
         return $this->container['LongDescription'];
     }
@@ -602,7 +602,7 @@ class Product extends BaseModel implements ModelWithStringId
      *
      * @return int
      */
-    public function getTypeGroup(): int
+    public function getTypeGroup(): int|null
     {
         return $this->container['TypeGroup'];
     }
@@ -628,7 +628,7 @@ class Product extends BaseModel implements ModelWithStringId
      *
      * @return int
      */
-    public function getSupplierId(): int
+    public function getSupplierId(): int|null
     {
         return $this->container['SupplierId'];
     }
@@ -654,7 +654,7 @@ class Product extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getSupplierName(): string
+    public function getSupplierName(): string|null
     {
         return $this->container['SupplierName'];
     }
@@ -680,7 +680,7 @@ class Product extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getImageURL(): string
+    public function getImageURL(): string|null
     {
         return $this->container['ImageURL'];
     }
@@ -706,7 +706,7 @@ class Product extends BaseModel implements ModelWithStringId
      *
      * @return \Nlocascio\Mindbody\Model\Color
      */
-    public function getColor(): \Nlocascio\Mindbody\Model\Color
+    public function getColor(): \Nlocascio\Mindbody\Model\Color|null
     {
         return $this->container['Color'];
     }
@@ -732,7 +732,7 @@ class Product extends BaseModel implements ModelWithStringId
      *
      * @return \Nlocascio\Mindbody\Model\Size
      */
-    public function getSize(): \Nlocascio\Mindbody\Model\Size
+    public function getSize(): \Nlocascio\Mindbody\Model\Size|null
     {
         return $this->container['Size'];
     }
@@ -758,7 +758,7 @@ class Product extends BaseModel implements ModelWithStringId
      *
      * @return string
      */
-    public function getManufacturerId(): string
+    public function getManufacturerId(): string|null
     {
         return $this->container['ManufacturerId'];
     }

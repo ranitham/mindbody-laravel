@@ -241,7 +241,7 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return string
      */
-    public function getCartId(): string
+    public function getCartId(): string|null
     {
         return $this->container['CartId'];
     }
@@ -267,7 +267,7 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId(): string|null
     {
         return $this->container['ClientId'];
     }
@@ -293,7 +293,7 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return string
      */
-    public function getPayerClientId(): string
+    public function getPayerClientId(): string|null
     {
         return $this->container['PayerClientId'];
     }
@@ -319,7 +319,7 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return bool
      */
-    public function getTest(): bool
+    public function getTest(): bool|null
     {
         return $this->container['Test'];
     }
@@ -345,7 +345,7 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return \Nlocascio\Mindbody\Model\CheckoutItemWrapper[]
      */
-    public function getItems(): array
+    public function getItems(): array|null
     {
         return $this->container['Items'];
     }
@@ -371,7 +371,7 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return bool
      */
-    public function getInStore(): bool
+    public function getInStore(): bool|null
     {
         return $this->container['InStore'];
     }
@@ -397,7 +397,7 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return bool
      */
-    public function getCalculateTax(): bool
+    public function getCalculateTax(): bool|null
     {
         return $this->container['CalculateTax'];
     }
@@ -423,7 +423,7 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return string
      */
-    public function getPromotionCode(): string
+    public function getPromotionCode(): string|null
     {
         return $this->container['PromotionCode'];
     }
@@ -449,7 +449,7 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return \Nlocascio\Mindbody\Model\CheckoutAlternativePaymentInfo[]
      */
-    public function getPayments(): array
+    public function getPayments(): array|null
     {
         return $this->container['Payments'];
     }
@@ -475,7 +475,7 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return bool
      */
-    public function getSendEmail(): bool
+    public function getSendEmail(): bool|null
     {
         return $this->container['SendEmail'];
     }
@@ -501,7 +501,7 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return int
      */
-    public function getLocationId(): int
+    public function getLocationId(): int|null
     {
         return $this->container['LocationId'];
     }
@@ -527,7 +527,7 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return string
      */
-    public function getPaymentAuthenticationCallbackUrl(): string
+    public function getPaymentAuthenticationCallbackUrl(): string|null
     {
         return $this->container['PaymentAuthenticationCallbackUrl'];
     }
@@ -553,7 +553,7 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return int[]
      */
-    public function getTransactionIds(): array
+    public function getTransactionIds(): array|null
     {
         return $this->container['TransactionIds'];
     }
@@ -579,7 +579,7 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return bool
      */
-    public function getIsBillingPostalCodeRequired(): bool
+    public function getIsBillingPostalCodeRequired(): bool|null
     {
         return $this->container['IsBillingPostalCodeRequired'];
     }
@@ -605,7 +605,7 @@ class InitiateCheckoutShoppingCartUsingAlternativePaymentsRequest extends BaseMo
      *
      * @return bool
      */
-    public function getEnforceLocationRestrictions(): bool
+    public function getEnforceLocationRestrictions(): bool|null
     {
         return $this->container['EnforceLocationRestrictions'];
     }

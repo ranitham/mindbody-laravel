@@ -137,7 +137,7 @@ class GetResourceAvailabilitiesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
+    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse|null
     {
         return $this->container['PaginationResponse'];
     }
@@ -163,7 +163,7 @@ class GetResourceAvailabilitiesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ResourceAvailability[]
      */
-    public function getResourceAvailabilities(): array
+    public function getResourceAvailabilities(): array|null
     {
         return $this->container['ResourceAvailabilities'];
     }

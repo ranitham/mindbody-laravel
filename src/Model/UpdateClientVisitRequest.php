@@ -175,7 +175,7 @@ class UpdateClientVisitRequest extends BaseModel
      *
      * @return int
      */
-    public function getVisitId(): int
+    public function getVisitId(): int|null
     {
         return $this->container['VisitId'];
     }
@@ -201,7 +201,7 @@ class UpdateClientVisitRequest extends BaseModel
      *
      * @return bool
      */
-    public function getMakeup(): bool
+    public function getMakeup(): bool|null
     {
         return $this->container['Makeup'];
     }
@@ -227,7 +227,7 @@ class UpdateClientVisitRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSignedIn(): bool
+    public function getSignedIn(): bool|null
     {
         return $this->container['SignedIn'];
     }
@@ -253,7 +253,7 @@ class UpdateClientVisitRequest extends BaseModel
      *
      * @return int
      */
-    public function getClientServiceId(): int
+    public function getClientServiceId(): int|null
     {
         return $this->container['ClientServiceId'];
     }
@@ -279,7 +279,7 @@ class UpdateClientVisitRequest extends BaseModel
      *
      * @return string
      */
-    public function getExecute(): string
+    public function getExecute(): string|null
     {
         return $this->container['Execute'];
     }
@@ -305,7 +305,7 @@ class UpdateClientVisitRequest extends BaseModel
      *
      * @return bool
      */
-    public function getTest(): bool
+    public function getTest(): bool|null
     {
         return $this->container['Test'];
     }
@@ -331,7 +331,7 @@ class UpdateClientVisitRequest extends BaseModel
      *
      * @return bool
      */
-    public function getSendEmail(): bool
+    public function getSendEmail(): bool|null
     {
         return $this->container['SendEmail'];
     }

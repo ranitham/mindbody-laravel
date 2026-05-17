@@ -138,7 +138,7 @@ class GetCategoriesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
+    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse|null
     {
         return $this->container['PaginationResponse'];
     }
@@ -164,7 +164,7 @@ class GetCategoriesResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Category[]
      */
-    public function getCategories(): array
+    public function getCategories(): array|null
     {
         return $this->container['Categories'];
     }

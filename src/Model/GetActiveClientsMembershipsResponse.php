@@ -137,7 +137,7 @@ class GetActiveClientsMembershipsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
+    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse|null
     {
         return $this->container['PaginationResponse'];
     }
@@ -163,7 +163,7 @@ class GetActiveClientsMembershipsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\ClientMemberships[]
      */
-    public function getClientMemberships(): array
+    public function getClientMemberships(): array|null
     {
         return $this->container['ClientMemberships'];
     }

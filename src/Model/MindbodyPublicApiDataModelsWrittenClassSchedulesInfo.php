@@ -137,7 +137,7 @@ class MindbodyPublicApiDataModelsWrittenClassSchedulesInfo extends BaseModel
      *
      * @return int
      */
-    public function getClassId(): int
+    public function getClassId(): int|null
     {
         return $this->container['ClassId'];
     }
@@ -163,7 +163,7 @@ class MindbodyPublicApiDataModelsWrittenClassSchedulesInfo extends BaseModel
      *
      * @return int[]
      */
-    public function getClassInstanceIds(): array
+    public function getClassInstanceIds(): array|null
     {
         return $this->container['ClassInstanceIds'];
     }

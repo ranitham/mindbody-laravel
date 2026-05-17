@@ -173,7 +173,7 @@ class PurchaseContractResponse extends BaseModel
      *
      * @return string
      */
-    public function getClientId(): string
+    public function getClientId(): string|null
     {
         return $this->container['ClientId'];
     }
@@ -199,7 +199,7 @@ class PurchaseContractResponse extends BaseModel
      *
      * @return int
      */
-    public function getUniqueClientId(): int
+    public function getUniqueClientId(): int|null
     {
         return $this->container['UniqueClientId'];
     }
@@ -225,7 +225,7 @@ class PurchaseContractResponse extends BaseModel
      *
      * @return int
      */
-    public function getLocationId(): int
+    public function getLocationId(): int|null
     {
         return $this->container['LocationId'];
     }
@@ -251,7 +251,7 @@ class PurchaseContractResponse extends BaseModel
      *
      * @return int
      */
-    public function getContractId(): int
+    public function getContractId(): int|null
     {
         return $this->container['ContractId'];
     }
@@ -277,7 +277,7 @@ class PurchaseContractResponse extends BaseModel
      *
      * @return int
      */
-    public function getClientContractId(): int
+    public function getClientContractId(): int|null
     {
         return $this->container['ClientContractId'];
     }
@@ -303,7 +303,7 @@ class PurchaseContractResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PurchaseContractResponseTotals
      */
-    public function getTotals(): \Nlocascio\Mindbody\Model\PurchaseContractResponseTotals
+    public function getTotals(): \Nlocascio\Mindbody\Model\PurchaseContractResponseTotals|null
     {
         return $this->container['Totals'];
     }
@@ -329,7 +329,7 @@ class PurchaseContractResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaymentProcessingFailure[]
      */
-    public function getPaymentProcessingFailures(): array
+    public function getPaymentProcessingFailures(): array|null
     {
         return $this->container['PaymentProcessingFailures'];
     }

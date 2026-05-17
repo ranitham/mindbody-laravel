@@ -44,7 +44,7 @@ interface ModelWithIntId extends ModelInterface
    * get the Id
    * @return int
    */
-  public function getId(): int;
+  public function getId(): int|null;
 
   /**
    * Sets Id

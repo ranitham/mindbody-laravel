@@ -201,7 +201,7 @@ class CreditCardInfo extends BaseModel
      *
      * @return string
      */
-    public function getCreditCardNumber(): string
+    public function getCreditCardNumber(): string|null
     {
         return $this->container['CreditCardNumber'];
     }
@@ -227,7 +227,7 @@ class CreditCardInfo extends BaseModel
      *
      * @return string
      */
-    public function getExpMonth(): string
+    public function getExpMonth(): string|null
     {
         return $this->container['ExpMonth'];
     }
@@ -253,7 +253,7 @@ class CreditCardInfo extends BaseModel
      *
      * @return string
      */
-    public function getExpYear(): string
+    public function getExpYear(): string|null
     {
         return $this->container['ExpYear'];
     }
@@ -279,7 +279,7 @@ class CreditCardInfo extends BaseModel
      *
      * @return string
      */
-    public function getBillingName(): string
+    public function getBillingName(): string|null
     {
         return $this->container['BillingName'];
     }
@@ -305,7 +305,7 @@ class CreditCardInfo extends BaseModel
      *
      * @return string
      */
-    public function getBillingAddress(): string
+    public function getBillingAddress(): string|null
     {
         return $this->container['BillingAddress'];
     }
@@ -331,7 +331,7 @@ class CreditCardInfo extends BaseModel
      *
      * @return string
      */
-    public function getBillingCity(): string
+    public function getBillingCity(): string|null
     {
         return $this->container['BillingCity'];
     }
@@ -357,7 +357,7 @@ class CreditCardInfo extends BaseModel
      *
      * @return string
      */
-    public function getBillingState(): string
+    public function getBillingState(): string|null
     {
         return $this->container['BillingState'];
     }
@@ -383,7 +383,7 @@ class CreditCardInfo extends BaseModel
      *
      * @return string
      */
-    public function getBillingPostalCode(): string
+    public function getBillingPostalCode(): string|null
     {
         return $this->container['BillingPostalCode'];
     }
@@ -409,7 +409,7 @@ class CreditCardInfo extends BaseModel
      *
      * @return bool
      */
-    public function getSaveInfo(): bool
+    public function getSaveInfo(): bool|null
     {
         return $this->container['SaveInfo'];
     }
@@ -435,7 +435,7 @@ class CreditCardInfo extends BaseModel
      *
      * @return string
      */
-    public function getCardId(): string
+    public function getCardId(): string|null
     {
         return $this->container['CardId'];
     }
@@ -461,7 +461,7 @@ class CreditCardInfo extends BaseModel
      *
      * @return string
      */
-    public function getCVV(): string
+    public function getCVV(): string|null
     {
         return $this->container['CVV'];
     }

@@ -144,7 +144,7 @@ class AddClientResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\Client
      */
-    public function getClient(): \Nlocascio\Mindbody\Model\Client
+    public function getClient(): \Nlocascio\Mindbody\Model\Client|null
     {
         return $this->container['Client'];
     }
@@ -170,7 +170,7 @@ class AddClientResponse extends BaseModel
      *
      * @return string
      */
-    public function getStatus(): string
+    public function getStatus(): string|null
     {
         return $this->container['Status'];
     }
@@ -196,7 +196,7 @@ class AddClientResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\OperationErrorResponse[]
      */
-    public function getErrors(): array
+    public function getErrors(): array|null
     {
         return $this->container['Errors'];
     }

@@ -195,7 +195,7 @@ class ClientRewardTransaction extends BaseModel
      *
      * @return \DateTime
      */
-    public function getActionDateTime(): \DateTime
+    public function getActionDateTime(): \DateTime|null
     {
         return $this->container['ActionDateTime'];
     }
@@ -221,7 +221,7 @@ class ClientRewardTransaction extends BaseModel
      *
      * @return string
      */
-    public function getAction(): string
+    public function getAction(): string|null
     {
         return $this->container['Action'];
     }
@@ -256,7 +256,7 @@ class ClientRewardTransaction extends BaseModel
      *
      * @return string
      */
-    public function getSource(): string
+    public function getSource(): string|null
     {
         return $this->container['Source'];
     }
@@ -282,7 +282,7 @@ class ClientRewardTransaction extends BaseModel
      *
      * @return int
      */
-    public function getSourceID(): int
+    public function getSourceID(): int|null
     {
         return $this->container['SourceID'];
     }
@@ -308,7 +308,7 @@ class ClientRewardTransaction extends BaseModel
      *
      * @return \DateTime
      */
-    public function getExpirationDateTime(): \DateTime
+    public function getExpirationDateTime(): \DateTime|null
     {
         return $this->container['ExpirationDateTime'];
     }
@@ -334,7 +334,7 @@ class ClientRewardTransaction extends BaseModel
      *
      * @return int
      */
-    public function getPoints(): int
+    public function getPoints(): int|null
     {
         return $this->container['Points'];
     }

@@ -144,7 +144,7 @@ class AutopaySchedule extends BaseModel
      *
      * @return string
      */
-    public function getFrequencyType(): string
+    public function getFrequencyType(): string|null
     {
         return $this->container['FrequencyType'];
     }
@@ -170,7 +170,7 @@ class AutopaySchedule extends BaseModel
      *
      * @return int
      */
-    public function getFrequencyValue(): int
+    public function getFrequencyValue(): int|null
     {
         return $this->container['FrequencyValue'];
     }
@@ -196,7 +196,7 @@ class AutopaySchedule extends BaseModel
      *
      * @return string
      */
-    public function getFrequencyTimeUnit(): string
+    public function getFrequencyTimeUnit(): string|null
     {
         return $this->container['FrequencyTimeUnit'];
     }

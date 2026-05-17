@@ -137,7 +137,7 @@ class GetCustomClientFieldsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\PaginationResponse
      */
-    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse
+    public function getPaginationResponse(): \Nlocascio\Mindbody\Model\PaginationResponse|null
     {
         return $this->container['PaginationResponse'];
     }
@@ -163,7 +163,7 @@ class GetCustomClientFieldsResponse extends BaseModel
      *
      * @return \Nlocascio\Mindbody\Model\CustomClientField[]
      */
-    public function getCustomClientFields(): array
+    public function getCustomClientFields(): array|null
     {
         return $this->container['CustomClientFields'];
     }
