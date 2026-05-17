@@ -79,7 +79,7 @@ class PricingOptionApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function pricingOptionUpdatePricingOption($Request): array
+    public function pricingOptionUpdatePricingOption($Request): object
     {
         ['response' => $response] = $this->pricingOptionUpdatePricingOptionWithHttpInfo($Request);
         return $response;
@@ -132,18 +132,7 @@ class PricingOptionApi implements ApiInterface
             $responseBody = $response->getBody();
             $content = json_decode($responseBody->getContents());
             $reponse = ObjectSerializer::deserialize($content, $returnType);
-            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
-                throw new ApiException(
-                    sprintf(
-                        'Unable to deserialize the response to %s, got %s',
-                        $returnType,
-                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
+            // @phpstan-ignore return.type
             return [
                 'response' => $reponse,
                 'statusCode' => $response->getStatusCode(),
@@ -251,6 +240,7 @@ class PricingOptionApi implements ApiInterface
 
         // body params
         $_tempBody = null;
+        // @phpstan-ignore isset.variable
         if (isset($Request)) {
             $_tempBody = $Request;
         }
@@ -261,31 +251,22 @@ class PricingOptionApi implements ApiInterface
         );
 
         // for model (json/xml)
+        // @phpstan-ignore isset.variable
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
             
-            if($headers['Content-Type'] === 'application/json') {
-                // \stdClass has no __toString(), so we should encode it manually
-                if ($httpBody instanceof \stdClass) {
-                    $httpBody = Utils::jsonEncode($httpBody);
-                }
-                // array has no __toString(), so we should encode it manually
-                if(is_array($httpBody)) {
-                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
-                }
+            // \stdClass has no __toString(), so we should encode it manually
+            // @phpstan-ignore instanceof.alwaysFalse
+            if ($httpBody instanceof \stdClass) {
+                $httpBody = Utils::jsonEncode($httpBody);
             }
-        } elseif (count($formParams) > 0) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = Utils::jsonEncode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            // array has no __toString(), so we should encode it manually
+            // @phpstan-ignore-next-line
+            if(is_array($httpBody)) {
+                $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
             }
-        }
-
-        // this endpoint requires API key authentication
+        }         // this endpoint requires API key authentication
         $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
         if ($apiKey !== null) {
             $headers['API-Key'] = $apiKey;
@@ -325,7 +306,7 @@ class PricingOptionApi implements ApiInterface
      * Create http client option
      *
      * @throws \RuntimeException on file opening failure
-     * @return array of http client options
+     * @return array<string, mixed> of http client options
      */
     protected function createHttpClientOption(): array
     {

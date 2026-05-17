@@ -107,7 +107,7 @@ class ObjectSerializer
      * Take value and turn it into a string suitable for inclusion in
      * the path, by url-encoding.
      *
-     * @param string $value a string which will be part of the path
+     * @param string|\DateTime|bool|int|float $value a string which will be part of the path
      *
      * @return string the serialized object
      */
@@ -122,7 +122,7 @@ class ObjectSerializer
      * If it's a string, pass through unchanged. It will be url-encoded
      * later.
      *
-     * @param string[]|string|\DateTime $object an object to be serialized to a string
+     * @param string[]|string|\DateTime|bool|int|float $object an object to be serialized to a string
      *
      * @return string the serialized object
      */
@@ -168,7 +168,7 @@ class ObjectSerializer
      * the parameter. If it's a string, pass through unchanged
      * If it's a datetime object, format it in ISO8601
      *
-     * @param string|\DateTime|bool $value the value of the parameter
+     * @param string|\DateTime|bool|int|float $value the value of the parameter
      *
      * @return string the header string
      */
@@ -179,7 +179,7 @@ class ObjectSerializer
         } elseif (\is_bool($value)) {
             return $value ? 'true' : 'false';
         } else {
-            return $value;
+            return (string)$value;
         }
     }
 
@@ -236,7 +236,7 @@ class ObjectSerializer
                 $subClass_array = explode(',', $inner, 2);
                 $subClass = $subClass_array[1];
                 foreach ($data as $key => $value) {
-                    $deserialized[$key] = self::deserialize($value, $subClass, null);
+                    $deserialized[$key] = self::deserialize($value, $subClass);
                 }
             }
             return $deserialized;
@@ -244,12 +244,9 @@ class ObjectSerializer
             $subClass = substr($class, 0, -2);
             $values = [];
             foreach ($data as $key => $value) {
-                $values[] = self::deserialize($value, $subClass, null);
+                $values[] = self::deserialize($value, $subClass);
             }
             return $values;
-        } elseif ($class === 'object') {
-            settype($data, 'array');
-            return $data;
         } elseif ($class === '\DateTime') {
             // Some API's return an invalid, empty string as a
             // date-time property. DateTime::__construct() will return
@@ -290,7 +287,7 @@ class ObjectSerializer
 
                 $propertyValue = $data->{$instance::attributeMap()[$property]};
                 if (isset($propertyValue)) {
-                    $instance->$propertySetter(self::deserialize($propertyValue, $type, null));
+                    $instance->$propertySetter(self::deserialize($propertyValue, $type));
                 }
             }
             return $instance;

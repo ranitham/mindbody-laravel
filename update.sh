@@ -1,13 +1,13 @@
 #!/bin/bash
 # Run Codegen
-java  -DdebugOperations=true -jar swagger-codegen-cli.jar generate -l php -i mindbody.json -c swagger-php-config.json -t swagger-templates/php
+java  -jar swagger-codegen-cli.jar generate -l php -i mindbody.json -c swagger-php-config.json -t swagger-templates/php
 
 #Delete src/tests
 rm -rf src/test
 
 pushd src/Api
 for i in *Api.php; do sed -i -E 's/(function\s.*\(.*?\)\s*:\s*)(.*?\[\])/\1array/gm' $i; done
-for i in *Api.php; do sed -i -E 's/(function\s.*\(.*?\)\s*:\s*)object/\1array/gm' $i; done
+#for i in *Api.php; do sed -i -E 's/(function\s.*\(.*?\)\s*:\s*)object/\1array/gm' $i; done
 popd
 
 pushd src/Model

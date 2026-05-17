@@ -249,11 +249,7 @@ abstract class BaseModel extends _BaseModel
    */
   public function offsetSet(mixed $offset, mixed $value): void
   {
-    if (is_null($offset)) {
-      $this->container[] = $value;
-    } else {
-      $this->container[$offset] = $value;
-    }
+    $this->container[$offset] = $value;
   }
 
   /**
@@ -308,7 +304,7 @@ abstract class BaseModel extends _BaseModel
   {
     if (array_key_exists($name, static::setters())) {
       $setter = static::setters()[$name];
-      $setter($value);
+      $this->$setter($value);
     } else {
       throw new \UnexpectedValueException('Cannot set variable named ' . $name . 'in ' . \get_class($this));
     }

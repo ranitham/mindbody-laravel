@@ -132,7 +132,7 @@ class SiteApi implements ApiInterface
             $responseBody = $response->getBody();
             $content = json_decode($responseBody->getContents());
             $reponse = ObjectSerializer::deserialize($content, $returnType);
-            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddSiteClientIndexResponse) {
                 throw new ApiException(
                     sprintf(
                         'Unable to deserialize the response to %s, got %s',
@@ -251,6 +251,7 @@ class SiteApi implements ApiInterface
 
         // body params
         $_tempBody = null;
+        // @phpstan-ignore isset.variable
         if (isset($Request)) {
             $_tempBody = $Request;
         }
@@ -261,31 +262,22 @@ class SiteApi implements ApiInterface
         );
 
         // for model (json/xml)
+        // @phpstan-ignore isset.variable
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
             
-            if($headers['Content-Type'] === 'application/json') {
-                // \stdClass has no __toString(), so we should encode it manually
-                if ($httpBody instanceof \stdClass) {
-                    $httpBody = Utils::jsonEncode($httpBody);
-                }
-                // array has no __toString(), so we should encode it manually
-                if(is_array($httpBody)) {
-                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
-                }
+            // \stdClass has no __toString(), so we should encode it manually
+            // @phpstan-ignore instanceof.alwaysFalse
+            if ($httpBody instanceof \stdClass) {
+                $httpBody = Utils::jsonEncode($httpBody);
             }
-        } elseif (count($formParams) > 0) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = Utils::jsonEncode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            // array has no __toString(), so we should encode it manually
+            // @phpstan-ignore-next-line
+            if(is_array($httpBody)) {
+                $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
             }
-        }
-
-        // this endpoint requires API key authentication
+        }         // this endpoint requires API key authentication
         $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
         if ($apiKey !== null) {
             $headers['API-Key'] = $apiKey;
@@ -385,7 +377,7 @@ class SiteApi implements ApiInterface
             $responseBody = $response->getBody();
             $content = json_decode($responseBody->getContents());
             $reponse = ObjectSerializer::deserialize($content, $returnType);
-            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddPromoCodeResponse) {
                 throw new ApiException(
                     sprintf(
                         'Unable to deserialize the response to %s, got %s',
@@ -504,6 +496,7 @@ class SiteApi implements ApiInterface
 
         // body params
         $_tempBody = null;
+        // @phpstan-ignore isset.variable
         if (isset($Request)) {
             $_tempBody = $Request;
         }
@@ -514,31 +507,22 @@ class SiteApi implements ApiInterface
         );
 
         // for model (json/xml)
+        // @phpstan-ignore isset.variable
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
             
-            if($headers['Content-Type'] === 'application/json') {
-                // \stdClass has no __toString(), so we should encode it manually
-                if ($httpBody instanceof \stdClass) {
-                    $httpBody = Utils::jsonEncode($httpBody);
-                }
-                // array has no __toString(), so we should encode it manually
-                if(is_array($httpBody)) {
-                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
-                }
+            // \stdClass has no __toString(), so we should encode it manually
+            // @phpstan-ignore instanceof.alwaysFalse
+            if ($httpBody instanceof \stdClass) {
+                $httpBody = Utils::jsonEncode($httpBody);
             }
-        } elseif (count($formParams) > 0) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = Utils::jsonEncode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            // array has no __toString(), so we should encode it manually
+            // @phpstan-ignore-next-line
+            if(is_array($httpBody)) {
+                $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
             }
-        }
-
-        // this endpoint requires API key authentication
+        }         // this endpoint requires API key authentication
         $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
         if ($apiKey !== null) {
             $headers['API-Key'] = $apiKey;
@@ -585,7 +569,7 @@ class SiteApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function siteDeactivatePromoCode($Request): array
+    public function siteDeactivatePromoCode($Request): object
     {
         ['response' => $response] = $this->siteDeactivatePromoCodeWithHttpInfo($Request);
         return $response;
@@ -638,18 +622,7 @@ class SiteApi implements ApiInterface
             $responseBody = $response->getBody();
             $content = json_decode($responseBody->getContents());
             $reponse = ObjectSerializer::deserialize($content, $returnType);
-            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
-                throw new ApiException(
-                    sprintf(
-                        'Unable to deserialize the response to %s, got %s',
-                        $returnType,
-                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
+            // @phpstan-ignore return.type
             return [
                 'response' => $reponse,
                 'statusCode' => $response->getStatusCode(),
@@ -757,6 +730,7 @@ class SiteApi implements ApiInterface
 
         // body params
         $_tempBody = null;
+        // @phpstan-ignore isset.variable
         if (isset($Request)) {
             $_tempBody = $Request;
         }
@@ -767,31 +741,22 @@ class SiteApi implements ApiInterface
         );
 
         // for model (json/xml)
+        // @phpstan-ignore isset.variable
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
             
-            if($headers['Content-Type'] === 'application/json') {
-                // \stdClass has no __toString(), so we should encode it manually
-                if ($httpBody instanceof \stdClass) {
-                    $httpBody = Utils::jsonEncode($httpBody);
-                }
-                // array has no __toString(), so we should encode it manually
-                if(is_array($httpBody)) {
-                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
-                }
+            // \stdClass has no __toString(), so we should encode it manually
+            // @phpstan-ignore instanceof.alwaysFalse
+            if ($httpBody instanceof \stdClass) {
+                $httpBody = Utils::jsonEncode($httpBody);
             }
-        } elseif (count($formParams) > 0) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = Utils::jsonEncode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            // array has no __toString(), so we should encode it manually
+            // @phpstan-ignore-next-line
+            if(is_array($httpBody)) {
+                $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
             }
-        }
-
-        // this endpoint requires API key authentication
+        }         // this endpoint requires API key authentication
         $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
         if ($apiKey !== null) {
             $headers['API-Key'] = $apiKey;
@@ -889,7 +854,7 @@ class SiteApi implements ApiInterface
             $responseBody = $response->getBody();
             $content = json_decode($responseBody->getContents());
             $reponse = ObjectSerializer::deserialize($content, $returnType);
-            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\GetActivationCodeResponse) {
                 throw new ApiException(
                     sprintf(
                         'Unable to deserialize the response to %s, got %s',
@@ -1012,31 +977,22 @@ class SiteApi implements ApiInterface
         );
 
         // for model (json/xml)
+        // @phpstan-ignore isset.variable
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
             
-            if($headers['Content-Type'] === 'application/json') {
-                // \stdClass has no __toString(), so we should encode it manually
-                if ($httpBody instanceof \stdClass) {
-                    $httpBody = Utils::jsonEncode($httpBody);
-                }
-                // array has no __toString(), so we should encode it manually
-                if(is_array($httpBody)) {
-                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
-                }
+            // \stdClass has no __toString(), so we should encode it manually
+            // @phpstan-ignore instanceof.alwaysFalse
+            if ($httpBody instanceof \stdClass) {
+                $httpBody = Utils::jsonEncode($httpBody);
             }
-        } elseif (count($formParams) > 0) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = Utils::jsonEncode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            // array has no __toString(), so we should encode it manually
+            // @phpstan-ignore-next-line
+            if(is_array($httpBody)) {
+                $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
             }
-        }
-
-        // this endpoint requires API key authentication
+        }         // this endpoint requires API key authentication
         $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
         if ($apiKey !== null) {
             $headers['API-Key'] = $apiKey;
@@ -1141,7 +1097,7 @@ class SiteApi implements ApiInterface
             $responseBody = $response->getBody();
             $content = json_decode($responseBody->getContents());
             $reponse = ObjectSerializer::deserialize($content, $returnType);
-            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\GetCategoriesResponse) {
                 throw new ApiException(
                     sprintf(
                         'Unable to deserialize the response to %s, got %s',
@@ -1272,35 +1228,47 @@ class SiteApi implements ApiInterface
         $httpBody = '';
 
         // query params
+        
+        
         if ($RequestActive !== null) {
             $queryParams['request.active'] = ObjectSerializer::toQueryValue($RequestActive);
         }
+        
         // query params
+        
         if (is_array($RequestCategoryIds)) {
             $queryParams['request.categoryIds'] = $RequestCategoryIds;
-        } else
-        if ($RequestCategoryIds !== null) {
-            $queryParams['request.categoryIds'] = ObjectSerializer::toQueryValue($RequestCategoryIds);
         }
+        
+        
         // query params
+        
+        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
+        
         // query params
+        
+        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
+        
         // query params
+        
+        
         if ($RequestService !== null) {
             $queryParams['request.service'] = ObjectSerializer::toQueryValue($RequestService);
         }
+        
         // query params
+        
         if (is_array($RequestSubCategoryIds)) {
             $queryParams['request.subCategoryIds'] = $RequestSubCategoryIds;
-        } else
-        if ($RequestSubCategoryIds !== null) {
-            $queryParams['request.subCategoryIds'] = ObjectSerializer::toQueryValue($RequestSubCategoryIds);
         }
+        
+        
 
 
         // body params
@@ -1312,31 +1280,22 @@ class SiteApi implements ApiInterface
         );
 
         // for model (json/xml)
+        // @phpstan-ignore isset.variable
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
             
-            if($headers['Content-Type'] === 'application/json') {
-                // \stdClass has no __toString(), so we should encode it manually
-                if ($httpBody instanceof \stdClass) {
-                    $httpBody = Utils::jsonEncode($httpBody);
-                }
-                // array has no __toString(), so we should encode it manually
-                if(is_array($httpBody)) {
-                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
-                }
+            // \stdClass has no __toString(), so we should encode it manually
+            // @phpstan-ignore instanceof.alwaysFalse
+            if ($httpBody instanceof \stdClass) {
+                $httpBody = Utils::jsonEncode($httpBody);
             }
-        } elseif (count($formParams) > 0) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = Utils::jsonEncode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            // array has no __toString(), so we should encode it manually
+            // @phpstan-ignore-next-line
+            if(is_array($httpBody)) {
+                $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
             }
-        }
-
-        // this endpoint requires API key authentication
+        }         // this endpoint requires API key authentication
         $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
         if ($apiKey !== null) {
             $headers['API-Key'] = $apiKey;
@@ -1434,7 +1393,7 @@ class SiteApi implements ApiInterface
             $responseBody = $response->getBody();
             $content = json_decode($responseBody->getContents());
             $reponse = ObjectSerializer::deserialize($content, $returnType);
-            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\GetGendersResponse) {
                 throw new ApiException(
                     sprintf(
                         'Unable to deserialize the response to %s, got %s',
@@ -1557,31 +1516,22 @@ class SiteApi implements ApiInterface
         );
 
         // for model (json/xml)
+        // @phpstan-ignore isset.variable
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
             
-            if($headers['Content-Type'] === 'application/json') {
-                // \stdClass has no __toString(), so we should encode it manually
-                if ($httpBody instanceof \stdClass) {
-                    $httpBody = Utils::jsonEncode($httpBody);
-                }
-                // array has no __toString(), so we should encode it manually
-                if(is_array($httpBody)) {
-                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
-                }
+            // \stdClass has no __toString(), so we should encode it manually
+            // @phpstan-ignore instanceof.alwaysFalse
+            if ($httpBody instanceof \stdClass) {
+                $httpBody = Utils::jsonEncode($httpBody);
             }
-        } elseif (count($formParams) > 0) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = Utils::jsonEncode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            // array has no __toString(), so we should encode it manually
+            // @phpstan-ignore-next-line
+            if(is_array($httpBody)) {
+                $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
             }
-        }
-
-        // this endpoint requires API key authentication
+        }         // this endpoint requires API key authentication
         $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
         if ($apiKey !== null) {
             $headers['API-Key'] = $apiKey;
@@ -1679,7 +1629,7 @@ class SiteApi implements ApiInterface
             $responseBody = $response->getBody();
             $content = json_decode($responseBody->getContents());
             $reponse = ObjectSerializer::deserialize($content, $returnType);
-            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\GetLiabilityWaiverResponse) {
                 throw new ApiException(
                     sprintf(
                         'Unable to deserialize the response to %s, got %s',
@@ -1802,31 +1752,22 @@ class SiteApi implements ApiInterface
         );
 
         // for model (json/xml)
+        // @phpstan-ignore isset.variable
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
             
-            if($headers['Content-Type'] === 'application/json') {
-                // \stdClass has no __toString(), so we should encode it manually
-                if ($httpBody instanceof \stdClass) {
-                    $httpBody = Utils::jsonEncode($httpBody);
-                }
-                // array has no __toString(), so we should encode it manually
-                if(is_array($httpBody)) {
-                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
-                }
+            // \stdClass has no __toString(), so we should encode it manually
+            // @phpstan-ignore instanceof.alwaysFalse
+            if ($httpBody instanceof \stdClass) {
+                $httpBody = Utils::jsonEncode($httpBody);
             }
-        } elseif (count($formParams) > 0) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = Utils::jsonEncode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            // array has no __toString(), so we should encode it manually
+            // @phpstan-ignore-next-line
+            if(is_array($httpBody)) {
+                $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
             }
-        }
-
-        // this endpoint requires API key authentication
+        }         // this endpoint requires API key authentication
         $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
         if ($apiKey !== null) {
             $headers['API-Key'] = $apiKey;
@@ -1928,7 +1869,7 @@ class SiteApi implements ApiInterface
             $responseBody = $response->getBody();
             $content = json_decode($responseBody->getContents());
             $reponse = ObjectSerializer::deserialize($content, $returnType);
-            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\GetLocationsResponse) {
                 throw new ApiException(
                     sprintf(
                         'Unable to deserialize the response to %s, got %s',
@@ -2047,13 +1988,19 @@ class SiteApi implements ApiInterface
         $httpBody = '';
 
         // query params
+        
+        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
+        
         // query params
+        
+        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
+        
 
 
         // body params
@@ -2065,31 +2012,22 @@ class SiteApi implements ApiInterface
         );
 
         // for model (json/xml)
+        // @phpstan-ignore isset.variable
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
             
-            if($headers['Content-Type'] === 'application/json') {
-                // \stdClass has no __toString(), so we should encode it manually
-                if ($httpBody instanceof \stdClass) {
-                    $httpBody = Utils::jsonEncode($httpBody);
-                }
-                // array has no __toString(), so we should encode it manually
-                if(is_array($httpBody)) {
-                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
-                }
+            // \stdClass has no __toString(), so we should encode it manually
+            // @phpstan-ignore instanceof.alwaysFalse
+            if ($httpBody instanceof \stdClass) {
+                $httpBody = Utils::jsonEncode($httpBody);
             }
-        } elseif (count($formParams) > 0) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = Utils::jsonEncode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            // array has no __toString(), so we should encode it manually
+            // @phpstan-ignore-next-line
+            if(is_array($httpBody)) {
+                $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
             }
-        }
-
-        // this endpoint requires API key authentication
+        }         // this endpoint requires API key authentication
         $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
         if ($apiKey !== null) {
             $headers['API-Key'] = $apiKey;
@@ -2189,7 +2127,7 @@ class SiteApi implements ApiInterface
             $responseBody = $response->getBody();
             $content = json_decode($responseBody->getContents());
             $reponse = ObjectSerializer::deserialize($content, $returnType);
-            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\GetMembershipsResponse) {
                 throw new ApiException(
                     sprintf(
                         'Unable to deserialize the response to %s, got %s',
@@ -2305,12 +2243,12 @@ class SiteApi implements ApiInterface
         $httpBody = '';
 
         // query params
+        
         if (is_array($RequestMembershipIds)) {
             $queryParams['request.membershipIds'] = $RequestMembershipIds;
-        } else
-        if ($RequestMembershipIds !== null) {
-            $queryParams['request.membershipIds'] = ObjectSerializer::toQueryValue($RequestMembershipIds);
         }
+        
+        
 
 
         // body params
@@ -2322,31 +2260,22 @@ class SiteApi implements ApiInterface
         );
 
         // for model (json/xml)
+        // @phpstan-ignore isset.variable
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
             
-            if($headers['Content-Type'] === 'application/json') {
-                // \stdClass has no __toString(), so we should encode it manually
-                if ($httpBody instanceof \stdClass) {
-                    $httpBody = Utils::jsonEncode($httpBody);
-                }
-                // array has no __toString(), so we should encode it manually
-                if(is_array($httpBody)) {
-                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
-                }
+            // \stdClass has no __toString(), so we should encode it manually
+            // @phpstan-ignore instanceof.alwaysFalse
+            if ($httpBody instanceof \stdClass) {
+                $httpBody = Utils::jsonEncode($httpBody);
             }
-        } elseif (count($formParams) > 0) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = Utils::jsonEncode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            // array has no __toString(), so we should encode it manually
+            // @phpstan-ignore-next-line
+            if(is_array($httpBody)) {
+                $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
             }
-        }
-
-        // this endpoint requires API key authentication
+        }         // this endpoint requires API key authentication
         $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
         if ($apiKey !== null) {
             $headers['API-Key'] = $apiKey;
@@ -2446,7 +2375,7 @@ class SiteApi implements ApiInterface
             $responseBody = $response->getBody();
             $content = json_decode($responseBody->getContents());
             $reponse = ObjectSerializer::deserialize($content, $returnType);
-            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\GetMobileProvidersResponse) {
                 throw new ApiException(
                     sprintf(
                         'Unable to deserialize the response to %s, got %s',
@@ -2562,9 +2491,12 @@ class SiteApi implements ApiInterface
         $httpBody = '';
 
         // query params
+        
+        
         if ($RequestActive !== null) {
             $queryParams['request.active'] = ObjectSerializer::toQueryValue($RequestActive);
         }
+        
 
 
         // body params
@@ -2576,31 +2508,22 @@ class SiteApi implements ApiInterface
         );
 
         // for model (json/xml)
+        // @phpstan-ignore isset.variable
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
             
-            if($headers['Content-Type'] === 'application/json') {
-                // \stdClass has no __toString(), so we should encode it manually
-                if ($httpBody instanceof \stdClass) {
-                    $httpBody = Utils::jsonEncode($httpBody);
-                }
-                // array has no __toString(), so we should encode it manually
-                if(is_array($httpBody)) {
-                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
-                }
+            // \stdClass has no __toString(), so we should encode it manually
+            // @phpstan-ignore instanceof.alwaysFalse
+            if ($httpBody instanceof \stdClass) {
+                $httpBody = Utils::jsonEncode($httpBody);
             }
-        } elseif (count($formParams) > 0) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = Utils::jsonEncode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            // array has no __toString(), so we should encode it manually
+            // @phpstan-ignore-next-line
+            if(is_array($httpBody)) {
+                $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
             }
-        }
-
-        // this endpoint requires API key authentication
+        }         // this endpoint requires API key authentication
         $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
         if ($apiKey !== null) {
             $headers['API-Key'] = $apiKey;
@@ -2700,7 +2623,7 @@ class SiteApi implements ApiInterface
             $responseBody = $response->getBody();
             $content = json_decode($responseBody->getContents());
             $reponse = ObjectSerializer::deserialize($content, $returnType);
-            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\GetPaymentTypesResponse) {
                 throw new ApiException(
                     sprintf(
                         'Unable to deserialize the response to %s, got %s',
@@ -2816,9 +2739,12 @@ class SiteApi implements ApiInterface
         $httpBody = '';
 
         // query params
+        
+        
         if ($RequestActive !== null) {
             $queryParams['request.active'] = ObjectSerializer::toQueryValue($RequestActive);
         }
+        
 
 
         // body params
@@ -2830,31 +2756,22 @@ class SiteApi implements ApiInterface
         );
 
         // for model (json/xml)
+        // @phpstan-ignore isset.variable
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
             
-            if($headers['Content-Type'] === 'application/json') {
-                // \stdClass has no __toString(), so we should encode it manually
-                if ($httpBody instanceof \stdClass) {
-                    $httpBody = Utils::jsonEncode($httpBody);
-                }
-                // array has no __toString(), so we should encode it manually
-                if(is_array($httpBody)) {
-                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
-                }
+            // \stdClass has no __toString(), so we should encode it manually
+            // @phpstan-ignore instanceof.alwaysFalse
+            if ($httpBody instanceof \stdClass) {
+                $httpBody = Utils::jsonEncode($httpBody);
             }
-        } elseif (count($formParams) > 0) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = Utils::jsonEncode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            // array has no __toString(), so we should encode it manually
+            // @phpstan-ignore-next-line
+            if(is_array($httpBody)) {
+                $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
             }
-        }
-
-        // this endpoint requires API key authentication
+        }         // this endpoint requires API key authentication
         $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
         if ($apiKey !== null) {
             $headers['API-Key'] = $apiKey;
@@ -2962,7 +2879,7 @@ class SiteApi implements ApiInterface
             $responseBody = $response->getBody();
             $content = json_decode($responseBody->getContents());
             $reponse = ObjectSerializer::deserialize($content, $returnType);
-            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\GetProgramsResponse) {
                 throw new ApiException(
                     sprintf(
                         'Unable to deserialize the response to %s, got %s',
@@ -3090,28 +3007,40 @@ class SiteApi implements ApiInterface
         $httpBody = '';
 
         // query params
+        
+        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
+        
         // query params
+        
+        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
+        
         // query params
+        
+        
         if ($RequestOnlineOnly !== null) {
             $queryParams['request.onlineOnly'] = ObjectSerializer::toQueryValue($RequestOnlineOnly);
         }
+        
         // query params
+        
         if (is_array($RequestProgramIds)) {
             $queryParams['request.programIds'] = $RequestProgramIds;
-        } else
-        if ($RequestProgramIds !== null) {
-            $queryParams['request.programIds'] = ObjectSerializer::toQueryValue($RequestProgramIds);
         }
+        
+        
         // query params
+        
+        
         if ($RequestScheduleType !== null) {
             $queryParams['request.scheduleType'] = ObjectSerializer::toQueryValue($RequestScheduleType);
         }
+        
 
 
         // body params
@@ -3123,31 +3052,22 @@ class SiteApi implements ApiInterface
         );
 
         // for model (json/xml)
+        // @phpstan-ignore isset.variable
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
             
-            if($headers['Content-Type'] === 'application/json') {
-                // \stdClass has no __toString(), so we should encode it manually
-                if ($httpBody instanceof \stdClass) {
-                    $httpBody = Utils::jsonEncode($httpBody);
-                }
-                // array has no __toString(), so we should encode it manually
-                if(is_array($httpBody)) {
-                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
-                }
+            // \stdClass has no __toString(), so we should encode it manually
+            // @phpstan-ignore instanceof.alwaysFalse
+            if ($httpBody instanceof \stdClass) {
+                $httpBody = Utils::jsonEncode($httpBody);
             }
-        } elseif (count($formParams) > 0) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = Utils::jsonEncode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            // array has no __toString(), so we should encode it manually
+            // @phpstan-ignore-next-line
+            if(is_array($httpBody)) {
+                $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
             }
-        }
-
-        // this endpoint requires API key authentication
+        }         // this endpoint requires API key authentication
         $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
         if ($apiKey !== null) {
             $headers['API-Key'] = $apiKey;
@@ -3259,7 +3179,7 @@ class SiteApi implements ApiInterface
             $responseBody = $response->getBody();
             $content = json_decode($responseBody->getContents());
             $reponse = ObjectSerializer::deserialize($content, $returnType);
-            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\GetPromoCodesResponse) {
                 throw new ApiException(
                     sprintf(
                         'Unable to deserialize the response to %s, got %s',
@@ -3393,33 +3313,54 @@ class SiteApi implements ApiInterface
         $httpBody = '';
 
         // query params
+        
+        
         if ($RequestActiveOnly !== null) {
             $queryParams['request.activeOnly'] = ObjectSerializer::toQueryValue($RequestActiveOnly);
         }
+        
         // query params
+        
+        
         if ($RequestEndDate !== null) {
             $queryParams['request.endDate'] = ObjectSerializer::toQueryValue($RequestEndDate);
         }
+        
         // query params
+        
+        
         if ($RequestLastModifiedDate !== null) {
             $queryParams['request.lastModifiedDate'] = ObjectSerializer::toQueryValue($RequestLastModifiedDate);
         }
+        
         // query params
+        
+        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
+        
         // query params
+        
+        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
+        
         // query params
+        
+        
         if ($RequestOnlineOnly !== null) {
             $queryParams['request.onlineOnly'] = ObjectSerializer::toQueryValue($RequestOnlineOnly);
         }
+        
         // query params
+        
+        
         if ($RequestStartDate !== null) {
             $queryParams['request.startDate'] = ObjectSerializer::toQueryValue($RequestStartDate);
         }
+        
 
 
         // body params
@@ -3431,31 +3372,22 @@ class SiteApi implements ApiInterface
         );
 
         // for model (json/xml)
+        // @phpstan-ignore isset.variable
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
             
-            if($headers['Content-Type'] === 'application/json') {
-                // \stdClass has no __toString(), so we should encode it manually
-                if ($httpBody instanceof \stdClass) {
-                    $httpBody = Utils::jsonEncode($httpBody);
-                }
-                // array has no __toString(), so we should encode it manually
-                if(is_array($httpBody)) {
-                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
-                }
+            // \stdClass has no __toString(), so we should encode it manually
+            // @phpstan-ignore instanceof.alwaysFalse
+            if ($httpBody instanceof \stdClass) {
+                $httpBody = Utils::jsonEncode($httpBody);
             }
-        } elseif (count($formParams) > 0) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = Utils::jsonEncode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            // array has no __toString(), so we should encode it manually
+            // @phpstan-ignore-next-line
+            if(is_array($httpBody)) {
+                $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
             }
-        }
-
-        // this endpoint requires API key authentication
+        }         // this endpoint requires API key authentication
         $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
         if ($apiKey !== null) {
             $headers['API-Key'] = $apiKey;
@@ -3555,7 +3487,7 @@ class SiteApi implements ApiInterface
             $responseBody = $response->getBody();
             $content = json_decode($responseBody->getContents());
             $reponse = ObjectSerializer::deserialize($content, $returnType);
-            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\GetProspectStagesResponse) {
                 throw new ApiException(
                     sprintf(
                         'Unable to deserialize the response to %s, got %s',
@@ -3671,9 +3603,12 @@ class SiteApi implements ApiInterface
         $httpBody = '';
 
         // query params
+        
+        
         if ($RequestActive !== null) {
             $queryParams['request.active'] = ObjectSerializer::toQueryValue($RequestActive);
         }
+        
 
 
         // body params
@@ -3685,31 +3620,22 @@ class SiteApi implements ApiInterface
         );
 
         // for model (json/xml)
+        // @phpstan-ignore isset.variable
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
             
-            if($headers['Content-Type'] === 'application/json') {
-                // \stdClass has no __toString(), so we should encode it manually
-                if ($httpBody instanceof \stdClass) {
-                    $httpBody = Utils::jsonEncode($httpBody);
-                }
-                // array has no __toString(), so we should encode it manually
-                if(is_array($httpBody)) {
-                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
-                }
+            // \stdClass has no __toString(), so we should encode it manually
+            // @phpstan-ignore instanceof.alwaysFalse
+            if ($httpBody instanceof \stdClass) {
+                $httpBody = Utils::jsonEncode($httpBody);
             }
-        } elseif (count($formParams) > 0) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = Utils::jsonEncode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            // array has no __toString(), so we should encode it manually
+            // @phpstan-ignore-next-line
+            if(is_array($httpBody)) {
+                $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
             }
-        }
-
-        // this endpoint requires API key authentication
+        }         // this endpoint requires API key authentication
         $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
         if ($apiKey !== null) {
             $headers['API-Key'] = $apiKey;
@@ -3813,7 +3739,7 @@ class SiteApi implements ApiInterface
             $responseBody = $response->getBody();
             $content = json_decode($responseBody->getContents());
             $reponse = ObjectSerializer::deserialize($content, $returnType);
-            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\GetRelationshipsResponse) {
                 throw new ApiException(
                     sprintf(
                         'Unable to deserialize the response to %s, got %s',
@@ -3935,17 +3861,26 @@ class SiteApi implements ApiInterface
         $httpBody = '';
 
         // query params
+        
+        
         if ($RequestActive !== null) {
             $queryParams['request.active'] = ObjectSerializer::toQueryValue($RequestActive);
         }
+        
         // query params
+        
+        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
+        
         // query params
+        
+        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
+        
 
 
         // body params
@@ -3957,31 +3892,22 @@ class SiteApi implements ApiInterface
         );
 
         // for model (json/xml)
+        // @phpstan-ignore isset.variable
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
             
-            if($headers['Content-Type'] === 'application/json') {
-                // \stdClass has no __toString(), so we should encode it manually
-                if ($httpBody instanceof \stdClass) {
-                    $httpBody = Utils::jsonEncode($httpBody);
-                }
-                // array has no __toString(), so we should encode it manually
-                if(is_array($httpBody)) {
-                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
-                }
+            // \stdClass has no __toString(), so we should encode it manually
+            // @phpstan-ignore instanceof.alwaysFalse
+            if ($httpBody instanceof \stdClass) {
+                $httpBody = Utils::jsonEncode($httpBody);
             }
-        } elseif (count($formParams) > 0) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = Utils::jsonEncode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            // array has no __toString(), so we should encode it manually
+            // @phpstan-ignore-next-line
+            if(is_array($httpBody)) {
+                $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
             }
-        }
-
-        // this endpoint requires API key authentication
+        }         // this endpoint requires API key authentication
         $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
         if ($apiKey !== null) {
             $headers['API-Key'] = $apiKey;
@@ -4095,7 +4021,7 @@ class SiteApi implements ApiInterface
             $responseBody = $response->getBody();
             $content = json_decode($responseBody->getContents());
             $reponse = ObjectSerializer::deserialize($content, $returnType);
-            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\GetResourceAvailabilitiesResponse) {
                 throw new ApiException(
                     sprintf(
                         'Unable to deserialize the response to %s, got %s',
@@ -4232,49 +4158,61 @@ class SiteApi implements ApiInterface
         $httpBody = '';
 
         // query params
+        
+        
         if ($RequestEndDate !== null) {
             $queryParams['request.endDate'] = ObjectSerializer::toQueryValue($RequestEndDate);
         }
+        
         // query params
+        
+        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
+        
         // query params
+        
         if (is_array($RequestLocationIds)) {
             $queryParams['request.locationIds'] = $RequestLocationIds;
-        } else
-        if ($RequestLocationIds !== null) {
-            $queryParams['request.locationIds'] = ObjectSerializer::toQueryValue($RequestLocationIds);
         }
+        
+        
         // query params
+        
+        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
+        
         // query params
+        
         if (is_array($RequestProgramIds)) {
             $queryParams['request.programIds'] = $RequestProgramIds;
-        } else
-        if ($RequestProgramIds !== null) {
-            $queryParams['request.programIds'] = ObjectSerializer::toQueryValue($RequestProgramIds);
         }
+        
+        
         // query params
+        
         if (is_array($RequestResourceIds)) {
             $queryParams['request.resourceIds'] = $RequestResourceIds;
-        } else
-        if ($RequestResourceIds !== null) {
-            $queryParams['request.resourceIds'] = ObjectSerializer::toQueryValue($RequestResourceIds);
         }
+        
+        
         // query params
+        
         if (is_array($RequestScheduleTypes)) {
             $queryParams['request.scheduleTypes'] = $RequestScheduleTypes;
-        } else
-        if ($RequestScheduleTypes !== null) {
-            $queryParams['request.scheduleTypes'] = ObjectSerializer::toQueryValue($RequestScheduleTypes);
         }
+        
+        
         // query params
+        
+        
         if ($RequestStartDate !== null) {
             $queryParams['request.startDate'] = ObjectSerializer::toQueryValue($RequestStartDate);
         }
+        
 
 
         // body params
@@ -4286,31 +4224,22 @@ class SiteApi implements ApiInterface
         );
 
         // for model (json/xml)
+        // @phpstan-ignore isset.variable
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
             
-            if($headers['Content-Type'] === 'application/json') {
-                // \stdClass has no __toString(), so we should encode it manually
-                if ($httpBody instanceof \stdClass) {
-                    $httpBody = Utils::jsonEncode($httpBody);
-                }
-                // array has no __toString(), so we should encode it manually
-                if(is_array($httpBody)) {
-                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
-                }
+            // \stdClass has no __toString(), so we should encode it manually
+            // @phpstan-ignore instanceof.alwaysFalse
+            if ($httpBody instanceof \stdClass) {
+                $httpBody = Utils::jsonEncode($httpBody);
             }
-        } elseif (count($formParams) > 0) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = Utils::jsonEncode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            // array has no __toString(), so we should encode it manually
+            // @phpstan-ignore-next-line
+            if(is_array($httpBody)) {
+                $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
             }
-        }
-
-        // this endpoint requires API key authentication
+        }         // this endpoint requires API key authentication
         $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
         if ($apiKey !== null) {
             $headers['API-Key'] = $apiKey;
@@ -4363,7 +4292,7 @@ class SiteApi implements ApiInterface
      * @throws \InvalidArgumentException
      * @return object
      */
-    public function siteGetResources($RequestIncludeInactive = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestResourceIds = null, $RequestScheduleTypes = null): array
+    public function siteGetResources($RequestIncludeInactive = null, $RequestLimit = null, $RequestLocationIds = null, $RequestOffset = null, $RequestProgramIds = null, $RequestResourceIds = null, $RequestScheduleTypes = null): object
     {
         ['response' => $response] = $this->siteGetResourcesWithHttpInfo($RequestIncludeInactive, $RequestLimit, $RequestLocationIds, $RequestOffset, $RequestProgramIds, $RequestResourceIds, $RequestScheduleTypes);
         return $response;
@@ -4422,18 +4351,7 @@ class SiteApi implements ApiInterface
             $responseBody = $response->getBody();
             $content = json_decode($responseBody->getContents());
             $reponse = ObjectSerializer::deserialize($content, $returnType);
-            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
-                throw new ApiException(
-                    sprintf(
-                        'Unable to deserialize the response to %s, got %s',
-                        $returnType,
-                        is_object($reponse) ? get_class($reponse) : gettype($reponse)
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
+            // @phpstan-ignore return.type
             return [
                 'response' => $reponse,
                 'statusCode' => $response->getStatusCode(),
@@ -4556,45 +4474,54 @@ class SiteApi implements ApiInterface
         $httpBody = '';
 
         // query params
+        
+        
         if ($RequestIncludeInactive !== null) {
             $queryParams['request.includeInactive'] = ObjectSerializer::toQueryValue($RequestIncludeInactive);
         }
+        
         // query params
+        
+        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
+        
         // query params
+        
         if (is_array($RequestLocationIds)) {
             $queryParams['request.locationIds'] = $RequestLocationIds;
-        } else
-        if ($RequestLocationIds !== null) {
-            $queryParams['request.locationIds'] = ObjectSerializer::toQueryValue($RequestLocationIds);
         }
+        
+        
         // query params
+        
+        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
+        
         // query params
+        
         if (is_array($RequestProgramIds)) {
             $queryParams['request.programIds'] = $RequestProgramIds;
-        } else
-        if ($RequestProgramIds !== null) {
-            $queryParams['request.programIds'] = ObjectSerializer::toQueryValue($RequestProgramIds);
         }
+        
+        
         // query params
+        
         if (is_array($RequestResourceIds)) {
             $queryParams['request.resourceIds'] = $RequestResourceIds;
-        } else
-        if ($RequestResourceIds !== null) {
-            $queryParams['request.resourceIds'] = ObjectSerializer::toQueryValue($RequestResourceIds);
         }
+        
+        
         // query params
+        
         if (is_array($RequestScheduleTypes)) {
             $queryParams['request.scheduleTypes'] = $RequestScheduleTypes;
-        } else
-        if ($RequestScheduleTypes !== null) {
-            $queryParams['request.scheduleTypes'] = ObjectSerializer::toQueryValue($RequestScheduleTypes);
         }
+        
+        
 
 
         // body params
@@ -4606,31 +4533,22 @@ class SiteApi implements ApiInterface
         );
 
         // for model (json/xml)
+        // @phpstan-ignore isset.variable
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
             
-            if($headers['Content-Type'] === 'application/json') {
-                // \stdClass has no __toString(), so we should encode it manually
-                if ($httpBody instanceof \stdClass) {
-                    $httpBody = Utils::jsonEncode($httpBody);
-                }
-                // array has no __toString(), so we should encode it manually
-                if(is_array($httpBody)) {
-                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
-                }
+            // \stdClass has no __toString(), so we should encode it manually
+            // @phpstan-ignore instanceof.alwaysFalse
+            if ($httpBody instanceof \stdClass) {
+                $httpBody = Utils::jsonEncode($httpBody);
             }
-        } elseif (count($formParams) > 0) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = Utils::jsonEncode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            // array has no __toString(), so we should encode it manually
+            // @phpstan-ignore-next-line
+            if(is_array($httpBody)) {
+                $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
             }
-        }
-
-        // this endpoint requires API key authentication
+        }         // this endpoint requires API key authentication
         $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
         if ($apiKey !== null) {
             $headers['API-Key'] = $apiKey;
@@ -4736,7 +4654,7 @@ class SiteApi implements ApiInterface
             $responseBody = $response->getBody();
             $content = json_decode($responseBody->getContents());
             $reponse = ObjectSerializer::deserialize($content, $returnType);
-            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\GetSessionTypesResponse) {
                 throw new ApiException(
                     sprintf(
                         'Unable to deserialize the response to %s, got %s',
@@ -4861,24 +4779,33 @@ class SiteApi implements ApiInterface
         $httpBody = '';
 
         // query params
+        
+        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
+        
         // query params
+        
+        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
+        
         // query params
+        
+        
         if ($RequestOnlineOnly !== null) {
             $queryParams['request.onlineOnly'] = ObjectSerializer::toQueryValue($RequestOnlineOnly);
         }
+        
         // query params
+        
         if (is_array($RequestProgramIDs)) {
             $queryParams['request.programIDs'] = $RequestProgramIDs;
-        } else
-        if ($RequestProgramIDs !== null) {
-            $queryParams['request.programIDs'] = ObjectSerializer::toQueryValue($RequestProgramIDs);
         }
+        
+        
 
 
         // body params
@@ -4890,31 +4817,22 @@ class SiteApi implements ApiInterface
         );
 
         // for model (json/xml)
+        // @phpstan-ignore isset.variable
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
             
-            if($headers['Content-Type'] === 'application/json') {
-                // \stdClass has no __toString(), so we should encode it manually
-                if ($httpBody instanceof \stdClass) {
-                    $httpBody = Utils::jsonEncode($httpBody);
-                }
-                // array has no __toString(), so we should encode it manually
-                if(is_array($httpBody)) {
-                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
-                }
+            // \stdClass has no __toString(), so we should encode it manually
+            // @phpstan-ignore instanceof.alwaysFalse
+            if ($httpBody instanceof \stdClass) {
+                $httpBody = Utils::jsonEncode($httpBody);
             }
-        } elseif (count($formParams) > 0) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = Utils::jsonEncode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            // array has no __toString(), so we should encode it manually
+            // @phpstan-ignore-next-line
+            if(is_array($httpBody)) {
+                $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
             }
-        }
-
-        // this endpoint requires API key authentication
+        }         // this endpoint requires API key authentication
         $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
         if ($apiKey !== null) {
             $headers['API-Key'] = $apiKey;
@@ -5022,7 +4940,7 @@ class SiteApi implements ApiInterface
             $responseBody = $response->getBody();
             $content = json_decode($responseBody->getContents());
             $reponse = ObjectSerializer::deserialize($content, $returnType);
-            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\GetSitesResponse) {
                 throw new ApiException(
                     sprintf(
                         'Unable to deserialize the response to %s, got %s',
@@ -5150,28 +5068,40 @@ class SiteApi implements ApiInterface
         $httpBody = '';
 
         // query params
+        
+        
         if ($RequestIncludeLeadChannels !== null) {
             $queryParams['request.includeLeadChannels'] = ObjectSerializer::toQueryValue($RequestIncludeLeadChannels);
         }
+        
         // query params
+        
+        
         if ($RequestIncludePerStaffPricing !== null) {
             $queryParams['request.includePerStaffPricing'] = ObjectSerializer::toQueryValue($RequestIncludePerStaffPricing);
         }
+        
         // query params
+        
+        
         if ($RequestLimit !== null) {
             $queryParams['request.limit'] = ObjectSerializer::toQueryValue($RequestLimit);
         }
+        
         // query params
+        
+        
         if ($RequestOffset !== null) {
             $queryParams['request.offset'] = ObjectSerializer::toQueryValue($RequestOffset);
         }
+        
         // query params
+        
         if (is_array($RequestSiteIds)) {
             $queryParams['request.siteIds'] = $RequestSiteIds;
-        } else
-        if ($RequestSiteIds !== null) {
-            $queryParams['request.siteIds'] = ObjectSerializer::toQueryValue($RequestSiteIds);
         }
+        
+        
 
 
         // body params
@@ -5183,31 +5113,22 @@ class SiteApi implements ApiInterface
         );
 
         // for model (json/xml)
+        // @phpstan-ignore isset.variable
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
             
-            if($headers['Content-Type'] === 'application/json') {
-                // \stdClass has no __toString(), so we should encode it manually
-                if ($httpBody instanceof \stdClass) {
-                    $httpBody = Utils::jsonEncode($httpBody);
-                }
-                // array has no __toString(), so we should encode it manually
-                if(is_array($httpBody)) {
-                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
-                }
+            // \stdClass has no __toString(), so we should encode it manually
+            // @phpstan-ignore instanceof.alwaysFalse
+            if ($httpBody instanceof \stdClass) {
+                $httpBody = Utils::jsonEncode($httpBody);
             }
-        } elseif (count($formParams) > 0) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = Utils::jsonEncode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            // array has no __toString(), so we should encode it manually
+            // @phpstan-ignore-next-line
+            if(is_array($httpBody)) {
+                $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
             }
-        }
-
-        // this endpoint requires API key authentication
+        }         // this endpoint requires API key authentication
         $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
         if ($apiKey !== null) {
             $headers['API-Key'] = $apiKey;
@@ -5302,7 +5223,7 @@ class SiteApi implements ApiInterface
             $responseBody = $response->getBody();
             $content = json_decode($responseBody->getContents());
             $reponse = ObjectSerializer::deserialize($content, $returnType);
-            if (!$reponse instanceof \Nlocascio\Mindbody\Model\AddAppointmentResponse) {
+            if (!$reponse instanceof \Nlocascio\Mindbody\Model\UpdateSiteClientIndexResponse) {
                 throw new ApiException(
                     sprintf(
                         'Unable to deserialize the response to %s, got %s',
@@ -5421,6 +5342,7 @@ class SiteApi implements ApiInterface
 
         // body params
         $_tempBody = null;
+        // @phpstan-ignore isset.variable
         if (isset($Request)) {
             $_tempBody = $Request;
         }
@@ -5431,31 +5353,22 @@ class SiteApi implements ApiInterface
         );
 
         // for model (json/xml)
+        // @phpstan-ignore isset.variable
         if (isset($_tempBody)) {
             // $_tempBody is the method argument, if present
             $httpBody = $_tempBody;
             
-            if($headers['Content-Type'] === 'application/json') {
-                // \stdClass has no __toString(), so we should encode it manually
-                if ($httpBody instanceof \stdClass) {
-                    $httpBody = Utils::jsonEncode($httpBody);
-                }
-                // array has no __toString(), so we should encode it manually
-                if(is_array($httpBody)) {
-                    $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
-                }
+            // \stdClass has no __toString(), so we should encode it manually
+            // @phpstan-ignore instanceof.alwaysFalse
+            if ($httpBody instanceof \stdClass) {
+                $httpBody = Utils::jsonEncode($httpBody);
             }
-        } elseif (count($formParams) > 0) {
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = Utils::jsonEncode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            // array has no __toString(), so we should encode it manually
+            // @phpstan-ignore-next-line
+            if(is_array($httpBody)) {
+                $httpBody = Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($httpBody));
             }
-        }
-
-        // this endpoint requires API key authentication
+        }         // this endpoint requires API key authentication
         $apiKey = $this->config->getApiKeyWithPrefix('API-Key');
         if ($apiKey !== null) {
             $headers['API-Key'] = $apiKey;
@@ -5495,7 +5408,7 @@ class SiteApi implements ApiInterface
      * Create http client option
      *
      * @throws \RuntimeException on file opening failure
-     * @return array of http client options
+     * @return array<string, mixed> of http client options
      */
     protected function createHttpClientOption(): array
     {

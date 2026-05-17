@@ -80,7 +80,7 @@ class MindbodyMagicMethodDocumentor
      *
      * @return array<string, mixed>
      */
-    private static function processPHPDoc(ReflectionMethod $reflect): array
+    protected static function processPHPDoc(ReflectionMethod $reflect): array
     {
         $phpDoc = ['params' => [], 'return' => null];
         $docComment = $reflect->getDocComment();

@@ -53,5 +53,5 @@ interface ModelWithIntId extends ModelInterface
    *
    * @return $this
    */
-  public function setId(int $id): static;
+  public function setId(int $Id): static;
 }

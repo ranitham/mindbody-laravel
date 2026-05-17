@@ -100,15 +100,6 @@ class CompletedSaleItemBase extends BaseModel
 
     
 
-    /**
-     * Constructor
-     *
-     * @param mixed[] $data Associated array of property values
-     *                      initializing the model
-     */
-    public function __construct(?array $data = null)
-    {
-    }
 
     /**
      * Show all the invalid properties with reasons.
