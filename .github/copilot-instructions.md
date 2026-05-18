@@ -5,8 +5,11 @@ A Laravel package that wraps the MINDBODY Public API v6. Most of `src/Api/` and 
 ## Commands
 
 ```bash
-# Run all tests
+# Run all tests (integration tests require .env with credentials — see Testing section)
 ./vendor/bin/phpunit
+
+# Run unit tests only (no credentials needed)
+./vendor/bin/phpunit tests/Unit
 
 # Run a single test
 ./vendor/bin/phpunit --filter TestName
@@ -36,13 +39,20 @@ The trait uses reflection at construction time to build a static `$methodToEndpo
 One class per domain: `AppointmentApi`, `ClassApi`, `ClientApi`, `EnrollmentApi`, `PayrollApi`, `PricingOptionApi`, `SaleApi`, `SiteApi`, `StaffApi`, `UserTokenApi`. All implement `ApiInterface`. These are **generated** — do not edit manually.
 
 ### Auth token (`ProvidesMindbodyAuthorisationToken` trait)
-The MINDBODY user token is fetched via `UserTokenApi` and cached in Laravel Cache under key `MBO_Auth_Token_Key` for 23 hours. On a 401 "Token expired" / "Invalid user token" response, `__call` automatically clears the cache and retries once.
+The MINDBODY user token is fetched via `UserTokenApi` and cached in Laravel Cache under key `'MBO_Auth_Token_' . config('mindbody.site_id')` for 23 hours (site-aware to support multi-site setups). On a 401 "Token expired" / "Invalid user token" response, `__call` automatically clears the cache and retries once.
 
 ### Models (`src/Model/`)
 All models extend `BaseModel` (handwritten, in the same file as `_BaseModel`). Models that have `getId(): int` implement `ModelWithIntId`; those returning `string` implement `ModelWithStringId`. This tagging is applied by `update.sh` via `sed`. The `container` array is the internal store; access is via generated getters/setters or `__get`/`__set`.
 
 ### Auditing
-When `mindbody.audit` is true, every API call appends a CSV line `{timestamp},{methodName}` to `mboaudit.csv` via Laravel's `local` disk Storage.
+When `mindbody.audit` is true, every API call writes a structured log entry via Laravel's `Log::info('MINDBODY API call', ['method' => $methodName])`. On failure, `Log::error('MINDBODY API failed', ['method' => $methodName])` is used. No CSV file is written.
+
+### Events
+Two events are fired in `__call` (in `src/Events/`):
+- `MindbodyApiCalled` — on every successful API response
+- `MindbodyApiFailed` — on unrecoverable failure (after the auth-retry is exhausted)
+
+Listen to these to hook into the API call lifecycle.
 
 ## Configuration
 
