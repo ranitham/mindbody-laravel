@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Nlocascio\Mindbody\Traits;
 
 use Nlocascio\Mindbody\Exceptions\MindbodyErrorException;
@@ -15,16 +17,14 @@ trait ProvidesMethodToEndpointMap
      *
      * @var array<string, callable>
      */
-    private static $methodToEndpointMap = [];
+    private array $methodToEndpointMap = [];
 
     /**
-     * Undocumented function
+     * Build the method-name to callable map from the given API endpoint instances.
      *
      * @param array<string, \Nlocascio\Mindbody\Api\ApiInterface> $mindbodyApiEndpoints
-     *
-     * @return array<string, callable>
      */
-    public static function initialiseMaps(array $mindbodyApiEndpoints): array
+    private function initialiseMaps(array $mindbodyApiEndpoints): void
     {
         foreach ($mindbodyApiEndpoints as $endpointName => $endpointInstance) {
             $reflector = new ReflectionObject($endpointInstance);
@@ -32,20 +32,17 @@ trait ProvidesMethodToEndpointMap
 
             foreach ($publicEndpointMethods as $publicEndpointMethod) {
                 if (self::isSwaggerCodegenApiMethodName($publicEndpointMethod->name, $endpointName)) {
-                    // Add the method to the map
                     /** @var callable */
                     $callable = [$endpointInstance, $publicEndpointMethod->name];
 
-                    self::$methodToEndpointMap[$publicEndpointMethod->name] = $callable;
+                    $this->methodToEndpointMap[$publicEndpointMethod->name] = $callable;
 
-                    // Add the method to the Alias map
-                    $shortMethodName = \substr($publicEndpointMethod->name, \strlen($endpointName)); // trim the endpoint name off the method name
-                    self::$methodToEndpointMap[$shortMethodName] = $callable;
+                    // Also register the short-form alias (strip the endpoint prefix)
+                    $shortMethodName = \substr($publicEndpointMethod->name, \strlen($endpointName));
+                    $this->methodToEndpointMap[$shortMethodName] = $callable;
                 }
             }
         }
-
-        return self::$methodToEndpointMap;
     }
 
     /**
@@ -57,11 +54,11 @@ trait ProvidesMethodToEndpointMap
      */
     protected function getRestCallForMethod(string $methodName): callable
     {
-        if (\array_key_exists($methodName, self::$methodToEndpointMap)) {
-            return self::$methodToEndpointMap[$methodName];
+        if (\array_key_exists($methodName, $this->methodToEndpointMap)) {
+            return $this->methodToEndpointMap[$methodName];
         }
 
-        throw new MindbodyErrorException("Called unknown MINDBODY API Method: $methodName");
+        throw MindbodyErrorException::unknownMethod($methodName);
     }
 
     /**

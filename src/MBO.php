@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Nlocascio\Mindbody;
 
 use Illuminate\Support\Facades\Facade;
+use Nlocascio\Mindbody\Contracts\MindbodyInterface;
 
 /**
  * @method static \Nlocascio\Mindbody\Model\AddAppointmentResponse appointmentAddAppointment(\Nlocascio\Mindbody\Model\AddAppointmentRequest $Request);
@@ -293,8 +296,8 @@ use Illuminate\Support\Facades\Facade;
  */
 class MBO extends Facade
 {
-    public static function getFacadeAccessor()
+    public static function getFacadeAccessor(): string
     {
-        return Mindbody::class;
+        return MindbodyInterface::class;
     }
 }

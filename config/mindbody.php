@@ -11,4 +11,5 @@ return [
   ],
   "source_name" => env("MINDBODY_SOURCENAME"),
   "apikey" => env("MINDBODY_APIKEY"),
+  "verify_ssl" => env("MINDBODY_VERIFY_SSL", true),
 ];

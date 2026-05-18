@@ -1,23 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit bootstrap="./vendor/autoload.php"
+<phpunit backupGlobals="false"
+         bootstrap="./vendor/autoload.php"
          colors="true"
-         convertErrorsToExceptions="true"
-         convertNoticesToExceptions="true"
-         convertWarningsToExceptions="true"
-         stopOnFailure="false">
+         processIsolation="false"
+         stopOnError="false"
+         stopOnFailure="false"
+>
     <testsuites>
-        <testsuite name="tests">
-            <directory>./test/Api</directory>
-            <directory>./test/Model</directory>
+        <testsuite name="nlocascio/mindbody-laravel Test Suite">
+            <directory suffix=".php">./tests/</directory>
         </testsuite>
     </testsuites>
-    <filter>
-        <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">./lib/Api</directory>
-            <directory suffix=".php">./lib/Model</directory>
-        </whitelist>
-    </filter>
-    <php>
-        <ini name="error_reporting" value="E_ALL" />
-    </php>
+    <source>
+        <include>
+            <directory suffix=".php">./src/</directory>
+        </include>
+    </source>
 </phpunit>
+

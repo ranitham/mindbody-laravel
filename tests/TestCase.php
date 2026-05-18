@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Nlocascio\Mindbody\Tests;
 
 use Nlocascio\Mindbody\MindbodyServiceProvider;
@@ -8,7 +10,7 @@ use Dotenv\Dotenv;
 
 abstract class TestCase extends BaseTestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         $this->loadEnvironmentVariables();
 
@@ -19,7 +21,7 @@ abstract class TestCase extends BaseTestCase
      * @param \Illuminate\Foundation\Application $app
      * @return array
      */
-    protected function getPackageProviders($app)
+    protected function getPackageProviders($app): array
     {
         return [MindbodyServiceProvider::class];
     }

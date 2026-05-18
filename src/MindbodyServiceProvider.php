@@ -1,11 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Nlocascio\Mindbody;
 
 use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider;
+use Nlocascio\Mindbody\Contracts\MindbodyInterface;
 
-class MindbodyServiceProvider extends ServiceProvider implements DeferrableProvider
+final class MindbodyServiceProvider extends ServiceProvider implements DeferrableProvider
 {
     /**
      * Boot ServiceProvider
@@ -20,16 +23,15 @@ class MindbodyServiceProvider extends ServiceProvider implements DeferrableProvi
     /**
      * Register ServiceProvider bindings
      */
-    public function register()
+    public function register(): void
     {
         $this->mergeConfigFrom(__DIR__ . '/../config/mindbody.php', 'mindbody');
 
-        $this->app->singleton(Mindbody::class, function () {
-            $connection = config('mindbody.default');
-            $settings = config('mindbody.connections');
-
+        $this->app->singleton(MindbodyInterface::class, function () {
             return new Mindbody();
         });
+
+        $this->app->alias(MindbodyInterface::class, Mindbody::class);
     }
 
     /**
@@ -39,6 +41,6 @@ class MindbodyServiceProvider extends ServiceProvider implements DeferrableProvi
      */
     public function provides(): array
     {
-        return [Mindbody::class];
+        return [MindbodyInterface::class, Mindbody::class];
     }
 }

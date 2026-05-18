@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Nlocascio\Mindbody;
 
 use Carbon\Carbon;
@@ -11,6 +13,7 @@ use Nlocascio\Mindbody\Api\ApiInterface;
 use Nlocascio\Mindbody\Traits\ProvidesMethodToEndpointMap;
 use Nlocascio\Mindbody\Traits\ProvidesMindbodyAuthorisationToken;
 
+use Nlocascio\Mindbody\Contracts\MindbodyInterface;
 use Nlocascio\Mindbody\Api\AppointmentApi;
 use Nlocascio\Mindbody\Api\ClassApi;
 use Nlocascio\Mindbody\Api\ClientApi;
@@ -311,13 +314,17 @@ use Nlocascio\Mindbody\Api\UserTokenApi;
  * @method static object userTokenRevokeToken();
  * @method static object RevokeToken();
  */
-class Mindbody
+final class Mindbody implements MindbodyInterface
 {
     use ProvidesMethodToEndpointMap;
     use ProvidesMindbodyAuthorisationToken;
 
-    /** @var array<string, string> */
-    private static array $endpoints = [
+    /**
+     * Map of endpoint name to generated API class.
+     *
+     * @var array<string, class-string<ApiInterface>>
+     */
+    private const ENDPOINTS = [
         'appointment' => AppointmentApi::class,
         'class' => ClassApi::class,
         'client' => ClientApi::class,
@@ -333,7 +340,7 @@ class Mindbody
     private Configuration $apiConfiguration;
 
     /** @var array<string, ApiInterface> */
-    private $mindbodyApiEndpoints = [];
+    private array $mindbodyApiEndpoints = [];
 
     public function __construct()
     {
@@ -349,7 +356,7 @@ class Mindbody
         $this->mindbodyApiEndpoints = $this->initialiseApiEndpoints(
             $this->apiConfiguration,
             new GuzzleHttpClient([
-                'curl' => [CURLOPT_SSL_VERIFYPEER => false],
+                'verify' => \config('mindbody.verify_ssl', true),
             ]),
             new HeaderSelector(),
         );
@@ -371,7 +378,7 @@ class Mindbody
         HeaderSelector $headerSelector,
     ): array {
         $mindbodyApiEndpoints = [];
-        foreach (self::$endpoints as $endpointName => $endpointClassName) {
+        foreach (self::ENDPOINTS as $endpointName => $endpointClassName) {
             /** @var \Nlocascio\Mindbody\Api\ApiInterface $ep */
             $ep = new $endpointClassName($client, $apiConfiguration, $headerSelector);
             $mindbodyApiEndpoints[$endpointName] = $ep;
@@ -394,7 +401,7 @@ class Mindbody
             return $this->mindbodyApiEndpoints[$endpointName];
         }
 
-        throw new MindbodyErrorException('Could not find Endpoint: ' . $endpointName);
+        throw MindbodyErrorException::unknownEndpoint($endpointName);
     }
 
     /**
@@ -405,7 +412,7 @@ class Mindbody
      * @throws ApiException
      * @return mixed
      */
-    public function __call(string $methodName, array $parameters)
+    public function __call(string $methodName, array $parameters): mixed
     {
         $methodCallback = $this->getRestCallForMethod($methodName);
         $this->updateAccessToken();

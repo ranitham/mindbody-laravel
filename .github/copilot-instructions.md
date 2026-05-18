@@ -54,7 +54,7 @@ Publish config: `php artisan vendor:publish --provider="Nlocascio\Mindbody\Mindb
 | `MINDBODY_SITEIDS` | `mindbody.site_id` | Site ID(s) |
 | `MINDBODY_SOURCENAME` | `mindbody.source_name` | Source credentials username (also prefixed with `_`) |
 | `MINDBODY_SOURCEPASSWORD` | `mindbody.source_credentials.password` | Source credentials password |
-| `MINDBODY_DEBUG` | `mindbody.debug` | Enable Guzzle debug output |
+| `MINDBODY_VERIFY_SSL` | `mindbody.verify_ssl` | Verify SSL certificates (default: `true`; set `false` only in dev) |
 | `MINDBODY_AUDIT` | `mindbody.audit` | Enable audit CSV logging |
 
 ## Updating the API
