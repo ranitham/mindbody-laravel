@@ -343,12 +343,12 @@ final class Mindbody implements MindbodyInterface
     /** @var array<string, ApiInterface> */
     private array $mindbodyApiEndpoints = [];
 
-    public function __construct()
+    public function __construct(?ClientInterface $httpClient = null)
     {
         $config = new Configuration();
-        $config->setUserAgent(\config('mindbody.source_name'));
-        $config->setApiKey('API-Key', \config('mindbody.apikey'));
-        $config->setApiKey('siteId', \config('mindbody.site_id'));
+        $config->setUserAgent((string) (\config('mindbody.source_name') ?? ''));
+        $config->setApiKey('API-Key', (string) (\config('mindbody.apikey') ?? ''));
+        $config->setApiKey('siteId', (string) (\config('mindbody.site_id') ?? ''));
         $config->setDebug(\config('mindbody.debug'));
         $config->setDebugFile(\config('mindbody.debug_file'));
 
@@ -356,7 +356,7 @@ final class Mindbody implements MindbodyInterface
 
         $this->mindbodyApiEndpoints = $this->initialiseApiEndpoints(
             $this->apiConfiguration,
-            new GuzzleHttpClient([
+            $httpClient ?? new GuzzleHttpClient([
                 'verify' => \config('mindbody.verify_ssl', true),
             ]),
             new HeaderSelector(),

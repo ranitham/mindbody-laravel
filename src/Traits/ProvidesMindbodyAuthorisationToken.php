@@ -43,8 +43,8 @@ trait ProvidesMindbodyAuthorisationToken
     {
         /** @var UserTokenApi */
         $tokenApi = $this->getMindbodyEndpointInstance('userToken');
-        $username = $username ?? \config('mindbody.source_credentials.username');
-        $password = $password ?? \config('mindbody.source_credentials.password');
+        $username = (string) ($username ?? \config('mindbody.source_credentials.username') ?? '');
+        $password = (string) ($password ?? \config('mindbody.source_credentials.password') ?? '');
         $this->apiConfiguration->setApiKey('authorization', $this->getAuthorisationToken($tokenApi, $username, $password));
 
         return $this;

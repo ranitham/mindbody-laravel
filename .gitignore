@@ -9,3 +9,4 @@ mindbody.json
 *.jar
 resp
 .phpunit.result.cache
+/tests/Generated/

@@ -9,6 +9,8 @@
     <testsuites>
         <testsuite name="nlocascio/mindbody-laravel Test Suite">
             <directory suffix=".php">./tests/</directory>
+            <exclude>./tests/TestCase.php</exclude>
+            <exclude>./tests/GeneratedTestCase.php</exclude>
         </testsuite>
     </testsuites>
     <source>

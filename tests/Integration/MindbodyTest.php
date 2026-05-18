@@ -17,6 +17,15 @@ class MindbodyTest extends BaseTestCase
      * Integration tests for the package. Most of these tests WILL hit the MINDBODY API when called!
      */
 
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        if (! file_exists(__DIR__ . '/../../.env')) {
+            $this->markTestSkipped('Integration tests require a .env file with MINDBODY credentials.');
+        }
+    }
+
     #[Test]
     public function it_calls_mindbody()
     {

@@ -57,5 +57,8 @@
         "allow-plugins": {
             "kylekatarnls/update-helper": true
         }
+    },
+    "scripts": {
+        "test": "phpunit"
     }
 }
