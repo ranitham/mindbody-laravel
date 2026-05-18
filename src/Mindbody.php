@@ -4,16 +4,17 @@ declare(strict_types=1);
 
 namespace Nlocascio\Mindbody;
 
-use Carbon\Carbon;
 use Nlocascio\Mindbody\Exceptions\MindbodyErrorException;
 use GuzzleHttp\Client as GuzzleHttpClient;
 use GuzzleHttp\ClientInterface;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
 use Nlocascio\Mindbody\Api\ApiInterface;
 use Nlocascio\Mindbody\Traits\ProvidesMethodToEndpointMap;
 use Nlocascio\Mindbody\Traits\ProvidesMindbodyAuthorisationToken;
 
 use Nlocascio\Mindbody\Contracts\MindbodyInterface;
+use Nlocascio\Mindbody\Events\MindbodyApiCalled;
+use Nlocascio\Mindbody\Events\MindbodyApiFailed;
 use Nlocascio\Mindbody\Api\AppointmentApi;
 use Nlocascio\Mindbody\Api\ClassApi;
 use Nlocascio\Mindbody\Api\ClientApi;
@@ -364,7 +365,9 @@ final class Mindbody implements MindbodyInterface
     }
 
     /**
-     * Instantiate the API endpoints
+     * Instantiate the API endpoints.
+     *
+     * @internal Used by MindbodyMagicMethodDocumentor. Not part of the public API.
      *
      * @param Configuration $apiConfiguration
      * @param ClientInterface $client
@@ -417,23 +420,27 @@ final class Mindbody implements MindbodyInterface
         $methodCallback = $this->getRestCallForMethod($methodName);
         $this->updateAccessToken();
         try {
-            return $this->call_user_func_array_with_audit($methodName, $methodCallback, $parameters);
+            $result = $this->callWithAudit($methodName, $methodCallback, $parameters);
+            event(new MindbodyApiCalled($methodName, $parameters, $result));
+            return $result;
         } catch (ApiException $e) {
             if ($e->getCode() == 401 && (
-                \str_contains(($e->getMessage()), ('Token expired')) ||
-                \str_contains(($e->getMessage()), ('Invalid user token'))
+                \str_contains($e->getMessage(), 'Token expired') ||
+                \str_contains($e->getMessage(), 'Invalid user token')
             )) {
                 $this->forgetAccessToken();
                 $this->updateAccessToken();
-                return $this->call_user_func_array_with_audit($methodName, $methodCallback, $parameters);
-            } else {
-                throw $e;
+                $result = $this->callWithAudit($methodName, $methodCallback, $parameters);
+                event(new MindbodyApiCalled($methodName, $parameters, $result));
+                return $result;
             }
+            event(new MindbodyApiFailed($methodName, $parameters, $e));
+            throw $e;
         }
     }
 
     /**
-     * Support auditing function calls to MBO
+     * Execute an API callback, logging the call if auditing is enabled.
      *
      * @param string $methodName
      * @param callable $callback
@@ -441,12 +448,10 @@ final class Mindbody implements MindbodyInterface
      *
      * @return mixed
      */
-    private function call_user_func_array_with_audit(string $methodName, callable $callback, array $args): mixed
+    private function callWithAudit(string $methodName, callable $callback, array $args): mixed
     {
         if (\config('mindbody.audit')) {
-            $auditFile = ('mboaudit.csv');
-            $auditLog = Carbon::now()->format(Carbon::ATOM) . ',' . $methodName;
-            Storage::disk('local')->append($auditFile, $auditLog);
+            Log::info('MINDBODY API call', ['method' => $methodName]);
         }
 
         return \call_user_func_array($callback, $args);

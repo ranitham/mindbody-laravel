@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Nlocascio\Mindbody\Tests;
 
+use Nlocascio\Mindbody\Contracts\MindbodyInterface;
 use Nlocascio\Mindbody\Exceptions\MindbodyErrorException;
 use Nlocascio\Mindbody\MBO;
 use Nlocascio\Mindbody\Mindbody;
@@ -19,7 +20,7 @@ class MindbodyTest extends BaseTestCase
     #[Test]
     public function it_calls_mindbody()
     {
-        $mindbody = $this->app->make(Mindbody::class);
+        $mindbody = $this->app->make(MindbodyInterface::class);
 
         $response = $mindbody->GetSites();
 
@@ -38,7 +39,7 @@ class MindbodyTest extends BaseTestCase
     #[Test]
     public function it_calls_mindbody_with_arguments()
     {
-        $mindbody = $this->app->make(Mindbody::class);
+        $mindbody = $this->app->make(MindbodyInterface::class);
 
         $response = $mindbody->GetSites([
             'XMLDetail' => 'Full'
@@ -78,7 +79,7 @@ class MindbodyTest extends BaseTestCase
     {
         config(['mindbody.connections.mindbody' => []]);
 
-        $mindbody = $this->app->make(Mindbody::class);
+        $mindbody = $this->app->make(MindbodyInterface::class);
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage("Please set MINDBODY_SITEIDS, MINDBODY_SOURCENAME, MINDBODY_SOURCEPASSWORD environment variables.");
@@ -89,7 +90,7 @@ class MindbodyTest extends BaseTestCase
     #[Test]
     public function it_throws_an_exception_on_unknown_method()
     {
-        $mindbody = $this->app->make(Mindbody::class);
+        $mindbody = $this->app->make(MindbodyInterface::class);
 
         $this->expectException(MindbodyErrorException::class);
         $this->expectExceptionMessage("Called unknown MINDBODY API Method: ThatsNotAMethod");
@@ -102,7 +103,7 @@ class MindbodyTest extends BaseTestCase
     {
         config(['mindbody.connections.mindbody.source_credentials.password' => 'invalid_key']);
 
-        $mindbody = $this->app->make(Mindbody::class);
+        $mindbody = $this->app->make(MindbodyInterface::class);
 
         $this->expectException(MindbodyErrorException::class);
         $this->expectExceptionMessage("API Error 101: Invalid sourcename or password.");
@@ -115,7 +116,7 @@ class MindbodyTest extends BaseTestCase
     {
         config(['mindbody.connections.new_connection' => config('mindbody.connections.mindbody')]);
 
-        $mindbody = $this->app->make(Mindbody::class);
+        $mindbody = $this->app->make(MindbodyInterface::class);
 
         $response = $mindbody->connection('new_connection')->GetSites();
 
@@ -125,7 +126,7 @@ class MindbodyTest extends BaseTestCase
     #[Test]
     public function it_retrieves_all_clients()
     {
-        $mindbody = $this->app->make(Mindbody::class);
+        $mindbody = $this->app->make(MindbodyInterface::class);
 
         $response = $mindbody->GetClients([
             'XMLDetail' => 'Bare',

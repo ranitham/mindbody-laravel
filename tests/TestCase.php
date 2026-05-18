@@ -6,7 +6,6 @@ namespace Nlocascio\Mindbody\Tests;
 
 use Nlocascio\Mindbody\MindbodyServiceProvider;
 use Orchestra\Testbench\TestCase as BaseTestCase;
-use Dotenv\Dotenv;
 
 abstract class TestCase extends BaseTestCase
 {
@@ -29,13 +28,13 @@ abstract class TestCase extends BaseTestCase
     /**
      *
      */
-    private function loadEnvironmentVariables()
+    private function loadEnvironmentVariables(): void
     {
         if (! file_exists(__DIR__ . '/../.env')) {
             return;
         }
 
-        $dotenv = new Dotenv(__DIR__ . '/../');
+        $dotenv = \Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
         $dotenv->load();
         $dotenv->required(['MINDBODY_SITEIDS', 'MINDBODY_SOURCENAME', 'MINDBODY_SOURCEPASSWORD']);
     }
